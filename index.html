@@ -60,6 +60,7 @@ a{color:var(--br)}
 .btn.ghost{border-color:transparent;background:transparent;color:var(--ink2)}
 .btn svg{width:16px;height:16px}
 .tabbar{display:none}
+.persel{display:none}
 
 /* cards */
 .card{background:var(--sf);border:1px solid var(--ln);border-radius:var(--r);box-shadow:var(--sh);min-width:0}
@@ -219,6 +220,9 @@ details.more>div{margin-top:12px}
 .srow .in,.srow .sel{width:150px;flex:none}
 .acc{display:grid;grid-template-columns:1.4fr 1fr .8fr .7fr auto;gap:8px;align-items:center;padding:10px 0;border-top:1px solid var(--ln2)}
 .acc:first-child{border-top:0}
+.optc{display:grid;gap:10px;margin:14px 0 6px}
+.optc button{display:flex;flex-direction:column;gap:4px;text-align:left;padding:14px 16px;border:1px solid var(--ln);border-radius:12px;background:var(--sf)}
+.optc button:hover{border-color:var(--br)}.optc b{font-weight:600;font-size:15px}.optc span{font-size:13.5px;color:var(--ink2);line-height:1.45}
 .acard{padding:12px 0;border-top:1px solid var(--ln2)}.acard:first-child{border-top:0;padding-top:0}
 .acard1 b{font-weight:600}.acard1 .hint{margin-top:3px}
 .acard2{display:flex;justify-content:space-between;align-items:center;gap:10px;flex-wrap:wrap;margin-top:8px;font-size:13.5px;color:var(--ink2)}
@@ -234,6 +238,7 @@ details.more>div{margin-top:12px}
 .links button{text-align:left;padding:11px 0;border-top:1px solid var(--ln2);font-size:14.5px}
 .links button:first-child{border-top:0}
 .links button.dan{color:var(--loss)}
+.lgh{font-size:12.5px;font-weight:500;color:var(--ink3);margin:14px 0 2px}.lgh:first-child{margin-top:0}
 
 /* trade detail */
 .dhead{display:flex;align-items:center;gap:10px;flex-wrap:wrap}
@@ -299,7 +304,7 @@ body.tg .addbtn,body.tg #fSave{display:none}
  .calsum{gap:4px 14px}
  .cd .n2{display:none}
  .dual .tblwrap{display:none}.dual .tlist{display:block}
- .perseg{flex:1;min-width:0}
+ .perseg{display:none!important}.persel{display:block!important;flex:1;min-width:0}
  .addbtn .lbl{display:none}.addbtn{padding:9px 12px}
  .chart text{font-size:10.5px}
  .facts{grid-template-columns:repeat(2,minmax(0,1fr))}
@@ -311,6 +316,8 @@ body.tg .addbtn,body.tg #fSave{display:none}
  .mf{border-radius:0;padding-bottom:calc(14px + env(safe-area-inset-bottom,0px))}
 }
 @media (max-width:520px){
+ .mh{display:none}
+ td,th{padding-left:8px;padding-right:8px}
  .kpi{padding:12px 12px}.kpi .v{font-size:21px}
  .fgrid3{grid-template-columns:repeat(2,minmax(0,1fr))}
  .pbst{grid-template-columns:repeat(2,minmax(0,1fr));gap:10px}
@@ -357,8 +364,8 @@ body.tg .addbtn,body.tg #fSave{display:none}
 <script>
 /* ================= i18n ================= */
 const T={tr:{
-archived:'Arşiv',acc_risk_l:'risk',at_challenge:'Değerlendirme',at_funded:'Funded',at_personal:'Kişisel',at_demo:'Demo / backtest',acc_type:'Hesap türü',acc_alltype:'Tüm {k} hesaplar',
-acc_edit:'Hesabı düzenle',acc_name_ph:'Örn. FTM 10K Funded',acc_risk_h:'Sonucu girilmeyen işlemlerde PnL tahmini için',acc_no_h:'Raporlar bu numarayla otomatik eşleşir',acc_req:'Bakiye ve risk 0 veya daha büyük olmalı.',
+r_hint:'R, riske ettiğin tutarın katıdır. Stop olduysan −1, riskinin 2 katını kazandıysan 2 yaz. Emin değilsen aşağıdan sonucu seçmen yeterli.',ph_rra:'Örn. 2 veya −1',l_emo_q:'Nasıl hissettin?',rr_hint:'Girişte hedeflediğin kazanç (R)',pnl_hint:'Para olarak net sonuç; girersen bakiye kesinleşir',rating_hint:'Sonuçtan bağımsız: kurallara ne kadar iyi uydun?',k_rr_s:'Ortalama kazanç ÷ ortalama kayıp',k_plan_s2:'Plana uyduğun işlemler',acc_add_how:'Bu hesabın işlemleri nereden gelecek?',acc_m_rep:'MT4/MT5 raporu ile (önerilen)',acc_m_rep_d:'Hesap adı, para birimi, başlangıç bakiyesi ve işlemler rapordan gelir. Sen sadece raporu yüklersin.',acc_m_man:'Manuel hesap',acc_m_man_d:'Raporun yoksa ya da işlemleri kendin gireceksen. Bakiyeyi ve para birimini sen yazarsın.',acc_from_rep:'MT4/MT5 raporundan alındı',show_more:'Daha fazla göster ({n} işlem daha)',wr_s:'Kazanma',period:'Dönem',dg_in:'İçe aktar',dg_out:'Yedek ve dışa aktarma',dg_demo:'Örnek veri',archived:'Arşiv',acc_link:'Rapor eşleştirmesi',acc_link_on:'Bu numaradaki MT4/MT5 raporları otomatik olarak bu hesaba eklenir.',acc_link_off:'Henüz eşleşmedi. Bu hesabın MT4/MT5 raporunu yüklediğinde hesap numarası otomatik eşleşir; sonraki raporlar buraya gelir. Bu bir hesap bağlantısı değildir, şifre istenmez.',acc_unlink:'Eşleştirmeyi kaldır',acc_unlink_c:'#{n} eşleştirmesi kaldırılsın mı? İşlemler silinmez; bir sonraki raporda hesabı yeniden seçmen istenir.',acc_risk_l:'risk',at_challenge:'Challenge',at_funded:'Funded',at_personal:'Kişisel',at_demo:'Demo / backtest',acc_type:'Hesap türü',acc_alltype:'Tüm {k} hesaplar',
+acc_edit:'Hesabı düzenle',acc_name_ph:'Örn. FTM 10K Funded',acc_risk_h:'Sonucu girilmeyen işlemlerde PnL tahmini için',acc_req:'Bakiye ve risk 0 veya daha büyük olmalı.',
 acc_manage:'Hesap yönetimi',acc_arch:'Arşivle',acc_arch_h:'Veriler silinmez; hesap birleşik görünümlerden ve yeni işlem seçimlerinden kalkar. Eski challenge hesapları için.',acc_unarch:'Arşivden çıkar',
 acc_del:'Hesabı verileriyle sil',acc_del_h:'Hesap, {n} işlemi ve para hareketleri kalıcı olarak silinir.',acc_del_c2:'"{k}" hesabı, içindeki {n} işlem ve para hareketleri kalıcı olarak silinecek. Bu geri alınamaz. Devam edilsin mi?',
 acc_last:'En az bir aktif hesap kalmalı.',acc_archived:'Hesap arşivlendi',acc_unarchived:'Hesap arşivden çıkarıldı',
@@ -372,13 +379,13 @@ al_dll_hit:'{k}: günlük kayıp limiti ({l}) aşıldı. Bugün yeni işlem açm
 im_flow_h:'Raporu ne sıklıkla yüklemeliyim?',im_flow:'İstediğin sıklıkla, örneğin haftada bir. Daha önce eklenen işlemler atlanır. İşlemden hemen sonra telefondan kısa bir kayıt girdiysen, rapordaki aynı işlemle eşleşir: senin notların, setup ve duygun korunur; lot, fiyat, net kâr ve R rapordan güncellenir. Para yatırma ve çekmeler de rapordan alınır.',
 im_add:'{n} yeni işlem eklenecek.',im_match:'{n} işlem, elle girdiğin kayıtlarla eşleşti. Notların korunacak; rakamlar rapordan güncellenecek.',
 im_ops:'Para hareketleri: {d} yatırma ({da}), {w} çekme ({wa}).',im_bal_ok:'Hesaplanan bakiye rapordaki son bakiyeyle eşleşiyor ({b}).',
-im_bal_diff:'Rapordaki son bakiye {b}, hesaplanan {c}. Rapor hesabın tüm geçmişini kapsamıyorsa başlangıç bakiyesini düzelt.',im_nothing:'Bu rapordaki her şey zaten ekli.',im_tz_auto:'Saat farkı, elle girdiğin işlemlere göre otomatik seçildi ({h} saat). Bir sonraki raporda bu hesap için hatırlanacak.',
+im_bal_diff:'Rapordaki son bakiye {b}, hesaplanan {c}. Rapor hesabın tüm geçmişini kapsamıyorsa başlangıç bakiyesini düzelt.',im_bal_set:'Başlangıç bakiyesi rapordaki ilk para yatırmadan alınacak: {a} → {b}.',im_nothing:'Bu rapordaki her şey zaten ekli.',im_tz_auto:'Saat farkı, elle girdiğin işlemlere göre otomatik seçildi ({h} saat). Bir sonraki raporda bu hesap için hatırlanacak.',
 im_done:'{n} işlem eklendi, {u} işlem güncellendi',
-acc_now:'Güncel bakiye',acc_no:'MT4/MT5 hesap no',acc_no_ph:'Bağlı değil',acc_no_dup:'Bu hesap numarası başka bir hesaba bağlı.',im_linked:'Bu rapor {k} hesabına ait (#{n}); işlemler oraya eklenecek.',im_willlink:'{k} hesabı #{n} numarasına bağlanacak. Bu numaradaki sonraki raporlar otomatik olarak buraya gelir.',im_wrongacc:'{k} hesabı #{a} numarasına bağlı, ama bu rapor #{b} hesabına ait. Doğru hesabı seç ya da yeni hesap oluştur.',im_choose:'Elle açtığın hesaplardan biri bu rapora aitse onu seç; değilse yeni hesap oluşturulur. Seçtiğin hesap bu numaraya bağlanır, sonraki raporlar otomatik oraya gider.',tx_btn:'Para hareketleri ({n})',tx_title:'{k}: bakiye',tx_start:'Başlangıç',tx_dep:'Yatırılan',tx_wd:'Çekilen',tx_pnl:'İşlem sonucu',
+acc_now:'Güncel bakiye',im_linked:'Bu rapor {k} hesabına ait (#{n}); işlemler oraya eklenecek.',im_willlink:'{k} hesabı #{n} numarasıyla eşleştirilecek. Bu numaradaki sonraki raporlar otomatik olarak buraya gelir.',im_wrongacc:'{k} hesabı #{a} numarasıyla eşleşmiş, ama bu rapor #{b} hesabına ait. Doğru hesabı seç ya da yeni hesap oluştur.',im_choose:'Eklediğin hesaplardan biri bu rapora aitse onu seç; değilse yeni hesap oluşturulur. Seçtiğin hesap bu numarayla eşleşir, sonraki raporlar otomatik oraya gider.',tx_btn:'Para hareketleri ({n})',tx_title:'{k}: bakiye',tx_start:'Başlangıç',tx_dep:'Yatırılan',tx_wd:'Çekilen',tx_pnl:'İşlem sonucu',
 tx_est:'≈ PnL girilmemiş işlemlerin sonucu, R ve hesabın risk ayarından tahmin edildi.',tx_add:'Para hareketi ekle',tx_dep1:'Yatırma',tx_wd1:'Çekme',tx_amt:'Tutar',tx_note:'Not',tx_note_ph:'Örn. prop firm ödemesi',
 tx_addbtn:'Ekle',tx_list:'Geçmiş',tx_empty:'Henüz para hareketi yok.',tx_rep:'rapordan',tx_req:'Tutar ve tarih gerekli.',tx_del_c:'Bu para hareketi silinsin mi?',
-cancel:'Vazgeç',im_btn:'İçe aktar',m_broker:'Broker raporu içe aktar (MT4/MT5)',f_rev:'Tüm işlemler',f_rev_p:'Değerlendirilmemiş',
-im_title:'Broker raporu içe aktar',im_intro:'MetaTrader raporundaki işlemlerin sembol, yön, saat, lot, fiyat ve kâr bilgisiyle eklenir. Stop loss varsa R otomatik hesaplanır; setup ve psikolojiyi sonra hızlıca eklersin.',
+cancel:'Vazgeç',im_btn:'İçe aktar',m_broker:'MT4/MT5 raporu içe aktar',f_rev:'Tüm işlemler',f_rev_p:'Değerlendirilmemiş',
+im_title:'MT4/MT5 raporu içe aktar',im_intro:'MetaTrader raporundaki işlemler sembol, yön, saat, lot, fiyat ve kâr bilgileriyle eklenir. Stop loss varsa R otomatik hesaplanır; setup ve psikolojiyi sonra hızlıca eklersin.',
 im_mt5:'MetaTrader 5 (bilgisayar)',im_mt5_s:'Alttaki Araç Kutusu\'nda Geçmiş sekmesini aç (Ctrl+T)|Listeye sağ tıkla, Pozisyonlar görünümünü ve dönemi seç (ör. Son 3 ay)|Tekrar sağ tıkla: Rapor → HTML veya Open XML (Excel)|Kaydedilen dosyayı buraya yükle',
 im_mt4:'MetaTrader 4 (bilgisayar)',im_mt4_s:'Terminal penceresinde Hesap Geçmişi sekmesini aç|Sağ tıkla, dönemi seç (ör. Tüm geçmiş)|Sağ tıkla: Raporu Kaydet veya Detaylı Raporu Kaydet|Kaydedilen .htm dosyasını buraya yükle',
 im_phone:'Telefondaki MetaTrader uygulamaları işlem listesini dosya olarak veremiyor; ürettikleri PDF sadece özet. Raporu bilgisayardaki MT4/MT5 ile, aynı hesapla giriş yaparak al. Prop firm panelin işlem geçmişini CSV/Excel olarak veriyorsa onu da deneyebilirsin.',
@@ -402,46 +409,46 @@ per_w:'Bu hafta',per_m:'Bu ay',per_30:'30 gün',per_90:'90 gün',per_y:'Bu yıl'
 acc_all:'Tüm hesaplar',acc_default:'Ana hesap',acc_name:'Hesap adı',acc_bal:'Başlangıç bakiyesi',acc_cur:'Para birimi',acc_risk:'Risk %',acc_add:'Hesap ekle',
 
 o_Win:'Kazanç',o_Loss:'Kayıp',o_BE:'Başa baş',
-wel_t:'İşlemlerini kaydet, nerede para kaybettiğini gör',wel_d:'Her işlemi R cinsinden kaydet; setup, seans ve psikolojine göre neyin çalıştığını otomatik gör. Hesap açmana gerek yok.',
+wel_t:'İşlemlerini kaydet, nerede para kaybettiğini gör',wel_d:'Her işlemi R cinsinden kaydet; setup, seans ve psikolojine göre neyin çalıştığını otomatik gör. Üyelik gerekmez.',
 wel_add:'İlk işlemini ekle',wel_demo:'Örnek veriyle dene',
 wel_f1:'Playbook kuralların: hangi kurala uyunca kazandığını gör',wel_f2:'Hata maliyeti: FOMO\'nun ya da erken çıkışın sana kaç R\'a mal olduğunu ölç',
 wel_f3:'Otomatik içgörüler: tilt, aşırı işlem ve en iyi saatlerin',wel_f4:'Telegram ile telefon ve masaüstünde aynı veriler',
 al_day:'Bugün {x}: günlük kayıp limitine (−{l}R) ulaştın. Bugünlük durmayı düşün.',al_str:'Üst üste {n} kayıp (limit {l}). Mola ver, planını gözden geçir.',al_max:'Bugün {n} işlem yaptın (limit {l}). Yeni işlem açmadan önce iki kez düşün.',
-hero_l:'Net sonuç, {p}',trades_l:'işlem',strip_l:'Her çubuk bir işlem, en yeni sağda',strip_off:'Soluk çubuk: plan dışı',
-k_wr:'Kazanma oranı',k_pf:'Profit factor',k_pf_s:'Brüt kazanç / brüt kayıp',k_exp:'Beklenti',k_exp_s:'İşlem başı ortalama',k_rr:'Kazanç/kayıp oranı',k_dd:'Max drawdown',k_dd_s:'En uzun kayıp serisi {n}',
-k_plan:'Plana uyum',k_plan_s:'Ort. işlem puanı {r}/5',k_bal:'Bakiye',
+hero_w:'Bu haftanın net sonucu',hero_m:'Bu ayın net sonucu',hero_30:'Son 30 günün net sonucu',hero_90:'Son 90 günün net sonucu',hero_y:'Bu yılın net sonucu',hero_all:'Toplam net sonuç',kpi_wl:'{w} kazanç, {l} kayıp{b}',kpi_be:', {n} başa baş',trades_l:'işlem',strip_l:'Her çubuk bir işlem, en yeni sağda',strip_off:'Soluk çubuk: plan dışı',
+k_wr:'Kazanma oranı',k_pf:'Profit factor',k_pf_s:'Kazancın, kaybının kaç katı',k_exp:'Beklenti',k_exp_s:'İşlem başı ortalama',k_rr:'Kazanç/kayıp oranı',k_dd:'Max drawdown',k_dd_s:'Zirveden en büyük düşüş',
+k_plan:'Plana uyum',k_plan_s:'Ort. işlem kalitesi {r}/5',k_bal:'Bakiye',
 c_eq:'Equity eğrisi',c_eq_s:'Kümülatif R',lg_eq:'Kümülatif R',lg_off:'Plan dışı işlem',eq_need:'Grafik için sonucu girilmiş en az 2 işlem gerekli.',
 c_score:'TradeLog puanı',c_daily:'Günlük sonuç',c_daily_s:'Son 30 işlem günü',c_ins:'İçgörüler',ins_need:'İçgörüler için bu dönemde en az 5 işlem gerekli.',c_recent:'Son işlemler',c_stats:'İstatistikler',c_disc:'Disiplin',
 score_need:'Puan için bu dönemde en az 5 işlem gerekli.',score_h:'Puan altı bileşenin ortalamasıdır. Kazanma oranı %60, profit factor 2.5, kazanç/kayıp oranı 2.5 ve drawdown\'ın 3 katı getiri tam puan kabul edilir.',
 sc_hi:'Güçlü ve tutarlı',sc_mid:'Gelişiyor; zayıf bileşene odaklan',sc_lo:'Önce disiplin ve risk',
-sc_wr:'Kazanma oranı',sc_wr_s:'Kazanma',sc_pf:'Profit factor',sc_pf_s:'PF',sc_rr:'Kazanç/kayıp',sc_rr_s:'K/K',sc_dd:'Drawdown kontrolü',sc_dd_s:'DD',sc_cons:'Tutarlılık (yeşil gün)',sc_cons_s:'Tutarlılık',sc_disc:'Disiplin',sc_disc_s:'Disiplin',
+sc_wr:'Kazanma oranı',sc_wr_s:'Kazanma',sc_pf:'Profit factor',sc_pf_s:'PF',sc_rr:'Kazanç/kayıp',sc_rr_s:'Kâr/zarar',sc_dd:'Drawdown kontrolü',sc_dd_s:'Drawdown',sc_cons:'Tutarlılık (yeşil gün)',sc_cons_s:'Tutarlılık',sc_disc:'Disiplin',sc_disc_s:'Disiplin',
 in_best_setup:'En iyi setup\'ın {k}: {n} işlemde {r}, kazanma oranı {w}.',in_worst_setup:'{k} bu dönemde {r} kaybettirdi ({n} işlem). Kurallarını gözden geçir ya da bir süre bırak.',
 in_mistakes:'Hata işaretlediğin {n} işlemin toplamı {r}. En pahalı hata: {k} ({r2}).',in_plan:'Plana uyduğunda işlem başı {a}, uymadığında {b}.',
 in_tilt:'Üst üste 2 kayıptan sonraki işlemlerin ortalaması {a}; genel ortalaman {b}. İki kayıptan sonra mola vermeyi dene.',
 in_weekday:'En iyi günün {a} ({ra}/işlem), en zayıf günün {b} ({rb}/işlem).',in_session:'En verimli seansın {k}: işlem başı {r}.',
 in_emotion:'{k} hissettiğin işlemler ortalama {r} ({n} işlem).',in_overtrade:'Günün 3. işleminden sonraki {n} işlemin ortalaması {a}. Günlük işlem sınırı koymayı düşün.',
-in_mfe:'Kazanan işlemlerde hareketin ortalama %{p}\'ini aldın; masada {r} kaldı.',
+in_mfe:'Kazanan işlemlerde hareketin ortalama %{p} kadarını aldın; masada {r} kaldı.',
 search_ph:'Sembol, setup, not veya etiket ara',filters:'Filtreler',f_reset:'Temizle',f_out:'Tüm sonuçlar',f_setup:'Tüm setuplar',f_sym:'Tüm semboller',f_dir:'Long ve short',f_mis:'Tüm hatalar',f_tag:'Tüm etiketler',
 no_match:'Filtrelere uyan işlem yok.',no_trades:'Henüz işlem yok.',no_data:'Veri yok.',n_tr:'{n} işlem',off_plan_s:'Plan dışı',
-h_date:'Tarih',h_sym:'Sembol',h_dir:'Yön',h_acc:'Hesap',h_setup:'Setup',h_sess:'Seans',h_out:'Sonuç',h_plan:'Plan',h_mis:'Hata',h_emo:'Duygu',h_rating:'Puan',h_trades:'İşlem',h_tot:'Toplam',h_avg:'Ort. R',h_month:'Ay',h_adh:'Kural uyumu',
+h_date:'Tarih',h_sym:'Sembol',h_dir:'Yön',h_acc:'Hesap',h_setup:'Setup',h_sess:'Seans',h_out:'Sonuç',h_plan:'Plan',h_mis:'Hata',h_emo:'Duygu',h_rating:'Kalite',h_trades:'İşlem',h_tot:'Toplam',h_avg:'Ort. R',h_month:'Ay',h_adh:'Kural uyumu',
 d_title:'İşlem detayı',d_rules:'{k} kuralları',
-f_new:'Yeni işlem',f_edit:'İşlemi düzenle',fs_trade:'İşlem',fs_result:'Sonuç',fs_rules:'Playbook kontrol listesi',fs_review:'Değerlendirme',fs_more:'Ek bilgiler (seans, timeframe, MFE/MAE)',fs_notes:'Ekran görüntüsü ve notlar',
+f_new:'Yeni işlem',f_edit:'İşlemi düzenle',fs_trade:'İşlem',fs_result:'Sonuç',fs_rules:'Playbook kontrol listesi',fs_review:'Değerlendirme',fs_more:'Daha fazla bilgi',fs_notes:'Ekran görüntüsü ve notlar',
 l_time:'Saat',l_rr:'Hedef RR',l_rra:'Sonuç (R)',l_plan:'Plana uydun mu?',l_rating:'İşlem kalitesi',l_emo:'Duygu durumu',l_mis:'Hatalar',l_tags:'Etiketler',l_sess:'Seans / killzone',l_shots:'Grafik linkleri',l_notes:'Notlar',
 ph_setup:'Örn. London Breakout',ph_tags:'news, A+, partial',ph_notes:'Neden girdim, ne öğrendim?',shots_h:'Her satıra bir link. TradingView anlık görüntüleri otomatik önizlenir.',
 mfe_h:'İşlem lehine en fazla kaç R gitti',mae_h:'İşlem aleyhine en fazla kaç R gitti',
-req:'Tarih, sembol ve sonuç gerekli. Sonuç (R) girersen kazanç/kayıp otomatik seçilir.',saved:'Kaydedildi',deleted:'Silindi',confirm_del:'Bu işlem silinsin mi?',
+req:'Sembol ve sonuç gerekli. Sonucu R olarak yazabilir ya da Kazanç / Kayıp / Başa baş seçebilirsin.',saved:'Kaydedildi',deleted:'Silindi',confirm_del:'Bu işlem silinsin mi?',
 plan_yes:'Plana uydum',plan_no:'Plana uymadım',
 rt_ov:'Genel bakış',rt_time:'Zaman',rt_setup:'Setup ve semboller',rt_psy:'Psikoloji ve disiplin',rt_dist:'Dağılım ve çıkışlar',
 r_month:'Aylık performans',r_wd:'Haftanın günü',r_hour:'Giriş saati',hour_need:'Saat analizi için işlemlere giriş saati ekle.',r_sess:'Seans',r_mis:'Hata maliyeti',r_mis_s:'En pahalı hata en üstte',a_plan:'Plana uyum',
 r_hist:'R dağılımı',r_exit:'Çıkış verimliliği',
 st_aw:'Ortalama kazanç',st_al:'Ortalama kayıp',st_tgt:'Ortalama hedef RR',st_best:'En iyi işlem',st_worst:'En kötü işlem',st_streak:'En uzun seri (kazanç / kayıp)',st_days:'İşlem günü',st_green:'{p} yeşil',green_days:'Yeşil gün',
-ds_today:'Bugünkü sonuç',ds_streak:'Güncel kayıp serisi',ds_over:'Kayıp limitini aşan gün',ds_overT:'İşlem limitini aşan gün',ds_leak:'Hatalı işlemlerin toplamı',ds_clean:'Hatasız işlemlerde beklenti',
+ds_today:'Bugünkü sonuç',ds_streak:'Güncel kayıp serisi',ds_over:'Kayıp limitini aşan gün',ds_overT:'İşlem limitini aşan gün',ds_leak:'Hata işaretli işlemlerin toplamı',ds_clean:'Hatasız işlemlerde beklenti',
 ds_h:'Limitleri Ayarlar sayfasından değiştirebilirsin. Hatasız ve hatalı işlemler arasındaki fark, disiplinin sana kaç R kazandıracağını gösterir.',
-x_cap:'Kazançlarda yakalanan hareket',x_left:'Kazançlarda masada kalan',x_lmfe:'Kayıpların ortalama MFE\'si',x_lmfe1:'Kayıpken önce 1R+ lehe giden',x_mae:'Ortalama MAE',x_tgt:'Kazançlarda hedefe ulaşma',
+x_cap:'Kazançlarda yakalanan hareket',x_left:'Kazançlarda masada kalan',x_lmfe:'Kayıpların ortalama MFE\'si',x_lmfe1:'Önce 1R+ lehe gidip kayıpla kapanan',x_mae:'Ortalama MAE',x_tgt:'Kazançlarda hedefe ulaşma',
 x_h:'Bu bölüm için işlemlere MFE ve MAE gir. Yakalanan oran düşükse erken çıkıyorsun; kayıpların çoğu önce 1R lehe gidiyorsa başa baş stop kuralı düşün.',
 day_empty:'Bu gün işlem yok.',j_open:'Günlük notu aç',j_write:'Günlük not yaz',
 pb_intro:'Playbook, bir setup\'ın giriş kurallarıdır. İşlem eklerken setup\'ı seçtiğinde kurallar kontrol listesi olarak çıkar; hangi kurala uyduğunda kazandığını burada görürsün.',
-pb_new:'Yeni playbook',pb_edit:'Playbook\'u düzenle',pb_used:'Playbook\'u olmayan setuplar:',pb_empty:'Henüz playbook yok. İlk setup\'ını ve kurallarını ekle.',pb_rules:'Kural',pb_followed:'Uyulan işlem',
+pb_new:'Yeni playbook',pb_edit:'Playbook\'u düzenle',pb_used:'Playbook\'u olmayan setuplar:',pb_empty:'Henüz playbook yok. İlk setup\'ını ve kurallarını ekle.',pb_rules:'Kural',pb_followed:'Uyulma oranı',
 pb_norules:'Kural eklenmemiş.',pb_cmp:'Tüm kurallara uyduğunda işlem başı {a}, eksik kuralla {b}.',pb_name:'Setup adı',pb_desc:'Açıklama',pb_desc_ph:'Bu setup ne zaman ve neden çalışır?',
 pb_rules_l:'Giriş kuralları',pb_rules_ph:'HTF trend yönünde\nLikidite alındı\nFVG içinden giriş',pb_rules_h:'Her satıra bir kural.',pb_req:'Setup adı gerekli.',pb_dup:'Bu adla bir playbook zaten var.',pb_del_c:'Playbook silinsin mi? İşlemler silinmez.',
 j_mood:'Günün nasıldı?',j_see:'İşlemleri gör',j_plan:'Seans öncesi plan',j_plan_ph:'Bias, takip ettiğin seviyeler, haberler',j_rev:'Gün sonu değerlendirme',j_rev_ph:'Ne iyi gitti, ne kötü gitti?',
@@ -468,10 +475,10 @@ emo_calm:'Sakin',emo_focused:'Odaklı',emo_confident:'Güvenli',emo_impatient:'S
 mis_early_entry:'Erken giriş',mis_late_entry:'Geç giriş',mis_no_confirmation:'Onaysız giriş',mis_tight_sl:'SL çok dar',mis_moved_sl:'SL\'i kaydırdım',mis_early_exit:'Erken çıkış',mis_tight_tp:'TP çok yakın',
 mis_off_plan:'Plan dışı işlem',mis_revenge:'Revenge trade',mis_fomo:'FOMO',mis_oversize:'Risk büyüttüm',mis_overtrading:'Aşırı işlem'},
 en:{
-archived:'Archive',acc_risk_l:'risk',at_challenge:'Challenge',at_funded:'Funded',at_personal:'Personal',at_demo:'Demo / backtest',acc_type:'Account type',acc_alltype:'All {k} accounts',
-acc_edit:'Edit account',acc_name_ph:'e.g. FTM 10K Funded',acc_risk_h:'Used to estimate PnL for trades without a result',acc_no_h:'Reports match this number automatically',acc_req:'Balance and risk must be 0 or more.',
+r_hint:'R is a multiple of the amount you risked. Stopped out: −1. Won twice your risk: 2. Not sure? Just pick the outcome below.',ph_rra:'e.g. 2 or −1',l_emo_q:'How did you feel?',rr_hint:'The gain you aimed for at entry (R)',pnl_hint:'Net result in money; makes your balance exact',rating_hint:'Regardless of the result: how well did you follow your rules?',k_rr_s:'Average win ÷ average loss',k_plan_s2:'Trades where you followed your plan',acc_add_how:'Where will this account\'s trades come from?',acc_m_rep:'From an MT4/MT5 report (recommended)',acc_m_rep_d:'Account name, currency, starting balance and trades come from the report. You only upload it.',acc_m_man:'Manual account',acc_m_man_d:'If you have no report or will log trades yourself. You enter the balance and currency.',acc_from_rep:'Taken from your MT4/MT5 report',show_more:'Show more ({n} more)',wr_s:'Win rate',period:'Period',dg_in:'Import',dg_out:'Backup and export',dg_demo:'Sample data',archived:'Archive',acc_link:'Report matching',acc_link_on:'MT4/MT5 reports for this number are added to this account automatically.',acc_link_off:'Not matched yet. When you upload this account\'s MT4/MT5 report, the account number is matched automatically and future reports come here. This is not an account connection; no password is needed.',acc_unlink:'Remove matching',acc_unlink_c:'Remove the #{n} matching? Trades are kept; you will be asked to choose the account again on the next report.',acc_risk_l:'risk',at_challenge:'Challenge',at_funded:'Funded',at_personal:'Personal',at_demo:'Demo / backtest',acc_type:'Account type',acc_alltype:'All {k} accounts',
+acc_edit:'Edit account',acc_name_ph:'e.g. FTM 10K Funded',acc_risk_h:'Used to estimate PnL for trades without a result',acc_req:'Balance and risk must be 0 or more.',
 acc_manage:'Manage account',acc_arch:'Archive',acc_arch_h:'Data is kept; the account leaves combined views and new-trade choices. For old challenge accounts.',acc_unarch:'Unarchive',
-acc_del:'Delete account with its data',acc_del_h:'The account, its {n} trades and cash movements are permanently deleted.',acc_del_c2:'"{k}", its {n} trades and cash movements will be permanently deleted. This cannot be undone. Continue?',
+acc_del:'Delete account with its data',acc_del_h:'The account, its {n} {n|trade|trades} and cash movements are permanently deleted.',acc_del_c2:'"{k}", its {n} {n|trade|trades} and cash movements will be permanently deleted. This cannot be undone. Continue?',
 acc_last:'At least one active account must remain.',acc_archived:'Account archived',acc_unarchived:'Account unarchived',
 s_arch:'Archived accounts ({n})',s_dedup:'Count copied trades once in combined views',s_dedup_d:'If you opened the same trade on several accounts (same symbol and side within 2 minutes), statistics count it once; PnL is added up.',
 s_rules_s:'For all accounts, in R',copies:'on {n} accounts',
@@ -481,15 +488,15 @@ ar_dll_s:'daily {v}%',ar_mll_s:'total {v}%',ar_tgt_s:'target {v}%',ar_card:'Acco
 ar_left:'{x} left / {l}',ar_prog:'{x} / {l}',ar_hit:'Limit breached',ar_done:'Target reached',
 al_dll_hit:'{k}: daily loss limit ({l}) breached. Don\'t open new trades today.',al_dll_near:'{k}: {x} left to the daily loss limit.',al_mll_hit:'{k}: total loss limit breached.',al_mll_near:'{k}: {x} left to the total loss limit.',
 im_flow_h:'How often should I upload a report?',im_flow:'As often as you like, for example weekly. Trades already added are skipped. If you logged a trade on your phone right after closing it, it is matched with the same trade in the report: your notes, setup and mindset are kept; lots, prices, net profit and R are updated from the report. Deposits and withdrawals are taken from the report too.',
-im_add:'{n} new trades will be added.',im_match:'{n} trades matched trades you logged manually. Your notes are kept; numbers are updated from the report.',
-im_ops:'Cash movements: {d} deposits ({da}), {w} withdrawals ({wa}).',im_bal_ok:'The calculated balance matches the report\'s final balance ({b}).',
-im_bal_diff:'The report\'s final balance is {b}, calculated {c}. If the report doesn\'t cover the full account history, correct the starting balance.',im_nothing:'Everything in this report is already added.',im_tz_auto:'The time offset was picked automatically from your manually logged trades ({h} h). It will be remembered for this account.',
-im_done:'{n} trades added, {u} updated',
-acc_now:'Current balance',acc_no:'MT4/MT5 account no.',acc_no_ph:'Not linked',acc_no_dup:'This account number is already linked to another account.',im_linked:'This report belongs to {k} (#{n}); trades will be added there.',im_willlink:'{k} will be linked to #{n}. Future reports for this number go here automatically.',im_wrongacc:'{k} is linked to #{a}, but this report belongs to #{b}. Choose the right account or create a new one.',im_choose:'If one of the accounts you created belongs to this report, choose it; otherwise a new account is created. The chosen account is linked to this number and future reports go there automatically.',tx_btn:'Cash movements ({n})',tx_title:'{k}: balance',tx_start:'Starting',tx_dep:'Deposited',tx_wd:'Withdrawn',tx_pnl:'Trading result',
+im_add:'{n} new {n|trade|trades} will be added.',im_match:'{n} {n|trade|trades} matched trades you logged manually. Your notes are kept; numbers are updated from the report.',
+im_ops:'Cash movements: {d} {d|deposit|deposits} ({da}), {w} {w|withdrawal|withdrawals} ({wa}).',im_bal_ok:'The calculated balance matches the report\'s final balance ({b}).',
+im_bal_diff:'The report\'s final balance is {b}, calculated {c}. If the report doesn\'t cover the full account history, correct the starting balance.',im_bal_set:'Starting balance will be taken from the report\'s opening deposit: {a} → {b}.',im_nothing:'Everything in this report is already added.',im_tz_auto:'The time offset was picked automatically from your manually logged trades ({h} h). It will be remembered for this account.',
+im_done:'{n} {n|trade|trades} added, {u} updated',
+acc_now:'Current balance',im_linked:'This report belongs to {k} (#{n}); trades will be added there.',im_willlink:'{k} will be matched to #{n}. Future reports for this number go here automatically.',im_wrongacc:'{k} is matched to #{a}, but this report belongs to #{b}. Choose the right account or create a new one.',im_choose:'If one of your accounts belongs to this report, choose it; otherwise a new account is created. The chosen account is matched to this number and future reports go there automatically.',tx_btn:'Cash movements ({n})',tx_title:'{k}: balance',tx_start:'Starting',tx_dep:'Deposited',tx_wd:'Withdrawn',tx_pnl:'Trading result',
 tx_est:'≈ Results of trades without PnL were estimated from R and the account risk setting.',tx_add:'Add cash movement',tx_dep1:'Deposit',tx_wd1:'Withdrawal',tx_amt:'Amount',tx_note:'Note',tx_note_ph:'e.g. prop firm payout',
 tx_addbtn:'Add',tx_list:'History',tx_empty:'No cash movements yet.',tx_rep:'from report',tx_req:'Amount and date are required.',tx_del_c:'Delete this cash movement?',
-cancel:'Cancel',im_btn:'Import',m_broker:'Import broker report (MT4/MT5)',f_rev:'All trades',f_rev_p:'Not reviewed',
-im_title:'Import broker report',im_intro:'Trades from your MetaTrader report are added with symbol, side, time, lots, prices and profit. If a stop loss is set, R is calculated automatically; you add setup and psychology quickly afterwards.',
+cancel:'Cancel',im_btn:'Import',m_broker:'Import MT4/MT5 report',f_rev:'All trades',f_rev_p:'Not reviewed',
+im_title:'Import MT4/MT5 report',im_intro:'Trades from your MetaTrader report are added with symbol, side, time, lots, prices and profit. If a stop loss is set, R is calculated automatically; you add setup and psychology quickly afterwards.',
 im_mt5:'MetaTrader 5 (desktop)',im_mt5_s:'Open the History tab in the Toolbox (Ctrl+T)|Right-click the list, choose the Positions view and a period (e.g. Last 3 months)|Right-click again: Report → HTML or Open XML (Excel)|Upload the saved file here',
 im_mt4:'MetaTrader 4 (desktop)',im_mt4_s:'Open the Account History tab in the Terminal window|Right-click and choose a period (e.g. All history)|Right-click: Save as Report or Save as Detailed Report|Upload the saved .htm file here',
 im_phone:'MetaTrader phone apps cannot export the trade list as a file; their PDF is only a summary. Get the report from desktop MT4/MT5 by logging in with the same account. If your prop firm dashboard exports trade history as CSV/Excel, you can try that too.',
@@ -497,11 +504,11 @@ im_formats:'Supported: MT5 HTML and Excel (.xlsx), MT4 HTML, TradeLog CSV and ba
 im_pick:'Choose file',im_none:'No closed trades were found in this file. Make sure you uploaded the report from MetaTrader\'s History tab (the summary report from the Reports menu has no trade list).',
 im_err:'Could not read the file. Upload an MT4/MT5 HTML/Excel report or a TradeLog CSV/backup.',im_xlsx_err:'The component needed to read Excel files could not load. Check your connection or save the report as HTML.',
 im_prev:'Import preview',im_range:'Date range',im_net:'Net result',
-im_r:'R will be calculated from the stop loss on {a} trades. {b} trades have no stop; their R is estimated from the account risk setting (shown with ≈).',
-im_dup:'{n} trades were already added and will be skipped.',im_acc:'Add to which account?',im_newacc:'Create new account: {n}',
+im_r:'R will be calculated from the stop loss on {a} {a|trade|trades}. {b} {b|trade has|trades have} no stop; R is estimated from the account risk setting (shown with ≈).',
+im_dup:'{n} {n|trade was|trades were} already added and will be skipped.',im_acc:'Add to which account?',im_newacc:'Create new account: {n}',
 im_tz:'Time offset',im_tz0:'No offset',im_hours:'hours',im_tz_h:'Report times are the broker server\'s. Choose the difference to your own time; for example, server GMT+2 and you in London (GMT+0) is −2.',
 im_queue:'Add to the review list',im_go:'Import',
-rv_tag:'review',rv_card:'{n} trades waiting for review',rv_card_s:'Adding setup, plan and mindset takes about 10 seconds per trade; insights come from this information.',rv_start:'Review',
+rv_tag:'review',rv_card:'{n} {n|trade|trades} waiting for review',rv_card_s:'Adding setup, plan and mindset takes about 10 seconds per trade; insights come from this information.',rv_start:'Review',
 rv_title:'Review · {i}/{n}',rv_skip:'Skip',rv_save:'Save and next',rv_done:'All trades reviewed',
 d_px:'Entry → exit',d_lots:'Lots',d_close:'Closed',d_rest:'≈ This trade had no stop loss, so R was estimated from the account risk setting.',
 wel_imp:'Upload MT4/MT5 report',
@@ -513,34 +520,34 @@ per_w:'This week',per_m:'This month',per_30:'30 days',per_90:'90 days',per_y:'Th
 acc_all:'All accounts',acc_default:'Main account',acc_name:'Account name',acc_bal:'Starting balance',acc_cur:'Currency',acc_risk:'Risk %',acc_add:'Add account',
 
 o_Win:'Win',o_Loss:'Loss',o_BE:'Breakeven',
-wel_t:'Log your trades and see where you lose money',wel_d:'Record every trade in R and automatically see what works by setup, session and mindset. No account needed.',
+wel_t:'Log your trades and see where you lose money',wel_d:'Record every trade in R and automatically see what works by setup, session and mindset. No sign-up needed.',
 wel_add:'Add your first trade',wel_demo:'Try with sample data',
 wel_f1:'Playbook rules: see which rules you follow when you win',wel_f2:'Mistake cost: measure how many R FOMO or early exits cost you',
 wel_f3:'Automatic insights: tilt, overtrading and your best hours',wel_f4:'Same data on phone and desktop through Telegram',
 al_day:'Today {x}: you hit your daily loss limit (−{l}R). Consider stopping for the day.',al_str:'{n} losses in a row (limit {l}). Take a break and review your plan.',al_max:'You placed {n} trades today (limit {l}). Think twice before the next one.',
-hero_l:'Net result, {p}',trades_l:'trades',strip_l:'Each bar is one trade, newest on the right',strip_off:'Faded bar: off plan',
-k_wr:'Win rate',k_pf:'Profit factor',k_pf_s:'Gross profit / gross loss',k_exp:'Expectancy',k_exp_s:'Average per trade',k_rr:'Win/loss ratio',k_dd:'Max drawdown',k_dd_s:'Longest losing streak {n}',
-k_plan:'Plan adherence',k_plan_s:'Avg trade rating {r}/5',k_bal:'Balance',
+hero_w:'Net result this week',hero_m:'Net result this month',hero_30:'Net result, last 30 days',hero_90:'Net result, last 90 days',hero_y:'Net result this year',hero_all:'Total net result',kpi_wl:'{w} {w|win|wins}, {l} {l|loss|losses}{b}',kpi_be:', {n} breakeven',trades_l:'trades',strip_l:'Each bar is one trade, newest on the right',strip_off:'Faded bar: off plan',
+k_wr:'Win rate',k_pf:'Profit factor',k_pf_s:'How many times your losses you won',k_exp:'Expectancy',k_exp_s:'Average per trade',k_rr:'Win/loss ratio',k_dd:'Max drawdown',k_dd_s:'Largest drop from a peak',
+k_plan:'Plan adherence',k_plan_s:'Avg trade quality {r}/5',k_bal:'Balance',
 c_eq:'Equity curve',c_eq_s:'Cumulative R',lg_eq:'Cumulative R',lg_off:'Off-plan trade',eq_need:'At least 2 trades with a result are needed for the chart.',
 c_score:'TradeLog score',c_daily:'Daily result',c_daily_s:'Last 30 trading days',c_ins:'Insights',ins_need:'Insights need at least 5 trades in this period.',c_recent:'Recent trades',c_stats:'Statistics',c_disc:'Discipline',
 score_need:'The score needs at least 5 trades in this period.',score_h:'The score averages six components. A 60% win rate, 2.5 profit factor, 2.5 win/loss ratio and a return of 3× drawdown count as full marks.',
 sc_hi:'Strong and consistent',sc_mid:'Improving; focus on the weakest part',sc_lo:'Discipline and risk first',
-sc_wr:'Win rate',sc_wr_s:'Win rate',sc_pf:'Profit factor',sc_pf_s:'PF',sc_rr:'Win/loss ratio',sc_rr_s:'W/L',sc_dd:'Drawdown control',sc_dd_s:'DD',sc_cons:'Consistency (green days)',sc_cons_s:'Consistency',sc_disc:'Discipline',sc_disc_s:'Discipline',
-in_best_setup:'Your best setup is {k}: {r} over {n} trades, {w} win rate.',in_worst_setup:'{k} lost {r} this period ({n} trades). Review its rules or pause it.',
-in_mistakes:'The {n} trades you flagged with mistakes total {r}. Most expensive: {k} ({r2}).',in_plan:'When you follow your plan you make {a} per trade; when you don\'t, {b}.',
+sc_wr:'Win rate',sc_wr_s:'Win rate',sc_pf:'Profit factor',sc_pf_s:'PF',sc_rr:'Win/loss ratio',sc_rr_s:'Win/loss',sc_dd:'Drawdown control',sc_dd_s:'Drawdown',sc_cons:'Consistency (green days)',sc_cons_s:'Consistency',sc_disc:'Discipline',sc_disc_s:'Discipline',
+in_best_setup:'Your best setup is {k}: {r} over {n} {n|trade|trades}, {w} win rate.',in_worst_setup:'{k} lost {r} this period ({n} {n|trade|trades}). Review its rules or pause it.',
+in_mistakes:'The {n} {n|trade|trades} you flagged with mistakes total {r}. Most expensive: {k} ({r2}).',in_plan:'When you follow your plan you make {a} per trade; when you don\'t, {b}.',
 in_tilt:'After 2 losses in a row your next trades average {a}, versus {b} overall. Try taking a break after two losses.',
 in_weekday:'Your best day is {a} ({ra}/trade), your weakest is {b} ({rb}/trade).',in_session:'Your most productive session is {k}: {r} per trade.',
-in_emotion:'Trades taken while {k} average {r} ({n} trades).',in_overtrade:'The {n} trades after your 3rd trade of the day average {a}. Consider a daily trade cap.',
+in_emotion:'Trades taken while feeling {k} average {r} ({n} {n|trade|trades}).',in_overtrade:'The {n} {n|trade|trades} after your 3rd trade of the day average {a}. Consider a daily trade cap.',
 in_mfe:'On winners you captured {p}% of the move on average; {r} was left on the table.',
 search_ph:'Search symbol, setup, notes or tags',filters:'Filters',f_reset:'Clear',f_out:'All outcomes',f_setup:'All setups',f_sym:'All symbols',f_dir:'Long and short',f_mis:'All mistakes',f_tag:'All tags',
-no_match:'No trades match the filters.',no_trades:'No trades yet.',no_data:'No data.',n_tr:'{n} trades',off_plan_s:'Off plan',
-h_date:'Date',h_sym:'Symbol',h_dir:'Side',h_acc:'Account',h_setup:'Setup',h_sess:'Session',h_out:'Outcome',h_plan:'Plan',h_mis:'Mistake',h_emo:'Mindset',h_rating:'Rating',h_trades:'Trades',h_tot:'Total',h_avg:'Avg R',h_month:'Month',h_adh:'Rule adherence',
+no_match:'No trades match the filters.',no_trades:'No trades yet.',no_data:'No data.',n_tr:'{n} {n|trade|trades}',off_plan_s:'Off plan',
+h_date:'Date',h_sym:'Symbol',h_dir:'Side',h_acc:'Account',h_setup:'Setup',h_sess:'Session',h_out:'Outcome',h_plan:'Plan',h_mis:'Mistake',h_emo:'Mindset',h_rating:'Quality',h_trades:'Trades',h_tot:'Total',h_avg:'Avg R',h_month:'Month',h_adh:'Rule adherence',
 d_title:'Trade details',d_rules:'{k} rules',
-f_new:'New trade',f_edit:'Edit trade',fs_trade:'Trade',fs_result:'Result',fs_rules:'Playbook checklist',fs_review:'Review',fs_more:'More (session, timeframe, MFE/MAE)',fs_notes:'Screenshots and notes',
+f_new:'New trade',f_edit:'Edit trade',fs_trade:'Trade',fs_result:'Result',fs_rules:'Playbook checklist',fs_review:'Review',fs_more:'More details',fs_notes:'Screenshots and notes',
 l_time:'Time',l_rr:'Target RR',l_rra:'Result (R)',l_plan:'Did you follow your plan?',l_rating:'Trade quality',l_emo:'Mindset',l_mis:'Mistakes',l_tags:'Tags',l_sess:'Session / killzone',l_shots:'Chart links',l_notes:'Notes',
 ph_setup:'e.g. London Breakout',ph_tags:'news, A+, partial',ph_notes:'Why did I enter, what did I learn?',shots_h:'One link per line. TradingView snapshots preview automatically.',
 mfe_h:'Furthest the trade went in your favour, in R',mae_h:'Furthest the trade went against you, in R',
-req:'Date, symbol and outcome are required. Entering the result in R picks win/loss automatically.',saved:'Saved',deleted:'Deleted',confirm_del:'Delete this trade?',
+req:'Symbol and result are required. Enter the result in R or pick Win / Loss / Breakeven.',saved:'Saved',deleted:'Deleted',confirm_del:'Delete this trade?',
 plan_yes:'Followed plan',plan_no:'Broke plan',
 rt_ov:'Overview',rt_time:'Time',rt_setup:'Setups & symbols',rt_psy:'Psychology & discipline',rt_dist:'Distribution & exits',
 r_month:'Monthly performance',r_wd:'Day of week',r_hour:'Entry hour',hour_need:'Add entry times to your trades for hourly analysis.',r_sess:'Session',r_mis:'Mistake cost',r_mis_s:'Most expensive first',a_plan:'Plan adherence',
@@ -552,7 +559,7 @@ x_cap:'Move captured on winners',x_left:'Left on the table (winners)',x_lmfe:'Av
 x_h:'Enter MFE and MAE on trades to fill this section. A low capture rate means early exits; if many losers first go 1R in your favour, consider a breakeven rule.',
 day_empty:'No trades on this day.',j_open:'Open journal note',j_write:'Write journal note',
 pb_intro:'A playbook is the entry rules of a setup. Pick the setup when adding a trade and its rules appear as a checklist; here you see which rules you followed on winners.',
-pb_new:'New playbook',pb_edit:'Edit playbook',pb_used:'Setups without a playbook:',pb_empty:'No playbooks yet. Add your first setup and its rules.',pb_rules:'Rule',pb_followed:'Trades followed',
+pb_new:'New playbook',pb_edit:'Edit playbook',pb_used:'Setups without a playbook:',pb_empty:'No playbooks yet. Add your first setup and its rules.',pb_rules:'Rule',pb_followed:'Followed in',
 pb_norules:'No rules added.',pb_cmp:'With every rule followed: {a} per trade; with a rule missing: {b}.',pb_name:'Setup name',pb_desc:'Description',pb_desc_ph:'When and why does this setup work?',
 pb_rules_l:'Entry rules',pb_rules_ph:'With the HTF trend\nLiquidity taken\nEntry from FVG',pb_rules_h:'One rule per line.',pb_req:'Setup name is required.',pb_dup:'A playbook with this name already exists.',pb_del_c:'Delete this playbook? Trades are kept.',
 j_mood:'How was your day?',j_see:'See trades',j_plan:'Pre-session plan',j_plan_ph:'Bias, levels you watch, news',j_rev:'End-of-day review',j_rev_ph:'What went well, what went wrong?',
@@ -570,7 +577,7 @@ x_exp_h:'Files cannot be downloaded inside Telegram. Copy the text; keep it by p
 x_imp_h:'Paste a backup (JSON) or CSV text you copied earlier.',
 confirm_demo:'48 sample trades and 3 playbooks will be added next to your data. You can remove them anytime in Settings. Continue?',
 confirm_wipe:'All trades, playbooks, journal notes and settings will be permanently deleted. This cannot be undone. Continue?',
-imported:'{n} trades added, {s} skipped',bad_backup:'Invalid backup file.',bad_csv:'Could not read the CSV. The first row must contain date and symbol columns.',
+imported:'{n} {n|trade|trades} added, {s} skipped',bad_backup:'Invalid backup file.',bad_csv:'Could not read the CSV. The first row must contain date and symbol columns.',
 demo_added:'Sample data added',demo_removed:'Sample data removed',wiped:'All data deleted',demo_note:'Sample trade',demo_tag:'sample',
 dm_d1:'Breakout of the Asian range at the London open.',dm_r1:'Asian range clearly defined|Breakout candle closed strong|Aligned with HTF bias|Stop beyond the other side of the range',
 dm_d2:'Trend pullback entry in the New York session.',dm_r2:'Clear 1H trend|Pullback reached the FVG|LTF structure break|Away from news time',
@@ -589,7 +596,9 @@ const TG=(()=>{try{const w=window.Telegram&&window.Telegram.WebApp;return w&&w.i
 const tgv=v=>{try{return !!TG&&TG.isVersionAtLeast(v)}catch(e){return false}};
 
 let L=(()=>{try{const l=localStorage.getItem(K.lang);if(l==='tr'||l==='en')return l}catch(e){}const u=TG&&TG.initDataUnsafe&&TG.initDataUnsafe.user;return /^tr/i.test((u&&u.language_code)||navigator.language||'')?'tr':'en'})();
-const t=(k,o)=>{let s=(T[L]&&T[L][k])!=null?T[L][k]:T.en[k]!=null?T.en[k]:k;if(o)for(const p in o)s=s.split('{'+p+'}').join(o[p]);return s};
+const t=(k,o)=>{let s=(T[L]&&T[L][k])!=null?T[L][k]:T.en[k]!=null?T.en[k]:k;
+  if(o){s=s.replace(/\{(\w+)\|([^|}]*)\|([^}]*)\}/g,(m,p,one,many)=>+String(o[p]).replace(/<[^>]+>/g,'')===1?one:many);for(const p in o)s=s.split('{'+p+'}').join(o[p])}
+  return s};
 const loc=()=>L==='tr'?'tr-TR':'en-US';
 
 const SYMS=['XAUUSD','XAGUSD','EURUSD','GBPUSD','USDJPY','GBPJPY','EURJPY','AUDUSD','NZDUSD','USDCAD','USDCHF','EURGBP','US100','US30','US500','GER40','UK100','BTCUSD','ETHUSD','SOLUSD','USOIL','NQ','MNQ','ES','MES','YM','GC','CL'];
@@ -867,24 +876,40 @@ const CH=4000,rng=(a,b)=>Array.from({length:Math.max(0,b-a)},(_,i)=>a+i);
 let syncSt='',pushT=null,pushing=false,pushAgain=false;
 function setSync(s){if(s!==undefined)syncSt=s;['syncSt','syncSt2'].forEach(i=>{const el=$(i);if(el)el.textContent=CS&&syncSt?t('sync_'+syncSt):''})}
 async function csMeta(){const r=await csGet(['tl_meta']);try{return JSON.parse(r.tl_meta||'null')}catch(e){return null}}
+/* chunks are diffed against the last state this device synced, so a save only rewrites the chunks that changed */
+const hsh=s=>{let h=5381;for(let i=0;i<s.length;i++)h=(h*33+s.charCodeAt(i))|0;return (h>>>0).toString(36)+'.'+s.length.toString(36)};
+const CK='tradelog_csc',CP='tlc_',CMAX=1000;
+const ckGet=()=>{try{return JSON.parse(localStorage.getItem(CK)||'null')}catch(e){return null}};
+const ckSet=v=>{try{localStorage.setItem(CK,JSON.stringify(v))}catch(e){}};
 async function cloudPull(){
   const m=await csMeta();if(!m||!m.n)return null;
-  let s='';const keys=rng(0,m.n).map(i=>m.p+i);
-  for(let i=0;i<keys.length;i+=20){const b=keys.slice(i,i+20),r=await csGet(b);s+=b.map(k=>r[k]||'').join('')}
-  const d=JSON.parse(s);d.u=m.u;return d;
+  const keys=rng(0,m.n).map(i=>m.p+i),parts=[];
+  for(let i=0;i<keys.length;i+=20){const b=keys.slice(i,i+20),r=await csGet(b);b.forEach(k=>parts.push(r[k]||''))}
+  const s=parts.join('');
+  if(m.h&&hsh(s)!==m.h)throw new Error('integrity');
+  const d=JSON.parse(s);d.u=m.u;
+  if(m.p===CP)ckSet({u:m.u,h:parts.map(hsh)});
+  return d;
 }
 const snapshot=()=>({app:'tradelog',version:4,trades,journal:JR,settings:S,playbooks:PB});
+/* oldest trades first so that new trades only change the last chunks */
+const cloudBlob=()=>JSON.stringify({trades:[...trades].reverse(),journal:JR,settings:S,playbooks:PB,app:'tradelog',version:5});
 async function cloudPush(){
   if(!CS)return;if(pushing){pushAgain=true;return}
   pushing=true;setSync('ing');
   try{
-    const u=lupd(),blob=JSON.stringify(snapshot());
+    const u=lupd(),blob=cloudBlob();
     const parts=[];for(let i=0;i<blob.length;){let e=Math.min(i+CH,blob.length);const c=blob.charCodeAt(e-1);if(e<blob.length&&c>=0xD800&&c<=0xDBFF)e--;parts.push(blob.slice(i,e));i=e}
-    if(parts.length>500){toast(t('cloud_full'));setSync('err');pushing=false;return}
-    const old=await csMeta(),p=old&&old.p==='tla_'?'tlb_':'tla_';
-    for(let i=0;i<parts.length;i+=10)await Promise.all(parts.slice(i,i+10).map((v,j)=>csSet(p+(i+j),v)));
-    await csSet('tl_meta',JSON.stringify({p,n:parts.length,u}));
-    if(old&&old.n)await csDel(rng(0,old.n).map(i=>old.p+i));
+    if(parts.length>CMAX){toast(t('cloud_full'));setSync('err');pushing=false;return}
+    const old=await csMeta(),cache=ckGet(),hs=parts.map(hsh);
+    const prev=old&&old.p===CP&&cache&&cache.u===old.u?cache.h:[];
+    ckSet(null);                                   // invalid until this push completes
+    const todo=hs.map((h,i)=>i).filter(i=>prev[i]!==hs[i]);
+    for(let i=0;i<todo.length;i+=10)await Promise.all(todo.slice(i,i+10).map(j=>csSet(CP+j,parts[j])));
+    await csSet('tl_meta',JSON.stringify({p:CP,n:parts.length,u,h:hsh(blob)}));
+    ckSet({u,h:hs});
+    if(old&&old.p===CP&&old.n>parts.length)await csDel(rng(parts.length,old.n).map(i=>CP+i));
+    if(old&&old.p&&old.p!==CP&&old.n)await csDel(rng(0,old.n).map(i=>old.p+i));
     setSync('ok');
   }catch(e){setSync('err');clearTimeout(pushT);pushT=setTimeout(cloudPush,15000)}
   pushing=false;if(pushAgain){pushAgain=false;cloudPush()}
@@ -1017,7 +1042,8 @@ function parseBroker(rows){
   const seen=new Set(),out=[];
   pos.forEach(p=>{const k=p.id||(p.t1.join('-')+p.sym);if(seen.has(k))return;seen.add(k);const o=ord[bnum(p.id)];if(o){p.osl=o.sl;p.otp=o.tp}if(p.sym&&p.entry!=null)out.push(p)});
   const tk=t=>t.map(pad).join('');ops.sort((a,b)=>tk(a.t).localeCompare(tk(b.t)));
-  meta.ops=ops;meta.dep=ops.length&&ops[0].a>0?ops[0].a:null;meta.plat=plat||'MT5';
+  const first=out.map(p=>tk(p.t1)).sort()[0]||'';
+  meta.ops=ops;meta.open=ops.length&&ops[0].a>0&&tk(ops[0].t)<=first?ops[0].id:null;meta.dep=meta.open?ops[0].a:null;meta.plat=plat||'MT5';
   return{meta,pos:out};
 }
 function cleanSym(s){s=String(s).trim();s=s.replace(/^([A-Z0-9]{6})[a-z]{1,3}$/,'$1').replace(/[._][A-Za-z0-9]{1,6}$/,'').replace(/[+!#]$/,'');return s.toUpperCase()}
@@ -1088,10 +1114,15 @@ function impCalc(){
   const a=isNew?null:accOf(sel),txExt=new Set(S.tx.map(z=>z.ext).filter(Boolean));if(a&&a.initExt)txExt.add(a.initExt);
   let ops=(IMP.meta.ops||[]).map(o=>({...o,ext:`${src}:${no}:bal:${o.id}`})).filter(o=>!txExt.has(o.ext)),init=null;
   const startBal=isNew?nb:a.bal,accTx=isNew?[]:S.tx.filter(z=>z.acc===sel);
-  if(ops.length&&ops[0].a>0&&!accTx.length&&!(a&&a.initExt)&&Math.abs(ops[0].a-startBal)<=Math.max(1,startBal*.001)){init=ops[0].ext;ops=ops.slice(1)}
+  let newBal=null;
+  /* the report's opening deposit is the account's starting balance; it replaces a typed/default value when the account has no cash history yet */
+  if(ops.length&&IMP.meta.open&&ops[0].id===IMP.meta.open&&!accTx.length&&!(a&&a.initExt)){
+    init=ops[0].ext;if(!isNew&&Math.abs(ops[0].a-startBal)>0.005)newBal=ops[0].a;ops=ops.slice(1);
+  }
+  const sb=newBal!=null?newBal:startBal;
   let proj=null;
-  if(IMP.meta.rbal!=null&&(isNew||(!trades.some(x=>x.account===sel)&&!accTx.length)))proj=r2(startBal+sum(ops.map(o=>o.a))+sum(fresh.map(o=>o.pnl||0)));
-  return{sel,tz,isNew,pairs,adds,dup:list.length-fresh.length,ops,init,proj,cur:accObj.cur||IMP.meta.cur||'USD'};
+  if(IMP.meta.rbal!=null&&(isNew||(!trades.some(x=>x.account===sel)&&!accTx.length)))proj=r2(sb+sum(ops.map(o=>o.a))+sum(fresh.map(o=>o.pnl||0)));
+  return{sel,tz,isNew,pairs,adds,dup:list.length-fresh.length,ops,init,newBal,oldBal:startBal,proj,cur:accObj.cur||IMP.meta.cur||'USD'};
 }
 function impPreview(){
   const m=IMP.meta,pos=IMP.pos;
@@ -1101,7 +1132,8 @@ function impPreview(){
   const named=!linked&&m.no?S.accounts.find(a=>!a.no&&a.name.includes(m.no)):null;
   const free=actAccs().filter(a=>!a.no&&!(blank&&a===S.accounts[0]));
   const used=free.filter(a=>trades.some(x=>x.account===a.id&&!x.ext));
-  const match=linked||named||(used.length===1?used[0]:null);
+  const byExt=!linked&&m.no?actAccs().find(a=>!a.no&&trades.some(x=>x.account===a.id&&x.ext&&x.ext.split(':')[1]===m.no)):null;
+  const match=linked||named||byExt||(used.length===1?used[0]:null);
   IMP.link=linked?'linked':match?'suggest':(free.length?'choose':'new');
   const net=sum(pos.map(p=>p.profit+p.comm+p.swap+p.tax));
   const ds=pos.map(p=>p.t1.slice(0,3).map(pad).join('-')).sort();
@@ -1140,6 +1172,7 @@ function impSum(){
   if(c.dup)L1.push(['',t('im_dup',{n:c.dup})]);
   if(tot)L1.push([withSL===tot?'good':'',t('im_r',{a:withSL,b:tot-withSL})]);
   const dep=c.ops.filter(o=>o.a>0),wd=c.ops.filter(o=>o.a<0);
+  if(c.newBal!=null)L1.push(['',t('im_bal_set',{a:money(c.oldBal,0,c.cur),b:money(c.newBal,0,c.cur)})]);
   if(c.ops.length)L1.push(['',t('im_ops',{d:dep.length,da:money(sum(dep.map(o=>o.a)),0,c.cur),w:wd.length,wa:money(Math.abs(sum(wd.map(o=>o.a))),0,c.cur)})]);
   if(c.proj!=null)L1.push(Math.abs(c.proj-IMP.meta.rbal)<=1?['good',t('im_bal_ok',{b:money(IMP.meta.rbal,0,c.cur)})]:['bad',t('im_bal_diff',{b:money(IMP.meta.rbal,0,c.cur),c:money(c.proj,0,c.cur)})]);
   const sa=c.isNew?null:accOf(c.sel),no=IMP.meta.no;
@@ -1161,7 +1194,7 @@ function impCommit(){
     if(blank)Object.assign(S.accounts[0],d);else S.accounts.push({id:sid(),risk:1,...d});
     acc=blank?S.accounts[0].id:S.accounts[S.accounts.length-1].id;
   }
-  const a=accOf(acc);if(c.init)a.initExt=c.init;a.tz=c.tz;
+  const a=accOf(acc);if(c.init)a.initExt=c.init;if(c.newBal!=null)a.bal=c.newBal;a.tz=c.tz;
   if(IMP.meta.no&&!a.no){a.no=IMP.meta.no;if(IMP.meta.server)a.srv=IMP.meta.server}
   c.ops.forEach(o=>S.tx.push({id:sid(),acc,date:shiftDT(o.t,c.tz)[0],kind:o.a>0?'dep':'wd',amt:Math.abs(o.a),note:'',ext:o.ext}));
   saveS();
@@ -1188,13 +1221,13 @@ function openReview(){
   const setups=[...new Set([...PB.map(p=>p.name),...uniq('setup')])].slice(0,12);
   const a=accOf(x.account);
   openDlg(t('rv_title',{i:RVi+1,n:l.length}),`<div style="padding-top:14px" class="dhead"><span class="sym" style="font-size:18px">${esc(x.symbol)}</span>${x.dir?`<span class="side-${x.dir[0].toLowerCase()}">${x.dir}</span>`:''}<span class="badge ${x.outcome.toLowerCase()}">${t('o_'+x.outcome)}</span><span class="rv ${cls(x.rrActual)}">${x.rEst?'≈':''}${fr(x.rrActual)}</span></div>
-   <div class="calsum" style="padding:8px 0 0"><span>${esc(dFmt(x.date,{weekday:'short',day:'numeric',month:'short'}))} ${esc(x.time)}</span>${has(x.pnl)?`<span class="${cls(x.pnl)}">${money(x.pnl,1,a.cur)}</span>`:''}${has(x.lots)?`<span>${x.lots} lot</span>`:''}${has(x.entry)?`<span>${x.entry} → ${x.exit}</span>`:''}</div>
+   <div class="calsum" style="padding:8px 0 0"><span>${esc(dFmt(x.date,{weekday:'short',day:'numeric',month:'short'}))} ${esc(x.time)}</span>${has(x.pnl)?`<span class="${cls(x.pnl)}">${money(x.pnl,1,a.cur)}</span>`:''}${has(x.lots)?`<span>${x.lots} ${t('d_lots').toLowerCase()}</span>`:''}${has(x.entry)?`<span>${x.entry} → ${x.exit}</span>`:''}</div>
    <div class="fsec"><label class="fld"><span>${t('h_setup')}</span><input class="in" id="q_setup" value="${esc(x.setup)}" list="dlQS" placeholder="${t('ph_setup')}" oninput="qRulesBox()"><datalist id="dlQS">${setups.map(s=>`<option value="${esc(s)}">`).join('')}</datalist></label>
     ${setups.length?`<div class="chips" style="margin-top:8px">${setups.map(s=>`<button type="button" class="chip" onclick="$('q_setup').value=this.textContent;qRulesBox()">${esc(s)}</button>`).join('')}</div>`:''}
     <div id="q_rules" style="margin-top:6px"></div></div>
    <div class="fsec" style="padding-top:8px"><div class="fgrid"><div class="fld"><span>${t('l_plan')}</span><div class="segf" id="q_plan"><button type="button" class="w${qPlan==='yes'?' on':''}" data-v="yes" onclick="qPlan=qPlan==='yes'?'':'yes';segOn('q_plan',qPlan)">${t('yes')}</button><button type="button" class="l${qPlan==='no'?' on':''}" data-v="no" onclick="qPlan=qPlan==='no'?'':'no';segOn('q_plan',qPlan)">${t('no')}</button></div></div>
     <div class="fld"><span>${t('l_rating')}</span><div class="stars" id="q_rate">${[1,2,3,4,5].map(i=>`<button type="button" class="${i<=qRate?'on':''}" onclick="qRate=qRate===${i}?0:${i};$('q_rate').querySelectorAll('button').forEach((b,j)=>b.classList.toggle('on',j<qRate))">★</button>`).join('')}</div></div></div>
-    <div class="fld" style="margin-top:12px"><span>${t('l_emo')}</span><div class="chips">${EMO.map(([k])=>`<button type="button" class="chip${qEmo.includes(k)?' on':''}" data-k="${k}" onclick="tgl(qEmo,this)">${esc(emoL(k))}</button>`).join('')}</div></div>
+    <div class="fld" style="margin-top:12px"><span>${t('l_emo_q')}</span><div class="chips">${EMO.map(([k])=>`<button type="button" class="chip${qEmo.includes(k)?' on':''}" data-k="${k}" onclick="tgl(qEmo,this)">${esc(emoL(k))}</button>`).join('')}</div></div>
     <div class="fld" style="margin-top:12px"><span>${t('l_mis')}</span><div class="chips">${[...new Set([...MIS,...qMis])].map(k=>`<button type="button" class="chip${qMis.includes(k)?' on':''}" data-k="${esc(k)}" onclick="tgl(qMis,this)">${esc(misL(k))}</button>`).join('')}</div></div>
     <label class="fld" style="margin-top:12px"><span>${t('l_notes')}</span><textarea class="in" id="q_notes" style="min-height:64px" placeholder="${t('ph_notes')}">${esc(x.notes)}</textarea></label></div>`,
    `<button class="btn" onclick="RVi++;openReview()">${t('rv_skip')}</button><button class="btn pri" onclick="qSave(${x.id})">${t('rv_save')}</button>`);
@@ -1227,7 +1260,7 @@ check:'<path d="M5 12.5l4.5 4.5L19 7.5"/>',
 filter:'<path d="M3 5h18l-7 8.5V19l-4 2v-7.5z"/>'};
 const ic=n=>`<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">${ICON[n]}</svg>`;
 const VIEWS=['dash','trades','cal','rep','pb','jr','set'];
-let cv='dash',rt='ov',cm=new Date(),jd='',showF=false,sk='',sd=-1;
+let cv='dash',rt='ov',cm=new Date(),jd='',showF=false,sk='',sd=-1,tlim=100;
 const TFL={q:'',out:'',setup:'',sym:'',dir:'',mis:'',tag:'',rev:''};
 let CHD={};
 
@@ -1263,7 +1296,8 @@ function topCtl(){
   const per=['dash','trades','rep','pb'].includes(cv),acc=['dash','trades','rep','pb','cal','jr'].includes(cv)&&S.accounts.length>1;
   let h='';
   if(per&&trades.length){
-    h+=`<div class="seg perseg">${PERS.map(p=>`<button class="${V.per===p?'on':''}" onclick="setPer('${p}')">${t('per_'+p)}</button>`).join('')}</div>`;
+    h+=`<div class="seg perseg">${PERS.map(p=>`<button class="${V.per===p?'on':''}" onclick="setPer('${p}')">${t('per_'+p)}</button>`).join('')}</div>
+      <select class="sel persel" onchange="setPer(this.value)" aria-label="${t('period')}">${PERS.map(p=>opt(p,t('per_'+p),V.per)).join('')}</select>`;
   }
   if(acc){
     const act=actAccs(),arc=S.accounts.filter(a=>a.arch),types=ATYPES.filter(k=>act.filter(a=>a.type===k).length>1);
@@ -1337,11 +1371,11 @@ function vDash(){
   const facts=[`<span><b>${s.n}</b> ${t('trades_l')}</span>`,`<span>${t('k_wr')} <b>${pc(s.wr)}</b></span>`,`<span>PF <b>${pfTxt(s)}</b></span>`];
   if(s.pnl!==null)facts.push(`<span>PnL <b class="${cls(s.pnl)}">${money(s.pnl,1)}</b></span>`);
   if(bal&&V.per==='all')facts.push(`<span>${t('k_bal')} <b>${bal.est?'≈':''}${money(bal.cur)}</b>${bal.ret!=null?` <span class="${cls(bal.ret)}">(${bal.ret>0?'+':''}${bal.ret.toFixed(1)}%)</span>`:''}</span>`);
-  const hero=`<div class="card hero"><div><div class="lbl">${t('hero_l',{p:t('per_'+V.per).toLowerCase()})}</div><div class="big ${cls(s.tot)}">${s.hasR?fr(s.tot):'—'}</div><div class="hfacts">${facts.join('')}</div></div>
+  const hero=`<div class="card hero"><div><div class="lbl">${t('hero_'+V.per)}</div><div class="big ${cls(s.tot)}">${s.hasR?fr(s.tot):'—'}</div><div class="hfacts">${facts.join('')}</div></div>
    <div><div class="strip" aria-label="${t('strip_l')}">${strip}</div><div class="stripcap"><span>${t('strip_l')}</span><span>${t('strip_off')}</span></div></div></div>`;
-  const kp=[[t('k_wr'),pc(s.wr),`${s.w}W · ${s.ls}L${s.be?` · ${s.be}BE`:''}`,''],[t('k_pf'),pfTxt(s),t('k_pf_s'),s.pf===null?'':s.pf>=1?'pos':'neg'],
-    [t('k_exp'),fr(s.exp),t('k_exp_s'),cls(s.exp)],[t('k_rr'),s.real!==null?s.real.toFixed(2):'—',`${fr(s.aw)} / ${s.al!==null?fr(-s.al):'—'}`,''],
-    [t('k_dd'),s.hasR?fr(-s.dd):'—',t('k_dd_s',{n:s.ms}),s.dd?'neg':''],[t('k_plan'),pc(s.plan),s.rating!==null?t('k_plan_s',{r:s.rating.toFixed(1)}):'',s.plan===null?'':s.plan>=80?'pos':'neu']];
+  const kp=[[t('k_wr'),pc(s.wr),t('kpi_wl',{w:s.w,l:s.ls,b:s.be?t('kpi_be',{n:s.be}):''}),''],[t('k_pf'),pfTxt(s),t('k_pf_s'),s.pf===null?'':s.pf>=1?'pos':'neg'],
+    [t('k_exp'),fr(s.exp),t('k_exp_s'),cls(s.exp)],[t('k_rr'),s.real!==null?s.real.toFixed(2):'—',t('k_rr_s'),''],
+    [t('k_dd'),s.hasR?fr(-s.dd):'—',t('k_dd_s'),s.dd?'neg':''],[t('k_plan'),pc(s.plan),t('k_plan_s2'),s.plan===null?'':s.plan>=80?'pos':'neu']];
   const kpis=`<div class="card kpis">${kp.map(([a,b,c,d])=>`<div class="kpi"><div class="l">${a}</div><div class="v ${d}">${b}</div><div class="s">${c}</div></div>`).join('')}</div>`;
   const sc=score(l),ins=insights(l);
   const pq=pending().length;
@@ -1459,10 +1493,12 @@ function tradeFilter(){
   return l;
 }
 function srt(k){sd=sk===k?-sd:-1;sk=k;rList()}
-function rList(){
-  const l=tradeFilter(),s=stats(l);
-  $('tSum').innerHTML=l.length?[t('n_tr',{n:`<b>${l.length}</b>`}),`${t('k_wr')} <b>${pc(s.wr)}</b>`,`${t('h_tot')} <b class="${cls(s.tot)}">${fr(s.tot)}</b>`,`PF <b>${pfTxt(s)}</b>`,`${t('k_exp')} <b>${fr(s.exp)}</b>`].concat(s.pnl!==null?[`PnL <b class="${cls(s.pnl)}">${money(s.pnl,1)}</b>`]:[]).map(x=>`<span>${x}</span>`).join(''):'';
+function rList(more){
+  if(more)tlim+=200;else tlim=100;
+  const all=tradeFilter(),s=stats(all),l=all.slice(0,tlim);
+  $('tSum').innerHTML=all.length?[t('n_tr',{n:`<b>${all.length}</b>`}),`${t('k_wr')} <b>${pc(s.wr)}</b>`,`${t('h_tot')} <b class="${cls(s.tot)}">${fr(s.tot)}</b>`,`PF <b>${pfTxt(s)}</b>`,`${t('k_exp')} <b>${fr(s.exp)}</b>`].concat(s.pnl!==null?[`PnL <b class="${cls(s.pnl)}">${money(s.pnl,1)}</b>`]:[]).map(x=>`<span>${x}</span>`).join(''):'';
   if(!l.length){$('tList').innerHTML=`<div class="empty">${fT().length?t('no_match'):t('per_empty')}</div>`;return}
+  const moreBtn=all.length>l.length?`<div style="padding:14px;text-align:center"><button class="btn" onclick="rList(true)">${t('show_more',{n:all.length-l.length})}</button></div>`:'';
   const multi=scopeAccs().length>1;
   const th=(k,lab,r)=>`<th class="${k?'s':''}${r?' r':''}" ${k?`onclick="srt('${k}')"`:''}>${lab}${sk===k?(sd>0?' ↑':' ↓'):''}</th>`;
   const rows=l.map(x=>`<tr class="rw" onclick="openTrade(${x.id})"><td>${esc(dFmt(x.date,{day:'numeric',month:'short',year:'2-digit'}))}${x.time?` <span class="mut">${esc(x.time)}</span>`:''}</td><td class="sym">${esc(x.symbol)}${x.demo?` <span class="tag">${t('demo_tag')}</span>`:''}</td><td>${x.dir?`<span class="side-${x.dir[0].toLowerCase()}">${x.dir}</span>`:'—'}</td>
@@ -1470,7 +1506,7 @@ function rList(){
    <td class="r ${cls(x.rrActual)}" style="font-weight:600">${fr(x.rrActual)}</td><td class="r ${cls(x.pnl)}">${has(x.pnl)?money(x.pnl,1,accOf(x.account).cur):'—'}</td>
    <td>${x.plan==='yes'?`<span class="pos">${t('yes')}</span>`:x.plan==='no'?`<span class="neg">${t('no')}</span>`:'—'}</td><td class="neg">${x.mistakes.map(misL).map(esc).join(', ')||'<span class="mut">—</span>'}</td><td>${x.emotions.map(emoI).join(' ')||'—'}</td><td style="color:var(--be)">${x.rating?'★'.repeat(x.rating):'—'}</td></tr>`).join('');
   $('tList').innerHTML=`<div class="scroll tblwrap"><table><thead><tr>${th('date',t('h_date'))}${th('symbol',t('h_sym'))}${th('dir',t('h_dir'))}${multi?th('',t('h_acc')):''}${th('setup',t('h_setup'))}${th('kz',t('h_sess'))}${th('',t('h_out'))}${th('rrActual','R',1)}${th('pnl','PnL',1)}${th('',t('h_plan'))}${th('',t('h_mis'))}${th('',t('h_emo'))}${th('rating',t('h_rating'))}</tr></thead><tbody>${rows}</tbody></table></div>
-   <div class="tlist">${l.map(tradeCard).join('')}</div>`;
+   <div class="tlist">${l.map(tradeCard).join('')}</div>${moreBtn}`;
 }
 
 /* ---- trade detail ---- */
@@ -1516,38 +1552,36 @@ function openForm(id,preset){
   const setups=[...new Set([...PB.map(p=>p.name),...uniq('setup')])];
   const misAll=[...new Set([...MIS,...fMis])];
   $('fTitle').textContent=t(x?'f_edit':'f_new');
+  const multiAcc=actAccs().length>1;
+  const when=(d.date===day()?t('today'):dFmt(d.date))+(d.time?' '+d.time:'');
   $('fBody').innerHTML=`
-  <div class="fsec"><h3>${t('fs_trade')}</h3><div class="fgrid">
-   <label class="fld"><span>${t('h_date')}</span><input class="in" type="date" id="f_date" value="${v('date')}"></label>
-   <label class="fld"><span>${t('l_time')}</span><input class="in" type="time" id="f_time" value="${v('time')}"></label>
+  <div class="fsec"><div class="fgrid">
    <label class="fld"><span>${t('h_sym')}</span><input class="in" id="f_sym" list="dlSym" value="${v('symbol')}" placeholder="XAUUSD" autocomplete="off" autocapitalize="characters">${dl('dlSym',[...new Set([...uniq('symbol'),...SYMS])])}</label>
    <div class="fld"><span>${t('h_dir')}</span><div class="segf" id="f_dir">${['Long','Short'].map(o=>`<button type="button" class="${o==='Long'?'w':'l'}${d.dir===o?' on':''}" data-v="${o}" onclick="segPick('f_dir',this)">${o}</button>`).join('')}</div></div>
-   <label class="fld"><span>${t('h_setup')}</span><input class="in" id="f_setup" list="dlSetup" value="${v('setup')}" placeholder="${t('ph_setup')}" autocomplete="off" oninput="rulesBox()">${dl('dlSetup',setups)}</label>
-   ${S.accounts.length>1?`<label class="fld"><span>${t('h_acc')}</span><select class="in" id="f_acc">${S.accounts.filter(a=>!a.arch||a.id===d.account).map(a=>opt(a.id,accLabel(a),d.account)).join('')}</select></label>`:`<input type="hidden" id="f_acc" value="${esc(S.accounts[0].id)}">`}
-  </div></div>
-  <div class="fsec"><h3>${t('fs_result')}</h3><div class="fgrid3">
-   <label class="fld"><span>${t('l_rr')}</span><input class="in" type="number" step="0.1" min="0" inputmode="decimal" id="f_rr" value="${v('rr')}"></label>
-   <label class="fld"><span>${t('l_rra')}</span><input class="in" type="number" step="0.1" inputmode="decimal" id="f_rra" value="${v('rrActual')}" placeholder="-1 · 0 · 2.5" oninput="autoOut()"></label>
-   <label class="fld"><span>PnL <small class="mut">${t('optional')}</small></span><input class="in" type="number" step="any" inputmode="decimal" id="f_pnl" value="${v('pnl')}"></label>
-  </div><div class="segf" id="f_out" style="margin-top:12px">${[['Win','w'],['Loss','l'],['BE','b']].map(([o,c])=>`<button type="button" class="${c}${fOut===o?' on':''}" data-v="${o}" onclick="fOut=this.dataset.v;segOn('f_out',fOut)">${t('o_'+o)}</button>`).join('')}</div></div>
+   ${multiAcc?`<label class="fld full"><span>${t('h_acc')}</span><select class="in" id="f_acc">${S.accounts.filter(a=>!a.arch||a.id===d.account).map(a=>opt(a.id,accLabel(a),d.account)).join('')}</select></label>`:`<input type="hidden" id="f_acc" value="${esc(d.account||actAccs()[0].id)}">`}
+   <label class="fld full"><span>${t('l_rra')}</span><input class="in" type="number" step="0.1" inputmode="decimal" id="f_rra" value="${v('rrActual')}" placeholder="${t('ph_rra')}" oninput="autoOut()"><span class="hint">${t('r_hint')}</span></label>
+  </div><div class="segf" id="f_out" style="margin-top:10px">${[['Win','w'],['Loss','l'],['BE','b']].map(([o,c])=>`<button type="button" class="${c}${fOut===o?' on':''}" data-v="${o}" onclick="fOut=this.dataset.v;segOn('f_out',fOut)">${t('o_'+o)}</button>`).join('')}</div></div>
+  <div class="fsec"><label class="fld"><span>${t('h_setup')}</span><input class="in" id="f_setup" list="dlSetup" value="${v('setup')}" placeholder="${t('ph_setup')}" autocomplete="off" oninput="rulesBox()">${dl('dlSetup',setups)}</label></div>
   <div class="fsec" id="f_rulesSec"></div>
-  <div class="fsec"><h3>${t('fs_review')}</h3>
-   <div class="fgrid"><div class="fld"><span>${t('l_plan')}</span><div class="segf" id="f_plan"><button type="button" class="w${fPlan==='yes'?' on':''}" data-v="yes" onclick="fPlan=fPlan==='yes'?'':'yes';segOn('f_plan',fPlan)">${t('yes')}</button><button type="button" class="l${fPlan==='no'?' on':''}" data-v="no" onclick="fPlan=fPlan==='no'?'':'no';segOn('f_plan',fPlan)">${t('no')}</button></div></div>
-   <div class="fld"><span>${t('l_rating')}</span><div class="stars" id="f_rate">${[1,2,3,4,5].map(i=>`<button type="button" aria-label="${i}" class="${i<=fRate?'on':''}" onclick="fRate=fRate===${i}?0:${i};rateOn()">★</button>`).join('')}</div></div></div>
-   <div class="fld" style="margin-top:14px"><span>${t('l_emo')}</span><div class="chips" id="f_emo">${EMO.map(([k])=>`<button type="button" class="chip${fEmo.includes(k)?' on':''}" data-k="${k}" onclick="tgl(fEmo,this)">${esc(emoL(k))}</button>`).join('')}</div></div>
-   <div class="fld" style="margin-top:14px"><span>${t('l_mis')}</span><div class="chips" id="f_mis">${misAll.map(k=>`<button type="button" class="chip${fMis.includes(k)?' on':''}" data-k="${esc(k)}" onclick="tgl(fMis,this)">${esc(misL(k))}</button>`).join('')}</div></div>
-   <label class="fld" style="margin-top:14px"><span>${t('l_tags')}</span><input class="in" id="f_tags" value="${esc((d.tags||[]).join(', '))}" placeholder="${t('ph_tags')}" list="dlTags">${dl('dlTags',uniq('tags'))}</label>
+  <div class="fsec">
+   <div class="fld"><span>${t('l_plan')}</span><div class="segf" id="f_plan"><button type="button" class="w${fPlan==='yes'?' on':''}" data-v="yes" onclick="fPlan=fPlan==='yes'?'':'yes';segOn('f_plan',fPlan)">${t('yes')}</button><button type="button" class="l${fPlan==='no'?' on':''}" data-v="no" onclick="fPlan=fPlan==='no'?'':'no';segOn('f_plan',fPlan)">${t('no')}</button></div></div>
+   <div class="fld" style="margin-top:14px"><span>${t('l_emo_q')}</span><div class="chips" id="f_emo">${EMO.map(([k])=>`<button type="button" class="chip${fEmo.includes(k)?' on':''}" data-k="${k}" onclick="tgl(fEmo,this)">${esc(emoL(k))}</button>`).join('')}</div></div>
+   <label class="fld" style="margin-top:14px"><span>${t('l_notes')}</span><textarea class="in" id="f_notes" style="min-height:70px" placeholder="${t('ph_notes')}">${v('notes')}</textarea></label>
   </div>
-  <details class="more"${x&&(x.kz||x.tf||has(x.mfe)||has(x.mae))?' open':''}><summary>${t('fs_more')}</summary><div class="fgrid">
+  <details class="more"${x?' open':''}><summary>${t('fs_more')} <span class="mut" style="font-weight:400">· ${esc(when)}</span></summary><div class="fgrid">
+   <label class="fld"><span>${t('h_date')}</span><input class="in" type="date" id="f_date" value="${v('date')}"></label>
+   <label class="fld"><span>${t('l_time')}</span><input class="in" type="time" id="f_time" value="${v('time')}"></label>
+   <label class="fld"><span>${t('l_rr')}</span><input class="in" type="number" step="0.1" min="0" inputmode="decimal" id="f_rr" value="${v('rr')}"><span class="hint">${t('rr_hint')}</span></label>
+   <label class="fld"><span>PnL <small class="mut">(${esc(accOf(d.account).cur)})</small></span><input class="in" type="number" step="any" inputmode="decimal" id="f_pnl" value="${v('pnl')}"><span class="hint">${t('pnl_hint')}</span></label>
+   <div class="fld full"><span>${t('l_mis')}</span><div class="chips" id="f_mis">${misAll.map(k=>`<button type="button" class="chip${fMis.includes(k)?' on':''}" data-k="${esc(k)}" onclick="tgl(fMis,this)">${esc(misL(k))}</button>`).join('')}</div></div>
+   <div class="fld full"><span>${t('l_rating')}</span><div class="stars" id="f_rate">${[1,2,3,4,5].map(i=>`<button type="button" aria-label="${i}" class="${i<=fRate?'on':''}" onclick="fRate=fRate===${i}?0:${i};rateOn()">★</button>`).join('')}</div><span class="hint">${t('rating_hint')}</span></div>
    <label class="fld"><span>${t('l_sess')}</span><input class="in" id="f_kz" list="dlSess" value="${v('kz')}" autocomplete="off">${dl('dlSess',[...new Set([...SESS,...uniq('kz')])])}</label>
    <label class="fld"><span>Timeframe</span><select class="in" id="f_tf">${opt('','—',d.tf)}${[...new Set([...TF,...(d.tf?[d.tf]:[])])].map(z=>opt(z,z,d.tf)).join('')}</select></label>
    <label class="fld"><span>MFE (R)</span><input class="in" type="number" step="0.1" min="0" inputmode="decimal" id="f_mfe" value="${v('mfe')}"><span class="hint">${t('mfe_h')}</span></label>
    <label class="fld"><span>MAE (R)</span><input class="in" type="number" step="0.1" inputmode="decimal" id="f_mae" value="${has(d.mae)?Math.abs(d.mae):''}"><span class="hint">${t('mae_h')}</span></label>
-  </div></details>
-  <div class="fsec"><h3>${t('fs_notes')}</h3>
-   <label class="fld"><span>${t('l_shots')}</span><textarea class="in" id="f_chart" style="min-height:64px" placeholder="https://www.tradingview.com/x/...">${esc((d.chart||'').split('|||').join('\n'))}</textarea><span class="hint">${t('shots_h')}</span></label>
-   <label class="fld" style="margin-top:12px"><span>${t('l_notes')}</span><textarea class="in" id="f_notes" placeholder="${t('ph_notes')}">${v('notes')}</textarea></label>
-  </div>`;
+   <label class="fld full"><span>${t('l_tags')}</span><input class="in" id="f_tags" value="${esc((d.tags||[]).join(', '))}" placeholder="${t('ph_tags')}" list="dlTags">${dl('dlTags',uniq('tags'))}</label>
+   <label class="fld full"><span>${t('l_shots')}</span><textarea class="in" id="f_chart" style="min-height:60px" placeholder="https://www.tradingview.com/x/...">${esc((d.chart||'').split('|||').join('\n'))}</textarea><span class="hint">${t('shots_h')}</span></label>
+  </div></details>`;
   $('fDel').style.display=x?'':'none';$('fDel').textContent=t('del');$('fSave').textContent=t('save');
   rulesBox();
   $('formOv').classList.add('on');$('formOv').scrollTop=0;document.body.style.overflow='hidden';tgUI();
@@ -1587,8 +1621,8 @@ function gTable(title,groups,lab,o={}){
   if(!groups.length)return `<div class="card"><div class="ch"><h2>${esc(title)}</h2></div><div class="empty">${t('no_data')}</div></div>`;
   const rows=[...groups].sort(o.order?(a,b)=>a.k-b.k:o.cost?(a,b)=>a.s.tot-b.s.tot:(a,b)=>b.s.tot-a.s.tot||b.s.n-a.s.n);
   const mx=Math.max(1e-9,...rows.map(r=>Math.abs(r.s.tot)));
-  return `<div class="card"><div class="ch"><h2>${esc(title)}</h2>${o.sub?`<small>${esc(o.sub)}</small>`:''}</div><div class="cb scroll" style="padding-top:6px"><table><thead><tr><th>${esc(o.col||title)}</th><th class="r">${t('h_trades')}</th><th class="r">${t('k_wr')}</th><th class="r">${t('h_tot')}</th><th class="r">${t('h_avg')}</th>${o.extra?`<th class="r">${o.extra[0]}</th>`:''}<th style="width:22%"></th></tr></thead><tbody>
-   ${rows.map(r=>`<tr><td>${esc(lab?lab(r.k):r.k)}</td><td class="r">${r.s.n}</td><td class="r">${pc(r.s.wr)}</td><td class="r ${cls(r.s.tot)}" style="font-weight:600">${r.s.hasR?fr(r.s.tot):'—'}</td><td class="r">${fr(r.s.exp)}</td>${o.extra?`<td class="r">${o.extra[1](r)}</td>`:''}<td><div class="gbar ${r.s.tot<0?'n':'p'}" style="width:${(Math.abs(r.s.tot)/mx*100).toFixed(1)}%"></div></td></tr>`).join('')}
+  return `<div class="card"><div class="ch"><h2>${esc(title)}</h2>${o.sub?`<small>${esc(o.sub)}</small>`:''}</div><div class="cb scroll" style="padding-top:6px"><table><thead><tr><th>${esc(o.col||title)}</th><th class="r">${t('h_trades')}</th><th class="r">${t('wr_s')}</th><th class="r">${t('h_tot')}</th><th class="r mh">${t('h_avg')}</th>${o.extra?`<th class="r">${o.extra[0]}</th>`:''}<th class="mh" style="width:22%"></th></tr></thead><tbody>
+   ${rows.map(r=>`<tr><td>${esc(lab?lab(r.k):r.k)}</td><td class="r">${r.s.n}</td><td class="r">${pc(r.s.wr)}</td><td class="r ${cls(r.s.tot)}" style="font-weight:600">${r.s.hasR?fr(r.s.tot):'—'}</td><td class="r mh">${fr(r.s.exp)}</td>${o.extra?`<td class="r">${o.extra[1](r)}</td>`:''}<td class="mh"><div class="gbar ${r.s.tot<0?'n':'p'}" style="width:${(Math.abs(r.s.tot)/mx*100).toFixed(1)}%"></div></td></tr>`).join('')}
   </tbody></table></div></div>`;
 }
 function statList(rows){return `<div>${rows.map(([a,b,c])=>`<div class="srow"><span class="t">${a}</span><span style="font-weight:600" class="${c||''}">${b}</span></div>`).join('')}</div>`}
@@ -1602,7 +1636,7 @@ function vRep(){
     const months=groupBy(l,x=>x.date.slice(0,7)).sort((a,b)=>b.k.localeCompare(a.k));
     h=`<div class="g2e"><div class="card"><div class="ch"><h2>${t('c_score')}</h2></div><div class="cb">${scoreBlock(score(l))}<p class="hint" style="margin-top:12px">${t('score_h')}</p></div></div>
     <div class="card"><div class="ch"><h2>${t('c_stats')}</h2></div><div class="cb">${statList([
-      [t('h_trades'),`${s.n} <span class="mut" style="font-weight:400">(${s.w}W ${s.ls}L ${s.be}BE)</span>`],[t('h_tot'),fr(s.tot),cls(s.tot)],[t('k_wr'),pc(s.wr)],[t('k_pf'),pfTxt(s)],[t('k_exp'),fr(s.exp),cls(s.exp)],
+      [t('h_trades'),`${s.n} <span class="mut" style="font-weight:400">(${t('kpi_wl',{w:s.w,l:s.ls,b:s.be?t('kpi_be',{n:s.be}):''})})</span>`],[t('h_tot'),fr(s.tot),cls(s.tot)],[t('k_wr'),pc(s.wr)],[t('k_pf'),pfTxt(s)],[t('k_exp'),fr(s.exp),cls(s.exp)],
       [t('st_aw'),fr(s.aw),'pos'],[t('st_al'),s.al!==null?fr(-s.al):'—','neg'],[t('k_rr'),s.real!==null?s.real.toFixed(2):'—'],[t('st_tgt'),s.tgt!==null?s.tgt.toFixed(2)+'R':'—'],
       [t('st_best'),fr(s.best),'pos'],[t('st_worst'),fr(s.worst),'neg'],[t('k_dd'),fr(-s.dd),'neg'],[t('st_streak'),`${s.mw} / ${s.ms}`],
       [t('st_days'),`${s.days} <span class="mut" style="font-weight:400">(${t('st_green',{p:pc(s.dayWin)})})</span>`],[t('k_plan'),pc(s.plan)],['PnL',s.pnl!==null?money(s.pnl,1):'—',cls(s.pnl)]])}</div></div></div>
@@ -1753,27 +1787,38 @@ function vSet(){
     <div class="srow"><div class="t">${t('s_lang')}</div><select class="sel" onchange="setLang(this.value)">${opt('tr','Türkçe',L)}${opt('en','English',L)}</select></div>
     <div class="srow"><div class="t">${t('s_theme')}</div><select class="sel" onchange="setTheme(this.value)">${opt('auto',t('th_auto'),th)}${opt('light',t('th_light'),th)}${opt('dark',t('th_dark'),th)}</select></div></div></div>
   </div><div class="stack">
-   <div class="card"><div class="ch"><h2>${t('s_data')}</h2></div><div class="cb"><div class="links">
-    <button onclick="openImport()" style="font-weight:600">${t('m_broker')}</button><button onclick="expJSON()">${t('m_bak')}</button><button onclick="$('fileJson').click()">${t('m_res')}</button><button onclick="pasteImp()">${t('m_paste')}</button>
-    <button onclick="expCSV()">${t('m_csv_exp')}</button><button onclick="$('fileCsv').click()">${t('m_csv_imp')}</button>
-    <button onclick="demo()">${t('m_demo')}</button>${trades.some(x=>x.demo)||PB.some(p=>p.demo)?`<button onclick="demoRm()">${t('m_demo_rm')}</button>`:''}
-    <button class="dan" onclick="wipe()">${t('m_wipe')}</button></div><p class="hint" style="margin-top:8px">${t('csv_h')}</p></div></div>
+   <div class="card"><div class="ch"><h2>${t('s_data')}</h2></div><div class="cb">
+    <h4 class="lgh">${t('dg_in')}</h4><div class="links"><button onclick="openImport()" style="font-weight:600">${t('m_broker')}</button><button onclick="$('fileJson').click()">${t('m_res')}</button><button onclick="$('fileCsv').click()">${t('m_csv_imp')}</button><button onclick="pasteImp()">${t('m_paste')}</button></div>
+    <h4 class="lgh">${t('dg_out')}</h4><div class="links"><button onclick="expJSON()">${t('m_bak')}</button><button onclick="expCSV()">${t('m_csv_exp')}</button></div>
+    <h4 class="lgh">${t('dg_demo')}</h4><div class="links"><button onclick="demo()">${t('m_demo')}</button>${trades.some(x=>x.demo)||PB.some(p=>p.demo)?`<button onclick="demoRm()">${t('m_demo_rm')}</button>`:''}</div>
+    <div class="links" style="margin-top:14px;border-top:1px solid var(--ln2)"><button class="dan" onclick="wipe()">${t('m_wipe')}</button></div>
+    <p class="hint" style="margin-top:8px">${t('csv_h')}</p></div></div>
    <div class="card"><div class="ch"><h2>${t('s_priv')}</h2></div><div class="cb"><p style="font-size:14px;color:var(--ink2)">${t(CS?'privacy_tg':'privacy')}</p><p class="hint" id="syncSt2" style="margin-top:8px">${CS&&syncSt?t('sync_'+syncSt):''}</p></div></div>
   </div></div>`;
 }
-/* account editor */
+/* account editor: new accounts first choose where their data comes from */
 function accDlg(id){
+  if(id)return accForm(id);
+  openDlg(t('acc_add'),`<p style="padding-top:14px;font-size:14.5px;color:var(--ink2)">${t('acc_add_how')}</p>
+   <div class="optc"><button onclick="closeDlg(true);openImport()"><b>${t('acc_m_rep')}</b><span>${t('acc_m_rep_d')}</span></button>
+   <button onclick="accForm()"><b>${t('acc_m_man')}</b><span>${t('acc_m_man_d')}</span></button></div>`,'');
+}
+const propType=k=>k==='challenge'||k==='funded';
+function accForm(id){
   const a=id?S.accounts.find(z=>z.id===id):{name:'',bal:10000,cur:actAccs()[0]?actAccs()[0].cur:'USD',risk:1,type:'',rules:{}};if(!a)return;
+  const locked=!!(id&&a.initExt);
   const r=a.rules||{},cnt=id?trades.filter(x=>x.account===id).length:0;
   const pct=(k,lab,h)=>`<label class="fld"><span>${lab}</span><input class="in" id="ad_${k}" type="number" min="0" max="99" step="0.5" inputmode="decimal" value="${r[k]||''}" placeholder="—"><span class="hint">${h}</span></label>`;
   openDlg(t(id?'acc_edit':'acc_add'),`<div class="fsec"><div class="fgrid">
     <label class="fld"><span>${t('acc_name')}</span><input class="in" id="ad_name" value="${esc(a.name)}" placeholder="${t('acc_name_ph')}"></label>
-    <label class="fld"><span>${t('acc_type')}</span><select class="in" id="ad_type">${opt('','—',a.type||'')}${ATYPES.map(k=>opt(k,typeL(k),a.type||'')).join('')}</select></label>
-    <label class="fld"><span>${t('acc_bal')}</span><input class="in" id="ad_bal" type="number" min="0" step="any" value="${a.bal}"></label>
-    <label class="fld"><span>${t('acc_cur')}</span><select class="in" id="ad_cur">${CUR.map(c=>opt(c,c,a.cur)).join('')}</select></label>
-    <label class="fld"><span>${t('acc_risk')}</span><input class="in" id="ad_risk" type="number" min="0" step="0.1" value="${a.risk}"><span class="hint">${t('acc_risk_h')}</span></label>
-    <label class="fld"><span>${t('acc_no')}</span><input class="in" id="ad_no" inputmode="numeric" value="${esc(a.no||'')}" placeholder="${t('acc_no_ph')}"><span class="hint">${t('acc_no_h')}</span></label></div></div>
-   <div class="fsec"><h3>${t('ar_title')}<small>${t('ar_sub')}</small></h3><div class="fgrid3">${pct('dll',t('ar_dll'),t('ar_dll_h'))}${pct('mll',t('ar_mll'),t('ar_mll_h'))}${pct('tgt',t('ar_tgt'),t('ar_tgt_h'))}</div>
+    <label class="fld"><span>${t('acc_type')}</span><select class="in" id="ad_type" onchange="$('ad_rules').style.display=propType(this.value)||$('ad_rules').dataset.has?'':'none'">${opt('','—',a.type||'')}${ATYPES.map(k=>opt(k,typeL(k),a.type||'')).join('')}</select></label>
+    <label class="fld"><span>${t('acc_bal')}</span><input class="in" id="ad_bal" type="number" min="0" step="any" value="${a.bal}" ${locked?'disabled':''}>${locked?`<span class="hint">${t('acc_from_rep')}</span>`:''}</label>
+    <label class="fld"><span>${t('acc_cur')}</span><select class="in" id="ad_cur" ${locked?'disabled':''}>${CUR.map(c=>opt(c,c,a.cur)).join('')}</select></label>
+    <label class="fld"><span>${t('acc_risk')}</span><input class="in" id="ad_risk" type="number" min="0" step="0.1" value="${a.risk}"><span class="hint">${t('acc_risk_h')}</span></label></div></div>
+   ${id?`<div class="fsec"><h3>${t('acc_link')}</h3>${a.no
+     ?`<div class="srow"><div><div class="t">MT #${esc(a.no)}</div><div class="d">${a.srv?esc(a.srv)+' – ':''}${t('acc_link_on')}</div></div><button class="btn sm ghost" onclick="accUnlink('${id}')">${t('acc_unlink')}</button></div>`
+     :`<p class="hint" style="font-size:13.5px">${t('acc_link_off')}</p><button class="btn sm" style="margin-top:10px" onclick="closeDlg();openImport()">${t('m_broker')}</button>`}</div>`:''}
+   <div class="fsec" id="ad_rules" ${Object.keys(r).length?'data-has="1"':''} style="${propType(a.type)||Object.keys(r).length?'':'display:none'}"><h3>${t('ar_title')}<small>${t('ar_sub')}</small></h3><div class="fgrid3">${pct('dll',t('ar_dll'),t('ar_dll_h'))}${pct('mll',t('ar_mll'),t('ar_mll_h'))}${pct('tgt',t('ar_tgt'),t('ar_tgt_h'))}</div>
     <p class="hint" style="margin-top:8px">${t('ar_note')}</p></div>
    ${id?`<div class="fsec"><h3>${t('acc_manage')}</h3><div class="links">
     ${a.arch?`<button onclick="accArch('${id}',false)">${t('acc_unarch')}</button>`:actAccs().length>1?`<button onclick="accArch('${id}',true)">${t('acc_arch')}<span class="hint" style="display:block">${t('acc_arch_h')}</span></button>`:''}
@@ -1781,15 +1826,21 @@ function accDlg(id){
    `<button class="btn" onclick="closeDlg()">${t('cancel')}</button><button class="btn pri" onclick="accSave('${id||''}')">${t('save')}</button>`);
 }
 function accSave(id){
-  const g=k=>$('ad_'+k).value,no=str(g('no')).replace(/\D/g,''),bal=num(g('bal')),risk=num(g('risk'));
+  const g=k=>$('ad_'+k).value,bal=num(g('bal')),risk=num(g('risk'));
   if(bal==null||bal<0||risk==null||risk<0){say(t('acc_req'));return}
-  if(no&&S.accounts.some(o=>o.id!==id&&o.no===no)){say(t('acc_no_dup'));return}
   const rules={};['dll','mll','tgt'].forEach(k=>{const v=num(g(k));if(v>0&&v<100)rules[k]=v});
   const d={name:g('name').trim(),type:g('type'),bal,cur:g('cur'),risk,rules};
+  if(id&&S.accounts.find(z=>z.id===id).initExt){const o=S.accounts.find(z=>z.id===id);d.bal=o.bal;d.cur=o.cur}
   let a=id?S.accounts.find(z=>z.id===id):null;
+  const blank=!a&&S.accounts.length===1&&!S.accounts[0].name&&!S.accounts[0].no&&!trades.some(x=>x.account===S.accounts[0].id)&&!S.tx.length;
+  if(blank)a=S.accounts[0];
   if(a){Object.assign(a,d);if(!d.type)delete a.type;if(!Object.keys(rules).length)delete a.rules}else{a={id:sid(),...d};if(!d.type)delete a.type;if(!Object.keys(rules).length)delete a.rules;S.accounts.push(a)}
-  if(no){if(a.no!==no)delete a.srv;a.no=no}else{delete a.no;delete a.srv}
   S=normS(S);saveS();closeDlg();render();hap('success');toast(t('saved'));
+}
+async function accUnlink(id){
+  const a=S.accounts.find(z=>z.id===id);if(!a||!a.no)return;
+  if(!await ask(t('acc_unlink_c',{n:a.no})))return;
+  delete a.no;delete a.srv;delete a.tz;saveS();accDlg(id);toast(t('saved'));
 }
 function accArch(id,on){
   const a=S.accounts.find(z=>z.id===id);if(!a)return;
@@ -1854,7 +1905,14 @@ function impJSONData(d){
   if(Array.isArray(d))list=d;
   else if(d&&Array.isArray(d.trades)){list=d.trades;
     if(d.journal&&typeof d.journal==='object'){JR=Object.assign({},d.journal,JR);saveJR()}
-    if(d.settings&&typeof d.settings==='object'){const ns=normS(d.settings),have=new Set(S.accounts.map(a=>a.id));ns.accounts.forEach(a=>{if(!have.has(a.id))S.accounts.push(a)});const txid=new Set(S.tx.map(z=>z.id));normS({...d.settings,accounts:S.accounts}).tx.forEach(z=>{if(!txid.has(z.id))S.tx.push(z)});saveS()}
+    if(d.settings&&typeof d.settings==='object'){
+      const ns=normS(d.settings);
+      /* an empty app takes the backup's settings as they are; otherwise accounts and cash movements are added */
+      const fresh=!trades.length&&!S.tx.length&&S.accounts.every(a=>!a.name&&!a.no);
+      if(fresh)S=ns;
+      else{const have=new Set(S.accounts.map(a=>a.id));ns.accounts.forEach(a=>{if(!have.has(a.id))S.accounts.push(a)});const txid=new Set(S.tx.map(z=>z.id));normS({...d.settings,accounts:S.accounts}).tx.forEach(z=>{if(!txid.has(z.id))S.tx.push(z)})}
+      fixAcc();saveS();
+    }
     if(Array.isArray(d.playbooks)){normPB(d.playbooks).forEach(p=>{if(!pbOf(p.name))PB.push(p)});savePB()}}
   else throw 0;
   const m=merge(list);render();hap('success');toast(t('imported',{n:m.add,s:m.skip}));
