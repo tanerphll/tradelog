@@ -3,336 +3,855 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-<title>TradeLog — Trading Journal</title>
-<meta name="description" content="Ücretsiz trading günlüğü: işlemlerini R cinsinden kaydet, playbook kurallarını, hata maliyetini ve performansını gör. Hesap gerekmez.">
-<meta name="theme-color" content="#0B1320">
-<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='8' fill='%232F5BEA'/%3E%3Cg fill='%23fff'%3E%3Crect x='7' y='13' width='3' height='9' rx='1.2'/%3E%3Crect x='12' y='8' width='3' height='14' rx='1.2'/%3E%3Crect x='17' y='15' width='3' height='7' rx='1.2'/%3E%3Crect x='22' y='10' width='3' height='12' rx='1.2'/%3E%3C/g%3E%3C/svg%3E">
+<title>TradeLog</title>
+<meta name="description" content="Ücretsiz trading günlüğü: işlemini 15 saniyede kaydet ya da MT4/MT5 raporunu yükle, neyin işe yaradığını R cinsinden gör.">
+<meta name="theme-color" content="#0A0A0A">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='9' fill='%230A0A0A'/%3E%3Cpath d='M9.5 22v-4.5M16 22V12.5M22.5 22V9' stroke='%23fff' stroke-width='3.4' stroke-linecap='round'/%3E%3C/svg%3E">
 <script src="https://telegram.org/js/telegram-web-app.js?64"></script>
 <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+Condensed:wght@500;600&family=IBM+Plex+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500..800&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap">
 <style>
+[hidden]{display:none!important}
+.ap{min-height:100vh}
 :root{color-scheme:light;
---bg:#EEF1F5;--sf:#FFFFFF;--sf2:#F5F7FA;--ln:#DCE1E8;--ln2:#E8ECF1;--ink:#0F1B2D;--ink2:#4B586B;--ink3:#7F8C9E;
---br:#2F5BEA;--brs:rgba(47,91,234,.10);--brt:#FFFFFF;
---win:#0B8F62;--wins:rgba(11,143,98,.12);--loss:#CF314A;--losss:rgba(207,49,74,.11);--be:#A0660F;--bes:rgba(160,102,15,.13);
---sh:0 1px 2px rgba(15,27,45,.05);--ovl:rgba(9,15,25,.45);
---f:'IBM Plex Sans',system-ui,-apple-system,'Segoe UI',Roboto,sans-serif;--fc:'IBM Plex Sans Condensed','IBM Plex Sans',system-ui,sans-serif;
---r:12px;--side:236px}
+--bg:#F8F8F8;--sf:#FFFFFF;--sf2:#F1F2F4;--ln:#E1E3E8;--ln2:#ECEDF0;--ink:#000100;--ink2:#4A4F5C;--ink3:#676C7A;
+--br:#2F7D88;--brs:rgba(47,125,136,.10);--brt:#FFFFFF;
+--win:#15803D;--wins:rgba(21,128,61,.10);--loss:#DC2626;--losss:rgba(220,38,38,.09);--be:#A16207;--bes:rgba(161,98,7,.11);
+--sh:0 1px 2px rgba(0,0,0,.04);--ovl:rgba(10,10,10,.45);
+--f:'Inter',system-ui,-apple-system,'Segoe UI',Roboto,sans-serif;
+--fd:'Bricolage Grotesque','Inter',system-ui,sans-serif;
+--fn:'JetBrains Mono',ui-monospace,'SFMono-Regular',Menlo,monospace;
+--r:18px;--side:244px}
 :root[data-theme=dark]{color-scheme:dark;
---bg:#0B1320;--sf:#111B2A;--sf2:#162235;--ln:#24334B;--ln2:#1C293D;--ink:#E6ECF4;--ink2:#A6B3C5;--ink3:#6E7D93;
---br:#7896FF;--brs:rgba(120,150,255,.15);--brt:#0B1320;
---win:#33C690;--wins:rgba(51,198,144,.14);--loss:#FF7187;--losss:rgba(255,113,135,.13);--be:#E3A94A;--bes:rgba(227,169,74,.15);
---sh:none;--ovl:rgba(0,0,0,.6)}
-*{box-sizing:border-box;margin:0;padding:0}
+--bg:#000100;--sf:#0E0F12;--sf2:#16181C;--ln:#25282F;--ln2:#1C1E23;--ink:#F8F8F8;--ink2:#C5C9D2;--ink3:#A1A6B4;
+--br:#94C5CC;--brs:rgba(148,197,204,.14);--brt:#000100;
+--win:#4ADE80;--wins:rgba(74,222,128,.12);--loss:#F87171;--losss:rgba(248,113,113,.12);--be:#FBBF24;--bes:rgba(251,191,36,.12);
+--sh:none;--ovl:rgba(0,0,0,.66)}
+.ap *{box-sizing:border-box;margin:0;padding:0}
 html{-webkit-text-size-adjust:100%}
-body{background:var(--bg);color:var(--ink);font:15px/1.5 var(--f);font-variant-numeric:tabular-nums;-webkit-tap-highlight-color:transparent;min-height:100vh;padding-top:var(--tg-content-safe-area-inset-top,0px)}
-button,input,select,textarea{font:inherit;color:inherit}
-button{cursor:pointer;background:none;border:0;-webkit-appearance:none}
-a{color:var(--br)}
-:focus-visible{outline:2px solid var(--br);outline-offset:2px;border-radius:4px}
-.pos{color:var(--win)}.neg{color:var(--loss)}.neu{color:var(--be)}.mut{color:var(--ink3)}
-.hide{display:none!important}
-
-/* shell */
-.app{display:grid;grid-template-columns:var(--side) minmax(0,1fr);min-height:100vh}
-.side{position:sticky;top:0;height:100vh;display:flex;flex-direction:column;gap:2px;padding:20px 14px 16px;border-right:1px solid var(--ln);background:var(--sf)}
-.brand{display:flex;align-items:center;gap:10px;font:600 18px var(--fc);padding:2px 10px 20px}
-.nav{display:flex;align-items:center;gap:12px;padding:9px 10px;border-radius:9px;color:var(--ink2);font-weight:500;text-align:left;width:100%}
-.nav svg{width:19px;height:19px;flex:none}
-.nav:hover{background:var(--sf2);color:var(--ink)}
-.nav.on{background:var(--brs);color:var(--br)}
-.side .grow{flex:1}
-.sidefoot{font-size:12px;color:var(--ink3);padding:10px 10px 0;line-height:1.45}
-.main{min-width:0;padding:0 32px 56px;max-width:1280px;width:100%}
-.top{display:flex;align-items:center;gap:10px;flex-wrap:wrap;padding:22px 0 18px;position:sticky;top:0;z-index:20;background:var(--bg)}
-.top h1{font:600 27px/1.2 var(--fc);margin-right:auto}
-.seg{display:inline-flex;background:var(--sf);border:1px solid var(--ln);border-radius:10px;padding:3px;gap:2px;max-width:100%;overflow-x:auto;scrollbar-width:none}
-.seg::-webkit-scrollbar{display:none}
-.seg button{padding:6px 11px;border-radius:7px;font-size:13px;color:var(--ink2);white-space:nowrap;flex:none}
-.seg button.on{background:var(--ink);color:var(--sf)}
-.sel{background:var(--sf) url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='10' height='6'%3E%3Cpath d='M1 1l4 4 4-4' stroke='%237F8C9E' stroke-width='1.6' fill='none' stroke-linecap='round'/%3E%3C/svg%3E") no-repeat right 11px center;border:1px solid var(--ln);border-radius:10px;padding:8px 30px 8px 12px;font-size:13.5px;-webkit-appearance:none;appearance:none;max-width:100%}
-.btn{display:inline-flex;align-items:center;justify-content:center;gap:6px;padding:9px 15px;border-radius:10px;border:1px solid var(--ln);background:var(--sf);font-size:14px;font-weight:500;white-space:nowrap}
-.btn:hover{border-color:var(--ink3)}
-.btn.pri{background:var(--br);border-color:var(--br);color:var(--brt)}
-.btn.pri:hover{filter:brightness(1.06)}
-.btn.dan{color:var(--loss)}
-.btn.sm{padding:6px 11px;font-size:13px;border-radius:8px}
-.btn.ghost{border-color:transparent;background:transparent;color:var(--ink2)}
-.btn svg{width:16px;height:16px}
-.tabbar{display:none}
-.persel{display:none}
-
-/* cards */
-.card{background:var(--sf);border:1px solid var(--ln);border-radius:var(--r);box-shadow:var(--sh);min-width:0}
-.ch{display:flex;align-items:baseline;justify-content:space-between;gap:10px;padding:16px 18px 0}
-.ch h2{font:600 15px/1.3 var(--f)}
-.ch small{color:var(--ink3);font-size:13px}
-.cb{padding:12px 18px 18px}
-.stack{display:grid;gap:16px}
-.g2{display:grid;grid-template-columns:minmax(0,1.55fr) minmax(0,1fr);gap:16px;align-items:start}
-.g2e{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:16px}
-.empty{padding:36px 18px;text-align:center;color:var(--ink3);font-size:14px}
-
-/* hero */
-.hero{display:grid;grid-template-columns:minmax(220px,auto) minmax(0,1fr);gap:32px;align-items:center;padding:22px 26px}
-.hero .lbl{font-size:13.5px;color:var(--ink2)}
-.hero .big{font:600 60px/1.02 var(--fc);letter-spacing:-1.2px;margin-top:4px;white-space:nowrap}
-.hero .hfacts{display:flex;gap:6px 18px;flex-wrap:wrap;margin-top:10px;font-size:13.5px;color:var(--ink2)}
-.hero .hfacts>span{white-space:nowrap}
-.hero .hfacts b{color:var(--ink);font-weight:600}
-.strip{position:relative;height:112px;display:flex;gap:2px;align-items:stretch}
-.strip:before{content:'';position:absolute;left:0;right:0;top:50%;border-top:1px dashed var(--ln)}
-.sb{flex:1 1 0;max-width:12px;position:relative}
-.sb b{position:absolute;left:0;right:0;border-radius:2px;min-height:2px}
-.sb b.u{bottom:50%;background:var(--win)}.sb b.d{top:50%;background:var(--loss)}.sb b.z{top:calc(50% - 1px);height:2px;background:var(--be)}
-.sb.off b{opacity:.45}
-.stripcap{display:flex;justify-content:space-between;font-size:12px;color:var(--ink3);margin-top:6px}
-
-/* kpis */
-.kpis{display:grid;grid-template-columns:repeat(6,minmax(0,1fr))}
-.kpi{padding:14px 18px;border-left:1px solid var(--ln2)}
-.kpi:first-child{border-left:0}
-.kpi .l{font-size:13px;color:var(--ink2)}
-.kpi .v{font:600 25px/1.25 var(--fc);margin-top:2px;white-space:nowrap}
-.kpi .s{font-size:12px;color:var(--ink3)}
-
-/* alerts / insights */
-.alert{display:flex;gap:10px;align-items:flex-start;background:var(--losss);color:var(--ink);border-radius:10px;padding:12px 16px;font-size:14px}
-.alert svg{color:var(--loss);flex:none;width:18px;height:18px;margin-top:2px}
-.ins{display:flex;gap:12px;padding:11px 0;border-top:1px solid var(--ln2);font-size:14px;line-height:1.5}
-.ins:first-child{border-top:0;padding-top:2px}
-.ins i{width:8px;height:8px;border-radius:50%;margin-top:7px;flex:none;background:var(--ink3)}
-.ins.good i{background:var(--win)}.ins.bad i{background:var(--loss)}
-
-/* charts */
-.chart{position:relative}
-.chart svg{display:block;width:100%;height:auto;overflow:visible}
-.tip{position:absolute;pointer-events:none;background:var(--ink);color:var(--sf);font-size:12.5px;line-height:1.45;padding:7px 10px;border-radius:8px;white-space:nowrap;z-index:5;transform:translate(-50%,calc(-100% - 10px));display:none}
-.legend{display:flex;gap:14px;flex-wrap:wrap;font-size:12.5px;color:var(--ink2);margin-top:8px}
-.legend span{display:inline-flex;align-items:center;gap:6px}
-.legend i{width:10px;height:10px;border-radius:50%;display:inline-block}
-.scoretop{display:flex;align-items:center;justify-content:space-between;gap:8px}
-.scoretop svg{width:min(250px,60%);flex:none}
-.snum{font:600 52px/1 var(--fc)}.snum span{font-size:20px;margin-left:2px}
-.sparts{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:2px 20px;margin-top:4px}
-.meter{height:6px;border-radius:3px;background:var(--ln2);overflow:hidden;margin-top:4px}
-.meter b{display:block;height:100%;border-radius:3px;background:var(--br)}
-.sline{display:flex;justify-content:space-between;font-size:13px;color:var(--ink2);margin-top:9px}
-
-/* trades */
-.badge{display:inline-flex;align-items:center;padding:1px 8px;border-radius:6px;font-size:12px;font-weight:600;line-height:20px;white-space:nowrap}
-.badge.win{background:var(--wins);color:var(--win)}.badge.loss{background:var(--losss);color:var(--loss)}.badge.be{background:var(--bes);color:var(--be)}
-.side-l,.side-s{font-size:12.5px;font-weight:600}.side-l{color:var(--win)}.side-s{color:var(--loss)}
-.tag{display:inline-block;font-size:12px;color:var(--ink2);background:var(--sf2);border:1px solid var(--ln2);border-radius:6px;padding:0 7px;line-height:20px;white-space:nowrap}
-.sym{font-weight:600}
-table{width:100%;border-collapse:collapse;font-size:14px}
-th{text-align:left;font-weight:500;font-size:12.5px;color:var(--ink3);padding:10px 12px;border-bottom:1px solid var(--ln);white-space:nowrap}
-th.s{cursor:pointer}th.s:hover{color:var(--ink)}
-td{padding:11px 12px;border-bottom:1px solid var(--ln2);white-space:nowrap}
-tr:last-child td{border-bottom:0}
-tr.rw{cursor:pointer}tr.rw:hover td{background:var(--sf2)}
-.r{text-align:right}
-.scroll{overflow-x:auto}
-.tlist .tc{display:block;width:100%;text-align:left;padding:13px 16px;border-top:1px solid var(--ln2)}
-.tlist .tc:first-child{border-top:0}
-.tc1{display:flex;align-items:center;gap:8px}
-.tc1 .rv{margin-left:auto;font:600 17px var(--fc)}
-.tc2{display:flex;gap:6px;flex-wrap:wrap;align-items:center;margin-top:6px;font-size:12.5px;color:var(--ink3)}
-.toolbar{display:flex;gap:8px;flex-wrap:wrap;align-items:center;padding:14px 16px;border-bottom:1px solid var(--ln2)}
-.toolbar .in{flex:1 1 180px;width:auto;padding:8px 12px;font-size:14px}
-.sumline{display:flex;gap:18px;flex-wrap:wrap;padding:10px 16px;font-size:13px;color:var(--ink2);border-bottom:1px solid var(--ln2)}
-.sumline b{color:var(--ink);font-weight:600}
-.filters{display:flex;gap:8px;flex-wrap:wrap;padding:0 16px 14px;border-bottom:1px solid var(--ln2)}
-.filters .sel{flex:1 1 140px}
-
-.dual .tlist{display:none}
-.revq{display:flex;align-items:center;gap:16px;justify-content:space-between;padding:16px 18px;border-color:var(--br);background:var(--brs)}
-.revq b{font-weight:600}
-.steps{padding-left:20px;font-size:14px;line-height:1.6;color:var(--ink2)}
-.steps li{margin:2px 0}
-/* group table bars */
-.gbar{height:8px;border-radius:4px;min-width:2px}
-.gbar.p{background:var(--win)}.gbar.n{background:var(--loss)}
-
-/* calendar */
-.calhead{display:flex;align-items:center;gap:8px;padding:16px 18px 0}
-.calhead h2{font:600 18px var(--fc);margin-right:auto}
-.calsum{display:flex;gap:18px;flex-wrap:wrap;font-size:13px;color:var(--ink2);padding:8px 18px 0}
-.calsum b{color:var(--ink)}
-.calg{display:grid;grid-template-columns:repeat(7,minmax(0,1fr)) minmax(0,1.05fr);gap:6px}
-.dow{font-size:12px;color:var(--ink3);text-align:center;padding-bottom:2px}
-.cd{min-height:84px;border-radius:9px;border:1px solid var(--ln2);padding:7px 8px;font-size:12px;color:var(--ink3);display:flex;flex-direction:column;gap:1px;text-align:left;background:var(--sf);min-width:0}
-.cd.hit{cursor:pointer}.cd.hit:hover{border-color:var(--ink3)}
-.cd .rv{font:600 16px/1.2 var(--fc);color:var(--ink);margin-top:auto}
-.cd.today{border-color:var(--br);box-shadow:inset 0 0 0 1px var(--br)}
-.cd.wk{background:var(--sf2);border-style:dashed}
-.cd.blank{visibility:hidden}
-
-/* playbooks */
-.pbs{display:grid;grid-template-columns:repeat(auto-fill,minmax(300px,1fr));gap:16px}
-.pb h3{font:600 19px var(--fc)}
-.pb p{color:var(--ink2);font-size:14px;margin-top:4px}
-.pbst{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:4px;margin:14px 0}
-.pbst div{font-size:12px;color:var(--ink3)}.pbst b{display:block;font:600 18px var(--fc);color:var(--ink)}
-.rules{list-style:none;font-size:14px}
-.rules li{display:flex;justify-content:space-between;gap:10px;padding:7px 0;border-top:1px solid var(--ln2)}
-.rules li span:last-child{color:var(--ink3);white-space:nowrap}
-
-/* forms */
-.fld{display:flex;flex-direction:column;gap:6px;min-width:0}
-.fld>span{font-size:13px;color:var(--ink2);font-weight:500}
-.in{width:100%;background:var(--sf);border:1px solid var(--ln);border-radius:10px;padding:10px 12px;font-size:15px;outline:none;min-width:0}
-.in:focus{border-color:var(--br);box-shadow:0 0 0 3px var(--brs)}
-textarea.in{min-height:84px;resize:vertical;line-height:1.5}
-.fgrid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px}
-.fgrid3{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px}
-.full{grid-column:1/-1}
-.fsec{padding:18px 0 4px}
-.fsec+.fsec{border-top:1px solid var(--ln2)}
-.fsec h3{font-size:14.5px;font-weight:600;margin-bottom:12px}
-.fsec h3 small{font-weight:400;color:var(--ink3);margin-left:6px}
-.chips{display:flex;gap:6px;flex-wrap:wrap}
-.chip{display:inline-flex;align-items:center;gap:4px;padding:6px 11px;border-radius:999px;border:1px solid var(--ln);background:var(--sf);font-size:13.5px;color:var(--ink2)}
-.chip.on{border-color:var(--br);background:var(--brs);color:var(--br)}
-.segf{display:flex;gap:6px}
-.segf button{flex:1;padding:10px;border-radius:10px;border:1px solid var(--ln);font-weight:600;font-size:14px;color:var(--ink2)}
-.segf .w.on{background:var(--wins);border-color:var(--win);color:var(--win)}
-.segf .l.on{background:var(--losss);border-color:var(--loss);color:var(--loss)}
-.segf .b.on{background:var(--bes);border-color:var(--be);color:var(--be)}
-.segf .x.on{background:var(--brs);border-color:var(--br);color:var(--br)}
-.stars{display:flex;gap:2px}
-.stars button{font-size:26px;line-height:1;color:var(--ln);padding:2px}
-.stars button.on{color:var(--be)}
-.check{display:flex;gap:10px;align-items:flex-start;padding:7px 0;font-size:14.5px;cursor:pointer}
-.check input{width:18px;height:18px;accent-color:var(--br);margin-top:2px;flex:none}
-details.more{border-top:1px solid var(--ln2);padding:14px 0 4px}
-details.more summary{cursor:pointer;font-size:14.5px;font-weight:600;list-style:none}
-details.more summary::-webkit-details-marker{display:none}
-details.more summary:after{content:' +';color:var(--ink3)}
-details.more[open] summary:after{content:' −'}
-details.more>div{margin-top:12px}
-.hint{font-size:12.5px;color:var(--ink3);margin-top:2px}
-
-/* settings */
-.srow{display:flex;align-items:center;justify-content:space-between;gap:16px;padding:12px 0;border-top:1px solid var(--ln2)}
-.srow:first-child{border-top:0}
-.srow .t{font-size:14.5px}.srow .d{font-size:12.5px;color:var(--ink3)}
-.srow .in,.srow .sel{width:150px;flex:none}
-.acc{display:grid;grid-template-columns:1.4fr 1fr .8fr .7fr auto;gap:8px;align-items:center;padding:10px 0;border-top:1px solid var(--ln2)}
-.acc:first-child{border-top:0}
-.optc{display:grid;gap:10px;margin:14px 0 6px}
-.optc button{display:flex;flex-direction:column;gap:4px;text-align:left;padding:14px 16px;border:1px solid var(--ln);border-radius:12px;background:var(--sf)}
-.optc button:hover{border-color:var(--br)}.optc b{font-weight:600;font-size:15px}.optc span{font-size:13.5px;color:var(--ink2);line-height:1.45}
-.acard{padding:12px 0;border-top:1px solid var(--ln2)}.acard:first-child{border-top:0;padding-top:0}
-.acard1 b{font-weight:600}.acard1 .hint{margin-top:3px}
-.acard2{display:flex;justify-content:space-between;align-items:center;gap:10px;flex-wrap:wrap;margin-top:8px;font-size:13.5px;color:var(--ink2)}
-.acard2 b{color:var(--ink);font-weight:600}.acard2 .acts{display:flex;gap:6px}
-.pacc+.pacc{margin-top:14px;padding-top:12px;border-top:1px solid var(--ln2)}.pname{font-weight:600;font-size:14px;margin-bottom:2px}
-.prow{margin-top:6px}
-.accb{grid-column:1/-1;display:flex;align-items:center;justify-content:space-between;gap:10px;font-size:13px;color:var(--ink2)}
-.accb b{color:var(--ink);font-weight:600}
-.accno{display:flex;align-items:center;gap:8px}.accno .in{width:150px;padding:6px 10px;font-size:13.5px}
-.btn:disabled{opacity:.45;cursor:not-allowed}
-.acc .in{padding:8px 10px;font-size:14px}
-.links{display:grid;gap:2px}
-.links button{text-align:left;padding:11px 0;border-top:1px solid var(--ln2);font-size:14.5px}
-.links button:first-child{border-top:0}
-.links button.dan{color:var(--loss)}
-.lgh{font-size:12.5px;font-weight:500;color:var(--ink3);margin:14px 0 2px}.lgh:first-child{margin-top:0}
-
-/* trade detail */
-.dhead{display:flex;align-items:center;gap:10px;flex-wrap:wrap}
-.dhead .rv{font:600 34px/1 var(--fc);margin-left:auto}
-.facts{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:14px 12px;margin:18px 0}
-.facts div{font-size:12.5px;color:var(--ink3)}.facts b{display:block;font-size:15px;color:var(--ink);font-weight:500}
-.shots{display:grid;grid-template-columns:repeat(auto-fill,minmax(160px,1fr));gap:8px}
-.shots a{display:block;border-radius:8px;overflow:hidden;border:1px solid var(--ln2);background:var(--sf2)}
-.shots img{display:block;width:100%;height:110px;object-fit:cover}
-.shots a.lnk{padding:10px;font-size:13px;word-break:break-all}
-.note{white-space:pre-wrap;font-size:14.5px;line-height:1.6}
-.dsec{padding:14px 0;border-top:1px solid var(--ln2)}
-.dsec h4{font-size:13px;font-weight:500;color:var(--ink3);margin-bottom:8px}
-
-/* welcome */
-.welcome{padding:48px 28px;display:grid;grid-template-columns:minmax(0,1.1fr) minmax(0,1fr);gap:32px;align-items:center}
-.welcome h2{font:600 34px/1.15 var(--fc);max-width:15ch}
-.welcome p{color:var(--ink2);margin-top:12px;max-width:52ch}
-.welcome .acts{display:flex;gap:8px;flex-wrap:wrap;margin-top:22px}
-.welcome ul{list-style:none;display:grid;gap:12px;font-size:14.5px;color:var(--ink2)}
-.welcome li{display:flex;gap:10px}
-.welcome li svg{color:var(--br);flex:none;width:18px;height:18px;margin-top:2px}
-
-/* modal */
-.ov{position:fixed;inset:0;background:var(--ovl);z-index:50;display:none;align-items:flex-start;justify-content:center;overflow-y:auto;padding:5vh 16px}
-.ov.on{display:flex}
-.md{background:var(--sf);border-radius:16px;width:100%;max-width:640px;box-shadow:0 24px 60px rgba(0,0,0,.25);margin-bottom:5vh;position:relative}
-.md.wide{max-width:760px}
-.mh{display:flex;align-items:center;gap:10px;padding:16px 20px;border-bottom:1px solid var(--ln2);position:sticky;top:0;background:var(--sf);border-radius:16px 16px 0 0;z-index:3}
-.mh h2{font:600 19px var(--fc);margin-right:auto}
-.mb{padding:2px 20px 18px}
-.mf{display:flex;gap:10px;padding:14px 20px;border-top:1px solid var(--ln2);position:sticky;bottom:0;background:var(--sf);border-radius:0 0 16px 16px;z-index:3}
-.mf .btn{flex:1;padding:12px}
-.xb{width:36px;height:36px;border-radius:9px;font-size:24px;line-height:1;color:var(--ink3)}
-.xb:hover{background:var(--sf2)}
-#toast{position:fixed;left:50%;bottom:calc(28px + env(safe-area-inset-bottom,0px));transform:translate(-50%,16px);background:var(--ink);color:var(--sf);padding:10px 16px;border-radius:10px;font-size:14px;opacity:0;pointer-events:none;transition:.18s;z-index:99}
-#toast.show{opacity:1;transform:translate(-50%,0)}
-body.tg .addbtn,body.tg #fSave{display:none}
-
-@media (max-width:1100px){.kpis{grid-template-columns:repeat(3,minmax(0,1fr))}.kpi:nth-child(4){border-left:0}.kpi:nth-child(n+4){border-top:1px solid var(--ln2)}}
-@media (max-width:900px){
- .app{grid-template-columns:minmax(0,1fr)}
- .side{display:none}
- .main{padding:0 14px calc(86px + env(safe-area-inset-bottom,0px))}
- .tabbar{display:grid;grid-template-columns:repeat(5,1fr);position:fixed;left:0;right:0;bottom:0;z-index:40;background:var(--sf);border-top:1px solid var(--ln);padding:6px 4px calc(6px + env(safe-area-inset-bottom,0px))}
- .tabbar button{display:flex;flex-direction:column;align-items:center;gap:2px;font-size:11px;color:var(--ink3);padding:3px 0}
- .tabbar button.on{color:var(--br)}
- .tabbar svg{width:22px;height:22px}
- .top{padding:12px 0 10px}
- .top h1{font-size:23px;flex:1 1 100%}
- .top .ctl{display:flex;gap:8px;width:100%}
- .top .ctl .sel{flex:1}
- .g2,.g2e{grid-template-columns:minmax(0,1fr)}
- .hero{grid-template-columns:minmax(0,1fr);gap:16px;padding:18px}
- .hero .big{font-size:48px}
- .strip{height:84px}
- .welcome{grid-template-columns:minmax(0,1fr);padding:28px 20px}
- .welcome h2{font-size:28px}
- .calg{gap:4px}
- .cd{min-height:58px;padding:5px;font-size:11px}
- .cd .rv{font-size:11px;letter-spacing:-.4px;white-space:nowrap}
- .cd .wl{display:none}
- .calsum{gap:4px 14px}
- .cd .n2{display:none}
- .dual .tblwrap{display:none}.dual .tlist{display:block}
- .perseg{display:none!important}.persel{display:block!important;flex:1;min-width:0}
- .addbtn .lbl{display:none}.addbtn{padding:9px 12px}
- .chart text{font-size:10.5px}
- .facts{grid-template-columns:repeat(2,minmax(0,1fr))}
- .acc{grid-template-columns:1fr 1fr;}
- .acc .del{grid-column:2;justify-self:end}
- .ov{padding:0;align-items:flex-end;overflow:hidden}
- .md,.md.wide{border-radius:18px 18px 0 0;max-height:94vh;overflow-y:auto;margin:0;max-width:none}
- .mh{border-radius:18px 18px 0 0}
- .mf{border-radius:0;padding-bottom:calc(14px + env(safe-area-inset-bottom,0px))}
-}
-@media (max-width:520px){
- .mh{display:none}
- td,th{padding-left:8px;padding-right:8px}
- .kpi{padding:12px 12px}.kpi .v{font-size:21px}
- .fgrid3{grid-template-columns:repeat(2,minmax(0,1fr))}
- .pbst{grid-template-columns:repeat(2,minmax(0,1fr));gap:10px}
- .srow{flex-wrap:wrap}.srow .in,.srow .sel{width:100%}
-}
-@media (prefers-reduced-motion:reduce){*{transition:none!important}}
+body{background:var(--bg);color:var(--ink);font:15px/1.5 var(--f);font-variant-numeric:tabular-nums;-webkit-font-smoothing:antialiased;-webkit-tap-highlight-color:transparent;min-height:100vh;padding-top:var(--tg-content-safe-area-inset-top,0px)}
+.ap button,.ap input,.ap select,.ap textarea{font:inherit;color:inherit}
+.ap button{cursor:pointer;background:none;border:0;-webkit-appearance:none}
+.ap a{color:var(--ink);text-underline-offset:3px}
+.ap :focus-visible{outline:2px solid var(--br);outline-offset:2px;border-radius:8px}
+.ap .pos{color:var(--win)}
+.ap .neg{color:var(--loss)}
+.ap .neu{color:var(--be)}
+.ap .mut{color:var(--ink3)}
+.ap .hide{display:none!important}
+.ap .num{font-family:var(--fn);font-variant-numeric:tabular-nums;letter-spacing:-.02em}
+.ap .app{display:grid;grid-template-columns:var(--side) minmax(0,1fr);min-height:100vh;background:var(--bg)}
+.ap .side{position:sticky;top:0;height:100vh;overflow-y:auto;display:flex;flex-direction:column;gap:3px;padding:20px 14px 16px;border-right:1px solid var(--ln);background:var(--sf)}
+.ap .brand{display:flex;align-items:center;gap:10px;font:700 20px var(--fd);letter-spacing:-.02em;padding:4px 10px 20px;color:var(--ink);text-decoration:none}
+.ap .brand svg{flex:none}
+.ap .nav{display:flex;align-items:center;gap:12px;min-height:44px;padding:0 12px;border-radius:12px;color:var(--ink2);font-weight:500;text-align:left;width:100%;transition:background .15s,color .15s}
+.ap .nav svg{width:20px;height:20px;flex:none}
+.ap .nav:hover{background:var(--sf2);color:var(--ink)}
+.ap .nav.on{background:var(--ink);color:var(--sf)}
+.ap .nav .ct{margin-left:auto;font:600 11px var(--f);background:var(--loss);color:#fff;border-radius:99px;padding:1px 7px}
+.ap .nav.on .ct{background:var(--sf);color:var(--ink)}
+.ap .side .grow{flex:1;min-height:12px}
+.ap .sidefoot{font-size:12px;color:var(--ink3);padding:10px 12px 0;line-height:1.45}
+.ap .main{min-width:0;padding:0 32px 56px;max-width:1320px;width:100%}
+.ap .top{display:flex;align-items:center;gap:10px;flex-wrap:wrap;padding:22px 0 18px;position:sticky;top:0;z-index:20;background:var(--bg)}
+.ap .top h1{font:700 30px/1.15 var(--fd);letter-spacing:-.03em;margin-right:auto}
+.ap .top .ctl{display:flex;align-items:center;gap:10px;flex-wrap:wrap;justify-content:flex-end}
+.ap .seg{display:inline-flex;background:var(--sf);border:1px solid var(--ln);border-radius:12px;padding:3px;gap:2px;max-width:100%;overflow-x:auto;scrollbar-width:none}
+.ap .seg::-webkit-scrollbar{display:none}
+.ap .seg button{min-height:36px;padding:0 12px;border-radius:9px;font-size:13px;font-weight:600;color:var(--ink2);white-space:nowrap;flex:none;transition:background .15s,color .15s}
+.ap .seg button:hover{color:var(--ink)}
+.ap .seg button.on{background:var(--ink);color:var(--sf)}
+.ap .sel{background:var(--sf) url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='10' height='6'%3E%3Cpath d='M1 1l4 4 4-4' stroke='%2371717A' stroke-width='1.6' fill='none' stroke-linecap='round'/%3E%3C/svg%3E") no-repeat right 12px center;border:1px solid var(--ln);border-radius:12px;min-height:44px;padding:0 32px 0 14px;font-size:14px;font-weight:600;-webkit-appearance:none;appearance:none;max-width:100%}
+.ap .btn{display:inline-flex;align-items:center;justify-content:center;gap:7px;min-height:44px;padding:0 16px;border-radius:12px;border:1px solid var(--ln);background:var(--sf);font-size:14px;font-weight:600;white-space:nowrap;transition:border-color .15s,background .15s,transform .15s}
+.ap .btn:hover{border-color:var(--ink3)}
+.ap .btn.pri{background:var(--ink);border-color:var(--ink);color:var(--sf)}
+.ap .btn.pri:hover{transform:translateY(-1px)}
+.ap .btn.dan{color:var(--loss)}
+.ap .btn.sm{min-height:36px;padding:0 12px;font-size:13px;border-radius:10px}
+.ap .btn.ghost{border-color:transparent;background:transparent;color:var(--ink2)}
+.ap .btn svg{width:17px;height:17px}
+.ap .ib{width:44px;height:44px;flex:none;display:inline-grid;place-items:center;border-radius:12px;border:1px solid var(--ln);background:var(--sf);color:var(--ink)}
+.ap .ib:hover{border-color:var(--ink3)}
+.ap .ib svg{width:19px;height:19px}
+.ap .tabbar{display:none}
+.ap .persel{display:none}
+.ap .card{background:var(--sf);border:1px solid var(--ln);border-radius:var(--r);box-shadow:var(--sh);min-width:0}
+.ap .ch{display:flex;align-items:center;justify-content:space-between;gap:10px;padding:18px 20px 0;flex-wrap:wrap}
+.ap .ch h2{font:600 16px/1.3 var(--f)}
+.ap .ch small{color:var(--ink3);font-size:12.5px}
+.ap .ch small a{color:var(--ink2);font-weight:600}
+.ap .cb{padding:12px 20px 20px}
+.ap .stack{display:grid;gap:16px}
+.ap .g2{display:grid;grid-template-columns:minmax(0,1.55fr) minmax(0,1fr);gap:16px;align-items:start}
+.ap .g2e{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:16px;align-items:start}
+.ap .empty{padding:36px 18px;text-align:center;color:var(--ink3);font-size:14px}
+.ap .dgrid{display:grid;grid-template-columns:minmax(0,2fr) minmax(0,1fr);gap:16px;align-items:start}
+.ap .dcl,.ap .dcr{display:grid;gap:16px;min-width:0}
+.ap .dgrid>.o7{grid-column:1/-1}
+.ap .nethead{display:flex;flex-wrap:wrap;gap:18px 28px;align-items:flex-end;padding:22px 22px 0}
+.ap .nethead .lbl{font-size:13px;color:var(--ink2)}
+.ap .nethead .big{font:600 clamp(40px,4.6vw,56px)/1.02 var(--fn);letter-spacing:-.05em;margin-top:4px;white-space:nowrap}
+.ap .hfacts{display:flex;gap:6px 18px;flex-wrap:wrap;margin-top:10px;font-size:13px;color:var(--ink2)}
+.ap .hfacts>span{white-space:nowrap}
+.ap .hfacts b{color:var(--ink);font-weight:600;font-family:var(--fn);letter-spacing:-.02em}
+.ap .stripw{margin-left:auto;flex:1 1 260px;max-width:420px}
+.ap .strip{position:relative;height:84px;display:flex;gap:2px;align-items:stretch;justify-content:flex-end}
+.ap .strip:before{content:'';position:absolute;left:0;right:0;top:50%;border-top:1px dashed var(--ln)}
+.ap .sb{flex:1 1 0;max-width:10px;position:relative}
+.ap .sb b{position:absolute;left:0;right:0;border-radius:3px;min-height:2px}
+.ap .sb b.u{bottom:50%;background:var(--win)}
+.ap .sb b.d{top:50%;background:var(--loss)}
+.ap .sb b.z{top:calc(50% - 1px);height:2px;background:var(--be)}
+.ap .sb.off b{opacity:.4}
+.ap .stripcap{display:flex;justify-content:space-between;gap:8px;font-size:11.5px;color:var(--ink3);margin-top:6px}
+.ap .kpis{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:10px;padding:18px 22px 0}
+.ap .kpi{background:var(--sf2);border:1px solid var(--ln2);border-radius:14px;padding:12px 14px;min-width:0}
+.ap .kpi .l{font-size:12.5px;color:var(--ink2)}
+.ap .kpi .v{font:600 22px/1.3 var(--fn);letter-spacing:-.03em;margin-top:2px;white-space:nowrap}
+.ap .kpi .s{font-size:12px;color:var(--ink3)}
+.ap .netcard{padding-bottom:22px}
+.ap .alert{display:flex;gap:12px;align-items:flex-start;background:var(--losss);border:1px solid color-mix(in srgb,var(--loss) 30%,transparent);color:var(--ink);border-radius:14px;padding:13px 16px;font-size:14px}
+.ap .alert svg{color:var(--loss);flex:none;width:18px;height:18px;margin-top:2px}
+.ap .ins{display:flex;gap:12px;padding:12px 0;border-top:1px solid var(--ln2);font-size:14px;line-height:1.5}
+.ap .ins:first-child{border-top:0;padding-top:2px}
+.ap .ins i{width:8px;height:8px;border-radius:50%;margin-top:7px;flex:none;background:var(--ink3)}
+.ap .ins.good i{background:var(--win)}
+.ap .ins.bad i{background:var(--loss)}
+.ap .chart{position:relative}
+.ap .chart svg{display:block;width:100%;height:auto;overflow:visible}
+.ap .chart text{font-family:var(--fn)}
+.ap .tip{position:absolute;pointer-events:none;background:var(--ink);color:var(--sf);font-size:12.5px;line-height:1.45;padding:7px 10px;border-radius:10px;white-space:nowrap;z-index:5;transform:translate(-50%,calc(-100% - 10px));display:none}
+.ap .legend{display:flex;gap:14px;flex-wrap:wrap;font-size:12.5px;color:var(--ink2);margin-top:8px}
+.ap .legend span{display:inline-flex;align-items:center;gap:6px}
+.ap .legend i{width:10px;height:10px;border-radius:50%;display:inline-block}
+.ap .ring{position:relative;width:148px;height:148px;margin:6px auto 4px}
+.ap .ring svg{width:100%;height:100%;transform:rotate(-90deg)}
+.ap .ring .rc{position:absolute;inset:0;display:grid;place-items:center;text-align:center}
+.ap .ring .rc b{display:block;font:600 40px/1 var(--fn);letter-spacing:-.04em}
+.ap .ring .rc span{font-size:12px;color:var(--ink3)}
+.ap .scnote{text-align:center;font-size:13px;color:var(--ink2);margin-bottom:12px}
+.ap .parts{display:grid;gap:9px}
+.ap .pt{display:grid;grid-template-columns:minmax(0,132px) minmax(0,1fr) 30px;gap:10px;align-items:center;font-size:13px}
+.ap .pt span:first-child{white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.ap .pt .mono{text-align:right;color:var(--ink2);font:500 12px var(--fn)}
+.ap .meter{height:7px;border-radius:99px;background:var(--sf2);overflow:hidden;margin-top:4px}
+.ap .pt .meter{margin-top:0}
+.ap .meter b{display:block;height:100%;border-radius:99px;background:var(--br);transition:width .5s cubic-bezier(.2,.8,.2,1)}
+.ap .sline{display:flex;justify-content:space-between;gap:10px;font-size:13px;color:var(--ink2);margin-top:9px}
+.ap .sparts{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:2px 20px;margin-top:4px}
+.ap .scoretop{display:flex;align-items:center;justify-content:space-between;gap:8px}
+.ap .snum{font:600 52px/1 var(--fn)}
+.ap .snum span{font-size:20px;margin-left:2px}
+.ap .badge{display:inline-flex;align-items:center;padding:1px 8px;border-radius:99px;font-size:11.5px;font-weight:600;line-height:20px;white-space:nowrap}
+.ap .badge.win{background:var(--wins);color:var(--win)}
+.ap .badge.loss{background:var(--losss);color:var(--loss)}
+.ap .badge.be{background:var(--bes);color:var(--be)}
+.ap .side-l,.ap .side-s{font-size:12.5px;font-weight:600;display:inline-flex;align-items:center;gap:5px}
+.ap .side-l:before,.ap .side-s:before{content:'';width:7px;height:7px;border-radius:2px}
+.ap .side-l{color:var(--ink)}
+.ap .side-l:before{background:var(--win)}
+.ap .side-s{color:var(--ink)}
+.ap .side-s:before{background:var(--loss)}
+.ap .tag{display:inline-block;font-size:11.5px;color:var(--ink2);background:var(--sf2);border:1px solid var(--ln);border-radius:99px;padding:0 8px;line-height:20px;white-space:nowrap}
+.ap .sym{font-weight:600}
+.ap table{width:100%;border-collapse:collapse;font-size:14px}
+.ap th{text-align:left;font-weight:600;font-size:12px;color:var(--ink3);padding:10px 12px;border-bottom:1px solid var(--ln);white-space:nowrap;background:var(--sf2)}
+.ap th.s{cursor:pointer}
+.ap th.s:hover{color:var(--ink)}
+.ap td{padding:12px;border-bottom:1px solid var(--ln2);white-space:nowrap}
+.ap td.r,.ap .tc1 .rv{font-family:var(--fn);letter-spacing:-.02em}
+.ap tr:last-child td{border-bottom:0}
+.ap tr.rw{cursor:pointer}
+.ap tr.rw:hover td{background:var(--sf2)}
+.ap .r{text-align:right}
+.ap .scroll{overflow-x:auto}
+.ap .tlist .tc{display:block;width:100%;text-align:left;padding:13px 18px;border-top:1px solid var(--ln2);transition:background .15s}
+.ap .tlist .tc:hover{background:var(--sf2)}
+.ap .tlist .tc:first-child{border-top:0}
+.ap .tc1{display:flex;align-items:center;gap:8px}
+.ap .tc1 .rv{margin-left:auto;font-weight:600;font-size:16px}
+.ap .tc2{display:flex;gap:6px 10px;flex-wrap:wrap;align-items:center;margin-top:6px;font-size:12.5px;color:var(--ink3)}
+.ap .toolbar{display:flex;gap:8px;flex-wrap:wrap;align-items:center;padding:14px 16px;border-bottom:1px solid var(--ln2)}
+.ap .toolbar .in{flex:1 1 200px;width:auto;min-height:44px;padding:0 14px;font-size:14px}
+.ap .sumline{display:flex;gap:6px 18px;flex-wrap:wrap;padding:11px 16px;font-size:13px;color:var(--ink2);border-bottom:1px solid var(--ln2)}
+.ap .sumline b{color:var(--ink);font-weight:600}
+.ap .filters{display:flex;gap:8px;flex-wrap:wrap;padding:0 16px 14px;border-bottom:1px solid var(--ln2)}
+.ap .filters .sel{flex:1 1 150px}
+.ap .dual .tlist{display:none}
+.ap .revq{display:flex;align-items:center;gap:16px;justify-content:space-between;padding:16px 20px;border-color:var(--br);background:linear-gradient(var(--brs),var(--brs)),var(--sf)}
+.ap .revq b{font-weight:600}
+.ap .steps{padding-left:20px;font-size:14px;line-height:1.6;color:var(--ink2)}
+.ap .steps li{margin:2px 0}
+.ap .gbar{height:8px;border-radius:99px;min-width:2px}
+.ap .gbar.p{background:var(--win)}
+.ap .gbar.n{background:var(--loss)}
+.ap .calhead{display:flex;align-items:center;gap:8px;padding:18px 20px 0}
+.ap .calhead h2{font:700 22px var(--fd);letter-spacing:-.02em;margin-right:auto;text-transform:capitalize}
+.ap .calsum{display:flex;gap:6px 18px;flex-wrap:wrap;font-size:13px;color:var(--ink2);padding:8px 20px 0}
+.ap .calsum b{color:var(--ink);font-family:var(--fn);letter-spacing:-.02em}
+.ap .calg{display:grid;grid-template-columns:repeat(7,minmax(0,1fr)) minmax(0,1.05fr);gap:6px}
+.ap .dow{font-size:12px;color:var(--ink3);text-align:center;padding-bottom:2px}
+.ap .cd{min-height:86px;border-radius:12px;border:1px solid var(--ln2);padding:8px 9px;font-size:12px;color:var(--ink3);display:flex;flex-direction:column;gap:1px;text-align:left;background:var(--sf);min-width:0;transition:border-color .15s}
+.ap .cd.hit{cursor:pointer}
+.ap .cd.hit:hover{border-color:var(--ink)}
+.ap .cd .rv{font:600 15px/1.2 var(--fn);letter-spacing:-.03em;color:var(--ink);margin-top:auto}
+.ap .cd.today{border-color:var(--br);box-shadow:inset 0 0 0 1px var(--br)}
+.ap .cd.wk{background:var(--sf2);border-style:dashed}
+.ap .cd.blank{visibility:hidden}
+.ap .pbs{display:grid;grid-template-columns:repeat(auto-fill,minmax(300px,1fr));gap:16px}
+.ap .pb h3{font:700 20px var(--fd);letter-spacing:-.02em}
+.ap .pb p{color:var(--ink2);font-size:14px;margin-top:4px}
+.ap .pbst{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:6px;margin:14px 0}
+.ap .pbst div{font-size:12px;color:var(--ink3);background:var(--sf2);border-radius:12px;padding:10px}
+.ap .pbst b{display:block;font:600 17px var(--fn);letter-spacing:-.03em;color:var(--ink)}
+.ap .rules{list-style:none;font-size:14px}
+.ap .rules li{display:flex;justify-content:space-between;gap:10px;padding:8px 0;border-top:1px solid var(--ln2)}
+.ap .rules li span:last-child{color:var(--ink3);white-space:nowrap;font-family:var(--fn)}
+.ap .fld{display:flex;flex-direction:column;gap:6px;min-width:0}
+.ap .fld>span{font-size:13px;color:var(--ink2);font-weight:500}
+.ap .in{width:100%;background:var(--sf);border:1px solid var(--ln);border-radius:12px;min-height:46px;padding:10px 14px;font-size:16px;outline:none;min-width:0}
+.ap .in[list]::-webkit-calendar-picker-indicator{opacity:.35;cursor:pointer}
+.ap .in:focus{border-color:var(--br);box-shadow:0 0 0 3px var(--brs)}
+.ap textarea.in{min-height:84px;resize:vertical;line-height:1.5}
+.ap .fgrid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px}
+.ap .fgrid3{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px}
+.ap .full{grid-column:1/-1}
+.ap .fsec{padding:18px 0 4px}
+.ap .fsec+.fsec{border-top:1px solid var(--ln2)}
+.ap .fsec h3{font-size:14.5px;font-weight:600;margin-bottom:12px}
+.ap .fsec h3 small{font-weight:400;color:var(--ink3);margin-left:6px}
+.ap .chips{display:flex;gap:6px;flex-wrap:wrap}
+.ap .chip{display:inline-flex;align-items:center;gap:4px;min-height:38px;padding:0 13px;border-radius:999px;border:1px solid var(--ln);background:var(--sf);font-size:13.5px;color:var(--ink2);transition:background .15s,border-color .15s,color .15s}
+.ap button.chip:hover{border-color:var(--ink3)}
+.ap .chip.on{border-color:var(--ink);background:var(--ink);color:var(--sf)}
+.ap .segf{display:flex;gap:6px}
+.ap .segf button{flex:1;min-height:46px;border-radius:12px;border:1px solid var(--ln);font-weight:600;font-size:14px;color:var(--ink2);transition:background .15s,border-color .15s,color .15s}
+.ap .segf .w.on{background:var(--wins);border-color:var(--win);color:var(--win)}
+.ap .segf .l.on{background:var(--losss);border-color:var(--loss);color:var(--loss)}
+.ap .segf .b.on{background:var(--bes);border-color:var(--be);color:var(--be)}
+.ap .segf .x.on{background:var(--ink);border-color:var(--ink);color:var(--sf)}
+.ap .stars{display:flex;gap:2px}
+.ap .stars button{font-size:26px;line-height:1;color:var(--ln);padding:4px}
+.ap .stars button.on{color:var(--be)}
+.ap .check{display:flex;gap:10px;align-items:flex-start;padding:8px 0;font-size:14.5px;cursor:pointer}
+.ap .check input{width:18px;height:18px;accent-color:var(--ink);margin-top:2px;flex:none}
+.ap details.more{border-top:1px solid var(--ln2);padding:14px 0 4px}
+.ap details.more summary{cursor:pointer;font-size:14.5px;font-weight:600;list-style:none;min-height:28px}
+.ap details.more summary::-webkit-details-marker{display:none}
+.ap details.more summary:after{content:' +';color:var(--ink3)}
+.ap details.more[open] summary:after{content:' −'}
+.ap details.more>div{margin-top:12px}
+.ap .hint{font-size:12.5px;color:var(--ink3);margin-top:2px}
+.ap .srow{display:flex;align-items:center;justify-content:space-between;gap:16px;padding:12px 0;border-top:1px solid var(--ln2)}
+.ap .srow:first-child{border-top:0}
+.ap .srow .t{font-size:14.5px}
+.ap .srow .d{font-size:12.5px;color:var(--ink3)}
+.ap .srow .in,.ap .srow .sel{width:160px;flex:none}
+.ap .acc{display:grid;grid-template-columns:1.4fr 1fr .8fr .7fr auto;gap:8px;align-items:center;padding:10px 0;border-top:1px solid var(--ln2)}
+.ap .acc:first-child{border-top:0}
+.ap .optc{display:grid;gap:10px;margin:14px 0 6px}
+.ap .optc button{display:flex;gap:14px;align-items:flex-start;text-align:left;padding:15px 16px;border:1px solid var(--ln);border-radius:16px;background:var(--sf);transition:border-color .15s,background .15s}
+.ap .optc button:not(:disabled):hover{border-color:var(--br);background:var(--brs)}
+.ap .optc button:disabled{cursor:not-allowed;opacity:.62}
+.ap .optc .oi{width:42px;height:42px;border-radius:12px;background:var(--sf2);color:var(--ink);display:grid;place-items:center;flex:none}
+.ap .optc .oi svg{width:20px;height:20px}
+.ap .optc .ot{display:flex;flex-direction:column;gap:3px;min-width:0}
+.ap .optc b{font-weight:600;font-size:15px}
+.ap .optc .ot>span{font-size:13.5px;color:var(--ink2);line-height:1.45}
+.ap .soon{display:inline-block;font-size:11px;font-weight:600;padding:1px 8px;border-radius:99px;background:var(--brs);color:var(--br);margin-left:6px;vertical-align:1px;white-space:nowrap}
+.ap .accsw{position:relative}
+.ap .accbtn{display:inline-flex;align-items:center;gap:9px;min-height:44px;padding:0 12px 0 14px;border-radius:12px;border:1px solid var(--ln);background:var(--sf);font-weight:600;font-size:14px;max-width:280px}
+.ap .accbtn:hover{border-color:var(--ink3)}
+.ap .accbtn .nm{overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.ap .accbtn .dot{width:8px;height:8px;border-radius:50%;background:var(--br);flex:none}
+.ap .accbtn svg{width:16px;height:16px;flex:none;color:var(--ink3);margin-left:auto}
+.ap .accm{position:absolute;top:calc(100% + 6px);left:0;z-index:30;min-width:270px;max-width:calc(100vw - 32px);padding:6px;border-radius:16px;background:var(--sf);border:1px solid var(--ln);box-shadow:0 24px 60px -20px rgba(0,0,0,.35);animation:pop .16s ease both}
+.ap .accm button{display:flex;align-items:center;justify-content:space-between;gap:12px;width:100%;min-height:44px;padding:0 12px;border-radius:10px;text-align:left;font-size:14px}
+.ap .accm button:hover{background:var(--sf2)}
+.ap .accm button.on{background:var(--brs);font-weight:600}
+.ap .accm small{color:var(--ink3);font-size:12px;white-space:nowrap}
+.ap .accm .act{justify-content:flex-start;font-weight:600}
+.ap .accm .act svg{width:17px;height:17px;flex:none}
+.ap .accsep{height:1px;background:var(--ln2);margin:6px 4px}
+.ap .accg{font-size:11px;color:var(--ink3);text-transform:uppercase;letter-spacing:.06em;padding:8px 12px 4px}
+.ap .sideacts{display:grid;gap:8px;margin:0 0 14px}
+.ap .btn.full{width:100%}
+.ap .acard{padding:14px 0;border-top:1px solid var(--ln2)}
+.ap .acard:first-child{border-top:0;padding-top:0}
+.ap .acard1 b{font-weight:600}
+.ap .acard1 .hint{margin-top:3px}
+.ap .acard2{display:flex;justify-content:space-between;align-items:center;gap:10px;flex-wrap:wrap;margin-top:8px;font-size:13.5px;color:var(--ink2)}
+.ap .acard2 b{color:var(--ink);font-weight:600;font-family:var(--fn)}
+.ap .acard2 .acts{display:flex;gap:6px}
+.ap .pacc{padding:14px;border-radius:14px;background:var(--sf2);border:1px solid var(--ln2)}
+.ap .pacc+.pacc{margin-top:10px}
+.ap .pname{font-weight:600;font-size:14px;margin-bottom:2px;display:flex;align-items:center;gap:8px}
+.ap .prow{margin-top:8px}
+.ap .prow .sline{margin-top:0;margin-bottom:6px}
+.ap .prow .sline span:last-child{font-family:var(--fn);font-size:12px}
+.ap .accb{grid-column:1/-1;display:flex;align-items:center;justify-content:space-between;gap:10px;font-size:13px;color:var(--ink2)}
+.ap .accb b{color:var(--ink);font-weight:600}
+.ap .accno{display:flex;align-items:center;gap:8px}
+.ap .accno .in{width:150px;padding:6px 10px;font-size:13.5px}
+.ap .btn:disabled{opacity:.45;cursor:not-allowed}
+.ap .acc .in{padding:8px 10px;font-size:14px}
+.ap .links{display:grid;gap:2px}
+.ap .links button{text-align:left;min-height:46px;padding:11px 0;border-top:1px solid var(--ln2);font-size:14.5px}
+.ap .links button:first-child{border-top:0}
+.ap .links button.dan{color:var(--loss)}
+.ap .lgh{font-size:12px;font-weight:600;color:var(--ink3);margin:16px 0 2px;text-transform:uppercase;letter-spacing:.06em}
+.ap .lgh:first-child{margin-top:0}
+.ap .dhead{display:flex;align-items:center;gap:10px;flex-wrap:wrap}
+.ap .dhead .rv{font:600 34px/1 var(--fn);letter-spacing:-.04em;margin-left:auto}
+.ap .facts{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:10px;margin:18px 0}
+.ap .facts div{font-size:12px;color:var(--ink3);background:var(--sf2);border-radius:12px;padding:10px 12px;min-width:0}
+.ap .facts b{display:block;font-size:14.5px;color:var(--ink);font-weight:500;overflow-wrap:anywhere}
+.ap .shots{display:grid;grid-template-columns:repeat(auto-fill,minmax(160px,1fr));gap:8px}
+.ap .shots a{display:block;border-radius:10px;overflow:hidden;border:1px solid var(--ln2);background:var(--sf2)}
+.ap .shots img{display:block;width:100%;height:110px;object-fit:cover}
+.ap .shots a.lnk{padding:10px;font-size:13px;word-break:break-all}
+.ap .note{white-space:pre-wrap;font-size:14.5px;line-height:1.6}
+.ap .dsec{padding:14px 0;border-top:1px solid var(--ln2)}
+.ap .dsec h4{font-size:12px;font-weight:600;color:var(--ink3);margin-bottom:8px;text-transform:uppercase;letter-spacing:.06em}
+.ap .welcome{padding:48px 32px;display:grid;grid-template-columns:minmax(0,1.1fr) minmax(0,1fr);gap:32px;align-items:center}
+.ap .welcome h2{font:700 36px/1.1 var(--fd);letter-spacing:-.03em;max-width:15ch}
+.ap .welcome p{color:var(--ink2);margin-top:12px;max-width:52ch}
+.ap .welcome .acts{display:flex;gap:8px;flex-wrap:wrap;margin-top:22px}
+.ap .welcome ul{list-style:none;display:grid;gap:12px;font-size:14.5px;color:var(--ink2)}
+.ap .welcome li{display:flex;gap:10px}
+.ap .welcome li svg{color:var(--ink);flex:none;width:18px;height:18px;margin-top:2px}
+.ap .welcome.w1{display:block;max-width:760px;margin:0 auto;padding:36px 32px}
+.ap .w1 .wh h2{max-width:none}
+.ap .step1{display:inline-block;font-size:12px;font-weight:600;color:var(--br);background:var(--brs);border-radius:99px;padding:3px 10px;margin-bottom:12px;text-transform:uppercase;letter-spacing:.06em}
+.ap .w1 .optc{margin:22px 0 0}
+.ap .walt{display:flex;align-items:center;gap:8px;flex-wrap:wrap;margin-top:22px;padding-top:18px;border-top:1px solid var(--ln2);font-size:14px;color:var(--ink2)}
+.ap .walt span{margin-right:auto}
+.ap .ov{position:fixed;inset:0;background:var(--ovl);backdrop-filter:blur(3px);-webkit-backdrop-filter:blur(3px);z-index:50;display:none;align-items:flex-start;justify-content:center;overflow-y:auto;padding:5vh 16px}
+.ap .ov.on{display:flex;animation:fi .18s ease both}
+.ap .md{background:var(--sf);border:1px solid var(--ln);border-radius:22px;width:100%;max-width:640px;box-shadow:0 30px 80px rgba(0,0,0,.3);margin-bottom:5vh;position:relative;animation:pop .22s cubic-bezier(.2,.8,.2,1) both}
+.ap .md.wide{max-width:760px}
+.ap .md>.mh{display:flex;align-items:center;gap:10px;padding:16px 16px 14px 22px;border-bottom:1px solid var(--ln2);position:sticky;top:0;background:var(--sf);border-radius:22px 22px 0 0;z-index:3}
+.ap .md>.mh h2{font:700 21px var(--fd);letter-spacing:-.02em;margin-right:auto}
+.ap .mb{padding:2px 22px 18px}
+.ap .mf{display:flex;gap:10px;padding:14px 22px;border-top:1px solid var(--ln2);position:sticky;bottom:0;background:var(--sf);border-radius:0 0 22px 22px;z-index:3}
+.ap .mf .btn{flex:1;min-height:48px}
+.ap .xb{width:40px;height:40px;border-radius:10px;font-size:24px;line-height:1;color:var(--ink3)}
+.ap .xb:hover{background:var(--sf2);color:var(--ink)}
+.ap .ov.cf{z-index:70;align-items:center}
+.ap .cf .md{max-width:420px;margin:0}
+.ap #cfMsg{padding-top:20px;font-size:15.5px;line-height:1.5}
+.ap #toast{position:fixed;left:50%;bottom:calc(28px + env(safe-area-inset-bottom,0px));transform:translate(-50%,16px);background:var(--ink);color:var(--sf);padding:11px 18px;border-radius:12px;font-size:14px;font-weight:600;opacity:0;pointer-events:none;transition:.2s;z-index:99;max-width:calc(100% - 32px)}
+.ap #toast.show{opacity:1;transform:translate(-50%,0)}
+body.tg .addbtn,body.tg #fSave,body.tg .fab,body.tg .sitelink{display:none}
+@keyframes fi{from{opacity:0}}
+@keyframes pop{from{opacity:0;transform:translateY(10px) scale(.985)}}
+@keyframes sheet{from{transform:translateY(40px);opacity:0}}
+@media (max-width:1180px){.ap .dgrid{grid-template-columns:minmax(0,1fr)}
+.ap .dcl,.ap .dcr{display:contents}
+.ap .o1{order:1}
+.ap .o2{order:2}
+.ap .o3{order:3}
+.ap .o4{order:4}
+.ap .o5{order:5}
+.ap .o6{order:6}
+.ap .o7{order:7}}
+@media (max-width:900px){.ap .app{grid-template-columns:minmax(0,1fr)}
+.ap .side{display:none}
+.ap .main{padding:0 16px calc(96px + env(safe-area-inset-bottom,0px))}
+.ap .tabbar{display:flex;justify-content:space-around;align-items:center;position:fixed;left:0;right:0;bottom:0;z-index:40;background:color-mix(in srgb,var(--sf) 94%,transparent);backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);border-top:1px solid var(--ln);padding:6px 6px calc(6px + env(safe-area-inset-bottom,0px))}
+.ap .tabbar>button{display:flex;flex-direction:column;align-items:center;gap:2px;font-size:11px;font-weight:500;color:var(--ink3);min-width:58px;min-height:48px;justify-content:center}
+.ap .tabbar>button.on{color:var(--ink)}
+.ap .tabbar svg{width:22px;height:22px}
+.ap .tabbar .fab{width:54px;height:54px;min-width:0;border-radius:18px;background:var(--ink);color:var(--sf);margin-top:-22px;box-shadow:0 10px 24px -10px rgba(0,0,0,.5)}
+.ap .tabbar .fab svg{width:26px;height:26px}
+.ap .top{padding:12px 0 10px}
+.ap .top h1{font-size:26px;flex:1 1 auto}
+.ap .top .ctl{display:flex;gap:8px;width:100%}
+.ap .top .ctl .sel{flex:1;min-width:0}
+.ap .top .ctl .accsw{flex:1 1 0;min-width:0}
+.ap .top .ctl .persel{flex:1 1 0}
+.ap .accbtn{width:100%;max-width:none}
+.ap .accm{right:0}
+.ap .g2,.ap .g2e,.ap .dgrid{grid-template-columns:minmax(0,1fr)}
+.ap .nethead{padding:18px 18px 0}
+.ap .stripw{margin-left:0;max-width:none;flex-basis:100%}
+.ap .kpis{grid-template-columns:repeat(2,minmax(0,1fr));padding:16px 18px 0}
+.ap .welcome{grid-template-columns:minmax(0,1fr);padding:28px 20px}
+.ap .welcome.w1{padding:24px 18px}
+.ap .welcome h2{font-size:28px}
+.ap .calg{gap:4px}
+.ap .cd{min-height:58px;padding:5px;font-size:11px;border-radius:9px}
+.ap .cd .rv{font-size:10.5px;letter-spacing:-.6px;white-space:nowrap}
+.ap .cd .wl{display:none}
+.ap .cd .n2{display:none}
+.ap .dual .tblwrap{display:none}
+.ap .dual .tlist{display:block}
+.ap .perseg{display:none!important}
+.ap .persel{display:block!important;flex:1;min-width:0}
+.ap .addbtn,.ap .impbtn{display:none}
+.ap .chart text{font-size:10.5px}
+.ap .facts{grid-template-columns:repeat(2,minmax(0,1fr))}
+.ap .acc{grid-template-columns:1fr 1fr}
+.ap .acc .del{grid-column:2;justify-self:end}
+.ap .ov{padding:0;align-items:flex-end;overflow:hidden}
+.ap .ov.cf{padding:16px;align-items:center}
+.ap .cf .md{border-radius:22px;animation:pop .22s cubic-bezier(.2,.8,.2,1) both}
+.ap .cf .mf{border-radius:0 0 22px 22px;padding-bottom:14px}
+.ap .md,.ap .md.wide{border-radius:22px 22px 0 0;max-height:94vh;overflow-y:auto;margin:0;max-width:none;animation:sheet .28s cubic-bezier(.2,.8,.2,1) both}
+.ap .md>.mh{border-radius:22px 22px 0 0}
+.ap th.mh,.ap td.mh{display:none}
+.ap .mf{border-radius:0;padding-bottom:calc(14px + env(safe-area-inset-bottom,0px))}
+.ap #toast{bottom:calc(96px + env(safe-area-inset-bottom,0px))}}
+@media (max-width:520px){.ap td,.ap th{padding-left:8px;padding-right:8px}
+.ap .kpi{padding:11px 12px}
+.ap .kpi .v{font-size:19px}
+.ap .fgrid3{grid-template-columns:repeat(2,minmax(0,1fr))}
+.ap .pbst{grid-template-columns:repeat(2,minmax(0,1fr))}
+.ap .srow{flex-wrap:wrap}
+.ap .srow .in,.ap .srow .sel{width:100%}
+.ap .sparts{grid-template-columns:minmax(0,1fr)}}
+@media (prefers-reduced-motion:reduce){.ap *{transition:none!important;animation:none!important}}
+.site{color-scheme:dark;--win:#4ADE80;--bg:#000100;--bg2:#08090B;--card:#111317;--card2:#1B1E24;--line:rgba(148,197,204,.13);--line2:rgba(148,197,204,.28);--tx:#F8F8F8;--mu:#A1A6B4;--lime:#94C5CC;--sage:#B4D2E7;--olive:#5E8D94;--loss:#F87171;--disp:'Bricolage Grotesque',system-ui,sans-serif;--body:'Inter',system-ui,sans-serif;--mono:'JetBrains Mono',ui-monospace,monospace}
+.site *{box-sizing:border-box}
+html{scroll-behavior:smooth;-webkit-text-size-adjust:100%}
+.site{margin:0;background:var(--bg);color:var(--tx);font-family:var(--body);font-size:16px;line-height:1.55;-webkit-font-smoothing:antialiased;overflow-x:hidden}
+.site a{color:inherit;text-decoration:none}
+.site button,.site input,.site textarea{font:inherit;color:inherit}
+.site button{cursor:pointer}
+.site [hidden]{display:none !important}
+.site :focus-visible{outline:2px solid var(--lime);outline-offset:3px;border-radius:10px}
+.site .mono{font-family:var(--mono);font-variant-numeric:tabular-nums}
+.site .pos{color:var(--win)}
+.site .neg{color:var(--loss)}
+.site .mu{color:var(--mu)}
+.site .ml{margin-left:auto}
+.site .sr{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
+.site .logo{display:flex;align-items:center;gap:10px;font-family:var(--disp);font-weight:700;font-size:21px;letter-spacing:-.02em}
+.site .btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;min-height:44px;padding:0 20px;border-radius:12px;font-weight:600;font-size:15px;border:1px solid transparent;background:none;transition:transform .2s,background .2s,border-color .2s,box-shadow .2s;white-space:nowrap}
+.site .btn-p{background:var(--lime);color:#000100}
+.site .btn-p:hover{background:#B4D2E7;transform:translateY(-1px);box-shadow:0 10px 28px -10px rgba(148,197,204,.6)}
+.site .btn-g{border-color:var(--line2);color:var(--tx)}
+.site .btn-g:hover{border-color:var(--lime);background:rgba(148,197,204,.06)}
+.site .btn-d{background:#000100;color:#94C5CC}
+.site .btn-d:hover{background:#1B1E24;transform:translateY(-1px)}
+.site .btn-lg{min-height:52px;padding:0 26px;font-size:16px;border-radius:14px}
+.site .btn-s{min-height:38px;padding:0 14px;font-size:13px}
+.site .full{width:100%}
+.site .chip{display:inline-flex;align-items:center;gap:6px;font-size:12px;font-weight:600;padding:3px 10px;border-radius:999px;background:rgba(148,197,204,.1);color:var(--lime);white-space:nowrap}
+.site .chip.mu{background:rgba(161,166,180,.1);color:var(--mu)}
+.site .chip.warn{background:rgba(248,113,113,.13);color:var(--loss)}
+.site .chip.solid{background:var(--lime);color:#000100}
+.site .seg{display:inline-flex;background:var(--bg2);border:1px solid var(--line);border-radius:12px;padding:3px;gap:2px}
+.site .seg button{border:0;background:none;min-height:38px;min-width:50px;padding:0 12px;border-radius:9px;font-size:13px;font-weight:600;color:var(--mu);transition:background .2s,color .2s}
+.site .seg button:hover{color:var(--tx)}
+.site .seg button.on{background:var(--card2);color:var(--tx)}
+.site .card{background:var(--card);border:1px solid var(--line);border-radius:20px;padding:20px;min-width:0}
+.site .bar{height:8px;border-radius:99px;background:var(--bg2);overflow:hidden}
+.site .bar i{display:block;height:100%;border-radius:99px;transition:width .7s cubic-bezier(.2,.8,.2,1),background .3s}
+.site .kpis{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:10px;margin-top:16px}
+.site .kpi{background:var(--bg2);border:1px solid var(--line);border-radius:14px;padding:11px 13px;min-width:0}
+.site .kpi .l{font-size:12px;color:var(--mu)}
+.site .kpi .n{font-family:var(--mono);font-weight:600;font-size:19px;margin-top:2px}
+.site .kpi .s{font-size:12px;color:var(--mu)}
+.site .chart{position:relative;height:210px;margin-top:10px;touch-action:pan-y}
+.site .chart svg{position:absolute;inset:0;width:100%;height:100%;overflow:visible}
+.site .chart .hit{position:absolute;inset:0;cursor:crosshair}
+.site .vl{position:absolute;top:0;bottom:0;width:1px;background:var(--line2);pointer-events:none}
+.site .mk{position:absolute;width:12px;height:12px;margin:-6px 0 0 -6px;border-radius:50%;background:var(--lime);box-shadow:0 0 0 5px rgba(148,197,204,.22);pointer-events:none}
+.site .mk.n{background:var(--loss);box-shadow:0 0 0 5px rgba(248,113,113,.22)}
+.site .tip{position:absolute;top:0;transform:translate(-50%,-6px);background:#0B0C0E;border:1px solid var(--line2);border-radius:10px;padding:7px 10px;font-size:12px;white-space:nowrap;pointer-events:none;line-height:1.45;z-index:2}
+.site .tip b{font-family:var(--mono)}
+.site .ring{position:relative;width:132px;height:132px;margin:4px auto 0}
+.site .ring svg{transform:rotate(-90deg)}
+.site .ring circle{transition:stroke-dasharray .7s cubic-bezier(.2,.8,.2,1)}
+.site .ring .c{position:absolute;inset:0;display:grid;place-items:center;text-align:center}
+.site .ring .c b{font-family:var(--mono);font-size:34px;font-weight:600;line-height:1;display:block}
+.site .ring .c span{font-size:12px;color:var(--mu)}
+.site .pill{display:inline-flex;align-items:center;min-height:42px;padding:0 14px;border-radius:11px;border:1px solid var(--line2);background:transparent;font-size:14px;font-weight:500;transition:background .15s,border-color .15s,color .15s}
+.site button.pill:hover{border-color:var(--lime)}
+.site .pill.on{background:var(--lime);border-color:var(--lime);color:#000100;font-weight:600}
+.site .pill.lo{background:rgba(248,113,113,.14);border-color:rgba(248,113,113,.5);color:var(--loss)}
+.site .pills{display:flex;flex-wrap:wrap;gap:8px}
+.site .x{flex:none;width:40px;height:40px;border-radius:10px;border:0;background:none;color:var(--mu);display:grid;place-items:center}
+.site .x:hover{background:rgba(148,197,204,.08);color:var(--tx)}
+@keyframes fade{from{opacity:0;transform:translateY(10px)}}
+@keyframes fadein{from{opacity:0}}
+@keyframes pop{from{opacity:0;transform:translateY(10px) scale(.98)}}
+@keyframes popc{from{transform:scale(.4);opacity:0}}
+@keyframes tup{from{opacity:0;transform:translate(-50%,16px)}}
+@keyframes grow{from{transform:scaleY(.1);opacity:0}}
+@keyframes hl{0%{background:rgba(148,197,204,.16)}100%{background:transparent}}
+@keyframes bob{50%{transform:translateY(-8px)}}
+@keyframes sheet{from{transform:translateY(40px);opacity:0}}
+@keyframes spin{to{transform:rotate(360deg)}}
+.site .wrap{max-width:1200px;margin:0 auto;padding-left:max(24px,env(safe-area-inset-left,0px));padding-right:max(24px,env(safe-area-inset-right,0px))}
+.site section[id],.site #top{scroll-margin-top:84px}
+.site .nav{position:sticky;top:env(safe-area-inset-top,0px);z-index:40;background:rgba(0,1,0,.88);backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);border-bottom:1px solid var(--line)}
+.site .nav-in{display:flex;align-items:center;gap:20px;height:72px}
+.site .links{display:flex;gap:2px;margin-left:12px}
+.site .links a{padding:10px 14px;border-radius:10px;color:var(--mu);font-size:15px;transition:color .2s,background .2s}
+.site .links a:hover{color:var(--tx);background:rgba(148,197,204,.07)}
+.site .nav-r{margin-left:auto;display:flex;align-items:center;gap:10px}
+.site .lang{display:flex;border:1px solid var(--line);border-radius:11px;padding:3px}
+.site .lang button{border:0;background:none;padding:0 10px;min-height:34px;border-radius:8px;font-size:13px;font-weight:600;color:var(--mu);transition:background .2s,color .2s}
+.site .lang button.on{background:var(--card2);color:var(--tx)}
+.site .burger{display:none;border:1px solid var(--line2);background:none;width:44px;height:44px;border-radius:12px;align-items:center;justify-content:center}
+.site .mmenu{display:none}
+@media (max-width:900px){.site .links,.site .hide-m{display:none !important}
+.site .burger{display:inline-flex}
+.site .mmenu:not([hidden]){display:flex;flex-direction:column;padding:4px 24px 20px;border-top:1px solid var(--line)}
+.site .mmenu a{padding:15px 2px;border-bottom:1px solid var(--line);font-size:17px}}
+.site .hero{position:relative;padding:72px 0 96px}
+.site .hero:before{content:'';position:absolute;inset:0;background-image:radial-gradient(rgba(148,197,204,.10) 1px,transparent 1.2px);background-size:22px 22px;-webkit-mask-image:linear-gradient(#000 20%,transparent 85%);mask-image:linear-gradient(#000 20%,transparent 85%);pointer-events:none}
+.site .hero-g{position:relative;display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.1fr);gap:56px;align-items:center}
+.site .eyebrow{display:inline-flex;align-items:center;gap:10px;padding:5px 14px 5px 6px;border:1px solid var(--line2);border-radius:999px;font-size:13px;color:var(--mu);background:rgba(8,9,11,.6)}
+.site .eyebrow b{background:var(--lime);color:#000100;border-radius:999px;padding:2px 9px;font-size:11px;letter-spacing:.06em}
+.site .h1{font-family:var(--disp);font-weight:700;font-size:clamp(44px,6.2vw,80px);line-height:1;letter-spacing:-.04em;margin:22px 0}
+.site .h1 em{font-style:normal;color:var(--lime);position:relative;white-space:nowrap;z-index:0}
+.site .h1 em:after{content:'';position:absolute;left:2px;right:2px;bottom:.04em;height:.1em;border-radius:99px;background:var(--olive);z-index:-1}
+.site .lead{font-size:clamp(17px,1.6vw,19px);color:var(--mu);max-width:520px;margin:0 0 32px}
+.site .ctas{display:flex;flex-wrap:wrap;gap:12px}
+.site .trust{display:flex;flex-wrap:wrap;gap:10px 20px;margin-top:28px;color:var(--mu);font-size:14px}
+.site .trust span{display:inline-flex;align-items:center;gap:7px}
+.site .trust svg{color:var(--lime)}
+@media (max-width:980px){.site .hero-g{grid-template-columns:minmax(0,1fr);gap:48px}
+.site .hero{padding:48px 0 72px}}
+.site .demo{position:relative}
+.site .dcard{padding:22px;border-radius:22px;box-shadow:0 50px 90px -50px rgba(0,0,0,.7)}
+.site .dhead{display:flex;align-items:center;gap:10px;flex-wrap:wrap}
+.site .dhead .t{font-weight:600}
+.site .net{display:flex;align-items:baseline;gap:14px;margin:20px 0 2px;flex-wrap:wrap}
+.site .net .v{font-family:var(--mono);font-weight:600;font-size:clamp(36px,4.2vw,50px);letter-spacing:-.04em;line-height:1.1}
+.site .net .s{color:var(--mu);font-size:14px}
+@media (max-width:560px){.site .site .kpis{grid-template-columns:repeat(2,minmax(0,1fr))}
+.site .dcard{padding:16px}}
+.site .demo{margin-bottom:56px}
+.site .float{position:absolute;left:-40px;bottom:-78px;width:270px;padding:14px 16px;border-radius:18px;background:#16191E;border:1px solid var(--line2);box-shadow:0 30px 60px -30px rgba(0,0,0,.8);animation:bob 7s ease-in-out infinite}
+.site .float .r{display:flex;justify-content:space-between;align-items:center;font-size:13px;margin-bottom:8px}
+@media (max-width:1180px){.site .float{left:-12px}}
+@media (max-width:980px){.site .demo{margin-bottom:0}
+.site .float{position:relative;left:auto;bottom:auto;width:auto;margin-top:12px;animation:none}}
+.site .strip{border-top:1px solid var(--line);border-bottom:1px solid var(--line);background:var(--bg2)}
+.site .strip-in{display:flex;flex-wrap:wrap;gap:14px 36px;align-items:center;justify-content:space-between;padding:22px 24px;max-width:1200px;margin:0 auto}
+.site .strip .it{display:flex;align-items:center;gap:10px;color:var(--mu);font-size:15px}
+.site .strip .it b{color:var(--tx);font-weight:600}
+.site .strip .it svg{color:var(--sage)}
+.site .sec{padding:112px 0}
+.site .sec.alt{background:var(--bg2);border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+.site .sec-h{max-width:720px;margin-bottom:52px}
+.site .sec-h.c{margin-left:auto;margin-right:auto;text-align:center}
+.site .kick{font-family:var(--mono);font-size:13px;color:var(--sage);letter-spacing:.1em;text-transform:uppercase}
+.site .h2{font-family:var(--disp);font-weight:700;font-size:clamp(32px,4.4vw,54px);line-height:1.04;letter-spacing:-.035em;margin:12px 0 16px}
+.site .sec-h p{color:var(--mu);font-size:18px;margin:0}
+@media (max-width:640px){.site .sec{padding:72px 0}
+.site .sec-h{margin-bottom:36px}}
+.site .how{display:grid;grid-template-columns:minmax(0,.9fr) minmax(0,1.1fr);gap:40px;align-items:start}
+.site .steps{display:flex;flex-direction:column;gap:10px}
+.site .step{display:flex;gap:16px;text-align:left;width:100%;padding:20px;border-radius:18px;border:1px solid var(--line);background:transparent;transition:background .25s,border-color .25s}
+.site .step:hover{border-color:var(--line2)}
+.site .step.on{background:var(--card);border-color:var(--lime)}
+.site .step .no{flex:none;width:38px;height:38px;border-radius:11px;display:grid;place-items:center;font-family:var(--mono);font-weight:600;background:var(--card);color:var(--mu);transition:background .25s,color .25s}
+.site .step.on .no{background:var(--lime);color:#000100}
+.site .st-h{display:block;margin:6px 0 4px;font-size:18px;font-weight:600}
+.site .st-p{display:block;color:var(--mu);font-size:15px}
+.site .stage{min-height:460px;padding:28px;border-radius:24px;background:var(--card);border:1px solid var(--line);animation:fade .4s ease both;display:flex;flex-direction:column;gap:18px}
+.site .stage .top{display:flex;align-items:center;gap:10px}
+.site .stage .top .t{font-weight:600;font-size:17px}
+.site .flabel{font-size:12px;color:var(--mu);margin-bottom:8px;font-weight:500}
+.site .big-r{font-family:var(--mono);font-size:40px;font-weight:600;color:var(--lime);letter-spacing:-.03em;line-height:1}
+.site .row2{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:18px}
+.site .drop{border:1.5px dashed var(--line2);border-radius:16px;padding:18px;display:flex;align-items:center;gap:14px;background:var(--bg2)}
+.site .drop .fi{width:44px;height:44px;border-radius:12px;background:rgba(148,197,204,.1);color:var(--lime);display:grid;place-items:center;flex:none}
+.site .res{display:flex;flex-direction:column;border:1px solid var(--line);border-radius:16px;overflow:hidden}
+.site .res div{display:flex;align-items:center;gap:12px;padding:13px 16px;border-bottom:1px solid var(--line);font-size:15px}
+.site .res div:last-child{border-bottom:0}
+.site .res svg{flex:none;color:var(--lime)}
+.site .res .mono{margin-left:auto;color:var(--mu);font-size:13px}
+.site .ins{display:flex;gap:14px;padding:16px;border-radius:16px;background:var(--bg2);border:1px solid var(--line);animation:fade .45s ease both}
+.site .ins .ic{flex:none;width:40px;height:40px;border-radius:12px;display:grid;place-items:center}
+.site .ins .ic.g{background:rgba(148,197,204,.12);color:var(--lime)}
+.site .ins .ic.r{background:rgba(248,113,113,.13);color:var(--loss)}
+.site .ins b{display:block;font-weight:600;margin-bottom:2px}
+.site .ins span{color:var(--mu);font-size:14px}
+@media (max-width:900px){.site .how{grid-template-columns:minmax(0,1fr)}
+.site .stage{min-height:0}}
+@media (max-width:520px){.site .row2{grid-template-columns:minmax(0,1fr)}
+.site .stage{padding:20px}}
+.site .bento{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:16px}
+.site .b{background:var(--card);border:1px solid var(--line);border-radius:22px;padding:24px;transition:border-color .25s,transform .25s;display:flex;flex-direction:column;gap:14px;min-width:0}
+.site .b:hover{border-color:var(--line2);transform:translateY(-2px)}
+.site .b2{grid-column:span 2}
+.site .r2{grid-row:span 2}
+.site .b h3{margin:0;font-size:19px;font-weight:600;letter-spacing:-.01em}
+.site .b p{margin:0;color:var(--mu);font-size:15px}
+.site .b .ic{width:40px;height:40px;border-radius:12px;display:grid;place-items:center;background:rgba(148,197,204,.1);color:var(--lime);flex:none}
+.site .b .hd{display:flex;align-items:center;gap:12px;flex-wrap:wrap}
+.site .b.tg{background:var(--card2);border-color:var(--line2)}
+@media (max-width:1024px){.site .bento{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media (max-width:640px){.site .bento{grid-template-columns:minmax(0,1fr)}
+.site .b2{grid-column:auto}
+.site .r2{grid-row:auto}}
+.site .meter{display:flex;flex-direction:column;gap:8px;padding:16px;border-radius:16px;background:var(--bg2);border:1px solid var(--line)}
+.site .meter .r{display:flex;justify-content:space-between;align-items:baseline;gap:10px;font-size:14px}
+.site .meter .r .mono{font-size:13px}
+.site .meter .s{font-size:12px;color:var(--mu)}
+.site .ntoast{display:flex;gap:12px;align-items:flex-start;padding:14px;border-radius:14px;background:rgba(248,113,113,.1);border:1px solid rgba(248,113,113,.35);font-size:14px}
+.site .ntoast svg{color:var(--loss);flex:none;margin-top:1px}
+.site .chk{display:flex;flex-direction:column;gap:8px}
+.site .chk button{display:flex;align-items:center;gap:12px;min-height:46px;padding:0 14px;border-radius:12px;border:1px solid var(--line);background:var(--bg2);text-align:left;font-size:14px;transition:border-color .2s}
+.site .chk button:hover{border-color:var(--line2)}
+.site .box{width:22px;height:22px;border-radius:7px;border:1.5px solid var(--line2);display:grid;place-items:center;flex:none;transition:background .2s,border-color .2s}
+.site .box.on{background:var(--lime);border-color:var(--lime);color:#000100}
+.site .emo{display:flex;flex-direction:column;gap:10px}
+.site .emo .r{display:grid;grid-template-columns:76px minmax(0,1fr) 62px;gap:10px;align-items:center;font-size:14px}
+.site .emo .r .mono{text-align:right;font-size:13px}
+.site .emo .t{height:10px;border-radius:99px;background:var(--bg2);position:relative;overflow:hidden}
+.site .emo .t i{position:absolute;top:0;bottom:0;border-radius:99px}
+.site .cal{display:grid;grid-template-columns:repeat(7,minmax(0,1fr));gap:6px}
+.site .cal .dw{font-size:11px;color:var(--mu);text-align:center;padding-bottom:2px}
+.site .cal .d{aspect-ratio:1.5/1;border-radius:8px;font-size:11px;display:flex;align-items:flex-start;justify-content:flex-end;padding:4px 6px;font-family:var(--mono);transition:transform .15s,outline-color .15s;outline:1.5px solid transparent;border:0;color:inherit}
+.site .cal .d:not(.cx):hover,.site .cal .d.sel{transform:scale(1.06);outline-color:var(--tx)}
+.site .d.cw{background:#4ADE80;color:#000100}
+.site .d.cp{background:#A7F3C0;color:#000100}
+.site .d.cn{background:#F87171;color:#000100}
+.site .d.c0{background:var(--card2);color:var(--mu)}
+.site .d.cf{background:transparent;border:1px dashed var(--line);color:var(--mu)}
+.site .d.cx{background:transparent;pointer-events:none}
+.site .calinfo{display:flex;justify-content:space-between;align-items:center;gap:10px;flex-wrap:wrap;font-size:14px;min-height:28px}
+.site .lg{display:flex;gap:12px;font-size:12px;color:var(--mu);flex-wrap:wrap}
+.site .lg span{display:inline-flex;align-items:center;gap:6px}
+.site .lg i{width:10px;height:10px;border-radius:3px;display:inline-block}
+.site .accs{display:flex;flex-direction:column;gap:8px}
+.site .accs div{display:flex;align-items:center;gap:10px;padding:11px 12px;border-radius:12px;background:var(--bg2);border:1px solid var(--line);font-size:14px}
+.site .accs .mono{margin-left:auto;font-size:13px}
+.site .bill{display:flex;justify-content:center;margin-bottom:36px}
+.site .bill .seg button{min-width:110px;min-height:42px;font-size:14px}
+.site .save{font-size:11px;padding:2px 7px;border-radius:99px;background:var(--lime);color:#000100;margin-left:6px;font-weight:700}
+.site .plans{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:20px;max-width:940px;margin:0 auto}
+.site .plan{padding:32px;border-radius:24px;border:1px solid var(--line);background:var(--card);display:flex;flex-direction:column;gap:22px;position:relative}
+.site .plan.pro{background:#121419;border-color:var(--lime);box-shadow:0 40px 90px -50px rgba(148,197,204,.45)}
+.site .badge{position:absolute;top:-13px;left:32px;background:var(--lime);color:#000100;font-size:12px;font-weight:700;padding:5px 12px;border-radius:999px;letter-spacing:.02em}
+.site .plan .nm{font-family:var(--disp);font-weight:700;font-size:26px;letter-spacing:-.02em}
+.site .plan .ds{color:var(--mu);font-size:15px;margin-top:4px}
+.site .price{display:flex;align-items:baseline;gap:8px;flex-wrap:wrap}
+.site .price .a{font-family:var(--disp);font-weight:700;font-size:46px;letter-spacing:-.04em;line-height:1}
+.site .price .u{color:var(--mu);font-size:14px}
+.site .feat{list-style:none;margin:0;padding:0;display:flex;flex-direction:column;gap:12px}
+.site .feat li{display:flex;gap:10px;align-items:flex-start;font-size:15px}
+.site .feat svg{flex:none;margin-top:2px;color:var(--lime)}
+.site .feat .plus{font-size:13px;color:var(--mu);font-weight:600;text-transform:uppercase;letter-spacing:.06em}
+.site .plan .fine{font-size:13px;color:var(--mu);text-align:center;margin-top:-10px}
+@media (max-width:760px){.site .plans{grid-template-columns:minmax(0,1fr)}
+.site .plan{padding:26px}}
+.site .cmpb{display:flex;justify-content:center;margin-top:28px}
+.site .cmpb button{background:none;border:0;display:inline-flex;align-items:center;gap:8px;font-weight:600;color:var(--lime);min-height:44px;padding:0 12px;border-radius:10px}
+.site .cmpb svg{transition:transform .25s}
+.site .cmpb.open svg{transform:rotate(180deg)}
+.site .cmp{max-width:940px;margin:16px auto 0;border:1px solid var(--line);border-radius:20px;overflow:hidden;animation:fade .35s ease both}
+.site .cr{display:grid;grid-template-columns:minmax(0,1fr) 120px 120px;align-items:center;border-bottom:1px solid var(--line);font-size:15px}
+.site .cr:last-child{border-bottom:0}
+.site .cr>div{padding:14px 18px}
+.site .cr .c{text-align:center;display:flex;justify-content:center}
+.site .cr.h{background:var(--card);font-weight:600}
+.site .cr.g{background:var(--bg2)}
+.site .cr.g div{font-family:var(--mono);font-size:12px;letter-spacing:.1em;text-transform:uppercase;color:var(--sage);padding:10px 18px}
+.site .cr .y{color:var(--lime)}
+.site .cr .no{color:rgba(161,166,180,.55)}
+@media (max-width:560px){.site .cr{grid-template-columns:minmax(0,1fr) 72px 72px;font-size:14px}
+.site .cr>div{padding:12px 10px}}
+.site .faq{max-width:820px;margin:0 auto;display:flex;flex-direction:column;gap:10px}
+.site .q{border:1px solid var(--line);border-radius:18px;background:var(--card);transition:border-color .2s}
+.site .q.open{border-color:var(--line2)}
+.site .q button{width:100%;display:flex;justify-content:space-between;align-items:center;gap:16px;text-align:left;padding:20px 22px;background:none;border:0;font-size:17px;font-weight:600;min-height:56px}
+.site .q .chev{flex:none;transition:transform .25s;color:var(--mu)}
+.site .q.open .chev{transform:rotate(180deg)}
+.site .ans{padding:0 22px 22px;color:var(--mu);animation:fade .3s ease both;margin:0}
+.site .cta{border-radius:30px;background:var(--lime);color:#000100;padding:64px 56px;display:flex;flex-wrap:wrap;gap:28px;align-items:center;justify-content:space-between;position:relative;overflow:hidden}
+.site .cta .h2{color:#000100;margin:0 0 10px;max-width:620px}
+.site .cta p{margin:0;color:#1B1E24;font-size:18px;max-width:520px}
+.site .cta .deco{position:absolute;right:28px;bottom:0;display:flex;align-items:flex-end;gap:10px;opacity:.35;pointer-events:none}
+.site .cta .deco i{display:block;width:18px;border-radius:6px 6px 0 0;background:#5E8D94}
+.site .cta .in{position:relative;display:flex;flex-direction:column}
+@media (max-width:760px){.site .cta{padding:44px 26px;border-radius:24px}
+.site .cta .deco{display:none}}
+.site .foot{border-top:1px solid var(--line);padding:56px 0 40px;margin-top:96px}
+.site .fg{display:grid;grid-template-columns:minmax(0,1.6fr) repeat(3,minmax(0,1fr));gap:32px}
+.site .fg h4{margin:0 0 14px;font-size:13px;color:var(--mu);font-weight:600;text-transform:uppercase;letter-spacing:.08em}
+.site .fg a{display:block;padding:6px 0;font-size:15px}
+.site .fg a:hover{color:var(--lime)}
+.site .disc{font-size:13px;color:var(--mu);max-width:360px;margin:14px 0 0}
+.site .copy{display:flex;justify-content:space-between;flex-wrap:wrap;gap:10px;margin-top:44px;padding-top:24px;border-top:1px solid var(--line);font-size:13px;color:var(--mu)}
+@media (max-width:760px){.site .fg{grid-template-columns:repeat(2,minmax(0,1fr))}
+.site .fg .brand{grid-column:1/-1}}
+@media (prefers-reduced-motion:reduce){.site *,.site *:before,.site *:after{animation:none !important;transition:none !important}}
 </style>
 </head>
 <body>
+<div id="site" class="site">
+<header class="nav">
+<div class="wrap nav-in">
+<a class="logo" href="#top" aria-label="TradeLog ana sayfa"><span data-i="logo"></span>TradeLog</a>
+<nav class="links" aria-label="Ana menü">
+<a href="#ozellikler">Özellikler</a><a href="#nasil">Nasıl çalışır</a><a href="#fiyatlar">Fiyatlar</a><a href="#sss">SSS</a>
+</nav>
+<div class="nav-r">
+<div class="lang hide-m" role="group" aria-label="Dil"><button data-a="lang" data-v="tr" class="on" aria-pressed="true">TR</button><button data-a="lang" data-v="en" aria-pressed="false">EN</button></div>
+<a class="btn btn-g hide-m" href="#/app">Giriş yap</a>
+<a class="btn btn-p" href="#/app">Ücretsiz başla</a>
+<button class="burger" data-a="menu" aria-label="Menüyü aç" aria-expanded="false" id="burger"><span data-i="menu" data-s="22"></span></button>
+</div>
+</div>
+<nav class="mmenu" id="mmenu" aria-label="Mobil menü" hidden>
+<a href="#ozellikler" data-a="menuClose">Özellikler</a><a href="#nasil" data-a="menuClose">Nasıl çalışır</a><a href="#fiyatlar" data-a="menuClose">Fiyatlar</a><a href="#sss" data-a="menuClose">SSS</a><a href="#/app">Giriş yap</a>
+<div class="lang" role="group" aria-label="Dil" style="margin-top:16px;align-self:flex-start"><button data-a="lang" data-v="tr" class="on" aria-pressed="true">Türkçe</button><button data-a="lang" data-v="en" aria-pressed="false">English</button></div>
+</nav>
+</header>
+
+<main>
+<section class="hero" id="top">
+<div class="wrap hero-g">
+<div>
+<span class="eyebrow"><b>YENİ</b>Prop firm kuralların artık panelde</span>
+<h1 class="h1">Her işlemden<br>bir <em>ders</em> çıkar.</h1>
+<p class="lead">İşlemini telefondan 15 saniyede kaydet ya da MT4/MT5 raporunu yükle. TradeLog neyin işe yarayıp neyin yaramadığını R cinsinden, sade bir dille gösterir.</p>
+<div class="ctas">
+<a class="btn btn-p btn-lg" href="#/app">Ücretsiz başla<span data-i="arrow" data-s="18"></span></a>
+<a class="btn btn-g btn-lg" href="https://t.me/tradelog_tanerphll_bot" target="_blank" rel="noopener"><span data-i="tg" data-s="18"></span>Telegram'da aç</a>
+</div>
+<div class="trust"><span><span data-i="check" data-s="16"></span>Kredi kartı gerekmez</span><span><span data-i="check" data-s="16"></span>Ücretsiz plan süresiz</span><span><span data-i="check" data-s="16"></span>Türkçe ve İngilizce</span></div>
+</div>
+<div class="demo">
+<div class="card dcard" id="demo"></div>
+<div class="float" aria-hidden="true">
+<div class="r"><span style="font-weight:600">Günlük kayıp limiti</span><span class="chip warn">%72</span></div>
+<div class="bar"><i style="width:72%;background:#F87171"></i></div>
+<div style="font-size:12px;color:#A1A6B4;margin-top:8px">Funded 100K · Kalan $1.400</div>
+</div>
+</div>
+</div>
+</section>
+
+<div class="strip"><div class="strip-in">
+<div class="it"><span data-i="file" data-s="20" data-w="1.8"></span><b>MT4 ve MT5</b> raporu (HTML, Excel)</div>
+<div class="it"><span data-i="tg" data-s="20" data-w="1.8"></span><b>Telegram</b> içinde uygulama</div>
+<div class="it"><span data-i="shield" data-s="20" data-w="1.8"></span><b>Prop firm</b> kural takibi</div>
+<div class="it"><span data-i="layers" data-s="20" data-w="1.8"></span><b>Çoklu hesap</b>, tek panel</div>
+</div></div>
+
+<section class="sec" id="nasil">
+<div class="wrap">
+<div class="sec-h"><span class="kick">Nasıl çalışır</span><h2 class="h2">Üç adım. Ezber yok, tablo yok.</h2><p>İşlemi kaydet, haftada bir raporu yükle, gerisini TradeLog hesaplasın.</p></div>
+<div class="how"><div class="steps" id="steps"></div><div id="stage"></div></div>
+</div>
+</section>
+
+<section class="sec alt" id="ozellikler">
+<div class="wrap">
+<div class="sec-h"><span class="kick">Özellikler</span><h2 class="h2">Profesyonellerin baktığı her şey, tek ekranda.</h2><p>Kartların üzerinde gezin, tıkla, dene. Hepsi ücretsiz planda var.</p></div>
+<div class="bento">
+<div class="b b2 r2" id="b-prop"></div>
+<div class="b">
+<div class="hd"><span class="ic"><span data-i="gauge"></span></span><h3>TradeLog puanı</h3></div>
+<div class="ring"><svg width="132" height="132" viewBox="0 0 132 132" aria-hidden="true"><circle cx="66" cy="66" r="56" fill="none" stroke="#08090B" stroke-width="12"/><circle cx="66" cy="66" r="56" fill="none" stroke="#94C5CC" stroke-width="12" stroke-linecap="round" stroke-dasharray="253 352"/></svg><div class="c"><div><b>72</b><span>/ 100 · İyi</span></div></div></div>
+<p>Kazanma, kâr oranı, beklenti, düşüş, tutarlılık ve plan uyumundan tek bir not.</p>
+</div>
+<div class="b">
+<div class="hd"><span class="ic"><span data-i="alert"></span></span><h3>Disiplin uyarıları</h3></div>
+<div class="ntoast"><span data-i="alert" data-s="18" data-w="2"></span><span>Bugün 3 işlem limitine ulaştın. Yarın devam.</span></div>
+<p>Günlük işlem sayısı, üst üste kayıp ve risk sınırlarını sen koy.</p>
+</div>
+<div class="b" id="b-pb"></div>
+<div class="b">
+<div class="hd"><span class="ic"><span data-i="pulse"></span></span><h3>Duygunun bedeli</h3></div>
+<div class="emo">
+<div class="r"><span>Sakin</span><span class="t"><i style="left:50%;width:34%;background:#4ADE80"></i></span><span class="mono pos">+0,8R</span></div>
+<div class="r"><span>Kararsız</span><span class="t"><i style="left:42%;width:8%;background:#F87171"></i></span><span class="mono neg">−0,2R</span></div>
+<div class="r"><span>Aceleci</span><span class="t"><i style="left:26%;width:24%;background:#F87171"></i></span><span class="mono neg">−0,6R</span></div>
+<div class="r"><span>FOMO</span><span class="t"><i style="left:8%;width:42%;background:#F87171"></i></span><span class="mono neg">−1,1R</span></div>
+</div>
+<p>İşlem başına ortalama sonuç, duyguya göre.</p>
+</div>
+<div class="b b2" id="b-cal"></div>
+<div class="b">
+<div class="hd"><span class="ic"><span data-i="layers"></span></span><h3>Çoklu hesap</h3></div>
+<div class="accs">
+<div><span class="chip">Funded</span>100K<span class="mono pos">+18,4R</span></div>
+<div><span class="chip mu">Challenge</span>25K<span class="mono pos">+6,1R</span></div>
+<div><span class="chip mu">Kişisel</span>5K<span class="mono neg">−2,3R</span></div>
+</div>
+<p>Kopyalanan işlemler birleşik görünümde bir kez sayılır.</p>
+</div>
+<div class="b tg">
+<div class="hd"><span class="ic"><span data-i="tg"></span></span><h3>Telegram'da da</h3></div>
+<p>Uygulama indirme yok. Botu aç, işlemini kaydet, panelini gör.</p>
+<a class="btn btn-g" href="https://t.me/tradelog_tanerphll_bot" target="_blank" rel="noopener" style="margin-top:auto">Telegram'da aç</a>
+</div>
+</div>
+</div>
+</section>
+
+<section class="sec" id="fiyatlar">
+<div class="wrap">
+<div class="sec-h c"><span class="kick">Fiyatlar</span><h2 class="h2">Ücretsiz başla. Zaman kazanmak istediğinde Pro'ya geç.</h2><p>Günlük, raporlar ve analizler ücretsiz. Pro, hesabını bağlayıp her şeyi otomatik yapmak isteyenler için.</p></div>
+<div class="bill"><div class="seg" role="group" aria-label="Ödeme dönemi" id="bill"></div></div>
+<div class="plans">
+<div class="plan">
+<div><div class="nm">Ücretsiz</div><div class="ds">Günlük tutmaya başlayan herkes için.</div></div>
+<div class="price"><span class="a">0</span><span class="u">süresiz</span></div>
+<a class="btn btn-g btn-lg" href="#/app">Ücretsiz başla</a>
+<ul class="feat" data-feat="Sınırsız elle işlem kaydı|MT4/MT5 raporu yükleme|Tüm raporlar, puan ve içgörüler|Takvim, günlük ve playbook|Prop firm kuralları ve uyarılar|2 hesap (arşivlenenler sayılmaz)|Telefonda ve Telegram'da kullanım"></ul>
+</div>
+<div class="plan pro">
+<span class="badge">Önerilen</span>
+<div><div class="nm">Pro</div><div class="ds">Rapor yüklemekle uğraşmak istemeyenler için.</div></div>
+<div class="price" id="proPrice"></div>
+<a class="btn btn-p btn-lg" href="#/app">7 gün ücretsiz dene</a>
+<div class="fine">Kredi kartı gerekmez · İstediğin zaman iptal</div>
+<ul class="feat" data-plus="Ücretsizdeki her şey, artı:" data-feat="MT4/MT5 hesabını bağla, işlemler kendiliğinden gelsin|20 hesaba kadar|Web ve Telegram'da aynı veriler|İşlemlere ekran görüntüsü ekleme|AI koç: haftalık özet ve öneriler|Mentorunla ya da arkadaşınla paylaşım"></ul>
+</div>
+</div>
+<div class="cmpb" id="cmpb"><button data-a="cmp" aria-expanded="false" aria-controls="cmp"><span>Tüm özellikleri karşılaştır</span><span data-i="chev" data-s="18" data-w="2.2"></span></button></div>
+<div id="cmp" class="cmp" hidden></div>
+</div>
+</section>
+
+<section class="sec alt" id="sss">
+<div class="wrap">
+<div class="sec-h c"><span class="kick">SSS</span><h2 class="h2">Aklına takılanlar</h2></div>
+<div class="faq" id="faq"></div>
+</div>
+</section>
+
+<div class="wrap" style="margin-top:96px">
+<div class="cta">
+<div class="in"><h2 class="h2">Bir sonraki işlemin, bir öncekinden daha bilinçli olsun.</h2><p>Hesap açmak bir dakika sürer. İlk raporunu yükle, panelin hemen dolsun.</p></div>
+<a class="btn btn-d btn-lg" href="#/app" style="position:relative">Ücretsiz başla<span data-i="arrow" data-s="18"></span></a>
+<div class="deco" aria-hidden="true"><i style="height:40px"></i><i style="height:64px"></i><i style="height:52px"></i><i style="height:92px"></i><i style="height:120px"></i><i style="height:150px"></i></div>
+</div>
+</div>
+</main>
+
+<footer class="foot">
+<div class="wrap">
+<div class="fg">
+<div class="brand"><a class="logo" href="#top"><span data-i="logo" data-s="28"></span>TradeLog</a><p class="disc">TradeLog bir işlem günlüğüdür, yatırım tavsiyesi vermez. Geçmiş sonuçlar gelecekteki sonuçları garanti etmez.</p></div>
+<div><h4>Ürün</h4><a href="#ozellikler">Özellikler</a><a href="#fiyatlar">Fiyatlar</a><a href="https://t.me/tradelog_tanerphll_bot" target="_blank" rel="noopener">Telegram uygulaması</a></div>
+<div><h4>Destek</h4><a href="#sss">SSS</a><a href="#top">İletişim</a></div>
+<div><h4>Yasal</h4><a href="#top">Gizlilik</a><a href="#top">Kullanım koşulları</a></div>
+</div>
+<div class="copy"><span>© 2026 TradeLog</span><span>İstanbul'dan, trader'lar için.</span></div>
+</div>
+</footer>
+</div>
+
+<div class="ap" id="appRoot">
 <div class="app">
-  <aside class="side">
-    <div class="brand"><svg width="26" height="26" viewBox="0 0 32 32" aria-hidden="true"><rect width="32" height="32" rx="8" fill="var(--br)"/><g fill="var(--brt)"><rect x="7" y="13" width="3" height="9" rx="1.2"/><rect x="12" y="8" width="3" height="14" rx="1.2"/><rect x="17" y="15" width="3" height="7" rx="1.2"/><rect x="22" y="10" width="3" height="12" rx="1.2"/></g></svg>TradeLog</div>
+  <aside class="side" aria-label="Menü">
+    <a class="brand" href="#" onclick="go('dash');return false"><svg width="30" height="30" viewBox="0 0 32 32" aria-hidden="true"><rect width="32" height="32" rx="9" fill="var(--ink)"/><path d="M9.5 22v-4.5M16 22V12.5M22.5 22V9" stroke="var(--sf)" stroke-width="3.4" stroke-linecap="round"/></svg>TradeLog</a>
+    <div class="sideacts" id="sideActs"></div>
     <nav id="sideNav"></nav>
     <div class="grow"></div>
-    <div class="sidefoot" id="sideFoot"></div>
+    <div id="sideFoot"></div>
   </aside>
   <main class="main">
     <header class="top">
@@ -341,17 +860,17 @@ body.tg .addbtn,body.tg #fSave{display:none}
     </header>
     <div id="view"></div>
   </main>
-  <nav class="tabbar" id="tabBar"></nav>
+  <nav class="tabbar" id="tabBar" aria-label="Alt menü"></nav>
 </div>
 
 <div class="ov" id="formOv"><div class="md" role="dialog" aria-modal="true" aria-labelledby="fTitle">
-  <div class="mh"><h2 id="fTitle"></h2><button class="xb" onclick="closeForm()" aria-label="close">×</button></div>
+  <div class="mh"><h2 id="fTitle"></h2><button class="xb" onclick="closeForm()" aria-label="Kapat">×</button></div>
   <div class="mb" id="fBody"></div>
   <div class="mf"><button class="btn dan" id="fDel" onclick="delTrade(editId)"></button><button class="btn pri" id="fSave" onclick="saveTrade()"></button></div>
 </div></div>
 
 <div class="ov" id="dlgOv"><div class="md" id="dlgBox" role="dialog" aria-modal="true" aria-labelledby="dTitle">
-  <div class="mh"><h2 id="dTitle"></h2><button class="xb" onclick="closeDlg()" aria-label="close">×</button></div>
+  <div class="mh"><h2 id="dTitle"></h2><button class="xb" onclick="closeDlg()" aria-label="Kapat">×</button></div>
   <div class="mb" id="dBody"></div>
   <div class="mf" id="dFoot"></div>
 </div></div>
@@ -360,11 +879,13 @@ body.tg .addbtn,body.tg #fSave{display:none}
 <input type="file" id="fileCsv" accept=".csv,text/csv" hidden>
 <input type="file" id="fileAny" accept=".htm,.html,.xlsx,.xls,.csv,.json,text/html" hidden>
 <div id="toast" role="status" aria-live="polite"></div>
+</div>
 
 <script>
 /* ================= i18n ================= */
 const T={tr:{
-r_hint:'R, riske ettiğin tutarın katıdır. Stop olduysan −1, riskinin 2 katını kazandıysan 2 yaz. Emin değilsen aşağıdan sonucu seçmen yeterli.',ph_rra:'Örn. 2 veya −1',l_emo_q:'Nasıl hissettin?',rr_hint:'Girişte hedeflediğin kazanç (R)',pnl_hint:'Para olarak net sonuç; girersen bakiye kesinleşir',rating_hint:'Sonuçtan bağımsız: kurallara ne kadar iyi uydun?',k_rr_s:'Ortalama kazanç ÷ ortalama kayıp',k_plan_s2:'Plana uyduğun işlemler',acc_add_how:'Bu hesabın işlemleri nereden gelecek?',acc_m_rep:'MT4/MT5 raporu ile (önerilen)',acc_m_rep_d:'Hesap adı, para birimi, başlangıç bakiyesi ve işlemler rapordan gelir. Sen sadece raporu yüklersin.',acc_m_man:'Manuel hesap',acc_m_man_d:'Raporun yoksa ya da işlemleri kendin gireceksen. Bakiyeyi ve para birimini sen yazarsın.',acc_from_rep:'MT4/MT5 raporundan alındı',show_more:'Daha fazla göster ({n} işlem daha)',wr_s:'Kazanma',period:'Dönem',dg_in:'İçe aktar',dg_out:'Yedek ve dışa aktarma',dg_demo:'Örnek veri',archived:'Arşiv',acc_link:'Rapor eşleştirmesi',acc_link_on:'Bu numaradaki MT4/MT5 raporları otomatik olarak bu hesaba eklenir.',acc_link_off:'Henüz eşleşmedi. Bu hesabın MT4/MT5 raporunu yüklediğinde hesap numarası otomatik eşleşir; sonraki raporlar buraya gelir. Bu bir hesap bağlantısı değildir, şifre istenmez.',acc_unlink:'Eşleştirmeyi kaldır',acc_unlink_c:'#{n} eşleştirmesi kaldırılsın mı? İşlemler silinmez; bir sonraki raporda hesabı yeniden seçmen istenir.',acc_risk_l:'risk',at_challenge:'Challenge',at_funded:'Funded',at_personal:'Kişisel',at_demo:'Demo / backtest',acc_type:'Hesap türü',acc_alltype:'Tüm {k} hesaplar',
+nav_imp:'Rapor yükle',ok_btn:'Tamam',add_t:'İşlem ekle',add_man:'Elle ekle',add_man_d:'Sembol, yön, sonuç ve nasıl hissettiğini gir. Yaklaşık 15 saniye.',add_rep_d:'Rapordaki işlemler hesabına eklenir. Daha önce eklenenler atlanır, elle girdiklerin rapordakiyle eşleşir.',wel_step:'1. adım',wel_acc_t:'Hesabını ekleyerek başla',wel_acc_d:'İşlemlerin, bakiyen ve prop kuralların hesaba göre takip edilir. İşlemlerin nereden gelsin?',wel_alt:'Önce bakmak mı istiyorsun?',acc_m_auto:'Otomatik bağla',acc_m_auto_d:'MT4/MT5 hesabını bağla; işlemler ve bakiye kendiliğinden gelsin.',soon_pro:'Yakında · Pro',acc_manage_all:'Hesapları yönet',acc_n:'{n} hesap',mood_1:'Çok kötü',mood_2:'Kötü',mood_3:'Normal',mood_4:'İyi',mood_5:'Çok iyi',nav_home:'Ana sayfa',th_to_dark:'Koyu tema',th_to_light:'Açık tema',
+r_hint:'R, riske ettiğin tutarın katıdır. Stop olduysan −1, riskinin 2 katını kazandıysan 2 yaz. Emin değilsen aşağıdan sonucu seçmen yeterli.',ph_rra:'Örn. 2 veya −1',l_emo_q:'Nasıl hissettin?',rr_hint:'Girişte hedeflediğin kazanç (R)',pnl_hint:'Para olarak net sonuç; girersen bakiye kesinleşir',rating_hint:'Sonuçtan bağımsız: kurallara ne kadar iyi uydun?',k_rr_s:'Ortalama kazanç ÷ ortalama kayıp',k_plan_s2:'Plana uyduğun işlemler',acc_add_how:'Hesabın işlemleri nereden gelsin?',acc_m_rep:'MT4/MT5 raporu yükle',acc_m_rep_d:'Hesap adı, para birimi, başlangıç bakiyesi ve işlemler rapordan gelir. Sen sadece raporu yüklersin.',acc_m_man:'Elle oluştur',acc_m_man_d:'Raporun yoksa ya da işlemleri kendin gireceksen. Bakiyeyi ve para birimini sen yazarsın.',acc_from_rep:'MT4/MT5 raporundan alındı',show_more:'Daha fazla göster ({n} işlem daha)',wr_s:'Kazanma',period:'Dönem',dg_in:'İçe aktar',dg_out:'Yedek ve dışa aktarma',dg_demo:'Örnek veri',archived:'Arşiv',acc_link:'Rapor eşleştirmesi',acc_link_on:'Bu numaradaki MT4/MT5 raporları otomatik olarak bu hesaba eklenir.',acc_link_off:'Henüz eşleşmedi. Bu hesabın MT4/MT5 raporunu yüklediğinde hesap numarası otomatik eşleşir; sonraki raporlar buraya gelir. Bu bir hesap bağlantısı değildir, şifre istenmez.',acc_unlink:'Eşleştirmeyi kaldır',acc_unlink_c:'#{n} eşleştirmesi kaldırılsın mı? İşlemler silinmez; bir sonraki raporda hesabı yeniden seçmen istenir.',acc_risk_l:'risk',at_challenge:'Challenge',at_funded:'Funded',at_personal:'Kişisel',at_demo:'Demo / backtest',acc_type:'Hesap türü',acc_alltype:'Tüm {k} hesaplar',
 acc_edit:'Hesabı düzenle',acc_name_ph:'Örn. FTM 10K Funded',acc_risk_h:'Sonucu girilmeyen işlemlerde PnL tahmini için',acc_req:'Bakiye ve risk 0 veya daha büyük olmalı.',
 acc_manage:'Hesap yönetimi',acc_arch:'Arşivle',acc_arch_h:'Veriler silinmez; hesap birleşik görünümlerden ve yeni işlem seçimlerinden kalkar. Eski challenge hesapları için.',acc_unarch:'Arşivden çıkar',
 acc_del:'Hesabı verileriyle sil',acc_del_h:'Hesap, {n} işlemi ve para hareketleri kalıcı olarak silinir.',acc_del_c2:'"{k}" hesabı, içindeki {n} işlem ve para hareketleri kalıcı olarak silinecek. Bu geri alınamaz. Devam edilsin mi?',
@@ -475,7 +996,8 @@ emo_calm:'Sakin',emo_focused:'Odaklı',emo_confident:'Güvenli',emo_impatient:'S
 mis_early_entry:'Erken giriş',mis_late_entry:'Geç giriş',mis_no_confirmation:'Onaysız giriş',mis_tight_sl:'SL çok dar',mis_moved_sl:'SL\'i kaydırdım',mis_early_exit:'Erken çıkış',mis_tight_tp:'TP çok yakın',
 mis_off_plan:'Plan dışı işlem',mis_revenge:'Revenge trade',mis_fomo:'FOMO',mis_oversize:'Risk büyüttüm',mis_overtrading:'Aşırı işlem'},
 en:{
-r_hint:'R is a multiple of the amount you risked. Stopped out: −1. Won twice your risk: 2. Not sure? Just pick the outcome below.',ph_rra:'e.g. 2 or −1',l_emo_q:'How did you feel?',rr_hint:'The gain you aimed for at entry (R)',pnl_hint:'Net result in money; makes your balance exact',rating_hint:'Regardless of the result: how well did you follow your rules?',k_rr_s:'Average win ÷ average loss',k_plan_s2:'Trades where you followed your plan',acc_add_how:'Where will this account\'s trades come from?',acc_m_rep:'From an MT4/MT5 report (recommended)',acc_m_rep_d:'Account name, currency, starting balance and trades come from the report. You only upload it.',acc_m_man:'Manual account',acc_m_man_d:'If you have no report or will log trades yourself. You enter the balance and currency.',acc_from_rep:'Taken from your MT4/MT5 report',show_more:'Show more ({n} more)',wr_s:'Win rate',period:'Period',dg_in:'Import',dg_out:'Backup and export',dg_demo:'Sample data',archived:'Archive',acc_link:'Report matching',acc_link_on:'MT4/MT5 reports for this number are added to this account automatically.',acc_link_off:'Not matched yet. When you upload this account\'s MT4/MT5 report, the account number is matched automatically and future reports come here. This is not an account connection; no password is needed.',acc_unlink:'Remove matching',acc_unlink_c:'Remove the #{n} matching? Trades are kept; you will be asked to choose the account again on the next report.',acc_risk_l:'risk',at_challenge:'Challenge',at_funded:'Funded',at_personal:'Personal',at_demo:'Demo / backtest',acc_type:'Account type',acc_alltype:'All {k} accounts',
+nav_imp:'Import report',ok_btn:'OK',add_t:'Add trade',add_man:'Add manually',add_man_d:'Enter symbol, side, result and how you felt. About 15 seconds.',add_rep_d:'Trades in the report are added to your account. Ones already added are skipped and your manual entries are matched.',wel_step:'Step 1',wel_acc_t:'Start by adding your account',wel_acc_d:'Your trades, balance and prop rules are tracked per account. Where should your trades come from?',wel_alt:'Want to look around first?',acc_m_auto:'Connect automatically',acc_m_auto_d:'Connect your MT4/MT5 account; trades and balance arrive on their own.',soon_pro:'Coming soon · Pro',acc_manage_all:'Manage accounts',acc_n:'{n} accounts',mood_1:'Very bad',mood_2:'Bad',mood_3:'Okay',mood_4:'Good',mood_5:'Great',nav_home:'Home page',th_to_dark:'Dark theme',th_to_light:'Light theme',
+r_hint:'R is a multiple of the amount you risked. Stopped out: −1. Won twice your risk: 2. Not sure? Just pick the outcome below.',ph_rra:'e.g. 2 or −1',l_emo_q:'How did you feel?',rr_hint:'The gain you aimed for at entry (R)',pnl_hint:'Net result in money; makes your balance exact',rating_hint:'Regardless of the result: how well did you follow your rules?',k_rr_s:'Average win ÷ average loss',k_plan_s2:'Trades where you followed your plan',acc_add_how:'Where will this account\'s trades come from?',acc_m_rep:'Upload an MT4/MT5 report',acc_m_rep_d:'Account name, currency, starting balance and trades come from the report. You only upload it.',acc_m_man:'Create manually',acc_m_man_d:'If you have no report or will log trades yourself. You enter the balance and currency.',acc_from_rep:'Taken from your MT4/MT5 report',show_more:'Show more ({n} more)',wr_s:'Win rate',period:'Period',dg_in:'Import',dg_out:'Backup and export',dg_demo:'Sample data',archived:'Archive',acc_link:'Report matching',acc_link_on:'MT4/MT5 reports for this number are added to this account automatically.',acc_link_off:'Not matched yet. When you upload this account\'s MT4/MT5 report, the account number is matched automatically and future reports come here. This is not an account connection; no password is needed.',acc_unlink:'Remove matching',acc_unlink_c:'Remove the #{n} matching? Trades are kept; you will be asked to choose the account again on the next report.',acc_risk_l:'risk',at_challenge:'Challenge',at_funded:'Funded',at_personal:'Personal',at_demo:'Demo / backtest',acc_type:'Account type',acc_alltype:'All {k} accounts',
 acc_edit:'Edit account',acc_name_ph:'e.g. FTM 10K Funded',acc_risk_h:'Used to estimate PnL for trades without a result',acc_req:'Balance and risk must be 0 or more.',
 acc_manage:'Manage account',acc_arch:'Archive',acc_arch_h:'Data is kept; the account leaves combined views and new-trade choices. For old challenge accounts.',acc_unarch:'Unarchive',
 acc_del:'Delete account with its data',acc_del_h:'The account, its {n} {n|trade|trades} and cash movements are permanently deleted.',acc_del_c2:'"{k}", its {n} {n|trade|trades} and cash movements will be permanently deleted. This cannot be undone. Continue?',
@@ -613,8 +1135,8 @@ const LEG_TR={emo:{calm:'Sakin',focused:'Odaklı',confident:'Güvenli',impatient
 const EMO_LEG={},MIS_LEG={};
 EMO.forEach(([k,e])=>{EMO_LEG[k]=k;const tr=LEG_TR.emo[k];if(tr){EMO_LEG[tr]=k;EMO_LEG[e+' '+tr]=k}});
 MIS.forEach(k=>{MIS_LEG[k]=k;const tr=LEG_TR.mis[k];if(tr)MIS_LEG[tr]=k});
-const emoL=k=>{const e=EMO.find(x=>x[0]===k);return e?e[1]+' '+t('emo_'+k):k};
-const emoI=k=>{const e=EMO.find(x=>x[0]===k);return e?e[1]:k};
+const emoL=k=>EMO.some(x=>x[0]===k)?t('emo_'+k):k;
+const emoI=emoL;
 const misL=k=>MIS.includes(k)?t('mis_'+k):k;
 
 /* ---- storage ---- */
@@ -1257,7 +1779,14 @@ more:'<circle cx="5" cy="12" r="1.6"/><circle cx="12" cy="12" r="1.6"/><circle c
 plus:'<path d="M12 5v14M5 12h14"/>',
 alert:'<path d="M12 3.5l9 16.5H3z"/><path d="M12 10v4.2M12 17.2v.3"/>',
 check:'<path d="M5 12.5l4.5 4.5L19 7.5"/>',
-filter:'<path d="M3 5h18l-7 8.5V19l-4 2v-7.5z"/>'};
+filter:'<path d="M3 5h18l-7 8.5V19l-4 2v-7.5z"/>',
+up:'<path d="M12 16V4M7 9l5-5 5 5M4 16v3a1 1 0 0 0 1 1h14a1 1 0 0 0 1-1v-3"/>',
+sun:'<circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M2 12h2M20 12h2M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"/>',
+moon:'<path d="M20 14.5A8 8 0 0 1 9.5 4a8 8 0 1 0 10.5 10.5z"/>',
+home:'<path d="M3 11l9-7 9 7"/><path d="M5 10v10h14V10"/>',
+chev:'<path d="M6 9l6 6 6-6"/>',
+link:'<path d="M10 14a4 4 0 0 0 5.7 0l3-3a4 4 0 0 0-5.7-5.7l-1 1"/><path d="M14 10a4 4 0 0 0-5.7 0l-3 3a4 4 0 0 0 5.7 5.7l1-1"/>',
+user:'<rect x="3" y="6" width="18" height="13" rx="2.5"/><path d="M3 10h18M7 15h4"/>'};
 const ic=n=>`<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">${ICON[n]}</svg>`;
 const VIEWS=['dash','trades','cal','rep','pb','jr','set'];
 let cv='dash',rt='ov',cm=new Date(),jd='',showF=false,sk='',sd=-1,tlim=100;
@@ -1265,8 +1794,18 @@ const TFL={q:'',out:'',setup:'',sym:'',dir:'',mis:'',tag:'',rev:''};
 let CHD={};
 
 /* ---- small utils ---- */
-const ask=m=>new Promise(r=>{if(tgv('6.2'))TG.showConfirm(m,ok=>r(!!ok));else r(confirm(m))});
-const say=m=>{if(tgv('6.2'))TG.showAlert(m);else alert(m)};
+/* onay/uyarı penceresi: tarayıcının confirm/alert'i yerine sayfa içi (gömülü görünümlerde de çalışır) */
+function cfm(msg,okTxt,cancel){return new Promise(res=>{
+  let el=$('cfOv');if(!el){el=document.createElement('div');el.id='cfOv';el.className='ov cf';($('appRoot')||document.body).appendChild(el)}
+  const back=document.activeElement;
+  el.innerHTML=`<div class="md" role="alertdialog" aria-modal="true" aria-describedby="cfMsg"><div class="mb"><p id="cfMsg">${esc(msg)}</p></div><div class="mf">${cancel?`<button class="btn" data-r="0">${t('cancel')}</button>`:''}<button class="btn pri" data-r="1">${esc(okTxt)}</button></div></div>`;
+  el.classList.add('on');
+  const done=v=>{el.classList.remove('on');el.innerHTML='';document.removeEventListener('keydown',kd,true);if(back&&back.focus)back.focus();res(v)};
+  const kd=e=>{if(e.key==='Escape'){e.stopPropagation();done(false)}};document.addEventListener('keydown',kd,true);
+  el.onclick=e=>{const b=e.target.closest('[data-r]');if(b)done(b.dataset.r==='1');else if(e.target===el&&cancel)done(false)};
+  setTimeout(()=>{const b=el.querySelector('.btn.pri');if(b)b.focus()},30)})}
+const ask=m=>tgv('6.2')?new Promise(r=>TG.showConfirm(m,ok=>r(!!ok))):cfm(m,t('yes'),true);
+const say=m=>{if(tgv('6.2'))TG.showAlert(m);else cfm(m,t('ok_btn'),false)};
 const hap=k=>{try{if(tgv('6.1'))k==='tap'?TG.HapticFeedback.selectionChanged():TG.HapticFeedback.notificationOccurred(k)}catch(e){}};
 function toast(m){const el=$('toast');if(!el)return;el.textContent=m;el.className='show';clearTimeout(toast.h);toast.h=setTimeout(()=>el.className='',2400)}
 const uniq=(k,l=trades)=>[...new Set(l.flatMap(x=>[].concat(x[k])).filter(Boolean))].sort((a,b)=>String(a).localeCompare(String(b)));
@@ -1280,11 +1819,16 @@ const narrow=()=>window.innerWidth<700;
 function go(v){if(!VIEWS.includes(v))v='dash';cv=v;closeDlg(true);render();window.scrollTo(0,0)}
 function render(){
   document.documentElement.lang=L;
-  $('sideNav').innerHTML=VIEWS.map(v=>`<button class="nav${v===cv?' on':''}" onclick="go('${v}')">${ic(v)}<span>${t('v_'+v)}</span></button>`).join('');
-  const tabs=['dash','trades','cal','rep'];
-  $('tabBar').innerHTML=tabs.map(v=>`<button class="${v===cv?'on':''}" onclick="go('${v}')">${ic(v)}<span>${t('t_'+v)}</span></button>`).join('')+
-    `<button class="${tabs.includes(cv)?'':'on'}" onclick="moreMenu()">${ic('more')}<span>${t('t_more')}</span></button>`;
-  $('sideFoot').innerHTML=`<div id="syncSt"></div>`;setSync();
+  const pq=trades.length?pending().length:0;
+  $('sideNav').innerHTML=VIEWS.filter(v=>v!=='set').map(v=>`<button class="nav${v===cv?' on':''}" onclick="go('${v}')"${v===cv?' aria-current="page"':''}>${ic(v)}<span>${t('v_'+v)}</span>${v==='trades'&&pq?`<span class="ct">${pq}</span>`:''}</button>`).join('');
+  const tb=(v,lab)=>`<button class="${v===cv?'on':''}" onclick="go('${v}')"${v===cv?' aria-current="page"':''}>${ic(v)}<span>${lab}</span></button>`;
+  $('tabBar').innerHTML=tb('dash',t('t_dash'))+tb('trades',t('t_trades'))+`<button class="fab" onclick="addMenu()" aria-label="${t('add_t')}">${ic('plus')}</button>`+tb('rep',t('t_rep'))+
+    `<button class="${['dash','trades','rep'].includes(cv)?'':'on'}" onclick="moreMenu()">${ic('more')}<span>${t('t_more')}</span></button>`;
+  const dk=document.documentElement.dataset.theme==='dark';
+  $('sideActs').innerHTML=`<button class="btn pri full addbtn" onclick="addMenu()">${ic('plus')}<span>${t('add_t')}</span></button><button class="btn full" onclick="accDlg()">${ic('user')}<span>${t('acc_add')}</span></button>`;
+  $('sideFoot').innerHTML=`<button class="nav${cv==='set'?' on':''}" onclick="go('set')"${cv==='set'?' aria-current="page"':''}>${ic('set')}<span>${t('v_set')}</span></button>
+   ${TG?'':`<button class="nav sitelink" onclick="window.showSite&&showSite()">${ic('home')}<span>${t('nav_home')}</span></button>`}
+   <div class="sidefoot" id="syncSt"></div>`;setSync();
   $('vTitle').textContent=t('v_'+cv);
   topCtl();
   CHD={};
@@ -1292,24 +1836,41 @@ function render(){
   if(cv==='trades')rList();
   bindCharts();tgUI();
 }
+let accOpen=false;
+function accSw(){
+  const act=actAccs(),arc=S.accounts.filter(a=>a.arch),types=ATYPES.filter(k=>act.filter(a=>a.type===k).length>1);
+  const cur=V.acc==='all'?(act.length>1?t('acc_all'):accLabel(act[0])):V.acc.startsWith('type:')?t('acc_alltype',{k:typeL(V.acc.slice(5))}):accLabel(accOf(V.acc));
+  const item=(v,lab,sub)=>`<button role="option" aria-selected="${V.acc===v}" class="${V.acc===v?'on':''}" onclick="setAcc('${v}')"><span>${esc(lab)}</span>${sub?`<small>${esc(sub)}</small>`:''}</button>`;
+  const opts=(act.length>1?item('all',t('acc_all'),t('acc_n',{n:act.length})):'')+types.map(k=>item('type:'+k,t('acc_alltype',{k:typeL(k)}),'')).join('')
+    +act.map(a=>item(act.length>1?a.id:'all',accLabel(a),a.type?typeL(a.type):'')).join('')
+    +(arc.length?`<div class="accg">${t('archived')}</div>`+arc.map(a=>item(a.id,accLabel(a),'')).join(''):'');
+  return `<div class="accsw" id="accSw"><button class="accbtn" onclick="event.stopPropagation();accOpen=!accOpen;topCtl()" aria-haspopup="listbox" aria-expanded="${accOpen}" aria-label="${t('h_acc')}"><span class="dot"></span><span class="nm">${esc(cur)}</span>${ic('chev')}</button>
+   ${accOpen?`<div class="accm" role="listbox">${opts}<div class="accsep"></div><button class="act" onclick="accOpen=false;accDlg()">${ic('plus')}<span>${t('acc_add')}</span></button><button class="act" onclick="accOpen=false;go('set')">${ic('set')}<span>${t('acc_manage_all')}</span></button></div>`:''}</div>`;
+}
+/* İşlem ekle: TradeZella'daki gibi önce yöntem seçilir (elle ya da rapordan) */
+function addMenu(){
+  openDlg(t('add_t'),`<div class="optc" style="margin-top:16px"><button onclick="closeDlg(true);openForm()"><span class="oi">${ic('plus')}</span><span class="ot"><b>${t('add_man')}</b><span>${t('add_man_d')}</span></span></button>
+   <button onclick="closeDlg(true);openImport()"><span class="oi">${ic('up')}</span><span class="ot"><b>${t('acc_m_rep')}</b><span>${t('add_rep_d')}</span></span></button></div>`,'');
+}
+function setAcc(v){V.acc=v;accOpen=false;saveV();render()}
 function topCtl(){
-  const per=['dash','trades','rep','pb'].includes(cv),acc=['dash','trades','rep','pb','cal','jr'].includes(cv)&&S.accounts.length>1;
+  const per=['dash','trades','rep','pb'].includes(cv),acc=['dash','trades','rep','pb','cal','jr'].includes(cv);
   let h='';
+  if(acc&&(trades.length||accReady()))h+=accSw();
   if(per&&trades.length){
     h+=`<div class="seg perseg">${PERS.map(p=>`<button class="${V.per===p?'on':''}" onclick="setPer('${p}')">${t('per_'+p)}</button>`).join('')}</div>
       <select class="sel persel" onchange="setPer(this.value)" aria-label="${t('period')}">${PERS.map(p=>opt(p,t('per_'+p),V.per)).join('')}</select>`;
   }
-  if(acc){
-    const act=actAccs(),arc=S.accounts.filter(a=>a.arch),types=ATYPES.filter(k=>act.filter(a=>a.type===k).length>1);
-    h+=`<select class="sel" onchange="V.acc=this.value;saveV();render()">${opt('all',t('acc_all'),V.acc)}${types.map(k=>opt('type:'+k,t('acc_alltype',{k:typeL(k)}),V.acc)).join('')}
-      ${act.map(a=>opt(a.id,accLabel(a),V.acc)).join('')}${arc.length?`<optgroup label="${t('archived')}">${arc.map(a=>opt(a.id,accLabel(a),V.acc)).join('')}</optgroup>`:''}</select>`;
-  }
-  h+=`<button class="btn pri addbtn" onclick="openForm()" aria-label="${t('new_trade')}">${ic('plus')}<span class="lbl">${t('new_trade')}</span></button>`;
+  const dk=document.documentElement.dataset.theme==='dark';
+  h+=`<button class="ib" onclick="toggleTheme()" aria-label="${t(dk?'th_to_light':'th_to_dark')}" title="${t(dk?'th_to_light':'th_to_dark')}">${ic(dk?'sun':'moon')}</button>`;
   $('topCtl').innerHTML=h;
 }
 function setPer(p){V.per=p;saveV();render()}
 function moreMenu(){
-  openDlg(t('t_more'),`<div class="links">${['pb','jr','set'].map(v=>`<button onclick="go('${v}')">${t('v_'+v)}</button>`).join('')}</div>`,'');
+  const dk=document.documentElement.dataset.theme==='dark';
+  openDlg(t('t_more'),`<div class="links">${['cal','pb','jr','set'].map(v=>`<button onclick="go('${v}')">${t('v_'+v)}</button>`).join('')}
+   <button onclick="accDlg()">${t('acc_add')}</button>
+   ${TG?'':`<button onclick="closeDlg(true);window.showSite&&showSite()">${t('nav_home')}</button>`}</div>`,'');
 }
 
 /* ---- dialogs ---- */
@@ -1337,7 +1898,7 @@ function tradeCard(x){
   if(x.kz)bits.push(`<span>${esc(x.kz)}</span>`);
   if(x.plan==='no')bits.push(`<span class="neg">${t('off_plan_s')}</span>`);
   if(x.mistakes.length)bits.push(`<span class="neg">${esc(misL(x.mistakes[0]))}${x.mistakes.length>1?' +'+(x.mistakes.length-1):''}</span>`);
-  if(x.emotions.length)bits.push(`<span>${x.emotions.map(e=>esc(emoI(e))).join('')}</span>`);
+  if(x.emotions.length)bits.push(`<span>${x.emotions.map(e=>esc(emoI(e))).join(', ')}</span>`);
   if(x.demo)bits.push(`<span class="tag">${t('demo_tag')}</span>`);
   if(x.copies)bits.push(`<span class="tag">${t('copies',{n:x.copies})}</span>`);
   else if(multiView()&&S.accounts.length>1)bits.push(`<span>${esc(accName(accOf(x.account)))}</span>`);
@@ -1346,7 +1907,16 @@ function tradeCard(x){
 }
 
 /* ---- dashboard ---- */
+const accReady=()=>S.accounts.length>1||S.accounts.some(a=>a.name||a.no);
+function accOptions(){
+  return `<div class="optc"><button onclick="closeDlg(true);openImport()"><span class="oi">${ic('up')}</span><span class="ot"><b>${t('acc_m_rep')}</b><span>${t('acc_m_rep_d')}</span></span></button>
+   <button onclick="accForm()"><span class="oi">${ic('jr')}</span><span class="ot"><b>${t('acc_m_man')}</b><span>${t('acc_m_man_d')}</span></span></button>
+   <button disabled aria-disabled="true"><span class="oi">${ic('link')}</span><span class="ot"><b>${t('acc_m_auto')} <span class="soon">${t('soon_pro')}</span></b><span>${t('acc_m_auto_d')}</span></span></button></div>`;
+}
 function welcome(){
+  if(!accReady())return `<div class="card welcome w1"><div class="wh"><span class="step1">${t('wel_step')}</span><h2>${t('wel_acc_t')}</h2><p>${t('wel_acc_d')}</p></div>
+   ${accOptions()}
+   <div class="walt"><span>${t('wel_alt')}</span><button class="btn sm" onclick="demo()">${t('wel_demo')}</button><button class="btn sm ghost" onclick="openForm()">${t('wel_add')}</button></div></div>`;
   return `<div class="card welcome"><div><h2>${t('wel_t')}</h2><p>${t('wel_d')}</p>
   <div class="acts"><button class="btn pri" onclick="openForm()">${ic('plus')}${t('wel_add')}</button><button class="btn" onclick="openImport()">${t('wel_imp')}</button><button class="btn" onclick="demo()">${t('wel_demo')}</button></div></div>
   <ul>${['wel_f1','wel_f2','wel_f3','wel_f4'].map(k=>`<li>${ic('check')}<span>${t(k)}</span></li>`).join('')}</ul></div>`;
@@ -1365,30 +1935,29 @@ function vDash(){
   if(!trades.length)return welcome();
   const l=fT(),al=alertsH();
   if(!l.length)return `${al?`<div class="stack" style="margin-bottom:16px">${al}</div>`:''}<div class="card empty">${t('per_empty')}<div style="margin-top:12px"><button class="btn" onclick="setPer('all')">${t('per_all_btn')}</button></div></div>`;
-  const s=stats(l),bal=balanceInfo(),ch=chrono(l).filter(x=>has(x.rrActual)).slice(-90);
+  const s=stats(l),bal=balanceInfo(),ch=chrono(l).filter(x=>has(x.rrActual)).slice(-60);
   const mxa=Math.max(.01,...ch.map(x=>Math.abs(x.rrActual)));
   const strip=ch.map(x=>{const h=Math.abs(x.rrActual)/mxa*48;return `<div class="sb${x.plan==='no'?' off':''}" title="${esc(x.date+' '+x.symbol+' '+fr(x.rrActual))}"><b class="${x.rrActual>0?'u':x.rrActual<0?'d':'z'}" style="${x.rrActual?`height:${h.toFixed(1)}%`:''}"></b></div>`}).join('');
-  const facts=[`<span><b>${s.n}</b> ${t('trades_l')}</span>`,`<span>${t('k_wr')} <b>${pc(s.wr)}</b></span>`,`<span>PF <b>${pfTxt(s)}</b></span>`];
+  const facts=[`<span><b>${s.n}</b> ${t('trades_l')}</span>`];
   if(s.pnl!==null)facts.push(`<span>PnL <b class="${cls(s.pnl)}">${money(s.pnl,1)}</b></span>`);
   if(bal&&V.per==='all')facts.push(`<span>${t('k_bal')} <b>${bal.est?'≈':''}${money(bal.cur)}</b>${bal.ret!=null?` <span class="${cls(bal.ret)}">(${bal.ret>0?'+':''}${bal.ret.toFixed(1)}%)</span>`:''}</span>`);
-  const hero=`<div class="card hero"><div><div class="lbl">${t('hero_'+V.per)}</div><div class="big ${cls(s.tot)}">${s.hasR?fr(s.tot):'—'}</div><div class="hfacts">${facts.join('')}</div></div>
-   <div><div class="strip" aria-label="${t('strip_l')}">${strip}</div><div class="stripcap"><span>${t('strip_l')}</span><span>${t('strip_off')}</span></div></div></div>`;
   const kp=[[t('k_wr'),pc(s.wr),t('kpi_wl',{w:s.w,l:s.ls,b:s.be?t('kpi_be',{n:s.be}):''}),''],[t('k_pf'),pfTxt(s),t('k_pf_s'),s.pf===null?'':s.pf>=1?'pos':'neg'],
     [t('k_exp'),fr(s.exp),t('k_exp_s'),cls(s.exp)],[t('k_rr'),s.real!==null?s.real.toFixed(2):'—',t('k_rr_s'),''],
     [t('k_dd'),s.hasR?fr(-s.dd):'—',t('k_dd_s'),s.dd?'neg':''],[t('k_plan'),pc(s.plan),t('k_plan_s2'),s.plan===null?'':s.plan>=80?'pos':'neu']];
-  const kpis=`<div class="card kpis">${kp.map(([a,b,c,d])=>`<div class="kpi"><div class="l">${a}</div><div class="v ${d}">${b}</div><div class="s">${c}</div></div>`).join('')}</div>`;
+  const net=`<div class="card netcard o1"><div class="nethead"><div><div class="lbl">${t('hero_'+V.per)}</div><div class="big ${cls(s.tot)}">${s.hasR?fr(s.tot):'—'}</div><div class="hfacts">${facts.join('')}</div></div>
+    <div class="stripw"><div class="strip" aria-label="${t('strip_l')}">${strip}</div><div class="stripcap"><span>${t('strip_l')}</span>${ch.some(x=>x.plan==='no')?`<span>${t('strip_off')}</span>`:''}</div></div></div>
+   <div class="kpis">${kp.map(([a,b,c,d])=>`<div class="kpi"><div class="l">${a}</div><div class="v ${d}">${b}</div><div class="s">${c}</div></div>`).join('')}</div></div>`;
+  const eq=`<div class="card o4"><div class="ch"><h2>${t('c_eq')}</h2><small>${t('c_eq_s')}</small></div><div class="cb">${eqChart(l)}</div></div>`;
   const sc=score(l),ins=insights(l);
   const pq=pending().length;
   const rq=pq?`<div class="card revq"><div><b>${t('rv_card',{n:pq})}</b><div class="hint">${t('rv_card_s')}</div></div><button class="btn pri" onclick="RVi=0;openReview()">${t('rv_start')}</button></div>`:'';
   const pst=scopeAccs().map(propState).filter(Boolean);
-  const pcard=pst.length?`<div class="card"><div class="ch"><h2>${t('ar_card')}</h2><small>${t('ar_card_s')}</small></div><div class="cb">${pst.map(propRows).join('')}</div></div>`:'';
-  return `<div class="stack">${al}${rq}${hero}${kpis}${pcard}
-  <div class="g2"><div class="card"><div class="ch"><h2>${t('c_eq')}</h2><small>${t('c_eq_s')}</small></div><div class="cb">${eqChart(l)}</div></div>
-   <div class="card"><div class="ch"><h2>${t('c_score')}</h2><small><a href="#" onclick="rt='ov';go('rep');return false">${t('details')}</a></small></div><div class="cb">${scoreBlock(sc)}</div></div></div>
-  <div class="g2"><div class="card"><div class="ch"><h2>${t('c_daily')}</h2><small>${t('c_daily_s')}</small></div><div class="cb">${dayChart(l)}</div></div>
-   <div class="card"><div class="ch"><h2>${t('c_ins')}</h2></div><div class="cb">${ins.length?ins.map(([k,x])=>`<div class="ins ${k}"><i></i><div>${esc(x)}</div></div>`).join(''):`<div class="mut" style="font-size:14px">${t('ins_need')}</div>`}</div></div></div>
-  <div class="card"><div class="ch"><h2>${t('c_recent')}</h2><small><a href="#" onclick="go('trades');return false">${t('see_all')}</a></small></div><div class="tlist" style="margin-top:8px">${l.slice(0,6).map(tradeCard).join('')}</div></div>
-  </div>`;
+  const pcard=pst.length?`<div class="card o2"><div class="ch"><h2>${t('ar_card')}</h2><small>${t('ar_card_s')}</small></div><div class="cb">${pst.map(propRows).join('')}</div></div>`:'';
+  const scard=`<div class="card o3"><div class="ch"><h2>${t('c_score')}</h2><small><a href="#" onclick="rt='ov';go('rep');return false">${t('details')}</a></small></div><div class="cb">${scoreBlock(sc)}</div></div>`;
+  const icard=`<div class="card o6"><div class="ch"><h2>${t('c_ins')}</h2></div><div class="cb">${ins.length?ins.map(([k,x])=>`<div class="ins ${k}"><i></i><div>${esc(x)}</div></div>`).join(''):`<div class="mut" style="font-size:14px">${t('ins_need')}</div>`}</div></div>`;
+  const dcard=`<div class="card o5"><div class="ch"><h2>${t('c_daily')}</h2><small>${t('c_daily_s')}</small></div><div class="cb">${dayChart(l)}</div></div>`;
+  const recent=`<div class="card o7"><div class="ch"><h2>${t('c_recent')}</h2><small><a href="#" onclick="go('trades');return false">${t('see_all')}</a></small></div><div class="tlist" style="margin-top:8px">${l.slice(0,6).map(tradeCard).join('')}</div></div>`;
+  return `<div class="stack">${al}${rq}<div class="dgrid"><div class="dcl">${net}${eq}${dcard}</div><div class="dcr">${pcard}${scard}${icard}</div>${recent}</div></div>`;
 }
 
 function propRows(p){
@@ -1469,8 +2038,10 @@ function radar(sc){
 }
 function scoreBlock(sc){
   if(!sc)return `<div class="mut" style="font-size:14px">${t('score_need')}</div>`;
-  return `<div class="scoretop"><div><div class="snum">${sc.total}<span class="mut">/100</span></div><div class="hint">${t(sc.total>=70?'sc_hi':sc.total>=45?'sc_mid':'sc_lo')}</div></div>${radar(sc)}</div>
-   <div class="sparts">${sc.parts.map(([k,v])=>`<div><div class="sline"><span>${t(k)}</span><span>${v}</span></div><div class="meter"><b style="width:${v}%"></b></div></div>`).join('')}</div>`;
+  const C=2*Math.PI*60,col=v=>v>=60?'var(--br)':v>=40?'var(--ink3)':'var(--loss)';
+  return `<div class="ring"><svg viewBox="0 0 148 148" aria-hidden="true"><circle cx="74" cy="74" r="60" fill="none" stroke="var(--sf2)" stroke-width="12"/><circle cx="74" cy="74" r="60" fill="none" stroke="var(--br)" stroke-width="12" stroke-linecap="round" stroke-dasharray="${(sc.total/100*C).toFixed(1)} ${C.toFixed(1)}"/></svg><div class="rc"><div><b>${sc.total}</b><span>/ 100</span></div></div></div>
+   <div class="scnote">${t(sc.total>=70?'sc_hi':sc.total>=45?'sc_mid':'sc_lo')}</div>
+   <div class="parts">${sc.parts.map(([k,v])=>`<div class="pt"><span title="${esc(t(k))}">${t(k)}</span><span class="meter"><b style="width:${v}%;background:${col(v)}"></b></span><span class="mono">${v}</span></div>`).join('')}</div>`;
 }
 
 /* ---- trades view ---- */
@@ -1480,7 +2051,7 @@ function vTrades(){
   const p=a=>a.map(x=>[x,x]);
   return `<div class="card"><div class="toolbar"><input class="in" type="search" placeholder="${t('search_ph')}" value="${esc(TFL.q)}" oninput="TFL.q=this.value;rList()">
    <button class="btn sm ${showF?'pri':''}" onclick="showF=!showF;render()">${ic('filter')}${t('filters')}</button>
-   <button class="btn sm ghost" onclick="Object.keys(TFL).forEach(k=>TFL[k]='');render()">${t('f_reset')}</button><button class="btn sm" onclick="openImport()">${t('im_btn')}</button></div>
+   <button class="btn sm ghost" onclick="Object.keys(TFL).forEach(k=>TFL[k]='');render()">${t('f_reset')}</button></div>
    <div class="filters ${showF?'':'hide'}">${sel('out',t('f_out'),['Win','Loss','BE'].map(o=>[o,t('o_'+o)]))}${sel('setup',t('f_setup'),p(uniq('setup',l)))}${sel('sym',t('f_sym'),p(uniq('symbol',l)))}
    ${sel('dir',t('f_dir'),p(['Long','Short']))}${sel('mis',t('f_mis'),uniq('mistakes',l).map(m=>[m,misL(m)]))}${sel('tag',t('f_tag'),p(uniq('tags',l)))}${sel('rev',t('f_rev'),[['p',t('f_rev_p')]])}</div>
    <div class="sumline" id="tSum"></div><div class="dual" id="tList"></div></div>`;
@@ -1504,7 +2075,7 @@ function rList(more){
   const rows=l.map(x=>`<tr class="rw" onclick="openTrade(${x.id})"><td>${esc(dFmt(x.date,{day:'numeric',month:'short',year:'2-digit'}))}${x.time?` <span class="mut">${esc(x.time)}</span>`:''}</td><td class="sym">${esc(x.symbol)}${x.demo?` <span class="tag">${t('demo_tag')}</span>`:''}</td><td>${x.dir?`<span class="side-${x.dir[0].toLowerCase()}">${x.dir}</span>`:'—'}</td>
    ${multi?`<td>${esc(accName(accOf(x.account)))}</td>`:''}<td>${esc(x.setup)||'—'}</td><td class="mut">${esc(x.kz)||'—'}</td><td><span class="badge ${x.outcome.toLowerCase()}">${t('o_'+x.outcome)}</span></td>
    <td class="r ${cls(x.rrActual)}" style="font-weight:600">${fr(x.rrActual)}</td><td class="r ${cls(x.pnl)}">${has(x.pnl)?money(x.pnl,1,accOf(x.account).cur):'—'}</td>
-   <td>${x.plan==='yes'?`<span class="pos">${t('yes')}</span>`:x.plan==='no'?`<span class="neg">${t('no')}</span>`:'—'}</td><td class="neg">${x.mistakes.map(misL).map(esc).join(', ')||'<span class="mut">—</span>'}</td><td>${x.emotions.map(emoI).join(' ')||'—'}</td><td style="color:var(--be)">${x.rating?'★'.repeat(x.rating):'—'}</td></tr>`).join('');
+   <td>${x.plan==='yes'?`<span class="pos">${t('yes')}</span>`:x.plan==='no'?`<span class="neg">${t('no')}</span>`:'—'}</td><td class="neg">${x.mistakes.map(misL).map(esc).join(', ')||'<span class="mut">—</span>'}</td><td>${x.emotions.map(emoI).map(esc).join(', ')||'—'}</td><td style="color:var(--be)">${x.rating?'★'.repeat(x.rating):'—'}</td></tr>`).join('');
   $('tList').innerHTML=`<div class="scroll tblwrap"><table><thead><tr>${th('date',t('h_date'))}${th('symbol',t('h_sym'))}${th('dir',t('h_dir'))}${multi?th('',t('h_acc')):''}${th('setup',t('h_setup'))}${th('kz',t('h_sess'))}${th('',t('h_out'))}${th('rrActual','R',1)}${th('pnl','PnL',1)}${th('',t('h_plan'))}${th('',t('h_mis'))}${th('',t('h_emo'))}${th('rating',t('h_rating'))}</tr></thead><tbody>${rows}</tbody></table></div>
    <div class="tlist">${l.map(tradeCard).join('')}</div>${moreBtn}`;
 }
@@ -1742,21 +2313,21 @@ function pbSave(id){
 async function pbDel(id){if(!await ask(t('pb_del_c')))return;PB=PB.filter(z=>z.id!==id);savePB();closeDlg();render();toast(t('deleted'))}
 
 /* ---- journal ---- */
-const MOOD=['😞','😕','😐','🙂','😄'];
+const MOOD=[1,2,3,4,5].map(i=>()=>t('mood_'+i));
 function vJR(){
   if(!jd)jd=day();
   const e=JR[jd]||{},l=byAcc(trades).filter(x=>x.date===jd),s=stats(l);
   const ks=Object.keys(JR).filter(k=>/^\d{4}-\d{2}-\d{2}$/.test(k)).sort().reverse();
   return `<div class="g2"><div class="card"><div class="cb" style="padding-top:18px">
    <div class="fgrid"><label class="fld"><span>${t('h_date')}</span><input class="in" type="date" id="j_date" value="${jd}" onchange="jd=this.value;render()"></label>
-   <div class="fld"><span>${t('j_mood')}</span><div class="chips" id="j_mood">${MOOD.map((m,i)=>`<button type="button" class="chip${e.m===i+1?' on':''}" data-v="${i+1}" style="font-size:18px;padding:4px 10px" onclick="this.parentNode.querySelectorAll('.chip').forEach(z=>z.classList.toggle('on',z===this&&!this.classList.contains('on')))">${m}</button>`).join('')}</div></div></div>
+   <div class="fld"><span>${t('j_mood')}</span><div class="chips" id="j_mood">${MOOD.map((m,i)=>`<button type="button" class="chip${e.m===i+1?' on':''}" data-v="${i+1}" onclick="this.parentNode.querySelectorAll('.chip').forEach(z=>z.classList.toggle('on',z===this&&!this.classList.contains('on')))">${m()}</button>`).join('')}</div></div></div>
    <div class="sumline" style="padding:12px 0;margin-top:12px;border-top:1px solid var(--ln2)"><span>${t('n_tr',{n:`<b>${s.n}</b>`})}</span><span>${t('h_tot')} <b class="${cls(s.tot)}">${fr(s.tot)}</b></span>${s.n?`<a href="#" onclick="dayDlg('${jd}');return false">${t('j_see')}</a>`:''}</div>
    <label class="fld" style="margin-top:12px"><span>${t('j_plan')}</span><textarea class="in" id="j_p" placeholder="${t('j_plan_ph')}">${esc(e.p)}</textarea></label>
    <label class="fld" style="margin-top:12px"><span>${t('j_rev')}</span><textarea class="in" id="j_r" placeholder="${t('j_rev_ph')}">${esc(e.r)}</textarea></label>
    <label class="fld" style="margin-top:12px"><span>${t('j_les')}</span><textarea class="in" id="j_l" placeholder="${t('j_les_ph')}">${esc(e.l)}</textarea></label>
    <div style="margin-top:14px;display:flex;justify-content:flex-end"><button class="btn pri" onclick="jSave()">${t('j_save')}</button></div></div></div>
    <div class="card"><div class="ch"><h2>${t('j_past')}</h2></div><div class="cb">${ks.length?ks.slice(0,60).map(k=>{const x=JR[k],r=sum(byAcc(trades).filter(z=>z.date===k&&has(z.rrActual)).map(z=>z.rrActual));
-     return `<button class="tc" style="display:block;width:100%;text-align:left;padding:10px 0;border-top:1px solid var(--ln2)" onclick="jd='${k}';render()"><div class="tc1"><b style="font-weight:600">${esc(dFmt(k,{weekday:'short',day:'numeric',month:'short'}))}</b>${x.m?MOOD[x.m-1]:''}<span class="rv ${cls(r)}" style="font-size:15px">${fr(r)}</span></div><div class="tc2" style="display:block;white-space:nowrap;overflow:hidden;text-overflow:ellipsis">${esc(x.r||x.p||x.l)}</div></button>`}).join(''):`<div class="mut" style="font-size:14px">${t('j_empty')}</div>`}</div></div></div>`;
+     return `<button class="tc" style="display:block;width:100%;text-align:left;padding:10px 0;border-top:1px solid var(--ln2)" onclick="jd='${k}';render()"><div class="tc1"><b style="font-weight:600">${esc(dFmt(k,{weekday:'short',day:'numeric',month:'short'}))}</b>${x.m?`<span class="tag">${MOOD[x.m-1]()}</span>`:''}<span class="rv ${cls(r)}" style="font-size:15px">${fr(r)}</span></div><div class="tc2" style="display:block;white-space:nowrap;overflow:hidden;text-overflow:ellipsis">${esc(x.r||x.p||x.l)}</div></button>`}).join(''):`<div class="mut" style="font-size:14px">${t('j_empty')}</div>`}</div></div></div>`;
 }
 function jSave(){
   const on=$('j_mood').querySelector('.on'),e={p:$('j_p').value.trim(),r:$('j_r').value.trim(),l:$('j_l').value.trim(),m:on?+on.dataset.v:0};
@@ -1779,16 +2350,15 @@ function vSet(){
   const lim=(k,lab,d,step)=>`<div class="srow"><div><div class="t">${lab}</div><div class="d">${d}</div></div><input class="in" type="number" min="0" step="${step}" value="${S[k]}" onchange="S.${k}=Math.max(0,num(this.value)||0);saveS();toast(t('saved'))"></div>`;
   return `<div class="g2e"><div class="stack">
    <div class="card"><div class="ch"><h2>${t('s_acc')}</h2><small>${t('s_acc_s')}</small></div><div class="cb">${act.map(accCard).join('')}
-    <button class="btn sm" style="margin-top:12px" onclick="accDlg()">${ic('plus')}${t('acc_add')}</button>
+    <button class="btn pri sm" style="margin-top:12px" onclick="accDlg()">${ic('plus')}${t('acc_add')}</button>
     ${act.length>1?`<label class="check" style="margin-top:14px"><input type="checkbox" ${S.dedup?'checked':''} onchange="S.dedup=this.checked;saveS();toast(t('saved'))"><span>${t('s_dedup')}<span class="hint" style="display:block">${t('s_dedup_d')}</span></span></label>`:''}
     ${arc.length?`<details class="more" style="margin-top:14px"><summary>${t('s_arch',{n:arc.length})}</summary><div>${arc.map(accCard).join('')}</div></details>`:''}</div></div>
    <div class="card"><div class="ch"><h2>${t('s_rules')}</h2><small>${t('s_rules_s')}</small></div><div class="cb">${lim('day',t('s_day'),t('s_day_d'),0.5)}${lim('str',t('s_str'),t('s_str_d'),1)}${lim('maxT',t('s_maxT'),t('s_maxT_d'),1)}</div></div>
-   <div class="card"><div class="ch"><h2>${t('s_look')}</h2></div><div class="cb">
-    <div class="srow"><div class="t">${t('s_lang')}</div><select class="sel" onchange="setLang(this.value)">${opt('tr','Türkçe',L)}${opt('en','English',L)}</select></div>
-    <div class="srow"><div class="t">${t('s_theme')}</div><select class="sel" onchange="setTheme(this.value)">${opt('auto',t('th_auto'),th)}${opt('light',t('th_light'),th)}${opt('dark',t('th_dark'),th)}</select></div></div></div>
+   <div class="card"><div class="ch"><h2>${t('s_lang')}</h2></div><div class="cb">
+    <div class="srow"><div class="t">${t('s_lang')}</div><select class="sel" onchange="setLang(this.value)">${opt('tr','Türkçe',L)}${opt('en','English',L)}</select></div></div></div>
   </div><div class="stack">
    <div class="card"><div class="ch"><h2>${t('s_data')}</h2></div><div class="cb">
-    <h4 class="lgh">${t('dg_in')}</h4><div class="links"><button onclick="openImport()" style="font-weight:600">${t('m_broker')}</button><button onclick="$('fileJson').click()">${t('m_res')}</button><button onclick="$('fileCsv').click()">${t('m_csv_imp')}</button><button onclick="pasteImp()">${t('m_paste')}</button></div>
+    <h4 class="lgh">${t('dg_in')}</h4><div class="links"><button onclick="$('fileJson').click()">${t('m_res')}</button><button onclick="$('fileCsv').click()">${t('m_csv_imp')}</button><button onclick="pasteImp()">${t('m_paste')}</button></div>
     <h4 class="lgh">${t('dg_out')}</h4><div class="links"><button onclick="expJSON()">${t('m_bak')}</button><button onclick="expCSV()">${t('m_csv_exp')}</button></div>
     <h4 class="lgh">${t('dg_demo')}</h4><div class="links"><button onclick="demo()">${t('m_demo')}</button>${trades.some(x=>x.demo)||PB.some(p=>p.demo)?`<button onclick="demoRm()">${t('m_demo_rm')}</button>`:''}</div>
     <div class="links" style="margin-top:14px;border-top:1px solid var(--ln2)"><button class="dan" onclick="wipe()">${t('m_wipe')}</button></div>
@@ -1800,8 +2370,7 @@ function vSet(){
 function accDlg(id){
   if(id)return accForm(id);
   openDlg(t('acc_add'),`<p style="padding-top:14px;font-size:14.5px;color:var(--ink2)">${t('acc_add_how')}</p>
-   <div class="optc"><button onclick="closeDlg(true);openImport()"><b>${t('acc_m_rep')}</b><span>${t('acc_m_rep_d')}</span></button>
-   <button onclick="accForm()"><b>${t('acc_m_man')}</b><span>${t('acc_m_man_d')}</span></button></div>`,'');
+   ${accOptions()}`,'');
 }
 const propType=k=>k==='challenge'||k==='funded';
 function accForm(id){
@@ -1882,7 +2451,9 @@ async function txDel(tid,id){if(!await ask(t('tx_del_c')))return;S.tx=S.tx.filte
 
 /* ---- data ---- */
 function dl(name,txt,type){
-  if(TG){showTxt(name,t('x_exp_h'),txt.replace(/^﻿/,''),t('copy'),null);return}
+  /* Telegram'da ve gömülü önizlemelerde dosya indirilemez: metni kopyalanabilir göster */
+  let framed=false;try{framed=window.top!==window}catch(e){framed=true}
+  if(TG||framed){showTxt(name,t('x_exp_h'),txt.replace(/^﻿/,''),t('copy'),null);return}
   const a=document.createElement('a');a.href=URL.createObjectURL(new Blob([txt],{type}));a.download=name;document.body.appendChild(a);a.click();a.remove();setTimeout(()=>URL.revokeObjectURL(a.href),1000);
 }
 const COLS=['date','time','account','symbol','dir','setup','kz','tf','rr','rrActual','pnl','mfe','mae','outcome','plan','rating','emotions','mistakes','tags','rules','chart','notes','lots','entry','exit','sl','tp','ct','ext'];
@@ -1973,8 +2544,9 @@ async function wipe(){
 /* ---- theme / language ---- */
 function applyTheme(){
   let th=null;try{th=localStorage.getItem(K.theme)}catch(e){}
-  document.documentElement.dataset.theme=th==='light'||th==='dark'?th:TG?(TG.colorScheme==='light'?'light':'dark'):(matchMedia('(prefers-color-scheme: dark)').matches?'dark':'light');
+  document.documentElement.dataset.theme=th==='light'?'light':'dark';
 }
+function toggleTheme(){setTheme(document.documentElement.dataset.theme==='dark'?'light':'dark')}
 function setTheme(v){try{v==='auto'?localStorage.removeItem(K.theme):localStorage.setItem(K.theme,v)}catch(e){}applyTheme();render()}
 function setLang(l){L=l;try{localStorage.setItem(K.lang,l)}catch(e){}render()}
 
@@ -1987,7 +2559,7 @@ function tgUI(){
     if(tgv('6.9')&&/^#[0-9a-f]{6}$/i.test(bg)){TG.setHeaderColor(bg);TG.setBackgroundColor(cs.getPropertyValue('--bg').trim());if(tgv('7.10')&&TG.setBottomBarColor)TG.setBottomBarColor(bg)}
     const mb=TG.MainButton;if(mbH)mb.offClick(mbH);
     if(dlgOpen()&&!formOpen()){mb.hide();mbH=null}
-    else{mbH=formOpen()?()=>saveTrade():()=>openForm();mb.setParams({text:formOpen()?t('save'):t('new_trade'),color:/^#[0-9a-f]{6}$/i.test(ac)?ac:undefined,text_color:/^#[0-9a-f]{6}$/i.test(bt)?bt:'#ffffff',is_visible:true,is_active:true});mb.onClick(mbH)}
+    else{mbH=formOpen()?()=>saveTrade():()=>addMenu();mb.setParams({text:formOpen()?t('save'):t('add_t'),color:/^#[0-9a-f]{6}$/i.test(ac)?ac:undefined,text_color:/^#[0-9a-f]{6}$/i.test(bt)?bt:'#ffffff',is_visible:true,is_active:true});mb.onClick(mbH)}
     if(tgv('6.1')){(formOpen()||dlgOpen()||cv!=='dash')?TG.BackButton.show():TG.BackButton.hide()}
   }catch(e){}
 }
@@ -2008,13 +2580,302 @@ function init(){
   $('fileJson').addEventListener('change',function(){readFile(this,x=>impJSONData(JSON.parse(x)),'bad_backup')});
   $('fileCsv').addEventListener('change',function(){readFile(this,impCSVText,'bad_csv')});
   $('fileAny').addEventListener('change',function(){onAnyFile(this)});
-  document.addEventListener('keydown',e=>{if(e.key==='Escape'){if(dlgOpen())closeDlg();else if(formOpen())closeForm()}
+  document.addEventListener('click',e=>{if(accOpen&&!e.target.closest('#accSw')){accOpen=false;topCtl()}});
+  document.addEventListener('keydown',e=>{if(e.key==='Escape'){if(accOpen){accOpen=false;topCtl()}else if(dlgOpen())closeDlg();else if(formOpen())closeForm()}
     if((e.metaKey||e.ctrlKey)&&e.key==='Enter'&&formOpen())saveTrade()});
   let nw=narrow();window.addEventListener('resize',()=>{clearTimeout(init.rz);init.rz=setTimeout(()=>{if(narrow()!==nw){nw=narrow();if(!formOpen()&&!dlgOpen())render()}},250)});
   document.addEventListener('click',e=>{const a=e.target.closest('a[data-ext]');if(a&&TG&&tgv('6.4')){e.preventDefault();TG.openLink(a.href)}});
   applyTheme();render();cloudInit();
 }
 init();
+
+
+(() => {
+'use strict';
+const SITE = document.getElementById('site');
+/* ---------- helpers ---------- */
+const $ = (s, r = document) => r.querySelector(s);
+const $$ = (s, r = document) => Array.from(r.querySelectorAll(s));
+const esc = s => String(s).replace(/[&<>"']/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
+const fr = (v, d = 1) => { const z = Math.abs(v) < Math.pow(10, -d) / 2; return (z ? '' : v > 0 ? '+' : '−') + Math.abs(v).toFixed(d).replace('.', ',') + 'R'; };
+const usd = v => { const z = Math.abs(v) < .5; return (z ? '' : v > 0 ? '+' : '−') + '$' + Math.round(Math.abs(v)).toLocaleString('tr-TR'); };
+const money = v => '$' + Math.round(v).toLocaleString('tr-TR');
+const lcg = seed => { let s = seed; return () => { s = (s * 16807) % 2147483647; return (s - 1) / 2147483646; }; };
+const MON = ['Oca','Şub','Mar','Nis','May','Haz','Tem','Ağu','Eyl','Eki','Kas','Ara'];
+
+const P = {
+  logo: null,
+  check: '<path d="M5 12.5l4.5 4.5L19 7.5"/>',
+  arrow: '<path d="M5 12h14M13 6l6 6-6 6"/>',
+  tg: '<path d="M21 4L3 11l6 2.5M21 4l-3.5 16-8.5-6.5M21 4L9 13.5v5.5l3-3.3"/>',
+  file: '<path d="M14 3H7a2 2 0 00-2 2v14a2 2 0 002 2h10a2 2 0 002-2V8z"/><path d="M14 3v5h5"/>',
+  shield: '<path d="M12 3l8 3v6c0 4.5-3.4 8.3-8 9-4.6-.7-8-4.5-8-9V6z"/>',
+  layers: '<path d="M12 3l9 5-9 5-9-5 9-5z"/><path d="M3 13l9 5 9-5"/>',
+  gauge: '<path d="M4 16a8 8 0 1116 0"/><path d="M12 16l4-5"/>',
+  alert: '<path d="M12 8v5M12 16.5v.5M10.3 3.9L2.6 17.5A2 2 0 004.3 20.5h15.4a2 2 0 001.7-3L13.7 3.9a2 2 0 00-3.4 0z"/>',
+  pulse: '<path d="M3 12h4l2-5 4 10 2-5h6"/>',
+  book: '<path d="M4 5a2 2 0 012-2h13v16H6a2 2 0 00-2 2z"/><path d="M4 19V5M9 8h6"/>',
+  cal: '<rect x="3" y="5" width="18" height="16" rx="3"/><path d="M3 10h18M8 3v4M16 3v4"/>',
+  menu: '<path d="M4 7h16M4 12h16M4 17h16"/>',
+  close: '<path d="M6 6l12 12M18 6L6 18"/>',
+  chev: '<path d="M6 9l6 6 6-6"/>',
+  clock: '<circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/>',
+  trend: '<path d="M4 17l5-5 4 4 7-8"/><path d="M15 8h5v5"/>',
+  minus: '<path d="M7 12h10"/>',
+  plus: '<path d="M12 5v14M5 12h14"/>',
+  grid: '<rect x="3" y="3" width="7" height="9" rx="2"/><rect x="14" y="3" width="7" height="5" rx="2"/><rect x="14" y="12" width="7" height="9" rx="2"/><rect x="3" y="16" width="7" height="5" rx="2"/>',
+  list: '<path d="M8 6h13M8 12h13M8 18h13M3.5 6h.01M3.5 12h.01M3.5 18h.01"/>',
+  chart: '<path d="M4 20V10M10 20V4M16 20v-7M22 20H2"/>',
+  pen: '<path d="M12 20h9M16.5 3.5a2.1 2.1 0 013 3L7 19l-4 1 1-4z"/>',
+  gear: '<circle cx="12" cy="12" r="3"/><path d="M12 2v3M12 19v3M4.2 4.2l2.1 2.1M17.7 17.7l2.1 2.1M2 12h3M19 12h3M4.2 19.8l2.1-2.1M17.7 6.3l2.1-2.1"/>',
+  upload: '<path d="M12 16V4M7 9l5-5 5 5M4 16v3a1 1 0 001 1h14a1 1 0 001-1v-3"/>',
+  help: '<circle cx="12" cy="12" r="9"/><path d="M9.5 9.5a2.5 2.5 0 014.6 1.3c0 1.7-2.1 2-2.1 3.4M12 17h.01"/>',
+  phone: '<rect x="6" y="2.5" width="12" height="19" rx="3"/><path d="M11 18h2"/>',
+  doc: '<path d="M14 3H7a2 2 0 00-2 2v14a2 2 0 002 2h10a2 2 0 002-2V8z"/><path d="M14 3v5h5M9 13h6M9 17h4"/>'
+};
+const ic = (n, s = 20, w = 2, extra = '') => n === 'logo'
+  ? `<svg width="${s}" height="${s}" viewBox="0 0 32 32" aria-hidden="true"><rect width="32" height="32" rx="9" fill="#94C5CC"/><path d="M9.5 22v-4.5M16 22V12.5M22.5 22V9" stroke="#000100" stroke-width="3.4" stroke-linecap="round"/></svg>`
+  : `<svg ${extra} width="${s}" height="${s}" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="${w}" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">${P[n]}</svg>`;
+const fillIcons = (root = document) => $$('[data-i]', root).forEach(el => { el.outerHTML = ic(el.dataset.i, +(el.dataset.s || (el.dataset.i === 'logo' ? 32 : 20)), +(el.dataset.w || (el.dataset.i === 'check' ? 2.6 : 1.9))); });
+
+/* Demo verisi üreteci (deterministik) */
+function gen(n, seed, acc) {
+  const rnd = lcg(seed), rn2 = lcg(seed + 7919);
+  const syms = ['EURUSD','XAUUSD','NAS100','GBPUSD','US30'], setups = ['Breakout','Pullback','Range'], emos = ['Sakin','Sakin','Sakin','Aceleci','FOMO','Kararsız'];
+  const a = [];
+  for (let i = 0; i < n; i++) {
+    const w = rnd() < .5;
+    const r = w ? Math.round((.6 + rnd() * 1.8) * 10) / 10 : (rnd() < .3 ? -.5 : -1);
+    const sym = syms[Math.floor(rnd() * syms.length)];
+    let emo = emos[Math.floor(rn2() * emos.length)];
+    if (r > 1.5 && emo === 'FOMO') emo = 'Sakin';
+    a.push({ r, sym, acc, emo, side: rn2() < .55 ? 'Long' : 'Short', setup: setups[Math.floor(rn2() * 3)], plan: rn2() < .78, t: Math.floor(rn2() * 1000) });
+  }
+  return a;
+}
+function stats(trades) {
+  let c = 0, pk = 0, dd = 0, gw = 0, gl = 0, w = 0;
+  const cum = [0];
+  trades.forEach(t => { c += t.r; cum.push(c); pk = Math.max(pk, c); dd = Math.max(dd, pk - c); if (t.r > 0) { gw += t.r; w++; } else gl -= t.r; });
+  return { n: trades.length, c, dd, gw, gl, w, cum };
+}
+/* Eğri + üzerine gelince ipucu */
+function curve(cum, W, H, top, bot) {
+  const n = cum.length - 1, mn = Math.min(0, ...cum), mx = Math.max(1, ...cum);
+  const X = i => (i / Math.max(1, n)) * W, Y = v => bot - ((v - mn) / (mx - mn)) * (bot - top);
+  const line = 'M' + cum.map((v, i) => X(i).toFixed(1) + ',' + Y(v).toFixed(1)).join(' L');
+  return { X, Y, line, area: line + ` L${W},${H} L0,${H} Z`, zero: `M0,${Y(0).toFixed(1)} L${W},${Y(0).toFixed(1)}` };
+}
+function chartHTML(cv, W, H) {
+  return `<svg viewBox="0 0 ${W} ${H}" preserveAspectRatio="none" aria-hidden="true">
+<path d="${cv.zero}" stroke="rgba(161,166,180,.35)" stroke-width="1" stroke-dasharray="4 5" fill="none" vector-effect="non-scaling-stroke"/>
+<path d="${cv.area}" fill="rgba(148,197,204,.10)"/>
+<path d="${cv.line}" stroke="#94C5CC" stroke-width="2.5" fill="none" stroke-linejoin="round" stroke-linecap="round" vector-effect="non-scaling-stroke"/></svg>
+<div class="vl" hidden></div><div class="mk" hidden></div><div class="tip" hidden></div><div class="hit"></div>`;
+}
+function bindChart(el, n, W, H, cv, cum, tipFor) {
+  const vl = $('.vl', el), mk = $('.mk', el), tip = $('.tip', el), hit = $('.hit', el);
+  const show = x => {
+    const rect = hit.getBoundingClientRect();
+    if (!n || !rect.width) return;
+    const i = Math.max(0, Math.min(n - 1, Math.floor(((x - rect.left) / rect.width) * n)));
+    const px = cv.X(i + 1) / W * 100, py = cv.Y(cum[i + 1]) / H * 100;
+    const t = tipFor(i);
+    vl.style.left = mk.style.left = px + '%'; mk.style.top = py + '%';
+    mk.classList.toggle('n', t.neg);
+    tip.style.left = Math.min(85, Math.max(15, px)) + '%'; tip.innerHTML = t.html;
+    vl.hidden = mk.hidden = tip.hidden = false;
+  };
+  const hide = () => { vl.hidden = mk.hidden = tip.hidden = true; };
+  hit.addEventListener('pointermove', e => show(e.clientX));
+  hit.addEventListener('pointerdown', e => show(e.clientX));
+  hit.addEventListener('pointerleave', e => { if (e.pointerType === 'mouse') hide(); });
+}
+
+/* ================= SITE ================= */
+const S = { menu: false, per: '30', step: 0, chk: [true, true, false], acc: 0, day: -1, bill: 'y', cmp: false, faq: 0 };
+
+function renderDemo() {
+  const cfg = { '7': [9, 14], '30': [34, 7], '90': [96, 4] }[S.per];
+  const tr = gen(cfg[0], cfg[1]);
+  const st = stats(tr), cv = curve(st.cum, 600, 220, 24, 204);
+  const seg = [['7','7G'],['30','30G'],['90','90G']].map(([k, l]) => `<button data-a="per" data-v="${k}" class="${S.per === k ? 'on' : ''}" aria-pressed="${S.per === k}">${l}</button>`).join('');
+  $('#demo').innerHTML = `<div class="dhead"><span class="t">Panel</span><span class="chip mu">Örnek veri</span><div class="seg ml" role="group" aria-label="Dönem">${seg}</div></div>
+<div class="net"><span class="v ${st.c >= 0 ? 'pos' : 'neg'}">${fr(st.c)}</span><span class="s">${st.n} işlem · ${st.w} kazanç, ${st.n - st.w} kayıp</span></div>
+<div class="chart" id="demoChart">${chartHTML(cv, 600, 220)}</div>
+<div class="kpis"><div class="kpi"><div class="l">Kazanma oranı</div><div class="n">%${Math.round(st.w / st.n * 100)}</div></div>
+<div class="kpi"><div class="l">Profit factor</div><div class="n">${st.gl ? (st.gw / st.gl).toFixed(2).replace('.', ',') : '—'}</div></div>
+<div class="kpi"><div class="l">İşlem başı</div><div class="n ${st.c >= 0 ? 'pos' : 'neg'}">${fr(st.c / st.n, 2)}</div></div>
+<div class="kpi"><div class="l">En derin düşüş</div><div class="n neg">${st.dd ? fr(-st.dd) : '0R'}</div></div></div>`;
+  bindChart($('#demoChart'), st.n, 600, 220, cv, st.cum, i => ({ neg: tr[i].r < 0, html: `#${i + 1} · ${tr[i].sym} · <b class="${tr[i].r > 0 ? 'pos' : 'neg'}">${fr(tr[i].r)}</b><br>Toplam <b>${fr(st.cum[i + 1])}</b>` }));
+}
+
+const STEPS = [['Kaydet','İşlem kapanınca telefondan sembol, setup ve duyguyu seç. 15 saniye.'],['Raporu yükle','Haftada bir MT4/MT5 raporunu yükle. Rakamlar düzelir, eksikler eklenir.'],['Neyin işe yaradığını gör','Setup, gün, saat ve duyguya göre sade içgörüler.']];
+function renderSteps() {
+  $('#steps').innerHTML = STEPS.map(([t, d], i) => `<button class="step ${S.step === i ? 'on' : ''}" data-a="step" data-v="${i}" aria-pressed="${S.step === i}"><span class="no">${i + 1}</span><span><span class="st-h">${t}</span><span class="st-p">${d}</span></span></button>`).join('');
+  const ok = ic('check', 18, 2.4);
+  const stages = [
+`<div class="stage"><div class="top"><span class="t">Yeni işlem</span><span class="chip">15 saniye</span></div>
+<div><div class="flabel">Sembol</div><div class="pills"><span class="pill on">EURUSD</span><span class="pill">XAUUSD</span><span class="pill">NAS100</span><span class="pill">GBPUSD</span></div></div>
+<div class="row2"><div><div class="flabel">Yön</div><div class="seg"><button class="on" tabindex="-1">Long</button><button tabindex="-1">Short</button></div></div><div><div class="flabel">Sonuç</div><div class="big-r">+1,8R</div></div></div>
+<div><div class="flabel">Setup</div><div class="pills"><span class="pill on">Breakout</span><span class="pill">Pullback</span><span class="pill">Range</span></div></div>
+<div><div class="flabel">Girerken nasıl hissettin?</div><div class="pills"><span class="pill on">Sakin</span><span class="pill">Aceleci</span><span class="pill lo">FOMO</span><span class="pill">Kararsız</span></div></div>
+<a class="btn btn-p" href="#/app" style="margin-top:auto">Kendin dene</a></div>`,
+`<div class="stage"><div class="top"><span class="t">Rapor yükle</span><span class="chip mu">Örnek</span></div>
+<div class="drop"><span class="fi">${ic('file', 22, 1.9)}</span><span style="min-width:0"><b style="display:block">Report-247806.html</b><span style="color:#A1A6B4;font-size:14px">MT5 · Hesap 247806 → Funded 100K</span></span><span class="chip ml">Okundu</span></div>
+<div class="res"><div>${ok}Rapordaki işlemler<span class="mono">28</span></div><div>${ok}Elle girdiklerinle eşleşti, notların korundu<span class="mono">6</span></div><div>${ok}Yeni eklenecek<span class="mono">22</span></div><div>${ok}Para yatırma / çekme<span class="mono">2</span></div><div>${ok}Bakiye rapordakiyle aynı<span class="mono">$101.284</span></div></div>
+<div style="display:flex;gap:10px;align-items:center;font-size:14px;color:#A1A6B4">${ic('clock', 18, 1.9)}Saat farkı otomatik bulundu: +3 saat</div>
+<a class="btn btn-p" href="#/app?import" style="margin-top:auto">Kendin dene</a></div>`,
+`<div class="stage"><div class="top"><span class="t">Bu ayın içgörüleri</span><span class="chip mu">Örnek</span></div>
+<div class="ins"><span class="ic g">${ic('trend')}</span><span><b>En iyi setup'ın Breakout</b><span>22 işlemde ortalama +1,4R. Bu ay kazancının çoğu buradan geldi.</span></span></div>
+<div class="ins" style="animation-delay:.08s"><span class="ic r">${ic('pulse')}</span><span><b>FOMO sana 7,2R kaybettirdi</b><span>"FOMO" işaretli 9 işlemin 7'si zararla kapandı.</span></span></div>
+<div class="ins" style="animation-delay:.16s"><span class="ic r">${ic('cal')}</span><span><b>Pazartesi en zayıf günün</b><span>Ortalama −0,6R. Pazartesi işlem sayını azaltmayı dene.</span></span></div>
+<div class="ins" style="animation-delay:.24s"><span class="ic g">${ic('shield')}</span><span><b>Plana uyduğun işlemler kazandırıyor</b><span>Plan içi +0,7R, plan dışı −0,4R ortalama.</span></span></div></div>`];
+  $('#stage').innerHTML = stages[S.step];
+}
+
+function renderProp() {
+  const PA = [{ dl: [310, 1250], ml: [640, 2500], tg: [1280, 2000] }, { dl: [3600, 5000], ml: [4100, 10000], tg: null }][S.acc];
+  const mk = (label, pair, kind) => {
+    if (!pair) return `<div class="meter"><div class="r"><span style="font-weight:600">${label}</span><span class="mono">Funded hesapta yok</span></div><div class="bar"><i style="width:0"></i></div><div class="r"><span class="s">Kâr hedefi yalnızca challenge hesaplarında</span><span class="chip mu">—</span></div></div>`;
+    const pct = Math.round(pair[0] / pair[1] * 100), warn = kind !== 'tg' && pct >= 70;
+    const col = kind === 'tg' ? '#94C5CC' : warn ? '#F87171' : pct >= 50 ? '#B4D2E7' : '#94C5CC';
+    return `<div class="meter"><div class="r"><span style="font-weight:600">${label}</span><span class="mono">${money(pair[0])} / ${money(pair[1])}</span></div><div class="bar"><i style="width:${pct}%;background:${col}"></i></div><div class="r"><span class="s">${kind === 'tg' ? 'Hedefe kalan ' : 'Kalan '}${money(pair[1] - pair[0])}</span><span class="chip ${warn ? 'warn' : kind === 'tg' ? '' : 'mu'}">%${pct}${kind === 'tg' ? ' tamam' : ' kullanıldı'}</span></div></div>`;
+  };
+  const tabs = ['Challenge 25K', 'Funded 100K'].map((l, i) => `<button data-a="pacc" data-v="${i}" class="${S.acc === i ? 'on' : ''}" aria-pressed="${S.acc === i}">${l}</button>`).join('');
+  $('#b-prop').innerHTML = `<div class="hd"><span class="ic">${ic('shield')}</span><h3>Prop firm kuralların her an önünde</h3></div>
+<p>Günlük kayıp, toplam kayıp ve kâr hedefini hesap başına gir. Limite yaklaşınca TradeLog seni uyarır.</p>
+<div class="seg" role="group" aria-label="Hesap" style="align-self:flex-start">${tabs}</div>
+${mk('Günlük kayıp limiti', PA.dl, 'dl')}${mk('Toplam kayıp limiti', PA.ml, 'ml')}${mk('Kâr hedefi', PA.tg, 'tg')}
+<p style="font-size:13px">Sadece kapanmış işlemler sayılır. Oranlar başlangıç bakiyesine göredir.</p>`;
+}
+
+function renderPB() {
+  const T = ['Trend yönünde', 'Seviye retest edildi', 'Risk %1 veya altı'];
+  const k = S.chk.filter(Boolean).length;
+  $('#b-pb').innerHTML = `<div class="hd"><span class="ic">${ic('book')}</span><h3>Playbook</h3><span class="chip ml ${k === 3 ? '' : 'warn'}">${k}/3 · ${k === 3 ? 'Plan içi' : 'Plan dışı'}</span></div>
+<div class="chk">${T.map((t, i) => `<button data-a="chk" data-v="${i}" aria-pressed="${S.chk[i]}"><span class="box ${S.chk[i] ? 'on' : ''}">${S.chk[i] ? ic('check', 14, 3) : ''}</span>${t}</button>`).join('')}</div>`;
+}
+
+let CAL = null;
+function calData() {
+  if (CAL) return CAL;
+  const rnd = lcg(97), days = [];
+  for (let i = 0; i < 35; i++) {
+    const d = i - 2;
+    if (d < 1 || d > 31) { days.push({ d: 0, cls: 'cx' }); continue; }
+    const wd = i % 7;
+    let cls = 'c0', txt = d + ' Ekim · işlem yok';
+    if (d > 23) { cls = 'cf'; txt = d + ' Ekim · henüz gelmedi'; }
+    else if (wd < 5) { const q = rnd(), v = Math.round((rnd() * 4.6 - 1.7) * 10) / 10, k = 1 + Math.floor(rnd() * 4); if (q > .14) { cls = v >= 1.5 ? 'cw' : v > 0 ? 'cp' : 'cn'; txt = d + ' Ekim · ' + fr(v) + ' · ' + k + ' işlem'; } }
+    days.push({ d, cls, txt });
+  }
+  return (CAL = days);
+}
+function renderCal() {
+  const days = calData(), sel = S.day > 0 ? days.find(x => x.d === S.day) : null;
+  $('#b-cal').innerHTML = `<div class="hd"><span class="ic">${ic('cal')}</span><h3>Takvim</h3><span class="chip mu ml">Ekim 2026 · örnek</span></div>
+<div class="cal">${['Pt','Sa','Ça','Pe','Cu','Ct','Pz'].map(x => `<span class="dw">${x}</span>`).join('')}${days.map(x => x.d ? `<button class="d ${x.cls} ${S.day === x.d ? 'sel' : ''}" data-a="day" data-v="${x.d}" data-h="day" aria-label="${esc(x.txt)}">${x.d}</button>` : `<span class="d cx"></span>`).join('')}</div>
+<div class="calinfo"><span class="mono" id="calTxt">${sel ? esc(sel.txt) : 'Bir güne gel, sonucu gör'}</span><span class="lg"><span><i style="background:#4ADE80"></i>Kazanç</span><span><i style="background:#F87171"></i>Kayıp</span><span><i style="background:#1B1E24"></i>İşlem yok</span></span></div>`;
+}
+
+function renderBill() {
+  const y = S.bill === 'y';
+  $('#bill').innerHTML = `<button data-a="bill" data-v="m" class="${y ? '' : 'on'}" aria-pressed="${!y}">Aylık</button><button data-a="bill" data-v="y" class="${y ? 'on' : ''}" aria-pressed="${y}">Yıllık<span class="save">İNDİRİMLİ</span></button>`;
+  $('#proPrice').innerHTML = `<span class="a">${y ? '[YILLIK FİYAT]' : '[AYLIK FİYAT]'}</span><span class="u">${y ? '/ ay · yıllık ödenir' : '/ ay'}</span>`;
+}
+
+const GROUPS = [
+  ['Kayıt ve içe aktarma', [['Elle işlem kaydı','y','y'],['MT4/MT5 raporu yükleme','y','y'],['Hesabı bağlayıp otomatik aktarma','n','y'],['Ekran görüntüsü ekleme','n','y']]],
+  ['Analiz', [['Tüm raporlar ve TradeLog puanı','y','y'],['Takvim, günlük ve playbook','y','y'],['AI koç','n','y']]],
+  ['Hesaplar', [['Hesap sayısı','2','20'],['Prop firm kuralları ve uyarılar','y','y'],['Kopya işlemleri bir kez sayma','y','y']]],
+  ['Erişim', [['Telefon ve Telegram','y','y'],['Web ve Telegram arasında aynı veri','n','y'],['Mentorla paylaşım','n','y']]]
+];
+function renderCmp() {
+  const cell = v => v === 'y' ? ic('check', 20, 2.4, 'class="y" role="img" aria-label="Var"').replace('aria-hidden="true"', '') : v === 'n' ? ic('minus', 20, 2.4, 'class="no" role="img" aria-label="Yok"').replace('aria-hidden="true"', '') : `<span class="mono">${v}</span>`;
+  $('#cmp').innerHTML = `<div class="cr h"><div>Özellik</div><div class="c">Ücretsiz</div><div class="c">Pro</div></div>` + GROUPS.map(([g, rows]) => `<div class="cr g"><div>${g}</div><div></div><div></div></div>` + rows.map(([t, f, p]) => `<div class="cr"><div>${t}</div><div class="c">${cell(f)}</div><div class="c">${cell(p)}</div></div>`).join('')).join('');
+  $('#cmp').hidden = !S.cmp;
+  $('#cmpb').classList.toggle('open', S.cmp);
+  $('#cmpb button').setAttribute('aria-expanded', S.cmp);
+  $('#cmpb span').textContent = S.cmp ? 'Karşılaştırmayı gizle' : 'Tüm özellikleri karşılaştır';
+}
+
+const FAQ = [
+  ['Hesap şifremi vermem gerekiyor mu?', 'Ücretsiz planda hayır. MT4/MT5 raporunu yüklemen yeterli. Pro\'da hesabını otomatik bağlamak istersen yalnızca yatırımcı (salt okunur) şifren istenir; bu şifreyle işlem açılamaz, para çekilemez.'],
+  ['Hangi platformlar destekleniyor?', 'Şu an MT4 ve MT5 raporları (HTML ve Excel). Match-Trader ve cTrader sırada.'],
+  ['Ücretsiz plan bir süre sonra bitiyor mu?', 'Hayır. Ücretsiz plan süresiz; kart bilgisi de istemiyoruz.'],
+  ['Pro\'yu bırakırsam verilerim ne olur?', 'Hiçbir şey silinmez. 2\'den fazla hesabın varsa fazlası salt okunur kalır, istediğin zaman tekrar açarsın.'],
+  ['Telefondan kullanabilir miyim?', 'Evet. Tarayıcıdan ya da Telegram içinden açılır, telefon ekranına göre tasarlandı.']
+];
+function renderFaq() {
+  $('#faq').innerHTML = FAQ.map(([q, a], i) => `<div class="q ${S.faq === i ? 'open' : ''}"><button data-a="faq" data-v="${i}" aria-expanded="${S.faq === i}" aria-controls="fa${i}">${q}${ic('chev', 20, 2.2, 'class="chev"')}</button>${S.faq === i ? `<p class="ans" id="fa${i}">${a}</p>` : ''}</div>`).join('');
+}
+function renderFeat() {
+  $$('[data-feat]').forEach(ul => {
+    ul.innerHTML = (ul.dataset.plus ? `<li class="plus">${ul.dataset.plus}</li>` : '') + ul.dataset.feat.split('|').map(t => `<li>${ic('check', 18, 2.4)}${t}</li>`).join('');
+  });
+}
+function setMenu(open) {
+  S.menu = open;
+  $('#mmenu').hidden = !open;
+  const b = $('#burger');
+  b.setAttribute('aria-expanded', open);
+  b.setAttribute('aria-label', open ? 'Menüyü kapat' : 'Menüyü aç');
+  b.innerHTML = ic(open ? 'close' : 'menu', 22, 2);
+}
+
+
+/* ---------- görünüm: tanıtım sitesi / uygulama ---------- */
+const APP = document.getElementById('appRoot');
+const ENTER = 'tradelog_entered';
+function showApp(after) {
+  SITE.hidden = true; APP.hidden = false; setMenu(false);
+  try { localStorage.setItem(ENTER, '1'); } catch (e) {}
+  window.scrollTo(0, 0);
+  if (typeof render === 'function') render();
+  if (after === 'import' && typeof openImport === 'function') openImport();
+}
+function showSite(id) {
+  if (typeof closeDlg === 'function') { closeDlg(true); }
+  if (typeof closeForm === 'function' && typeof formOpen === 'function' && formOpen()) closeForm();
+  APP.hidden = true; SITE.hidden = false;
+  try { localStorage.removeItem(ENTER); } catch (e) {}
+  const t = id && document.getElementById(id);
+  if (t) requestAnimationFrame(() => t.scrollIntoView()); else window.scrollTo(0, 0);
+}
+window.showApp = showApp; window.showSite = showSite;
+
+/* ---------- olaylar (yalnızca site) ---------- */
+const H = {
+  menu: () => setMenu(!S.menu), menuClose: () => setMenu(false),
+  lang: (v) => $$('[data-a="lang"]', SITE).forEach(b => { const on = b.dataset.v === v; b.classList.toggle('on', on); b.setAttribute('aria-pressed', on); }),
+  per: v => { S.per = v; renderDemo(); },
+  step: v => { S.step = +v; renderSteps(); },
+  pacc: v => { S.acc = +v; renderProp(); },
+  chk: v => { S.chk[+v] = !S.chk[+v]; renderPB(); },
+  day: v => { S.day = +v; renderCal(); },
+  bill: v => { S.bill = v; renderBill(); },
+  cmp: () => { S.cmp = !S.cmp; renderCmp(); },
+  faq: v => { S.faq = S.faq === +v ? -1 : +v; renderFaq(); }
+};
+SITE.addEventListener('click', e => {
+  const a = e.target.closest('a[href^="#/app"]');
+  if (a) { e.preventDefault(); showApp(a.getAttribute('href').includes('import') ? 'import' : null); return; }
+  const el = e.target.closest('[data-a]'); if (!el) return;
+  const fn = H[el.dataset.a]; if (fn) fn(el.dataset.v, el, e);
+});
+SITE.addEventListener('pointerover', e => {
+  const el = e.target.closest('[data-h="day"]'); if (!el || e.pointerType !== 'mouse') return;
+  const d = calData().find(x => x.d === +el.dataset.v); if (d) $('#calTxt').textContent = d.txt;
+});
+document.addEventListener('keydown', e => { if (e.key === 'Escape' && S.menu) setMenu(false); });
+
+fillIcons(SITE);
+renderFeat(); renderDemo(); renderSteps(); renderProp(); renderPB(); renderCal(); renderBill(); renderCmp(); renderFaq();
+let entered = false; try { entered = localStorage.getItem(ENTER) === '1'; } catch (e) {}
+if ((typeof TG !== 'undefined' && TG) || entered || /^#(panel|\/?app)/.test(location.hash)) showApp(); else showSite();
+})();
+
 </script>
 </body>
 </html>
