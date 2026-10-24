@@ -543,6 +543,18 @@ body.tg .addbtn,body.tg #fSave,body.tg .fab,body.tg .sitelink{display:none}
 .ap .aulink{display:flex;gap:12px;align-items:flex-start;font-size:15px;background:var(--sf);border:1px solid var(--ln2);border-radius:12px;padding:14px 16px}
 .ap .aulink svg{width:20px;height:20px;flex:none;color:var(--br);margin-top:1px}
 .ap .aulink b{color:var(--ink)}
+.ap .pww{position:relative}
+.ap .pww .in{padding-right:76px}
+.ap .pwt{position:absolute;right:6px;top:50%;transform:translateY(-50%);font-size:12.5px;font-weight:600;color:var(--ink2);padding:6px 10px;border-radius:8px}
+.ap .pwt:hover{color:var(--ink);background:var(--sf2)}
+.ap .pwl{display:flex;justify-content:space-between;align-items:baseline;gap:10px}
+.ap .pwl label{font-size:13px;font-weight:500;color:var(--ink2)}
+.ap .pwl button{font-size:13px;color:var(--ink2);text-decoration:underline;text-underline-offset:3px}
+.ap .pwl button:hover,.ap .ausw button:hover{color:var(--ink)}
+.ap .ausw{margin-top:22px;font-size:14px;color:var(--ink2)}
+.ap .ausw button{font-weight:600;color:var(--ink);text-decoration:underline;text-underline-offset:3px}
+.ap .augo{font-weight:600}
+.ap .fld>span.hint{color:var(--ink3);font-weight:400;font-size:12.5px}
 .site{color-scheme:dark;--win:#4ADE80;--bg:#000100;--bg2:#08090B;--card:#111317;--card2:#1B1E24;--line:rgba(148,197,204,.13);--line2:rgba(148,197,204,.28);--tx:#F8F8F8;--mu:#A1A6B4;--lime:#94C5CC;--sage:#B4D2E7;--olive:#5E8D94;--loss:#F87171;--disp:'Bricolage Grotesque',system-ui,sans-serif;--body:'Inter',system-ui,sans-serif;--mono:'JetBrains Mono',ui-monospace,monospace}
 .site *{box-sizing:border-box}
 html{scroll-behavior:smooth;-webkit-text-size-adjust:100%}
@@ -1155,6 +1167,12 @@ html{scroll-behavior:smooth;-webkit-text-size-adjust:100%}
 <script>
 /* ================= i18n ================= */
 const T={tr:{
+au_in_t:'Tekrar hoş geldin',au_in_s:'Hesabına giriş yap.',au_in_btn:'Giriş yap',au_in_link:'Giriş yap',au_up_t:'Ücretsiz hesabını oluştur',au_up_s:'Kart gerekmez. Bir dakikada hazır, işlem sınırı yok.',au_up_btn:'Hesap oluştur',au_up_link:'Ücretsiz kayıt ol',au_google_up:'Google ile kayıt ol',
+au_pw:'Şifre',au_pw_new:'Yeni şifre',au_pw_new_ph:'En az 8 karakter',au_pw_h:'En az 8 karakter. Harf ve rakamı karıştırman önerilir.',au_show:'Göster',au_hide:'Gizle',au_forgot:'Şifremi unuttum',au_new:'Hesabın yok mu?',au_have:'Zaten hesabın var mı?',au_back_in:'Girişe dön',
+au_fg_t:'Şifreni sıfırla',au_fg_s:'E-posta adresini yaz, sana şifre sıfırlama linki gönderelim.',au_fg_btn:'Sıfırlama linki gönder',au_rs_s:'Şifre sıfırlama linkini gönderdik.',au_rs_sent:'Linki {e} adresine gönderdik. Linke tıklayınca yeni şifreni belirleyeceksin.',
+au_vf_s:'Hesabın neredeyse hazır. E-posta adresini doğrulaman gerekiyor.',au_vf_sent:'Doğrulama linkini {e} adresine gönderdik. Linke tıklayınca hesabın açılacak.',au_spam:'Birkaç dakika içinde gelmezse spam klasörüne bak.',au_resend_l:'Linki tekrar gönder',
+au_np_t:'Yeni şifreni belirle',au_np_s:'Bundan sonra bu şifreyle giriş yapacaksın.',au_np_btn:'Şifreyi kaydet',au_pw_saved:'Şifren kaydedildi',au_pw_dlg:'Şifre belirle / değiştir',
+au_e_cred:'E-posta ya da şifre hatalı.',au_e_exists:'Bu e-postayla zaten bir hesap var. Giriş yap ya da şifreni sıfırla.',au_e_weak:'Şifre en az 8 karakter olmalı.',au_e_pw:'Şifreni yaz.',au_e_unconf:'E-posta adresin henüz doğrulanmadı. Gelen kutundaki doğrulama linkine tıkla.',au_e_noauth:'Şu an bu adrese e-posta gönderemiyoruz. Google ile devam etmeyi dene ya da daha sonra tekrar dene.',au_e_same:'Yeni şifre eskisiyle aynı olamaz.',
 au_s_l:'Hesabın yoksa aynı adımlarla açılır. Şifre yok: e-postana tek kullanımlık bir giriş linki göndereceğiz.',au_s2l:'Giriş linkini gönderdik. E-postandaki linke tıkla; TradeLog açılıp seni içeri alacak.',au_sent_l:'Linki {e} adresine gönderdik.',au_link_h:'E-postayı bu cihazda açarsan giriş burada tamamlanır. Birkaç dakika içinde gelmezse spam klasörüne bak. Link tek kullanımlıktır ve kısa süre geçerlidir.',au_resent_l:'Yeni bir link gönderdik.',au_linking:'Giriş yapılıyor…',au_e_link:'Bu giriş linkinin süresi dolmuş ya da daha önce kullanılmış. Yeni bir link iste.',
 au_t:'TradeLog\'a giriş yap',au_t2:'E-postanı kontrol et',au_s:'Hesabın yoksa aynı adımlarla açılır. Şifre yok: e-postana tek kullanımlık bir kod göndereceğiz.',au_s2:'Gelen kutunda TradeLog\'dan gelen kodu gir. Birkaç dakika içinde gelmezse spam klasörüne bak.',
 au_google:'Google ile devam et',au_or:'ya da',au_email:'E-posta',au_send:'Kod gönder',au_wait:'Bekle…',au_sent:'Kodu {e} adresine gönderdik.',au_code:'Doğrulama kodu',au_verify:'Giriş yap',au_change:'E-postayı değiştir',au_resend:'Kodu tekrar gönder',au_resend_in:'Tekrar gönder ({s} sn)',au_resent:'Yeni bir kod gönderdik.',
@@ -1283,6 +1301,12 @@ emo_calm:'Sakin',emo_focused:'Odaklı',emo_confident:'Güvenli',emo_impatient:'S
 mis_early_entry:'Erken giriş',mis_late_entry:'Geç giriş',mis_no_confirmation:'Onaysız giriş',mis_tight_sl:'SL çok dar',mis_moved_sl:'SL\'i kaydırdım',mis_early_exit:'Erken çıkış',mis_tight_tp:'TP çok yakın',
 mis_off_plan:'Plan dışı işlem',mis_revenge:'Revenge trade',mis_fomo:'FOMO',mis_oversize:'Risk büyüttüm',mis_overtrading:'Aşırı işlem'},
 en:{
+au_in_t:'Welcome back',au_in_s:'Sign in to your account.',au_in_btn:'Sign in',au_in_link:'Log in',au_up_t:'Create your free account',au_up_s:'No card needed. Ready in a minute, no trade limit.',au_up_btn:'Create account',au_up_link:'Sign up free',au_google_up:'Sign up with Google',
+au_pw:'Password',au_pw_new:'New password',au_pw_new_ph:'At least 8 characters',au_pw_h:'At least 8 characters. Mixing letters and numbers is recommended.',au_show:'Show',au_hide:'Hide',au_forgot:'Forgot password?',au_new:'No account yet?',au_have:'Already have an account?',au_back_in:'Back to sign in',
+au_fg_t:'Reset your password',au_fg_s:'Enter your email and we\'ll send you a link to reset your password.',au_fg_btn:'Send reset link',au_rs_s:'We sent you a password reset link.',au_rs_sent:'We sent the link to {e}. Click it to set a new password.',
+au_vf_s:'Almost there. Please confirm your email address.',au_vf_sent:'We sent a confirmation link to {e}. Click it to activate your account.',au_spam:'If it doesn\'t arrive in a few minutes, check your spam folder.',au_resend_l:'Resend link',
+au_np_t:'Set a new password',au_np_s:'You\'ll use this password to sign in from now on.',au_np_btn:'Save password',au_pw_saved:'Password saved',au_pw_dlg:'Set / change password',
+au_e_cred:'Wrong email or password.',au_e_exists:'An account with this email already exists. Sign in or reset your password.',au_e_weak:'Password must be at least 8 characters.',au_e_pw:'Enter your password.',au_e_unconf:'Your email isn\'t confirmed yet. Click the confirmation link in your inbox.',au_e_noauth:'We can\'t send email to this address right now. Try continuing with Google, or try again later.',au_e_same:'The new password must be different from the old one.',
 au_s_l:'No account yet? The same steps create one. No password: we\'ll email you a one-time sign-in link.',au_s2l:'We sent you a sign-in link. Click the link in the email and TradeLog will open and sign you in.',au_sent_l:'We sent the link to {e}.',au_link_h:'Open the email on this device to finish signing in here. If it doesn\'t arrive in a few minutes, check your spam folder. The link works once and expires soon.',au_resent_l:'We sent a new link.',au_linking:'Signing you in…',au_e_link:'This sign-in link has expired or was already used. Ask for a new one.',
 au_t:'Sign in to TradeLog',au_t2:'Check your email',au_s:'No account yet? The same steps create one. No password: we\'ll email you a one-time code.',au_s2:'Enter the code from TradeLog in your inbox. If it doesn\'t arrive in a few minutes, check your spam folder.',
 au_google:'Continue with Google',au_or:'or',au_email:'Email',au_send:'Send code',au_wait:'Please wait…',au_sent:'We sent a code to {e}.',au_code:'Verification code',au_verify:'Sign in',au_change:'Change email',au_resend:'Resend code',au_resend_in:'Resend ({s}s)',au_resent:'We sent a new code.',
@@ -3063,13 +3087,13 @@ init();
    whenever the tab comes back. Each table row is one trade / account / playbook / journal day.
    The publishable key below is public by design; row level security keeps users apart. */
 const SBC={url:'https://gpnaafbhwdcmnkrhmymu.supabase.co',key:'sb_publishable_wytAvUS5RhQPxnB_khgn8Q_olNZAwzV',
-  lib:'https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2.117.3/dist/umd/supabase.js',google:false,
-  otp:false};   // otp:true once the email template carries {{ .Token }} (needs custom SMTP); until then the email has a sign-in link
+  lib:'https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2.117.3/dist/umd/supabase.js',google:false};   // google: fallback only; the button follows the project's auth settings
 const SBK='sb-'+SBC.url.split('//')[1].split('.')[0]+'-auth-token';
 const SBU='tradelog_sb_uid',SBB='tradelog_sb_base',SBR='tradelog_sb_cur';
 const TBL=['accounts','trades','cash_tx','playbooks','journal'];
 var sb=null,sbUser=null,sbMode='',sbLibP=null,sbT=null,sbBusy=false,sbAgain=false,sbPulled=0,sbFail=false,sbAskRes=null;
-const AU={step:'email',email:'',busy:false,err:'',cool:0,info:''};
+const AU={mode:'login',email:'',busy:false,err:'',cool:0,info:'',show:false,kind:''};
+var sbRecovery=false;
 const sbFramed=(()=>{try{return window.top!==window}catch(e){return true}})();
 const lsj=(k,d)=>{try{const v=JSON.parse(localStorage.getItem(k));return v==null?d:v}catch(e){return d}};
 const lss=(k,v)=>{try{v==null?localStorage.removeItem(k):localStorage.setItem(k,JSON.stringify(v))}catch(e){}};
@@ -3089,7 +3113,8 @@ async function sbClient(){
   await sbLib();
   sb=window.supabase.createClient(SBC.url,SBC.key,{auth:{persistSession:true,autoRefreshToken:true,detectSessionInUrl:true}});
   sb.auth.onAuthStateChange((ev,ses)=>{setTimeout(()=>{   // never await supabase calls inside this callback
-    if(ev==='SIGNED_IN'&&ses&&!sbOn())sbLogin(ses.user);
+    if(ev==='PASSWORD_RECOVERY'&&ses){sbRecovery=true;sbUser=ses.user;sbMode='auth';AU.mode='reset';render()}
+    else if(ev==='SIGNED_IN'&&ses&&!sbOn()&&!sbRecovery)sbLogin(ses.user);
     else if(ev==='SIGNED_OUT'&&sbOn()){sbMode='auth';sbUser=null;render()}
   },0)});
   return sb;
@@ -3101,7 +3126,9 @@ function sbBoot(){
   const lh=location.hash+location.search,fromLink=/access_token=|[?&]code=/.test(lh);
   if(/error_description=/.test(lh)){AU.err=t('au_e_link');try{history.replaceState(null,'',location.pathname+'#/app')}catch(e){}}
   else if(fromLink)AU.info=t('au_linking');
-  window.addEventListener('storage',e=>{if(e.key===SBK&&e.newValue&&sbMode==='auth')sbStart()});   // link opened in another tab
+  if(/type=recovery/.test(lh))sbRecovery=true;
+  window.addEventListener('hashchange',()=>{if(/access_token=|error_description=/.test(location.hash))location.reload()});   // an auth link opened in this same tab
+  window.addEventListener('storage',e=>{if(e.key===SBK&&e.newValue&&sbMode==='auth'&&!sbRecovery)sbStart()});   // link opened in another tab
   sbMode=sbHasTok()?'on':'auth';            // with a saved session the app opens from the local copy right away
   if(sbHasTok()||fromLink)sbStart();
   window.addEventListener('online',()=>{if(sbOn())sbStart()});
@@ -3113,6 +3140,7 @@ async function sbStart(){
   try{
     const c=await sbClient(),{data,error}=await c.auth.getSession();if(error)throw error;
     if(/access_token=|[?&]code=|error_description=/.test(location.hash+location.search))try{history.replaceState(null,'',location.pathname+'#/app')}catch(e){}
+    if(data.session&&sbRecovery){sbUser=data.session.user;sbMode='auth';AU.mode='reset';AU.info='';render();return}
     if(data.session){if(!sbUser||sbUser.id!==data.session.user.id)await sbLogin(data.session.user);else sbSync(true)}
     else if(sbOn()){sbMode='auth';render()}
   }catch(e){
@@ -3128,78 +3156,127 @@ function authGate(){
   return need;
 }
 
-/* ---------- sign in ---------- */
+/* ---------- sign in ----------
+   Like TradesViz / TradeZella: email + password as the main way in, "Continue with Google" above it,
+   separate sign-in and sign-up screens, "Forgot password". A session stays open on the device until sign-out. */
+var SBS=null;   // public auth settings: which providers are on, whether new emails must be confirmed
+async function sbSettings(){
+  if(SBS&&!SBS.fail)return SBS;
+  try{const r=await fetch(SBC.url+'/auth/v1/settings',{headers:{apikey:SBC.key}});const j=await r.json();
+    SBS={google:!!(j.external&&j.external.google),confirm:!j.mailer_autoconfirm}}
+  catch(e){SBS={google:SBC.google,confirm:true,fail:true}}
+  if(sbMode==='auth')renderAuth();return SBS;
+}
+function sbIntent(m){AU.mode=m==='signup'?'signup':'login';AU.err='';AU.info=''}
 const localCount=()=>trades.filter(x=>!x.demo).length;
 const localReal=()=>trades.some(x=>!x.demo)||PB.some(p=>!p.demo)||Object.keys(JR).length>0||S.accounts.some(a=>a.name||a.no)||S.tx.length>0;
+function auGo(m){AU.mode=m;AU.err='';AU.info='';renderAuth()}
+function pwField(id,ac,ph){return `<div class="pww"><input class="in" id="${id}" type="${AU.show?'text':'password'}" autocomplete="${ac}" placeholder="${ph}" required><button type="button" class="pwt" onclick="AU.show=!AU.show;const i=$('${id}');i.type=AU.show?'text':'password';this.textContent=t(AU.show?'au_hide':'au_show')">${t(AU.show?'au_hide':'au_show')}</button></div>`}
 function renderAuth(){
   const a=$('authV');if(!a||sbMode!=='auth')return;
-  const n=localCount(),legal=t('au_legal').replace('{t}',`<a href="#" onclick="sbLegal('terms');return false">${t('au_terms')}</a>`).replace('{p}',`<a href="#" onclick="sbLegal('privacy');return false">${t('au_privacy')}</a>`);
+  const m=AU.mode,n=localCount(),g=SBS?SBS.google:SBC.google;
+  const legal=t('au_legal').replace('{t}',`<a href="#" onclick="sbLegal('terms');return false">${t('au_terms')}</a>`).replace('{p}',`<a href="#" onclick="sbLegal('privacy');return false">${t('au_privacy')}</a>`);
   const logo=`<svg width="34" height="34" viewBox="0 0 32 32" aria-hidden="true"><rect width="32" height="32" rx="9" fill="#94C5CC"/><path d="M9.5 22v-4.5M16 22V12.5M22.5 22V9" stroke="#000100" stroke-width="3.4" stroke-linecap="round"/></svg>`;
-  let form;
-  if(AU.step==='email')form=`<form class="auf" onsubmit="sbSend();return false" novalidate>
-     ${SBC.google?`<button type="button" class="btn full augo" onclick="sbGoogle()" ${AU.busy?'disabled':''}>${GICON}<span>${t('au_google')}</span></button><div class="auor"><span>${t('au_or')}</span></div>`:''}
-     <label class="fld"><span>${t('au_email')}</span><input class="in" id="au_em" type="email" inputmode="email" autocomplete="email" autocapitalize="off" spellcheck="false" placeholder="ornek@mail.com" value="${esc(AU.email)}" required></label>
-     <button class="btn pri full" type="submit" ${AU.busy?'disabled':''}>${AU.busy?t('au_wait'):t('au_send')}</button></form>`;
-  else if(!SBC.otp)form=`<div class="auf"><div class="aulink">${ic('check')}<span>${t('au_sent_l',{e:`<b>${esc(AU.email)}</b>`})}</span></div>
-     <p class="aum">${t('au_link_h')}</p>
-     <div class="aulinks"><button type="button" onclick="AU.step='email';AU.err='';AU.info='';renderAuth()">${t('au_change')}</button><button type="button" id="au_re" onclick="sbSend(true)" ${AU.cool>0?'disabled':''}>${AU.cool>0?t('au_resend_in',{s:AU.cool}):t('au_resend')}</button></div></div>`;
-  else form=`<form class="auf" onsubmit="sbVerify();return false" novalidate>
-     <p class="aum">${t('au_sent',{e:`<b>${esc(AU.email)}</b>`})}</p>
-     <label class="fld"><span>${t('au_code')}</span><input class="in aucode" id="au_code" inputmode="numeric" autocomplete="one-time-code" maxlength="8" placeholder="••••••" required></label>
-     <button class="btn pri full" type="submit" ${AU.busy?'disabled':''}>${AU.busy?t('au_wait'):t('au_verify')}</button>
-     <div class="aulinks"><button type="button" onclick="AU.step='email';AU.err='';AU.info='';renderAuth()">${t('au_change')}</button><button type="button" id="au_re" onclick="sbSend(true)" ${AU.cool>0?'disabled':''}>${AU.cool>0?t('au_resend_in',{s:AU.cool}):t('au_resend')}</button></div></form>`;
+  const em=`<label class="fld"><span>${t('au_email')}</span><input class="in" id="au_em" type="email" inputmode="email" autocomplete="email" autocapitalize="off" spellcheck="false" placeholder="ornek@mail.com" value="${esc(AU.email)}" required></label>`;
+  const btn=(lab)=>`<button class="btn pri full" type="submit" ${AU.busy?'disabled':''}>${AU.busy?t('au_wait'):lab}</button>`;
+  const goo=g?`<button type="button" class="btn full augo" onclick="sbGoogle()" ${AU.busy?'disabled':''}>${GICON}<span>${t(m==='signup'?'au_google_up':'au_google')}</span></button><div class="auor"><span>${t('au_or')}</span></div>`:'';
+  let head,form,foot='';
+  if(m==='signup'){
+    head=[t('au_up_t'),t('au_up_s')];
+    form=`<form class="auf" onsubmit="sbSignup();return false" novalidate>${goo}${em}
+      <label class="fld"><span>${t('au_pw')}</span>${pwField('au_pw','new-password',t('au_pw_new_ph'))}<span class="hint">${t('au_pw_h')}</span></label>${btn(t('au_up_btn'))}</form>`;
+    foot=`<p class="ausw">${t('au_have')} <button type="button" onclick="auGo('login')">${t('au_in_link')}</button></p><p class="aulegal">${legal}</p>`;
+  }else if(m==='forgot'){
+    head=[t('au_fg_t'),t('au_fg_s')];
+    form=`<form class="auf" onsubmit="sbForgot();return false" novalidate>${em}${btn(t('au_fg_btn'))}</form>`;
+    foot=`<p class="ausw"><button type="button" onclick="auGo('login')">← ${t('au_back_in')}</button></p>`;
+  }else if(m==='sent'){
+    head=[t('au_t2'),t(AU.kind==='verify'?'au_vf_s':'au_rs_s')];
+    form=`<div class="auf"><div class="aulink">${ic('check')}<span>${t(AU.kind==='verify'?'au_vf_sent':'au_rs_sent',{e:`<b>${esc(AU.email)}</b>`})}</span></div><p class="aum">${t('au_spam')}</p>
+      <div class="aulinks"><button type="button" onclick="auGo('login')">${t('au_back_in')}</button><button type="button" id="au_re" onclick="sbResend()" ${AU.cool>0?'disabled':''}>${AU.cool>0?t('au_resend_in',{s:AU.cool}):t('au_resend_l')}</button></div></div>`;
+  }else if(m==='reset'){
+    head=[t('au_np_t'),t('au_np_s')];
+    form=`<form class="auf" onsubmit="sbNewPw();return false" novalidate><label class="fld"><span>${t('au_pw_new')}</span>${pwField('au_pw','new-password',t('au_pw_new_ph'))}<span class="hint">${t('au_pw_h')}</span></label>${btn(t('au_np_btn'))}</form>`;
+  }else{
+    head=[t('au_in_t'),t('au_in_s')];
+    form=`<form class="auf" onsubmit="sbSignin();return false" novalidate>${goo}${em}
+      <div class="fld"><div class="pwl"><label for="au_pw">${t('au_pw')}</label><button type="button" onclick="AU.email=($('au_em')||{}).value||AU.email;auGo('forgot')">${t('au_forgot')}</button></div>${pwField('au_pw','current-password','••••••••')}</div>${btn(t('au_in_btn'))}</form>`;
+    foot=`<p class="ausw">${t('au_new')} <button type="button" onclick="auGo('signup')">${t('au_up_link')}</button></p>`;
+  }
   a.innerHTML=`<div class="auw"><div class="auc">
     <div class="aub">${logo}<span>TradeLog</span></div>
-    <h1>${t(AU.step==='email'?'au_t':'au_t2')}</h1><p class="aus">${t(AU.step==='email'?(SBC.otp?'au_s':'au_s_l'):(SBC.otp?'au_s2':'au_s2l'))}</p>
+    <h1>${head[0]}</h1><p class="aus">${head[1]}</p>
     ${AU.err?`<div class="alert" role="alert">${ic('alert')}<span>${esc(AU.err)}</span></div>`:''}${AU.info?`<div class="auinfo">${esc(AU.info)}</div>`:''}
-    ${sbFail&&!sb?`<div class="alert" role="alert">${ic('alert')}<span>${t('au_net')}</span></div>`:''}
-    ${form}
-    ${n?`<p class="aunote">${ic('check')}<span>${t('au_local',{n})}</span></p>`:''}
-    <p class="aulegal">${legal}</p>
+    ${form}${foot}
+    ${n&&(m==='login'||m==='signup')?`<p class="aunote">${ic('check')}<span>${t('au_local',{n})}</span></p>`:''}
     ${sbFramed&&sbFail?`<button class="btn sm ghost" onclick="sbMode='local';render()">${t('au_preview')}</button>`:''}
     <button class="auhome" onclick="window.showSite&&showSite()">← ${t('nav_home')}</button>
    </div>
    <div class="aup"><div class="aupi"><h2>${t('au_pt')}</h2><ul>${[1,2,3].map(i=>`<li>${ic('check')}<span><b>${t('au_p'+i)}</b>${t('au_p'+i+'d')}</span></li>`).join('')}</ul></div></div></div>`;
-  const f=$(AU.step==='email'?'au_em':SBC.otp?'au_code':'au_re');if(f&&!narrow())setTimeout(()=>{try{f.focus()}catch(e){}},30);
+  if(!SBS)sbSettings();
+  const f=$(m==='sent'?'au_re':AU.email&&m==='login'?'au_pw':'au_em')||$('au_pw');if(f&&!narrow())setTimeout(()=>{try{f.focus()}catch(e){}},30);
 }
 const GICON='<svg width="18" height="18" viewBox="0 0 48 48" aria-hidden="true"><path fill="#FFC107" d="M43.6 20.5H42V20H24v8h11.3C33.7 32.7 29.2 36 24 36c-6.6 0-12-5.4-12-12s5.4-12 12-12c3.1 0 5.9 1.2 8 3.1l5.7-5.7C34 6.1 29.3 4 24 4 12.9 4 4 12.9 4 24s8.9 20 20 20 20-8.9 20-20c0-1.3-.1-2.4-.4-3.5z"/><path fill="#FF3D00" d="M6.3 14.7l6.6 4.8C14.7 15.1 19 12 24 12c3.1 0 5.9 1.2 8 3.1l5.7-5.7C34 6.1 29.3 4 24 4 16.3 4 9.7 8.3 6.3 14.7z"/><path fill="#4CAF50" d="M24 44c5.2 0 9.9-2 13.4-5.2l-6.2-5.2C29.2 35.1 26.7 36 24 36c-5.2 0-9.6-3.3-11.3-8l-6.5 5C9.5 39.6 16.2 44 24 44z"/><path fill="#1976D2" d="M43.6 20.5H42V20H24v8h11.3c-.8 2.2-2.2 4.2-4.1 5.6l6.2 5.2C37 39.2 44 34 44 24c0-1.3-.1-2.4-.4-3.5z"/></svg>';
-function sbLegal(k){if(window.showPage){sbMode==='auth'&&(AU.back=1);showSite();showPage(k)}}
+function sbLegal(k){if(window.showPage){showSite();showPage(k)}}
 function sbErr(e){
-  const m=String((e&&(e.message||e.msg||e.error_description))||e||''),st=e&&e.status;
+  const c=(e&&e.code)||'',m=String((e&&(e.message||e.msg||e.error_description))||e||''),st=e&&e.status;
+  if(c==='invalid_credentials'||/invalid login credentials/i.test(m))return t('au_e_cred');
+  if(c==='user_already_exists'||c==='email_exists'||/already registered|already exists/i.test(m))return t('au_e_exists');
+  if(c==='weak_password'||/password should be|at least/i.test(m))return t('au_e_weak');
+  if(c==='email_not_confirmed'||/not confirmed/i.test(m))return t('au_e_unconf');
+  if(c==='email_address_not_authorized'||/not authorized/i.test(m))return t('au_e_noauth');
+  if(c==='same_password')return t('au_e_same');
+  if(c==='signup_disabled'||/signups? not allowed/i.test(m))return t('au_e_closed');
   if(st===429||/rate limit|too many|seconds/i.test(m))return t('au_e_rate');
-  if(/expired|invalid|otp|token/i.test(m))return t('au_e_code');
-  if(!sb||m==='lib'||/fetch|network|failed|load/i.test(m))return t('au_net');
-  if(/signups? not allowed|disabled/i.test(m))return t('au_e_closed');
+  if(c==='provider_disabled'||/provider is not enabled|unsupported provider/i.test(m))return t('au_e_gen');
+  if(!sb||m==='lib'||/fetch|network|failed to|load/i.test(m))return t('au_net');
+  if(/expired|invalid/i.test(m))return t('au_e_link');
   return t('au_e_gen');
 }
-async function sbSend(re){
-  if(!re){const v=($('au_em')||{}).value||'';AU.email=v.trim().toLowerCase()}
-  if(!/^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/.test(AU.email)){AU.err=t('au_e_mail');renderAuth();return}
+function auVals(needPw){
+  const em=(($('au_em')||{}).value||AU.email||'').trim().toLowerCase(),pw=($('au_pw')||{}).value||'';
+  AU.email=em;
+  if(em!==undefined&&$('au_em')&&!/^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/.test(em)){AU.err=t('au_e_mail');renderAuth();return null}
+  if(needPw&&pw.length<8){AU.err=t(needPw==='any'?'au_e_pw':'au_e_weak');renderAuth();return null}
+  return {em,pw};
+}
+async function auRun(fn){
   AU.busy=true;AU.err='';AU.info='';renderAuth();
-  try{
-    const c=await sbClient();
-    const {error}=await c.auth.signInWithOtp({email:AU.email,options:{shouldCreateUser:true,emailRedirectTo:location.origin+location.pathname}});
-    if(error)throw error;
-    AU.step='code';AU.info=re?t(SBC.otp?'au_resent':'au_resent_l'):'';AU.cool=60;sbCool();
-  }catch(e){AU.err=sbErr(e);if(AU.err===t('au_net'))sbFail=true}
-  AU.busy=false;renderAuth();
+  try{await fn()}catch(e){AU.err=sbErr(e);if(AU.err===t('au_net'))sbFail=true}
+  AU.busy=false;if(sbMode==='auth')renderAuth();
 }
-function sbCool(){clearInterval(sbCool.h);sbCool.h=setInterval(()=>{AU.cool--;const b=$('au_re');if(b){b.disabled=AU.cool>0;b.textContent=AU.cool>0?t('au_resend_in',{s:AU.cool}):t('au_resend')}if(AU.cool<=0)clearInterval(sbCool.h)},1000)}
-async function sbVerify(){
-  const code=(($('au_code')||{}).value||'').replace(/\D/g,'');
-  if(!/^\d{6,8}$/.test(code)){AU.err=t('au_e_code');renderAuth();return}
-  AU.busy=true;AU.err='';renderAuth();
-  try{
-    const c=await sbClient(),{data,error}=await c.auth.verifyOtp({email:AU.email,token:code,type:'email'});
-    if(error)throw error;
-    AU.busy=false;AU.step='email';AU.info='';
-    await sbLogin(data.user||(data.session&&data.session.user));
-  }catch(e){AU.busy=false;AU.err=sbErr(e);renderAuth()}
-}
+function sbSignin(){const v=auVals('any');if(!v)return;auRun(async()=>{
+  const c=await sbClient(),{data,error}=await c.auth.signInWithPassword({email:v.em,password:v.pw});if(error)throw error;
+  AU.busy=false;await sbLogin(data.user)})}
+function sbSignup(){const v=auVals(true);if(!v)return;auRun(async()=>{
+  const c=await sbClient(),{data,error}=await c.auth.signUp({email:v.em,password:v.pw,options:{emailRedirectTo:location.origin+location.pathname}});if(error)throw error;
+  if(data.user&&Array.isArray(data.user.identities)&&!data.user.identities.length)throw {code:'user_already_exists'};
+  if(data.session){AU.busy=false;await sbLogin(data.user);return}
+  AU.mode='sent';AU.kind='verify';AU.cool=60;sbCool()})}
+function sbForgot(){const v=auVals(false);if(!v)return;auRun(async()=>{
+  const c=await sbClient(),{error}=await c.auth.resetPasswordForEmail(v.em,{redirectTo:location.origin+location.pathname});if(error)throw error;
+  AU.mode='sent';AU.kind='reset';AU.cool=60;sbCool()})}
+function sbResend(){auRun(async()=>{
+  const c=await sbClient();
+  const {error}=AU.kind==='verify'?await c.auth.resend({type:'signup',email:AU.email,options:{emailRedirectTo:location.origin+location.pathname}}):await c.auth.resetPasswordForEmail(AU.email,{redirectTo:location.origin+location.pathname});
+  if(error)throw error;AU.info=t('au_resent_l');AU.cool=60;sbCool()})}
+function sbNewPw(){const v=auVals(true);if(!v)return;auRun(async()=>{
+  const c=await sbClient(),{data,error}=await c.auth.updateUser({password:v.pw});if(error)throw error;
+  sbRecovery=false;AU.busy=false;toast(t('au_pw_saved'));await sbLogin(data.user)})}
+function sbCool(){clearInterval(sbCool.h);sbCool.h=setInterval(()=>{AU.cool--;const b=$('au_re');if(b){b.disabled=AU.cool>0;b.textContent=AU.cool>0?t('au_resend_in',{s:AU.cool}):t('au_resend_l')}if(AU.cool<=0)clearInterval(sbCool.h)},1000)}
 async function sbGoogle(){
-  AU.busy=true;renderAuth();
+  AU.busy=true;AU.err='';renderAuth();
   try{const c=await sbClient(),{error}=await c.auth.signInWithOAuth({provider:'google',options:{redirectTo:location.origin+location.pathname}});if(error)throw error}
   catch(e){AU.busy=false;AU.err=sbErr(e);renderAuth()}
+}
+/* profile: set or change the password (members who came in with Google or a link have none yet) */
+function pwDlg(){
+  openDlg(t('au_pw_dlg'),`<div class="fsec"><label class="fld"><span>${t('au_pw_new')}</span><input class="in" id="pw_new" type="password" autocomplete="new-password" placeholder="${t('au_pw_new_ph')}"><span class="hint">${t('au_pw_h')}</span></label></div>`,
+    `<button class="btn" onclick="closeDlg()">${t('cancel')}</button><button class="btn pri" onclick="pwSave()">${t('save')}</button>`);
+}
+async function pwSave(){
+  const v=$('pw_new').value;if(v.length<8){say(t('au_e_weak'));return}
+  try{const {error}=await sb.auth.updateUser({password:v});if(error)throw error;closeDlg();toast(t('au_pw_saved'))}catch(e){say(sbErr(e))}
 }
 
 /* ---------- first sync after sign in ---------- */
@@ -3207,7 +3284,7 @@ async function sbLogin(user){
   if(!user)return;
   const prev=lsj(SBU,null);
   if(prev&&prev!==user.id)sbWipe();                 // the local copy belonged to someone else
-  sbUser=user;sbMode='on';AU.info='';AU.err='';AU.step='email';render();
+  sbUser=user;sbMode='on';AU.info='';AU.err='';AU.mode='login';render();
   if(typeof viewIn==='function')viewIn();
   try{
     setSync('ing');
@@ -3356,7 +3433,7 @@ function accountCard(){
   const e=sbUser.email||'';
   return `<div class="card"><div class="ch"><h2>${t('sb_acc')}</h2><small>${t('plan_free_n')}</small></div><div class="cb">
    <div class="srow" style="border-top:0;padding-top:4px"><div style="display:flex;gap:12px;align-items:center;min-width:0"><span class="avt">${esc((e[0]||'?').toUpperCase())}</span><div style="min-width:0"><div class="t" style="overflow:hidden;text-overflow:ellipsis">${esc(e)}</div><div class="d" id="syncSt3">${syncSt?t('sbs_'+syncSt):''}</div></div></div></div>
-   <div class="links" style="margin-top:6px"><button onclick="sbSync(true)">${t('sb_now')}</button><button onclick="sbLogout()">${t('sb_out')}</button><button class="dan" onclick="sbDelete()">${t('sb_del')}</button></div>
+   <div class="links" style="margin-top:6px"><button onclick="sbSync(true)">${t('sb_now')}</button><button onclick="pwDlg()">${t('au_pw_dlg')}</button><button onclick="sbLogout()">${t('sb_out')}</button><button class="dan" onclick="sbDelete()">${t('sb_del')}</button></div>
    <p class="hint" style="margin-top:8px">${t('sb_acc_h')}</p></div></div>`;
 }
 async function sbLogout(){
@@ -3364,7 +3441,7 @@ async function sbLogout(){
   if(!await ask(t(ok?'sb_out_c':'sb_out_c2')))return;
   try{if(sb)await sb.auth.signOut({scope:'local'})}catch(e){}
   try{localStorage.removeItem(SBK)}catch(e){}
-  sbWipe();sbUser=null;sbMode='auth';AU.step='email';AU.err='';closeDlg(true);go('dash');
+  sbWipe();sbUser=null;sbMode='auth';AU.mode='login';AU.err='';closeDlg(true);go('dash');
 }
 async function sbDelete(){
   if(!await ask(t('sb_del_c')))return;
@@ -3372,9 +3449,11 @@ async function sbDelete(){
     const {error}=await sb.rpc('delete_my_account');if(error)throw error;
     try{await sb.auth.signOut({scope:'local'})}catch(e){}
     try{localStorage.removeItem(SBK)}catch(e){}
-    sbWipe();sbUser=null;sbMode='auth';AU.step='email';AU.email='';closeDlg(true);go('dash');toast(t('sb_deleted'));
+    sbWipe();sbUser=null;sbMode='auth';AU.mode='signup';AU.email='';closeDlg(true);go('dash');toast(t('sb_deleted'));
   }catch(e){say(t('sb_del_err'))}
 }
+/* site header: "Log in" while signed out, "Open app" once signed in */
+function sbNavLabel(open){const on=sbOn()||sbHasTok()||sbMode==='tg';document.querySelectorAll('#site [data-st=nav_open]').forEach(el=>{el.textContent=on?open:t('au_in_link')})}
 sbBoot();
 
 
@@ -3565,21 +3644,21 @@ tr: {
   c_h: 'Takvim', c_month: 'Ekim 2026 · örnek', c_mname: 'Ekim', c_wd: ['Pt', 'Sa', 'Ça', 'Pe', 'Cu', 'Ct', 'Pz'], c_none: 'işlem yok', c_future: 'henüz gelmedi', c_n: '{n} işlem', c_hint: 'Bir güne gel, sonucu gör', c_win: 'Kazanç', c_loss: 'Kayıp', c_empty: 'İşlem yok',
   pages: {
     help: { t: 'Yardım', u: 'TradeLog\'u kullanırken en çok sorulanlar', s: [
-      ['Başlarken', '<ol><li>Sayfanın üstünden <b>Panele git</b>\'e bas ve e-postanla giriş yap: e-postana gelen kodu girmen yeterli, şifre yok.</li><li><b>Hesabını ekle</b>: MT4/MT5 raporu yükle ya da hesabı elle oluştur.</li><li>Raporu yüklediysen panelin hemen dolar. Elle oluşturduysan ilk işlemini gir.</li><li>Panelin üstündeki <b>Başlangıç</b> listesindeki adımları tamamla: playbook, prop kuralları, günlük.</li></ol>'],
+      ['Başlarken', '<ol><li>Sayfanın üstünden <b>Ücretsiz başla</b>\'ya bas ve hesabını oluştur: Google ile tek tıkla ya da e-posta ve şifreyle.</li><li><b>Hesabını ekle</b>: MT4/MT5 raporu yükle ya da hesabı elle oluştur.</li><li>Raporu yüklediysen panelin hemen dolar. Elle oluşturduysan ilk işlemini gir.</li><li>Panelin üstündeki <b>Başlangıç</b> listesindeki adımları tamamla: playbook, prop kuralları, günlük.</li></ol>'],
       ['MT5 raporu nasıl alınır', '<ol><li>Bilgisayarda MetaTrader 5\'i aç.</li><li><b>Araç Kutusu</b> (Toolbox) penceresini aç: Ctrl+T.</li><li><b>Geçmiş</b> (History) sekmesine geç, listede sağ tıkla ve tarih aralığını seç.</li><li>Yine sağ tıkla, <b>Rapor</b> (Report) altından <b>HTML</b> ya da <b>Open XML (Excel)</b> seç ve kaydet.</li><li>TradeLog\'da <b>İşlem ekle → MT4/MT5 raporu yükle</b> ile dosyayı seç.</li></ol>'],
       ['MT4 raporu nasıl alınır', '<ol><li>Bilgisayarda MetaTrader 4\'ü aç.</li><li><b>Terminal</b> penceresini aç: Ctrl+T.</li><li><b>Hesap Geçmişi</b> (Account History) sekmesinde sağ tıkla ve dönemi seç (örneğin Tüm Geçmiş).</li><li>Yine sağ tıkla, <b>Detaylı Raporu Kaydet</b> (Save as Detailed Report) seç ve .htm dosyasını kaydet.</li><li>TradeLog\'da dosyayı yükle.</li></ol>'],
       ['Telefonda rapor', '<p>MT4 ve MT5\'in telefon uygulamaları rapor dışa aktaramıyor. Raporu bilgisayardan al; dosyayı telefonuna gönderip TradeLog\'da oradan da seçebilirsin.</p>'],
       ['Aynı raporu tekrar yüklersem ne olur?', '<p>Hiçbir şey bozulmaz. Daha önce eklenen işlemler atlanır, sadece yeniler eklenir. Elle girdiğin işlemler rapordaki aynı işlemle eşleşir: notların, setup\'ın ve duygun korunur, rakamlar rapordan güncellenir.</p>'],
       ['Haftalık özet', '<p><b>Raporlar → Haftalık özet</b>\'te haftanın net sonucunu, günlerini, en iyi ve en kötü işlemini geçen haftayla karşılaştırmalı görürsün. Altta işlemlerine eklediğin setup, duygu ve hatalardan çıkan 1-3 öneri ve haftanın notu var.</p><p><b>Özeti kopyala</b> ile özeti metin olarak alıp mentoruna gönderebilirsin. Panelde de bu haftanın kısa özeti görünür.</p>'],
       ['R nedir?', '<p>R, bir işlemde riske ettiğin tutarın katıdır. Stop olursan −1R, riskinin iki katını kazanırsan +2R yazılır. Böylece farklı lot ve hesap büyüklüklerindeki işlemler aynı ölçüyle karşılaştırılır.</p><p>Raporda stop loss varsa R otomatik hesaplanır. Stop yoksa hesabın risk yüzdesinden tahmin edilir ve yanında ≈ işareti görünür.</p>'],
-      ['Hesap ve giriş', '<p>Giriş için şifre yok: e-posta adresini yaz, gelen kodu gir. Kod gelmezse spam klasörüne bak ya da bir dakika sonra yeniden iste. Aynı e-postayla telefonda ve bilgisayarda giriş yapınca aynı verileri görürsün.</p><p>Daha önce TradeLog\'u hesapsız kullandıysan, o cihazdaki veriler ilk girişte hesabına taşınır. Hem cihazda hem hesabında veri varsa birleştirmek isteyip istemediğin sorulur. Çıkış yapmak ve hesabı silmek için <b>Ayarlar → Profil</b>.</p>'],
+      ['Hesap ve giriş', '<p>Google hesabınla ya da e-posta ve şifreyle giriş yapabilirsin. Bir cihazda giriş yaptığında çıkış yapana kadar orada açık kalırsın; her seferinde yeniden giriş yapman gerekmez. Aynı hesapla telefonda ve bilgisayarda aynı verileri görürsün.</p><p>Şifreni unuttuysan giriş ekranında <b>Şifremi unuttum</b>\'a bas; e-postana sıfırlama linki gelir. Google ile kayıt olduysan Ayarlar → Profil\'den bir şifre de belirleyebilirsin.</p><p>Daha önce TradeLog\'u hesapsız kullandıysan, o cihazdaki veriler ilk girişte hesabına taşınır. Hem cihazda hem hesabında veri varsa birleştirmek isteyip istemediğin sorulur. Çıkış yapmak ve hesabı silmek için <b>Ayarlar → Profil</b>.</p>'],
       ['Telegram\'dan web\'e geçmek', '<p>Telegram sürümü kademeli olarak kapanacak. Verilerini taşımak için Telegram\'da <b>Ayarlar → Veri → Yedek indir</b>\'e bas ve çıkan metni kopyala. Sonra web\'de giriş yap ve <b>Ayarlar → Veri → Metin yapıştırarak yükle</b> ile içeri al.</p>'],
       ['Yedek almak', '<p>Verilerin hesabında saklanır ve sunucuda her gün yedeklenir. Kendi kopyanı istersen Ayarlar → Veri → <b>Yedek indir</b> ile bütün verilerini tek dosyada alabilir, gerektiğinde <b>Yedek dosyasından geri yükle</b> ile içeri alabilirsin.</p>'],
       ['Hâlâ sorun mu var?', '<p>İletişim sayfasından bize yaz.</p>']] },
     privacy: { t: 'Gizlilik politikası', u: 'Son güncelleme: 24 Ekim 2026', s: [
       ['Kısaca', '<p>TradeLog\'u kullanmak için e-posta adresinle bir hesap açarsın. Girdiğin işlemler, notlar, hesap bilgileri ve ayarlar hesabında saklanır; böylece giriş yaptığın her cihazda aynı veriyi görürsün. Verilerini satmayız, reklam için kullanmayız ve hizmeti sunmak dışında bir amaçla kimseyle paylaşmayız.</p>'],
-      ['Hangi verileri işliyoruz', '<ul><li><b>Hesap:</b> e-posta adresin, hesabın açılış ve giriş zamanları.</li><li><b>Günlük verilerin:</b> işlemler, notlar, playbook\'lar, günlük ve haftalık notlar, hesap adları, hesap numaraları, sunucu adları, bakiye ve para hareketleri, ayarlar.</li><li><b>Teknik kayıtlar:</b> IP adresi ve tarayıcı bilgisi; güvenlik ve hata ayıklama için sunucu kayıtlarında kısa süre tutulur.</li></ul>'],
-      ['Ne için kullanıyoruz', '<p>Hizmeti sunmak, girişini doğrulamak (e-postana kod göndermek), verilerini cihazların arasında senkronize etmek ve hizmeti güvende tutmak için. Verilerinden hesaplanan istatistikler yalnızca sana gösterilir.</p>'],
+      ['Hangi verileri işliyoruz', '<ul><li><b>Hesap:</b> e-posta adresin, hesabın açılış ve giriş zamanları. Şifren yalnızca geri döndürülemez biçimde (hash) saklanır. Google ile girersen Google\'ın paylaştığı ad ve profil fotoğrafı bağlantın da hesabına kaydedilir.</li><li><b>Günlük verilerin:</b> işlemler, notlar, playbook\'lar, günlük ve haftalık notlar, hesap adları, hesap numaraları, sunucu adları, bakiye ve para hareketleri, ayarlar.</li><li><b>Teknik kayıtlar:</b> IP adresi ve tarayıcı bilgisi; güvenlik ve hata ayıklama için sunucu kayıtlarında kısa süre tutulur.</li></ul>'],
+      ['Ne için kullanıyoruz', '<p>Hizmeti sunmak, girişini doğrulamak (şifre sıfırlama ve doğrulama e-postaları dahil), verilerini cihazların arasında senkronize etmek ve hizmeti güvende tutmak için. Verilerinden hesaplanan istatistikler yalnızca sana gösterilir.</p>'],
       ['Verilerin nerede saklanır', '<p>Verilerin, altyapı sağlayıcımız Supabase üzerinden Almanya\'daki (Frankfurt) sunucularda saklanır ve şifreli bağlantıyla (HTTPS) iletilir. Bu, kişisel verilerin yurt dışına aktarılması anlamına gelir. Hızlı açılış ve internetsiz kullanım için cihazında da bir kopya tutulur; çıkış yaptığında bu kopya silinir.</p>'],
       ['Yüklediğin raporlar', '<p>MT4/MT5 raporları cihazında okunur; rapor dosyasının kendisi sunucuya gönderilmez, yalnızca içinden çıkan işlemler ve hesap bilgileri hesabına kaydedilir. Hesap şifren hiçbir zaman istenmez.</p>'],
       ['Ne kadar süre saklıyoruz', '<p>Hesabın açık olduğu sürece. Hesabını sildiğinde hesabın ve bütün verilerin hemen silinir; sunucu yedeklerinden de en geç 7 gün içinde kalkar.</p>'],
@@ -3589,7 +3668,7 @@ tr: {
       ['Değişiklikler', '<p>Pro ve ödeme geldiğinde bu politika güncellenecek. Önemli değişiklikleri sitede ve e-postayla duyururuz.</p>']] },
     terms: { t: 'Kullanım koşulları', u: 'Son güncelleme: 24 Ekim 2026', s: [
       ['Hizmet', '<p>TradeLog, işlemlerini kaydetmen ve sonuçlarını incelemen için bir işlem günlüğüdür. Kullanmak için e-posta adresinle hesap açman gerekir. Ücretsiz planı süre sınırı olmadan kullanabilirsin.</p>'],
-      ['Hesabın', '<p>Hesabına giriş, e-postana gönderilen tek kullanımlık kodla yapılır; e-posta hesabının güvenliği senin sorumluluğundadır. Hesabını başkasıyla paylaşma. Hesabını istediğin an Ayarlar → Profil\'den silebilirsin.</p>'],
+      ['Hesabın', '<p>Hesabına Google hesabınla ya da e-posta ve şifreyle girersin. Şifrenin ve e-posta hesabının güvenliği senin sorumluluğundadır. Hesabını başkasıyla paylaşma. Hesabını istediğin an Ayarlar → Profil\'den silebilirsin.</p>'],
       ['Yatırım tavsiyesi değildir', '<p>Gösterilen istatistikler, TradeLog puanı ve içgörüler senin girdiğin verilerden hesaplanır. Bunlar alım satım önerisi değildir. İşlem kararların ve sonuçları sana aittir.</p>'],
       ['Prop firm kuralları', '<p>Paneldeki günlük kayıp, toplam kayıp ve kâr hedefi göstergeleri senin girdiğin oranlarla ve kapanmış işlemlerle hesaplanır. Firmanın resmi hesaplamasının yerine geçmez; kesin bilgi için firmanın kendi panelini kontrol et.</p>'],
       ['Verilerin', '<p>Verilerin sana aittir. Onları korumak için makul önlemler alırız ve sunucuda günlük yedek tutarız. Yine de önemli verilerin için zaman zaman Ayarlar → Veri\'den kendi yedeğini almanı öneririz. Senin sildiğin verileri geri getiremeyiz.</p>'],
@@ -3679,21 +3758,21 @@ en: {
   c_h: 'Calendar', c_month: 'October 2026 · sample', c_mname: 'Oct', c_wd: ['Mo', 'Tu', 'We', 'Th', 'Fr', 'Sa', 'Su'], c_none: 'no trades', c_future: 'not yet', c_n: '{n} trades', c_hint: 'Hover a day to see its result', c_win: 'Win', c_loss: 'Loss', c_empty: 'No trades',
   pages: {
     help: { t: 'Help', u: 'The most common questions about TradeLog', s: [
-      ['Getting started', '<ol><li>Press <b>Open app</b> at the top of the page and sign in with your email: just enter the code we send you, no password.</li><li><b>Add your account</b>: upload an MT4/MT5 report or create the account manually.</li><li>If you uploaded a report, your dashboard fills up right away. If you created it manually, add your first trade.</li><li>Finish the steps in the <b>Getting started</b> list on your dashboard: playbook, prop rules, journal.</li></ol>'],
+      ['Getting started', '<ol><li>Press <b>Start free</b> at the top of the page and create your account: in one click with Google, or with an email and password.</li><li><b>Add your account</b>: upload an MT4/MT5 report or create the account manually.</li><li>If you uploaded a report, your dashboard fills up right away. If you created it manually, add your first trade.</li><li>Finish the steps in the <b>Getting started</b> list on your dashboard: playbook, prop rules, journal.</li></ol>'],
       ['How to export an MT5 report', '<ol><li>Open MetaTrader 5 on your computer.</li><li>Open the <b>Toolbox</b>: Ctrl+T.</li><li>Go to the <b>History</b> tab, right-click the list and pick a date range.</li><li>Right-click again, choose <b>Report</b>, then <b>HTML</b> or <b>Open XML (Excel)</b>, and save it.</li><li>In TradeLog, choose <b>Add trade → Upload an MT4/MT5 report</b> and pick the file.</li></ol>'],
       ['How to export an MT4 report', '<ol><li>Open MetaTrader 4 on your computer.</li><li>Open the <b>Terminal</b>: Ctrl+T.</li><li>In the <b>Account History</b> tab, right-click and pick the period (for example All History).</li><li>Right-click again, choose <b>Save as Detailed Report</b> and save the .htm file.</li><li>Upload the file in TradeLog.</li></ol>'],
       ['Reports on a phone', '<p>The MT4 and MT5 phone apps can\'t export reports. Export the report on your computer; you can send the file to your phone and pick it in TradeLog there.</p>'],
       ['What if I upload the same report again?', '<p>Nothing breaks. Trades already added are skipped and only new ones are added. Trades you entered manually are matched with the same trade in the report: your notes, setup and mindset are kept and the numbers are updated from the report.</p>'],
       ['Weekly recap', '<p><b>Reports → Weekly recap</b> shows the week\'s net result, each day, and your best and worst trade compared with last week. Below are 1-3 suggestions drawn from the setups, emotions and mistakes on your trades, plus a note of the week.</p><p>Use <b>Copy recap</b> to send it to your mentor as text. A short version of this week also appears on your dashboard.</p>'],
       ['What is R?', '<p>R is a multiple of the amount you risked on a trade. A stop-out is −1R; winning twice your risk is +2R. This lets you compare trades across different lot and account sizes on one scale.</p><p>If the report has a stop loss, R is calculated automatically. If not, it is estimated from the account\'s risk percentage and shown with a ≈ sign.</p>'],
-      ['Account and sign-in', '<p>There is no password: type your email address and enter the code we send. If it doesn\'t arrive, check your spam folder or ask for a new one after a minute. Sign in with the same email on your phone and computer to see the same data.</p><p>If you used TradeLog without an account before, the data on that device moves to your account the first time you sign in. If both the device and your account have data, you are asked whether to merge them. To sign out or delete your account, go to <b>Settings → Profile</b>.</p>'],
+      ['Account and sign-in', '<p>Sign in with your Google account or with an email and password. Once you sign in on a device you stay signed in there until you sign out; you don\'t have to sign in every time. The same account shows the same data on your phone and computer.</p><p>Forgot your password? Press <b>Forgot password?</b> on the sign-in screen and we\'ll email you a reset link. If you signed up with Google, you can also set a password from Settings → Profile.</p><p>If you used TradeLog without an account before, the data on that device moves to your account the first time you sign in. If both the device and your account have data, you are asked whether to merge them. To sign out or delete your account, go to <b>Settings → Profile</b>.</p>'],
       ['Moving from Telegram to the web', '<p>The Telegram version will be phased out. To move your data, open <b>Settings → Data → Download backup</b> in Telegram and copy the text. Then sign in on the web and bring it in with <b>Settings → Data → Restore by pasting text</b>.</p>'],
       ['Backups', '<p>Your data is stored in your account and backed up on the server every day. If you want your own copy, use Settings → Data → <b>Download backup</b> to get everything in one file, and <b>Restore from backup file</b> to bring it back if needed.</p>'],
       ['Still stuck?', '<p>Write to us from the Contact page.</p>']] },
     privacy: { t: 'Privacy policy', u: 'Last updated: October 24, 2026', s: [
       ['In short', '<p>To use TradeLog you create an account with your email address. Your trades, notes, account details and settings are stored in your account, so every device you sign in on shows the same data. We don\'t sell your data, use it for advertising, or share it with anyone except to provide the service.</p>'],
-      ['What we process', '<ul><li><b>Account:</b> your email address, when your account was created and when you sign in.</li><li><b>Your journal:</b> trades, notes, playbooks, daily and weekly notes, account names, account numbers, server names, balances and cash movements, settings.</li><li><b>Technical logs:</b> IP address and browser details, kept briefly in server logs for security and debugging.</li></ul>'],
-      ['What we use it for', '<p>To provide the service, verify your sign-in (by emailing you a code), sync your data across devices and keep the service secure. Statistics calculated from your data are shown only to you.</p>'],
+      ['What we process', '<ul><li><b>Account:</b> your email address, when your account was created and when you sign in. Your password is stored only as an irreversible hash. If you sign in with Google, the name and profile photo link Google shares are also saved to your account.</li><li><b>Your journal:</b> trades, notes, playbooks, daily and weekly notes, account names, account numbers, server names, balances and cash movements, settings.</li><li><b>Technical logs:</b> IP address and browser details, kept briefly in server logs for security and debugging.</li></ul>'],
+      ['What we use it for', '<p>To provide the service, verify your sign-in (including password reset and confirmation emails), sync your data across devices and keep the service secure. Statistics calculated from your data are shown only to you.</p>'],
       ['Where your data is stored', '<p>Your data is stored on servers in Germany (Frankfurt) through our infrastructure provider Supabase and travels over an encrypted connection (HTTPS). For fast start-up and offline use, a copy is also kept on your device; it is removed when you sign out.</p>'],
       ['Reports you upload', '<p>MT4/MT5 reports are read on your device; the report file itself is not uploaded, only the trades and account details taken from it are saved to your account. We never ask for your account password.</p>'],
       ['How long we keep it', '<p>For as long as your account exists. When you delete your account, the account and all its data are deleted right away and disappear from server backups within 7 days.</p>'],
@@ -3703,7 +3782,7 @@ en: {
       ['Changes', '<p>This policy will be updated when Pro and payments arrive. We announce important changes on the site and by email.</p>']] },
     terms: { t: 'Terms of use', u: 'Last updated: October 24, 2026', s: [
       ['The service', '<p>TradeLog is a trading journal for logging your trades and reviewing your results. You need an account, created with your email address, to use it. You can use the free plan with no time limit.</p>'],
-      ['Your account', '<p>You sign in with a one-time code sent to your email; keeping your email account secure is your responsibility. Don\'t share your account. You can delete it any time from Settings → Profile.</p>'],
+      ['Your account', '<p>You sign in with your Google account or with an email and password. Keeping your password and email account secure is your responsibility. Don\'t share your account. You can delete it any time from Settings → Profile.</p>'],
       ['Not investment advice', '<p>Statistics, the TradeLog score and insights are calculated from the data you enter. They are not trading recommendations. Your trading decisions and their results are your own.</p>'],
       ['Prop firm rules', '<p>The daily loss, max loss and profit target meters use the percentages you enter and your closed trades. They do not replace your firm\'s official calculation; check your firm\'s dashboard for exact figures.</p>'],
       ['Your data', '<p>Your data belongs to you. We take reasonable measures to protect it and keep daily server backups. We still recommend making your own backup from Settings → Data from time to time. We cannot recover data you delete.</p>'],
@@ -3868,6 +3947,7 @@ function applyLang() {
   document.documentElement.lang = lg;
   $$('[data-st]', SITE).forEach(el => { const v = s(el.dataset.st); if (typeof v === 'string') el.innerHTML = v; });
   $$('[data-sa]', SITE).forEach(el => el.setAttribute('aria-label', s(el.dataset.sa)));
+  if (typeof sbNavLabel === 'function') sbNavLabel(s('nav_open'));
   $$('[data-a="lang"]', SITE).forEach(b => { const on = b.dataset.v === lg; b.classList.toggle('on', on); b.setAttribute('aria-pressed', on); });
   setMenu(S.menu);
   renderFeat(); renderDemo(); renderTour(); renderSteps(); renderProp(); renderPB(); renderCal(); renderPropSec(); renderPlats(); renderCmp(); renderFaq(); renderPage();
@@ -3914,7 +3994,7 @@ SITE.addEventListener('click', e => {
   const a = e.target.closest('a[href^="#"]');
   if (a) {
     const h = a.getAttribute('href');
-    if (h.startsWith('#/app')) { e.preventDefault(); showApp(h.includes('import') ? 'import' : null); return; }
+    if (h.startsWith('#/app')) { e.preventDefault(); if (typeof sbIntent === 'function') sbIntent(a.dataset.st === 'cta_start' || a.querySelector('[data-st="cta_start"]') ? 'signup' : 'login'); showApp(h.includes('import') ? 'import' : null); return; }
     if (a.dataset.page) { e.preventDefault(); showPage(a.dataset.page); return; }
     if (a.dataset.a === 'home') { e.preventDefault(); setMenu(false); showHome('top'); return; }
     if (S.page) { e.preventDefault(); setMenu(false); showHome(h.slice(1)); return; }
