@@ -361,7 +361,7 @@ body{background:var(--bg);color:var(--ink);font:15px/1.5 var(--f);font-variant-n
 .ap .walt span{margin-right:auto}
 .ap .ov{position:fixed;inset:0;background:var(--ovl);backdrop-filter:blur(3px);-webkit-backdrop-filter:blur(3px);z-index:50;display:none;align-items:flex-start;justify-content:center;overflow-y:auto;padding:5vh 16px}
 .ap .ov.on{display:flex;animation:fi .18s ease both}
-.ap .md{background:var(--sf);border:1px solid var(--ln);border-radius:22px;width:100%;max-width:640px;box-shadow:0 30px 80px rgba(0,0,0,.3);margin-bottom:5vh;position:relative;animation:pop .22s cubic-bezier(.2,.8,.2,1) both}
+.ap .md{background:var(--sf);border:1px solid var(--ln);border-radius:22px;width:100%;max-width:640px;box-shadow:0 30px 80px rgba(0,0,0,.3);margin-bottom:5vh;position:relative;max-height:90vh;overflow-y:auto;overscroll-behavior:contain;animation:pop .22s cubic-bezier(.2,.8,.2,1) both}
 .ap .md.wide{max-width:760px}
 .ap .md>.mh{display:flex;align-items:center;gap:10px;padding:16px 16px 14px 22px;border-bottom:1px solid var(--ln2);position:sticky;top:0;background:var(--sf);border-radius:22px 22px 0 0;z-index:3}
 .ap .md>.mh h2{font:700 21px var(--fd);letter-spacing:-.02em;margin-right:auto}
@@ -555,6 +555,44 @@ body.tg .addbtn,body.tg #fSave,body.tg .fab,body.tg .sitelink{display:none}
 .ap .ausw button{font-weight:600;color:var(--ink);text-decoration:underline;text-underline-offset:3px}
 .ap .augo{font-weight:600}
 .ap .fld>span.hint{color:var(--ink3);font-weight:400;font-size:12.5px}
+.ap .shotw,.ap .shotg{display:grid;grid-template-columns:repeat(auto-fill,minmax(132px,1fr));gap:10px}
+.ap .shot{position:relative;aspect-ratio:16/10;border-radius:12px;overflow:hidden;background:var(--sf2);border:1px solid var(--ln2);display:block;padding:0}
+.ap .shot img{width:100%;height:100%;object-fit:cover;display:block}
+.ap .shot.miss::after{content:'';position:absolute;inset:0;background:repeating-linear-gradient(45deg,transparent 0 8px,var(--ln2) 8px 9px)}
+.ap button.shot{cursor:zoom-in}
+.ap .shot.add{cursor:pointer;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:4px;border-style:dashed;color:var(--ink2);font-size:13px;font-weight:600;text-align:center;padding:8px}
+.ap .shot.add svg{width:20px;height:20px}
+.ap .shot.add small{font-weight:400;font-size:11.5px;color:var(--ink3)}
+.ap .shot.add:hover{border-color:var(--br);color:var(--ink)}
+.ap .shot.add.busy{cursor:progress;color:var(--ink3)}
+.ap .shx{position:absolute;top:6px;right:6px;width:26px;height:26px;border-radius:50%;background:rgba(0,1,0,.72);color:#F8F8F8;font-size:17px;line-height:1;display:flex;align-items:center;justify-content:center}
+.ap .shx:hover{background:var(--loss)}
+.ap .shotlb{position:fixed;inset:0;z-index:300;background:rgba(0,1,0,.88);display:none;align-items:center;justify-content:center;padding:24px;cursor:zoom-out}
+.ap .shotlb.on{display:flex}
+.ap .shotlb img{max-width:100%;max-height:100%;border-radius:10px;box-shadow:0 20px 60px rgba(0,0,0,.5)}
+.ap .shotlb .xb{position:absolute;top:14px;right:14px;width:40px;height:40px;border-radius:50%;background:rgba(248,248,248,.12);color:#F8F8F8;font-size:22px}
+.ap .shpv{border:1px dashed var(--ln);border-radius:14px;padding:16px}
+.ap .shc .facts{margin-top:14px}
+.ap .shk{font:700 12px/1 var(--fn);letter-spacing:.1em;text-transform:uppercase;color:var(--br)}
+.ap .shm{font-size:14px;color:var(--ink2);margin-top:6px}
+.ap .shh4{font-size:12px;letter-spacing:.06em;text-transform:uppercase;color:var(--ink3);margin:18px 0 6px}
+.ap .shby{margin-top:18px;padding-top:12px;border-top:1px solid var(--ln2);font-size:12.5px;color:var(--ink3)}
+.ap .shby b{color:var(--ink2)}
+.ap .shlink{display:flex;gap:8px}
+.ap .shlink .in{flex:1;min-width:0;font:500 13px var(--fn)}
+.ap .shacts{display:flex;gap:6px;flex:none}
+.ap .shacts svg{width:15px;height:15px}
+.ap .pubv{min-height:100vh;background:var(--bg)}
+.ap .pubw{max-width:620px;margin:0 auto;padding:20px 16px 48px}
+.ap .pubh{display:flex;align-items:center;justify-content:space-between;margin-bottom:22px}
+.ap .pubh .aub{margin:0}
+.ap .pubcta{margin-top:22px;text-align:center;padding:28px 20px;border-radius:20px;background:var(--sf);border:1px solid var(--ln)}
+.ap .pubcta h3{font:700 22px/1.2 var(--fd);letter-spacing:-.02em}
+.ap .pubcta p{color:var(--ink2);font-size:14.5px;margin:8px auto 16px;max-width:420px}
+.ap .pubcta .btn svg{width:16px;height:16px}
+@media (max-width:520px){.ap .mf .shb span{display:none}
+.ap .shacts .btn{padding:0 10px}}
+.ap .pubh .aub{text-decoration:none;color:var(--ink)}
 .site{color-scheme:dark;--win:#4ADE80;--bg:#000100;--bg2:#08090B;--card:#111317;--card2:#1B1E24;--line:rgba(148,197,204,.13);--line2:rgba(148,197,204,.28);--tx:#F8F8F8;--mu:#A1A6B4;--lime:#94C5CC;--sage:#B4D2E7;--olive:#5E8D94;--loss:#F87171;--disp:'Bricolage Grotesque',system-ui,sans-serif;--body:'Inter',system-ui,sans-serif;--mono:'JetBrains Mono',ui-monospace,monospace}
 .site *{box-sizing:border-box}
 html{scroll-behavior:smooth;-webkit-text-size-adjust:100%}
@@ -1128,6 +1166,7 @@ html{scroll-behavior:smooth;-webkit-text-size-adjust:100%}
 
 <div class="ap" id="appRoot">
 <div class="auth" id="authV" hidden></div>
+<div class="pubv" id="pubV" hidden></div>
 <div class="app">
   <aside class="side" aria-label="Menü">
     <a class="brand" href="#" onclick="go('dash');return false"><svg width="30" height="30" viewBox="0 0 32 32" aria-hidden="true"><rect width="32" height="32" rx="9" fill="#94C5CC"/><path d="M9.5 22v-4.5M16 22V12.5M22.5 22V9" stroke="#000100" stroke-width="3.4" stroke-linecap="round"/></svg>TradeLog</a>
@@ -1160,6 +1199,7 @@ html{scroll-behavior:smooth;-webkit-text-size-adjust:100%}
 
 <input type="file" id="fileJson" accept=".json,application/json" hidden>
 <input type="file" id="fileCsv" accept=".csv,text/csv" hidden>
+<input type="file" id="fileShot" accept="image/*" multiple hidden>
 <input type="file" id="fileAny" accept=".htm,.html,.xlsx,.xls,.csv,.json,text/html" hidden>
 <div id="toast" role="status" aria-live="polite"></div>
 </div>
@@ -1167,6 +1207,8 @@ html{scroll-behavior:smooth;-webkit-text-size-adjust:100%}
 <script>
 /* ================= i18n ================= */
 const T={tr:{
+sh_btn:'Paylaş',sh_t_trade:'İşlemi paylaş',sh_t_week:'Haftalık özeti paylaş',sh_p:'Linki olan herkes bu sayfayı görebilir. Sayfa, linki oluşturduğun andaki hali gösterir; istediğin zaman kapatabilirsin.',sh_o_notes:'Notlarımı göster',sh_o_money:'Para tutarını göster',sh_o_shots:'Ekran görüntülerini göster',sh_o_focus:'Gelecek hafta önerilerini göster',sh_o_note:'Haftanın notunu göster',sh_name:'Adın (isteğe bağlı)',sh_name_ph:'Örn. Taner',sh_prev:'Önizleme',sh_make:'Link oluştur',sh_making:'Hazırlanıyor…',sh_ready:'Linkin hazır',sh_copy:'Linki kopyala',sh_open:'Aç',sh_revoke:'Linki kapat',sh_revoke_c:'Link kapatılsın mı? Linki olanlar artık bu sayfayı göremez.',sh_revoked:'Link kapatıldı',sh_err:'Link oluşturulamadı. Bağlantını kontrol edip tekrar dene.',sh_list:'Paylaşım linklerim',sh_list_s:'Kapatınca link çalışmaz',sh_list_empty:'Henüz paylaşım linkin yok. İşlem detayında ya da haftalık özette Paylaş\'a bas.',sh_views:'{n} görüntülenme',sh_by:'{k} paylaştı',sh_anon:'Bir TradeLog kullanıcısı paylaştı',sh_cta_t:'Sen de her işlemden bir ders çıkar.',sh_cta_p:'TradeLog ücretsiz trading günlüğü: işlemlerini kaydet, neyin işe yaradığını R cinsinden gör.',sh_cta:'Ücretsiz başla',sh_gone_t:'Bu link artık geçerli değil',sh_gone_p:'Paylaşan kişi linki kapatmış ya da adres hatalı olabilir.',sh_loading:'Yükleniyor…',
+l_shots_img:'Ekran görüntüleri',shot_add:'Görsel ekle',shot_paste:'ya da Ctrl+V ile yapıştır',shot_up:'Yükleniyor…',shot_err:'Görsel yüklenemedi. Bağlantını kontrol edip tekrar dene.',shot_max:'Bir işleme en fazla {n} görsel ekleyebilirsin.',shot_need:'Ekran görüntüsü eklemek için hesabınla giriş yap.',shot_tg:'Ekran görüntüsü eklemek için TradeLog\'u web\'de aç.',shot_rm:'Görseli kaldır',shot_view:'Görseli büyüt',
 au_in_t:'Tekrar hoş geldin',au_in_s:'Hesabına giriş yap.',au_in_btn:'Giriş yap',au_in_link:'Giriş yap',au_up_t:'Ücretsiz hesabını oluştur',au_up_s:'Kart gerekmez. Bir dakikada hazır, işlem sınırı yok.',au_up_btn:'Hesap oluştur',au_up_link:'Ücretsiz kayıt ol',au_google_up:'Google ile kayıt ol',
 au_pw:'Şifre',au_pw_new:'Yeni şifre',au_pw_new_ph:'En az 8 karakter',au_pw_h:'En az 8 karakter. Harf ve rakamı karıştırman önerilir.',au_show:'Göster',au_hide:'Gizle',au_forgot:'Şifremi unuttum',au_new:'Hesabın yok mu?',au_have:'Zaten hesabın var mı?',au_back_in:'Girişe dön',
 au_fg_t:'Şifreni sıfırla',au_fg_s:'E-posta adresini yaz, sana şifre sıfırlama linki gönderelim.',au_fg_btn:'Sıfırlama linki gönder',au_rs_s:'Şifre sıfırlama linkini gönderdik.',au_rs_sent:'Linki {e} adresine gönderdik. Linke tıklayınca yeni şifreni belirleyeceksin.',
@@ -1301,6 +1343,8 @@ emo_calm:'Sakin',emo_focused:'Odaklı',emo_confident:'Güvenli',emo_impatient:'S
 mis_early_entry:'Erken giriş',mis_late_entry:'Geç giriş',mis_no_confirmation:'Onaysız giriş',mis_tight_sl:'SL çok dar',mis_moved_sl:'SL\'i kaydırdım',mis_early_exit:'Erken çıkış',mis_tight_tp:'TP çok yakın',
 mis_off_plan:'Plan dışı işlem',mis_revenge:'Revenge trade',mis_fomo:'FOMO',mis_oversize:'Risk büyüttüm',mis_overtrading:'Aşırı işlem'},
 en:{
+sh_btn:'Share',sh_t_trade:'Share trade',sh_t_week:'Share weekly recap',sh_p:'Anyone with the link can see this page. It shows things as they were when you created the link, and you can turn it off any time.',sh_o_notes:'Show my notes',sh_o_money:'Show the money amount',sh_o_shots:'Show screenshots',sh_o_focus:'Show suggestions for next week',sh_o_note:'Show the note of the week',sh_name:'Your name (optional)',sh_name_ph:'e.g. Alex',sh_prev:'Preview',sh_make:'Create link',sh_making:'Preparing…',sh_ready:'Your link is ready',sh_copy:'Copy link',sh_open:'Open',sh_revoke:'Turn off link',sh_revoke_c:'Turn off this link? People with the link will no longer see the page.',sh_revoked:'Link turned off',sh_err:'Could not create the link. Check your connection and try again.',sh_list:'My share links',sh_list_s:'Turning one off breaks the link',sh_list_empty:'No share links yet. Press Share on a trade or on your weekly recap.',sh_views:'{n} {n|view|views}',sh_by:'Shared by {k}',sh_anon:'Shared by a TradeLog user',sh_cta_t:'Learn something from every trade.',sh_cta_p:'TradeLog is a free trading journal: log your trades and see what works, in R.',sh_cta:'Start free',sh_gone_t:'This link is no longer active',sh_gone_p:'The person who shared it may have turned it off, or the address is wrong.',sh_loading:'Loading…',
+l_shots_img:'Screenshots',shot_add:'Add image',shot_paste:'or paste with Ctrl+V',shot_up:'Uploading…',shot_err:'Could not upload the image. Check your connection and try again.',shot_max:'You can add up to {n} images to a trade.',shot_need:'Sign in to your account to add screenshots.',shot_tg:'Open TradeLog on the web to add screenshots.',shot_rm:'Remove image',shot_view:'Enlarge image',
 au_in_t:'Welcome back',au_in_s:'Sign in to your account.',au_in_btn:'Sign in',au_in_link:'Log in',au_up_t:'Create your free account',au_up_s:'No card needed. Ready in a minute, no trade limit.',au_up_btn:'Create account',au_up_link:'Sign up free',au_google_up:'Sign up with Google',
 au_pw:'Password',au_pw_new:'New password',au_pw_new_ph:'At least 8 characters',au_pw_h:'At least 8 characters. Mixing letters and numbers is recommended.',au_show:'Show',au_hide:'Hide',au_forgot:'Forgot password?',au_new:'No account yet?',au_have:'Already have an account?',au_back_in:'Back to sign in',
 au_fg_t:'Reset your password',au_fg_s:'Enter your email and we\'ll send you a link to reset your password.',au_fg_btn:'Send reset link',au_rs_s:'We sent you a password reset link.',au_rs_sent:'We sent the link to {e}. Click it to set a new password.',
@@ -1530,7 +1574,9 @@ function norm(x){
 function extras(x){
   const o={};['lots','entry','exit','sl','tp'].forEach(k=>{const v=num(x[k]);if(v!==null)o[k]=v});
   if(str(x.ext))o.ext=str(x.ext);if(/^\d{4}-\d{2}-\d{2} \d{2}:\d{2}$/.test(str(x.ct)))o.ct=str(x.ct);
-  if(x.rEst)o.rEst=true;if(x.rev===false)o.rev=false;return o;
+  if(x.rEst)o.rEst=true;if(x.rev===false)o.rev=false;
+  if(Array.isArray(x.shots)){const s=x.shots.filter(p=>typeof p==='string'&&/^[0-9a-f-]{36}\/[\w.-]{1,80}$/.test(p)).slice(0,10);if(s.length)o.shots=s}
+  return o;
 }
 function normS(s){
   s=s&&typeof s==='object'?s:{};
@@ -2214,6 +2260,7 @@ function render(){
   CHD={};
   $('view').innerHTML=({dash:vDash,trades:vTrades,cal:vCal,rep:vRep,pb:vPB,jr:vJR,set:vSet})[cv]();
   if(cv==='trades')rList();
+  if(cv==='set'&&typeof shList==='function')shList();
   bindCharts();tgUI();
 }
 let accOpen=false;
@@ -2529,13 +2576,15 @@ function openTrade(id){
   if(pb&&pb.rules.length)h+=`<div class="dsec"><h4>${t('d_rules',{k:esc(pb.name)})}</h4>${pb.rules.map(r=>`<div class="check" style="cursor:default"><span class="${x.rules.includes(r)?'pos':'neg'}" style="width:18px">${x.rules.includes(r)?'✓':'✕'}</span><span>${esc(r)}</span></div>`).join('')}</div>`;
   const chips=(a,fn,c)=>a.length?`<div class="chips">${a.map(v=>`<span class="chip" ${c?`style="color:var(--loss)"`:''}>${esc(fn(v))}</span>`).join('')}</div>`:'';
   if(x.emotions.length||x.mistakes.length||x.tags.length)h+=`<div class="dsec">${x.emotions.length?`<h4>${t('l_emo')}</h4>${chips(x.emotions,emoL)}`:''}${x.mistakes.length?`<h4 style="margin-top:12px">${t('l_mis')}</h4>${chips(x.mistakes,misL,1)}`:''}${x.tags.length?`<h4 style="margin-top:12px">${t('l_tags')}</h4>${chips(x.tags,v=>'#'+v)}`:''}</div>`;
+  if(x.shots&&x.shots.length&&typeof shotGrid==='function')h+=`<div class="dsec"><h4>${t('l_shots_img')}</h4>${shotGrid(x.shots)}</div>`;
   if(x.chart)h+=`<div class="dsec"><h4>${t('l_shots')}</h4>${shotsH(x.chart)}</div>`;
   if(x.notes)h+=`<div class="dsec"><h4>${t('l_notes')}</h4><div class="note">${esc(x.notes)}</div></div>`;
-  openDlg(t('d_title'),h,`<button class="btn dan" onclick="delTrade(${x.id})">${t('del')}</button><button class="btn" onclick="dupTrade(${x.id})">${t('dup')}</button><button class="btn pri" onclick="openForm(${x.id})">${t('edit')}</button>`,false,true);
+  setTimeout(()=>{if(typeof hydrateShots==='function')hydrateShots($('dBody'))},0);
+  openDlg(t('d_title'),h,`<button class="btn dan" onclick="delTrade(${x.id})">${t('del')}</button>${typeof sbOn==='function'&&sbOn()?`<button class="btn shb" onclick="shareDlg('trade','${x.id}')">${ic('link')}<span>${t('sh_btn')}</span></button>`:''}<button class="btn" onclick="dupTrade(${x.id})">${t('dup')}</button><button class="btn pri" onclick="openForm(${x.id})">${t('edit')}</button>`,false,true);
 }
 
 /* ---- trade form ---- */
-let editId=null,fOut='',fPlan='',fRate=0,fEmo=[],fMis=[],fRules=[];
+let editId=null,fOut='',fPlan='',fRate=0,fEmo=[],fMis=[],fRules=[],fShots=[],fShots0=[],fShotsNew=[];
 function openForm(id,preset){
   const x=id?trades.find(z=>z.id===id):null;if(id&&!x)return;
   closeDlg(true);editId=x?x.id:null;
@@ -2562,6 +2611,7 @@ function openForm(id,preset){
    <div class="fld"><span>${t('l_plan')}</span><div class="segf" id="f_plan"><button type="button" class="w${fPlan==='yes'?' on':''}" data-v="yes" onclick="fPlan=fPlan==='yes'?'':'yes';segOn('f_plan',fPlan)">${t('yes')}</button><button type="button" class="l${fPlan==='no'?' on':''}" data-v="no" onclick="fPlan=fPlan==='no'?'':'no';segOn('f_plan',fPlan)">${t('no')}</button></div></div>
    <div class="fld" style="margin-top:14px"><span>${t('l_emo_q')}</span><div class="chips" id="f_emo">${EMO.map(([k])=>`<button type="button" class="chip${fEmo.includes(k)?' on':''}" data-k="${k}" onclick="tgl(fEmo,this)">${esc(emoL(k))}</button>`).join('')}</div></div>
    <label class="fld" style="margin-top:14px"><span>${t('l_notes')}</span><textarea class="in" id="f_notes" style="min-height:70px" placeholder="${t('ph_notes')}">${v('notes')}</textarea></label>
+   ${TG?'':`<div class="fld" style="margin-top:14px"><span>${t('l_shots_img')}</span><div class="shotw" id="f_shots"></div></div>`}
   </div>
   <details class="more"${x?' open':''}><summary>${t('fs_more')} <span class="mut" style="font-weight:400">· ${esc(when)}</span></summary><div class="fgrid">
    <label class="fld"><span>${t('h_date')}</span><input class="in" type="date" id="f_date" value="${v('date')}"></label>
@@ -2578,11 +2628,12 @@ function openForm(id,preset){
    <label class="fld full"><span>${t('l_shots')}</span><textarea class="in" id="f_chart" style="min-height:60px" placeholder="https://www.tradingview.com/x/...">${esc((d.chart||'').split('|||').join('\n'))}</textarea><span class="hint">${t('shots_h')}</span></label>
   </div></details>`;
   $('fDel').style.display=x?'':'none';$('fDel').textContent=t('del');$('fSave').textContent=t('save');
+  fShots=((x&&x.shots)||[]).slice();fShots0=fShots.slice();fShotsNew=[];if(typeof shotsForm==='function')shotsForm();
   rulesBox();
   $('formOv').classList.add('on');$('formOv').scrollTop=0;document.body.style.overflow='hidden';tgUI();
   if(!TG&&!x)setTimeout(()=>$('f_sym').focus(),60);
 }
-function closeForm(){$('formOv').classList.remove('on');editId=null;if(!dlgOpen())document.body.style.overflow='';tgUI()}
+function closeForm(){if(fShotsNew.length&&typeof shotRemove==='function'){shotRemove(fShotsNew);fShotsNew=[]}$('formOv').classList.remove('on');editId=null;if(!dlgOpen())document.body.style.overflow='';tgUI()}
 function segPick(id,b){const on=!b.classList.contains('on');$(id).querySelectorAll('button').forEach(z=>z.classList.remove('on'));if(on)b.classList.add('on')}
 function segOn(id,v){$(id).querySelectorAll('button').forEach(z=>z.classList.toggle('on',z.dataset.v===v))}
 function rateOn(){$('f_rate').querySelectorAll('button').forEach((b,i)=>b.classList.toggle('on',i<fRate))}
@@ -2602,14 +2653,15 @@ function saveTrade(){
   const raw={id:editId||uid(),date:g('f_date'),time:g('f_time'),symbol:g('f_sym'),dir:dirB?dirB.dataset.v:'',account:g('f_acc'),setup,kz:g('f_kz'),tf:g('f_tf'),
     rr:g('f_rr'),rrActual:ra,pnl:g('f_pnl'),mfe:g('f_mfe'),mae:g('f_mae'),plan:fPlan,outcome:fOut,rating:fRate,
     emotions:fEmo,mistakes:fMis,tags:g('f_tags'),rules:p?fRules.filter(r=>p.rules.includes(r)):[],
-    chart:g('f_chart').split('\n').map(s=>s.trim()).filter(Boolean).join('|||'),notes:g('f_notes')};
+    chart:g('f_chart').split('\n').map(s=>s.trim()).filter(Boolean).join('|||'),notes:g('f_notes'),shots:fShots.slice()};
   if(!raw.symbol.trim()||!raw.date||!fOut){hap('error');say(t('req'));return}
   const o=norm(raw);if(!o){hap('error');say(t('req'));return}
   if(editId){const i=trades.findIndex(z=>z.id===editId);if(i>=0){const e=norm({...trades[i],...raw,rev:true,rEst:trades[i].rEst&&raw.rrActual===trades[i].rrActual});e.demo=trades[i].demo;trades[i]=e}}else trades.push(o);
+  if(typeof shotRemove==='function')shotRemove(fShots0.filter(p=>!fShots.includes(p)));fShotsNew=[];
   sortT();saveTrades();closeForm();render();hap('success');toast(t('saved'));
 }
-function dupTrade(id){const x=trades.find(z=>z.id===id);if(!x)return;const now=new Date();openForm(null,{...x,id:null,ext:'',rev:true,lots:null,entry:null,exit:null,sl:null,tp:null,ct:'',rEst:false,date:day(),time:`${pad(now.getHours())}:${pad(now.getMinutes())}`,rrActual:null,pnl:null,outcome:'',mfe:null,mae:null,notes:'',chart:'',rating:null,demo:false})}
-async function delTrade(id){if(!id||!await ask(t('confirm_del')))return;trades=trades.filter(x=>x.id!==id);saveTrades();closeForm();closeDlg(true);render();hap('warning');toast(t('deleted'))}
+function dupTrade(id){const x=trades.find(z=>z.id===id);if(!x)return;const now=new Date();openForm(null,{...x,id:null,ext:'',rev:true,lots:null,entry:null,exit:null,sl:null,tp:null,ct:'',rEst:false,shots:[],date:day(),time:`${pad(now.getHours())}:${pad(now.getMinutes())}`,rrActual:null,pnl:null,outcome:'',mfe:null,mae:null,notes:'',chart:'',rating:null,demo:false})}
+async function delTrade(id){if(!id||!await ask(t('confirm_del')))return;const gone=trades.find(x=>x.id===id);trades=trades.filter(x=>x.id!==id);if(gone&&gone.shots&&typeof shotRemove==='function')shotRemove(gone.shots.filter(p=>!fShotsNew.includes(p)));saveTrades();closeForm();closeDlg(true);render();hap('warning');toast(t('deleted'))}
 
 /* ---- reports ---- */
 function gTable(title,groups,lab,o={}){
@@ -2688,7 +2740,7 @@ function vWeek(){
   const w=wkData(wk),s=w.s,p=w.p,cur=wkOf(day()),lb=wkLbl(wk);
   const nav=`<div class="card wkhead"><div class="wkt"><h2>${esc(wkRange(w.m,w.e))}</h2>${lb?`<span class="tag">${lb}</span>`:''}</div>
    <div class="wkn"><button class="btn sm" onclick="wk=wkAdd(wk,-7);render()" aria-label="${t('wk_prev')}">‹</button>${wk!==cur?`<button class="btn sm" onclick="wk=wkOf(day());render()">${t('wk_this')}</button>`:''}<button class="btn sm" onclick="wk=wkAdd(wk,7);render()" ${wk>=cur?'disabled':''} aria-label="next">›</button>
-   ${s.n?`<button class="btn sm pri" onclick="wkCopy()">${ic('copy')}${t('wk_copy')}</button>`:''}</div></div>`;
+   ${s.n&&typeof sbOn==='function'&&sbOn()?`<button class="btn sm" onclick="shareDlg('week',wk)">${ic('link')}${t('sh_btn')}</button>`:''}${s.n?`<button class="btn sm pri" onclick="wkCopy()">${ic('copy')}${t('wk_copy')}</button>`:''}</div></div>`;
   if(!s.n)return `<div class="stack">${nav}<div class="card empty">${t('wk_empty')}${p.n?`<div style="margin-top:12px"><button class="btn" onclick="wk=wkAdd(wk,-7);render()">${t('wk_go_prev')}</button></div>`:''}</div></div>`;
   const vs=(txt)=>p.n?t('wk_vs',{x:txt}):t('wk_vs_none');
   const kp=[[t('k_exp'),fr(s.exp),vs(fr(p.exp)),cls(s.exp)],[t('h_trades'),s.n,vs(p.n),''],
@@ -2844,7 +2896,7 @@ function vSet(){
    <div class="card"><div class="ch"><h2>${t('s_rules')}</h2><small>${t('s_rules_s')}</small></div><div class="cb">${lim('day',t('s_day'),t('s_day_d'),0.5)}${lim('str',t('s_str'),t('s_str_d'),1)}${lim('maxT',t('s_maxT'),t('s_maxT_d'),1)}</div></div>
    <div class="card"><div class="ch"><h2>${t('s_lang')}</h2></div><div class="cb">
     <div class="srow"><div class="t">${t('s_lang')}</div><select class="sel" onchange="setLang(this.value)">${opt('tr','Türkçe',L)}${opt('en','English',L)}</select></div></div></div>
-  </div><div class="stack">${typeof accountCard==='function'?accountCard():''}
+  </div><div class="stack">${typeof accountCard==='function'?accountCard():''}${typeof shareCard==='function'?shareCard():''}
    <div class="card"><div class="ch"><h2>${t('s_data')}</h2></div><div class="cb">
     <h4 class="lgh">${t('dg_in')}</h4><div class="links"><button onclick="$('fileJson').click()">${t('m_res')}</button><button onclick="$('fileCsv').click()">${t('m_csv_imp')}</button><button onclick="pasteImp()">${t('m_paste')}</button></div>
     <h4 class="lgh">${t('dg_out')}</h4><div class="links"><button onclick="expJSON()">${t('m_bak')}</button><button onclick="expCSV()">${t('m_csv_exp')}</button></div>
@@ -3030,6 +3082,7 @@ async function demo(){
 function demoRm(){trades=trades.filter(x=>!x.demo);PB=PB.filter(p=>!p.demo);saveTrades();savePB();render();toast(t('demo_removed'))}
 async function wipe(){
   if(!await ask(t(typeof sbOn==='function'&&sbOn()?'confirm_wipe_sb':'confirm_wipe')))return;
+  if(typeof shotPurge==='function'&&typeof sbOn==='function'&&sbOn())shotPurge();
   trades=[];JR={};PB=[];S=normS({});V={acc:'all',per:'all'};saveJR();saveS();savePB();saveTrades();saveV();go('dash');hap('warning');toast(t('wiped'));
 }
 
@@ -3150,6 +3203,8 @@ async function sbStart(){
 }
 /* the auth screen replaces the app until the member signs in */
 function authGate(){
+  const pv=$('pubV');if(pv)pv.hidden=!pubMode;
+  if(pubMode){const a=$('authV'),app=document.querySelector('#appRoot>.app');if(a)a.hidden=true;if(app)app.hidden=true;return true}
   const need=sbMode==='auth',a=$('authV'),app=document.querySelector('#appRoot>.app');
   if(a)a.hidden=!need;if(app)app.hidden=need;
   if(need){renderAuth();if(!sb&&!sbLibP)sbClient().catch(()=>{sbFail=true;renderAuth()})}
@@ -3446,12 +3501,207 @@ async function sbLogout(){
 async function sbDelete(){
   if(!await ask(t('sb_del_c')))return;
   try{
+    await shotPurge();
     const {error}=await sb.rpc('delete_my_account');if(error)throw error;
     try{await sb.auth.signOut({scope:'local'})}catch(e){}
     try{localStorage.removeItem(SBK)}catch(e){}
     sbWipe();sbUser=null;sbMode='auth';AU.mode='signup';AU.email='';closeDlg(true);go('dash');toast(t('sb_deleted'));
   }catch(e){say(t('sb_del_err'))}
 }
+/* ---------- trade screenshots: private "shots" bucket, one folder per member ----------
+   Images are shrunk in the browser (max 1920px, WebP) before upload. Until Pro opens (PRO_LIVE)
+   everyone gets the Pro allowance; after that free = 1 per trade, Pro = 10. */
+const SHOT_B='shots',PRO_LIVE=false;
+var shotCache={},shotBusy=0;
+const shotMax=()=>!PRO_LIVE?10:(sbPlan==='pro'?10:1);
+var sbPlan='free';
+function shotsReady(){return sbOn()&&!!sbUser&&!!sb}
+async function shotShrink(file){
+  let src;try{src=await createImageBitmap(file)}catch(e){src=await new Promise((ok,no)=>{const i=new Image();i.onload=()=>ok(i);i.onerror=no;i.src=URL.createObjectURL(file)})}
+  const W=src.width,H=src.height,k=Math.min(1,1920/Math.max(W,H)),w=Math.max(1,Math.round(W*k)),h=Math.max(1,Math.round(H*k));
+  const c=document.createElement('canvas');c.width=w;c.height=h;c.getContext('2d').drawImage(src,0,0,w,h);
+  let b=await new Promise(r=>c.toBlob(r,'image/webp',.82));
+  if(!b||b.type!=='image/webp')b=await new Promise(r=>c.toBlob(r,'image/jpeg',.85));
+  return b;
+}
+async function shotUp(file){
+  const b=await shotShrink(file),ext=b.type==='image/webp'?'webp':'jpg',p=`${sbUser.id}/${Date.now().toString(36)}${sid()}.${ext}`;
+  const {error}=await sb.storage.from(SHOT_B).upload(p,b,{contentType:b.type,cacheControl:'31536000',upsert:false});if(error)throw error;
+  shotCache[p]={u:URL.createObjectURL(b),exp:Infinity};return p;
+}
+function shotRemove(paths){paths=(paths||[]).filter(Boolean);if(!paths.length||!sb)return;sb.storage.from(SHOT_B).remove(paths).catch(()=>{})}
+async function shotSign(paths){
+  const need=paths.filter(p=>!shotCache[p]||shotCache[p].exp<Date.now()+60000);
+  if(need.length){const {data,error}=await sb.storage.from(SHOT_B).createSignedUrls(need,3600);if(error)throw error;
+    (data||[]).forEach(d=>{if(d&&d.signedUrl&&d.path)shotCache[d.path]={u:d.signedUrl,exp:Date.now()+3500e3}})}
+}
+async function hydrateShots(root){
+  const els=[...(root||document).querySelectorAll('img[data-shot]')];if(!els.length)return;
+  try{if(!sb)await sbClient();await shotSign([...new Set(els.map(e=>e.dataset.shot))])}catch(e){}
+  els.forEach(e=>{const v=shotCache[e.dataset.shot];if(v)e.src=v.u;else{const s=e.closest('.shot');if(s)s.classList.add('miss')}});
+}
+function shotsForm(){
+  const el=$('f_shots');if(!el)return;
+  if(!shotsReady()){el.innerHTML=`<p class="hint" style="margin:0">${t(sbMode==='tg'?'shot_tg':'shot_need')}</p>`;return}
+  const max=shotMax();
+  el.innerHTML=fShots.map((p,i)=>`<div class="shot"><img data-shot="${esc(p)}" alt=""><button type="button" class="shx" onclick="shotDel(${i})" aria-label="${t('shot_rm')}">×</button></div>`).join('')
+    +(shotBusy?`<div class="shot add busy"><span>${t('shot_up')}</span></div>`:fShots.length<max?`<button type="button" class="shot add" onclick="$('fileShot').click()">${ic('plus')}<span>${t('shot_add')}</span><small>${t('shot_paste')}</small></button>`:'');
+  hydrateShots(el);
+}
+function shotDel(i){fShots.splice(i,1);shotsForm()}
+async function shotAdd(files){
+  files=[...files].filter(f=>/^image\//.test(f.type));if(!files.length||!shotsReady())return;
+  const room=shotMax()-fShots.length;if(room<=0){toast(t('shot_max',{n:shotMax()}));return}
+  if(files.length>room)toast(t('shot_max',{n:shotMax()}));
+  shotBusy++;shotsForm();
+  for(const f of files.slice(0,room)){try{const p=await shotUp(f);fShots.push(p);fShotsNew.push(p)}catch(e){toast(t('shot_err'))}}
+  shotBusy--;shotsForm();
+}
+function shotGrid(paths){return paths&&paths.length?`<div class="shotg">${paths.map(p=>`<button type="button" class="shot" onclick="shotView('${esc(p)}')" aria-label="${t('shot_view')}"><img data-shot="${esc(p)}" alt=""></button>`).join('')}</div>`:''}
+function shotView(p){
+  const v=shotCache[p];if(!v)return;
+  let el=$('shotLb');if(!el){el=document.createElement('div');el.id='shotLb';el.className='shotlb';el.onclick=()=>el.classList.remove('on');$('appRoot').appendChild(el)}
+  el.innerHTML=`<img src="${esc(v.u)}" alt=""><button class="xb" aria-label="${t('close')}">×</button>`;el.classList.add('on');
+}
+async function shotPurge(){
+  if(!sb||!sbUser)return;
+  try{const {data:fs}=await sb.storage.from('share').list(sbUser.id,{limit:1000});   // shared copies: one sub-folder per link
+    for(const f of fs||[]){const {data:xs}=await sb.storage.from('share').list(`${sbUser.id}/${f.name}`,{limit:100});if(xs&&xs.length)await sb.storage.from('share').remove(xs.map(x=>`${sbUser.id}/${f.name}/${x.name}`))}}catch(e){}
+  try{for(let i=0;i<50;i++){const {data,error}=await sb.storage.from(SHOT_B).list(sbUser.id,{limit:100});if(error||!data||!data.length)return;
+    const {error:e2}=await sb.storage.from(SHOT_B).remove(data.map(f=>`${sbUser.id}/${f.name}`));if(e2)return}}catch(e){}
+}
+document.addEventListener('paste',e=>{if(!formOpen()||!shotsReady())return;const fs=[...((e.clipboardData&&e.clipboardData.files)||[])].filter(f=>/^image\//.test(f.type));if(fs.length){e.preventDefault();shotAdd(fs)}});
+document.addEventListener('keydown',e=>{const l=$('shotLb');if(e.key==='Escape'&&l&&l.classList.contains('on')){e.stopPropagation();l.classList.remove('on')}},true);
+(()=>{const i=$('fileShot');if(i)i.addEventListener('change',function(){shotAdd(this.files);this.value=''})})();
+
+/* ---------- share links: a snapshot of one trade or one week, readable by anyone with the link ----------
+   Like Tradervue's shared trades: the page carries TradeLog's brand and a "start free" call to action. */
+const SHARE_B='share';
+var pubMode=null,shOpt={};
+const shUrl=id=>location.origin+location.pathname+'#/p/'+id;
+const shId=()=>{const a='ABCDEFGHJKLMNPQRSTUVWXYZabcdefghijkmnopqrstuvwxyz23456789',r=new Uint8Array(12);crypto.getRandomValues(r);return [...r].map(v=>a[v%a.length]).join('')};
+function shTrade(x,o){
+  const a=accOf(x.account),d={v:1,sym:x.symbol,dir:x.dir,date:x.date,time:x.time,out:x.outcome,r:x.rrActual,setup:x.setup,plan:x.plan,rating:x.rating,by:o.by||''};
+  if(o.money&&has(x.pnl)){d.pnl=x.pnl;d.cur=a.cur}
+  if(o.notes&&x.notes)d.notes=x.notes;
+  return d;
+}
+function shWeek(m,o){
+  const w=wkData(m),s=w.s,d={v:1,m:w.m,e:w.e,net:s.hasR?s.tot:null,n:s.n,wr:s.wr,pf:s.pf===Infinity?999:s.pf,green:w.green,act:w.act.length,days:w.days.map(x=>({d:x.d,n:x.n,r:x.r})),by:o.by||''};
+  if(w.bestT)d.best={sym:w.bestT.symbol,r:w.bestT.rrActual};
+  if(w.setup)d.setup={k:w.setup.k,r:w.setup.s.tot};
+  if(o.focus&&w.focus.length)d.focus=w.focus.map(([k,x])=>[k,x]);
+  const n=JR[wkNoteK(m)];if(o.note&&n&&n.r)d.note=n.r;
+  return d;
+}
+function shCard(kind,d){
+  const by=`<div class="shby">${esc(d.by?t('sh_by',{k:d.by}):t('sh_anon'))} · <b>TradeLog</b></div>`;
+  if(kind==='week'){
+    const pf=d.pf==null?'—':d.pf>=999?'∞':(+d.pf).toFixed(2);
+    return `<div class="shc"><div class="shk">${t('wk_t')}</div><div class="shm">${esc(wkRange(d.m,d.e))}</div>
+      <div class="wktop" style="padding:16px 0 0"><div><div class="lbl">${t('wk_net')}</div><div class="big ${cls(d.net)}">${fr(d.net)}</div>
+      <div class="hfacts"><span><b>${d.n}</b> ${t('trades_l')}</span><span>${t('k_wr')} <b>${pc(d.wr)}</b></span><span>${t('k_pf')} <b>${pf}</b></span><span>${t('wk_green')} <b>${d.green} / ${d.act}</b></span></div></div>${wkBars(d.days)}</div>
+      ${d.best||d.setup?`<div style="margin-top:14px">${statList([d.best?[t('wk_best_t'),`${esc(d.best.sym)} <span class="${cls(d.best.r)}">${fr(d.best.r)}</span>`]:null,d.setup?[t('wk_best_s'),`${esc(d.setup.k)} <span class="pos">${fr(d.setup.r)}</span>`]:null].filter(Boolean))}</div>`:''}
+      ${d.focus?`<h4 class="shh4">${t('wk_focus')}</h4>${d.focus.map(([k,x])=>`<div class="ins ${esc(k)}"><i></i><div>${esc(x)}</div></div>`).join('')}`:''}
+      ${d.note?`<h4 class="shh4">${t('wk_note')}</h4><div class="note">${esc(d.note)}</div>`:''}${by}</div>`;
+  }
+  const out=['Win','Loss','BE'].includes(d.out)?d.out:'BE';
+  const f=(l,v)=>`<div>${l}<b>${v}</b></div>`;
+  const facts=[f(t('h_date'),esc(dFmt(d.date,{day:'numeric',month:'long',year:'numeric'}))+(d.time?' '+esc(d.time):''))];
+  if(d.setup)facts.push(f(t('h_setup'),esc(d.setup)));
+  if(d.plan)facts.push(f(t('h_plan'),d.plan==='yes'?`<span class="pos">${t('plan_yes')}</span>`:`<span class="neg">${t('plan_no')}</span>`));
+  if(d.rating)facts.push(f(t('h_rating'),`<span style="color:var(--be)">${stars(d.rating)}</span>`));
+  if(has(d.pnl))facts.splice(1,0,f('PnL',`<span class="${cls(d.pnl)}">${money(d.pnl,1,d.cur)}</span>`));
+  return `<div class="shc"><div class="dhead"><span class="sym" style="font-size:20px">${esc(d.sym)}</span>${d.dir?`<span class="side-${esc(d.dir[0].toLowerCase())}">${esc(d.dir)}</span>`:''}<span class="badge ${out.toLowerCase()}">${t('o_'+out)}</span><span class="rv ${cls(d.r)}" style="margin-left:auto;font-size:26px">${fr(d.r)}</span></div>
+    <div class="facts">${facts.join('')}</div>
+    ${d.shots&&d.shots.length?`<div class="shotg" style="margin-top:14px">${d.shots.map(u=>`<a class="shot" href="${esc(u)}" target="_blank" rel="noopener"><img src="${esc(u)}" alt="" loading="lazy"></a>`).join('')}</div>`:''}
+    ${d.notes?`<h4 class="shh4">${t('l_notes')}</h4><div class="note">${esc(d.notes)}</div>`:''}${by}</div>`;
+}
+async function shFind(kind,ref){const {data,error}=await sb.from('shares').select('id,created_at,views').eq('kind',kind).eq('ref',String(ref)).order('created_at',{ascending:false}).limit(1);if(error)throw error;return data[0]||null}
+async function shareDlg(kind,ref){
+  if(!shotsReady()){toast(t('shot_need'));return}
+  let ex=null;try{ex=await shFind(kind,ref)}catch(e){toast(t('au_net'));return}
+  if(ex)return shReadyDlg(kind,ex.id);
+  const x=kind==='trade'?trades.find(z=>String(z.id)===String(ref)):null;
+  let by='';try{by=localStorage.getItem('tradelog_share_by')||''}catch(e){}
+  shOpt={kind,ref,by,notes:false,money:false,shots:!!(x&&x.shots&&x.shots.length),focus:false,note:false};
+  const box=(k,lab,show)=>show?`<label class="check"><input type="checkbox" ${shOpt[k]?'checked':''} onchange="shOpt.${k}=this.checked;shPrev()"><span>${lab}</span></label>`:'';
+  const n=kind==='week'?JR[wkNoteK(ref)]:null;
+  const opts=kind==='trade'?box('notes',t('sh_o_notes'),!!x.notes)+box('money',t('sh_o_money'),has(x.pnl))+box('shots',t('sh_o_shots'),!!(x.shots&&x.shots.length))
+    :box('focus',t('sh_o_focus'),wkData(ref).focus.length>0)+box('note',t('sh_o_note'),!!(n&&n.r));
+  openDlg(t(kind==='trade'?'sh_t_trade':'sh_t_week'),`<p class="hint" style="margin:14px 0 12px;font-size:13.5px">${t('sh_p')}</p>
+    <div class="fsec">${opts}<label class="fld" style="margin-top:10px"><span>${t('sh_name')}</span><input class="in" id="sh_by" value="${esc(by)}" maxlength="40" placeholder="${t('sh_name_ph')}" oninput="shOpt.by=this.value.trim();shPrev()"></label></div>
+    <h4 class="lgh" style="margin-top:16px">${t('sh_prev')}</h4><div id="shPrev" class="shpv"></div>`,
+    `<button class="btn" onclick="closeDlg()">${t('cancel')}</button><button class="btn pri" id="shMake" onclick="shMake()">${ic('link')}${t('sh_make')}</button>`,true);
+  shPrev();
+}
+function shData(){const o=shOpt;if(o.kind==='trade'){const x=trades.find(z=>String(z.id)===String(o.ref));return x?shTrade(x,o):null}return shWeek(o.ref,o)}
+function shPrev(){const el=$('shPrev');if(!el)return;const d=shData();if(!d)return;
+  if(shOpt.kind==='trade'&&shOpt.shots){const x=trades.find(z=>String(z.id)===String(shOpt.ref));d.shots=(x.shots||[]).map(p=>shotCache[p]?shotCache[p].u:'').filter(Boolean)}
+  el.innerHTML=shCard(shOpt.kind,d)}
+async function shMake(){
+  const b=$('shMake');if(b){b.disabled=true;b.textContent=t('sh_making')}
+  const o={...shOpt},id=shId(),d=shData(),u=sbUser.id;
+  try{
+    try{localStorage.setItem('tradelog_share_by',o.by||'')}catch(e){}
+    if(o.kind==='trade'&&o.shots){
+      const x=trades.find(z=>String(z.id)===String(o.ref)),urls=[];
+      for(const [i,p] of (x.shots||[]).entries()){const dst=`${u}/${id}/${i}.${p.split('.').pop()}`;
+        const {error}=await sb.storage.from(SHOT_B).copy(p,dst,{destinationBucket:SHARE_B});if(error)throw error;
+        urls.push(sb.storage.from(SHARE_B).getPublicUrl(dst).data.publicUrl)}
+      d.shots=urls;
+    }
+    const {error}=await sb.from('shares').insert({id,user_id:u,kind:o.kind,ref:String(o.ref),data:d});if(error)throw error;
+    hap('success');shReadyDlg(o.kind,id,true);
+  }catch(e){if(b){b.disabled=false;b.innerHTML=ic('link')+t('sh_make')}say(t('sh_err'))}
+}
+function shReadyDlg(kind,id,fresh){
+  const u=shUrl(id);
+  openDlg(t(fresh?'sh_ready':kind==='trade'?'sh_t_trade':'sh_t_week'),`<p class="hint" style="margin:14px 0 10px;font-size:13.5px">${t('sh_p')}</p>
+    <div class="shlink"><input class="in" id="shU" readonly value="${esc(u)}" onclick="this.select()"><button class="btn pri" onclick="shCopy('${id}')">${ic('copy')}${t('sh_copy')}</button></div>`,
+    `<button class="btn dan" onclick="shRevoke('${id}')">${t('sh_revoke')}</button><a class="btn" href="${esc(u)}" target="_blank" rel="noopener">${t('sh_open')}</a>`);
+  if(fresh)shCopy(id,true);
+}
+function shCopy(id,silent){const u=shUrl(id);
+  (navigator.clipboard?navigator.clipboard.writeText(u):Promise.reject()).then(()=>toast(t('copied'))).catch(()=>{if(!silent)showTxt(t('sh_copy'),'',u,t('copy'))})}
+async function shRevoke(id){
+  if(!await ask(t('sh_revoke_c')))return;
+  try{
+    const {error}=await sb.from('shares').delete().eq('id',id);if(error)throw error;
+    const {data}=await sb.storage.from(SHARE_B).list(`${sbUser.id}/${id}`,{limit:100});
+    if(data&&data.length)await sb.storage.from(SHARE_B).remove(data.map(f=>`${sbUser.id}/${id}/${f.name}`));
+    closeDlg(true);toast(t('sh_revoked'));if(cv==='set')shList();
+  }catch(e){say(t('sb_del_err'))}
+}
+function shareCard(){return shotsReady()?`<div class="card"><div class="ch"><h2>${t('sh_list')}</h2><small>${t('sh_list_s')}</small></div><div class="cb" id="shareList"><p class="hint">${t('sh_loading')}</p></div></div>`:''}
+async function shList(){
+  const el=$('shareList');if(!el||!sb)return;
+  try{const {data,error}=await sb.from('shares').select('id,kind,data,views,created_at').order('created_at',{ascending:false}).limit(50);if(error)throw error;
+    el.innerHTML=data.length?data.map(r=>{const d=r.data||{},title=r.kind==='week'?`${t('wk_t')} · ${esc(wkRange(d.m,d.e))}`:`${esc(d.sym||'')} <span class="${cls(d.r)}">${fr(d.r)}</span> · ${esc(dFmt(d.date||day()))}`;
+      return `<div class="srow"><div style="min-width:0"><div class="t">${title}</div><div class="d">${t('sh_views',{n:r.views})} · ${esc(dFmt(r.created_at.slice(0,10)))}</div></div><div class="shacts"><button class="btn sm" onclick="shCopy('${r.id}')">${ic('copy')}</button><a class="btn sm" href="${esc(shUrl(r.id))}" target="_blank" rel="noopener">${t('sh_open')}</a><button class="btn sm dan" onclick="shRevoke('${r.id}')">${t('sh_revoke')}</button></div></div>`}).join('')
+      :`<p class="hint">${t('sh_list_empty')}</p>`;
+  }catch(e){el.innerHTML=`<p class="hint">${t('au_net')}</p>`}
+}
+/* public page (#/p/<id>): no sign-in needed */
+async function pubShow(id){
+  pubMode=id;const v=$('pubV');if(!v)return;
+  const site=document.getElementById('site');if(site)site.hidden=true;$('appRoot').hidden=false;
+  authGate();window.scrollTo(0,0);
+  const logo=`<svg width="30" height="30" viewBox="0 0 32 32" aria-hidden="true"><rect width="32" height="32" rx="9" fill="#94C5CC"/><path d="M9.5 22v-4.5M16 22V12.5M22.5 22V9" stroke="#000100" stroke-width="3.4" stroke-linecap="round"/></svg>`;
+  const shell=inner=>`<div class="pubw"><header class="pubh"><a href="#" class="aub" onclick="pubClose();return false">${logo}<span>TradeLog</span></a><button class="btn pri sm" onclick="pubStart()">${t('sh_cta')}</button></header>${inner}
+    <div class="pubcta"><h3>${t('sh_cta_t')}</h3><p>${t('sh_cta_p')}</p><button class="btn pri" onclick="pubStart()">${t('sh_cta')}${ic('arrow')}</button></div></div>`;
+  v.innerHTML=shell(`<div class="card"><div class="cb" style="padding:22px"><p class="hint">${t('sh_loading')}</p></div></div>`);
+  try{
+    const r=await fetch(SBC.url+'/rest/v1/rpc/get_share',{method:'POST',headers:{apikey:SBC.key,'Content-Type':'application/json'},body:JSON.stringify({p_id:id})});
+    const j=r.ok?await r.json():null;
+    v.innerHTML=shell(j&&j.data?`<div class="card"><div class="cb" style="padding:22px">${shCard(j.kind,j.data)}</div></div>`
+      :`<div class="card"><div class="cb" style="padding:28px;text-align:center"><h2 style="font:700 22px var(--fd)">${t('sh_gone_t')}</h2><p class="hint" style="margin-top:8px">${t('sh_gone_p')}</p></div></div>`);
+  }catch(e){v.innerHTML=shell(`<div class="card"><div class="cb" style="padding:22px"><p class="hint">${t('au_net')}</p></div></div>`)}
+}
+function pubClose(){pubMode=null;try{history.replaceState(null,'',location.pathname)}catch(e){}const v=$('pubV');if(v)v.hidden=true;if(window.showSite)showSite()}
+function pubStart(){pubMode=null;try{history.replaceState(null,'',location.pathname+'#/app')}catch(e){}const v=$('pubV');if(v)v.hidden=true;sbIntent(sbOn()?'login':'signup');if(window.showApp)showApp();else render()}
+window.addEventListener('hashchange',()=>{const m=location.hash.match(/^#\/p\/([A-Za-z0-9]{10,24})$/);if(m)pubShow(m[1])});
+
 /* site header: "Log in" while signed out, "Open app" once signed in */
 function sbNavLabel(open){const on=sbOn()||sbHasTok()||sbMode==='tg';document.querySelectorAll('#site [data-st=nav_open]').forEach(el=>{el.textContent=on?open:t('au_in_link')})}
 sbBoot();
@@ -3596,17 +3846,17 @@ tr: {
   wk_h: 'Haftalık özet', wk_p: 'Her hafta net sonucun, en iyi ve en kötü işlemin ve gelecek hafta için 1-3 öneri. Kopyala, mentoruna gönder.', wk_btn: 'Panelde gör', hero_how: 'Nasıl çalışır',
   price_h: 'Ücretsiz plan gerçekten ücretsiz.', price_p: 'İşlem sınırı yok, bütün raporlar ve analizler ücretsiz. Pro; otomatik senkron, daha fazla hesap ve AI koç getirecek.',
   plan_free: 'Ücretsiz', plan_free_d: 'Günlük tutmak isteyen herkes için. Kart gerekmez.', plan_forever: 'süresiz',
-  feat_free: ['Sınırsız işlem: elle ya da MT4/MT5 raporuyla', 'Tüm raporlar, puan ve içgörüler', 'Haftalık özet ve gelecek hafta için öneriler', 'Takvim, günlük ve playbook', 'Prop firm kuralları ve uyarılar', '2 aktif hesap (Pro açılana kadar sınırsız)', 'Hesabınla her cihazda aynı veri', ['İşlem ve haftalık özet paylaşım linki', 's']],
+  feat_free: ['Sınırsız işlem: elle ya da MT4/MT5 raporuyla', 'Tüm raporlar, puan ve içgörüler', 'Haftalık özet ve gelecek hafta için öneriler', 'Takvim, günlük ve playbook', 'Prop firm kuralları ve uyarılar', 'İşlemlere ekran görüntüsü ekleme', '2 aktif hesap (Pro açılana kadar sınırsız)', 'Hesabınla her cihazda aynı veri', 'İşlem ve haftalık özet paylaşım linki'],
   soon: 'Yakında', plan_pro_d: 'İşlem girmekle uğraşmak istemeyen ve birden çok hesap yöneten trader\'lar için.', pro_btn: 'Yakında açılacak',
   pro_fine: 'Pro açıldığında her yeni üye 14 gün Pro ile başlar, kart istenmez. Süre bitince ücretsiz plana geçersin, verilerin kalır.',
   feat_plus: 'Ücretsizdeki her şey, artı:',
   feat_pro: ['MT4/MT5 otomatik senkron, geçmiş işlemler dahil', '20 aktif hesap, hepsi tek panelde', 'AI koç: verilerine bakıp yorum yapar, sorularını cevaplar', 'İşlem başına 10 ekran görüntüsü', 'Mentoruna hesabını salt okunur aç'],
-  cmp_show: 'Tüm özellikleri karşılaştır', cmp_hide: 'Karşılaştırmayı gizle', cmp_feature: 'Özellik', cmp_pro: 'Pro (yakında)', yes_a: 'Var', no_a: 'Yok', cmp_note: 'Yakında işaretli özellikler ve Pro hazır olunca açılacak. Pro açılana kadar ücretsiz planda hesap sınırı yok.',
+  cmp_show: 'Tüm özellikleri karşılaştır', cmp_hide: 'Karşılaştırmayı gizle', cmp_feature: 'Özellik', cmp_pro: 'Pro (yakında)', yes_a: 'Var', no_a: 'Yok', cmp_note: 'Yakında işaretli özellikler ve Pro hazır olunca açılacak. Pro açılana kadar ücretsiz planda hesap ve görsel sınırı yok.',
   groups: [
-    ['Kayıt ve içe aktarma', [['İşlem sayısı', 'Sınırsız', 'Sınırsız'], ['Elle kayıt ve MT4/MT5 raporu yükleme', 'y', 'y'], ['Otomatik MT4/MT5 senkronu', 'n', 'y'], ['Ekran görüntüsü (işlem başına)', 's:1', '10']]],
+    ['Kayıt ve içe aktarma', [['İşlem sayısı', 'Sınırsız', 'Sınırsız'], ['Elle kayıt ve MT4/MT5 raporu yükleme', 'y', 'y'], ['Otomatik MT4/MT5 senkronu', 'n', 'y'], ['Ekran görüntüsü (işlem başına)', '1', '10']]],
     ['Analiz', [['Tüm raporlar ve TradeLog puanı', 'y', 'y'], ['Haftalık özet ve öneriler', 'y', 'y'], ['Takvim, günlük ve playbook', 'y', 'y'], ['AI koç', 'n', 'y']]],
     ['Hesaplar', [['Aktif hesap', '2', '20'], ['Prop firm kuralları ve uyarılar', 'y', 'y'], ['Kopya işlemleri bir kez sayma', 'y', 'y']]],
-    ['Erişim ve paylaşım', [['Web ve telefon', 'y', 'y'], ['Hesapla her cihazda aynı veri', 'y', 'y'], ['İşlem ve haftalık özet paylaşım linki', 's', 'y'], ['Mentora salt okunur erişim', 'n', 'y']]]],
+    ['Erişim ve paylaşım', [['Web ve telefon', 'y', 'y'], ['Hesapla her cihazda aynı veri', 'y', 'y'], ['İşlem ve haftalık özet paylaşım linki', 'y', 'y'], ['Mentora salt okunur erişim', 'n', 'y']]]],
   faq_h: 'Aklına takılanlar',
   faq: [
     ['Ücretsiz plan ile Pro arasındaki fark ne?', 'Ücretsiz planda işlem sınırı yok; bütün raporlar, haftalık özet ve prop firm kuralları dahil. Pro; işlemleri MT4/MT5\'ten kendiliğinden getirir, 20 hesaba kadar destekler, AI koç ve mentor erişimi ekler.'],
@@ -3650,6 +3900,7 @@ tr: {
       ['Telefonda rapor', '<p>MT4 ve MT5\'in telefon uygulamaları rapor dışa aktaramıyor. Raporu bilgisayardan al; dosyayı telefonuna gönderip TradeLog\'da oradan da seçebilirsin.</p>'],
       ['Aynı raporu tekrar yüklersem ne olur?', '<p>Hiçbir şey bozulmaz. Daha önce eklenen işlemler atlanır, sadece yeniler eklenir. Elle girdiğin işlemler rapordaki aynı işlemle eşleşir: notların, setup\'ın ve duygun korunur, rakamlar rapordan güncellenir.</p>'],
       ['Haftalık özet', '<p><b>Raporlar → Haftalık özet</b>\'te haftanın net sonucunu, günlerini, en iyi ve en kötü işlemini geçen haftayla karşılaştırmalı görürsün. Altta işlemlerine eklediğin setup, duygu ve hatalardan çıkan 1-3 öneri ve haftanın notu var.</p><p><b>Özeti kopyala</b> ile özeti metin olarak alıp mentoruna gönderebilirsin. Panelde de bu haftanın kısa özeti görünür.</p>'],
+      ['Paylaşım linki', '<p>İşlem detayında ya da Raporlar → Haftalık özet\'te <b>Paylaş</b>\'a bas. Notların, para tutarının ve ekran görüntülerinin görünüp görünmeyeceğini seç, istersen adını yaz ve <b>Link oluştur</b>\'a bas; link panoya kopyalanır. Linkleri <b>Ayarlar → Paylaşım linklerim</b>\'den görebilir ve kapatabilirsin.</p>'],
       ['R nedir?', '<p>R, bir işlemde riske ettiğin tutarın katıdır. Stop olursan −1R, riskinin iki katını kazanırsan +2R yazılır. Böylece farklı lot ve hesap büyüklüklerindeki işlemler aynı ölçüyle karşılaştırılır.</p><p>Raporda stop loss varsa R otomatik hesaplanır. Stop yoksa hesabın risk yüzdesinden tahmin edilir ve yanında ≈ işareti görünür.</p>'],
       ['Hesap ve giriş', '<p>Google hesabınla ya da e-posta ve şifreyle giriş yapabilirsin. Bir cihazda giriş yaptığında çıkış yapana kadar orada açık kalırsın; her seferinde yeniden giriş yapman gerekmez. Aynı hesapla telefonda ve bilgisayarda aynı verileri görürsün.</p><p>Şifreni unuttuysan giriş ekranında <b>Şifremi unuttum</b>\'a bas; e-postana sıfırlama linki gelir. Google ile kayıt olduysan Ayarlar → Profil\'den bir şifre de belirleyebilirsin.</p><p>Daha önce TradeLog\'u hesapsız kullandıysan, o cihazdaki veriler ilk girişte hesabına taşınır. Hem cihazda hem hesabında veri varsa birleştirmek isteyip istemediğin sorulur. Çıkış yapmak ve hesabı silmek için <b>Ayarlar → Profil</b>.</p>'],
       ['Telegram\'dan web\'e geçmek', '<p>Telegram sürümü kademeli olarak kapanacak. Verilerini taşımak için Telegram\'da <b>Ayarlar → Veri → Yedek indir</b>\'e bas ve çıkan metni kopyala. Sonra web\'de giriş yap ve <b>Ayarlar → Veri → Metin yapıştırarak yükle</b> ile içeri al.</p>'],
@@ -3661,6 +3912,7 @@ tr: {
       ['Ne için kullanıyoruz', '<p>Hizmeti sunmak, girişini doğrulamak (şifre sıfırlama ve doğrulama e-postaları dahil), verilerini cihazların arasında senkronize etmek ve hizmeti güvende tutmak için. Verilerinden hesaplanan istatistikler yalnızca sana gösterilir.</p>'],
       ['Verilerin nerede saklanır', '<p>Verilerin, altyapı sağlayıcımız Supabase üzerinden Almanya\'daki (Frankfurt) sunucularda saklanır ve şifreli bağlantıyla (HTTPS) iletilir. Bu, kişisel verilerin yurt dışına aktarılması anlamına gelir. Hızlı açılış ve internetsiz kullanım için cihazında da bir kopya tutulur; çıkış yaptığında bu kopya silinir.</p>'],
       ['Yüklediğin raporlar', '<p>MT4/MT5 raporları cihazında okunur; rapor dosyasının kendisi sunucuya gönderilmez, yalnızca içinden çıkan işlemler ve hesap bilgileri hesabına kaydedilir. Hesap şifren hiçbir zaman istenmez.</p>'],
+      ['Paylaşım linkleri', '<p>Bir işlemi ya da haftalık özetini paylaştığında, o anki halinin bir kopyası oluşturulur ve linki olan herkes görebilir. Notların, para tutarın ve ekran görüntülerin sadece sen seçersen eklenir. Linkin kaç kez açıldığı sayılır. Linki Ayarlar → Paylaşım linklerim\'den kapattığında kopya ve görselleri silinir.</p>'],
       ['Ne kadar süre saklıyoruz', '<p>Hesabın açık olduğu sürece. Hesabını sildiğinde hesabın ve bütün verilerin hemen silinir; sunucu yedeklerinden de en geç 7 gün içinde kalkar.</p>'],
       ['Üçüncü taraf hizmetler', '<p>Supabase (veritabanı, giriş ve e-posta altyapısı). Sayfa açılırken yazı tipleri Google Fonts\'tan, kütüphaneler cdnjs ve jsDelivr\'den yüklenir; bu hizmetler dosyaları gönderirken IP adresin gibi teknik bilgileri görebilir. Analitik, reklam ya da izleme çerezi kullanmıyoruz. Oturumun tarayıcının yerel depolamasında tutulur.</p>'],
       ['Hakların', '<p>KVKK\'nın 11. maddesi kapsamında verilerinin işlenip işlenmediğini öğrenme, bilgi isteme, düzeltilmesini ya da silinmesini isteme ve itiraz etme hakların var. <b>Ayarlar → Profil</b>\'den verilerini indirebilir ya da hesabını tamamen silebilirsin. Diğer talepler için İletişim sayfasındaki adrese yaz.</p>'],
@@ -3710,17 +3962,17 @@ en: {
   wk_h: 'Weekly recap', wk_p: 'Every week: your net result, best and worst trade, and 1-3 suggestions for next week. Copy it and send it to your mentor.', wk_btn: 'See it in the app', hero_how: 'How it works',
   price_h: 'A free plan that is actually free.', price_p: 'No trade limit, and every report and analysis is free. Pro will add automatic sync, more accounts and an AI coach.',
   plan_free: 'Free', plan_free_d: 'For everyone who wants to keep a journal. No card needed.', plan_forever: 'forever',
-  feat_free: ['Unlimited trades, logged by hand or from MT4/MT5 reports', 'All reports, score and insights', 'Weekly recap with suggestions for next week', 'Calendar, journal and playbooks', 'Prop firm rules and alerts', '2 active accounts (unlimited until Pro opens)', 'The same data on every device with your account', ['Share links for trades and weekly recaps', 's']],
+  feat_free: ['Unlimited trades, logged by hand or from MT4/MT5 reports', 'All reports, score and insights', 'Weekly recap with suggestions for next week', 'Calendar, journal and playbooks', 'Prop firm rules and alerts', 'Screenshots on your trades', '2 active accounts (unlimited until Pro opens)', 'The same data on every device with your account', 'Share links for trades and weekly recaps'],
   soon: 'Coming soon', plan_pro_d: 'For traders who don\'t want to log trades by hand and run several accounts.', pro_btn: 'Opening soon',
   pro_fine: 'When Pro opens, every new member starts with 14 days of Pro, no card needed. After that you move to the free plan and keep your data.',
   feat_plus: 'Everything in Free, plus:',
   feat_pro: ['Automatic MT4/MT5 sync, including past trades', '20 active accounts on one dashboard', 'AI coach: reads your data, comments on it and answers your questions', '10 screenshots per trade', 'Give your mentor read-only access'],
-  cmp_show: 'Compare all features', cmp_hide: 'Hide comparison', cmp_feature: 'Feature', cmp_pro: 'Pro (soon)', yes_a: 'Included', no_a: 'Not included', cmp_note: 'Features marked coming soon, and Pro, open when they are ready. Until Pro opens, the free plan has no account limit.',
+  cmp_show: 'Compare all features', cmp_hide: 'Hide comparison', cmp_feature: 'Feature', cmp_pro: 'Pro (soon)', yes_a: 'Included', no_a: 'Not included', cmp_note: 'Features marked coming soon, and Pro, open when they are ready. Until Pro opens, the free plan has no account or screenshot limit.',
   groups: [
-    ['Logging and import', [['Trades', 'Unlimited', 'Unlimited'], ['Manual logging and MT4/MT5 report upload', 'y', 'y'], ['Automatic MT4/MT5 sync', 'n', 'y'], ['Screenshots per trade', 's:1', '10']]],
+    ['Logging and import', [['Trades', 'Unlimited', 'Unlimited'], ['Manual logging and MT4/MT5 report upload', 'y', 'y'], ['Automatic MT4/MT5 sync', 'n', 'y'], ['Screenshots per trade', '1', '10']]],
     ['Analytics', [['All reports and TradeLog score', 'y', 'y'], ['Weekly recap and suggestions', 'y', 'y'], ['Calendar, journal and playbooks', 'y', 'y'], ['AI coach', 'n', 'y']]],
     ['Accounts', [['Active accounts', '2', '20'], ['Prop firm rules and alerts', 'y', 'y'], ['Count copied trades once', 'y', 'y']]],
-    ['Access and sharing', [['Web and phone', 'y', 'y'], ['Same data on every device', 'y', 'y'], ['Share links for trades and weekly recaps', 's', 'y'], ['Read-only access for a mentor', 'n', 'y']]]],
+    ['Access and sharing', [['Web and phone', 'y', 'y'], ['Same data on every device', 'y', 'y'], ['Share links for trades and weekly recaps', 'y', 'y'], ['Read-only access for a mentor', 'n', 'y']]]],
   faq_h: 'Questions you might have',
   faq: [
     ['What is the difference between Free and Pro?', 'The free plan has no trade limit and includes every report, the weekly recap and prop firm rules. Pro brings your trades in from MT4/MT5 on its own, supports up to 20 accounts, and adds the AI coach and mentor access.'],
@@ -3764,6 +4016,7 @@ en: {
       ['Reports on a phone', '<p>The MT4 and MT5 phone apps can\'t export reports. Export the report on your computer; you can send the file to your phone and pick it in TradeLog there.</p>'],
       ['What if I upload the same report again?', '<p>Nothing breaks. Trades already added are skipped and only new ones are added. Trades you entered manually are matched with the same trade in the report: your notes, setup and mindset are kept and the numbers are updated from the report.</p>'],
       ['Weekly recap', '<p><b>Reports → Weekly recap</b> shows the week\'s net result, each day, and your best and worst trade compared with last week. Below are 1-3 suggestions drawn from the setups, emotions and mistakes on your trades, plus a note of the week.</p><p>Use <b>Copy recap</b> to send it to your mentor as text. A short version of this week also appears on your dashboard.</p>'],
+      ['Share links', '<p>Press <b>Share</b> on a trade or in Reports → Weekly recap. Choose whether your notes, money amount and screenshots are shown, add your name if you like, and press <b>Create link</b>; the link is copied for you. See and turn off your links in <b>Settings → My share links</b>.</p>'],
       ['What is R?', '<p>R is a multiple of the amount you risked on a trade. A stop-out is −1R; winning twice your risk is +2R. This lets you compare trades across different lot and account sizes on one scale.</p><p>If the report has a stop loss, R is calculated automatically. If not, it is estimated from the account\'s risk percentage and shown with a ≈ sign.</p>'],
       ['Account and sign-in', '<p>Sign in with your Google account or with an email and password. Once you sign in on a device you stay signed in there until you sign out; you don\'t have to sign in every time. The same account shows the same data on your phone and computer.</p><p>Forgot your password? Press <b>Forgot password?</b> on the sign-in screen and we\'ll email you a reset link. If you signed up with Google, you can also set a password from Settings → Profile.</p><p>If you used TradeLog without an account before, the data on that device moves to your account the first time you sign in. If both the device and your account have data, you are asked whether to merge them. To sign out or delete your account, go to <b>Settings → Profile</b>.</p>'],
       ['Moving from Telegram to the web', '<p>The Telegram version will be phased out. To move your data, open <b>Settings → Data → Download backup</b> in Telegram and copy the text. Then sign in on the web and bring it in with <b>Settings → Data → Restore by pasting text</b>.</p>'],
@@ -3775,6 +4028,7 @@ en: {
       ['What we use it for', '<p>To provide the service, verify your sign-in (including password reset and confirmation emails), sync your data across devices and keep the service secure. Statistics calculated from your data are shown only to you.</p>'],
       ['Where your data is stored', '<p>Your data is stored on servers in Germany (Frankfurt) through our infrastructure provider Supabase and travels over an encrypted connection (HTTPS). For fast start-up and offline use, a copy is also kept on your device; it is removed when you sign out.</p>'],
       ['Reports you upload', '<p>MT4/MT5 reports are read on your device; the report file itself is not uploaded, only the trades and account details taken from it are saved to your account. We never ask for your account password.</p>'],
+      ['Share links', '<p>When you share a trade or a weekly recap, a copy of it as it is at that moment is created and anyone with the link can see it. Your notes, money amounts and screenshots are included only if you choose. We count how many times the link is opened. When you turn the link off in Settings → My share links, the copy and its images are deleted.</p>'],
       ['How long we keep it', '<p>For as long as your account exists. When you delete your account, the account and all its data are deleted right away and disappear from server backups within 7 days.</p>'],
       ['Third-party services', '<p>Supabase (database, sign-in and email). When the page loads, fonts come from Google Fonts and libraries from cdnjs and jsDelivr; these services may see technical details such as your IP address when they serve those files. We use no analytics, advertising or tracking cookies. Your session is kept in your browser\'s local storage.</p>'],
       ['Your rights', '<p>You can ask whether your data is processed, request information, ask for it to be corrected or deleted, and object. From <b>Settings → Profile</b> you can download your data or delete your account completely. For other requests, write to the address on the Contact page.</p>'],
@@ -4012,8 +4266,10 @@ fillIcons(SITE);
 applyLang();
 try { const io = new IntersectionObserver(es => es.forEach(e => { if (e.isIntersecting) { e.target.classList.add('inview'); io.unobserve(e.target); } }), { threshold: .3 }); io.observe($('#flow')); } catch (e) {}
 let entered = false; try { entered = localStorage.getItem(ENTER) === '1'; } catch (e) {}
+const pm = location.hash.match(/^#\/p\/([A-Za-z0-9]{10,24})$/);
 const hp = Object.keys(PAGE_HASH).find(k => location.hash === '#' + PAGE_HASH[k]);
-if (hp && !(typeof TG !== 'undefined' && TG)) { SITE.hidden = false; APP.hidden = true; showPage(hp); }
+if (pm && typeof pubShow === 'function') pubShow(pm[1]);
+else if (hp && !(typeof TG !== 'undefined' && TG)) { SITE.hidden = false; APP.hidden = true; showPage(hp); }
 else if ((typeof TG !== 'undefined' && TG) || entered || /^#(panel|\/?app)/.test(location.hash) || /access_token=|error_description=/.test(location.hash) || /[?&]code=/.test(location.search)) showApp(); else showSite();
 })();
 
