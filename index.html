@@ -629,6 +629,29 @@ body.ro .addbtn,body.ro .fab,body.ro #sideActs,body.ro .proside{display:none}
 .ap .syimp b{font-size:14px}
 .ap .syimp .hint{margin-top:2px}
 .ap .sylnk{font-size:13px;color:var(--br);text-decoration:underline;text-underline-offset:3px;padding:0}
+.ap .coach{display:flex;flex-direction:column;gap:12px;padding-top:14px}
+.ap .cobox{min-height:200px;max-height:min(44vh,460px);overflow-y:auto;display:flex;flex-direction:column;gap:10px;padding:2px}
+.ap .cointro{display:flex;gap:12px;align-items:flex-start;padding:14px;border:1px solid var(--ln);border-radius:14px;background:var(--sf2)}
+.ap .cointro p{font-size:14.5px;color:var(--ink2);line-height:1.55}
+.ap .cmsg{max-width:88%;padding:10px 14px;border-radius:14px;font-size:14.5px;line-height:1.55}
+.ap .cmsg.u{align-self:flex-end;background:var(--ink);color:var(--sf);border-bottom-right-radius:4px;white-space:pre-wrap}
+.ap .cmsg.a{align-self:flex-start;background:var(--sf2);border:1px solid var(--ln);border-bottom-left-radius:4px;color:var(--ink)}
+.ap .cmsg.a p+p,.ap .cmsg.a ul+p,.ap .cmsg.a p+ul{margin-top:8px}
+.ap .cmsg.a ul,.ap .cmsg.a ol{padding-left:20px}
+.ap .cmsg.a p+ol,.ap .cmsg.a ol+p{margin-top:8px}
+.ap .cmsg.a li{margin:3px 0}
+.ap .cmsg.e{align-self:center;background:var(--losss);color:var(--loss);font-size:13.5px}
+.ap .cmsg.typing{display:flex;gap:5px;padding:14px 16px}
+.ap .cmsg.typing i{width:7px;height:7px;border-radius:50%;background:var(--ink3);animation:cotype 1s infinite}
+.ap .cmsg.typing i:nth-child(2){animation-delay:.15s}
+.ap .cmsg.typing i:nth-child(3){animation-delay:.3s}
+@keyframes cotype{50%{opacity:.25;transform:translateY(-2px)}}
+.ap .cochips{display:flex;gap:6px;overflow-x:auto;padding-bottom:2px;scrollbar-width:none}
+.ap .cochips .chip{white-space:nowrap;flex:none}
+.ap .coin{display:flex;gap:8px;align-items:flex-end}
+.ap .coin textarea{flex:1;min-height:46px;max-height:140px;resize:vertical}
+.ap .coin .btn{min-height:46px}
+.ap .coft{font-size:12px}
 .site{color-scheme:dark;--win:#4ADE80;--bg:#000100;--bg2:#08090B;--card:#111317;--card2:#1B1E24;--line:rgba(148,197,204,.13);--line2:rgba(148,197,204,.28);--tx:#F8F8F8;--mu:#A1A6B4;--lime:#94C5CC;--sage:#B4D2E7;--olive:#5E8D94;--loss:#F87171;--disp:'Bricolage Grotesque',system-ui,sans-serif;--body:'Inter',system-ui,sans-serif;--mono:'JetBrains Mono',ui-monospace,monospace}
 .site *{box-sizing:border-box}
 html{scroll-behavior:smooth;-webkit-text-size-adjust:100%}
@@ -1398,6 +1421,10 @@ sy_err:'Bir şeyler ters gitti. İnternetini kontrol edip tekrar dene.',sy_login
 sy_rm_c:'Bu bağlantı kaldırılsın mı? İşlemler artık otomatik gelmez. Gelmiş işlemlerin silinmez.',sy_rm_ok:'Bağlantı kaldırıldı',sy_got:'MetaTrader\'dan {n} yeni işlem geldi',sy_got_u:'MetaTrader\'dan {n} işlem eşleşti',sy_got_c:'MetaTrader\'dan {n} para hareketi geldi',sy_ok_none:'Senkron tamam, yeni işlem yok',
 sy_auto_bal:'MetaTrader bakiyesinden hesaplanıyor',sy_manage:'Otomatik senkron',sy_manage_d:'MT4/MT5 hesabını yatırımcı şifresiyle bağla, işlemlerin kendiliğinden gelsin.',sy_open:'Hesabı bağla',
 sy_now:'az önce',sy_min:'{n} dk önce',sy_hour:'{n} sa önce',sy_day:'{n} gün önce',sy_imp:'Her seferinde rapor yüklemek istemiyor musun?',
+co_title:'AI Koç',co_side:'Verilerine bakıp yorum yapar',co_intro:'Merhaba! İşlemlerine, setup\'larına, hatalarına ve günlüğüne bakıp sana yorum yapabilirim. Aşağıdan hazır bir soru seç ya da kendin sor. Al-sat sinyali vermem; sürecini geliştirmene yardım ederim.',
+co_q_week:'Bu haftamı değerlendir',co_q_mistake:'En pahalı hatam ne?',co_q_setup:'Hangi setup\'ım gerçekten işe yarıyor?',co_q_risk:'Risk yönetimim nasıl?',co_q_emo:'Duygularım sonuçlarımı nasıl etkiliyor?',co_q_next:'Gelecek hafta neye odaklanmalıyım?',
+co_ph:'Koçuna bir soru sor…',co_send:'Gönder',co_clear:'Sohbeti temizle',co_left:'Bugün {n} soru hakkın kaldı.',co_note:'Cevaplar sadece senin verilerine dayanır; yatırım tavsiyesi değildir. Sohbet sadece bu cihazda saklanır.',
+co_login:'AI koç için önce giriş yap',co_err:'Cevap alınamadı. İnternetini kontrol edip tekrar dene.',co_e_limit:'Bugünkü {n} soru hakkını kullandın. Yarın tekrar sorabilirsin.',co_e_config:'AI koç henüz ayarlanmadı.',co_e_busy:'AI koç şu an çok yoğun. Birkaç dakika sonra tekrar dene.',co_e_input:'Soru çok uzun, biraz kısaltıp tekrar dene.',
 mis_off_plan:'Plan dışı işlem',mis_revenge:'Revenge trade',mis_fomo:'FOMO',mis_oversize:'Risk büyüttüm',mis_overtrading:'Aşırı işlem'},
 en:{
 mt_e_gone:'Your access to this account was removed.',mt_invite:'Invite',mt_ph:'mentor@example.com',mt_h:'Your mentor can see your account after opening the link you send and signing in with this email. They can\'t change anything.',mt_pending:'Pending',mt_active:'Active',mt_copy:'Copy invite',mt_remove:'Remove',mt_remove_c:'{e} will no longer see your account. Are you sure?',mt_inv_t:'Invite ready',mt_inv_p:'Send this message to your mentor ({e}) by WhatsApp or email. Once they open the link and sign in with this email, they can see your account.',mt_msg:'Hi! I added you as my mentor on TradeLog so you can see my trades. Open this link and sign in with {e} (sign up free if you don\'t have an account): {l}',mt_e_dup:'You already invited this person.',mt_e_lim:'You can add up to 5 mentors.',mt_e_self:'You can\'t add yourself as a mentor.',mt_students:'Accounts you mentor',mt_view:'View',mt_leave:'Leave',mt_leave_c:'Leave {e}\'s account? You\'ll need a new invite to see it again.',mt_need_login:'To accept the mentor invite, sign in or sign up with the email that was invited.',mt_ok:'You are now {e}\'s mentor.',mt_e_email:'This invite was sent to {e}. Sign in with that address.',mt_e_nf:'This invite link is invalid or was removed.',mt_viewing:'Viewing {e}\'s account · read-only',mt_back:'Back to my account',mt_ro:'This account is read-only; you can\'t make changes.',mt_loading:'Loading…',mt_none:'You haven\'t added a mentor yet.',
@@ -1555,6 +1582,10 @@ sy_err:'Something went wrong. Check your internet and try again.',sy_login:'Sign
 sy_rm_c:'Remove this connection? Trades won\'t arrive automatically any more. Trades that already arrived are kept.',sy_rm_ok:'Connection removed',sy_got:'{n} new trades arrived from MetaTrader',sy_got_u:'{n} trades matched from MetaTrader',sy_got_c:'{n} cash movements arrived from MetaTrader',sy_ok_none:'Sync done, no new trades',
 sy_auto_bal:'Calculated from your MetaTrader balance',sy_manage:'Auto sync',sy_manage_d:'Connect your MT4/MT5 account with its investor password and let trades arrive on their own.',sy_open:'Connect account',
 sy_now:'just now',sy_min:'{n} min ago',sy_hour:'{n} h ago',sy_day:'{n} d ago',sy_imp:'Tired of uploading reports every time?',
+co_title:'AI Coach',co_side:'Reads your data and comments',co_intro:'Hi! I can look at your trades, setups, mistakes and journal and comment on them. Pick a question below or ask your own. I don\'t give buy/sell signals; I help you improve your process.',
+co_q_week:'Review my week',co_q_mistake:'What\'s my most expensive mistake?',co_q_setup:'Which of my setups really works?',co_q_risk:'How is my risk management?',co_q_emo:'How do my emotions affect my results?',co_q_next:'What should I focus on next week?',
+co_ph:'Ask your coach…',co_send:'Send',co_clear:'Clear chat',co_left:'{n} questions left today.',co_note:'Answers are based only on your data; this is not investment advice. The chat is stored only on this device.',
+co_login:'Sign in first to use the AI coach',co_err:'Couldn\'t get an answer. Check your internet and try again.',co_e_limit:'You\'ve used today\'s {n} questions. You can ask again tomorrow.',co_e_config:'The AI coach isn\'t set up yet.',co_e_busy:'The AI coach is very busy right now. Try again in a few minutes.',co_e_input:'The question is too long; shorten it and try again.',
 mis_off_plan:'Off-plan trade',mis_revenge:'Revenge trade',mis_fomo:'FOMO',mis_oversize:'Oversized risk',mis_overtrading:'Overtrading'}};
 
 /* ================= core: data, storage, stats ================= */
@@ -2383,6 +2414,7 @@ function moreMenu(){
   openDlg(t('t_more'),`<div class="links">${['cal','pb','jr','set'].map(v=>`<button onclick="go('${v}')">${t('v_'+v)}</button>`).join('')}
    <button onclick="accDlg()">${t('acc_add')}</button>
    ${typeof proSide==='function'&&sbOn()&&!isPro()?`<button onclick="proDlg('gen')">${t('pro_title')} <span class="soon">${t('soon_l')}</span></button>`:''}
+   ${typeof coOpen==='function'&&sbOn()&&sbUser&&isPro()&&!RO?`<button onclick="closeDlg(true);coOpen()">${t('co_title')} <span class="soon">AI</span></button>`:''}
    ${TG?'':`<button onclick="closeDlg(true);window.showSite&&showSite()">${t('nav_home')}</button>`}
    ${typeof sbOn==='function'&&sbOn()?`<button class="dan" onclick="closeDlg(true);sbLogout()">${t('sb_out')}</button>`:''}</div>`,'');
 }
@@ -2470,7 +2502,7 @@ function vDash(){
   const pst=scopeAccs().map(propState).filter(Boolean);
   const pcard=pst.length?`<div class="card o2"><div class="ch"><h2>${t('ar_card')}</h2><small>${t('ar_card_s')}</small></div><div class="cb">${pst.map(propRows).join('')}</div></div>`:'';
   const scard=`<div class="card o3"><div class="ch"><h2>${t('c_score')}</h2><small><a href="#" onclick="rt='ov';go('rep');return false">${t('details')}</a></small></div><div class="cb">${scoreBlock(sc)}</div></div>`;
-  const icard=`<div class="card o6"><div class="ch"><h2>${t('c_ins')}</h2>${typeof proDlg==='function'?`<small><button class="prolink" onclick="proDlg('ai')">${t('ai_ask')} <span class="soon">Pro</span></button></small>`:''}</div><div class="cb">${ins.length?ins.map(([k,x])=>`<div class="ins ${k}"><i></i><div>${esc(x)}</div></div>`).join(''):`<div class="mut" style="font-size:14px">${t('ins_need')}</div>`}</div></div>`;
+  const icard=`<div class="card o6"><div class="ch"><h2>${t('c_ins')}</h2>${typeof proDlg==='function'?`<small><button class="prolink" onclick="coOpen()">${t('ai_ask')} <span class="soon">Pro</span></button></small>`:''}</div><div class="cb">${ins.length?ins.map(([k,x])=>`<div class="ins ${k}"><i></i><div>${esc(x)}</div></div>`).join(''):`<div class="mut" style="font-size:14px">${t('ins_need')}</div>`}</div></div>`;
   const dcard=`<div class="card o5"><div class="ch"><h2>${t('c_daily')}</h2><small>${t('c_daily_s')}</small></div><div class="cb">${dayChart(l)}</div></div>`;
   const recent=`<div class="card o7"><div class="ch"><h2>${t('c_recent')}</h2><small><a href="#" onclick="go('trades');return false">${t('see_all')}</a></small></div><div class="tlist" style="margin-top:8px">${l.slice(0,6).map(tradeCard).join('')}</div></div>`;
   return `<div class="stack">${al}${rq}${gsCard()}<div class="dgrid"><div class="dcl">${net}${eq}${dcard}</div><div class="dcr">${pcard}${scard}${weekCard()}${icard}</div>${recent}</div></div>`;
@@ -2844,7 +2876,7 @@ function vWeek(){
     [t('wk_best_t'),tr(w.bestT)],[t('wk_worst_t'),tr(w.worstT)],[t('wk_best_d'),dy(w.bestD)],[t('wk_worst_d'),dy(w.worstD)],
     [t('wk_best_s'),w.setup?`${esc(w.setup.k)} <span class="pos">${fr(w.setup.s.tot)}</span>`:'—'],[t('wk_mis'),w.mis!==null?fr(w.mis):'—',w.mis<0?'neg':''],
     [t('wk_jr'),`${w.jd} / ${w.act.length}`]])}</div></div>`;
-  const fc=`<div class="card"><div class="ch"><h2>${t('wk_focus')}</h2><small>${typeof proDlg==='function'?`<button class="prolink" onclick="proDlg('ai')">${t('ai_ask')} <span class="soon">Pro</span></button>`:t('wk_focus_s')}</small></div><div class="cb">${w.focus.length?w.focus.map(([k,x])=>`<div class="ins ${k}"><i></i><div>${esc(x)}</div></div>`).join(''):`<div class="mut" style="font-size:14px">${t('wk_focus_none')}</div>`}</div></div>`;
+  const fc=`<div class="card"><div class="ch"><h2>${t('wk_focus')}</h2><small>${typeof proDlg==='function'?`<button class="prolink" onclick="coOpen(t('co_q_week'))">${t('ai_ask')} <span class="soon">Pro</span></button>`:t('wk_focus_s')}</small></div><div class="cb">${w.focus.length?w.focus.map(([k,x])=>`<div class="ins ${k}"><i></i><div>${esc(x)}</div></div>`).join(''):`<div class="mut" style="font-size:14px">${t('wk_focus_none')}</div>`}</div></div>`;
   const n=JR[wkNoteK(wk)]||{};
   const note=`<div class="card"><div class="ch"><h2>${t('wk_note')}</h2><small>${t('wk_note_s')}</small></div><div class="cb"><textarea class="in" id="wk_note" style="min-height:96px" placeholder="${t('wk_note_ph')}">${esc(n.r||'')}</textarea>
    <div style="margin-top:12px;display:flex;justify-content:flex-end"><button class="btn pri" onclick="wkNoteSave()">${t('wk_note_save')}</button></div></div></div>`;
@@ -3829,7 +3861,7 @@ async function proWait(){
     sbProf.pro_waitlist=now;closeDlg(true);hap('success');toast(t('pro_wait_ok'));if(cv==='set')render()}
   catch(e){say(t('sh_err').replace(/Link|link/,'İstek'))}
 }
-function proSide(){if(!sbOn()||isPro())return '';return `<button class="proside" onclick="proDlg('gen')"><span class="probadge sm">PRO</span><span><b>${t('pro_side_t')}</b><small>${t('pro_side_s')}</small></span></button>`}
+function proSide(){if(sbOn()&&sbUser&&isPro()&&!RO)return `<button class="proside" onclick="coOpen()"><span class="probadge sm">AI</span><span><b>${t('co_title')}</b><small>${t('co_side')}</small></span></button>`;if(!sbOn()||isPro())return '';return `<button class="proside" onclick="proDlg('gen')"><span class="probadge sm">PRO</span><span><b>${t('pro_side_t')}</b><small>${t('pro_side_s')}</small></span></button>`}
 /* after the 3rd report upload, point at automatic sync once */
 function proNudgeImport(){
   if(isPro())return;let n=0;try{n=+(localStorage.getItem('tradelog_imp_n')||0)+1;localStorage.setItem('tradelog_imp_n',String(n))}catch(e){}
@@ -4118,6 +4150,96 @@ function syApply(rows){
   S=normS(S);saveS();saveTrades();
   return out;
 }
+/* ---------- AI coach (Pro) ----------
+   The app sends a compact summary of the member's own journal with each question to the "coach"
+   server function, which asks Claude. The conversation stays on this device only. */
+var CO={msgs:null,busy:false,left:null,limit:null,uid:null};
+function coKey(){return 'tradelog_coach_'+(sbUser?sbUser.id:'x')}
+function coLoad(){if(CO.msgs&&CO.uid===(sbUser&&sbUser.id))return;CO.uid=sbUser&&sbUser.id;try{CO.msgs=JSON.parse(localStorage.getItem(coKey())||'[]')}catch(e){CO.msgs=[]}if(!Array.isArray(CO.msgs))CO.msgs=[]}
+function coSave(){try{localStorage.setItem(coKey(),JSON.stringify(CO.msgs.filter(m=>m.r!=='e').slice(-30)))}catch(e){}}
+function coOpen(q){
+  if(RO){toast(t('mt_ro'));return}
+  if(!sbOn()||!sbUser){toast(t('co_login'));return}
+  if(!isPro()){proDlg('ai');return}
+  coLoad();
+  openDlg(t('co_title'),`<div class="coach"><div class="cobox" id="coBox">${coList()}</div>
+    <div class="cochips" id="coChips">${['week','mistake','setup','risk','emo','next'].map(k=>`<button type="button" class="chip" onclick="coAsk(this.textContent,${k==='week'||k==='next'})">${esc(t('co_q_'+k))}</button>`).join('')}</div>
+    <div class="coin"><textarea class="in" id="coQ" rows="2" maxlength="1500" placeholder="${t('co_ph')}" onkeydown="if(event.key==='Enter'&&!event.shiftKey){event.preventDefault();coAsk()}"></textarea><button class="btn pri" id="coGo" onclick="coAsk()">${t('co_send')}</button></div>
+    <p class="hint coft"><span id="coLeft">${CO.left!=null?esc(t('co_left',{n:CO.left})):''}</span> ${t('co_note')}</p></div>`,
+   `${CO.msgs.length?`<button class="btn" onclick="coClear()">${t('co_clear')}</button>`:''}<button class="btn" onclick="closeDlg()">${t('close')}</button>`,true);
+  coScroll();
+  if(q)coAsk(q);
+}
+function coMd(s){
+  const lines=esc(s).replace(/\*\*(.+?)\*\*/g,'<b>$1</b>').split('\n');let h='',ul='';
+  lines.forEach(l=>{const m=l.match(/^\s*([-•*]|\d+[.)])\s+(.*)$/);
+    if(m){const k=/\d/.test(m[1])?'ol':'ul';if(ul!==k){if(ul)h+=`</${ul}>`;h+=`<${k}>`;ul=k}h+=`<li>${m[2]}</li>`;return}
+    if(ul){h+=`</${ul}>`;ul=''}
+    const hd=l.match(/^#{1,4}\s+(.*)$/);if(hd){h+=`<p><b>${hd[1]}</b></p>`;return}
+    if(l.trim())h+=`<p>${l}</p>`});
+  if(ul)h+=`</${ul}>`;return h;
+}
+function coList(){
+  if(!CO.msgs.length)return `<div class="cointro"><span class="probadge">AI</span><p>${t('co_intro')}</p></div>`;
+  return CO.msgs.map(m=>m.r==='u'?`<div class="cmsg u">${esc(m.t)}</div>`:m.r==='e'?`<div class="cmsg e">${esc(m.t)}</div>`:`<div class="cmsg a">${coMd(m.t)}</div>`).join('')+(CO.busy?`<div class="cmsg a typing"><i></i><i></i><i></i></div>`:'');
+}
+function coScroll(){const b=$('coBox');if(b){b.innerHTML=coList();b.scrollTop=b.scrollHeight}}
+function coClear(){CO.msgs=[];coSave();coOpen()}
+const CO_ERR={limit:'co_e_limit',config:'co_e_config',busy:'co_e_busy',input:'co_e_input',login:'co_login'};
+async function coAsk(q,deep){
+  if(CO.busy)return;
+  const inp=$('coQ');q=String(q||(inp?inp.value:'')).trim();if(!q)return;
+  if(inp)inp.value='';
+  const hist=CO.msgs.filter(m=>m.r!=='e').slice(-8).map(m=>({role:m.r==='u'?'user':'assistant',content:m.t}));
+  CO.msgs=CO.msgs.filter(m=>m.r!=='e');CO.msgs.push({r:'u',t:q});CO.busy=true;coScroll();
+  if($('coGo'))$('coGo').disabled=true;
+  let r;
+  try{
+    if(!sb)await sbClient();
+    const {data,error}=await sb.functions.invoke('coach',{body:{lang:L,question:q,deep:!!deep,history:hist,data:coachData()}});
+    if(error){let d=null;try{d=error.context&&typeof error.context.json==='function'?await error.context.json():null}catch(e){}r=d&&d.error?d:{ok:false,error:'net'}}else r=data||{};
+  }catch(e){r={ok:false,error:'net'}}
+  CO.busy=false;if($('coGo'))$('coGo').disabled=false;
+  if(r.ok){CO.msgs.push({r:'a',t:r.text});CO.left=r.left;CO.limit=r.limit}
+  else if(r.error==='plan'){closeDlg(true);proDlg('ai');return}
+  else{CO.msgs.pop();CO.msgs.push({r:'u',t:q});CO.msgs.push({r:'e',t:t(CO_ERR[r.error]||'co_err',{n:r.limit||''})})}
+  coSave();coScroll();
+  const lf=$('coLeft');if(lf&&CO.left!=null)lf.textContent=t('co_left',{n:CO.left});
+  if(inp&&!('ontouchstart' in window))inp.focus();
+}
+/* what the coach sees: a compact, numbers-first summary of the trades in the current account view */
+const coName=a=>String(accName(a)||'').replace(/\d{4,}/g,'•••');   // account numbers stay here
+function coachData(){
+  const all=chrono(byAcc(trades)),td=day(),rd=v=>v==null||!isFinite(v)?null:Math.round(v*100)/100;
+  const ago=n=>{const d=new Date(td+'T12:00:00Z');d.setUTCDate(d.getUTCDate()-n);return d.toISOString().slice(0,10)};
+  const st=l=>{const s=stats(l);return{trades:s.n,wins:s.w,losses:s.ls,breakeven:s.be,winRatePct:rd(s.wr),totalR:rd(s.tot),expectancyR:rd(s.exp),profitFactor:s.pf===Infinity?'no losses':rd(s.pf),
+    avgWinR:rd(s.aw),avgLossR:rd(s.al),maxDrawdownR:rd(s.dd),longestLosingStreak:s.ms,planFollowedPct:rd(s.plan),pnl:rd(s.pnl),avgSelfRating:rd(s.rating),tradingDays:s.days,greenDaysPct:rd(s.dayWin)}};
+  const grp=(l,fn,lab,map)=>groupBy(l,fn).filter(g=>g.s.n>=2).sort((a,b)=>b.s.n-a.s.n).slice(0,12)
+    .map(g=>({[lab]:map?map(g.k):g.k,trades:g.s.n,winRatePct:rd(g.s.wr),totalR:rd(g.s.tot),expectancyR:rd(g.s.exp)}));
+  const last=all.slice(-60).map(x=>{const o={date:x.date,time:x.time||'',symbol:x.symbol,side:x.dir||'',setup:x.setup||'',outcome:x.outcome,R:rd(x.rrActual)};
+    if(x.rEst)o.rEst=true;if(has(x.pnl))o.pnl=rd(x.pnl);if(has(x.rr))o.plannedRR=rd(x.rr);if(x.plan)o.followedPlan=x.plan;if(x.rating)o.selfRating=x.rating;
+    if(x.mistakes.length)o.mistakes=x.mistakes.map(misL);if(x.emotions.length)o.emotions=x.emotions.map(emoL);if(x.kz)o.session=x.kz;if(has(x.lots))o.lots=x.lots;
+    if(x.notes)o.notes=String(x.notes).slice(0,200);return o});
+  const jr=Object.keys(JR).filter(k=>/^\d{4}-\d{2}-\d{2}$/.test(k)&&k>=ago(21)).sort().slice(-14).map(k=>{const e=JR[k]||{};return{date:k,mood:e.m||null,plan:String(e.p||'').slice(0,300),review:String(e.r||'').slice(0,300),lesson:String(e.l||'').slice(0,300)}});
+  const wk=wkLast(),w=wkData(wk);
+  const d={
+    today:td,view:V.acc==='all'?'all accounts':coName(accOf(V.acc)||{}),
+    accounts:scopeAccs().map(a=>{const b=accBal(a);return{name:coName(a),type:a.type||'',currency:a.cur,riskPerTradePct:a.risk,startBalance:rd(a.bal),currentBalance:rd(b.cur),
+      propRules:a.rules?{dailyLossLimitPct:a.rules.dll||null,maxLossLimitPct:a.rules.mll||null,profitTargetPct:a.rules.tgt||null}:null}}),
+    personalRules:{maxDailyLossR:S.day||null,stopAfterLosingStreak:S.str||null,maxTradesPerDay:S.maxT||null},
+    allTime:st(all),last30Days:st(all.filter(x=>x.date>=ago(30))),last7Days:st(all.filter(x=>x.date>=ago(7))),
+    latestWeek:{from:w.m,to:w.e,...st(w.l),previousWeekTotalR:rd(w.p.tot)},
+    bySetup:grp(all,x=>x.setup,'setup'),bySymbol:grp(all,x=>x.symbol,'symbol'),bySide:grp(all,x=>x.dir,'side'),
+    bySession:grp(all,x=>x.kz,'session'),byWeekday:grp(all,x=>wdi(x.date),'weekday',k=>wdName(+k)),
+    byHour:grp(all.filter(x=>x.time),x=>x.time.slice(0,2)+':00','hour'),
+    mistakes:grp(all,x=>x.mistakes,'mistake',misL),emotions:grp(all,x=>x.emotions,'emotion',emoL),
+    followedPlan:grp(all,x=>x.plan,'followedPlan'),
+    appInsights:insights(all).map(x=>x[1]),
+    recentTrades:last,journal:jr};
+  let s=JSON.stringify(d);
+  while(s.length>70000&&d.recentTrades.length>10){d.recentTrades=d.recentTrades.slice(Math.floor(d.recentTrades.length/3));s=JSON.stringify(d)}
+  return d;
+}
 function sbNavLabel(open){const on=sbOn()||sbHasTok()||sbMode==='tg';document.querySelectorAll('#site [data-st=nav_open]').forEach(el=>{el.textContent=on?open:t('au_in_link')})}
 sbBoot();
 
@@ -4317,6 +4439,7 @@ tr: {
       ['Haftalık özet', '<p><b>Raporlar → Haftalık özet</b>\'te haftanın net sonucunu, günlerini, en iyi ve en kötü işlemini geçen haftayla karşılaştırmalı görürsün. Altta işlemlerine eklediğin setup, duygu ve hatalardan çıkan 1-3 öneri ve haftanın notu var.</p><p><b>Özeti kopyala</b> ile özeti metin olarak alıp mentoruna gönderebilirsin. Panelde de bu haftanın kısa özeti görünür.</p>'],
       ['Paylaşım linki', '<p>İşlem detayında ya da Raporlar → Haftalık özet\'te <b>Paylaş</b>\'a bas. Notların, para tutarının ve ekran görüntülerinin görünüp görünmeyeceğini seç, istersen adını yaz ve <b>Link oluştur</b>\'a bas; link panoya kopyalanır. Linkleri <b>Ayarlar → Paylaşım linklerim</b>\'den görebilir ve kapatabilirsin.</p>'],
       ['MT4/MT5 hesabını bağlama (Pro)', '<p>Hesap eklerken <b>Otomatik bağla</b>\'ya ya da hesabı düzenle ekranında <b>Hesabı bağla</b>\'ya bas. MT5 ya da MT4\'ü seç; sunucu adını, hesap numaranı ve <b>yatırımcı (salt okunur) şifreni</b> gir. Bağlantı bir dakika içinde kurulur ve son 90 günün kapanan işlemleri, para yatırma ve çekmeleri gelir; sonrası kendiliğinden gelmeye devam eder. MetaTrader\'ın açık olması gerekmez. Yatırımcı şifresini bilmiyorsan aracı kurumunun e-postasına bak ya da MetaTrader\'da Araçlar → Seçenekler → Sunucu → Değiştir\'den yeni bir tane belirle. Bağlantıyı hesabı düzenle ekranından istediğin an kaldırabilirsin.</p>'],
+      ['AI koç (Pro)', '<p>Sol menüdeki <b>AI Koç</b>\'a (telefonda Daha fazla menüsünde) ya da Panel\'deki <b>AI koça sor</b>\'a bas. Hazır sorulardan birini seç ya da kendin yaz: “En pahalı hatam ne?”, “Hangi setup\'ım işe yarıyor?” gibi. Koç, seçili hesap görünümündeki işlemlerine, setup\'larına, hatalarına, duygularına ve günlüğüne bakarak sayılarla cevap verir. Al-sat sinyali vermez, yatırım tavsiyesi değildir. Günlük soru hakkı vardır; sohbet sadece kendi cihazında saklanır.</p>'],
       ['Mentor erişimi', '<p><b>Ayarlar → Mentor erişimi</b>\'nde mentorunun e-postasını yaz ve <b>Davet et</b>\'e bas. Çıkan mesajı ona WhatsApp ya da e-postayla gönder. Mentorun linki açıp o e-postayla giriş yapınca hesabını salt okunur görür: işlemlerini, notlarını, raporlarını ve ekran görüntülerini. Hiçbir şeyi değiştiremez. Erişimi aynı yerden istediğin an kaldırabilirsin.</p>'],
       ['R nedir?', '<p>R, bir işlemde riske ettiğin tutarın katıdır. Stop olursan −1R, riskinin iki katını kazanırsan +2R yazılır. Böylece farklı lot ve hesap büyüklüklerindeki işlemler aynı ölçüyle karşılaştırılır.</p><p>Raporda stop loss varsa R otomatik hesaplanır. Stop yoksa hesabın risk yüzdesinden tahmin edilir ve yanında ≈ işareti görünür.</p>'],
       ['Hesap ve giriş', '<p>Google hesabınla ya da e-posta ve şifreyle giriş yapabilirsin. Bir cihazda giriş yaptığında çıkış yapana kadar orada açık kalırsın; her seferinde yeniden giriş yapman gerekmez. Aynı hesapla telefonda ve bilgisayarda aynı verileri görürsün.</p><p>Şifreni unuttuysan giriş ekranında <b>Şifremi unuttum</b>\'a bas; e-postana sıfırlama linki gelir. Google ile kayıt olduysan Ayarlar → Profil\'den bir şifre de belirleyebilirsin.</p><p>Daha önce TradeLog\'u hesapsız kullandıysan, o cihazdaki veriler ilk girişte hesabına taşınır. Hem cihazda hem hesabında veri varsa birleştirmek isteyip istemediğin sorulur. Çıkış yapmak ve hesabı silmek için <b>Ayarlar → Profil</b>.</p>'],
@@ -4331,6 +4454,7 @@ tr: {
       ['Yüklediğin raporlar', '<p>MT4/MT5 raporları cihazında okunur; rapor dosyasının kendisi sunucuya gönderilmez, yalnızca içinden çıkan işlemler ve hesap bilgileri hesabına kaydedilir. Hesap şifren hiçbir zaman istenmez.</p>'],
       ['Paylaşım linkleri', '<p>Bir işlemi ya da haftalık özetini paylaştığında, o anki halinin bir kopyası oluşturulur ve linki olan herkes görebilir. Notların, para tutarın ve ekran görüntülerin sadece sen seçersen eklenir. Linkin kaç kez açıldığı sayılır. Linki Ayarlar → Paylaşım linklerim\'den kapattığında kopya ve görselleri silinir.</p>'],
       ['MT4/MT5 hesap bağlantısı', '<p>Hesabını bağlarsan sunucu adın, hesap numaran ve yatırımcı (salt okunur) şifren, bağlantıyı kuran hizmet sağlayıcımız MetaApi\'ye (metaapi.cloud) iletilir; sunucuları yurt dışındadır. Yatırımcı şifreni biz saklamayız. MetaApi hesabının işlem geçmişini okur; biz oradan kapanan işlemlerini (sembol, yön, lot, giriş/çıkış fiyatı ve saati, SL/TP, kâr, komisyon, swap), para yatırma/çekme kayıtlarını, aracı kurum adını, hesap para birimini ve bakiyeni alırız. Yatırımcı şifresiyle işlem açılamaz, para çekilemez. Bağlantıyı kaldırdığında ya da üyeliğini sildiğinde MetaApi\'deki bağlantı da silinir.</p>'],
+      ['AI koç', '<p>AI koça soru sorduğunda sorunla birlikte seçili hesap görünümünün özeti (istatistikler, setup/sembol/gün kırılımları, son 60 işlemin ayrıntıları ve notları, son iki haftanın günlük yazıları) cevabı üretmesi için Anthropic\'in Claude hizmetine gönderilir; sunucuları yurt dışındadır. E-posta adresin ve hesap numaran gönderilmez. Sorular ve cevaplar bizim sunucumuzda saklanmaz, sohbet sadece senin cihazında durur; maliyet kontrolü için sadece günlük soru sayısını tutarız.</p>'],
       ['Mentor erişimi', '<p>Mentor olarak davet ettiğin ve davet linkini açıp aynı e-postayla giriş yapan kişi, hesabındaki verileri salt okunur görebilir; değiştiremez. Erişimi Ayarlar → Mentor erişimi\'nden kaldırdığında hemen kapanır.</p>'],
       ['Ne kadar süre saklıyoruz', '<p>Hesabın açık olduğu sürece. Hesabını sildiğinde hesabın ve bütün verilerin hemen silinir; sunucu yedeklerinden de en geç 7 gün içinde kalkar.</p>'],
       ['Üçüncü taraf hizmetler', '<p>Supabase (veritabanı, giriş ve e-posta altyapısı). Sayfa açılırken yazı tipleri Google Fonts\'tan, kütüphaneler cdnjs ve jsDelivr\'den yüklenir; bu hizmetler dosyaları gönderirken IP adresin gibi teknik bilgileri görebilir. Analitik, reklam ya da izleme çerezi kullanmıyoruz. Oturumun tarayıcının yerel depolamasında tutulur.</p>'],
@@ -4437,6 +4561,7 @@ en: {
       ['Weekly recap', '<p><b>Reports → Weekly recap</b> shows the week\'s net result, each day, and your best and worst trade compared with last week. Below are 1-3 suggestions drawn from the setups, emotions and mistakes on your trades, plus a note of the week.</p><p>Use <b>Copy recap</b> to send it to your mentor as text. A short version of this week also appears on your dashboard.</p>'],
       ['Share links', '<p>Press <b>Share</b> on a trade or in Reports → Weekly recap. Choose whether your notes, money amount and screenshots are shown, add your name if you like, and press <b>Create link</b>; the link is copied for you. See and turn off your links in <b>Settings → My share links</b>.</p>'],
       ['Connecting your MT4/MT5 account (Pro)', '<p>When adding an account press <b>Connect automatically</b>, or press <b>Connect account</b> in the account editor. Pick MT5 or MT4 and enter the server name, your account number and your <b>investor (read-only) password</b>. The connection is ready within a minute and closed trades, deposits and withdrawals from the last 90 days arrive; new ones keep coming on their own. MetaTrader doesn\'t need to be open. If you don\'t know your investor password, check your broker\'s email or set a new one in MetaTrader under Tools → Options → Server → Change. You can remove the connection any time from the account editor.</p>'],
+      ['AI coach (Pro)', '<p>Press <b>AI Coach</b> in the side menu (in the More menu on phones) or <b>Ask the AI coach</b> on the Dashboard. Pick a ready question or write your own, like “What\'s my most expensive mistake?” or “Which of my setups works?”. The coach answers with numbers from the trades, setups, mistakes, emotions and journal in your current account view. It doesn\'t give buy/sell signals and isn\'t investment advice. There is a daily question limit; the chat is stored only on your device.</p>'],
       ['Mentor access', '<p>In <b>Settings → Mentor access</b>, type your mentor\'s email and press <b>Invite</b>. Send them the message by WhatsApp or email. Once they open the link and sign in with that email, they can see your account read-only: trades, notes, reports and screenshots. They can\'t change anything. You can remove access from the same place any time.</p>'],
       ['What is R?', '<p>R is a multiple of the amount you risked on a trade. A stop-out is −1R; winning twice your risk is +2R. This lets you compare trades across different lot and account sizes on one scale.</p><p>If the report has a stop loss, R is calculated automatically. If not, it is estimated from the account\'s risk percentage and shown with a ≈ sign.</p>'],
       ['Account and sign-in', '<p>Sign in with your Google account or with an email and password. Once you sign in on a device you stay signed in there until you sign out; you don\'t have to sign in every time. The same account shows the same data on your phone and computer.</p><p>Forgot your password? Press <b>Forgot password?</b> on the sign-in screen and we\'ll email you a reset link. If you signed up with Google, you can also set a password from Settings → Profile.</p><p>If you used TradeLog without an account before, the data on that device moves to your account the first time you sign in. If both the device and your account have data, you are asked whether to merge them. To sign out or delete your account, go to <b>Settings → Profile</b>.</p>'],
@@ -4451,6 +4576,7 @@ en: {
       ['Reports you upload', '<p>MT4/MT5 reports are read on your device; the report file itself is not uploaded, only the trades and account details taken from it are saved to your account. We never ask for your account password.</p>'],
       ['Share links', '<p>When you share a trade or a weekly recap, a copy of it as it is at that moment is created and anyone with the link can see it. Your notes, money amounts and screenshots are included only if you choose. We count how many times the link is opened. When you turn the link off in Settings → My share links, the copy and its images are deleted.</p>'],
       ['MT4/MT5 account connection', '<p>If you connect your account, your server name, account number and investor (read-only) password are sent to MetaApi (metaapi.cloud), the service provider that makes the connection; its servers are outside Turkey. We don\'t store your investor password. MetaApi reads your account\'s trade history, and from it we take your closed trades (symbol, side, lots, entry/exit price and time, SL/TP, profit, commission, swap), deposit/withdrawal records, broker name, account currency and balance. The investor password can\'t open trades or withdraw money. When you remove the connection or delete your membership, the connection at MetaApi is deleted too.</p>'],
+      ['AI coach', '<p>When you ask the AI coach, your question and a summary of your current account view (statistics, setup/symbol/day breakdowns, details and notes of your last 60 trades, journal entries from the last two weeks) are sent to Anthropic\'s Claude service to produce the answer; its servers are outside Turkey. Your email address and account numbers are not sent. Questions and answers are not stored on our servers; the chat stays on your device, and we only keep a daily question count for cost control.</p>'],
       ['Mentor access', '<p>Someone you invite as a mentor, who opens the invite link and signs in with the same email, can see the data in your account read-only; they can\'t change it. Access ends as soon as you remove it in Settings → Mentor access.</p>'],
       ['How long we keep it', '<p>For as long as your account exists. When you delete your account, the account and all its data are deleted right away and disappear from server backups within 7 days.</p>'],
       ['Third-party services', '<p>Supabase (database, sign-in and email). When the page loads, fonts come from Google Fonts and libraries from cdnjs and jsDelivr; these services may see technical details such as your IP address when they serve those files. We use no analytics, advertising or tracking cookies. Your session is kept in your browser\'s local storage.</p>'],
