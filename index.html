@@ -5,8 +5,20 @@
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <title>TradeLog</title>
 <meta name="description" content="Ücretsiz trading günlüğü: işlemini 15 saniyede kaydet ya da MT4/MT5 raporunu yükle, neyin işe yaradığını R cinsinden gör.">
-<meta name="theme-color" content="#0A0A0A">
-<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='9' fill='%230A0A0A'/%3E%3Cpath d='M9.5 22v-4.5M16 22V12.5M22.5 22V9' stroke='%23fff' stroke-width='3.4' stroke-linecap='round'/%3E%3C/svg%3E">
+<meta name="theme-color" content="#000100">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='9' fill='%2394C5CC'/%3E%3Cpath d='M9.5 22v-4.5M16 22V12.5M22.5 22V9' stroke='%23000100' stroke-width='3.4' stroke-linecap='round'/%3E%3C/svg%3E">
+<link rel="apple-touch-icon" href="assets/apple-touch-icon.png">
+<link rel="manifest" href="manifest.webmanifest">
+<link rel="canonical" href="https://tanerphll.github.io/tradelog/">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="TradeLog">
+<meta property="og:title" content="TradeLog: Her işlemden bir ders çıkar">
+<meta property="og:description" content="Ücretsiz trading günlüğü: işlemini 15 saniyede kaydet ya da MT4/MT5 raporunu yükle, neyin işe yaradığını R cinsinden gör.">
+<meta property="og:url" content="https://tanerphll.github.io/tradelog/">
+<meta property="og:image" content="https://tanerphll.github.io/tradelog/assets/og.jpg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
 <script src="https://telegram.org/js/telegram-web-app.js?64"></script>
 <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500..800&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap">
@@ -259,6 +271,21 @@ body{background:var(--bg);color:var(--ink);font:15px/1.5 var(--f);font-variant-n
 .ap .optc b{font-weight:600;font-size:15px}
 .ap .optc .ot>span{font-size:13.5px;color:var(--ink2);line-height:1.45}
 .ap .soon{display:inline-block;font-size:11px;font-weight:600;padding:1px 8px;border-radius:99px;background:var(--brs);color:var(--br);margin-left:6px;vertical-align:1px;white-space:nowrap}
+.ap .gs{padding:18px 20px}
+.ap .gsh{display:flex;align-items:center;gap:16px;flex-wrap:wrap}
+.ap .gsh h2{font:600 16px var(--f)}
+.ap .gsm{flex:1 1 160px;margin:0;height:8px}
+.ap .gsdone{display:flex;flex-wrap:wrap;gap:6px 16px;margin-top:12px;font-size:13px;color:var(--ink3)}
+.ap .gsdone>span{display:inline-flex;align-items:center;gap:7px;text-decoration:line-through;text-decoration-color:var(--ink3)}
+.ap .gsdone .gsc{width:18px;height:18px;background:var(--br);border-color:var(--br);color:var(--brt)}
+.ap .gsdone .gsc svg{width:11px;height:11px}
+.ap .gsl{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:8px;margin-top:12px}
+.ap .gsi{display:flex;align-items:center;gap:12px;padding:12px 12px 12px 14px;border-radius:14px;border:1px solid var(--ln2);background:var(--sf2)}
+.ap .gsc{width:22px;height:22px;border-radius:50%;border:1.5px solid var(--ink3);display:grid;place-items:center;flex:none}
+.ap .gsc svg{width:13px;height:13px;stroke-width:3}
+.ap .gst{flex:1;min-width:0;display:flex;flex-direction:column;gap:2px;font-size:14px}
+.ap .gst span{font-size:12.5px;color:var(--ink2);line-height:1.4}
+.ap .gsi .btn{flex:none}
 .ap .accsw{position:relative}
 .ap .accbtn{display:inline-flex;align-items:center;gap:9px;min-height:44px;padding:0 12px 0 14px;border-radius:12px;border:1px solid var(--ln);background:var(--sf);font-weight:600;font-size:14px;max-width:280px}
 .ap .accbtn:hover{border-color:var(--ink3)}
@@ -289,6 +316,8 @@ body{background:var(--bg);color:var(--ink);font:15px/1.5 var(--f);font-variant-n
 .ap .prow{margin-top:8px}
 .ap .prow .sline{margin-top:0;margin-bottom:6px}
 .ap .prow .sline span:last-child{font-family:var(--fn);font-size:12px}
+.ap .prow .sline span:first-child{white-space:nowrap}
+.ap .pacc .meter{background:var(--ln)}
 .ap .accb{grid-column:1/-1;display:flex;align-items:center;justify-content:space-between;gap:10px;font-size:13px;color:var(--ink2)}
 .ap .accb b{color:var(--ink);font-weight:600}
 .ap .accno{display:flex;align-items:center;gap:8px}
@@ -346,6 +375,20 @@ body.tg .addbtn,body.tg #fSave,body.tg .fab,body.tg .sitelink{display:none}
 @keyframes fi{from{opacity:0}}
 @keyframes pop{from{opacity:0;transform:translateY(10px) scale(.985)}}
 @keyframes sheet{from{transform:translateY(40px);opacity:0}}
+@keyframes vin{from{opacity:0;transform:translateY(8px)}}
+@keyframes cardin{from{opacity:0;transform:translateY(12px)}}
+@keyframes drawer{from{transform:translateX(48px);opacity:0}}
+.ap .vin{animation:vin .28s cubic-bezier(.2,.8,.2,1) both}
+.ap .vin .card{animation:cardin .45s cubic-bezier(.2,.8,.2,1) both}
+.ap .vin .dcr .card,.ap .vin .o4{animation-delay:.05s}
+.ap .vin .o5,.ap .vin .o6{animation-delay:.1s}
+.ap .vin .o7{animation-delay:.14s}
+.ap .btn:active,.ap .nav:active,.ap button.chip:active,.ap .seg button:active,.ap .tabbar>button:active,.ap .optc button:not(:disabled):active,.ap .accbtn:active{transform:scale(.97)}
+.ap .ov.drw{justify-content:flex-end;align-items:stretch;padding:0;overflow:hidden}
+.ap .ov.drw .md{max-width:560px;height:100vh;margin:0;border-radius:22px 0 0 22px;overflow-y:auto;animation:drawer .3s cubic-bezier(.2,.8,.2,1) both;display:flex;flex-direction:column}
+.ap .ov.drw .mb{flex:1}
+.ap .ov.drw .md>.mh{border-radius:22px 0 0 0}
+.ap .ov.drw .mf{border-radius:0}
 @media (max-width:1180px){.ap .dgrid{grid-template-columns:minmax(0,1fr)}
 .ap .dcl,.ap .dcr{display:contents}
 .ap .o1{order:1}
@@ -366,10 +409,11 @@ body.tg .addbtn,body.tg #fSave,body.tg .fab,body.tg .sitelink{display:none}
 .ap .tabbar .fab svg{width:26px;height:26px}
 .ap .top{padding:12px 0 10px}
 .ap .top h1{font-size:26px;flex:1 1 auto}
-.ap .top .ctl{display:flex;gap:8px;width:100%}
+.ap .top .ctl{display:grid;grid-template-columns:minmax(0,1fr) auto;gap:8px;width:100%}
+.ap .top .ctl .accsw{grid-column:1;grid-row:1}
+.ap .top .ctl .ib{grid-column:2;grid-row:1}
+.ap .top .ctl .persel{grid-column:1/-1;grid-row:2}
 .ap .top .ctl .sel{flex:1;min-width:0}
-.ap .top .ctl .accsw{flex:1 1 0;min-width:0}
-.ap .top .ctl .persel{flex:1 1 0}
 .ap .accbtn{width:100%;max-width:none}
 .ap .accm{right:0}
 .ap .g2,.ap .g2e,.ap .dgrid{grid-template-columns:minmax(0,1fr)}
@@ -399,6 +443,10 @@ body.tg .addbtn,body.tg #fSave,body.tg .fab,body.tg .sitelink{display:none}
 .ap .cf .mf{border-radius:0 0 22px 22px;padding-bottom:14px}
 .ap .md,.ap .md.wide{border-radius:22px 22px 0 0;max-height:94vh;overflow-y:auto;margin:0;max-width:none;animation:sheet .28s cubic-bezier(.2,.8,.2,1) both}
 .ap .md>.mh{border-radius:22px 22px 0 0}
+.ap .ov.drw{justify-content:center;align-items:flex-end}
+.ap .ov.drw .md{height:auto;max-height:94vh;border-radius:22px 22px 0 0;animation:sheet .28s cubic-bezier(.2,.8,.2,1) both}
+.ap .ov.drw .md>.mh{border-radius:22px 22px 0 0}
+.ap .colbtn{display:none}
 .ap th.mh,.ap td.mh{display:none}
 .ap .mf{border-radius:0;padding-bottom:calc(14px + env(safe-area-inset-bottom,0px))}
 .ap #toast{bottom:calc(96px + env(safe-area-inset-bottom,0px))}}
@@ -684,130 +732,215 @@ html{scroll-behavior:smooth;-webkit-text-size-adjust:100%}
 @media (max-width:760px){.site .fg{grid-template-columns:repeat(2,minmax(0,1fr))}
 .site .fg .brand{grid-column:1/-1}}
 @media (prefers-reduced-motion:reduce){.site *,.site *:before,.site *:after{animation:none !important;transition:none !important}}
+.site .plan.pro.soon{background:var(--card);border-color:var(--line2);box-shadow:none}
+.site .plan.soon .badge{background:var(--card2);color:var(--lime);border:1px solid var(--line2)}
+.site .price .a.soon-a{font-size:34px;color:var(--mu)}
+.site .plan .btn:disabled{opacity:.6;cursor:not-allowed;transform:none;box-shadow:none}
+.site .pagev{padding-block:48px 24px}
+.site .pg{max-width:780px}
+.site .back{display:inline-flex;align-items:center;gap:8px;min-height:44px;color:var(--mu);font-size:15px;font-weight:500;border-radius:10px;padding-right:8px}
+.site .back:hover{color:var(--tx)}
+.site .doc{margin-top:18px}
+.site .doc h1{font-family:var(--disp);font-weight:700;font-size:clamp(36px,5vw,52px);line-height:1.05;letter-spacing:-.035em;margin:0 0 10px;text-wrap:balance}
+.site .doc .upd{color:var(--mu);font-size:14px;margin:0 0 30px;font-family:var(--mono)}
+.site .doc section{padding:22px 0;border-top:1px solid var(--line)}
+.site .doc h2{font-size:19px;font-weight:600;margin:0 0 10px;letter-spacing:-.01em}
+.site .doc p,.site .doc li{color:var(--mu);font-size:16px;line-height:1.7;max-width:66ch}
+.site .doc p{margin:0 0 10px}
+.site .doc ul{margin:0 0 10px;padding-left:20px;display:grid;gap:6px}
+.site .doc b{color:var(--tx);font-weight:600}
+.site .mailbox{display:flex;align-items:center;gap:12px;flex-wrap:wrap;padding:16px 18px;border-radius:16px;background:var(--card);border:1px solid var(--line2);margin-top:14px !important}
+.site .mailbox span{font-size:13px;color:var(--mu)}
+.site .mailbox a{color:var(--lime);font-weight:600;font-size:17px}
+.site .ttabs{display:flex;justify-content:center;gap:4px;margin:-12px auto 22px;background:var(--bg2);border:1px solid var(--line);border-radius:14px;padding:4px;width:max-content;max-width:100%}
+.site .ttabs button{border:0;background:none;min-height:42px;padding:0 18px;border-radius:10px;font-weight:600;font-size:14px;color:var(--mu);transition:background .2s,color .2s}
+.site .ttabs button:hover{color:var(--tx)}
+.site .ttabs button.on{background:var(--card2);color:var(--tx)}
+.site .tframe{margin:0;border-radius:20px;border:1px solid var(--line2);background:var(--card);overflow:hidden;box-shadow:0 60px 120px -60px rgba(148,197,204,.28)}
+.site .tbar{display:flex;align-items:center;gap:7px;padding:12px 16px;border-bottom:1px solid var(--line)}
+.site .tbar i{width:10px;height:10px;border-radius:50%;background:var(--card2)}
+.site .tbar span{margin-left:10px;font-family:var(--mono);font-size:12px;color:var(--mu)}
+.site .tframe img{display:block;width:100%;height:auto;max-width:100%;background:#000100}
+.site .tframe figcaption{padding:14px 18px;color:var(--mu);font-size:15px;border-top:1px solid var(--line)}
+.site .fadein{animation:fade .45s ease both}
+@media (max-width:640px){.site .ttabs{width:100%}
+.site .ttabs button{flex:1;padding:0 6px;font-size:13px}}
+.site .prop-g{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,.85fr);gap:56px;align-items:center}
+.site .prop-t .h2{margin-bottom:16px}
+.site .plist{list-style:none;margin:28px 0 32px;padding:0;display:grid;gap:18px}
+.site .plist li{display:flex;gap:14px}
+.site .plist .pi{width:40px;height:40px;border-radius:12px;background:rgba(148,197,204,.1);color:var(--lime);display:grid;place-items:center;flex:none}
+.site .plist b{display:block;font-weight:600;margin-bottom:2px}
+.site .plist li>span>span{color:var(--mu);font-size:15px}
+.site .pvis{display:flex;flex-direction:column;gap:14px}
+.site .pvis img{width:100%;height:auto;max-width:100%;border-radius:20px;border:1px solid var(--line2);box-shadow:0 50px 90px -50px rgba(0,0,0,.8)}
+.site .palert{display:flex;gap:12px;align-items:flex-start;padding:14px 16px;border-radius:16px;background:rgba(248,113,113,.1);border:1px solid rgba(248,113,113,.35);font-size:14px}
+.site .palert svg{color:var(--loss);flex:none;margin-top:2px}
+@media (max-width:900px){.site .prop-g{grid-template-columns:minmax(0,1fr);gap:36px}}
+.site .plats{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px;max-width:940px;margin:0 auto}
+@media (max-width:760px){.site .plats{grid-template-columns:repeat(2,minmax(0,1fr))}}
+.site .plat{padding:20px;border-radius:18px;background:var(--card);border:1px solid var(--line);display:flex;flex-direction:column;gap:6px}
+.site .plat.ok{border-color:var(--line2)}
+.site .plat .pn{font-weight:600;font-size:17px}
+.site .plat .pd{color:var(--mu);font-size:14px;flex:1}
+.site .plat .ps{align-self:flex-start;display:inline-flex;align-items:center;gap:6px;margin-top:8px;font-size:12px;font-weight:600;padding:3px 10px;border-radius:99px;background:var(--card2);color:var(--mu)}
+.site .plat.ok .ps{background:rgba(148,197,204,.14);color:var(--lime)}
+.site .doc ol{margin:0 0 10px;padding-left:22px;display:grid;gap:8px}
 </style>
 </head>
 <body>
 <div id="site" class="site">
 <header class="nav">
 <div class="wrap nav-in">
-<a class="logo" href="#top" aria-label="TradeLog ana sayfa"><span data-i="logo"></span>TradeLog</a>
-<nav class="links" aria-label="Ana menü">
-<a href="#ozellikler">Özellikler</a><a href="#nasil">Nasıl çalışır</a><a href="#fiyatlar">Fiyatlar</a><a href="#sss">SSS</a>
+<a class="logo" href="#top" data-a="home" data-sa="home_aria" aria-label="TradeLog ana sayfa"><span data-i="logo"></span>TradeLog</a>
+<nav class="links" data-sa="nav_aria" aria-label="Ana menü">
+<a href="#tur" data-st="nav_feat">Özellikler</a><a href="#prop" data-st="nav_prop">Prop firm</a><a href="#platformlar" data-st="nav_plat">Platformlar</a><a href="#fiyatlar" data-st="nav_price">Fiyatlar</a><a href="#yardim" data-page="help" data-st="nav_help">Yardım</a>
 </nav>
 <div class="nav-r">
-<div class="lang hide-m" role="group" aria-label="Dil"><button data-a="lang" data-v="tr" class="on" aria-pressed="true">TR</button><button data-a="lang" data-v="en" aria-pressed="false">EN</button></div>
-<a class="btn btn-g hide-m" href="#/app">Giriş yap</a>
-<a class="btn btn-p" href="#/app">Ücretsiz başla</a>
+<div class="lang hide-m" role="group" data-sa="lang_aria" aria-label="Dil"><button data-a="lang" data-v="tr" aria-pressed="true">TR</button><button data-a="lang" data-v="en" aria-pressed="false">EN</button></div>
+<a class="btn btn-g hide-m" href="#/app" data-st="nav_open">Panele git</a>
+<a class="btn btn-p" href="#/app" data-st="cta_start">Ücretsiz başla</a>
 <button class="burger" data-a="menu" aria-label="Menüyü aç" aria-expanded="false" id="burger"><span data-i="menu" data-s="22"></span></button>
 </div>
 </div>
-<nav class="mmenu" id="mmenu" aria-label="Mobil menü" hidden>
-<a href="#ozellikler" data-a="menuClose">Özellikler</a><a href="#nasil" data-a="menuClose">Nasıl çalışır</a><a href="#fiyatlar" data-a="menuClose">Fiyatlar</a><a href="#sss" data-a="menuClose">SSS</a><a href="#/app">Giriş yap</a>
-<div class="lang" role="group" aria-label="Dil" style="margin-top:16px;align-self:flex-start"><button data-a="lang" data-v="tr" class="on" aria-pressed="true">Türkçe</button><button data-a="lang" data-v="en" aria-pressed="false">English</button></div>
+<nav class="mmenu" id="mmenu" data-sa="mnav_aria" aria-label="Mobil menü" hidden>
+<a href="#tur" data-a="menuClose" data-st="nav_feat">Özellikler</a><a href="#prop" data-a="menuClose" data-st="nav_prop">Prop firm</a><a href="#platformlar" data-a="menuClose" data-st="nav_plat">Platformlar</a><a href="#fiyatlar" data-a="menuClose" data-st="nav_price">Fiyatlar</a><a href="#sss" data-a="menuClose" data-st="nav_faq">SSS</a><a href="#yardim" data-page="help" data-st="nav_help">Yardım</a><a href="#/app" data-st="nav_open">Panele git</a>
+<div class="lang" role="group" data-sa="lang_aria" aria-label="Dil" style="margin-top:16px;align-self:flex-start"><button data-a="lang" data-v="tr" aria-pressed="true">Türkçe</button><button data-a="lang" data-v="en" aria-pressed="false">English</button></div>
 </nav>
 </header>
 
+<div id="home">
 <main>
 <section class="hero" id="top">
 <div class="wrap hero-g">
 <div>
-<span class="eyebrow"><b>YENİ</b>Prop firm kuralların artık panelde</span>
-<h1 class="h1">Her işlemden<br>bir <em>ders</em> çıkar.</h1>
-<p class="lead">İşlemini telefondan 15 saniyede kaydet ya da MT4/MT5 raporunu yükle. TradeLog neyin işe yarayıp neyin yaramadığını R cinsinden, sade bir dille gösterir.</p>
+<span class="eyebrow"><b data-st="hero_new">YENİ</b><span data-st="hero_eyebrow">Prop firm kuralların artık panelde</span></span>
+<h1 class="h1" data-st="hero_h1">Her işlemden<br>bir <em>ders</em> çıkar.</h1>
+<p class="lead" data-st="hero_lead">İşlemini telefondan 15 saniyede kaydet ya da MT4/MT5 raporunu yükle. TradeLog neyin işe yarayıp neyin yaramadığını R cinsinden, sade bir dille gösterir.</p>
 <div class="ctas">
-<a class="btn btn-p btn-lg" href="#/app">Ücretsiz başla<span data-i="arrow" data-s="18"></span></a>
-<a class="btn btn-g btn-lg" href="https://t.me/tradelog_tanerphll_bot" target="_blank" rel="noopener"><span data-i="tg" data-s="18"></span>Telegram'da aç</a>
+<a class="btn btn-p btn-lg" href="#/app"><span data-st="cta_start">Ücretsiz başla</span><span data-i="arrow" data-s="18"></span></a>
+<a class="btn btn-g btn-lg" href="https://t.me/tradelog_tanerphll_bot" target="_blank" rel="noopener"><span data-i="tg" data-s="18"></span><span data-st="tg_open">Telegram'da aç</span></a>
 </div>
-<div class="trust"><span><span data-i="check" data-s="16"></span>Kredi kartı gerekmez</span><span><span data-i="check" data-s="16"></span>Ücretsiz plan süresiz</span><span><span data-i="check" data-s="16"></span>Türkçe ve İngilizce</span></div>
+<div class="trust"><span><span data-i="check" data-s="16"></span><span data-st="trust1">Kredi kartı gerekmez</span></span><span><span data-i="check" data-s="16"></span><span data-st="trust2">Ücretsiz plan süresiz</span></span><span><span data-i="check" data-s="16"></span><span data-st="trust3">Türkçe ve İngilizce</span></span></div>
 </div>
 <div class="demo">
 <div class="card dcard" id="demo"></div>
 <div class="float" aria-hidden="true">
-<div class="r"><span style="font-weight:600">Günlük kayıp limiti</span><span class="chip warn">%72</span></div>
+<div class="r"><span style="font-weight:600" data-st="float_t">Günlük kayıp limiti</span><span class="chip warn" data-st="float_pct">%72</span></div>
 <div class="bar"><i style="width:72%;background:#F87171"></i></div>
-<div style="font-size:12px;color:#A1A6B4;margin-top:8px">Funded 100K · Kalan $1.400</div>
+<div style="font-size:12px;color:#A1A6B4;margin-top:8px" data-st="float_s">Funded 100K · Kalan $1.400</div>
 </div>
 </div>
 </div>
 </section>
 
 <div class="strip"><div class="strip-in">
-<div class="it"><span data-i="file" data-s="20" data-w="1.8"></span><b>MT4 ve MT5</b> raporu (HTML, Excel)</div>
-<div class="it"><span data-i="tg" data-s="20" data-w="1.8"></span><b>Telegram</b> içinde uygulama</div>
-<div class="it"><span data-i="shield" data-s="20" data-w="1.8"></span><b>Prop firm</b> kural takibi</div>
-<div class="it"><span data-i="layers" data-s="20" data-w="1.8"></span><b>Çoklu hesap</b>, tek panel</div>
+<div class="it"><span data-i="file" data-s="20" data-w="1.8"></span><span data-st="strip1"><b>MT4 ve MT5</b> raporu (HTML, Excel)</span></div>
+<div class="it"><span data-i="tg" data-s="20" data-w="1.8"></span><span data-st="strip2"><b>Telegram</b> içinde uygulama</span></div>
+<div class="it"><span data-i="shield" data-s="20" data-w="1.8"></span><span data-st="strip3"><b>Prop firm</b> kural takibi</span></div>
+<div class="it"><span data-i="layers" data-s="20" data-w="1.8"></span><span data-st="strip4"><b>Çoklu hesap</b>, tek panel</span></div>
 </div></div>
 
-<section class="sec" id="nasil">
+<section class="sec" id="tur">
 <div class="wrap">
-<div class="sec-h"><span class="kick">Nasıl çalışır</span><h2 class="h2">Üç adım. Ezber yok, tablo yok.</h2><p>İşlemi kaydet, haftada bir raporu yükle, gerisini TradeLog hesaplasın.</p></div>
+<div class="sec-h c"><span class="kick" data-st="tour_k">Uygulamanın içi</span><h2 class="h2" data-st="tour_h">Gerçek ekranlar, gerçek uygulama.</h2><p data-st="tour_p">Aşağıdakiler TradeLog'un kendisi, örnek verilerle. Sekmeleri değiştirip bak.</p></div>
+<div class="ttabs" role="tablist" id="ttabs"></div>
+<figure class="tframe"><div class="tbar" aria-hidden="true"><i></i><i></i><i></i><span>tradelog</span></div><img id="timg" width="1280" height="800" alt="" decoding="async" loading="lazy"><figcaption id="tcap"></figcaption></figure>
+</div>
+</section>
+
+<section class="sec alt" id="nasil">
+<div class="wrap">
+<div class="sec-h"><span class="kick" data-st="nav_how">Nasıl çalışır</span><h2 class="h2" data-st="how_h">Üç adım. Ezber yok, tablo yok.</h2><p data-st="how_p">İşlemi kaydet, haftada bir raporu yükle, gerisini TradeLog hesaplasın.</p></div>
 <div class="how"><div class="steps" id="steps"></div><div id="stage"></div></div>
 </div>
 </section>
 
-<section class="sec alt" id="ozellikler">
+<section class="sec" id="ozellikler">
 <div class="wrap">
-<div class="sec-h"><span class="kick">Özellikler</span><h2 class="h2">Profesyonellerin baktığı her şey, tek ekranda.</h2><p>Kartların üzerinde gezin, tıkla, dene. Hepsi ücretsiz planda var.</p></div>
+<div class="sec-h"><span class="kick" data-st="nav_feat">Özellikler</span><h2 class="h2" data-st="feat_h">Profesyonellerin baktığı her şey, tek ekranda.</h2><p data-st="feat_p">Kartların üzerinde gezin, tıkla, dene. Hepsi ücretsiz planda var.</p></div>
 <div class="bento">
 <div class="b b2 r2" id="b-prop"></div>
 <div class="b">
-<div class="hd"><span class="ic"><span data-i="gauge"></span></span><h3>TradeLog puanı</h3></div>
-<div class="ring"><svg width="132" height="132" viewBox="0 0 132 132" aria-hidden="true"><circle cx="66" cy="66" r="56" fill="none" stroke="#08090B" stroke-width="12"/><circle cx="66" cy="66" r="56" fill="none" stroke="#94C5CC" stroke-width="12" stroke-linecap="round" stroke-dasharray="253 352"/></svg><div class="c"><div><b>72</b><span>/ 100 · İyi</span></div></div></div>
-<p>Kazanma, kâr oranı, beklenti, düşüş, tutarlılık ve plan uyumundan tek bir not.</p>
+<div class="hd"><span class="ic"><span data-i="gauge"></span></span><h3 data-st="score_h">TradeLog puanı</h3></div>
+<div class="ring"><svg width="132" height="132" viewBox="0 0 132 132" aria-hidden="true"><circle cx="66" cy="66" r="56" fill="none" stroke="#08090B" stroke-width="12"/><circle cx="66" cy="66" r="56" fill="none" stroke="#94C5CC" stroke-width="12" stroke-linecap="round" stroke-dasharray="253 352"/></svg><div class="c"><div><b>72</b><span data-st="score_lbl">/ 100 · İyi</span></div></div></div>
+<p data-st="score_p">Kazanma, kâr oranı, beklenti, düşüş, tutarlılık ve plan uyumundan tek bir not.</p>
 </div>
 <div class="b">
-<div class="hd"><span class="ic"><span data-i="alert"></span></span><h3>Disiplin uyarıları</h3></div>
-<div class="ntoast"><span data-i="alert" data-s="18" data-w="2"></span><span>Bugün 3 işlem limitine ulaştın. Yarın devam.</span></div>
-<p>Günlük işlem sayısı, üst üste kayıp ve risk sınırlarını sen koy.</p>
+<div class="hd"><span class="ic"><span data-i="alert"></span></span><h3 data-st="disc_h">Disiplin uyarıları</h3></div>
+<div class="ntoast"><span data-i="alert" data-s="18" data-w="2"></span><span data-st="disc_toast">Bugün 3 işlem limitine ulaştın. Yarın devam.</span></div>
+<p data-st="disc_p">Günlük işlem sayısı, üst üste kayıp ve risk sınırlarını sen koy.</p>
 </div>
 <div class="b" id="b-pb"></div>
 <div class="b">
-<div class="hd"><span class="ic"><span data-i="pulse"></span></span><h3>Duygunun bedeli</h3></div>
+<div class="hd"><span class="ic"><span data-i="pulse"></span></span><h3 data-st="emo_h">Duygunun bedeli</h3></div>
 <div class="emo">
-<div class="r"><span>Sakin</span><span class="t"><i style="left:50%;width:34%;background:#4ADE80"></i></span><span class="mono pos">+0,8R</span></div>
-<div class="r"><span>Kararsız</span><span class="t"><i style="left:42%;width:8%;background:#F87171"></i></span><span class="mono neg">−0,2R</span></div>
-<div class="r"><span>Aceleci</span><span class="t"><i style="left:26%;width:24%;background:#F87171"></i></span><span class="mono neg">−0,6R</span></div>
-<div class="r"><span>FOMO</span><span class="t"><i style="left:8%;width:42%;background:#F87171"></i></span><span class="mono neg">−1,1R</span></div>
+<div class="r"><span data-st="emo_calm">Sakin</span><span class="t"><i style="left:50%;width:34%;background:#4ADE80"></i></span><span class="mono pos" data-st="emo_v1">+0,8R</span></div>
+<div class="r"><span data-st="emo_hes">Kararsız</span><span class="t"><i style="left:42%;width:8%;background:#F87171"></i></span><span class="mono neg" data-st="emo_v2">−0,2R</span></div>
+<div class="r"><span data-st="emo_rush">Aceleci</span><span class="t"><i style="left:26%;width:24%;background:#F87171"></i></span><span class="mono neg" data-st="emo_v3">−0,6R</span></div>
+<div class="r"><span>FOMO</span><span class="t"><i style="left:8%;width:42%;background:#F87171"></i></span><span class="mono neg" data-st="emo_v4">−1,1R</span></div>
 </div>
-<p>İşlem başına ortalama sonuç, duyguya göre.</p>
+<p data-st="emo_p">İşlem başına ortalama sonuç, duyguya göre.</p>
 </div>
 <div class="b b2" id="b-cal"></div>
 <div class="b">
-<div class="hd"><span class="ic"><span data-i="layers"></span></span><h3>Çoklu hesap</h3></div>
+<div class="hd"><span class="ic"><span data-i="layers"></span></span><h3 data-st="acc_h">Çoklu hesap</h3></div>
 <div class="accs">
-<div><span class="chip">Funded</span>100K<span class="mono pos">+18,4R</span></div>
-<div><span class="chip mu">Challenge</span>25K<span class="mono pos">+6,1R</span></div>
-<div><span class="chip mu">Kişisel</span>5K<span class="mono neg">−2,3R</span></div>
+<div><span class="chip">Funded</span>100K<span class="mono pos" data-st="acc_v1">+18,4R</span></div>
+<div><span class="chip mu">Challenge</span>25K<span class="mono pos" data-st="acc_v2">+6,1R</span></div>
+<div><span class="chip mu" data-st="acc_personal">Kişisel</span>5K<span class="mono neg" data-st="acc_v3">−2,3R</span></div>
 </div>
-<p>Kopyalanan işlemler birleşik görünümde bir kez sayılır.</p>
+<p data-st="acc_p">Kopyalanan işlemler birleşik görünümde bir kez sayılır.</p>
 </div>
 <div class="b tg">
-<div class="hd"><span class="ic"><span data-i="tg"></span></span><h3>Telegram'da da</h3></div>
-<p>Uygulama indirme yok. Botu aç, işlemini kaydet, panelini gör.</p>
-<a class="btn btn-g" href="https://t.me/tradelog_tanerphll_bot" target="_blank" rel="noopener" style="margin-top:auto">Telegram'da aç</a>
+<div class="hd"><span class="ic"><span data-i="tg"></span></span><h3 data-st="tg_h">Telegram'da da</h3></div>
+<p data-st="tg_p">Uygulama indirme yok. Botu aç, işlemini kaydet, panelini gör.</p>
+<a class="btn btn-g" href="https://t.me/tradelog_tanerphll_bot" target="_blank" rel="noopener" style="margin-top:auto" data-st="tg_open">Telegram'da aç</a>
 </div>
 </div>
 </div>
 </section>
 
-<section class="sec" id="fiyatlar">
+<section class="sec alt" id="prop">
+<div class="wrap prop-g">
+<div class="prop-t">
+<span class="kick" data-st="prop_k">Prop firm trader'ları için</span>
+<h2 class="h2" data-st="prop_h">Challenge'dan funded'a, her kural gözünün önünde.</h2>
+<p class="lead" data-st="prop_p">Prop firm hesaplarını kurallarıyla birlikte takip et. TradeLog limitine ne kadar kaldığını gösterir, yaklaşınca seni uyarır.</p>
+<ul class="plist" id="plist"></ul>
+<a class="btn btn-p btn-lg" href="#/app"><span data-st="cta_start">Ücretsiz başla</span><span data-i="arrow" data-s="18"></span></a>
+</div>
+<div class="pvis">
+<img id="pimg" width="510" height="369" alt="" decoding="async" loading="lazy">
+<div class="palert"><span data-i="alert" data-s="18" data-w="2"></span><span data-st="prop_alert">Funded 100K: günlük kayıp limitinin %76'sı kullanıldı. Kalan $1.200.</span></div>
+</div>
+</div>
+</section>
+
+<section class="sec" id="platformlar">
 <div class="wrap">
-<div class="sec-h c"><span class="kick">Fiyatlar</span><h2 class="h2">Ücretsiz başla. Zaman kazanmak istediğinde Pro'ya geç.</h2><p>Günlük, raporlar ve analizler ücretsiz. Pro, hesabını bağlayıp her şeyi otomatik yapmak isteyenler için.</p></div>
-<div class="bill"><div class="seg" role="group" aria-label="Ödeme dönemi" id="bill"></div></div>
+<div class="sec-h c"><span class="kick" data-st="nav_plat">Platformlar</span><h2 class="h2" data-st="plat_h">MetaTrader ile bugün, diğerleri sırada.</h2><p data-st="plat_p">Raporunu yükle ya da işlemini elle gir. Elle kayıt her platformda çalışır.</p></div>
+<div class="plats" id="plats"></div>
+</div>
+</section>
+
+<section class="sec alt" id="fiyatlar">
+<div class="wrap">
+<div class="sec-h c"><span class="kick" data-st="nav_price">Fiyatlar</span><h2 class="h2" data-st="price_h">Bugün ücretsiz başla. Pro yakında.</h2><p data-st="price_p">Günlük, raporlar ve analizler ücretsiz. Pro; hesabını otomatik bağlamayı, web ile Telegram arasında aynı veriyi ve AI koçu getirecek.</p></div>
 <div class="plans">
 <div class="plan">
-<div><div class="nm">Ücretsiz</div><div class="ds">Günlük tutmaya başlayan herkes için.</div></div>
-<div class="price"><span class="a">0</span><span class="u">süresiz</span></div>
-<a class="btn btn-g btn-lg" href="#/app">Ücretsiz başla</a>
-<ul class="feat" data-feat="Sınırsız elle işlem kaydı|MT4/MT5 raporu yükleme|Tüm raporlar, puan ve içgörüler|Takvim, günlük ve playbook|Prop firm kuralları ve uyarılar|2 hesap (arşivlenenler sayılmaz)|Telefonda ve Telegram'da kullanım"></ul>
+<div><div class="nm" data-st="plan_free">Ücretsiz</div><div class="ds" data-st="plan_free_d">Günlük tutmaya başlayan herkes için.</div></div>
+<div class="price"><span class="a">0</span><span class="u" data-st="plan_forever">süresiz</span></div>
+<a class="btn btn-p btn-lg" href="#/app" data-st="cta_start">Ücretsiz başla</a>
+<ul class="feat" data-featk="feat_free"></ul>
 </div>
-<div class="plan pro">
-<span class="badge">Önerilen</span>
-<div><div class="nm">Pro</div><div class="ds">Rapor yüklemekle uğraşmak istemeyenler için.</div></div>
-<div class="price" id="proPrice"></div>
-<a class="btn btn-p btn-lg" href="#/app">7 gün ücretsiz dene</a>
-<div class="fine">Kredi kartı gerekmez · İstediğin zaman iptal</div>
-<ul class="feat" data-plus="Ücretsizdeki her şey, artı:" data-feat="MT4/MT5 hesabını bağla, işlemler kendiliğinden gelsin|20 hesaba kadar|Web ve Telegram'da aynı veriler|İşlemlere ekran görüntüsü ekleme|AI koç: haftalık özet ve öneriler|Mentorunla ya da arkadaşınla paylaşım"></ul>
+<div class="plan pro soon">
+<span class="badge" data-st="soon">Yakında</span>
+<div><div class="nm">Pro</div><div class="ds" data-st="plan_pro_d">Rapor yüklemekle uğraşmak istemeyenler için.</div></div>
+<div class="price"><span class="a soon-a" data-st="soon">Yakında</span></div>
+<button class="btn btn-g btn-lg" disabled data-st="pro_btn">Yakında açılacak</button>
+<div class="fine" data-st="pro_fine">Ödeme altyapısı hazır olunca açılacak. Ücretsiz planla bugün başlayabilirsin.</div>
+<ul class="feat" data-featk="feat_pro" data-plusk="feat_plus"></ul>
 </div>
 </div>
 <div class="cmpb" id="cmpb"><button data-a="cmp" aria-expanded="false" aria-controls="cmp"><span>Tüm özellikleri karşılaştır</span><span data-i="chev" data-s="18" data-w="2.2"></span></button></div>
@@ -815,31 +948,39 @@ html{scroll-behavior:smooth;-webkit-text-size-adjust:100%}
 </div>
 </section>
 
-<section class="sec alt" id="sss">
+<section class="sec" id="sss">
 <div class="wrap">
-<div class="sec-h c"><span class="kick">SSS</span><h2 class="h2">Aklına takılanlar</h2></div>
+<div class="sec-h c"><span class="kick" data-st="nav_faq">SSS</span><h2 class="h2" data-st="faq_h">Aklına takılanlar</h2></div>
 <div class="faq" id="faq"></div>
 </div>
 </section>
 
 <div class="wrap" style="margin-top:96px">
 <div class="cta">
-<div class="in"><h2 class="h2">Bir sonraki işlemin, bir öncekinden daha bilinçli olsun.</h2><p>Hesap açmak bir dakika sürer. İlk raporunu yükle, panelin hemen dolsun.</p></div>
-<a class="btn btn-d btn-lg" href="#/app" style="position:relative">Ücretsiz başla<span data-i="arrow" data-s="18"></span></a>
+<div class="in"><h2 class="h2" data-st="cta_h">Bir sonraki işlemin, bir öncekinden daha bilinçli olsun.</h2><p data-st="cta_p">Hesabını bir dakikada ekle. İlk raporunu yükle, panelin hemen dolsun.</p></div>
+<a class="btn btn-d btn-lg" href="#/app" style="position:relative"><span data-st="cta_start">Ücretsiz başla</span><span data-i="arrow" data-s="18"></span></a>
 <div class="deco" aria-hidden="true"><i style="height:40px"></i><i style="height:64px"></i><i style="height:52px"></i><i style="height:92px"></i><i style="height:120px"></i><i style="height:150px"></i></div>
 </div>
+</div>
+</main>
+</div>
+
+<main id="pageView" class="pagev" hidden>
+<div class="wrap pg">
+<a href="#top" class="back" data-a="home"><span data-i="arrowl" data-s="18"></span><span data-st="back_home">Ana sayfaya dön</span></a>
+<article id="pageBody" class="doc"></article>
 </div>
 </main>
 
 <footer class="foot">
 <div class="wrap">
 <div class="fg">
-<div class="brand"><a class="logo" href="#top"><span data-i="logo" data-s="28"></span>TradeLog</a><p class="disc">TradeLog bir işlem günlüğüdür, yatırım tavsiyesi vermez. Geçmiş sonuçlar gelecekteki sonuçları garanti etmez.</p></div>
-<div><h4>Ürün</h4><a href="#ozellikler">Özellikler</a><a href="#fiyatlar">Fiyatlar</a><a href="https://t.me/tradelog_tanerphll_bot" target="_blank" rel="noopener">Telegram uygulaması</a></div>
-<div><h4>Destek</h4><a href="#sss">SSS</a><a href="#top">İletişim</a></div>
-<div><h4>Yasal</h4><a href="#top">Gizlilik</a><a href="#top">Kullanım koşulları</a></div>
+<div class="brand"><a class="logo" href="#top" data-a="home"><span data-i="logo" data-s="28"></span>TradeLog</a><p class="disc" data-st="foot_disc">TradeLog bir işlem günlüğüdür, yatırım tavsiyesi vermez. Geçmiş sonuçlar gelecekteki sonuçları garanti etmez.</p></div>
+<div><h4 data-st="foot_product">Ürün</h4><a href="#tur" data-st="nav_feat">Özellikler</a><a href="#platformlar" data-st="nav_plat">Platformlar</a><a href="#fiyatlar" data-st="nav_price">Fiyatlar</a><a href="https://t.me/tradelog_tanerphll_bot" target="_blank" rel="noopener" data-st="foot_tg">Telegram uygulaması</a></div>
+<div><h4 data-st="foot_support">Destek</h4><a href="#yardim" data-page="help" data-st="nav_help">Yardım</a><a href="#sss" data-st="nav_faq">SSS</a><a href="#iletisim" data-page="contact" data-st="pg_contact">İletişim</a></div>
+<div><h4 data-st="foot_legal">Yasal</h4><a href="#gizlilik" data-page="privacy" data-st="pg_privacy">Gizlilik politikası</a><a href="#kosullar" data-page="terms" data-st="pg_terms">Kullanım koşulları</a></div>
 </div>
-<div class="copy"><span>© 2026 TradeLog</span><span>İstanbul'dan, trader'lar için.</span></div>
+<div class="copy"><span>© 2026 TradeLog</span><span data-st="foot_made">İstanbul'dan, trader'lar için.</span></div>
 </div>
 </footer>
 </div>
@@ -847,7 +988,7 @@ html{scroll-behavior:smooth;-webkit-text-size-adjust:100%}
 <div class="ap" id="appRoot">
 <div class="app">
   <aside class="side" aria-label="Menü">
-    <a class="brand" href="#" onclick="go('dash');return false"><svg width="30" height="30" viewBox="0 0 32 32" aria-hidden="true"><rect width="32" height="32" rx="9" fill="var(--ink)"/><path d="M9.5 22v-4.5M16 22V12.5M22.5 22V9" stroke="var(--sf)" stroke-width="3.4" stroke-linecap="round"/></svg>TradeLog</a>
+    <a class="brand" href="#" onclick="go('dash');return false"><svg width="30" height="30" viewBox="0 0 32 32" aria-hidden="true"><rect width="32" height="32" rx="9" fill="#94C5CC"/><path d="M9.5 22v-4.5M16 22V12.5M22.5 22V9" stroke="#000100" stroke-width="3.4" stroke-linecap="round"/></svg>TradeLog</a>
     <div class="sideacts" id="sideActs"></div>
     <nav id="sideNav"></nav>
     <div class="grow"></div>
@@ -884,7 +1025,7 @@ html{scroll-behavior:smooth;-webkit-text-size-adjust:100%}
 <script>
 /* ================= i18n ================= */
 const T={tr:{
-nav_imp:'Rapor yükle',ok_btn:'Tamam',add_t:'İşlem ekle',add_man:'Elle ekle',add_man_d:'Sembol, yön, sonuç ve nasıl hissettiğini gir. Yaklaşık 15 saniye.',add_rep_d:'Rapordaki işlemler hesabına eklenir. Daha önce eklenenler atlanır, elle girdiklerin rapordakiyle eşleşir.',wel_step:'1. adım',wel_acc_t:'Hesabını ekleyerek başla',wel_acc_d:'İşlemlerin, bakiyen ve prop kuralların hesaba göre takip edilir. İşlemlerin nereden gelsin?',wel_alt:'Önce bakmak mı istiyorsun?',acc_m_auto:'Otomatik bağla',acc_m_auto_d:'MT4/MT5 hesabını bağla; işlemler ve bakiye kendiliğinden gelsin.',soon_pro:'Yakında · Pro',acc_manage_all:'Hesapları yönet',acc_n:'{n} hesap',mood_1:'Çok kötü',mood_2:'Kötü',mood_3:'Normal',mood_4:'İyi',mood_5:'Çok iyi',nav_home:'Ana sayfa',th_to_dark:'Koyu tema',th_to_light:'Açık tema',
+nav_imp:'Rapor yükle',ok_btn:'Tamam',cols_btn:'Sütunlar',cols_t:'Tablo sütunları',cols_h:'Tabloda görmek istediğin sütunları seç. Tarih, sembol ve R her zaman görünür.',cols_reset:'Varsayılana dön',acc_added:'Hesap eklendi',gs_t:'Başlangıç',gs_s:'{d} / {n} adım tamamlandı',gs_hide:'Gizle',gs_go:'Başla',gs_acc:'Hesabını ekle',gs_trade:'İlk işlemini ekle',gs_trade_d:'Elle ekle ya da MT4/MT5 raporunu yükle.',gs_pb:'Bir playbook oluştur',gs_pb_d:'Setup kurallarını yaz; hangi kurala uyunca kazandığını gör.',gs_rules:'Prop firm kurallarını gir',gs_rules_d:'Günlük ve toplam kayıp limitini gir; yaklaşınca uyarı al.',gs_jr:'İlk günlüğünü yaz',gs_jr_d:'Seans öncesi planını ya da gün sonu notunu kaydet.',acc_word:'hesap',wel_step2:'2. adım',wel_ready_t:'Hesabın hazır',wel_ready_d:'{k} eklendi. Şimdi ilk işlemini ekle; panel, takvim ve raporlar işlemlerinle dolacak.',add_t:'İşlem ekle',add_man:'Elle ekle',add_man_d:'Sembol, yön, sonuç ve nasıl hissettiğini gir. Yaklaşık 15 saniye.',add_rep_d:'Rapordaki işlemler hesabına eklenir. Daha önce eklenenler atlanır, elle girdiklerin rapordakiyle eşleşir.',wel_step:'1. adım',wel_acc_t:'Hesabını ekleyerek başla',wel_acc_d:'İşlemlerin, bakiyen ve prop kuralların hesaba göre takip edilir. İşlemlerin nereden gelsin?',wel_alt:'Önce bakmak mı istiyorsun?',acc_m_auto:'Otomatik bağla',acc_m_auto_d:'MT4/MT5 hesabını bağla; işlemler ve bakiye kendiliğinden gelsin.',soon_pro:'Yakında · Pro',acc_manage_all:'Hesapları yönet',acc_n:'{n} hesap',mood_1:'Çok kötü',mood_2:'Kötü',mood_3:'Normal',mood_4:'İyi',mood_5:'Çok iyi',nav_home:'Ana sayfa',th_to_dark:'Koyu tema',th_to_light:'Açık tema',
 r_hint:'R, riske ettiğin tutarın katıdır. Stop olduysan −1, riskinin 2 katını kazandıysan 2 yaz. Emin değilsen aşağıdan sonucu seçmen yeterli.',ph_rra:'Örn. 2 veya −1',l_emo_q:'Nasıl hissettin?',rr_hint:'Girişte hedeflediğin kazanç (R)',pnl_hint:'Para olarak net sonuç; girersen bakiye kesinleşir',rating_hint:'Sonuçtan bağımsız: kurallara ne kadar iyi uydun?',k_rr_s:'Ortalama kazanç ÷ ortalama kayıp',k_plan_s2:'Plana uyduğun işlemler',acc_add_how:'Hesabın işlemleri nereden gelsin?',acc_m_rep:'MT4/MT5 raporu yükle',acc_m_rep_d:'Hesap adı, para birimi, başlangıç bakiyesi ve işlemler rapordan gelir. Sen sadece raporu yüklersin.',acc_m_man:'Elle oluştur',acc_m_man_d:'Raporun yoksa ya da işlemleri kendin gireceksen. Bakiyeyi ve para birimini sen yazarsın.',acc_from_rep:'MT4/MT5 raporundan alındı',show_more:'Daha fazla göster ({n} işlem daha)',wr_s:'Kazanma',period:'Dönem',dg_in:'İçe aktar',dg_out:'Yedek ve dışa aktarma',dg_demo:'Örnek veri',archived:'Arşiv',acc_link:'Rapor eşleştirmesi',acc_link_on:'Bu numaradaki MT4/MT5 raporları otomatik olarak bu hesaba eklenir.',acc_link_off:'Henüz eşleşmedi. Bu hesabın MT4/MT5 raporunu yüklediğinde hesap numarası otomatik eşleşir; sonraki raporlar buraya gelir. Bu bir hesap bağlantısı değildir, şifre istenmez.',acc_unlink:'Eşleştirmeyi kaldır',acc_unlink_c:'#{n} eşleştirmesi kaldırılsın mı? İşlemler silinmez; bir sonraki raporda hesabı yeniden seçmen istenir.',acc_risk_l:'risk',at_challenge:'Challenge',at_funded:'Funded',at_personal:'Kişisel',at_demo:'Demo / backtest',acc_type:'Hesap türü',acc_alltype:'Tüm {k} hesaplar',
 acc_edit:'Hesabı düzenle',acc_name_ph:'Örn. FTM 10K Funded',acc_risk_h:'Sonucu girilmeyen işlemlerde PnL tahmini için',acc_req:'Bakiye ve risk 0 veya daha büyük olmalı.',
 acc_manage:'Hesap yönetimi',acc_arch:'Arşivle',acc_arch_h:'Veriler silinmez; hesap birleşik görünümlerden ve yeni işlem seçimlerinden kalkar. Eski challenge hesapları için.',acc_unarch:'Arşivden çıkar',
@@ -996,7 +1137,7 @@ emo_calm:'Sakin',emo_focused:'Odaklı',emo_confident:'Güvenli',emo_impatient:'S
 mis_early_entry:'Erken giriş',mis_late_entry:'Geç giriş',mis_no_confirmation:'Onaysız giriş',mis_tight_sl:'SL çok dar',mis_moved_sl:'SL\'i kaydırdım',mis_early_exit:'Erken çıkış',mis_tight_tp:'TP çok yakın',
 mis_off_plan:'Plan dışı işlem',mis_revenge:'Revenge trade',mis_fomo:'FOMO',mis_oversize:'Risk büyüttüm',mis_overtrading:'Aşırı işlem'},
 en:{
-nav_imp:'Import report',ok_btn:'OK',add_t:'Add trade',add_man:'Add manually',add_man_d:'Enter symbol, side, result and how you felt. About 15 seconds.',add_rep_d:'Trades in the report are added to your account. Ones already added are skipped and your manual entries are matched.',wel_step:'Step 1',wel_acc_t:'Start by adding your account',wel_acc_d:'Your trades, balance and prop rules are tracked per account. Where should your trades come from?',wel_alt:'Want to look around first?',acc_m_auto:'Connect automatically',acc_m_auto_d:'Connect your MT4/MT5 account; trades and balance arrive on their own.',soon_pro:'Coming soon · Pro',acc_manage_all:'Manage accounts',acc_n:'{n} accounts',mood_1:'Very bad',mood_2:'Bad',mood_3:'Okay',mood_4:'Good',mood_5:'Great',nav_home:'Home page',th_to_dark:'Dark theme',th_to_light:'Light theme',
+nav_imp:'Import report',ok_btn:'OK',cols_btn:'Columns',cols_t:'Table columns',cols_h:'Choose the columns you want in the table. Date, symbol and R are always shown.',cols_reset:'Reset to default',acc_added:'Account added',gs_t:'Getting started',gs_s:'{d} of {n} steps done',gs_hide:'Hide',gs_go:'Start',gs_acc:'Add your account',gs_trade:'Add your first trade',gs_trade_d:'Add it manually or upload your MT4/MT5 report.',gs_pb:'Create a playbook',gs_pb_d:'Write your setup rules and see which rules pay off.',gs_rules:'Enter your prop firm rules',gs_rules_d:'Set daily and total loss limits and get warned as you get close.',gs_jr:'Write your first journal entry',gs_jr_d:'Save your pre-session plan or end-of-day note.',acc_word:'account',wel_step2:'Step 2',wel_ready_t:'Your account is ready',wel_ready_d:'{k} was added. Now add your first trade; your dashboard, calendar and reports will fill up from there.',add_t:'Add trade',add_man:'Add manually',add_man_d:'Enter symbol, side, result and how you felt. About 15 seconds.',add_rep_d:'Trades in the report are added to your account. Ones already added are skipped and your manual entries are matched.',wel_step:'Step 1',wel_acc_t:'Start by adding your account',wel_acc_d:'Your trades, balance and prop rules are tracked per account. Where should your trades come from?',wel_alt:'Want to look around first?',acc_m_auto:'Connect automatically',acc_m_auto_d:'Connect your MT4/MT5 account; trades and balance arrive on their own.',soon_pro:'Coming soon · Pro',acc_manage_all:'Manage accounts',acc_n:'{n} accounts',mood_1:'Very bad',mood_2:'Bad',mood_3:'Okay',mood_4:'Good',mood_5:'Great',nav_home:'Home page',th_to_dark:'Dark theme',th_to_light:'Light theme',
 r_hint:'R is a multiple of the amount you risked. Stopped out: −1. Won twice your risk: 2. Not sure? Just pick the outcome below.',ph_rra:'e.g. 2 or −1',l_emo_q:'How did you feel?',rr_hint:'The gain you aimed for at entry (R)',pnl_hint:'Net result in money; makes your balance exact',rating_hint:'Regardless of the result: how well did you follow your rules?',k_rr_s:'Average win ÷ average loss',k_plan_s2:'Trades where you followed your plan',acc_add_how:'Where will this account\'s trades come from?',acc_m_rep:'Upload an MT4/MT5 report',acc_m_rep_d:'Account name, currency, starting balance and trades come from the report. You only upload it.',acc_m_man:'Create manually',acc_m_man_d:'If you have no report or will log trades yourself. You enter the balance and currency.',acc_from_rep:'Taken from your MT4/MT5 report',show_more:'Show more ({n} more)',wr_s:'Win rate',period:'Period',dg_in:'Import',dg_out:'Backup and export',dg_demo:'Sample data',archived:'Archive',acc_link:'Report matching',acc_link_on:'MT4/MT5 reports for this number are added to this account automatically.',acc_link_off:'Not matched yet. When you upload this account\'s MT4/MT5 report, the account number is matched automatically and future reports come here. This is not an account connection; no password is needed.',acc_unlink:'Remove matching',acc_unlink_c:'Remove the #{n} matching? Trades are kept; you will be asked to choose the account again on the next report.',acc_risk_l:'risk',at_challenge:'Challenge',at_funded:'Funded',at_personal:'Personal',at_demo:'Demo / backtest',acc_type:'Account type',acc_alltype:'All {k} accounts',
 acc_edit:'Edit account',acc_name_ph:'e.g. FTM 10K Funded',acc_risk_h:'Used to estimate PnL for trades without a result',acc_req:'Balance and risk must be 0 or more.',
 acc_manage:'Manage account',acc_arch:'Archive',acc_arch_h:'Data is kept; the account leaves combined views and new-trade choices. For old challenge accounts.',acc_unarch:'Unarchive',
@@ -1785,6 +1926,7 @@ sun:'<circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.9 4.9l1.4 1.4M17.
 moon:'<path d="M20 14.5A8 8 0 0 1 9.5 4a8 8 0 1 0 10.5 10.5z"/>',
 home:'<path d="M3 11l9-7 9 7"/><path d="M5 10v10h14V10"/>',
 chev:'<path d="M6 9l6 6 6-6"/>',
+cols:'<rect x="3" y="4" width="18" height="16" rx="2.5"/><path d="M9 4v16M15 4v16"/>',
 link:'<path d="M10 14a4 4 0 0 0 5.7 0l3-3a4 4 0 0 0-5.7-5.7l-1 1"/><path d="M14 10a4 4 0 0 0-5.7 0l-3 3a4 4 0 0 0 5.7 5.7l1-1"/>',
 user:'<rect x="3" y="6" width="18" height="13" rx="2.5"/><path d="M3 10h18M7 15h4"/>'};
 const ic=n=>`<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">${ICON[n]}</svg>`;
@@ -1816,7 +1958,16 @@ const pbOf=name=>PB.find(p=>p.name===name);
 const narrow=()=>window.innerWidth<700;
 
 /* ---- shell ---- */
-function go(v){if(!VIEWS.includes(v))v='dash';cv=v;closeDlg(true);render();window.scrollTo(0,0)}
+function go(v){if(!VIEWS.includes(v))v='dash';const ch=v!==cv;cv=v;closeDlg(true);render();window.scrollTo(0,0);if(ch)viewIn()}
+/* görünüm geçişi: içerik hafifçe yukarı kayarak gelir; panelde net sonuç sayarak yükselir */
+function viewIn(){
+  const el=$('view');el.classList.remove('vin');void el.offsetWidth;el.classList.add('vin');
+  if(matchMedia('(prefers-reduced-motion: reduce)').matches)return;
+  const big=el.querySelector('.nethead .big[data-v]');if(!big)return;
+  const to=+big.dataset.v,t0=performance.now(),D=700;
+  const step=n=>{const k=Math.min(1,(n-t0)/D),e=1-Math.pow(1-k,3);big.textContent=fr(Math.round(to*e*100)/100);if(k<1)requestAnimationFrame(step)};
+  requestAnimationFrame(step);
+}
 function render(){
   document.documentElement.lang=L;
   const pq=trades.length?pending().length:0;
@@ -1876,9 +2027,9 @@ function moreMenu(){
 /* ---- dialogs ---- */
 const formOpen=()=>$('formOv').classList.contains('on');
 const dlgOpen=()=>$('dlgOv').classList.contains('on');
-function openDlg(title,html,foot,wide){
+function openDlg(title,html,foot,wide,drawer){
   $('dTitle').textContent=title;$('dBody').innerHTML=html;$('dFoot').innerHTML=foot||'';$('dFoot').style.display=foot?'':'none';
-  $('dlgBox').classList.toggle('wide',!!wide);$('dlgOv').classList.add('on');document.body.style.overflow='hidden';
+  $('dlgBox').classList.toggle('wide',!!wide);$('dlgOv').classList.toggle('drw',!!drawer);$('dlgOv').classList.add('on');document.body.style.overflow='hidden';
   $('dlgOv').scrollTop=0;$('dlgBox').scrollTop=0;tgUI();
 }
 function closeDlg(silent){$('dlgOv').classList.remove('on');if(!formOpen())document.body.style.overflow='';if(!silent)tgUI()}
@@ -1917,9 +2068,11 @@ function welcome(){
   if(!accReady())return `<div class="card welcome w1"><div class="wh"><span class="step1">${t('wel_step')}</span><h2>${t('wel_acc_t')}</h2><p>${t('wel_acc_d')}</p></div>
    ${accOptions()}
    <div class="walt"><span>${t('wel_alt')}</span><button class="btn sm" onclick="demo()">${t('wel_demo')}</button><button class="btn sm ghost" onclick="openForm()">${t('wel_add')}</button></div></div>`;
-  return `<div class="card welcome"><div><h2>${t('wel_t')}</h2><p>${t('wel_d')}</p>
-  <div class="acts"><button class="btn pri" onclick="openForm()">${ic('plus')}${t('wel_add')}</button><button class="btn" onclick="openImport()">${t('wel_imp')}</button><button class="btn" onclick="demo()">${t('wel_demo')}</button></div></div>
-  <ul>${['wel_f1','wel_f2','wel_f3','wel_f4'].map(k=>`<li>${ic('check')}<span>${t(k)}</span></li>`).join('')}</ul></div>`;
+  const a=actAccs()[0];
+  return `<div class="card welcome w1"><div class="wh"><span class="step1">${t('wel_step2')}</span><h2>${t('wel_ready_t')}</h2><p>${t('wel_ready_d',{k:esc(accLabel(a))})}</p></div>
+   <div class="optc"><button onclick="openForm()"><span class="oi">${ic('plus')}</span><span class="ot"><b>${t('add_man')}</b><span>${t('add_man_d')}</span></span></button>
+   <button onclick="openImport()"><span class="oi">${ic('up')}</span><span class="ot"><b>${t('acc_m_rep')}</b><span>${t('add_rep_d')}</span></span></button></div>
+   <div class="walt"><span>${t('wel_alt')}</span><button class="btn sm" onclick="demo()">${t('wel_demo')}</button><button class="btn sm ghost" onclick="accDlg('${a.id}')">${t('acc_edit')}</button></div></div>`;
 }
 function alertsH(){
   const d=discipline(),a=[];
@@ -1944,7 +2097,7 @@ function vDash(){
   const kp=[[t('k_wr'),pc(s.wr),t('kpi_wl',{w:s.w,l:s.ls,b:s.be?t('kpi_be',{n:s.be}):''}),''],[t('k_pf'),pfTxt(s),t('k_pf_s'),s.pf===null?'':s.pf>=1?'pos':'neg'],
     [t('k_exp'),fr(s.exp),t('k_exp_s'),cls(s.exp)],[t('k_rr'),s.real!==null?s.real.toFixed(2):'—',t('k_rr_s'),''],
     [t('k_dd'),s.hasR?fr(-s.dd):'—',t('k_dd_s'),s.dd?'neg':''],[t('k_plan'),pc(s.plan),t('k_plan_s2'),s.plan===null?'':s.plan>=80?'pos':'neu']];
-  const net=`<div class="card netcard o1"><div class="nethead"><div><div class="lbl">${t('hero_'+V.per)}</div><div class="big ${cls(s.tot)}">${s.hasR?fr(s.tot):'—'}</div><div class="hfacts">${facts.join('')}</div></div>
+  const net=`<div class="card netcard o1"><div class="nethead"><div><div class="lbl">${t('hero_'+V.per)}</div><div class="big ${cls(s.tot)}"${s.hasR?` data-v="${s.tot}"`:''}>${s.hasR?fr(s.tot):'—'}</div><div class="hfacts">${facts.join('')}</div></div>
     <div class="stripw"><div class="strip" aria-label="${t('strip_l')}">${strip}</div><div class="stripcap"><span>${t('strip_l')}</span>${ch.some(x=>x.plan==='no')?`<span>${t('strip_off')}</span>`:''}</div></div></div>
    <div class="kpis">${kp.map(([a,b,c,d])=>`<div class="kpi"><div class="l">${a}</div><div class="v ${d}">${b}</div><div class="s">${c}</div></div>`).join('')}</div></div>`;
   const eq=`<div class="card o4"><div class="ch"><h2>${t('c_eq')}</h2><small>${t('c_eq_s')}</small></div><div class="cb">${eqChart(l)}</div></div>`;
@@ -1957,9 +2110,30 @@ function vDash(){
   const icard=`<div class="card o6"><div class="ch"><h2>${t('c_ins')}</h2></div><div class="cb">${ins.length?ins.map(([k,x])=>`<div class="ins ${k}"><i></i><div>${esc(x)}</div></div>`).join(''):`<div class="mut" style="font-size:14px">${t('ins_need')}</div>`}</div></div>`;
   const dcard=`<div class="card o5"><div class="ch"><h2>${t('c_daily')}</h2><small>${t('c_daily_s')}</small></div><div class="cb">${dayChart(l)}</div></div>`;
   const recent=`<div class="card o7"><div class="ch"><h2>${t('c_recent')}</h2><small><a href="#" onclick="go('trades');return false">${t('see_all')}</a></small></div><div class="tlist" style="margin-top:8px">${l.slice(0,6).map(tradeCard).join('')}</div></div>`;
-  return `<div class="stack">${al}${rq}<div class="dgrid"><div class="dcl">${net}${eq}${dcard}</div><div class="dcr">${pcard}${scard}${icard}</div>${recent}</div></div>`;
+  return `<div class="stack">${al}${rq}${gsCard()}<div class="dgrid"><div class="dcl">${net}${eq}${dcard}</div><div class="dcr">${pcard}${scard}${icard}</div>${recent}</div></div>`;
 }
 
+/* Başlangıç listesi: TradeZella ve TradesViz'deki "Getting started" kartı gibi.
+   Hepsi bitince ya da gizlenince bir daha görünmez. */
+const GSK='tradelog_gs_off';
+function gsCard(){
+  let off=false;try{off=localStorage.getItem(GSK)==='1'}catch(e){}
+  if(off)return '';
+  const prop=S.accounts.some(a=>a.type==='challenge'||a.type==='funded');
+  const items=[
+    ['acc',accReady(),t('gs_acc'),'','accDlg()'],
+    ['trade',trades.some(x=>!x.demo),t('gs_trade'),t('gs_trade_d'),'addMenu()'],
+    ['pb',PB.some(p=>!p.demo),t('gs_pb'),t('gs_pb_d'),"go('pb');pbEdit()"],
+    prop?['rules',S.accounts.some(a=>a.rules),t('gs_rules'),t('gs_rules_d'),`accDlg('${(S.accounts.find(a=>a.type==='challenge'||a.type==='funded')||{}).id}')`]:null,
+    ['jr',Object.keys(JR).length>0,t('gs_jr'),t('gs_jr_d'),"go('jr')"]].filter(Boolean);
+  const done=items.filter(x=>x[1]).length;
+  if(done===items.length)return '';
+  return `<div class="card gs"><div class="gsh"><div><h2>${t('gs_t')}</h2><span class="hint">${t('gs_s',{d:done,n:items.length})}</span></div>
+   <div class="meter gsm"><b style="width:${(done/items.length*100).toFixed(0)}%"></b></div><button class="btn sm ghost" onclick="gsHide()">${t('gs_hide')}</button></div>
+   ${done?`<div class="gsdone">${items.filter(x=>x[1]).map(x=>`<span><span class="gsc">${ic('check')}</span>${x[2]}</span>`).join('')}</div>`:''}
+   <div class="gsl">${items.filter(x=>!x[1]).map(([k,ok,lab,d,fn])=>`<div class="gsi"><span class="gsc"></span><span class="gst"><b>${lab}</b>${d?`<span>${d}</span>`:''}</span>${fn?`<button class="btn sm" onclick="${fn}">${t('gs_go')}</button>`:''}</div>`).join('')}</div></div>`;
+}
+function gsHide(){try{localStorage.setItem(GSK,'1')}catch(e){}render()}
 function propRows(p){
   const m=v=>money(v,0,p.a.cur),row=(lab,pct,txt,bad)=>`<div class="prow"><div class="sline"><span>${lab}</span><span class="${bad?'neg':''}">${txt}</span></div><div class="meter"><b style="width:${clamp(pct).toFixed(1)}%;${bad?'background:var(--loss)':''}"></b></div></div>`;
   let h=`<div class="pacc">${scopeAccs().length>1?`<div class="pname">${esc(accName(p.a))}${p.a.type?` <span class="tag">${typeL(p.a.type)}</span>`:''}</div>`:''}`;
@@ -2051,7 +2225,7 @@ function vTrades(){
   const p=a=>a.map(x=>[x,x]);
   return `<div class="card"><div class="toolbar"><input class="in" type="search" placeholder="${t('search_ph')}" value="${esc(TFL.q)}" oninput="TFL.q=this.value;rList()">
    <button class="btn sm ${showF?'pri':''}" onclick="showF=!showF;render()">${ic('filter')}${t('filters')}</button>
-   <button class="btn sm ghost" onclick="Object.keys(TFL).forEach(k=>TFL[k]='');render()">${t('f_reset')}</button></div>
+   <button class="btn sm colbtn" onclick="colDlg()">${ic('cols')}${t('cols_btn')}</button><button class="btn sm ghost" onclick="Object.keys(TFL).forEach(k=>TFL[k]='');render()">${t('f_reset')}</button></div>
    <div class="filters ${showF?'':'hide'}">${sel('out',t('f_out'),['Win','Loss','BE'].map(o=>[o,t('o_'+o)]))}${sel('setup',t('f_setup'),p(uniq('setup',l)))}${sel('sym',t('f_sym'),p(uniq('symbol',l)))}
    ${sel('dir',t('f_dir'),p(['Long','Short']))}${sel('mis',t('f_mis'),uniq('mistakes',l).map(m=>[m,misL(m)]))}${sel('tag',t('f_tag'),p(uniq('tags',l)))}${sel('rev',t('f_rev'),[['p',t('f_rev_p')]])}</div>
    <div class="sumline" id="tSum"></div><div class="dual" id="tList"></div></div>`;
@@ -2063,6 +2237,29 @@ function tradeFilter(){
   if(sk)l=[...l].sort((a,b)=>{const x=a[sk],y=b[sk];if(x==null&&y==null)return 0;if(x==null)return 1;if(y==null)return -1;return(typeof x==='number'?x-y:String(x).localeCompare(String(y)))*sd});
   return l;
 }
+/* İşlemler tablosu sütunları; isteğe bağlı olanlar "Sütunlar" penceresinden açılıp kapanır */
+const COLK='tradelog_cols',COL_DEF=['kz','rating'];
+function colHid(){try{const v=JSON.parse(localStorage.getItem(COLK));if(Array.isArray(v))return v}catch(e){}return COL_DEF}
+function TCOLS(){return [
+  {k:'date',s:'date',h:t('h_date'),td:x=>`<td>${esc(dFmt(x.date,{day:'numeric',month:'short',year:'2-digit'}))}${x.time?` <span class="mut">${esc(x.time)}</span>`:''}</td>`},
+  {k:'symbol',s:'symbol',h:t('h_sym'),td:x=>`<td class="sym">${esc(x.symbol)}${x.demo?` <span class="tag">${t('demo_tag')}</span>`:''}</td>`},
+  {k:'dir',opt:1,s:'dir',h:t('h_dir'),td:x=>`<td>${x.dir?`<span class="side-${x.dir[0].toLowerCase()}">${x.dir}</span>`:'—'}</td>`},
+  {k:'acc',opt:1,s:'',h:t('h_acc'),td:x=>`<td>${esc(accName(accOf(x.account)))}</td>`},
+  {k:'setup',opt:1,s:'setup',h:t('h_setup'),td:x=>`<td>${esc(x.setup)||'—'}</td>`},
+  {k:'kz',opt:1,s:'kz',h:t('h_sess'),td:x=>`<td class="mut">${esc(x.kz)||'—'}</td>`},
+  {k:'out',opt:1,s:'',h:t('h_out'),td:x=>`<td><span class="badge ${x.outcome.toLowerCase()}">${t('o_'+x.outcome)}</span></td>`},
+  {k:'r',s:'rrActual',h:'R',r:1,td:x=>`<td class="r ${cls(x.rrActual)}" style="font-weight:600">${x.rEst?'≈':''}${fr(x.rrActual)}</td>`},
+  {k:'pnl',opt:1,s:'pnl',h:'PnL',r:1,td:x=>`<td class="r ${cls(x.pnl)}">${has(x.pnl)?money(x.pnl,1,accOf(x.account).cur):'—'}</td>`},
+  {k:'plan',opt:1,s:'',h:t('h_plan'),td:x=>`<td>${x.plan==='yes'?`<span class="pos">${t('yes')}</span>`:x.plan==='no'?`<span class="neg">${t('no')}</span>`:'—'}</td>`},
+  {k:'mis',opt:1,s:'',h:t('h_mis'),td:x=>`<td class="neg">${x.mistakes.map(misL).map(esc).join(', ')||'<span class="mut">—</span>'}</td>`},
+  {k:'emo',opt:1,s:'',h:t('h_emo'),td:x=>`<td>${x.emotions.map(emoI).map(esc).join(', ')||'—'}</td>`},
+  {k:'rating',opt:1,s:'rating',h:t('h_rating'),td:x=>`<td style="color:var(--be)">${x.rating?'★'.repeat(x.rating):'—'}</td>`}]}
+function colDlg(){
+  const hid=colHid();
+  openDlg(t('cols_t'),`<p class="hint" style="margin:14px 0 6px;font-size:13.5px">${t('cols_h')}</p>${TCOLS().filter(c=>c.opt&&(c.k!=='acc'||scopeAccs().length>1)).map(c=>`<label class="check"><input type="checkbox" ${hid.includes(c.k)?'':'checked'} onchange="colSet('${c.k}',this.checked)"><span>${c.h}</span></label>`).join('')}`,
+   `<button class="btn" onclick="try{localStorage.removeItem(COLK)}catch(e){};closeDlg();rList()">${t('cols_reset')}</button><button class="btn pri" onclick="closeDlg()">${t('close')}</button>`);
+}
+function colSet(k,on){const h=colHid().filter(z=>z!==k);if(!on)h.push(k);try{localStorage.setItem(COLK,JSON.stringify(h))}catch(e){}rList()}
 function srt(k){sd=sk===k?-sd:-1;sk=k;rList()}
 function rList(more){
   if(more)tlim+=200;else tlim=100;
@@ -2070,13 +2267,11 @@ function rList(more){
   $('tSum').innerHTML=all.length?[t('n_tr',{n:`<b>${all.length}</b>`}),`${t('k_wr')} <b>${pc(s.wr)}</b>`,`${t('h_tot')} <b class="${cls(s.tot)}">${fr(s.tot)}</b>`,`PF <b>${pfTxt(s)}</b>`,`${t('k_exp')} <b>${fr(s.exp)}</b>`].concat(s.pnl!==null?[`PnL <b class="${cls(s.pnl)}">${money(s.pnl,1)}</b>`]:[]).map(x=>`<span>${x}</span>`).join(''):'';
   if(!l.length){$('tList').innerHTML=`<div class="empty">${fT().length?t('no_match'):t('per_empty')}</div>`;return}
   const moreBtn=all.length>l.length?`<div style="padding:14px;text-align:center"><button class="btn" onclick="rList(true)">${t('show_more',{n:all.length-l.length})}</button></div>`:'';
-  const multi=scopeAccs().length>1;
+  const multi=scopeAccs().length>1,hid=colHid();
   const th=(k,lab,r)=>`<th class="${k?'s':''}${r?' r':''}" ${k?`onclick="srt('${k}')"`:''}>${lab}${sk===k?(sd>0?' ↑':' ↓'):''}</th>`;
-  const rows=l.map(x=>`<tr class="rw" onclick="openTrade(${x.id})"><td>${esc(dFmt(x.date,{day:'numeric',month:'short',year:'2-digit'}))}${x.time?` <span class="mut">${esc(x.time)}</span>`:''}</td><td class="sym">${esc(x.symbol)}${x.demo?` <span class="tag">${t('demo_tag')}</span>`:''}</td><td>${x.dir?`<span class="side-${x.dir[0].toLowerCase()}">${x.dir}</span>`:'—'}</td>
-   ${multi?`<td>${esc(accName(accOf(x.account)))}</td>`:''}<td>${esc(x.setup)||'—'}</td><td class="mut">${esc(x.kz)||'—'}</td><td><span class="badge ${x.outcome.toLowerCase()}">${t('o_'+x.outcome)}</span></td>
-   <td class="r ${cls(x.rrActual)}" style="font-weight:600">${fr(x.rrActual)}</td><td class="r ${cls(x.pnl)}">${has(x.pnl)?money(x.pnl,1,accOf(x.account).cur):'—'}</td>
-   <td>${x.plan==='yes'?`<span class="pos">${t('yes')}</span>`:x.plan==='no'?`<span class="neg">${t('no')}</span>`:'—'}</td><td class="neg">${x.mistakes.map(misL).map(esc).join(', ')||'<span class="mut">—</span>'}</td><td>${x.emotions.map(emoI).map(esc).join(', ')||'—'}</td><td style="color:var(--be)">${x.rating?'★'.repeat(x.rating):'—'}</td></tr>`).join('');
-  $('tList').innerHTML=`<div class="scroll tblwrap"><table><thead><tr>${th('date',t('h_date'))}${th('symbol',t('h_sym'))}${th('dir',t('h_dir'))}${multi?th('',t('h_acc')):''}${th('setup',t('h_setup'))}${th('kz',t('h_sess'))}${th('',t('h_out'))}${th('rrActual','R',1)}${th('pnl','PnL',1)}${th('',t('h_plan'))}${th('',t('h_mis'))}${th('',t('h_emo'))}${th('rating',t('h_rating'))}</tr></thead><tbody>${rows}</tbody></table></div>
+  const C=TCOLS().filter(c=>(!c.opt||!hid.includes(c.k))&&(c.k!=='acc'||multi));
+  const rows=l.map(x=>`<tr class="rw" onclick="openTrade(${x.id})">${C.map(c=>c.td(x)).join('')}</tr>`).join('');
+  $('tList').innerHTML=`<div class="scroll tblwrap"><table><thead><tr>${C.map(c=>th(c.s,c.h,c.r)).join('')}</tr></thead><tbody>${rows}</tbody></table></div>
    <div class="tlist">${l.map(tradeCard).join('')}</div>${moreBtn}`;
 }
 
@@ -2107,7 +2302,7 @@ function openTrade(id){
   if(x.emotions.length||x.mistakes.length||x.tags.length)h+=`<div class="dsec">${x.emotions.length?`<h4>${t('l_emo')}</h4>${chips(x.emotions,emoL)}`:''}${x.mistakes.length?`<h4 style="margin-top:12px">${t('l_mis')}</h4>${chips(x.mistakes,misL,1)}`:''}${x.tags.length?`<h4 style="margin-top:12px">${t('l_tags')}</h4>${chips(x.tags,v=>'#'+v)}`:''}</div>`;
   if(x.chart)h+=`<div class="dsec"><h4>${t('l_shots')}</h4>${shotsH(x.chart)}</div>`;
   if(x.notes)h+=`<div class="dsec"><h4>${t('l_notes')}</h4><div class="note">${esc(x.notes)}</div></div>`;
-  openDlg(t('d_title'),h,`<button class="btn dan" onclick="delTrade(${x.id})">${t('del')}</button><button class="btn" onclick="dupTrade(${x.id})">${t('dup')}</button><button class="btn pri" onclick="openForm(${x.id})">${t('edit')}</button>`);
+  openDlg(t('d_title'),h,`<button class="btn dan" onclick="delTrade(${x.id})">${t('del')}</button><button class="btn" onclick="dupTrade(${x.id})">${t('dup')}</button><button class="btn pri" onclick="openForm(${x.id})">${t('edit')}</button>`,false,true);
 }
 
 /* ---- trade form ---- */
@@ -2398,13 +2593,17 @@ function accSave(id){
   const g=k=>$('ad_'+k).value,bal=num(g('bal')),risk=num(g('risk'));
   if(bal==null||bal<0||risk==null||risk<0){say(t('acc_req'));return}
   const rules={};['dll','mll','tgt'].forEach(k=>{const v=num(g(k));if(v>0&&v<100)rules[k]=v});
-  const d={name:g('name').trim(),type:g('type'),bal,cur:g('cur'),risk,rules};
+  /* ad boş bırakılırsa hesap yine de adlandırılır; ilk kurulum ekranı bundan anlar */
+  const d={name:g('name').trim()||(g('type')?typeL(g('type'))+' '+t('acc_word'):t('acc_default')),type:g('type'),bal,cur:g('cur'),risk,rules};
   if(id&&S.accounts.find(z=>z.id===id).initExt){const o=S.accounts.find(z=>z.id===id);d.bal=o.bal;d.cur=o.cur}
   let a=id?S.accounts.find(z=>z.id===id):null;
   const blank=!a&&S.accounts.length===1&&!S.accounts[0].name&&!S.accounts[0].no&&!trades.some(x=>x.account===S.accounts[0].id)&&!S.tx.length;
   if(blank)a=S.accounts[0];
   if(a){Object.assign(a,d);if(!d.type)delete a.type;if(!Object.keys(rules).length)delete a.rules}else{a={id:sid(),...d};if(!d.type)delete a.type;if(!Object.keys(rules).length)delete a.rules;S.accounts.push(a)}
-  S=normS(S);saveS();closeDlg();render();hap('success');toast(t('saved'));
+  /* ilk kurulumda (TradeZella'daki gibi) hesap açılınca doğrudan ilk işlem formuna geçilir */
+  const first=!id&&!trades.length;
+  S=normS(S);saveS();closeDlg();render();hap('success');toast(t(id?'saved':'acc_added'));
+  if(first)setTimeout(()=>openForm(),260);
 }
 async function accUnlink(id){
   const a=S.accounts.find(z=>z.id===id);if(!a||!a.no)return;
@@ -2597,9 +2796,12 @@ const SITE = document.getElementById('site');
 const $ = (s, r = document) => r.querySelector(s);
 const $$ = (s, r = document) => Array.from(r.querySelectorAll(s));
 const esc = s => String(s).replace(/[&<>"']/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
-const fr = (v, d = 1) => { const z = Math.abs(v) < Math.pow(10, -d) / 2; return (z ? '' : v > 0 ? '+' : '−') + Math.abs(v).toFixed(d).replace('.', ',') + 'R'; };
-const usd = v => { const z = Math.abs(v) < .5; return (z ? '' : v > 0 ? '+' : '−') + '$' + Math.round(Math.abs(v)).toLocaleString('tr-TR'); };
-const money = v => '$' + Math.round(v).toLocaleString('tr-TR');
+/* dil: uygulamayla aynı ayar (tradelog_lang) */
+const LG = () => (typeof L !== 'undefined' && L === 'en') ? 'en' : 'tr';
+const dec = x => LG() === 'tr' ? x.replace('.', ',') : x;
+const fr = (v, d = 1) => { const z = Math.abs(v) < Math.pow(10, -d) / 2; return (z ? '' : v > 0 ? '+' : '−') + dec(Math.abs(v).toFixed(d)) + 'R'; };
+const money = v => '$' + Math.round(v).toLocaleString(LG() === 'tr' ? 'tr-TR' : 'en-US');
+const pct = n => LG() === 'tr' ? '%' + n : n + '%';
 const lcg = seed => { let s = seed; return () => { s = (s * 16807) % 2147483647; return (s - 1) / 2147483646; }; };
 const MON = ['Oca','Şub','Mar','Nis','May','Haz','Tem','Ağu','Eyl','Eki','Kas','Ara'];
 
@@ -2607,6 +2809,7 @@ const P = {
   logo: null,
   check: '<path d="M5 12.5l4.5 4.5L19 7.5"/>',
   arrow: '<path d="M5 12h14M13 6l6 6-6 6"/>',
+  arrowl: '<path d="M19 12H5M11 6l-6 6 6 6"/>',
   tg: '<path d="M21 4L3 11l6 2.5M21 4l-3.5 16-8.5-6.5M21 4L9 13.5v5.5l3-3.3"/>',
   file: '<path d="M14 3H7a2 2 0 00-2 2v14a2 2 0 002 2h10a2 2 0 002-2V8z"/><path d="M14 3v5h5"/>',
   shield: '<path d="M12 3l8 3v6c0 4.5-3.4 8.3-8 9-4.6-.7-8-4.5-8-9V6z"/>',
@@ -2692,127 +2895,332 @@ function bindChart(el, n, W, H, cv, cum, tipFor) {
   hit.addEventListener('pointerleave', e => { if (e.pointerType === 'mouse') hide(); });
 }
 
-/* ================= SITE ================= */
-const S = { menu: false, per: '30', step: 0, chk: [true, true, false], acc: 0, day: -1, bill: 'y', cmp: false, faq: 0 };
+/* ================= SITE METİNLERİ (TR / EN) ================= */
+const CONTACT = ''; /* iletişim e-postası: doldurulunca İletişim sayfasında görünür */
+const ST = {
+tr: {
+  nav_prop: 'Prop firm', nav_plat: 'Platformlar', nav_help: 'Yardım',
+  tour_k: 'Uygulamanın içi', tour_h: 'Gerçek ekranlar, gerçek uygulama.', tour_p: 'Aşağıdakiler TradeLog\'un kendisi, örnek verilerle. Sekmeleri değiştirip bak.',
+  tour: [['dash', 'Panel', 'Net sonuç, temel göstergeler, prop kuralların ve TradeLog puanın tek ekranda.'], ['trades', 'İşlemler', 'Her işlem R ve para olarak. Ara, filtrele, sütunları kendine göre seç.'], ['cal', 'Takvim', 'Günlük ve haftalık sonuçların renkli bir takvimde. Güne tıkla, o günün işlemlerini gör.'], ['rep', 'Raporlar', 'Kazanma oranı, beklenti, düşüş ve aylık performans. Zaman, setup ve psikoloji raporları da burada.']],
+  prop_k: 'Prop firm trader\'ları için', prop_h: 'Challenge\'dan funded\'a, her kural gözünün önünde.', prop_p: 'Prop firm hesaplarını kurallarıyla birlikte takip et. TradeLog limitine ne kadar kaldığını gösterir, yaklaşınca seni uyarır.',
+  plist: [['shield', 'Kuralların her an önünde', 'Günlük kayıp, toplam kayıp ve kâr hedefini hesap başına gir; kalan tutarı panelde gör.'], ['alert', 'Limite yaklaşınca uyarı', 'Bir limitin %70\'ini kullandığında panel seni uyarır, limiti aşmadan durursun.'], ['layers', 'Her hesap ayrı', 'Challenge, funded ve kişisel hesaplar kendi bakiyesi ve kurallarıyla takip edilir. Kopyalanan işlemler birleşik görünümde bir kez sayılır.'], ['file', 'Payout ve para hareketleri', 'Rapordaki para yatırma ve çekmeler otomatik eklenir; bakiye rapordakiyle karşılaştırılır.']],
+  prop_alert: 'Funded 100K: günlük kayıp limitinin %76\'sı kullanıldı. Kalan $1.200.', prop_img: 'TradeLog panelinde hesap kuralları kartı',
+  plat_h: 'MetaTrader ile bugün, diğerleri sırada.', plat_p: 'Raporunu yükle ya da işlemini elle gir. Elle kayıt her platformda çalışır.',
+  plats: [['MetaTrader 5', 'ok', 'HTML ve Excel raporu'], ['MetaTrader 4', 'ok', 'HTML raporu'], ['Match-Trader', 'next', 'Rapor içe aktarma'], ['cTrader', 'next', 'Rapor içe aktarma'], ['DXtrade', 'plan', 'Rapor içe aktarma'], ['TradeLocker', 'plan', 'Rapor içe aktarma']],
+  plat_st: { ok: 'Hazır', next: 'Sırada', plan: 'Planlandı' },
+  home_aria: 'TradeLog ana sayfa', nav_aria: 'Ana menü', mnav_aria: 'Mobil menü', lang_aria: 'Dil',
+  nav_feat: 'Özellikler', nav_how: 'Nasıl çalışır', nav_price: 'Fiyatlar', nav_faq: 'SSS', nav_open: 'Panele git',
+  cta_start: 'Ücretsiz başla', tg_open: 'Telegram\'da aç', menu_open: 'Menüyü aç', menu_close: 'Menüyü kapat',
+  hero_new: 'YENİ', hero_eyebrow: 'Prop firm kuralların artık panelde',
+  hero_h1: 'Her işlemden<br>bir <em>ders</em> çıkar.',
+  hero_lead: 'İşlemini telefondan 15 saniyede kaydet ya da MT4/MT5 raporunu yükle. TradeLog neyin işe yarayıp neyin yaramadığını R cinsinden, sade bir dille gösterir.',
+  trust1: 'Kredi kartı gerekmez', trust2: 'Ücretsiz plan süresiz', trust3: 'Türkçe ve İngilizce',
+  float_t: 'Günlük kayıp limiti', float_pct: '%72', float_s: 'Funded 100K · Kalan $1.400',
+  strip1: '<b>MT4 ve MT5</b> raporu (HTML, Excel)', strip2: '<b>Telegram</b> içinde uygulama', strip3: '<b>Prop firm</b> kural takibi', strip4: '<b>Çoklu hesap</b>, tek panel',
+  how_h: 'Üç adım. Ezber yok, tablo yok.', how_p: 'İşlemi kaydet, haftada bir raporu yükle, gerisini TradeLog hesaplasın.',
+  feat_h: 'Profesyonellerin baktığı her şey, tek ekranda.', feat_p: 'Kartların üzerinde gezin, tıkla, dene. Hepsi ücretsiz planda var.',
+  score_h: 'TradeLog puanı', score_lbl: '/ 100 · İyi', score_p: 'Kazanma, kâr oranı, beklenti, düşüş, tutarlılık ve plan uyumundan tek bir not.',
+  disc_h: 'Disiplin uyarıları', disc_toast: 'Bugün 3 işlem limitine ulaştın. Yarın devam.', disc_p: 'Günlük işlem sayısı, üst üste kayıp ve risk sınırlarını sen koy.',
+  emo_h: 'Duygunun bedeli', emo_calm: 'Sakin', emo_hes: 'Kararsız', emo_rush: 'Aceleci', emo_p: 'İşlem başına ortalama sonuç, duyguya göre.',
+  emo_v1: '+0,8R', emo_v2: '−0,2R', emo_v3: '−0,6R', emo_v4: '−1,1R',
+  acc_h: 'Çoklu hesap', acc_personal: 'Kişisel', acc_p: 'Kopyalanan işlemler birleşik görünümde bir kez sayılır.', acc_v1: '+18,4R', acc_v2: '+6,1R', acc_v3: '−2,3R',
+  tg_h: 'Telegram\'da da', tg_p: 'Uygulama indirme yok. Botu aç, işlemini kaydet, panelini gör.',
+  price_h: 'Bugün ücretsiz başla. Pro yakında.', price_p: 'Günlük, raporlar ve analizler ücretsiz. Pro; hesabını otomatik bağlamayı, web ile Telegram arasında aynı veriyi ve AI koçu getirecek.',
+  plan_free: 'Ücretsiz', plan_free_d: 'Günlük tutmaya başlayan herkes için.', plan_forever: 'süresiz',
+  feat_free: ['Sınırsız elle işlem kaydı', 'MT4/MT5 raporu yükleme', 'Tüm raporlar, puan ve içgörüler', 'Takvim, günlük ve playbook', 'Prop firm kuralları ve uyarılar', 'Birden fazla hesap', 'Telefonda ve Telegram\'da kullanım'],
+  soon: 'Yakında', plan_pro_d: 'Rapor yüklemekle uğraşmak istemeyenler için.', pro_btn: 'Yakında açılacak',
+  pro_fine: 'Ödeme altyapısı hazır olunca açılacak. Ücretsiz planla bugün başlayabilirsin.',
+  feat_plus: 'Ücretsizdeki her şey, artı:',
+  feat_pro: ['MT4/MT5 hesabını bağla, işlemler kendiliğinden gelsin', 'Web ve Telegram\'da aynı veriler', 'İşlemlere ekran görüntüsü ekleme', 'AI koç: haftalık özet ve öneriler', 'Mentorunla ya da arkadaşınla paylaşım'],
+  cmp_show: 'Tüm özellikleri karşılaştır', cmp_hide: 'Karşılaştırmayı gizle', cmp_feature: 'Özellik', cmp_pro: 'Pro (yakında)', yes_a: 'Var', no_a: 'Yok',
+  groups: [
+    ['Kayıt ve içe aktarma', [['Elle işlem kaydı', 'y', 'y'], ['MT4/MT5 raporu yükleme', 'y', 'y'], ['Hesabı bağlayıp otomatik aktarma', 'n', 'y'], ['Ekran görüntüsü ekleme', 'n', 'y']]],
+    ['Analiz', [['Tüm raporlar ve TradeLog puanı', 'y', 'y'], ['Takvim, günlük ve playbook', 'y', 'y'], ['AI koç', 'n', 'y']]],
+    ['Hesaplar', [['Birden fazla hesap', 'y', 'y'], ['Prop firm kuralları ve uyarılar', 'y', 'y'], ['Kopya işlemleri bir kez sayma', 'y', 'y']]],
+    ['Erişim', [['Telefon ve Telegram', 'y', 'y'], ['Web ve Telegram arasında aynı veri', 'n', 'y'], ['Mentorla paylaşım', 'n', 'y']]]],
+  faq_h: 'Aklına takılanlar',
+  faq: [
+    ['Hesap şifremi vermem gerekiyor mu?', 'Hayır. MT4/MT5 raporunu yüklemen yeterli, şifre istemiyoruz. Pro ile gelecek otomatik bağlantıda yalnızca yatırımcı (salt okunur) şifresi istenecek; bu şifreyle işlem açılamaz, para çekilemez.'],
+    ['Verilerim nerede saklanıyor?', 'Senin cihazında. Tarayıcıda kullanırken tarayıcının depolama alanında, Telegram\'da kullanırken Telegram\'ın bu uygulamaya ayırdığı bulut alanında durur. Bizim sunucumuza gönderilmez. Ayarlar → Veri\'den istediğin zaman yedek alabilirsin.'],
+    ['Hangi platformlar destekleniyor?', 'Şu an MT4 ve MT5 raporları (HTML ve Excel). Match-Trader ve cTrader sırada.'],
+    ['Ücretsiz plan bir süre sonra bitiyor mu?', 'Hayır. Ücretsiz plan süresiz; kart bilgisi de istemiyoruz.'],
+    ['Pro ne zaman geliyor?', 'Otomatik hesap bağlama, web ile Telegram arasında aynı veri ve AI koç için sunucu altyapısını kuruyoruz. Hazır olduğunda burada duyuracağız. O zamana kadar her şey ücretsiz planda.'],
+    ['Telefondan kullanabilir miyim?', 'Evet. Tarayıcıdan ya da Telegram içinden açılır, telefon ekranına göre tasarlandı.']],
+  cta_h: 'Bir sonraki işlemin, bir öncekinden daha bilinçli olsun.', cta_p: 'Hesabını bir dakikada ekle. İlk raporunu yükle, panelin hemen dolsun.',
+  foot_disc: 'TradeLog bir işlem günlüğüdür, yatırım tavsiyesi vermez. Geçmiş sonuçlar gelecekteki sonuçları garanti etmez.',
+  foot_product: 'Ürün', foot_support: 'Destek', foot_legal: 'Yasal', foot_tg: 'Telegram uygulaması', foot_made: 'İstanbul\'dan, trader\'lar için.',
+  pg_contact: 'İletişim', pg_privacy: 'Gizlilik politikası', pg_terms: 'Kullanım koşulları', back_home: 'Ana sayfaya dön',
+  d_panel: 'Panel', d_sample: 'Örnek veri', d_period: 'Dönem', d_per: { '7': '7G', '30': '30G', '90': '90G' },
+  d_sum: '{n} işlem · {w} kazanç, {l} kayıp', d_wr: 'Kazanma oranı', d_pf: 'Profit factor', d_exp: 'İşlem başı', d_dd: 'En derin düşüş', d_total: 'Toplam',
+  steps: [['Kaydet', 'İşlem kapanınca telefondan sembol, setup ve duyguyu seç. 15 saniye.'], ['Raporu yükle', 'Haftada bir MT4/MT5 raporunu yükle. Rakamlar düzelir, eksikler eklenir.'], ['Neyin işe yaradığını gör', 'Setup, gün, saat ve duyguya göre sade içgörüler.']],
+  s_new: 'Yeni işlem', s_15: '15 saniye', s_sym: 'Sembol', s_side: 'Yön', s_res: 'Sonuç', s_feel: 'Girerken nasıl hissettin?', s_try: 'Kendin dene', s_r: '+1,8R',
+  s_feels: ['Sakin', 'Aceleci', 'FOMO', 'Kararsız'],
+  s_imp: 'Rapor yükle', s_ex: 'Örnek', s_read: 'Okundu', s_acc: 'MT5 · Hesap 247806 → Funded 100K',
+  s_res_rows: [['Rapordaki işlemler', '28'], ['Elle girdiklerinle eşleşti, notların korundu', '6'], ['Yeni eklenecek', '22'], ['Para yatırma / çekme', '2'], ['Bakiye rapordakiyle aynı', '$101.284']],
+  s_tz: 'Saat farkı otomatik bulundu: +3 saat',
+  s_ins_t: 'Bu ayın içgörüleri',
+  s_ins: [['g', 'trend', 'En iyi setup\'ın Breakout', '22 işlemde ortalama +1,4R. Bu ay kazancının çoğu buradan geldi.'], ['r', 'pulse', 'FOMO sana 7,2R kaybettirdi', '"FOMO" işaretli 9 işlemin 7\'si zararla kapandı.'], ['r', 'cal', 'Pazartesi en zayıf günün', 'Ortalama −0,6R. Pazartesi işlem sayını azaltmayı dene.'], ['g', 'shield', 'Plana uyduğun işlemler kazandırıyor', 'Plan içi +0,7R, plan dışı −0,4R ortalama.']],
+  p_h: 'Prop firm kuralların her an önünde', p_p: 'Günlük kayıp, toplam kayıp ve kâr hedefini hesap başına gir. Limite yaklaşınca TradeLog seni uyarır.', p_acc_aria: 'Hesap',
+  p_dl: 'Günlük kayıp limiti', p_ml: 'Toplam kayıp limiti', p_tg: 'Kâr hedefi', p_none: 'Funded hesapta yok', p_none_s: 'Kâr hedefi yalnızca challenge hesaplarında',
+  p_left: 'Kalan {x}', p_tleft: 'Hedefe kalan {x}', p_used: '{p} kullanıldı', p_done: '{p} tamam', p_note: 'Sadece kapanmış işlemler sayılır. Oranlar başlangıç bakiyesine göredir.',
+  pb_rules: ['Trend yönünde', 'Seviye retest edildi', 'Risk %1 veya altı'], pb_in: 'Plan içi', pb_out: 'Plan dışı',
+  c_h: 'Takvim', c_month: 'Ekim 2026 · örnek', c_mname: 'Ekim', c_wd: ['Pt', 'Sa', 'Ça', 'Pe', 'Cu', 'Ct', 'Pz'], c_none: 'işlem yok', c_future: 'henüz gelmedi', c_n: '{n} işlem', c_hint: 'Bir güne gel, sonucu gör', c_win: 'Kazanç', c_loss: 'Kayıp', c_empty: 'İşlem yok',
+  pages: {
+    help: { t: 'Yardım', u: 'TradeLog\'u kullanırken en çok sorulanlar', s: [
+      ['Başlarken', '<ol><li>Sayfanın üstünden <b>Panele git</b>\'e bas.</li><li><b>Hesabını ekle</b>: MT4/MT5 raporu yükle ya da hesabı elle oluştur.</li><li>Raporu yüklediysen panelin hemen dolar. Elle oluşturduysan ilk işlemini gir.</li><li>Panelin üstündeki <b>Başlangıç</b> listesindeki adımları tamamla: playbook, prop kuralları, günlük.</li></ol>'],
+      ['MT5 raporu nasıl alınır', '<ol><li>Bilgisayarda MetaTrader 5\'i aç.</li><li><b>Araç Kutusu</b> (Toolbox) penceresini aç: Ctrl+T.</li><li><b>Geçmiş</b> (History) sekmesine geç, listede sağ tıkla ve tarih aralığını seç.</li><li>Yine sağ tıkla, <b>Rapor</b> (Report) altından <b>HTML</b> ya da <b>Open XML (Excel)</b> seç ve kaydet.</li><li>TradeLog\'da <b>İşlem ekle → MT4/MT5 raporu yükle</b> ile dosyayı seç.</li></ol>'],
+      ['MT4 raporu nasıl alınır', '<ol><li>Bilgisayarda MetaTrader 4\'ü aç.</li><li><b>Terminal</b> penceresini aç: Ctrl+T.</li><li><b>Hesap Geçmişi</b> (Account History) sekmesinde sağ tıkla ve dönemi seç (örneğin Tüm Geçmiş).</li><li>Yine sağ tıkla, <b>Detaylı Raporu Kaydet</b> (Save as Detailed Report) seç ve .htm dosyasını kaydet.</li><li>TradeLog\'da dosyayı yükle.</li></ol>'],
+      ['Telefonda rapor', '<p>MT4 ve MT5\'in telefon uygulamaları rapor dışa aktaramıyor. Raporu bilgisayardan al; dosyayı telefonuna gönderip TradeLog\'da oradan da seçebilirsin.</p>'],
+      ['Aynı raporu tekrar yüklersem ne olur?', '<p>Hiçbir şey bozulmaz. Daha önce eklenen işlemler atlanır, sadece yeniler eklenir. Elle girdiğin işlemler rapordaki aynı işlemle eşleşir: notların, setup\'ın ve duygun korunur, rakamlar rapordan güncellenir.</p>'],
+      ['R nedir?', '<p>R, bir işlemde riske ettiğin tutarın katıdır. Stop olursan −1R, riskinin iki katını kazanırsan +2R yazılır. Böylece farklı lot ve hesap büyüklüklerindeki işlemler aynı ölçüyle karşılaştırılır.</p><p>Raporda stop loss varsa R otomatik hesaplanır. Stop yoksa hesabın risk yüzdesinden tahmin edilir ve yanında ≈ işareti görünür.</p>'],
+      ['Telegram\'da kullanmak', '<p>Telegram\'da <b>@tradelog_tanerphll_bot</b>\'u aç ve <b>Günlüğü Aç</b>\'a bas. Verilerin Telegram bulutunda saklanır; telefondaki ve bilgisayardaki Telegram\'da aynı verileri görürsün.</p>'],
+      ['Yedek almak ve taşımak', '<p>Ayarlar → Veri → <b>Yedek indir</b> ile tüm verilerini tek dosyada al. Tarayıcıdaki verileri Telegram\'a taşımak için yedeği <b>Yedek dosyasından geri yükle</b> ya da <b>Metin yapıştırarak yükle</b> ile içeri al.</p>'],
+      ['Hâlâ sorun mu var?', '<p>İletişim sayfasından bize yaz.</p>']] },
+    privacy: { t: 'Gizlilik politikası', u: 'Son güncelleme: 24 Ekim 2026', s: [
+      ['Kısaca', '<p>TradeLog şu an üyelik sistemi ve kendi sunucusu olmadan çalışır. Girdiğin işlemler, notlar, hesap bilgileri ve ayarlar yalnızca senin cihazında saklanır. Bu verileri görmeyiz, toplamayız, kimseyle paylaşmayız ve satmayız.</p>'],
+      ['Verilerin nerede durur', '<ul><li><b>Tarayıcıda:</b> Tarayıcının bu siteye ayırdığı yerel depolama alanında.</li><li><b>Telegram\'da:</b> Telegram\'ın bu uygulamaya senin hesabın için ayırdığı bulut depolama alanında. Bu veriye Telegram\'ın kendi gizlilik koşulları da uygulanır.</li></ul><p>Tarayıcı ile Telegram\'daki veriler birbirinden ayrıdır; birinden diğerine yedek dosyasıyla taşıyabilirsin.</p>'],
+      ['Yüklediğin raporlar', '<p>MT4/MT5 raporları cihazında okunur ve hiçbir yere gönderilmez. Rapordaki hesap numarası ve sunucu adı, sonraki raporları doğru hesaba eklemek için yine yalnızca cihazında saklanır. Hesap şifren hiçbir zaman istenmez.</p>'],
+      ['Üçüncü taraf hizmetler', '<p>Sayfa açılırken yazı tipleri Google Fonts\'tan, Excel dosyalarını okuyan kütüphane cdnjs\'ten yüklenir. Telegram içinde Telegram\'ın uygulama kütüphanesi kullanılır. Bu hizmetler, dosyaları gönderirken IP adresin gibi teknik bilgileri görebilir. Analitik, reklam ya da izleme çerezi kullanmıyoruz.</p>'],
+      ['Verilerin üzerindeki kontrol', '<p>Ayarlar → Veri bölümünden istediğin zaman yedek alabilir, CSV olarak dışa aktarabilir ya da tüm verilerini silebilirsin. Tarayıcı verilerini temizlersen kayıtların da silinir; bu yüzden düzenli yedek almanı öneririz.</p>'],
+      ['Değişiklikler', '<p>Üyelik, senkronizasyon ve Pro geldiğinde bu politika güncellenecek. Hangi verilerin sunucuda tutulacağı, ne kadar saklanacağı ve haklarının neler olduğu burada açıkça yazılacak.</p>'],
+      ['İletişim', '<p>Sorun ve talepler için İletişim sayfasındaki adresi kullanabilirsin.</p>']] },
+    terms: { t: 'Kullanım koşulları', u: 'Son güncelleme: 24 Ekim 2026', s: [
+      ['Hizmet', '<p>TradeLog, işlemlerini kaydetmen ve sonuçlarını incelemen için bir işlem günlüğüdür. Ücretsiz planı süre sınırı olmadan kullanabilirsin.</p>'],
+      ['Yatırım tavsiyesi değildir', '<p>Gösterilen istatistikler, TradeLog puanı ve içgörüler senin girdiğin verilerden hesaplanır. Bunlar alım satım önerisi değildir. İşlem kararların ve sonuçları sana aittir.</p>'],
+      ['Prop firm kuralları', '<p>Paneldeki günlük kayıp, toplam kayıp ve kâr hedefi göstergeleri senin girdiğin oranlarla ve kapanmış işlemlerle hesaplanır. Firmanın resmi hesaplamasının yerine geçmez; kesin bilgi için firmanın kendi panelini kontrol et.</p>'],
+      ['Verilerin', '<p>Verilerin senin cihazında tutulduğu için yedek almak senin sorumluluğundadır. Silinen ya da kaybolan verileri geri getiremeyiz.</p>'],
+      ['Hizmetin durumu', '<p>TradeLog olduğu gibi sunulur. Hataları düzeltmek için çalışırız ama hizmetin kesintisiz ya da hatasız çalışacağını garanti edemeyiz.</p>'],
+      ['Kullanım kuralları', '<p>Hizmeti bozmaya, başkalarının verilerine erişmeye ya da kötüye kullanmaya çalışmak yasaktır.</p>'],
+      ['Değişiklikler', '<p>Pro ve ödeme geldiğinde ücretli planın koşulları bu sayfaya eklenecek. Önemli değişiklikleri sitede duyururuz.</p>']] },
+    contact: { t: 'İletişim', u: '', s: [
+      ['Bize ulaş', '<p>Hata bildirimi, öneri ya da iş birliği için bize yazabilirsin. Genellikle birkaç iş günü içinde dönüyoruz.</p>{mail}'],
+      ['Yazarken işimize yarayanlar', '<ul><li>Ne yapmaya çalıştığın ve ne olduğu</li><li>Telefon mu bilgisayar mı, tarayıcı mı Telegram mı</li><li>Rapor yüklemeyle ilgiliyse MT4 mü MT5 mi ve raporun dili</li></ul><p>Rapor dosyanı gönderme; içinde hesap bilgilerin olabilir. Gerekirse sana nasıl paylaşacağını yazarız.</p>']] }
+  },
+  mail_none: '<p class="mailbox">E-posta adresi yakında burada olacak.</p>', mail_l: 'E-posta'
+},
+en: {
+  nav_prop: 'Prop firms', nav_plat: 'Platforms', nav_help: 'Help',
+  tour_k: 'Inside the app', tour_h: 'Real screens, the real app.', tour_p: 'This is TradeLog itself, with sample data. Switch tabs to look around.',
+  tour: [['dash', 'Dashboard', 'Net result, key stats, your prop rules and TradeLog score on one screen.'], ['trades', 'Trades', 'Every trade in R and in money. Search, filter and pick the columns you want.'], ['cal', 'Calendar', 'Daily and weekly results on a colour-coded calendar. Click a day to see its trades.'], ['rep', 'Reports', 'Win rate, expectancy, drawdown and monthly performance, plus time, setup and psychology reports.']],
+  prop_k: 'For prop firm traders', prop_h: 'From challenge to funded, every rule in view.', prop_p: 'Track your prop firm accounts together with their rules. TradeLog shows how much room you have left and warns you as you get close.',
+  plist: [['shield', 'Your rules, always in view', 'Enter the daily loss, max loss and profit target per account and see what is left on your dashboard.'], ['alert', 'A warning before the limit', 'When you have used 70% of a limit, the dashboard warns you so you can stop in time.'], ['layers', 'Every account on its own', 'Challenge, funded and personal accounts are tracked with their own balance and rules. Copied trades count once in the combined view.'], ['file', 'Payouts and cash movements', 'Deposits and withdrawals in your report are added automatically and the balance is checked against the report.']],
+  prop_alert: 'Funded 100K: 76% of the daily loss limit used. $1,200 left.', prop_img: 'Account rules card on the TradeLog dashboard',
+  plat_h: 'MetaTrader today, more on the way.', plat_p: 'Upload your report or log trades by hand. Manual logging works with any platform.',
+  plats: [['MetaTrader 5', 'ok', 'HTML and Excel reports'], ['MetaTrader 4', 'ok', 'HTML reports'], ['Match-Trader', 'next', 'Report import'], ['cTrader', 'next', 'Report import'], ['DXtrade', 'plan', 'Report import'], ['TradeLocker', 'plan', 'Report import']],
+  plat_st: { ok: 'Available', next: 'Next', plan: 'Planned' },
+  home_aria: 'TradeLog home', nav_aria: 'Main menu', mnav_aria: 'Mobile menu', lang_aria: 'Language',
+  nav_feat: 'Features', nav_how: 'How it works', nav_price: 'Pricing', nav_faq: 'FAQ', nav_open: 'Open app',
+  cta_start: 'Start free', tg_open: 'Open in Telegram', menu_open: 'Open menu', menu_close: 'Close menu',
+  hero_new: 'NEW', hero_eyebrow: 'Prop firm rules are now on your dashboard',
+  hero_h1: 'Learn something<br>from <em>every</em> trade.',
+  hero_lead: 'Log a trade from your phone in 15 seconds or upload your MT4/MT5 report. TradeLog shows what works and what doesn\'t, in R and in plain words.',
+  trust1: 'No credit card', trust2: 'Free plan, no time limit', trust3: 'English and Turkish',
+  float_t: 'Daily loss limit', float_pct: '72%', float_s: 'Funded 100K · $1,400 left',
+  strip1: '<b>MT4 and MT5</b> reports (HTML, Excel)', strip2: 'App inside <b>Telegram</b>', strip3: '<b>Prop firm</b> rule tracking', strip4: '<b>Multiple accounts</b>, one dashboard',
+  how_h: 'Three steps. No spreadsheets.', how_p: 'Log the trade, upload your report once a week, and let TradeLog do the math.',
+  feat_h: 'Everything a pro looks at, on one screen.', feat_p: 'Hover, click and try the cards. All of it is in the free plan.',
+  score_h: 'TradeLog score', score_lbl: '/ 100 · Good', score_p: 'One grade from win rate, profit factor, expectancy, drawdown, consistency and plan adherence.',
+  disc_h: 'Discipline alerts', disc_toast: 'You hit your 3-trade limit today. Back tomorrow.', disc_p: 'Set your own limits for trades per day, losses in a row and risk.',
+  emo_h: 'What emotions cost you', emo_calm: 'Calm', emo_hes: 'Hesitant', emo_rush: 'Rushed', emo_p: 'Average result per trade, by how you felt.',
+  emo_v1: '+0.8R', emo_v2: '−0.2R', emo_v3: '−0.6R', emo_v4: '−1.1R',
+  acc_h: 'Multiple accounts', acc_personal: 'Personal', acc_p: 'Copied trades are counted once in the combined view.', acc_v1: '+18.4R', acc_v2: '+6.1R', acc_v3: '−2.3R',
+  tg_h: 'Also in Telegram', tg_p: 'Nothing to install. Open the bot, log your trade, see your dashboard.',
+  price_h: 'Start free today. Pro is coming.', price_p: 'Journal, reports and analytics are free. Pro will add automatic account connection, the same data on web and Telegram, and an AI coach.',
+  plan_free: 'Free', plan_free_d: 'For everyone starting a trading journal.', plan_forever: 'forever',
+  feat_free: ['Unlimited manual trade logging', 'MT4/MT5 report upload', 'All reports, score and insights', 'Calendar, journal and playbooks', 'Prop firm rules and alerts', 'Multiple accounts', 'Works on phone and in Telegram'],
+  soon: 'Coming soon', plan_pro_d: 'For traders who don\'t want to upload reports.', pro_btn: 'Opening soon',
+  pro_fine: 'Opens once payments are ready. You can start with the free plan today.',
+  feat_plus: 'Everything in Free, plus:',
+  feat_pro: ['Connect your MT4/MT5 account and trades arrive on their own', 'The same data on web and Telegram', 'Screenshots on trades', 'AI coach: weekly summary and suggestions', 'Share with your mentor or a friend'],
+  cmp_show: 'Compare all features', cmp_hide: 'Hide comparison', cmp_feature: 'Feature', cmp_pro: 'Pro (soon)', yes_a: 'Included', no_a: 'Not included',
+  groups: [
+    ['Logging and import', [['Manual trade logging', 'y', 'y'], ['MT4/MT5 report upload', 'y', 'y'], ['Automatic account connection', 'n', 'y'], ['Screenshots on trades', 'n', 'y']]],
+    ['Analytics', [['All reports and TradeLog score', 'y', 'y'], ['Calendar, journal and playbooks', 'y', 'y'], ['AI coach', 'n', 'y']]],
+    ['Accounts', [['Multiple accounts', 'y', 'y'], ['Prop firm rules and alerts', 'y', 'y'], ['Count copied trades once', 'y', 'y']]],
+    ['Access', [['Phone and Telegram', 'y', 'y'], ['Same data on web and Telegram', 'n', 'y'], ['Share with a mentor', 'n', 'y']]]],
+  faq_h: 'Questions you might have',
+  faq: [
+    ['Do I need to give my account password?', 'No. Uploading your MT4/MT5 report is enough; we never ask for a password. The automatic connection coming with Pro will only ask for the investor (read-only) password, which cannot open trades or withdraw money.'],
+    ['Where is my data stored?', 'On your device. In a browser it stays in the browser\'s storage; in Telegram it stays in the cloud space Telegram gives this app. It is not sent to our servers. You can make a backup any time from Settings → Data.'],
+    ['Which platforms are supported?', 'MT4 and MT5 reports (HTML and Excel) today. Match-Trader and cTrader are next.'],
+    ['Does the free plan expire?', 'No. The free plan has no time limit and we don\'t ask for a card.'],
+    ['When is Pro coming?', 'We are building the server side for automatic account connection, the same data on web and Telegram, and the AI coach. We will announce it here when it is ready. Until then everything is in the free plan.'],
+    ['Can I use it on my phone?', 'Yes. It opens in your browser or inside Telegram and is designed for phone screens.']],
+  cta_h: 'Make your next trade more deliberate than your last.', cta_p: 'Add your account in a minute. Upload your first report and your dashboard fills up right away.',
+  foot_disc: 'TradeLog is a trading journal and does not give investment advice. Past results do not guarantee future results.',
+  foot_product: 'Product', foot_support: 'Support', foot_legal: 'Legal', foot_tg: 'Telegram app', foot_made: 'Made in Istanbul, for traders.',
+  pg_contact: 'Contact', pg_privacy: 'Privacy policy', pg_terms: 'Terms of use', back_home: 'Back to home',
+  d_panel: 'Dashboard', d_sample: 'Sample data', d_period: 'Period', d_per: { '7': '7D', '30': '30D', '90': '90D' },
+  d_sum: '{n} trades · {w} wins, {l} losses', d_wr: 'Win rate', d_pf: 'Profit factor', d_exp: 'Per trade', d_dd: 'Max drawdown', d_total: 'Total',
+  steps: [['Log it', 'When a trade closes, pick the symbol, setup and how you felt on your phone. 15 seconds.'], ['Upload your report', 'Once a week, upload your MT4/MT5 report. Numbers are corrected and missing trades added.'], ['See what works', 'Plain insights by setup, day, hour and emotion.']],
+  s_new: 'New trade', s_15: '15 seconds', s_sym: 'Symbol', s_side: 'Side', s_res: 'Result', s_feel: 'How did you feel going in?', s_try: 'Try it yourself', s_r: '+1.8R',
+  s_feels: ['Calm', 'Rushed', 'FOMO', 'Hesitant'],
+  s_imp: 'Upload report', s_ex: 'Sample', s_read: 'Read', s_acc: 'MT5 · Account 247806 → Funded 100K',
+  s_res_rows: [['Trades in the report', '28'], ['Matched your manual entries, notes kept', '6'], ['New trades to add', '22'], ['Deposits / withdrawals', '2'], ['Balance matches the report', '$101,284']],
+  s_tz: 'Time offset detected automatically: +3 hours',
+  s_ins_t: 'This month\'s insights',
+  s_ins: [['g', 'trend', 'Your best setup is Breakout', '+1.4R on average over 22 trades. Most of this month\'s gains came from it.'], ['r', 'pulse', 'FOMO cost you 7.2R', '7 of the 9 trades marked "FOMO" closed at a loss.'], ['r', 'cal', 'Monday is your weakest day', '−0.6R on average. Try trading less on Mondays.'], ['g', 'shield', 'Following your plan pays', 'On plan +0.7R, off plan −0.4R on average.']],
+  p_h: 'Your prop firm rules, always in view', p_p: 'Enter the daily loss, max loss and profit target per account. TradeLog warns you as you get close.', p_acc_aria: 'Account',
+  p_dl: 'Daily loss limit', p_ml: 'Max loss limit', p_tg: 'Profit target', p_none: 'Not on funded accounts', p_none_s: 'Profit targets apply to challenge accounts only',
+  p_left: '{x} left', p_tleft: '{x} to target', p_used: '{p} used', p_done: '{p} done', p_note: 'Only closed trades count. Percentages are based on the starting balance.',
+  pb_rules: ['With the trend', 'Level was retested', 'Risk 1% or less'], pb_in: 'On plan', pb_out: 'Off plan',
+  c_h: 'Calendar', c_month: 'October 2026 · sample', c_mname: 'Oct', c_wd: ['Mo', 'Tu', 'We', 'Th', 'Fr', 'Sa', 'Su'], c_none: 'no trades', c_future: 'not yet', c_n: '{n} trades', c_hint: 'Hover a day to see its result', c_win: 'Win', c_loss: 'Loss', c_empty: 'No trades',
+  pages: {
+    help: { t: 'Help', u: 'The most common questions about TradeLog', s: [
+      ['Getting started', '<ol><li>Press <b>Open app</b> at the top of the page.</li><li><b>Add your account</b>: upload an MT4/MT5 report or create the account manually.</li><li>If you uploaded a report, your dashboard fills up right away. If you created it manually, add your first trade.</li><li>Finish the steps in the <b>Getting started</b> list on your dashboard: playbook, prop rules, journal.</li></ol>'],
+      ['How to export an MT5 report', '<ol><li>Open MetaTrader 5 on your computer.</li><li>Open the <b>Toolbox</b>: Ctrl+T.</li><li>Go to the <b>History</b> tab, right-click the list and pick a date range.</li><li>Right-click again, choose <b>Report</b>, then <b>HTML</b> or <b>Open XML (Excel)</b>, and save it.</li><li>In TradeLog, choose <b>Add trade → Upload an MT4/MT5 report</b> and pick the file.</li></ol>'],
+      ['How to export an MT4 report', '<ol><li>Open MetaTrader 4 on your computer.</li><li>Open the <b>Terminal</b>: Ctrl+T.</li><li>In the <b>Account History</b> tab, right-click and pick the period (for example All History).</li><li>Right-click again, choose <b>Save as Detailed Report</b> and save the .htm file.</li><li>Upload the file in TradeLog.</li></ol>'],
+      ['Reports on a phone', '<p>The MT4 and MT5 phone apps can\'t export reports. Export the report on your computer; you can send the file to your phone and pick it in TradeLog there.</p>'],
+      ['What if I upload the same report again?', '<p>Nothing breaks. Trades already added are skipped and only new ones are added. Trades you entered manually are matched with the same trade in the report: your notes, setup and mindset are kept and the numbers are updated from the report.</p>'],
+      ['What is R?', '<p>R is a multiple of the amount you risked on a trade. A stop-out is −1R; winning twice your risk is +2R. This lets you compare trades across different lot and account sizes on one scale.</p><p>If the report has a stop loss, R is calculated automatically. If not, it is estimated from the account\'s risk percentage and shown with a ≈ sign.</p>'],
+      ['Using it in Telegram', '<p>Open <b>@tradelog_tanerphll_bot</b> in Telegram and press <b>Günlüğü Aç</b>. Your data is stored in Telegram\'s cloud, so you see the same data in Telegram on your phone and computer.</p>'],
+      ['Backing up and moving data', '<p>Use Settings → Data → <b>Download backup</b> to get all your data in one file. To move browser data into Telegram, bring the backup in with <b>Restore from backup file</b> or <b>Restore by pasting text</b>.</p>'],
+      ['Still stuck?', '<p>Write to us from the Contact page.</p>']] },
+    privacy: { t: 'Privacy policy', u: 'Last updated: October 24, 2026', s: [
+      ['In short', '<p>TradeLog currently runs without accounts or servers of its own. Your trades, notes, account details and settings are stored only on your device. We don\'t see, collect, share or sell this data.</p>'],
+      ['Where your data lives', '<ul><li><b>In a browser:</b> in the local storage your browser gives this site.</li><li><b>In Telegram:</b> in the cloud storage Telegram gives this app for your account. Telegram\'s own privacy terms also apply to it.</li></ul><p>Browser and Telegram data are separate; you can move data between them with a backup file.</p>'],
+      ['Reports you upload', '<p>MT4/MT5 reports are read on your device and never sent anywhere. The account number and server name in the report are kept on your device only, so later reports go to the right account. We never ask for your account password.</p>'],
+      ['Third-party services', '<p>When the page loads, fonts come from Google Fonts and the library that reads Excel files comes from cdnjs. Inside Telegram, Telegram\'s app library is used. These services may see technical details such as your IP address when they serve those files. We use no analytics, advertising or tracking cookies.</p>'],
+      ['Control over your data', '<p>From Settings → Data you can back up, export as CSV or delete all your data at any time. Clearing your browser data also deletes your records, so we recommend regular backups.</p>'],
+      ['Changes', '<p>When accounts, sync and Pro arrive, this policy will be updated to state clearly which data is kept on servers, for how long, and what your rights are.</p>'],
+      ['Contact', '<p>For questions or requests, use the address on the Contact page.</p>']] },
+    terms: { t: 'Terms of use', u: 'Last updated: October 24, 2026', s: [
+      ['The service', '<p>TradeLog is a trading journal for logging your trades and reviewing your results. You can use the free plan with no time limit.</p>'],
+      ['Not investment advice', '<p>Statistics, the TradeLog score and insights are calculated from the data you enter. They are not trading recommendations. Your trading decisions and their results are your own.</p>'],
+      ['Prop firm rules', '<p>The daily loss, max loss and profit target meters use the percentages you enter and your closed trades. They do not replace your firm\'s official calculation; check your firm\'s dashboard for exact figures.</p>'],
+      ['Your data', '<p>Because your data is kept on your device, making backups is your responsibility. We cannot recover deleted or lost data.</p>'],
+      ['Availability', '<p>TradeLog is provided as is. We work to fix bugs but cannot guarantee the service will run without interruptions or errors.</p>'],
+      ['Acceptable use', '<p>Do not try to break the service, access other people\'s data or misuse it.</p>'],
+      ['Changes', '<p>Terms for the paid plan will be added here when Pro and payments arrive. We announce important changes on the site.</p>']] },
+    contact: { t: 'Contact', u: '', s: [
+      ['Get in touch', '<p>Write to us about bugs, ideas or partnerships. We usually reply within a few business days.</p>{mail}'],
+      ['What helps us help you', '<ul><li>What you were trying to do and what happened</li><li>Phone or computer, browser or Telegram</li><li>For report uploads: MT4 or MT5, and the report\'s language</li></ul><p>Please don\'t send your report file; it may contain account details. We\'ll tell you how to share it if needed.</p>']] }
+  },
+  mail_none: '<p class="mailbox">Our email address will be listed here soon.</p>', mail_l: 'Email'
+}};
+const s = (k, o) => { let v = ST[LG()][k]; if (v == null) v = ST.tr[k]; if (v == null) return k; if (o && typeof v === 'string') for (const p in o) v = v.split('{' + p + '}').join(o[p]); return v; };
+
+/* ================= SİTE ================= */
+const S = { menu: false, per: '30', step: 0, chk: [true, true, false], acc: 0, day: -1, cmp: false, faq: 0, page: null };
 
 function renderDemo() {
   const cfg = { '7': [9, 14], '30': [34, 7], '90': [96, 4] }[S.per];
   const tr = gen(cfg[0], cfg[1]);
   const st = stats(tr), cv = curve(st.cum, 600, 220, 24, 204);
-  const seg = [['7','7G'],['30','30G'],['90','90G']].map(([k, l]) => `<button data-a="per" data-v="${k}" class="${S.per === k ? 'on' : ''}" aria-pressed="${S.per === k}">${l}</button>`).join('');
-  $('#demo').innerHTML = `<div class="dhead"><span class="t">Panel</span><span class="chip mu">Örnek veri</span><div class="seg ml" role="group" aria-label="Dönem">${seg}</div></div>
-<div class="net"><span class="v ${st.c >= 0 ? 'pos' : 'neg'}">${fr(st.c)}</span><span class="s">${st.n} işlem · ${st.w} kazanç, ${st.n - st.w} kayıp</span></div>
+  const per = s('d_per');
+  const seg = ['7', '30', '90'].map(k => `<button data-a="per" data-v="${k}" class="${S.per === k ? 'on' : ''}" aria-pressed="${S.per === k}">${per[k]}</button>`).join('');
+  $('#demo').innerHTML = `<div class="dhead"><span class="t">${s('d_panel')}</span><span class="chip mu">${s('d_sample')}</span><div class="seg ml" role="group" aria-label="${s('d_period')}">${seg}</div></div>
+<div class="net"><span class="v ${st.c >= 0 ? 'pos' : 'neg'}">${fr(st.c)}</span><span class="s">${s('d_sum', { n: st.n, w: st.w, l: st.n - st.w })}</span></div>
 <div class="chart" id="demoChart">${chartHTML(cv, 600, 220)}</div>
-<div class="kpis"><div class="kpi"><div class="l">Kazanma oranı</div><div class="n">%${Math.round(st.w / st.n * 100)}</div></div>
-<div class="kpi"><div class="l">Profit factor</div><div class="n">${st.gl ? (st.gw / st.gl).toFixed(2).replace('.', ',') : '—'}</div></div>
-<div class="kpi"><div class="l">İşlem başı</div><div class="n ${st.c >= 0 ? 'pos' : 'neg'}">${fr(st.c / st.n, 2)}</div></div>
-<div class="kpi"><div class="l">En derin düşüş</div><div class="n neg">${st.dd ? fr(-st.dd) : '0R'}</div></div></div>`;
-  bindChart($('#demoChart'), st.n, 600, 220, cv, st.cum, i => ({ neg: tr[i].r < 0, html: `#${i + 1} · ${tr[i].sym} · <b class="${tr[i].r > 0 ? 'pos' : 'neg'}">${fr(tr[i].r)}</b><br>Toplam <b>${fr(st.cum[i + 1])}</b>` }));
+<div class="kpis"><div class="kpi"><div class="l">${s('d_wr')}</div><div class="n">${pct(Math.round(st.w / st.n * 100))}</div></div>
+<div class="kpi"><div class="l">${s('d_pf')}</div><div class="n">${st.gl ? dec((st.gw / st.gl).toFixed(2)) : '—'}</div></div>
+<div class="kpi"><div class="l">${s('d_exp')}</div><div class="n ${st.c >= 0 ? 'pos' : 'neg'}">${fr(st.c / st.n, 2)}</div></div>
+<div class="kpi"><div class="l">${s('d_dd')}</div><div class="n neg">${st.dd ? fr(-st.dd) : '0R'}</div></div></div>`;
+  bindChart($('#demoChart'), st.n, 600, 220, cv, st.cum, i => ({ neg: tr[i].r < 0, html: `#${i + 1} · ${tr[i].sym} · <b class="${tr[i].r > 0 ? 'pos' : 'neg'}">${fr(tr[i].r)}</b><br>${s('d_total')} <b>${fr(st.cum[i + 1])}</b>` }));
 }
 
-const STEPS = [['Kaydet','İşlem kapanınca telefondan sembol, setup ve duyguyu seç. 15 saniye.'],['Raporu yükle','Haftada bir MT4/MT5 raporunu yükle. Rakamlar düzelir, eksikler eklenir.'],['Neyin işe yaradığını gör','Setup, gün, saat ve duyguya göre sade içgörüler.']];
+/* ürün turu: gerçek uygulama ekran görüntüleri (dile göre) */
+const TOUR_IMG = {"en": {"cal": "assets/tour/en_cal.webp", "dash": "assets/tour/en_dash.webp", "m_cal": "assets/tour/en_m_cal.webp", "m_dash": "assets/tour/en_m_dash.webp", "m_rep": "assets/tour/en_m_rep.webp", "m_trades": "assets/tour/en_m_trades.webp", "prop": "assets/tour/en_prop.webp", "rep": "assets/tour/en_rep.webp", "trades": "assets/tour/en_trades.webp"}, "tr": {"cal": "assets/tour/tr_cal.webp", "dash": "assets/tour/tr_dash.webp", "m_cal": "assets/tour/tr_m_cal.webp", "m_dash": "assets/tour/tr_m_dash.webp", "m_rep": "assets/tour/tr_m_rep.webp", "m_trades": "assets/tour/tr_m_trades.webp", "prop": "assets/tour/tr_prop.webp", "rep": "assets/tour/tr_rep.webp", "trades": "assets/tour/tr_trades.webp"}};
+let tourK = 'dash';
+const TOUR_MQ = matchMedia('(max-width: 640px)'); /* telefonda telefon ekran görüntüsü gösterilir */
+try { TOUR_MQ.addEventListener('change', () => renderTour()); } catch (e) {}
+function renderTour() {
+  const T = s('tour'), cur = T.find(x => x[0] === tourK) || T[0], im = (TOUR_IMG[LG()] || {});
+  $('#ttabs').innerHTML = T.map(([k, l]) => `<button role="tab" aria-selected="${k === cur[0]}" class="${k === cur[0] ? 'on' : ''}" data-a="tour" data-v="${k}">${l}</button>`).join('');
+  const img = $('#timg'), ph = TOUR_MQ.matches && im['m_' + cur[0]], src = ph || im[cur[0]];
+  img.width = ph ? 600 : 1280; img.height = ph ? 1169 : 800;
+  if (src && img.getAttribute('src') !== src) { img.classList.remove('fadein'); void img.offsetWidth; img.src = src; img.classList.add('fadein'); }
+  img.alt = cur[1] + ': ' + cur[2];
+  $('#tcap').textContent = cur[2];
+}
+function renderPropSec() {
+  $('#plist').innerHTML = s('plist').map(([i, h, d]) => `<li><span class="pi">${ic(i)}</span><span><b>${h}</b><span>${d}</span></span></li>`).join('');
+  const im = TOUR_IMG[LG()] || {}, img = $('#pimg');
+  if (im.prop) img.src = im.prop;
+  img.alt = s('prop_img');
+}
+function renderPlats() {
+  const st = s('plat_st');
+  $('#plats').innerHTML = s('plats').map(([n, k, d]) => `<div class="plat ${k}"><div class="pn">${n}</div><div class="pd">${d}</div><span class="ps">${k === 'ok' ? ic('check', 14, 3) : ''}${st[k]}</span></div>`).join('');
+}
+
 function renderSteps() {
-  $('#steps').innerHTML = STEPS.map(([t, d], i) => `<button class="step ${S.step === i ? 'on' : ''}" data-a="step" data-v="${i}" aria-pressed="${S.step === i}"><span class="no">${i + 1}</span><span><span class="st-h">${t}</span><span class="st-p">${d}</span></span></button>`).join('');
-  const ok = ic('check', 18, 2.4);
+  $('#steps').innerHTML = s('steps').map(([t, d], i) => `<button class="step ${S.step === i ? 'on' : ''}" data-a="step" data-v="${i}" aria-pressed="${S.step === i}"><span class="no">${i + 1}</span><span><span class="st-h">${t}</span><span class="st-p">${d}</span></span></button>`).join('');
+  const ok = ic('check', 18, 2.4), f = s('s_feels');
   const stages = [
-`<div class="stage"><div class="top"><span class="t">Yeni işlem</span><span class="chip">15 saniye</span></div>
-<div><div class="flabel">Sembol</div><div class="pills"><span class="pill on">EURUSD</span><span class="pill">XAUUSD</span><span class="pill">NAS100</span><span class="pill">GBPUSD</span></div></div>
-<div class="row2"><div><div class="flabel">Yön</div><div class="seg"><button class="on" tabindex="-1">Long</button><button tabindex="-1">Short</button></div></div><div><div class="flabel">Sonuç</div><div class="big-r">+1,8R</div></div></div>
+`<div class="stage"><div class="top"><span class="t">${s('s_new')}</span><span class="chip">${s('s_15')}</span></div>
+<div><div class="flabel">${s('s_sym')}</div><div class="pills"><span class="pill on">EURUSD</span><span class="pill">XAUUSD</span><span class="pill">NAS100</span><span class="pill">GBPUSD</span></div></div>
+<div class="row2"><div><div class="flabel">${s('s_side')}</div><div class="seg"><button class="on" tabindex="-1">Long</button><button tabindex="-1">Short</button></div></div><div><div class="flabel">${s('s_res')}</div><div class="big-r">${s('s_r')}</div></div></div>
 <div><div class="flabel">Setup</div><div class="pills"><span class="pill on">Breakout</span><span class="pill">Pullback</span><span class="pill">Range</span></div></div>
-<div><div class="flabel">Girerken nasıl hissettin?</div><div class="pills"><span class="pill on">Sakin</span><span class="pill">Aceleci</span><span class="pill lo">FOMO</span><span class="pill">Kararsız</span></div></div>
-<a class="btn btn-p" href="#/app" style="margin-top:auto">Kendin dene</a></div>`,
-`<div class="stage"><div class="top"><span class="t">Rapor yükle</span><span class="chip mu">Örnek</span></div>
-<div class="drop"><span class="fi">${ic('file', 22, 1.9)}</span><span style="min-width:0"><b style="display:block">Report-247806.html</b><span style="color:#A1A6B4;font-size:14px">MT5 · Hesap 247806 → Funded 100K</span></span><span class="chip ml">Okundu</span></div>
-<div class="res"><div>${ok}Rapordaki işlemler<span class="mono">28</span></div><div>${ok}Elle girdiklerinle eşleşti, notların korundu<span class="mono">6</span></div><div>${ok}Yeni eklenecek<span class="mono">22</span></div><div>${ok}Para yatırma / çekme<span class="mono">2</span></div><div>${ok}Bakiye rapordakiyle aynı<span class="mono">$101.284</span></div></div>
-<div style="display:flex;gap:10px;align-items:center;font-size:14px;color:#A1A6B4">${ic('clock', 18, 1.9)}Saat farkı otomatik bulundu: +3 saat</div>
-<a class="btn btn-p" href="#/app?import" style="margin-top:auto">Kendin dene</a></div>`,
-`<div class="stage"><div class="top"><span class="t">Bu ayın içgörüleri</span><span class="chip mu">Örnek</span></div>
-<div class="ins"><span class="ic g">${ic('trend')}</span><span><b>En iyi setup'ın Breakout</b><span>22 işlemde ortalama +1,4R. Bu ay kazancının çoğu buradan geldi.</span></span></div>
-<div class="ins" style="animation-delay:.08s"><span class="ic r">${ic('pulse')}</span><span><b>FOMO sana 7,2R kaybettirdi</b><span>"FOMO" işaretli 9 işlemin 7'si zararla kapandı.</span></span></div>
-<div class="ins" style="animation-delay:.16s"><span class="ic r">${ic('cal')}</span><span><b>Pazartesi en zayıf günün</b><span>Ortalama −0,6R. Pazartesi işlem sayını azaltmayı dene.</span></span></div>
-<div class="ins" style="animation-delay:.24s"><span class="ic g">${ic('shield')}</span><span><b>Plana uyduğun işlemler kazandırıyor</b><span>Plan içi +0,7R, plan dışı −0,4R ortalama.</span></span></div></div>`];
+<div><div class="flabel">${s('s_feel')}</div><div class="pills"><span class="pill on">${f[0]}</span><span class="pill">${f[1]}</span><span class="pill lo">${f[2]}</span><span class="pill">${f[3]}</span></div></div>
+<a class="btn btn-p" href="#/app" style="margin-top:auto">${s('s_try')}</a></div>`,
+`<div class="stage"><div class="top"><span class="t">${s('s_imp')}</span><span class="chip mu">${s('s_ex')}</span></div>
+<div class="drop"><span class="fi">${ic('file', 22, 1.9)}</span><span style="min-width:0"><b style="display:block">Report-247806.html</b><span style="color:#A1A6B4;font-size:14px">${s('s_acc')}</span></span><span class="chip ml">${s('s_read')}</span></div>
+<div class="res">${s('s_res_rows').map(([a, b]) => `<div>${ok}${a}<span class="mono">${b}</span></div>`).join('')}</div>
+<div style="display:flex;gap:10px;align-items:center;font-size:14px;color:#A1A6B4">${ic('clock', 18, 1.9)}${s('s_tz')}</div>
+<a class="btn btn-p" href="#/app?import" style="margin-top:auto">${s('s_try')}</a></div>`,
+`<div class="stage"><div class="top"><span class="t">${s('s_ins_t')}</span><span class="chip mu">${s('s_ex')}</span></div>
+${s('s_ins').map(([c, i, b, d], k) => `<div class="ins" style="animation-delay:${(k * .08).toFixed(2)}s"><span class="ic ${c}">${ic(i)}</span><span><b>${b}</b><span>${d}</span></span></div>`).join('')}</div>`];
   $('#stage').innerHTML = stages[S.step];
 }
 
 function renderProp() {
   const PA = [{ dl: [310, 1250], ml: [640, 2500], tg: [1280, 2000] }, { dl: [3600, 5000], ml: [4100, 10000], tg: null }][S.acc];
   const mk = (label, pair, kind) => {
-    if (!pair) return `<div class="meter"><div class="r"><span style="font-weight:600">${label}</span><span class="mono">Funded hesapta yok</span></div><div class="bar"><i style="width:0"></i></div><div class="r"><span class="s">Kâr hedefi yalnızca challenge hesaplarında</span><span class="chip mu">—</span></div></div>`;
-    const pct = Math.round(pair[0] / pair[1] * 100), warn = kind !== 'tg' && pct >= 70;
-    const col = kind === 'tg' ? '#94C5CC' : warn ? '#F87171' : pct >= 50 ? '#B4D2E7' : '#94C5CC';
-    return `<div class="meter"><div class="r"><span style="font-weight:600">${label}</span><span class="mono">${money(pair[0])} / ${money(pair[1])}</span></div><div class="bar"><i style="width:${pct}%;background:${col}"></i></div><div class="r"><span class="s">${kind === 'tg' ? 'Hedefe kalan ' : 'Kalan '}${money(pair[1] - pair[0])}</span><span class="chip ${warn ? 'warn' : kind === 'tg' ? '' : 'mu'}">%${pct}${kind === 'tg' ? ' tamam' : ' kullanıldı'}</span></div></div>`;
+    if (!pair) return `<div class="meter"><div class="r"><span style="font-weight:600">${label}</span><span class="mono">${s('p_none')}</span></div><div class="bar"><i style="width:0"></i></div><div class="r"><span class="s">${s('p_none_s')}</span><span class="chip mu">—</span></div></div>`;
+    const p = Math.round(pair[0] / pair[1] * 100), warn = kind !== 'tg' && p >= 70;
+    const col = kind === 'tg' ? '#94C5CC' : warn ? '#F87171' : p >= 50 ? '#B4D2E7' : '#94C5CC';
+    return `<div class="meter"><div class="r"><span style="font-weight:600">${label}</span><span class="mono">${money(pair[0])} / ${money(pair[1])}</span></div><div class="bar"><i style="width:${p}%;background:${col}"></i></div><div class="r"><span class="s">${s(kind === 'tg' ? 'p_tleft' : 'p_left', { x: money(pair[1] - pair[0]) })}</span><span class="chip ${warn ? 'warn' : kind === 'tg' ? '' : 'mu'}">${s(kind === 'tg' ? 'p_done' : 'p_used', { p: pct(p) })}</span></div></div>`;
   };
   const tabs = ['Challenge 25K', 'Funded 100K'].map((l, i) => `<button data-a="pacc" data-v="${i}" class="${S.acc === i ? 'on' : ''}" aria-pressed="${S.acc === i}">${l}</button>`).join('');
-  $('#b-prop').innerHTML = `<div class="hd"><span class="ic">${ic('shield')}</span><h3>Prop firm kuralların her an önünde</h3></div>
-<p>Günlük kayıp, toplam kayıp ve kâr hedefini hesap başına gir. Limite yaklaşınca TradeLog seni uyarır.</p>
-<div class="seg" role="group" aria-label="Hesap" style="align-self:flex-start">${tabs}</div>
-${mk('Günlük kayıp limiti', PA.dl, 'dl')}${mk('Toplam kayıp limiti', PA.ml, 'ml')}${mk('Kâr hedefi', PA.tg, 'tg')}
-<p style="font-size:13px">Sadece kapanmış işlemler sayılır. Oranlar başlangıç bakiyesine göredir.</p>`;
+  $('#b-prop').innerHTML = `<div class="hd"><span class="ic">${ic('shield')}</span><h3>${s('p_h')}</h3></div>
+<p>${s('p_p')}</p>
+<div class="seg" role="group" aria-label="${s('p_acc_aria')}" style="align-self:flex-start">${tabs}</div>
+${mk(s('p_dl'), PA.dl, 'dl')}${mk(s('p_ml'), PA.ml, 'ml')}${mk(s('p_tg'), PA.tg, 'tg')}
+<p style="font-size:13px">${s('p_note')}</p>`;
 }
 
 function renderPB() {
-  const T = ['Trend yönünde', 'Seviye retest edildi', 'Risk %1 veya altı'];
-  const k = S.chk.filter(Boolean).length;
-  $('#b-pb').innerHTML = `<div class="hd"><span class="ic">${ic('book')}</span><h3>Playbook</h3><span class="chip ml ${k === 3 ? '' : 'warn'}">${k}/3 · ${k === 3 ? 'Plan içi' : 'Plan dışı'}</span></div>
+  const T = s('pb_rules'), k = S.chk.filter(Boolean).length;
+  $('#b-pb').innerHTML = `<div class="hd"><span class="ic">${ic('book')}</span><h3>Playbook</h3><span class="chip ml ${k === 3 ? '' : 'warn'}">${k}/3 · ${k === 3 ? s('pb_in') : s('pb_out')}</span></div>
 <div class="chk">${T.map((t, i) => `<button data-a="chk" data-v="${i}" aria-pressed="${S.chk[i]}"><span class="box ${S.chk[i] ? 'on' : ''}">${S.chk[i] ? ic('check', 14, 3) : ''}</span>${t}</button>`).join('')}</div>`;
 }
 
-let CAL = null;
 function calData() {
-  if (CAL) return CAL;
-  const rnd = lcg(97), days = [];
+  const rnd = lcg(97), days = [], mn = s('c_mname'), lab = d => LG() === 'tr' ? d + ' ' + mn : mn + ' ' + d;
   for (let i = 0; i < 35; i++) {
     const d = i - 2;
     if (d < 1 || d > 31) { days.push({ d: 0, cls: 'cx' }); continue; }
     const wd = i % 7;
-    let cls = 'c0', txt = d + ' Ekim · işlem yok';
-    if (d > 23) { cls = 'cf'; txt = d + ' Ekim · henüz gelmedi'; }
-    else if (wd < 5) { const q = rnd(), v = Math.round((rnd() * 4.6 - 1.7) * 10) / 10, k = 1 + Math.floor(rnd() * 4); if (q > .14) { cls = v >= 1.5 ? 'cw' : v > 0 ? 'cp' : 'cn'; txt = d + ' Ekim · ' + fr(v) + ' · ' + k + ' işlem'; } }
+    let cls = 'c0', txt = lab(d) + ' · ' + s('c_none');
+    if (d > 23) { cls = 'cf'; txt = lab(d) + ' · ' + s('c_future'); }
+    else if (wd < 5) { const q = rnd(), v = Math.round((rnd() * 4.6 - 1.7) * 10) / 10, k = 1 + Math.floor(rnd() * 4); if (q > .14) { cls = v >= 1.5 ? 'cw' : v > 0 ? 'cp' : 'cn'; txt = lab(d) + ' · ' + fr(v) + ' · ' + s('c_n', { n: k }); } }
     days.push({ d, cls, txt });
   }
-  return (CAL = days);
+  return days;
 }
 function renderCal() {
   const days = calData(), sel = S.day > 0 ? days.find(x => x.d === S.day) : null;
-  $('#b-cal').innerHTML = `<div class="hd"><span class="ic">${ic('cal')}</span><h3>Takvim</h3><span class="chip mu ml">Ekim 2026 · örnek</span></div>
-<div class="cal">${['Pt','Sa','Ça','Pe','Cu','Ct','Pz'].map(x => `<span class="dw">${x}</span>`).join('')}${days.map(x => x.d ? `<button class="d ${x.cls} ${S.day === x.d ? 'sel' : ''}" data-a="day" data-v="${x.d}" data-h="day" aria-label="${esc(x.txt)}">${x.d}</button>` : `<span class="d cx"></span>`).join('')}</div>
-<div class="calinfo"><span class="mono" id="calTxt">${sel ? esc(sel.txt) : 'Bir güne gel, sonucu gör'}</span><span class="lg"><span><i style="background:#4ADE80"></i>Kazanç</span><span><i style="background:#F87171"></i>Kayıp</span><span><i style="background:#1B1E24"></i>İşlem yok</span></span></div>`;
+  $('#b-cal').innerHTML = `<div class="hd"><span class="ic">${ic('cal')}</span><h3>${s('c_h')}</h3><span class="chip mu ml">${s('c_month')}</span></div>
+<div class="cal">${s('c_wd').map(x => `<span class="dw">${x}</span>`).join('')}${days.map(x => x.d ? `<button class="d ${x.cls} ${S.day === x.d ? 'sel' : ''}" data-a="day" data-v="${x.d}" data-h="day" aria-label="${esc(x.txt)}">${x.d}</button>` : `<span class="d cx"></span>`).join('')}</div>
+<div class="calinfo"><span class="mono" id="calTxt">${sel ? esc(sel.txt) : s('c_hint')}</span><span class="lg"><span><i style="background:#4ADE80"></i>${s('c_win')}</span><span><i style="background:#F87171"></i>${s('c_loss')}</span><span><i style="background:#1B1E24"></i>${s('c_empty')}</span></span></div>`;
 }
 
-function renderBill() {
-  const y = S.bill === 'y';
-  $('#bill').innerHTML = `<button data-a="bill" data-v="m" class="${y ? '' : 'on'}" aria-pressed="${!y}">Aylık</button><button data-a="bill" data-v="y" class="${y ? 'on' : ''}" aria-pressed="${y}">Yıllık<span class="save">İNDİRİMLİ</span></button>`;
-  $('#proPrice').innerHTML = `<span class="a">${y ? '[YILLIK FİYAT]' : '[AYLIK FİYAT]'}</span><span class="u">${y ? '/ ay · yıllık ödenir' : '/ ay'}</span>`;
-}
-
-const GROUPS = [
-  ['Kayıt ve içe aktarma', [['Elle işlem kaydı','y','y'],['MT4/MT5 raporu yükleme','y','y'],['Hesabı bağlayıp otomatik aktarma','n','y'],['Ekran görüntüsü ekleme','n','y']]],
-  ['Analiz', [['Tüm raporlar ve TradeLog puanı','y','y'],['Takvim, günlük ve playbook','y','y'],['AI koç','n','y']]],
-  ['Hesaplar', [['Hesap sayısı','2','20'],['Prop firm kuralları ve uyarılar','y','y'],['Kopya işlemleri bir kez sayma','y','y']]],
-  ['Erişim', [['Telefon ve Telegram','y','y'],['Web ve Telegram arasında aynı veri','n','y'],['Mentorla paylaşım','n','y']]]
-];
 function renderCmp() {
-  const cell = v => v === 'y' ? ic('check', 20, 2.4, 'class="y" role="img" aria-label="Var"').replace('aria-hidden="true"', '') : v === 'n' ? ic('minus', 20, 2.4, 'class="no" role="img" aria-label="Yok"').replace('aria-hidden="true"', '') : `<span class="mono">${v}</span>`;
-  $('#cmp').innerHTML = `<div class="cr h"><div>Özellik</div><div class="c">Ücretsiz</div><div class="c">Pro</div></div>` + GROUPS.map(([g, rows]) => `<div class="cr g"><div>${g}</div><div></div><div></div></div>` + rows.map(([t, f, p]) => `<div class="cr"><div>${t}</div><div class="c">${cell(f)}</div><div class="c">${cell(p)}</div></div>`).join('')).join('');
+  const cell = v => v === 'y' ? ic('check', 20, 2.4, `class="y" role="img" aria-label="${s('yes_a')}"`).replace('aria-hidden="true"', '') : v === 'n' ? ic('minus', 20, 2.4, `class="no" role="img" aria-label="${s('no_a')}"`).replace('aria-hidden="true"', '') : `<span class="mono">${v}</span>`;
+  $('#cmp').innerHTML = `<div class="cr h"><div>${s('cmp_feature')}</div><div class="c">${s('plan_free')}</div><div class="c">${s('cmp_pro')}</div></div>` + s('groups').map(([g, rows]) => `<div class="cr g"><div>${g}</div><div></div><div></div></div>` + rows.map(([t, f, p]) => `<div class="cr"><div>${t}</div><div class="c">${cell(f)}</div><div class="c">${cell(p)}</div></div>`).join('')).join('');
   $('#cmp').hidden = !S.cmp;
   $('#cmpb').classList.toggle('open', S.cmp);
   $('#cmpb button').setAttribute('aria-expanded', S.cmp);
-  $('#cmpb span').textContent = S.cmp ? 'Karşılaştırmayı gizle' : 'Tüm özellikleri karşılaştır';
+  $('#cmpb span').textContent = S.cmp ? s('cmp_hide') : s('cmp_show');
 }
 
-const FAQ = [
-  ['Hesap şifremi vermem gerekiyor mu?', 'Ücretsiz planda hayır. MT4/MT5 raporunu yüklemen yeterli. Pro\'da hesabını otomatik bağlamak istersen yalnızca yatırımcı (salt okunur) şifren istenir; bu şifreyle işlem açılamaz, para çekilemez.'],
-  ['Hangi platformlar destekleniyor?', 'Şu an MT4 ve MT5 raporları (HTML ve Excel). Match-Trader ve cTrader sırada.'],
-  ['Ücretsiz plan bir süre sonra bitiyor mu?', 'Hayır. Ücretsiz plan süresiz; kart bilgisi de istemiyoruz.'],
-  ['Pro\'yu bırakırsam verilerim ne olur?', 'Hiçbir şey silinmez. 2\'den fazla hesabın varsa fazlası salt okunur kalır, istediğin zaman tekrar açarsın.'],
-  ['Telefondan kullanabilir miyim?', 'Evet. Tarayıcıdan ya da Telegram içinden açılır, telefon ekranına göre tasarlandı.']
-];
 function renderFaq() {
-  $('#faq').innerHTML = FAQ.map(([q, a], i) => `<div class="q ${S.faq === i ? 'open' : ''}"><button data-a="faq" data-v="${i}" aria-expanded="${S.faq === i}" aria-controls="fa${i}">${q}${ic('chev', 20, 2.2, 'class="chev"')}</button>${S.faq === i ? `<p class="ans" id="fa${i}">${a}</p>` : ''}</div>`).join('');
+  $('#faq').innerHTML = s('faq').map(([q, a], i) => `<div class="q ${S.faq === i ? 'open' : ''}"><button data-a="faq" data-v="${i}" aria-expanded="${S.faq === i}" aria-controls="fa${i}">${q}${ic('chev', 20, 2.2, 'class="chev"')}</button>${S.faq === i ? `<p class="ans" id="fa${i}">${a}</p>` : ''}</div>`).join('');
 }
 function renderFeat() {
-  $$('[data-feat]').forEach(ul => {
-    ul.innerHTML = (ul.dataset.plus ? `<li class="plus">${ul.dataset.plus}</li>` : '') + ul.dataset.feat.split('|').map(t => `<li>${ic('check', 18, 2.4)}${t}</li>`).join('');
+  $$('[data-featk]', SITE).forEach(ul => {
+    ul.innerHTML = (ul.dataset.plusk ? `<li class="plus">${s(ul.dataset.plusk)}</li>` : '') + s(ul.dataset.featk).map(t => `<li>${ic('check', 18, 2.4)}${t}</li>`).join('');
   });
 }
 function setMenu(open) {
@@ -2820,10 +3228,47 @@ function setMenu(open) {
   $('#mmenu').hidden = !open;
   const b = $('#burger');
   b.setAttribute('aria-expanded', open);
-  b.setAttribute('aria-label', open ? 'Menüyü kapat' : 'Menüyü aç');
+  b.setAttribute('aria-label', open ? s('menu_close') : s('menu_open'));
   b.innerHTML = ic(open ? 'close' : 'menu', 22, 2);
 }
 
+/* ---------- yasal sayfalar ve iletişim ---------- */
+const PAGE_HASH = { help: 'yardim', privacy: 'gizlilik', terms: 'kosullar', contact: 'iletisim' };
+function renderPage() {
+  if (!S.page) return;
+  const p = s('pages')[S.page];
+  const mail = CONTACT ? `<p class="mailbox"><span>${s('mail_l')}</span><a href="mailto:${esc(CONTACT)}">${esc(CONTACT)}</a></p>` : s('mail_none');
+  $('#pageBody').innerHTML = `<h1>${p.t}</h1>${p.u ? `<p class="upd">${p.u}</p>` : ''}${p.s.map(([h, b]) => `<section><h2>${h}</h2>${b.replace('{mail}', mail)}</section>`).join('')}`;
+}
+function showPage(name) {
+  S.page = name; setMenu(false);
+  $('#home').hidden = true; $('#pageView').hidden = false;
+  renderPage(); window.scrollTo(0, 0);
+  try { history.replaceState(null, '', '#' + PAGE_HASH[name]); } catch (e) {}
+}
+function showHome(id) {
+  const wasPage = !!S.page;
+  S.page = null; $('#pageView').hidden = true; $('#home').hidden = false;
+  if (wasPage) { try { history.replaceState(null, '', location.pathname + location.search); } catch (e) {} }
+  const t = id && document.getElementById(id);
+  if (t) requestAnimationFrame(() => t.scrollIntoView()); else window.scrollTo(0, 0);
+}
+
+/* ---------- dil ---------- */
+function applyLang() {
+  const lg = LG();
+  document.documentElement.lang = lg;
+  $$('[data-st]', SITE).forEach(el => { const v = s(el.dataset.st); if (typeof v === 'string') el.innerHTML = v; });
+  $$('[data-sa]', SITE).forEach(el => el.setAttribute('aria-label', s(el.dataset.sa)));
+  $$('[data-a="lang"]', SITE).forEach(b => { const on = b.dataset.v === lg; b.classList.toggle('on', on); b.setAttribute('aria-pressed', on); });
+  setMenu(S.menu);
+  renderFeat(); renderDemo(); renderTour(); renderSteps(); renderProp(); renderPB(); renderCal(); renderPropSec(); renderPlats(); renderCmp(); renderFaq(); renderPage();
+}
+function setSiteLang(v) {
+  if (typeof setLang === 'function') setLang(v); /* uygulamayla aynı ayarı kullanır */
+  else { try { localStorage.setItem('tradelog_lang', v); } catch (e) {} }
+  applyLang();
+}
 
 /* ---------- görünüm: tanıtım sitesi / uygulama ---------- */
 const APP = document.getElementById('appRoot');
@@ -2832,7 +3277,7 @@ function showApp(after) {
   SITE.hidden = true; APP.hidden = false; setMenu(false);
   try { localStorage.setItem(ENTER, '1'); } catch (e) {}
   window.scrollTo(0, 0);
-  if (typeof render === 'function') render();
+  if (typeof render === 'function') { render(); if (typeof viewIn === 'function') viewIn(); }
   if (after === 'import' && typeof openImport === 'function') openImport();
 }
 function showSite(id) {
@@ -2840,27 +3285,33 @@ function showSite(id) {
   if (typeof closeForm === 'function' && typeof formOpen === 'function' && formOpen()) closeForm();
   APP.hidden = true; SITE.hidden = false;
   try { localStorage.removeItem(ENTER); } catch (e) {}
-  const t = id && document.getElementById(id);
-  if (t) requestAnimationFrame(() => t.scrollIntoView()); else window.scrollTo(0, 0);
+  applyLang(); showHome(id);
 }
 window.showApp = showApp; window.showSite = showSite;
 
 /* ---------- olaylar (yalnızca site) ---------- */
 const H = {
   menu: () => setMenu(!S.menu), menuClose: () => setMenu(false),
-  lang: (v) => $$('[data-a="lang"]', SITE).forEach(b => { const on = b.dataset.v === v; b.classList.toggle('on', on); b.setAttribute('aria-pressed', on); }),
+  lang: v => setSiteLang(v),
+  home: () => showHome('top'),
   per: v => { S.per = v; renderDemo(); },
+  tour: v => { tourK = v; renderTour(); },
   step: v => { S.step = +v; renderSteps(); },
   pacc: v => { S.acc = +v; renderProp(); },
   chk: v => { S.chk[+v] = !S.chk[+v]; renderPB(); },
   day: v => { S.day = +v; renderCal(); },
-  bill: v => { S.bill = v; renderBill(); },
   cmp: () => { S.cmp = !S.cmp; renderCmp(); },
   faq: v => { S.faq = S.faq === +v ? -1 : +v; renderFaq(); }
 };
 SITE.addEventListener('click', e => {
-  const a = e.target.closest('a[href^="#/app"]');
-  if (a) { e.preventDefault(); showApp(a.getAttribute('href').includes('import') ? 'import' : null); return; }
+  const a = e.target.closest('a[href^="#"]');
+  if (a) {
+    const h = a.getAttribute('href');
+    if (h.startsWith('#/app')) { e.preventDefault(); showApp(h.includes('import') ? 'import' : null); return; }
+    if (a.dataset.page) { e.preventDefault(); showPage(a.dataset.page); return; }
+    if (a.dataset.a === 'home') { e.preventDefault(); setMenu(false); showHome('top'); return; }
+    if (S.page) { e.preventDefault(); setMenu(false); showHome(h.slice(1)); return; }
+  }
   const el = e.target.closest('[data-a]'); if (!el) return;
   const fn = H[el.dataset.a]; if (fn) fn(el.dataset.v, el, e);
 });
@@ -2871,9 +3322,11 @@ SITE.addEventListener('pointerover', e => {
 document.addEventListener('keydown', e => { if (e.key === 'Escape' && S.menu) setMenu(false); });
 
 fillIcons(SITE);
-renderFeat(); renderDemo(); renderSteps(); renderProp(); renderPB(); renderCal(); renderBill(); renderCmp(); renderFaq();
+applyLang();
 let entered = false; try { entered = localStorage.getItem(ENTER) === '1'; } catch (e) {}
-if ((typeof TG !== 'undefined' && TG) || entered || /^#(panel|\/?app)/.test(location.hash)) showApp(); else showSite();
+const hp = Object.keys(PAGE_HASH).find(k => location.hash === '#' + PAGE_HASH[k]);
+if (hp && !(typeof TG !== 'undefined' && TG)) { SITE.hidden = false; APP.hidden = true; showPage(hp); }
+else if ((typeof TG !== 'undefined' && TG) || entered || /^#(panel|\/?app)/.test(location.hash)) showApp(); else showSite();
 })();
 
 </script>

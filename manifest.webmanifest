@@ -1,0 +1,23 @@
+{
+ "name": "TradeLog",
+ "short_name": "TradeLog",
+ "description": "Ücretsiz trading günlüğü: işlemini 15 saniyede kaydet ya da MT4/MT5 raporunu yükle, neyin işe yaradığını R cinsinden gör.",
+ "start_url": "./#panel",
+ "scope": "./",
+ "display": "standalone",
+ "background_color": "#000100",
+ "theme_color": "#000100",
+ "lang": "tr",
+ "icons": [
+  {
+   "src": "assets/icon-192.png",
+   "sizes": "192x192",
+   "type": "image/png"
+  },
+  {
+   "src": "assets/icon-512.png",
+   "sizes": "512x512",
+   "type": "image/png"
+  }
+ ]
+}
