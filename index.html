@@ -66,7 +66,7 @@ body{background:var(--bg);color:var(--ink);font:15px/1.5 var(--f);font-variant-n
 .ap .nav.on .ct{background:var(--sf);color:var(--ink)}
 .ap .side .grow{flex:1;min-height:12px}
 .ap .sidefoot{font-size:12px;color:var(--ink3);padding:10px 12px 0;line-height:1.45}
-.ap .main{min-width:0;padding:0 32px 56px;max-width:1320px;width:100%}
+.ap .main{min-width:0;padding:0 32px 56px;width:100%;container:main/inline-size;transition:padding-right .5s cubic-bezier(.22,1,.36,1)}
 .ap .top{display:flex;align-items:center;gap:10px;flex-wrap:wrap;padding:22px 0 18px;position:sticky;top:0;z-index:20;background:var(--bg)}
 .ap .top h1{font:700 30px/1.15 var(--fd);letter-spacing:-.03em;margin-right:auto}
 .ap .top .ctl{display:flex;align-items:center;gap:10px;flex-wrap:wrap;justify-content:flex-end}
@@ -402,6 +402,15 @@ body.tg .addbtn,body.tg #fSave,body.tg .fab,body.tg .sitelink{display:none}
 .ap .o5{order:5}
 .ap .o6{order:6}
 .ap .o7{order:7}}
+@container main (max-width:880px){.ap .dgrid{grid-template-columns:minmax(0,1fr)}
+.ap .dcl,.ap .dcr{display:contents}
+.ap .o1{order:1}
+.ap .o2{order:2}
+.ap .o3{order:3}
+.ap .o4{order:4}
+.ap .o5{order:5}
+.ap .o6{order:6}
+.ap .o7{order:7}}
 @media (max-width:900px){.ap .app{grid-template-columns:minmax(0,1fr)}
 .ap .side{display:none}
 .ap .main{padding:0 16px calc(96px + env(safe-area-inset-bottom,0px))}
@@ -629,10 +638,35 @@ body.ro .addbtn,body.ro .fab,body.ro #sideActs,body.ro .proside{display:none}
 .ap .syimp b{font-size:14px}
 .ap .syimp .hint{margin-top:2px}
 .ap .sylnk{font-size:13px;color:var(--br);text-decoration:underline;text-underline-offset:3px;padding:0}
-.ap .aip{position:fixed;top:0;right:0;bottom:0;width:min(440px,100vw);z-index:45;background:var(--sf);border-left:1px solid var(--ln);display:flex;flex-direction:column;
- transform:translateX(102%);transition:transform .32s cubic-bezier(.2,.8,.2,1),box-shadow .32s;visibility:hidden}
-.ap .aip.on{transform:none;visibility:visible;box-shadow:-24px 0 60px -20px rgba(0,1,0,.35)}
-body.aion .main{padding-right:472px;transition:padding .32s}
+.ap .aip{position:fixed;top:0;right:0;bottom:0;width:min(440px,100vw);z-index:45;background:var(--sf);border-left:1px solid var(--ln);display:flex;flex-direction:column;overflow:hidden;
+ transform:translateX(104%);opacity:.4;visibility:hidden;transition:transform .5s cubic-bezier(.22,1,.36,1),opacity .35s ease,box-shadow .5s,visibility 0s linear .5s}
+.ap .aip.on{transform:none;opacity:1;visibility:visible;box-shadow:-30px 0 80px -30px rgba(0,1,0,.45);transition:transform .5s cubic-bezier(.22,1,.36,1),opacity .35s ease,box-shadow .5s,visibility 0s}
+.ap .aip::before{content:"";position:absolute;inset:-120px -80px auto auto;width:340px;height:340px;border-radius:50%;background:radial-gradient(circle,rgba(148,197,204,.22),transparent 65%);pointer-events:none;opacity:0;transition:opacity .9s ease .15s}
+.ap .aip.on::before{opacity:1}
+.ap .aip>*{position:relative}
+body.aion .main{padding-right:472px}
+.ap .aip.on .aiph{animation:aiup .5s cubic-bezier(.22,1,.36,1) both}
+.ap .aip.on .aihello{animation:aiup .6s cubic-bezier(.22,1,.36,1) .08s both}
+.ap .aip.on .aiideas>*{animation:aiup .55s cubic-bezier(.22,1,.36,1) both}
+.ap .aip.on .aiideas>*:nth-child(1){animation-delay:.16s}
+.ap .aip.on .aiideas>*:nth-child(2){animation-delay:.22s}
+.ap .aip.on .aiideas>*:nth-child(3){animation-delay:.28s}
+.ap .aip.on .aiideas>*:nth-child(4){animation-delay:.34s}
+.ap .aip.on .aipc{animation:aiup .55s cubic-bezier(.22,1,.36,1) .2s both}
+@keyframes aiup{from{opacity:0;transform:translateY(14px)}}
+.ap .aip.on .aihello .aimk{animation:aipop .7s cubic-bezier(.34,1.56,.64,1) .1s both}
+.ap .aip.on .aihello .aimk rect:not(.bg){animation:aigrow .7s cubic-bezier(.22,1,.36,1) both}
+.ap .aip.on .aihello .aimk .b1{animation-delay:.3s}
+.ap .aip.on .aihello .aimk .b2{animation-delay:.38s}
+.ap .aip.on .aihello .aimk .b3{animation-delay:.46s}
+@keyframes aipop{from{opacity:0;transform:scale(.6) rotate(-8deg)}}
+@keyframes aigrow{from{transform:scaleY(0)}}
+.ap .aiidea{position:relative}
+.ap .aiidea:hover{transform:translateY(-1px)}
+.ap .aiidea svg{transition:transform .2s}
+.ap .aiidea:hover svg{transform:translateX(3px);color:var(--br)}
+.ap .aiside{transition:border-color .2s,background .2s}
+.ap .aiside.on{border-color:var(--br);background:var(--brs)}
 @media (max-width:1180px){body.aion .main{padding-right:0}}
 .ap .aiph{display:flex;align-items:center;gap:10px;padding:14px 12px 14px 18px;border-bottom:1px solid var(--ln2)}
 .ap .aipt{flex:1;min-width:0;display:flex;flex-direction:column;line-height:1.25}
@@ -698,8 +732,9 @@ body.aion .main{padding-right:472px;transition:padding .32s}
 .ap .aisend{width:36px;height:36px;border-radius:50%;background:var(--ink);color:var(--sf);display:grid;place-items:center;flex:none;transition:opacity .15s}
 .ap .aisend:disabled{opacity:.35}
 .ap .aift{font-size:11.5px;color:var(--ink3);margin-top:8px;text-align:center}
-@media (max-width:900px){.ap .aip{width:100vw;border-left:0;transform:translateY(100%);padding-bottom:env(safe-area-inset-bottom)}
+@media (max-width:900px){.ap .aip{width:100vw;border-left:0;transform:translateY(100%);opacity:1;padding-bottom:env(safe-area-inset-bottom)}
 .ap .aip.on{transform:none;box-shadow:none}
+body.aion .main{padding-right:0}
 body.aion{overflow:hidden}
 .ap .aiacts{opacity:1}}
 .ap .aiside .aimk{width:26px;height:26px}
@@ -3916,7 +3951,7 @@ async function proWait(){
     sbProf.pro_waitlist=now;closeDlg(true);hap('success');toast(t('pro_wait_ok'));if(cv==='set')render()}
   catch(e){say(t('sh_err').replace(/Link|link/,'İstek'))}
 }
-function proSide(){if(sbOn()&&sbUser&&isPro()&&!RO)return `<button class="proside aiside" onclick="coOpen()">${coMark()}<span><b>${t('co_title')}</b><small>${t('co_side')}</small></span></button>`;if(!sbOn()||isPro())return '';return `<button class="proside" onclick="proDlg('gen')"><span class="probadge sm">PRO</span><span><b>${t('pro_side_t')}</b><small>${t('pro_side_s')}</small></span></button>`}
+function proSide(){if(sbOn()&&sbUser&&isPro()&&!RO)return `<button class="proside aiside${window.CO&&CO.open?' on':''}" onclick="coToggle()" aria-expanded="${!!(window.CO&&CO.open)}">${coMark()}<span><b>${t('co_title')}</b><small>${t('co_side')}</small></span></button>`;if(!sbOn()||isPro())return '';return `<button class="proside" onclick="proDlg('gen')"><span class="probadge sm">PRO</span><span><b>${t('pro_side_t')}</b><small>${t('pro_side_s')}</small></span></button>`}
 /* after the 3rd report upload, point at automatic sync once */
 function proNudgeImport(){
   if(isPro())return;let n=0;try{n=+(localStorage.getItem('tradelog_imp_n')||0)+1;localStorage.setItem('tradelog_imp_n',String(n))}catch(e){}
@@ -4228,12 +4263,14 @@ function coOpen(q,deep){
     <div class="aipc"><div class="aicomp"><textarea id="coQ" rows="1" maxlength="1500" placeholder="${t('co_ph')}" oninput="coGrow(this)" onkeydown="if(event.key==='Enter'&&!event.shiftKey){event.preventDefault();coAsk()}"></textarea>
      <button class="aisend" id="coGo" onclick="coAsk()" aria-label="${t('co_send')}"><svg viewBox="0 0 24 24"><path d="M12 19V5M6 11l6-6 6 6"/></svg></button></div>
      <p class="aift"><span id="coLeft">${CO.left!=null?esc(t('co_left',{n:CO.left})):''}</span>${t('co_note')}</p></div>`;
-  p.classList.add('on');p.setAttribute('aria-hidden','false');CO.open=true;document.body.classList.add('aion');
+  if(!CO.open){p.classList.remove('on');void p.offsetWidth;p.classList.add('on')}p.setAttribute('aria-hidden','false');CO.open=true;document.body.classList.add('aion');coSide();
   coRender();
   setTimeout(()=>{const i=$('coQ');if(i&&!('ontouchstart' in window))i.focus()},250);
   if(q)coAsk(q,deep);
 }
-function coClose(){const p=$('aiP');if(p){p.classList.remove('on');p.setAttribute('aria-hidden','true')}CO.open=false;document.body.classList.remove('aion')}
+function coClose(){const p=$('aiP');if(p){p.classList.remove('on');p.setAttribute('aria-hidden','true')}CO.open=false;document.body.classList.remove('aion');coSide()}
+function coToggle(){CO.open?coClose():coOpen()}
+function coSide(){document.querySelectorAll('.aiside').forEach(b=>{b.classList.toggle('on',CO.open);b.setAttribute('aria-expanded',String(CO.open))})}
 function coNew(){if(CO.busy)return;CO.msgs=[];CO.follow=[];coSave();coRender();const i=$('coQ');if(i)i.focus()}
 function coGrow(el){el.style.height='auto';el.style.height=Math.min(el.scrollHeight,160)+'px'}
 function coSub(){if(CO.busy)return t('co_thinking');const n=byAcc(trades).length;return t('co_sub',{n,v:V.acc==='all'?t('acc_all'):coName(accOf(V.acc)||{})})}
