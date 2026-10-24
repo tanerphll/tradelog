@@ -496,6 +496,53 @@ body.tg .addbtn,body.tg #fSave,body.tg .fab,body.tg .sitelink{display:none}
 .ap .wkdays{max-width:none;flex-basis:100%}
 .ap .wkd .wr{font-size:10.5px}
 .ap .wkd .bx{height:70px}}
+.ap .auth{min-height:100vh;background:var(--bg)}
+.ap .auw{min-height:100vh;display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr)}
+.ap .auc{display:flex;flex-direction:column;justify-content:center;width:100%;max-width:420px;margin:0 auto;padding:48px 24px;gap:0}
+.ap .aub{display:flex;align-items:center;gap:10px;font:700 22px/1 var(--fd);letter-spacing:-.02em;margin-bottom:40px}
+.ap .auc h1{font:700 30px/1.15 var(--fd);letter-spacing:-.03em}
+.ap .aus{color:var(--ink2);font-size:15px;margin:10px 0 24px}
+.ap .auf{display:flex;flex-direction:column;gap:14px}
+.ap .auf .btn.full{min-height:48px;font-size:15px;justify-content:center}
+.ap .auf .in{min-height:48px;font-size:16px}
+.ap .aucode{font:600 24px/1 var(--fn)!important;letter-spacing:.35em;text-align:center}
+.ap .augo{gap:10px;background:var(--sf);border:1px solid var(--ln)}
+.ap .auor{display:flex;align-items:center;gap:12px;color:var(--ink3);font-size:13px}
+.ap .auor::before,.ap .auor::after{content:'';flex:1;border-top:1px solid var(--ln)}
+.ap .aum{font-size:14.5px;color:var(--ink2)}
+.ap .aum b{color:var(--ink)}
+.ap .aulinks{display:flex;justify-content:space-between;gap:10px;flex-wrap:wrap}
+.ap .aulinks button{font-size:13.5px;color:var(--ink2);text-decoration:underline;text-underline-offset:3px}
+.ap .aulinks button:disabled{opacity:.5;text-decoration:none}
+.ap .auc .alert{margin-bottom:14px}
+.ap .auinfo{font-size:13.5px;color:var(--ink2);background:var(--sf2);border:1px solid var(--ln2);border-radius:10px;padding:10px 12px;margin-bottom:14px}
+.ap .aunote{display:flex;gap:10px;align-items:flex-start;margin-top:20px;font-size:13.5px;color:var(--ink2);background:var(--sf);border:1px solid var(--ln2);border-radius:12px;padding:12px 14px}
+.ap .aunote svg{width:18px;height:18px;flex:none;color:var(--br);margin-top:1px}
+.ap .aulegal{margin-top:20px;font-size:12.5px;color:var(--ink3);line-height:1.5}
+.ap .aulegal a{color:var(--ink2);text-decoration:underline;text-underline-offset:2px}
+.ap .auhome{margin-top:28px;align-self:flex-start;font-size:13.5px;color:var(--ink3)}
+.ap .auhome:hover{color:var(--ink)}
+.ap .auc>.btn.ghost{margin-top:14px;align-self:flex-start}
+.ap .aup{background:var(--sf);border-left:1px solid var(--ln);display:flex;align-items:center;justify-content:center;padding:48px;position:relative;overflow:hidden}
+.ap .aup::before{content:'';position:absolute;inset:0;background:radial-gradient(60% 50% at 70% 20%,rgba(148,197,204,.16),transparent 70%),radial-gradient(50% 40% at 20% 90%,rgba(180,210,231,.10),transparent 70%)}
+.ap .aupi{position:relative;max-width:400px}
+.ap .aup h2{font:700 24px/1.2 var(--fd);letter-spacing:-.02em;margin-bottom:22px}
+.ap .aup ul{list-style:none;margin:0;padding:0;display:flex;flex-direction:column;gap:18px}
+.ap .aup li{display:flex;gap:12px;font-size:15px;color:var(--ink2);line-height:1.5}
+.ap .aup li b{color:var(--ink);font-weight:600}
+.ap .aup li svg{width:20px;height:20px;flex:none;color:var(--br);margin-top:2px}
+.ap .avt{display:inline-flex;align-items:center;justify-content:center;width:36px;height:36px;border-radius:50%;background:var(--br);color:var(--brt);font:700 15px/1 var(--f);flex:none}
+.ap .avt.sm{width:24px;height:24px;font-size:11.5px}
+.ap .sideuser{display:flex;align-items:center;gap:10px;padding:8px 12px 2px;font-size:12.5px;color:var(--ink2);min-width:0}
+.ap .sideuser span:last-child{overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+@media (max-width:900px){.ap .auw{grid-template-columns:minmax(0,1fr)}
+.ap .aup{display:none}
+.ap .auc{justify-content:flex-start;padding:40px 20px 32px}
+.ap .aub{margin-bottom:32px}
+.ap .auc h1{font-size:26px}}
+.ap .aulink{display:flex;gap:12px;align-items:flex-start;font-size:15px;background:var(--sf);border:1px solid var(--ln2);border-radius:12px;padding:14px 16px}
+.ap .aulink svg{width:20px;height:20px;flex:none;color:var(--br);margin-top:1px}
+.ap .aulink b{color:var(--ink)}
 .site{color-scheme:dark;--win:#4ADE80;--bg:#000100;--bg2:#08090B;--card:#111317;--card2:#1B1E24;--line:rgba(148,197,204,.13);--line2:rgba(148,197,204,.28);--tx:#F8F8F8;--mu:#A1A6B4;--lime:#94C5CC;--sage:#B4D2E7;--olive:#5E8D94;--loss:#F87171;--disp:'Bricolage Grotesque',system-ui,sans-serif;--body:'Inter',system-ui,sans-serif;--mono:'JetBrains Mono',ui-monospace,monospace}
 .site *{box-sizing:border-box}
 html{scroll-behavior:smooth;-webkit-text-size-adjust:100%}
@@ -1068,6 +1115,7 @@ html{scroll-behavior:smooth;-webkit-text-size-adjust:100%}
 </div>
 
 <div class="ap" id="appRoot">
+<div class="auth" id="authV" hidden></div>
 <div class="app">
   <aside class="side" aria-label="Menü">
     <a class="brand" href="#" onclick="go('dash');return false"><svg width="30" height="30" viewBox="0 0 32 32" aria-hidden="true"><rect width="32" height="32" rx="9" fill="#94C5CC"/><path d="M9.5 22v-4.5M16 22V12.5M22.5 22V9" stroke="#000100" stroke-width="3.4" stroke-linecap="round"/></svg>TradeLog</a>
@@ -1107,6 +1155,18 @@ html{scroll-behavior:smooth;-webkit-text-size-adjust:100%}
 <script>
 /* ================= i18n ================= */
 const T={tr:{
+au_s_l:'Hesabın yoksa aynı adımlarla açılır. Şifre yok: e-postana tek kullanımlık bir giriş linki göndereceğiz.',au_s2l:'Giriş linkini gönderdik. E-postandaki linke tıkla; TradeLog açılıp seni içeri alacak.',au_sent_l:'Linki {e} adresine gönderdik.',au_link_h:'E-postayı bu cihazda açarsan giriş burada tamamlanır. Birkaç dakika içinde gelmezse spam klasörüne bak. Link tek kullanımlıktır ve kısa süre geçerlidir.',au_resent_l:'Yeni bir link gönderdik.',au_linking:'Giriş yapılıyor…',au_e_link:'Bu giriş linkinin süresi dolmuş ya da daha önce kullanılmış. Yeni bir link iste.',
+au_t:'TradeLog\'a giriş yap',au_t2:'E-postanı kontrol et',au_s:'Hesabın yoksa aynı adımlarla açılır. Şifre yok: e-postana tek kullanımlık bir kod göndereceğiz.',au_s2:'Gelen kutunda TradeLog\'dan gelen kodu gir. Birkaç dakika içinde gelmezse spam klasörüne bak.',
+au_google:'Google ile devam et',au_or:'ya da',au_email:'E-posta',au_send:'Kod gönder',au_wait:'Bekle…',au_sent:'Kodu {e} adresine gönderdik.',au_code:'Doğrulama kodu',au_verify:'Giriş yap',au_change:'E-postayı değiştir',au_resend:'Kodu tekrar gönder',au_resend_in:'Tekrar gönder ({s} sn)',au_resent:'Yeni bir kod gönderdik.',
+au_local:'Bu cihazdaki {n} işlemin giriş yapınca hesabına taşınacak.',au_legal:'Devam ederek {t} ve {p} kabul etmiş olursun.',au_terms:'Kullanım koşullarını',au_privacy:'Gizlilik politikasını',au_preview:'Önizlemede hesapsız devam et',
+au_net:'Sunucuya bağlanılamadı. İnternet bağlantını kontrol edip tekrar dene.',au_pt:'Hesabınla gelenler',au_p1:'Her cihazda aynı veri. ',au_p1d:'Telefonda kaydet, bilgisayarda incele.',au_p2:'Verilerin güvende. ',au_p2d:'Şifreli bağlantı, Avrupa\'daki sunucular; verini yalnızca sen görürsün.',au_p3:'Kontrol sende. ',au_p3d:'İstediğin an indir ya da hesabını tamamen sil.',
+au_e_rate:'Çok fazla deneme yapıldı. Birkaç dakika bekleyip tekrar dene.',au_e_code:'Kod hatalı ya da süresi dolmuş. Kontrol edip tekrar dene ya da yeni kod iste.',au_e_closed:'Şu an yeni hesap açılamıyor. Daha sonra tekrar dene.',au_e_gen:'Bir şeyler ters gitti. Tekrar dene.',au_e_mail:'Geçerli bir e-posta adresi yaz.',
+sb_moved:'Bu cihazdaki verilerin hesabına taşındı',sb_both_t:'Verilerini nasıl birleştirelim?',sb_both_p:'Bu cihazda {a} işlem, hesabında {b} işlem var.',sb_merge:'Birleştir (önerilen)',sb_merge_d:'İkisi de korunur; aynı işlem iki kez eklenmez.',sb_server:'Hesabımdakini kullan',sb_server_d:'Bu cihazdaki veriler hesabındakiyle değiştirilir.',sb_device:'Bu cihazdakini kullan',sb_device_d:'Hesabındaki veriler bu cihazdakiyle değiştirilir.',
+sb_acc:'Profil',plan_free_n:'Ücretsiz plan',sb_now:'Şimdi senkronize et',sb_out:'Çıkış yap',sb_del:'Hesabı sil',sb_acc_h:'Verilerin hesabında saklanır; giriş yaptığın her cihazda aynı veriyi görürsün.',
+sb_out_c:'Çıkış yapılsın mı? Verilerin hesabında kalır; bu cihazdaki kopya silinir.',sb_out_c2:'Bazı değişiklikler henüz hesabına gönderilemedi (bağlantı yok). Şimdi çıkarsan bu değişiklikler kaybolur. Yine de çıkılsın mı?',
+sb_del_c:'Hesabın ve hesabındaki bütün veriler kalıcı olarak silinecek. Bu işlem geri alınamaz. Devam edilsin mi?',sb_deleted:'Hesabın silindi',sb_del_err:'Hesap silinemedi. İnternet bağlantını kontrol edip tekrar dene.',
+sbs_ing:'Senkronize ediliyor…',sbs_ok:'Hesabınla senkronize',sbs_err:'Senkron başarısız; tekrar denenecek. Veriler bu cihazda duruyor.',sbs_off:'Çevrimdışı. Değişiklikler bağlantı gelince gönderilecek.',
+privacy_sb:'Verilerin hesabında, Avrupa\'daki (Frankfurt) sunucularda şifreli bağlantıyla saklanır. Yalnızca sen görebilirsin; istediğin an indirebilir ya da hesabını silebilirsin.',confirm_wipe_sb:'Bütün işlemler, hesaplar, playbook\'lar ve günlük notları hem bu cihazdan hem hesabından silinecek. Emin misin?',
 rt_week:'Haftalık özet',wk_t:'Haftalık özet',wk_this:'Bu hafta',wk_prev:'Geçen hafta',wk_copy:'Özeti kopyala',wk_copy_h:'Özeti kopyalayıp mentoruna, arkadaşına ya da kendine gönderebilirsin.',wk_empty:'Bu hafta kayıtlı işlem yok.',wk_go_prev:'Geçen haftaya bak',
 wk_vs:'Geçen hafta {x}',wk_vs_none:'Geçen hafta işlem yok',wk_dl:'geçen haftaya göre {x}',wk_vs_t:'Geçen hafta',wk_net:'Net sonuç',wk_green:'Yeşil gün',wk_days_n:'{n} işlem günü',wk_hi:'Öne çıkanlar',wk_best_t:'En iyi işlem',wk_worst_t:'En kötü işlem',wk_best_d:'En iyi gün',wk_worst_d:'En zor gün',wk_best_s:'En çok kazandıran setup',wk_mis:'Hataların maliyeti',wk_jr:'Günlük yazılan gün',
 wk_focus:'Gelecek hafta için',wk_focus_s:'Bu haftanın verilerinden',wk_focus_none:'Öneri çıkarmak için yeterli veri yok. İşlemlere setup, duygu ve hata eklersen burası dolar.',wk_note:'Haftanın notu',wk_note_s:'Ne iyi gitti, neyi değiştireceksin?',wk_note_ph:'Örn. Breakout\'larda sabırlıydım. Gelecek hafta pazartesi işlem sayımı 2 ile sınırlayacağım.',wk_note_save:'Notu kaydet',wk_open:'Özeti aç',wk_card_s:'{n} işlem · kazanma {w}',
@@ -1223,6 +1283,18 @@ emo_calm:'Sakin',emo_focused:'Odaklı',emo_confident:'Güvenli',emo_impatient:'S
 mis_early_entry:'Erken giriş',mis_late_entry:'Geç giriş',mis_no_confirmation:'Onaysız giriş',mis_tight_sl:'SL çok dar',mis_moved_sl:'SL\'i kaydırdım',mis_early_exit:'Erken çıkış',mis_tight_tp:'TP çok yakın',
 mis_off_plan:'Plan dışı işlem',mis_revenge:'Revenge trade',mis_fomo:'FOMO',mis_oversize:'Risk büyüttüm',mis_overtrading:'Aşırı işlem'},
 en:{
+au_s_l:'No account yet? The same steps create one. No password: we\'ll email you a one-time sign-in link.',au_s2l:'We sent you a sign-in link. Click the link in the email and TradeLog will open and sign you in.',au_sent_l:'We sent the link to {e}.',au_link_h:'Open the email on this device to finish signing in here. If it doesn\'t arrive in a few minutes, check your spam folder. The link works once and expires soon.',au_resent_l:'We sent a new link.',au_linking:'Signing you in…',au_e_link:'This sign-in link has expired or was already used. Ask for a new one.',
+au_t:'Sign in to TradeLog',au_t2:'Check your email',au_s:'No account yet? The same steps create one. No password: we\'ll email you a one-time code.',au_s2:'Enter the code from TradeLog in your inbox. If it doesn\'t arrive in a few minutes, check your spam folder.',
+au_google:'Continue with Google',au_or:'or',au_email:'Email',au_send:'Send code',au_wait:'Please wait…',au_sent:'We sent a code to {e}.',au_code:'Verification code',au_verify:'Sign in',au_change:'Change email',au_resend:'Resend code',au_resend_in:'Resend ({s}s)',au_resent:'We sent a new code.',
+au_local:'The {n} {n|trade|trades} on this device will move to your account when you sign in.',au_legal:'By continuing you accept the {t} and the {p}.',au_terms:'Terms of use',au_privacy:'Privacy policy',au_preview:'Continue without an account (preview)',
+au_net:'Could not reach the server. Check your connection and try again.',au_pt:'What your account gives you',au_p1:'The same data everywhere. ',au_p1d:'Log on your phone, review on your computer.',au_p2:'Your data is safe. ',au_p2d:'Encrypted connection, servers in Europe; only you can see your data.',au_p3:'You stay in control. ',au_p3d:'Download your data or delete your account any time.',
+au_e_rate:'Too many attempts. Wait a few minutes and try again.',au_e_code:'The code is wrong or has expired. Check it or ask for a new one.',au_e_closed:'New accounts can\'t be created right now. Please try again later.',au_e_gen:'Something went wrong. Please try again.',au_e_mail:'Enter a valid email address.',
+sb_moved:'The data on this device moved to your account',sb_both_t:'How should we combine your data?',sb_both_p:'This device has {a} {a|trade|trades}; your account has {b}.',sb_merge:'Merge (recommended)',sb_merge_d:'Both are kept; the same trade is never added twice.',sb_server:'Use my account\'s data',sb_server_d:'This device\'s data is replaced with your account\'s.',sb_device:'Use this device\'s data',sb_device_d:'Your account\'s data is replaced with this device\'s.',
+sb_acc:'Profile',plan_free_n:'Free plan',sb_now:'Sync now',sb_out:'Sign out',sb_del:'Delete account',sb_acc_h:'Your data is stored in your account, so every device you sign in on shows the same data.',
+sb_out_c:'Sign out? Your data stays in your account; the copy on this device is removed.',sb_out_c2:'Some changes couldn\'t be sent to your account yet (no connection). If you sign out now they will be lost. Sign out anyway?',
+sb_del_c:'Your account and all of its data will be deleted permanently. This can\'t be undone. Continue?',sb_deleted:'Your account was deleted',sb_del_err:'Could not delete the account. Check your connection and try again.',
+sbs_ing:'Syncing…',sbs_ok:'Synced with your account',sbs_err:'Sync failed; will retry. Your data is kept on this device.',sbs_off:'Offline. Changes will be sent when you\'re back online.',
+privacy_sb:'Your data is stored in your account on servers in Europe (Frankfurt) over an encrypted connection. Only you can see it; you can download it or delete your account any time.',confirm_wipe_sb:'All trades, accounts, playbooks and journal notes will be deleted from this device and from your account. Are you sure?',
 rt_week:'Weekly recap',wk_t:'Weekly recap',wk_this:'This week',wk_prev:'Last week',wk_copy:'Copy recap',wk_copy_h:'Copy the recap and send it to your mentor, a friend or yourself.',wk_empty:'No trades logged this week.',wk_go_prev:'See last week',
 wk_vs:'Last week {x}',wk_vs_none:'No trades last week',wk_dl:'{x} vs last week',wk_vs_t:'Last week',wk_net:'Net result',wk_green:'Green days',wk_days_n:'{n} trading {n|day|days}',wk_hi:'Highlights',wk_best_t:'Best trade',wk_worst_t:'Worst trade',wk_best_d:'Best day',wk_worst_d:'Toughest day',wk_best_s:'Top setup',wk_mis:'Cost of mistakes',wk_jr:'Days journaled',
 wk_focus:'For next week',wk_focus_s:'From this week\'s data',wk_focus_none:'Not enough data for suggestions yet. Add setups, emotions and mistakes to your trades and this fills up.',wk_note:'Note of the week',wk_note_s:'What went well, what will you change?',wk_note_ph:'e.g. I was patient with breakouts. Next week I\'ll cap Monday at 2 trades.',wk_note_save:'Save note',wk_open:'Open recap',wk_card_s:'{n} {n|trade|trades} · {w} win rate',
@@ -1667,7 +1739,7 @@ const csSet=(k,v)=>new Promise((ok,no)=>CS.setItem(k,v,e=>e?no(e):ok()));
 const csDel=keys=>new Promise(ok=>keys.length?CS.removeItems(keys,()=>ok()):ok());
 const CH=4000,rng=(a,b)=>Array.from({length:Math.max(0,b-a)},(_,i)=>a+i);
 let syncSt='',pushT=null,pushing=false,pushAgain=false;
-function setSync(s){if(s!==undefined)syncSt=s;['syncSt','syncSt2'].forEach(i=>{const el=$(i);if(el)el.textContent=CS&&syncSt?t('sync_'+syncSt):''})}
+function setSync(s){if(s!==undefined)syncSt=s;const on=typeof sbOn==='function'&&sbOn(),k=(on?'sbs_':'sync_')+syncSt;['syncSt','syncSt2','syncSt3'].forEach(i=>{const el=$(i);if(el)el.textContent=(CS||on)&&syncSt?t(k):''})}
 async function csMeta(){const r=await csGet(['tl_meta']);try{return JSON.parse(r.tl_meta||'null')}catch(e){return null}}
 /* chunks are diffed against the last state this device synced, so a save only rewrites the chunks that changed */
 const hsh=s=>{let h=5381;for(let i=0;i<s.length;i++)h=(h*33+s.charCodeAt(i))|0;return (h>>>0).toString(36)+'.'+s.length.toString(36)};
@@ -1707,7 +1779,7 @@ async function cloudPush(){
   }catch(e){setSync('err');clearTimeout(pushT);pushT=setTimeout(cloudPush,15000)}
   pushing=false;if(pushAgain){pushAgain=false;cloudPush()}
 }
-function cloudQ(){if(!CS)return;setSync('ing');clearTimeout(pushT);pushT=setTimeout(cloudPush,800)}
+function cloudQ(){if(typeof sbQ==='function'&&sbQ())return;if(!CS)return;setSync('ing');clearTimeout(pushT);pushT=setTimeout(cloudPush,800)}
 function applyData(d){
   trades=(Array.isArray(d.trades)?d.trades:[]).map(norm).filter(Boolean);
   JR=d.journal&&typeof d.journal==='object'&&!Array.isArray(d.journal)?d.journal:{};
@@ -2101,6 +2173,7 @@ function viewIn(){
 }
 function render(){
   document.documentElement.lang=L;
+  if(typeof authGate==='function'&&authGate())return;
   const pq=trades.length?pending().length:0;
   $('sideNav').innerHTML=VIEWS.filter(v=>v!=='set').map(v=>`<button class="nav${v===cv?' on':''}" onclick="go('${v}')"${v===cv?' aria-current="page"':''}>${ic(v)}<span>${t('v_'+v)}</span>${v==='trades'&&pq?`<span class="ct">${pq}</span>`:''}</button>`).join('');
   const tb=(v,lab)=>`<button class="${v===cv?'on':''}" onclick="go('${v}')"${v===cv?' aria-current="page"':''}>${ic(v)}<span>${lab}</span></button>`;
@@ -2110,6 +2183,7 @@ function render(){
   $('sideActs').innerHTML=`<button class="btn pri full addbtn" onclick="addMenu()">${ic('plus')}<span>${t('add_t')}</span></button><button class="btn full" onclick="accDlg()">${ic('user')}<span>${t('acc_add')}</span></button>`;
   $('sideFoot').innerHTML=`<button class="nav${cv==='set'?' on':''}" onclick="go('set')"${cv==='set'?' aria-current="page"':''}>${ic('set')}<span>${t('v_set')}</span></button>
    ${TG?'':`<button class="nav sitelink" onclick="window.showSite&&showSite()">${ic('home')}<span>${t('nav_home')}</span></button>`}
+   ${typeof sbOn==='function'&&sbOn()&&sbUser?`<div class="sideuser" title="${esc(sbUser.email||'')}"><span class="avt sm">${esc(((sbUser.email||'?')[0]).toUpperCase())}</span><span>${esc(sbUser.email||'')}</span></div>`:''}
    <div class="sidefoot" id="syncSt"></div>`;setSync();
   $('vTitle').textContent=t('v_'+cv);
   topCtl();
@@ -2746,14 +2820,14 @@ function vSet(){
    <div class="card"><div class="ch"><h2>${t('s_rules')}</h2><small>${t('s_rules_s')}</small></div><div class="cb">${lim('day',t('s_day'),t('s_day_d'),0.5)}${lim('str',t('s_str'),t('s_str_d'),1)}${lim('maxT',t('s_maxT'),t('s_maxT_d'),1)}</div></div>
    <div class="card"><div class="ch"><h2>${t('s_lang')}</h2></div><div class="cb">
     <div class="srow"><div class="t">${t('s_lang')}</div><select class="sel" onchange="setLang(this.value)">${opt('tr','Türkçe',L)}${opt('en','English',L)}</select></div></div></div>
-  </div><div class="stack">
+  </div><div class="stack">${typeof accountCard==='function'?accountCard():''}
    <div class="card"><div class="ch"><h2>${t('s_data')}</h2></div><div class="cb">
     <h4 class="lgh">${t('dg_in')}</h4><div class="links"><button onclick="$('fileJson').click()">${t('m_res')}</button><button onclick="$('fileCsv').click()">${t('m_csv_imp')}</button><button onclick="pasteImp()">${t('m_paste')}</button></div>
     <h4 class="lgh">${t('dg_out')}</h4><div class="links"><button onclick="expJSON()">${t('m_bak')}</button><button onclick="expCSV()">${t('m_csv_exp')}</button></div>
     <h4 class="lgh">${t('dg_demo')}</h4><div class="links"><button onclick="demo()">${t('m_demo')}</button>${trades.some(x=>x.demo)||PB.some(p=>p.demo)?`<button onclick="demoRm()">${t('m_demo_rm')}</button>`:''}</div>
     <div class="links" style="margin-top:14px;border-top:1px solid var(--ln2)"><button class="dan" onclick="wipe()">${t('m_wipe')}</button></div>
     <p class="hint" style="margin-top:8px">${t('csv_h')}</p></div></div>
-   <div class="card"><div class="ch"><h2>${t('s_priv')}</h2></div><div class="cb"><p style="font-size:14px;color:var(--ink2)">${t(CS?'privacy_tg':'privacy')}</p><p class="hint" id="syncSt2" style="margin-top:8px">${CS&&syncSt?t('sync_'+syncSt):''}</p></div></div>
+   <div class="card"><div class="ch"><h2>${t('s_priv')}</h2></div><div class="cb"><p style="font-size:14px;color:var(--ink2)">${t(typeof sbOn==='function'&&sbOn()?'privacy_sb':CS?'privacy_tg':'privacy')}</p><p class="hint" id="syncSt2" style="margin-top:8px"></p></div></div>
   </div></div>`;
 }
 /* account editor: new accounts first choose where their data comes from */
@@ -2931,7 +3005,7 @@ async function demo(){
 }
 function demoRm(){trades=trades.filter(x=>!x.demo);PB=PB.filter(p=>!p.demo);saveTrades();savePB();render();toast(t('demo_removed'))}
 async function wipe(){
-  if(!await ask(t('confirm_wipe')))return;
+  if(!await ask(t(typeof sbOn==='function'&&sbOn()?'confirm_wipe_sb':'confirm_wipe')))return;
   trades=[];JR={};PB=[];S=normS({});V={acc:'all',per:'all'};saveJR();saveS();savePB();saveTrades();saveV();go('dash');hap('warning');toast(t('wiped'));
 }
 
@@ -2982,6 +3056,326 @@ function init(){
   applyTheme();render();cloudInit();
 }
 init();
+
+/* ================= cloud: member accounts + server sync (Supabase) =================
+   The app keeps working from the local copy (fast start, works offline). Changes are pushed
+   to the server shortly after they happen; the latest server rows are pulled on start and
+   whenever the tab comes back. Each table row is one trade / account / playbook / journal day.
+   The publishable key below is public by design; row level security keeps users apart. */
+const SBC={url:'https://gpnaafbhwdcmnkrhmymu.supabase.co',key:'sb_publishable_wytAvUS5RhQPxnB_khgn8Q_olNZAwzV',
+  lib:'https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2.117.3/dist/umd/supabase.js',google:false,
+  otp:false};   // otp:true once the email template carries {{ .Token }} (needs custom SMTP); until then the email has a sign-in link
+const SBK='sb-'+SBC.url.split('//')[1].split('.')[0]+'-auth-token';
+const SBU='tradelog_sb_uid',SBB='tradelog_sb_base',SBR='tradelog_sb_cur';
+const TBL=['accounts','trades','cash_tx','playbooks','journal'];
+var sb=null,sbUser=null,sbMode='',sbLibP=null,sbT=null,sbBusy=false,sbAgain=false,sbPulled=0,sbFail=false,sbAskRes=null;
+const AU={step:'email',email:'',busy:false,err:'',cool:0,info:''};
+const sbFramed=(()=>{try{return window.top!==window}catch(e){return true}})();
+const lsj=(k,d)=>{try{const v=JSON.parse(localStorage.getItem(k));return v==null?d:v}catch(e){return d}};
+const lss=(k,v)=>{try{v==null?localStorage.removeItem(k):localStorage.setItem(k,JSON.stringify(v))}catch(e){}};
+const sbHasTok=()=>{try{return !!localStorage.getItem(SBK)}catch(e){return false}};
+function sbOn(){return sbMode==='on'}
+
+function sbLib(){
+  if(window.supabase&&window.supabase.createClient)return Promise.resolve();
+  if(sbLibP)return sbLibP;
+  sbLibP=new Promise((ok,no)=>{const s=document.createElement('script');s.src=SBC.lib;s.async=true;
+    s.onload=()=>window.supabase&&window.supabase.createClient?ok():no(new Error('lib'));
+    s.onerror=()=>{sbLibP=null;s.remove();no(new Error('lib'))};document.head.appendChild(s)});
+  return sbLibP;
+}
+async function sbClient(){
+  if(sb)return sb;
+  await sbLib();
+  sb=window.supabase.createClient(SBC.url,SBC.key,{auth:{persistSession:true,autoRefreshToken:true,detectSessionInUrl:true}});
+  sb.auth.onAuthStateChange((ev,ses)=>{setTimeout(()=>{   // never await supabase calls inside this callback
+    if(ev==='SIGNED_IN'&&ses&&!sbOn())sbLogin(ses.user);
+    else if(ev==='SIGNED_OUT'&&sbOn()){sbMode='auth';sbUser=null;render()}
+  },0)});
+  return sb;
+}
+
+/* ---------- start ---------- */
+function sbBoot(){
+  if(TG){sbMode='tg';return}
+  const lh=location.hash+location.search,fromLink=/access_token=|[?&]code=/.test(lh);
+  if(/error_description=/.test(lh)){AU.err=t('au_e_link');try{history.replaceState(null,'',location.pathname+'#/app')}catch(e){}}
+  else if(fromLink)AU.info=t('au_linking');
+  window.addEventListener('storage',e=>{if(e.key===SBK&&e.newValue&&sbMode==='auth')sbStart()});   // link opened in another tab
+  sbMode=sbHasTok()?'on':'auth';            // with a saved session the app opens from the local copy right away
+  if(sbHasTok()||fromLink)sbStart();
+  window.addEventListener('online',()=>{if(sbOn())sbStart()});
+  document.addEventListener('visibilitychange',()=>{if(!sbOn()||!sbUser)return;
+    if(document.hidden){if(sbT){clearTimeout(sbT);sbT=null;sbSync(false)}}else if(Date.now()-sbPulled>30000)sbSync(true)});
+  setInterval(()=>{if(sbOn()&&sbUser&&!document.hidden)sbSync(true)},300000);
+}
+async function sbStart(){
+  try{
+    const c=await sbClient(),{data,error}=await c.auth.getSession();if(error)throw error;
+    if(/access_token=|[?&]code=|error_description=/.test(location.hash+location.search))try{history.replaceState(null,'',location.pathname+'#/app')}catch(e){}
+    if(data.session){if(!sbUser||sbUser.id!==data.session.user.id)await sbLogin(data.session.user);else sbSync(true)}
+    else if(sbOn()){sbMode='auth';render()}
+  }catch(e){
+    sbFail=true;setSync('off');
+    if(sbMode==='auth')renderAuth();
+  }
+}
+/* the auth screen replaces the app until the member signs in */
+function authGate(){
+  const need=sbMode==='auth',a=$('authV'),app=document.querySelector('#appRoot>.app');
+  if(a)a.hidden=!need;if(app)app.hidden=need;
+  if(need){renderAuth();if(!sb&&!sbLibP)sbClient().catch(()=>{sbFail=true;renderAuth()})}
+  return need;
+}
+
+/* ---------- sign in ---------- */
+const localCount=()=>trades.filter(x=>!x.demo).length;
+const localReal=()=>trades.some(x=>!x.demo)||PB.some(p=>!p.demo)||Object.keys(JR).length>0||S.accounts.some(a=>a.name||a.no)||S.tx.length>0;
+function renderAuth(){
+  const a=$('authV');if(!a||sbMode!=='auth')return;
+  const n=localCount(),legal=t('au_legal').replace('{t}',`<a href="#" onclick="sbLegal('terms');return false">${t('au_terms')}</a>`).replace('{p}',`<a href="#" onclick="sbLegal('privacy');return false">${t('au_privacy')}</a>`);
+  const logo=`<svg width="34" height="34" viewBox="0 0 32 32" aria-hidden="true"><rect width="32" height="32" rx="9" fill="#94C5CC"/><path d="M9.5 22v-4.5M16 22V12.5M22.5 22V9" stroke="#000100" stroke-width="3.4" stroke-linecap="round"/></svg>`;
+  let form;
+  if(AU.step==='email')form=`<form class="auf" onsubmit="sbSend();return false" novalidate>
+     ${SBC.google?`<button type="button" class="btn full augo" onclick="sbGoogle()" ${AU.busy?'disabled':''}>${GICON}<span>${t('au_google')}</span></button><div class="auor"><span>${t('au_or')}</span></div>`:''}
+     <label class="fld"><span>${t('au_email')}</span><input class="in" id="au_em" type="email" inputmode="email" autocomplete="email" autocapitalize="off" spellcheck="false" placeholder="ornek@mail.com" value="${esc(AU.email)}" required></label>
+     <button class="btn pri full" type="submit" ${AU.busy?'disabled':''}>${AU.busy?t('au_wait'):t('au_send')}</button></form>`;
+  else if(!SBC.otp)form=`<div class="auf"><div class="aulink">${ic('check')}<span>${t('au_sent_l',{e:`<b>${esc(AU.email)}</b>`})}</span></div>
+     <p class="aum">${t('au_link_h')}</p>
+     <div class="aulinks"><button type="button" onclick="AU.step='email';AU.err='';AU.info='';renderAuth()">${t('au_change')}</button><button type="button" id="au_re" onclick="sbSend(true)" ${AU.cool>0?'disabled':''}>${AU.cool>0?t('au_resend_in',{s:AU.cool}):t('au_resend')}</button></div></div>`;
+  else form=`<form class="auf" onsubmit="sbVerify();return false" novalidate>
+     <p class="aum">${t('au_sent',{e:`<b>${esc(AU.email)}</b>`})}</p>
+     <label class="fld"><span>${t('au_code')}</span><input class="in aucode" id="au_code" inputmode="numeric" autocomplete="one-time-code" maxlength="8" placeholder="••••••" required></label>
+     <button class="btn pri full" type="submit" ${AU.busy?'disabled':''}>${AU.busy?t('au_wait'):t('au_verify')}</button>
+     <div class="aulinks"><button type="button" onclick="AU.step='email';AU.err='';AU.info='';renderAuth()">${t('au_change')}</button><button type="button" id="au_re" onclick="sbSend(true)" ${AU.cool>0?'disabled':''}>${AU.cool>0?t('au_resend_in',{s:AU.cool}):t('au_resend')}</button></div></form>`;
+  a.innerHTML=`<div class="auw"><div class="auc">
+    <div class="aub">${logo}<span>TradeLog</span></div>
+    <h1>${t(AU.step==='email'?'au_t':'au_t2')}</h1><p class="aus">${t(AU.step==='email'?(SBC.otp?'au_s':'au_s_l'):(SBC.otp?'au_s2':'au_s2l'))}</p>
+    ${AU.err?`<div class="alert" role="alert">${ic('alert')}<span>${esc(AU.err)}</span></div>`:''}${AU.info?`<div class="auinfo">${esc(AU.info)}</div>`:''}
+    ${sbFail&&!sb?`<div class="alert" role="alert">${ic('alert')}<span>${t('au_net')}</span></div>`:''}
+    ${form}
+    ${n?`<p class="aunote">${ic('check')}<span>${t('au_local',{n})}</span></p>`:''}
+    <p class="aulegal">${legal}</p>
+    ${sbFramed&&sbFail?`<button class="btn sm ghost" onclick="sbMode='local';render()">${t('au_preview')}</button>`:''}
+    <button class="auhome" onclick="window.showSite&&showSite()">← ${t('nav_home')}</button>
+   </div>
+   <div class="aup"><div class="aupi"><h2>${t('au_pt')}</h2><ul>${[1,2,3].map(i=>`<li>${ic('check')}<span><b>${t('au_p'+i)}</b>${t('au_p'+i+'d')}</span></li>`).join('')}</ul></div></div></div>`;
+  const f=$(AU.step==='email'?'au_em':SBC.otp?'au_code':'au_re');if(f&&!narrow())setTimeout(()=>{try{f.focus()}catch(e){}},30);
+}
+const GICON='<svg width="18" height="18" viewBox="0 0 48 48" aria-hidden="true"><path fill="#FFC107" d="M43.6 20.5H42V20H24v8h11.3C33.7 32.7 29.2 36 24 36c-6.6 0-12-5.4-12-12s5.4-12 12-12c3.1 0 5.9 1.2 8 3.1l5.7-5.7C34 6.1 29.3 4 24 4 12.9 4 4 12.9 4 24s8.9 20 20 20 20-8.9 20-20c0-1.3-.1-2.4-.4-3.5z"/><path fill="#FF3D00" d="M6.3 14.7l6.6 4.8C14.7 15.1 19 12 24 12c3.1 0 5.9 1.2 8 3.1l5.7-5.7C34 6.1 29.3 4 24 4 16.3 4 9.7 8.3 6.3 14.7z"/><path fill="#4CAF50" d="M24 44c5.2 0 9.9-2 13.4-5.2l-6.2-5.2C29.2 35.1 26.7 36 24 36c-5.2 0-9.6-3.3-11.3-8l-6.5 5C9.5 39.6 16.2 44 24 44z"/><path fill="#1976D2" d="M43.6 20.5H42V20H24v8h11.3c-.8 2.2-2.2 4.2-4.1 5.6l6.2 5.2C37 39.2 44 34 44 24c0-1.3-.1-2.4-.4-3.5z"/></svg>';
+function sbLegal(k){if(window.showPage){sbMode==='auth'&&(AU.back=1);showSite();showPage(k)}}
+function sbErr(e){
+  const m=String((e&&(e.message||e.msg||e.error_description))||e||''),st=e&&e.status;
+  if(st===429||/rate limit|too many|seconds/i.test(m))return t('au_e_rate');
+  if(/expired|invalid|otp|token/i.test(m))return t('au_e_code');
+  if(!sb||m==='lib'||/fetch|network|failed|load/i.test(m))return t('au_net');
+  if(/signups? not allowed|disabled/i.test(m))return t('au_e_closed');
+  return t('au_e_gen');
+}
+async function sbSend(re){
+  if(!re){const v=($('au_em')||{}).value||'';AU.email=v.trim().toLowerCase()}
+  if(!/^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/.test(AU.email)){AU.err=t('au_e_mail');renderAuth();return}
+  AU.busy=true;AU.err='';AU.info='';renderAuth();
+  try{
+    const c=await sbClient();
+    const {error}=await c.auth.signInWithOtp({email:AU.email,options:{shouldCreateUser:true,emailRedirectTo:location.origin+location.pathname}});
+    if(error)throw error;
+    AU.step='code';AU.info=re?t(SBC.otp?'au_resent':'au_resent_l'):'';AU.cool=60;sbCool();
+  }catch(e){AU.err=sbErr(e);if(AU.err===t('au_net'))sbFail=true}
+  AU.busy=false;renderAuth();
+}
+function sbCool(){clearInterval(sbCool.h);sbCool.h=setInterval(()=>{AU.cool--;const b=$('au_re');if(b){b.disabled=AU.cool>0;b.textContent=AU.cool>0?t('au_resend_in',{s:AU.cool}):t('au_resend')}if(AU.cool<=0)clearInterval(sbCool.h)},1000)}
+async function sbVerify(){
+  const code=(($('au_code')||{}).value||'').replace(/\D/g,'');
+  if(!/^\d{6,8}$/.test(code)){AU.err=t('au_e_code');renderAuth();return}
+  AU.busy=true;AU.err='';renderAuth();
+  try{
+    const c=await sbClient(),{data,error}=await c.auth.verifyOtp({email:AU.email,token:code,type:'email'});
+    if(error)throw error;
+    AU.busy=false;AU.step='email';AU.info='';
+    await sbLogin(data.user||(data.session&&data.session.user));
+  }catch(e){AU.busy=false;AU.err=sbErr(e);renderAuth()}
+}
+async function sbGoogle(){
+  AU.busy=true;renderAuth();
+  try{const c=await sbClient(),{error}=await c.auth.signInWithOAuth({provider:'google',options:{redirectTo:location.origin+location.pathname}});if(error)throw error}
+  catch(e){AU.busy=false;AU.err=sbErr(e);renderAuth()}
+}
+
+/* ---------- first sync after sign in ---------- */
+async function sbLogin(user){
+  if(!user)return;
+  const prev=lsj(SBU,null);
+  if(prev&&prev!==user.id)sbWipe();                 // the local copy belonged to someone else
+  sbUser=user;sbMode='on';AU.info='';AU.err='';AU.step='email';render();
+  if(typeof viewIn==='function')viewIn();
+  try{
+    setSync('ing');
+    if(prev===user.id){await sbSync(true);return}
+    const srv=await sbCount();
+    if(!srv.any){await sbPush();lss(SBU,user.id);if(localReal())toast(t('sb_moved'))}
+    else if(!localReal()){await sbPull(true);lss(SBU,user.id);await sbPush()}
+    else{
+      const pick=await sbAsk(localCount(),srv.trades);
+      if(pick==='server')await sbPull(true);
+      else if(pick==='device'){const b={};for(const tb of TBL)b[tb]=Object.fromEntries((await sbIds(tb)).map(id=>[id,'']));lss(SBB,b)}
+      else await sbPull(false,true);
+      await sbPush();lss(SBU,user.id);
+    }
+    sbPulled=Date.now();setSync('ok');render();
+  }catch(e){setSync('err')}
+}
+async function sbCount(){
+  const o={any:false,trades:0};
+  for(const tb of ['trades','accounts','playbooks','journal']){
+    const {count,error}=await sb.from(tb).select('id',{count:'exact',head:true}).eq('deleted',false);if(error)throw error;
+    if(tb==='trades')o.trades=count||0;if(count)o.any=true;
+  }
+  return o;
+}
+async function sbIds(tb){const out=[];let from=0;for(;;){const {data,error}=await sb.from(tb).select('id').range(from,from+999);if(error)throw error;out.push(...data.map(r=>r.id));if(data.length<1000)return out;from+=1000}}
+function sbAsk(nl,ns){return new Promise(res=>{sbAskRes=res;
+  openDlg(t('sb_both_t'),`<p style="margin:14px 0 4px;color:var(--ink2);font-size:14.5px">${t('sb_both_p',{a:nl,b:ns})}</p>
+   <div class="links" style="margin-top:10px"><button onclick="sbPick('merge')"><b>${t('sb_merge')}</b><span class="hint" style="display:block">${t('sb_merge_d')}</span></button>
+   <button onclick="sbPick('server')"><b>${t('sb_server')}</b><span class="hint" style="display:block">${t('sb_server_d')}</span></button>
+   <button onclick="sbPick('device')"><b>${t('sb_device')}</b><span class="hint" style="display:block">${t('sb_device_d')}</span></button></div>`,'')})}
+function sbPick(k){const r=sbAskRes;sbAskRes=null;closeDlg(true);if(r)r(k)}
+
+/* ---------- push / pull ---------- */
+function localRows(){
+  return {accounts:S.accounts.map((a,i)=>[a.id,{...a,ord:i}]),trades:trades.map(x=>[String(x.id),x]),
+    cash_tx:S.tx.map(z=>[z.id,z]),playbooks:PB.map(p=>[p.id,p]),journal:Object.entries(JR)};
+}
+const profData=()=>({day:S.day,str:S.str,maxT:S.maxT,dedup:S.dedup});
+const rh=d=>hsh(JSON.stringify(d));
+async function sbPush(){
+  const base=lsj(SBB,{}),rows=localRows(),u=sbUser.id;let n=0;
+  for(const tb of TBL){
+    const b=base[tb]||{},cur={},up=[];
+    rows[tb].forEach(([id,d])=>{const h=rh(d);cur[id]=h;if(b[id]!==h)up.push({user_id:u,id:String(id),data:d,deleted:false})});
+    Object.keys(b).forEach(id=>{if(!(id in cur))up.push({user_id:u,id,data:{},deleted:true})});
+    for(let i=0;i<up.length;i+=400){
+      const ch=up.slice(i,i+400),{error}=await sb.from(tb).upsert(ch,{onConflict:'user_id,id'});if(error)throw error;
+      ch.forEach(r=>{if(r.deleted)delete b[r.id];else b[r.id]=cur[r.id]});base[tb]=b;lss(SBB,base);
+    }
+    base[tb]=b;n+=up.length;
+  }
+  const ph=rh(profData());
+  if(base.profile!==ph){const {error}=await sb.from('profiles').update({settings:profData()}).eq('id',u);if(error)throw error;base.profile=ph;lss(SBB,base)}
+  lss(SBB,base);return n;
+}
+/* full: replace the local copy with the server's. merge: keep local rows the server doesn't have. */
+async function sbPull(full,merge){
+  const cur=full||merge?{}:lsj(SBR,{}),base=full?{}:lsj(SBB,{});
+  const got={};
+  for(const tb of TBL){
+    const rows=[];let ts=cur[tb]?new Date(new Date(cur[tb]).getTime()-5000).toISOString():null,lid='';
+    for(;;){
+      let q=sb.from(tb).select('id,data,deleted,updated_at').order('updated_at',{ascending:true}).order('id',{ascending:true}).limit(1000);
+      if(ts)q=lid?q.or(`updated_at.gt.${ts},and(updated_at.eq.${ts},id.gt.${lid})`):q.gte('updated_at',ts);
+      if(full||merge)q=q.eq('deleted',false);
+      const {data,error}=await q;if(error)throw error;
+      rows.push(...data);if(data.length<1000)break;
+      ts=data[data.length-1].updated_at;lid=data[data.length-1].id;
+    }
+    got[tb]=rows;if(rows.length)cur[tb]=rows[rows.length-1].updated_at;
+  }
+  const {data:pr,error:pe}=await sb.from('profiles').select('settings').eq('id',sbUser.id).maybeSingle();if(pe)throw pe;
+  if(full){trades=[];PB=[];JR={};S.accounts=[];S.tx=[]}
+  const b=tb=>base[tb]=base[tb]||{};
+  // trades
+  if(got.trades.length){
+    const m=new Map(trades.map(x=>[String(x.id),x])),sigs=merge?new Set(trades.map(sig)):null;
+    got.trades.forEach(r=>{if(r.deleted){m.delete(r.id);delete b('trades')[r.id];return}
+      const x=norm({...r.data,id:+r.id||r.data.id});if(!x)return;
+      if(merge&&!m.has(r.id)&&sigs.has(sig(x)))return;      // same trade under another id on this device
+      m.set(r.id,x);b('trades')[r.id]=rh(x)});
+    trades=[...m.values()];
+  }
+  // accounts (+ order) and cash movements live inside S
+  if(got.accounts.length||full){
+    const m=new Map(S.accounts.map((a,i)=>[a.id,{...a,ord:a.ord!=null?a.ord:i}]));
+    got.accounts.forEach(r=>{if(r.deleted){m.delete(r.id);delete b('accounts')[r.id]}else m.set(r.id,r.data)});
+    const list=[...m.values()].sort((x,y)=>(x.ord||0)-(y.ord||0));
+    S=normS({...S,accounts:list.length?list:null,tx:S.tx});
+    S.accounts.forEach((a,i)=>{if(got.accounts.some(r=>r.id===a.id&&!r.deleted))b('accounts')[a.id]=rh({...a,ord:i})});
+  }
+  if(got.cash_tx.length){
+    const m=new Map(S.tx.map(z=>[z.id,z]));
+    got.cash_tx.forEach(r=>{if(r.deleted){m.delete(r.id);delete b('cash_tx')[r.id]}else m.set(r.id,r.data)});
+    S=normS({...S,tx:[...m.values()]});
+    S.tx.forEach(z=>{if(got.cash_tx.some(r=>r.id===z.id))b('cash_tx')[z.id]=rh(z)});
+  }
+  if(got.playbooks.length){
+    const m=new Map(PB.map(p=>[p.id,p]));
+    got.playbooks.forEach(r=>{if(r.deleted){m.delete(r.id);delete b('playbooks')[r.id]}else m.set(r.id,{...r.data,id:r.id})});
+    PB=normPB([...m.values()]);PB.forEach(p=>{if(got.playbooks.some(r=>r.id===p.id))b('playbooks')[p.id]=rh(p)});
+  }
+  got.journal.forEach(r=>{if(r.deleted){delete JR[r.id];delete b('journal')[r.id]}else{JR[r.id]=r.data;b('journal')[r.id]=rh(r.data)}});
+  if(pr&&pr.settings&&Object.keys(pr.settings).length&&(full||rh(pr.settings)!==base.profile)){
+    const p=pr.settings;S=normS({...S,day:p.day,str:p.str,maxT:p.maxT,dedup:p.dedup});base.profile=rh(profData());
+  }
+  if(full&&!S.accounts.length)S=normS({...S,accounts:null});
+  fixAcc();sortT();
+  put(K.trades,trades,false);put(K.set,S,false);put(K.pb,PB,false);put(K.jr,JR,false);
+  lss(SBB,base);lss(SBR,cur);
+  return Object.values(got).reduce((n,r)=>n+r.length,0);
+}
+async function sbSync(pull){
+  if(!sbOn()||!sbUser)return;
+  if(sbBusy){sbAgain=sbAgain||pull||'push';return}
+  sbBusy=true;setSync('ing');
+  try{
+    if(!sb)await sbClient();
+    await sbPush();
+    if(pull){const n=await sbPull(false);sbPulled=Date.now();if(n&&!formOpen())render()}
+    sbFail=false;setSync('ok');
+  }catch(e){
+    sbFail=true;setSync(navigator.onLine===false||/fetch|network/i.test(String((e&&e.message)||''))?'off':'err');
+    if(e&&(e.status===401||/jwt|token/i.test(String(e.message||''))))sbStart();
+    clearTimeout(sbT);sbT=setTimeout(()=>{sbT=null;sbSync(false)},20000);
+  }
+  sbBusy=false;
+  if(sbAgain){const p=sbAgain===true;sbAgain=false;sbSync(p)}
+}
+/* called by put() on every local save */
+function sbQ(){
+  if(sbMode==='tg'||sbMode==='local'||!sbMode)return false;
+  if(!sbOn()||!sbUser)return true;
+  setSync('ing');clearTimeout(sbT);sbT=setTimeout(()=>{sbT=null;sbSync(false)},1200);return true;
+}
+
+/* ---------- account ---------- */
+function sbWipe(){
+  trades=[];PB=[];JR={};S=normS({});V={acc:'all',per:'all'};
+  [K.trades,K.set,K.pb,K.jr,K.view,UPD,SBB,SBR,SBU,'tradelog_gs_off'].forEach(k=>{try{localStorage.removeItem(k)}catch(e){}});
+  put(K.set,S,false);
+}
+function accountCard(){
+  if(!sbOn()||!sbUser)return '';
+  const e=sbUser.email||'';
+  return `<div class="card"><div class="ch"><h2>${t('sb_acc')}</h2><small>${t('plan_free_n')}</small></div><div class="cb">
+   <div class="srow" style="border-top:0;padding-top:4px"><div style="display:flex;gap:12px;align-items:center;min-width:0"><span class="avt">${esc((e[0]||'?').toUpperCase())}</span><div style="min-width:0"><div class="t" style="overflow:hidden;text-overflow:ellipsis">${esc(e)}</div><div class="d" id="syncSt3">${syncSt?t('sbs_'+syncSt):''}</div></div></div></div>
+   <div class="links" style="margin-top:6px"><button onclick="sbSync(true)">${t('sb_now')}</button><button onclick="sbLogout()">${t('sb_out')}</button><button class="dan" onclick="sbDelete()">${t('sb_del')}</button></div>
+   <p class="hint" style="margin-top:8px">${t('sb_acc_h')}</p></div></div>`;
+}
+async function sbLogout(){
+  let ok=true;try{if(sb&&sbUser)await sbPush()}catch(e){ok=false}
+  if(!await ask(t(ok?'sb_out_c':'sb_out_c2')))return;
+  try{if(sb)await sb.auth.signOut({scope:'local'})}catch(e){}
+  try{localStorage.removeItem(SBK)}catch(e){}
+  sbWipe();sbUser=null;sbMode='auth';AU.step='email';AU.err='';closeDlg(true);go('dash');
+}
+async function sbDelete(){
+  if(!await ask(t('sb_del_c')))return;
+  try{
+    const {error}=await sb.rpc('delete_my_account');if(error)throw error;
+    try{await sb.auth.signOut({scope:'local'})}catch(e){}
+    try{localStorage.removeItem(SBK)}catch(e){}
+    sbWipe();sbUser=null;sbMode='auth';AU.step='email';AU.email='';closeDlg(true);go('dash');toast(t('sb_deleted'));
+  }catch(e){say(t('sb_del_err'))}
+}
+sbBoot();
 
 
 (() => {
@@ -3123,22 +3517,22 @@ tr: {
   wk_h: 'Haftalık özet', wk_p: 'Her hafta net sonucun, en iyi ve en kötü işlemin ve gelecek hafta için 1-3 öneri. Kopyala, mentoruna gönder.', wk_btn: 'Panelde gör', hero_how: 'Nasıl çalışır',
   price_h: 'Ücretsiz plan gerçekten ücretsiz.', price_p: 'İşlem sınırı yok, bütün raporlar ve analizler ücretsiz. Pro; otomatik senkron, daha fazla hesap ve AI koç getirecek.',
   plan_free: 'Ücretsiz', plan_free_d: 'Günlük tutmak isteyen herkes için. Kart gerekmez.', plan_forever: 'süresiz',
-  feat_free: ['Sınırsız işlem: elle ya da MT4/MT5 raporuyla', 'Tüm raporlar, puan ve içgörüler', 'Haftalık özet ve gelecek hafta için öneriler', 'Takvim, günlük ve playbook', 'Prop firm kuralları ve uyarılar', '2 aktif hesap (Pro açılana kadar sınırsız)', ['Hesabınla her cihazda aynı veri', 's'], ['İşlem ve haftalık özet paylaşım linki', 's']],
+  feat_free: ['Sınırsız işlem: elle ya da MT4/MT5 raporuyla', 'Tüm raporlar, puan ve içgörüler', 'Haftalık özet ve gelecek hafta için öneriler', 'Takvim, günlük ve playbook', 'Prop firm kuralları ve uyarılar', '2 aktif hesap (Pro açılana kadar sınırsız)', 'Hesabınla her cihazda aynı veri', ['İşlem ve haftalık özet paylaşım linki', 's']],
   soon: 'Yakında', plan_pro_d: 'İşlem girmekle uğraşmak istemeyen ve birden çok hesap yöneten trader\'lar için.', pro_btn: 'Yakında açılacak',
   pro_fine: 'Pro açıldığında her yeni üye 14 gün Pro ile başlar, kart istenmez. Süre bitince ücretsiz plana geçersin, verilerin kalır.',
   feat_plus: 'Ücretsizdeki her şey, artı:',
   feat_pro: ['MT4/MT5 otomatik senkron, geçmiş işlemler dahil', '20 aktif hesap, hepsi tek panelde', 'AI koç: verilerine bakıp yorum yapar, sorularını cevaplar', 'İşlem başına 10 ekran görüntüsü', 'Mentoruna hesabını salt okunur aç'],
-  cmp_show: 'Tüm özellikleri karşılaştır', cmp_hide: 'Karşılaştırmayı gizle', cmp_feature: 'Özellik', cmp_pro: 'Pro (yakında)', yes_a: 'Var', no_a: 'Yok', cmp_note: 'Yakında işaretli özellikler ve Pro, üyelik sistemiyle birlikte gelecek. Pro açılana kadar ücretsiz planda hesap sınırı yok.',
+  cmp_show: 'Tüm özellikleri karşılaştır', cmp_hide: 'Karşılaştırmayı gizle', cmp_feature: 'Özellik', cmp_pro: 'Pro (yakında)', yes_a: 'Var', no_a: 'Yok', cmp_note: 'Yakında işaretli özellikler ve Pro hazır olunca açılacak. Pro açılana kadar ücretsiz planda hesap sınırı yok.',
   groups: [
     ['Kayıt ve içe aktarma', [['İşlem sayısı', 'Sınırsız', 'Sınırsız'], ['Elle kayıt ve MT4/MT5 raporu yükleme', 'y', 'y'], ['Otomatik MT4/MT5 senkronu', 'n', 'y'], ['Ekran görüntüsü (işlem başına)', 's:1', '10']]],
     ['Analiz', [['Tüm raporlar ve TradeLog puanı', 'y', 'y'], ['Haftalık özet ve öneriler', 'y', 'y'], ['Takvim, günlük ve playbook', 'y', 'y'], ['AI koç', 'n', 'y']]],
     ['Hesaplar', [['Aktif hesap', '2', '20'], ['Prop firm kuralları ve uyarılar', 'y', 'y'], ['Kopya işlemleri bir kez sayma', 'y', 'y']]],
-    ['Erişim ve paylaşım', [['Web ve telefon', 'y', 'y'], ['Hesapla her cihazda aynı veri', 's', 'y'], ['İşlem ve haftalık özet paylaşım linki', 's', 'y'], ['Mentora salt okunur erişim', 'n', 'y']]]],
+    ['Erişim ve paylaşım', [['Web ve telefon', 'y', 'y'], ['Hesapla her cihazda aynı veri', 'y', 'y'], ['İşlem ve haftalık özet paylaşım linki', 's', 'y'], ['Mentora salt okunur erişim', 'n', 'y']]]],
   faq_h: 'Aklına takılanlar',
   faq: [
     ['Ücretsiz plan ile Pro arasındaki fark ne?', 'Ücretsiz planda işlem sınırı yok; bütün raporlar, haftalık özet ve prop firm kuralları dahil. Pro; işlemleri MT4/MT5\'ten kendiliğinden getirir, 20 hesaba kadar destekler, AI koç ve mentor erişimi ekler.'],
     ['Hesap şifremi vermem gerekiyor mu?', 'Hayır. MT4/MT5 raporunu yüklemen yeterli, şifre istemiyoruz. Pro\'daki otomatik senkron için iki yol olacak: MetaTrader\'ına kuracağın küçük bir eklenti (şifre gerekmez) ya da yatırımcı (salt okunur) şifresi. Bu şifreyle işlem açılamaz, para çekilemez.'],
-    ['Verilerim nerede saklanıyor?', 'Senin cihazında. Tarayıcıda kullanırken tarayıcının depolama alanında, Telegram\'da kullanırken Telegram\'ın bu uygulamaya ayırdığı bulut alanında durur. Bizim sunucumuza gönderilmez. Ayarlar → Veri\'den istediğin zaman yedek alabilirsin.'],
+    ['Verilerim nerede saklanıyor?', 'Hesabında: Almanya\'daki (Frankfurt) sunucularda, şifreli bağlantıyla. Verilerini yalnızca sen görebilirsin. Ayarlar → Profil\'den istediğin an indirebilir ya da hesabını tamamen silebilirsin.'],
     ['Hangi platformlar destekleniyor?', 'Şu an MT4 ve MT5 raporları (HTML ve Excel). Match-Trader ve cTrader sırada.'],
     ['Ücretsiz plan bir süre sonra bitiyor mu?', 'Hayır. Ücretsiz plan süresiz; kart bilgisi de istemiyoruz.'],
     ['Pro ne zaman geliyor? Denemeden almak zorunda mıyım?', 'Üyelik sistemini ve otomatik senkronu kuruyoruz; hazır olunca burada duyuracağız. Pro açıldığında her yeni üye 14 gün Pro\'yu kartsız dener. Satın aldıktan sonra 14 gün içinde istersen paranı iade ederiz.'],
@@ -3171,31 +3565,36 @@ tr: {
   c_h: 'Takvim', c_month: 'Ekim 2026 · örnek', c_mname: 'Ekim', c_wd: ['Pt', 'Sa', 'Ça', 'Pe', 'Cu', 'Ct', 'Pz'], c_none: 'işlem yok', c_future: 'henüz gelmedi', c_n: '{n} işlem', c_hint: 'Bir güne gel, sonucu gör', c_win: 'Kazanç', c_loss: 'Kayıp', c_empty: 'İşlem yok',
   pages: {
     help: { t: 'Yardım', u: 'TradeLog\'u kullanırken en çok sorulanlar', s: [
-      ['Başlarken', '<ol><li>Sayfanın üstünden <b>Panele git</b>\'e bas.</li><li><b>Hesabını ekle</b>: MT4/MT5 raporu yükle ya da hesabı elle oluştur.</li><li>Raporu yüklediysen panelin hemen dolar. Elle oluşturduysan ilk işlemini gir.</li><li>Panelin üstündeki <b>Başlangıç</b> listesindeki adımları tamamla: playbook, prop kuralları, günlük.</li></ol>'],
+      ['Başlarken', '<ol><li>Sayfanın üstünden <b>Panele git</b>\'e bas ve e-postanla giriş yap: e-postana gelen kodu girmen yeterli, şifre yok.</li><li><b>Hesabını ekle</b>: MT4/MT5 raporu yükle ya da hesabı elle oluştur.</li><li>Raporu yüklediysen panelin hemen dolar. Elle oluşturduysan ilk işlemini gir.</li><li>Panelin üstündeki <b>Başlangıç</b> listesindeki adımları tamamla: playbook, prop kuralları, günlük.</li></ol>'],
       ['MT5 raporu nasıl alınır', '<ol><li>Bilgisayarda MetaTrader 5\'i aç.</li><li><b>Araç Kutusu</b> (Toolbox) penceresini aç: Ctrl+T.</li><li><b>Geçmiş</b> (History) sekmesine geç, listede sağ tıkla ve tarih aralığını seç.</li><li>Yine sağ tıkla, <b>Rapor</b> (Report) altından <b>HTML</b> ya da <b>Open XML (Excel)</b> seç ve kaydet.</li><li>TradeLog\'da <b>İşlem ekle → MT4/MT5 raporu yükle</b> ile dosyayı seç.</li></ol>'],
       ['MT4 raporu nasıl alınır', '<ol><li>Bilgisayarda MetaTrader 4\'ü aç.</li><li><b>Terminal</b> penceresini aç: Ctrl+T.</li><li><b>Hesap Geçmişi</b> (Account History) sekmesinde sağ tıkla ve dönemi seç (örneğin Tüm Geçmiş).</li><li>Yine sağ tıkla, <b>Detaylı Raporu Kaydet</b> (Save as Detailed Report) seç ve .htm dosyasını kaydet.</li><li>TradeLog\'da dosyayı yükle.</li></ol>'],
       ['Telefonda rapor', '<p>MT4 ve MT5\'in telefon uygulamaları rapor dışa aktaramıyor. Raporu bilgisayardan al; dosyayı telefonuna gönderip TradeLog\'da oradan da seçebilirsin.</p>'],
       ['Aynı raporu tekrar yüklersem ne olur?', '<p>Hiçbir şey bozulmaz. Daha önce eklenen işlemler atlanır, sadece yeniler eklenir. Elle girdiğin işlemler rapordaki aynı işlemle eşleşir: notların, setup\'ın ve duygun korunur, rakamlar rapordan güncellenir.</p>'],
       ['Haftalık özet', '<p><b>Raporlar → Haftalık özet</b>\'te haftanın net sonucunu, günlerini, en iyi ve en kötü işlemini geçen haftayla karşılaştırmalı görürsün. Altta işlemlerine eklediğin setup, duygu ve hatalardan çıkan 1-3 öneri ve haftanın notu var.</p><p><b>Özeti kopyala</b> ile özeti metin olarak alıp mentoruna gönderebilirsin. Panelde de bu haftanın kısa özeti görünür.</p>'],
       ['R nedir?', '<p>R, bir işlemde riske ettiğin tutarın katıdır. Stop olursan −1R, riskinin iki katını kazanırsan +2R yazılır. Böylece farklı lot ve hesap büyüklüklerindeki işlemler aynı ölçüyle karşılaştırılır.</p><p>Raporda stop loss varsa R otomatik hesaplanır. Stop yoksa hesabın risk yüzdesinden tahmin edilir ve yanında ≈ işareti görünür.</p>'],
-      ['Telegram\'da kullanmak', '<p>Telegram\'da <b>@tradelog_tanerphll_bot</b>\'u aç ve <b>Günlüğü Aç</b>\'a bas. Verilerin Telegram bulutunda saklanır; telefondaki ve bilgisayardaki Telegram\'da aynı verileri görürsün.</p>'],
-      ['Yedek almak ve taşımak', '<p>Ayarlar → Veri → <b>Yedek indir</b> ile tüm verilerini tek dosyada al. Tarayıcıdaki verileri Telegram\'a taşımak için yedeği <b>Yedek dosyasından geri yükle</b> ya da <b>Metin yapıştırarak yükle</b> ile içeri al.</p>'],
+      ['Hesap ve giriş', '<p>Giriş için şifre yok: e-posta adresini yaz, gelen kodu gir. Kod gelmezse spam klasörüne bak ya da bir dakika sonra yeniden iste. Aynı e-postayla telefonda ve bilgisayarda giriş yapınca aynı verileri görürsün.</p><p>Daha önce TradeLog\'u hesapsız kullandıysan, o cihazdaki veriler ilk girişte hesabına taşınır. Hem cihazda hem hesabında veri varsa birleştirmek isteyip istemediğin sorulur. Çıkış yapmak ve hesabı silmek için <b>Ayarlar → Profil</b>.</p>'],
+      ['Telegram\'dan web\'e geçmek', '<p>Telegram sürümü kademeli olarak kapanacak. Verilerini taşımak için Telegram\'da <b>Ayarlar → Veri → Yedek indir</b>\'e bas ve çıkan metni kopyala. Sonra web\'de giriş yap ve <b>Ayarlar → Veri → Metin yapıştırarak yükle</b> ile içeri al.</p>'],
+      ['Yedek almak', '<p>Verilerin hesabında saklanır ve sunucuda her gün yedeklenir. Kendi kopyanı istersen Ayarlar → Veri → <b>Yedek indir</b> ile bütün verilerini tek dosyada alabilir, gerektiğinde <b>Yedek dosyasından geri yükle</b> ile içeri alabilirsin.</p>'],
       ['Hâlâ sorun mu var?', '<p>İletişim sayfasından bize yaz.</p>']] },
     privacy: { t: 'Gizlilik politikası', u: 'Son güncelleme: 24 Ekim 2026', s: [
-      ['Kısaca', '<p>TradeLog şu an üyelik sistemi ve kendi sunucusu olmadan çalışır. Girdiğin işlemler, notlar, hesap bilgileri ve ayarlar yalnızca senin cihazında saklanır. Bu verileri görmeyiz, toplamayız, kimseyle paylaşmayız ve satmayız.</p>'],
-      ['Verilerin nerede durur', '<ul><li><b>Tarayıcıda:</b> Tarayıcının bu siteye ayırdığı yerel depolama alanında.</li><li><b>Telegram\'da:</b> Telegram\'ın bu uygulamaya senin hesabın için ayırdığı bulut depolama alanında. Bu veriye Telegram\'ın kendi gizlilik koşulları da uygulanır.</li></ul><p>Tarayıcı ile Telegram\'daki veriler birbirinden ayrıdır; birinden diğerine yedek dosyasıyla taşıyabilirsin.</p>'],
-      ['Yüklediğin raporlar', '<p>MT4/MT5 raporları cihazında okunur ve hiçbir yere gönderilmez. Rapordaki hesap numarası ve sunucu adı, sonraki raporları doğru hesaba eklemek için yine yalnızca cihazında saklanır. Hesap şifren hiçbir zaman istenmez.</p>'],
-      ['Üçüncü taraf hizmetler', '<p>Sayfa açılırken yazı tipleri Google Fonts\'tan, Excel dosyalarını okuyan kütüphane cdnjs\'ten yüklenir. Telegram içinde Telegram\'ın uygulama kütüphanesi kullanılır. Bu hizmetler, dosyaları gönderirken IP adresin gibi teknik bilgileri görebilir. Analitik, reklam ya da izleme çerezi kullanmıyoruz.</p>'],
-      ['Verilerin üzerindeki kontrol', '<p>Ayarlar → Veri bölümünden istediğin zaman yedek alabilir, CSV olarak dışa aktarabilir ya da tüm verilerini silebilirsin. Tarayıcı verilerini temizlersen kayıtların da silinir; bu yüzden düzenli yedek almanı öneririz.</p>'],
-      ['Değişiklikler', '<p>Üyelik, senkronizasyon ve Pro geldiğinde bu politika güncellenecek. Hangi verilerin sunucuda tutulacağı, ne kadar saklanacağı ve haklarının neler olduğu burada açıkça yazılacak.</p>'],
-      ['İletişim', '<p>Sorun ve talepler için İletişim sayfasındaki adresi kullanabilirsin.</p>']] },
+      ['Kısaca', '<p>TradeLog\'u kullanmak için e-posta adresinle bir hesap açarsın. Girdiğin işlemler, notlar, hesap bilgileri ve ayarlar hesabında saklanır; böylece giriş yaptığın her cihazda aynı veriyi görürsün. Verilerini satmayız, reklam için kullanmayız ve hizmeti sunmak dışında bir amaçla kimseyle paylaşmayız.</p>'],
+      ['Hangi verileri işliyoruz', '<ul><li><b>Hesap:</b> e-posta adresin, hesabın açılış ve giriş zamanları.</li><li><b>Günlük verilerin:</b> işlemler, notlar, playbook\'lar, günlük ve haftalık notlar, hesap adları, hesap numaraları, sunucu adları, bakiye ve para hareketleri, ayarlar.</li><li><b>Teknik kayıtlar:</b> IP adresi ve tarayıcı bilgisi; güvenlik ve hata ayıklama için sunucu kayıtlarında kısa süre tutulur.</li></ul>'],
+      ['Ne için kullanıyoruz', '<p>Hizmeti sunmak, girişini doğrulamak (e-postana kod göndermek), verilerini cihazların arasında senkronize etmek ve hizmeti güvende tutmak için. Verilerinden hesaplanan istatistikler yalnızca sana gösterilir.</p>'],
+      ['Verilerin nerede saklanır', '<p>Verilerin, altyapı sağlayıcımız Supabase üzerinden Almanya\'daki (Frankfurt) sunucularda saklanır ve şifreli bağlantıyla (HTTPS) iletilir. Bu, kişisel verilerin yurt dışına aktarılması anlamına gelir. Hızlı açılış ve internetsiz kullanım için cihazında da bir kopya tutulur; çıkış yaptığında bu kopya silinir.</p>'],
+      ['Yüklediğin raporlar', '<p>MT4/MT5 raporları cihazında okunur; rapor dosyasının kendisi sunucuya gönderilmez, yalnızca içinden çıkan işlemler ve hesap bilgileri hesabına kaydedilir. Hesap şifren hiçbir zaman istenmez.</p>'],
+      ['Ne kadar süre saklıyoruz', '<p>Hesabın açık olduğu sürece. Hesabını sildiğinde hesabın ve bütün verilerin hemen silinir; sunucu yedeklerinden de en geç 7 gün içinde kalkar.</p>'],
+      ['Üçüncü taraf hizmetler', '<p>Supabase (veritabanı, giriş ve e-posta altyapısı). Sayfa açılırken yazı tipleri Google Fonts\'tan, kütüphaneler cdnjs ve jsDelivr\'den yüklenir; bu hizmetler dosyaları gönderirken IP adresin gibi teknik bilgileri görebilir. Analitik, reklam ya da izleme çerezi kullanmıyoruz. Oturumun tarayıcının yerel depolamasında tutulur.</p>'],
+      ['Hakların', '<p>KVKK\'nın 11. maddesi kapsamında verilerinin işlenip işlenmediğini öğrenme, bilgi isteme, düzeltilmesini ya da silinmesini isteme ve itiraz etme hakların var. <b>Ayarlar → Profil</b>\'den verilerini indirebilir ya da hesabını tamamen silebilirsin. Diğer talepler için İletişim sayfasındaki adrese yaz.</p>'],
+      ['Telegram', '<p>TradeLog\'u Telegram içinde hesapsız kullananların verileri Telegram\'ın bu uygulamaya ayırdığı bulut alanında durur ve Telegram\'ın gizlilik koşullarına tabidir. Telegram sürümü kademeli olarak kapanacak; verilerini yedekle web\'deki hesabına taşıyabilirsin.</p>'],
+      ['Değişiklikler', '<p>Pro ve ödeme geldiğinde bu politika güncellenecek. Önemli değişiklikleri sitede ve e-postayla duyururuz.</p>']] },
     terms: { t: 'Kullanım koşulları', u: 'Son güncelleme: 24 Ekim 2026', s: [
-      ['Hizmet', '<p>TradeLog, işlemlerini kaydetmen ve sonuçlarını incelemen için bir işlem günlüğüdür. Ücretsiz planı süre sınırı olmadan kullanabilirsin.</p>'],
+      ['Hizmet', '<p>TradeLog, işlemlerini kaydetmen ve sonuçlarını incelemen için bir işlem günlüğüdür. Kullanmak için e-posta adresinle hesap açman gerekir. Ücretsiz planı süre sınırı olmadan kullanabilirsin.</p>'],
+      ['Hesabın', '<p>Hesabına giriş, e-postana gönderilen tek kullanımlık kodla yapılır; e-posta hesabının güvenliği senin sorumluluğundadır. Hesabını başkasıyla paylaşma. Hesabını istediğin an Ayarlar → Profil\'den silebilirsin.</p>'],
       ['Yatırım tavsiyesi değildir', '<p>Gösterilen istatistikler, TradeLog puanı ve içgörüler senin girdiğin verilerden hesaplanır. Bunlar alım satım önerisi değildir. İşlem kararların ve sonuçları sana aittir.</p>'],
       ['Prop firm kuralları', '<p>Paneldeki günlük kayıp, toplam kayıp ve kâr hedefi göstergeleri senin girdiğin oranlarla ve kapanmış işlemlerle hesaplanır. Firmanın resmi hesaplamasının yerine geçmez; kesin bilgi için firmanın kendi panelini kontrol et.</p>'],
-      ['Verilerin', '<p>Verilerin senin cihazında tutulduğu için yedek almak senin sorumluluğundadır. Silinen ya da kaybolan verileri geri getiremeyiz.</p>'],
+      ['Verilerin', '<p>Verilerin sana aittir. Onları korumak için makul önlemler alırız ve sunucuda günlük yedek tutarız. Yine de önemli verilerin için zaman zaman Ayarlar → Veri\'den kendi yedeğini almanı öneririz. Senin sildiğin verileri geri getiremeyiz.</p>'],
       ['Hizmetin durumu', '<p>TradeLog olduğu gibi sunulur. Hataları düzeltmek için çalışırız ama hizmetin kesintisiz ya da hatasız çalışacağını garanti edemeyiz.</p>'],
-      ['Kullanım kuralları', '<p>Hizmeti bozmaya, başkalarının verilerine erişmeye ya da kötüye kullanmaya çalışmak yasaktır.</p>'],
+      ['Kullanım kuralları', '<p>Hizmeti bozmaya, başkalarının verilerine erişmeye ya da kötüye kullanmaya çalışmak yasaktır. Bu kurallara uymayan hesapları askıya alabiliriz.</p>'],
       ['Değişiklikler', '<p>Pro ve ödeme geldiğinde ücretli planın koşulları bu sayfaya eklenecek. Önemli değişiklikleri sitede duyururuz.</p>']] },
     contact: { t: 'İletişim', u: '', s: [
       ['Bize ulaş', '<p>Hata bildirimi, öneri ya da iş birliği için bize yazabilirsin. Genellikle birkaç iş günü içinde dönüyoruz.</p>{mail}'],
@@ -3232,22 +3631,22 @@ en: {
   wk_h: 'Weekly recap', wk_p: 'Every week: your net result, best and worst trade, and 1-3 suggestions for next week. Copy it and send it to your mentor.', wk_btn: 'See it in the app', hero_how: 'How it works',
   price_h: 'A free plan that is actually free.', price_p: 'No trade limit, and every report and analysis is free. Pro will add automatic sync, more accounts and an AI coach.',
   plan_free: 'Free', plan_free_d: 'For everyone who wants to keep a journal. No card needed.', plan_forever: 'forever',
-  feat_free: ['Unlimited trades, logged by hand or from MT4/MT5 reports', 'All reports, score and insights', 'Weekly recap with suggestions for next week', 'Calendar, journal and playbooks', 'Prop firm rules and alerts', '2 active accounts (unlimited until Pro opens)', ['The same data on every device with your account', 's'], ['Share links for trades and weekly recaps', 's']],
+  feat_free: ['Unlimited trades, logged by hand or from MT4/MT5 reports', 'All reports, score and insights', 'Weekly recap with suggestions for next week', 'Calendar, journal and playbooks', 'Prop firm rules and alerts', '2 active accounts (unlimited until Pro opens)', 'The same data on every device with your account', ['Share links for trades and weekly recaps', 's']],
   soon: 'Coming soon', plan_pro_d: 'For traders who don\'t want to log trades by hand and run several accounts.', pro_btn: 'Opening soon',
   pro_fine: 'When Pro opens, every new member starts with 14 days of Pro, no card needed. After that you move to the free plan and keep your data.',
   feat_plus: 'Everything in Free, plus:',
   feat_pro: ['Automatic MT4/MT5 sync, including past trades', '20 active accounts on one dashboard', 'AI coach: reads your data, comments on it and answers your questions', '10 screenshots per trade', 'Give your mentor read-only access'],
-  cmp_show: 'Compare all features', cmp_hide: 'Hide comparison', cmp_feature: 'Feature', cmp_pro: 'Pro (soon)', yes_a: 'Included', no_a: 'Not included', cmp_note: 'Features marked coming soon, and Pro, arrive with member accounts. Until Pro opens, the free plan has no account limit.',
+  cmp_show: 'Compare all features', cmp_hide: 'Hide comparison', cmp_feature: 'Feature', cmp_pro: 'Pro (soon)', yes_a: 'Included', no_a: 'Not included', cmp_note: 'Features marked coming soon, and Pro, open when they are ready. Until Pro opens, the free plan has no account limit.',
   groups: [
     ['Logging and import', [['Trades', 'Unlimited', 'Unlimited'], ['Manual logging and MT4/MT5 report upload', 'y', 'y'], ['Automatic MT4/MT5 sync', 'n', 'y'], ['Screenshots per trade', 's:1', '10']]],
     ['Analytics', [['All reports and TradeLog score', 'y', 'y'], ['Weekly recap and suggestions', 'y', 'y'], ['Calendar, journal and playbooks', 'y', 'y'], ['AI coach', 'n', 'y']]],
     ['Accounts', [['Active accounts', '2', '20'], ['Prop firm rules and alerts', 'y', 'y'], ['Count copied trades once', 'y', 'y']]],
-    ['Access and sharing', [['Web and phone', 'y', 'y'], ['Same data on every device', 's', 'y'], ['Share links for trades and weekly recaps', 's', 'y'], ['Read-only access for a mentor', 'n', 'y']]]],
+    ['Access and sharing', [['Web and phone', 'y', 'y'], ['Same data on every device', 'y', 'y'], ['Share links for trades and weekly recaps', 's', 'y'], ['Read-only access for a mentor', 'n', 'y']]]],
   faq_h: 'Questions you might have',
   faq: [
     ['What is the difference between Free and Pro?', 'The free plan has no trade limit and includes every report, the weekly recap and prop firm rules. Pro brings your trades in from MT4/MT5 on its own, supports up to 20 accounts, and adds the AI coach and mentor access.'],
     ['Do I need to give my account password?', 'No. Uploading your MT4/MT5 report is enough; we never ask for a password. Pro\'s automatic sync will offer two ways: a small add-on you install in MetaTrader (no password needed) or your investor (read-only) password, which cannot open trades or withdraw money.'],
-    ['Where is my data stored?', 'On your device. In a browser it stays in the browser\'s storage; in Telegram it stays in the cloud space Telegram gives this app. It is not sent to our servers. You can make a backup any time from Settings → Data.'],
+    ['Where is my data stored?', 'In your account, on servers in Germany (Frankfurt), over an encrypted connection. Only you can see your data. From Settings → Profile you can download it or delete your account completely.'],
     ['Which platforms are supported?', 'MT4 and MT5 reports (HTML and Excel) today. Match-Trader and cTrader are next.'],
     ['Does the free plan expire?', 'No. The free plan has no time limit and we don\'t ask for a card.'],
     ['When is Pro coming? Do I have to buy it without trying?', 'We are building member accounts and automatic sync, and will announce Pro here when it is ready. When it opens, every new member tries Pro for 14 days without a card. If you buy it, you can get a full refund within 14 days.'],
@@ -3280,31 +3679,36 @@ en: {
   c_h: 'Calendar', c_month: 'October 2026 · sample', c_mname: 'Oct', c_wd: ['Mo', 'Tu', 'We', 'Th', 'Fr', 'Sa', 'Su'], c_none: 'no trades', c_future: 'not yet', c_n: '{n} trades', c_hint: 'Hover a day to see its result', c_win: 'Win', c_loss: 'Loss', c_empty: 'No trades',
   pages: {
     help: { t: 'Help', u: 'The most common questions about TradeLog', s: [
-      ['Getting started', '<ol><li>Press <b>Open app</b> at the top of the page.</li><li><b>Add your account</b>: upload an MT4/MT5 report or create the account manually.</li><li>If you uploaded a report, your dashboard fills up right away. If you created it manually, add your first trade.</li><li>Finish the steps in the <b>Getting started</b> list on your dashboard: playbook, prop rules, journal.</li></ol>'],
+      ['Getting started', '<ol><li>Press <b>Open app</b> at the top of the page and sign in with your email: just enter the code we send you, no password.</li><li><b>Add your account</b>: upload an MT4/MT5 report or create the account manually.</li><li>If you uploaded a report, your dashboard fills up right away. If you created it manually, add your first trade.</li><li>Finish the steps in the <b>Getting started</b> list on your dashboard: playbook, prop rules, journal.</li></ol>'],
       ['How to export an MT5 report', '<ol><li>Open MetaTrader 5 on your computer.</li><li>Open the <b>Toolbox</b>: Ctrl+T.</li><li>Go to the <b>History</b> tab, right-click the list and pick a date range.</li><li>Right-click again, choose <b>Report</b>, then <b>HTML</b> or <b>Open XML (Excel)</b>, and save it.</li><li>In TradeLog, choose <b>Add trade → Upload an MT4/MT5 report</b> and pick the file.</li></ol>'],
       ['How to export an MT4 report', '<ol><li>Open MetaTrader 4 on your computer.</li><li>Open the <b>Terminal</b>: Ctrl+T.</li><li>In the <b>Account History</b> tab, right-click and pick the period (for example All History).</li><li>Right-click again, choose <b>Save as Detailed Report</b> and save the .htm file.</li><li>Upload the file in TradeLog.</li></ol>'],
       ['Reports on a phone', '<p>The MT4 and MT5 phone apps can\'t export reports. Export the report on your computer; you can send the file to your phone and pick it in TradeLog there.</p>'],
       ['What if I upload the same report again?', '<p>Nothing breaks. Trades already added are skipped and only new ones are added. Trades you entered manually are matched with the same trade in the report: your notes, setup and mindset are kept and the numbers are updated from the report.</p>'],
       ['Weekly recap', '<p><b>Reports → Weekly recap</b> shows the week\'s net result, each day, and your best and worst trade compared with last week. Below are 1-3 suggestions drawn from the setups, emotions and mistakes on your trades, plus a note of the week.</p><p>Use <b>Copy recap</b> to send it to your mentor as text. A short version of this week also appears on your dashboard.</p>'],
       ['What is R?', '<p>R is a multiple of the amount you risked on a trade. A stop-out is −1R; winning twice your risk is +2R. This lets you compare trades across different lot and account sizes on one scale.</p><p>If the report has a stop loss, R is calculated automatically. If not, it is estimated from the account\'s risk percentage and shown with a ≈ sign.</p>'],
-      ['Using it in Telegram', '<p>Open <b>@tradelog_tanerphll_bot</b> in Telegram and press <b>Günlüğü Aç</b>. Your data is stored in Telegram\'s cloud, so you see the same data in Telegram on your phone and computer.</p>'],
-      ['Backing up and moving data', '<p>Use Settings → Data → <b>Download backup</b> to get all your data in one file. To move browser data into Telegram, bring the backup in with <b>Restore from backup file</b> or <b>Restore by pasting text</b>.</p>'],
+      ['Account and sign-in', '<p>There is no password: type your email address and enter the code we send. If it doesn\'t arrive, check your spam folder or ask for a new one after a minute. Sign in with the same email on your phone and computer to see the same data.</p><p>If you used TradeLog without an account before, the data on that device moves to your account the first time you sign in. If both the device and your account have data, you are asked whether to merge them. To sign out or delete your account, go to <b>Settings → Profile</b>.</p>'],
+      ['Moving from Telegram to the web', '<p>The Telegram version will be phased out. To move your data, open <b>Settings → Data → Download backup</b> in Telegram and copy the text. Then sign in on the web and bring it in with <b>Settings → Data → Restore by pasting text</b>.</p>'],
+      ['Backups', '<p>Your data is stored in your account and backed up on the server every day. If you want your own copy, use Settings → Data → <b>Download backup</b> to get everything in one file, and <b>Restore from backup file</b> to bring it back if needed.</p>'],
       ['Still stuck?', '<p>Write to us from the Contact page.</p>']] },
     privacy: { t: 'Privacy policy', u: 'Last updated: October 24, 2026', s: [
-      ['In short', '<p>TradeLog currently runs without accounts or servers of its own. Your trades, notes, account details and settings are stored only on your device. We don\'t see, collect, share or sell this data.</p>'],
-      ['Where your data lives', '<ul><li><b>In a browser:</b> in the local storage your browser gives this site.</li><li><b>In Telegram:</b> in the cloud storage Telegram gives this app for your account. Telegram\'s own privacy terms also apply to it.</li></ul><p>Browser and Telegram data are separate; you can move data between them with a backup file.</p>'],
-      ['Reports you upload', '<p>MT4/MT5 reports are read on your device and never sent anywhere. The account number and server name in the report are kept on your device only, so later reports go to the right account. We never ask for your account password.</p>'],
-      ['Third-party services', '<p>When the page loads, fonts come from Google Fonts and the library that reads Excel files comes from cdnjs. Inside Telegram, Telegram\'s app library is used. These services may see technical details such as your IP address when they serve those files. We use no analytics, advertising or tracking cookies.</p>'],
-      ['Control over your data', '<p>From Settings → Data you can back up, export as CSV or delete all your data at any time. Clearing your browser data also deletes your records, so we recommend regular backups.</p>'],
-      ['Changes', '<p>When accounts, sync and Pro arrive, this policy will be updated to state clearly which data is kept on servers, for how long, and what your rights are.</p>'],
-      ['Contact', '<p>For questions or requests, use the address on the Contact page.</p>']] },
+      ['In short', '<p>To use TradeLog you create an account with your email address. Your trades, notes, account details and settings are stored in your account, so every device you sign in on shows the same data. We don\'t sell your data, use it for advertising, or share it with anyone except to provide the service.</p>'],
+      ['What we process', '<ul><li><b>Account:</b> your email address, when your account was created and when you sign in.</li><li><b>Your journal:</b> trades, notes, playbooks, daily and weekly notes, account names, account numbers, server names, balances and cash movements, settings.</li><li><b>Technical logs:</b> IP address and browser details, kept briefly in server logs for security and debugging.</li></ul>'],
+      ['What we use it for', '<p>To provide the service, verify your sign-in (by emailing you a code), sync your data across devices and keep the service secure. Statistics calculated from your data are shown only to you.</p>'],
+      ['Where your data is stored', '<p>Your data is stored on servers in Germany (Frankfurt) through our infrastructure provider Supabase and travels over an encrypted connection (HTTPS). For fast start-up and offline use, a copy is also kept on your device; it is removed when you sign out.</p>'],
+      ['Reports you upload', '<p>MT4/MT5 reports are read on your device; the report file itself is not uploaded, only the trades and account details taken from it are saved to your account. We never ask for your account password.</p>'],
+      ['How long we keep it', '<p>For as long as your account exists. When you delete your account, the account and all its data are deleted right away and disappear from server backups within 7 days.</p>'],
+      ['Third-party services', '<p>Supabase (database, sign-in and email). When the page loads, fonts come from Google Fonts and libraries from cdnjs and jsDelivr; these services may see technical details such as your IP address when they serve those files. We use no analytics, advertising or tracking cookies. Your session is kept in your browser\'s local storage.</p>'],
+      ['Your rights', '<p>You can ask whether your data is processed, request information, ask for it to be corrected or deleted, and object. From <b>Settings → Profile</b> you can download your data or delete your account completely. For other requests, write to the address on the Contact page.</p>'],
+      ['Telegram', '<p>If you use TradeLog inside Telegram without an account, your data stays in the cloud space Telegram gives this app and Telegram\'s privacy terms apply. The Telegram version will be phased out; you can move your data to your web account with a backup.</p>'],
+      ['Changes', '<p>This policy will be updated when Pro and payments arrive. We announce important changes on the site and by email.</p>']] },
     terms: { t: 'Terms of use', u: 'Last updated: October 24, 2026', s: [
-      ['The service', '<p>TradeLog is a trading journal for logging your trades and reviewing your results. You can use the free plan with no time limit.</p>'],
+      ['The service', '<p>TradeLog is a trading journal for logging your trades and reviewing your results. You need an account, created with your email address, to use it. You can use the free plan with no time limit.</p>'],
+      ['Your account', '<p>You sign in with a one-time code sent to your email; keeping your email account secure is your responsibility. Don\'t share your account. You can delete it any time from Settings → Profile.</p>'],
       ['Not investment advice', '<p>Statistics, the TradeLog score and insights are calculated from the data you enter. They are not trading recommendations. Your trading decisions and their results are your own.</p>'],
       ['Prop firm rules', '<p>The daily loss, max loss and profit target meters use the percentages you enter and your closed trades. They do not replace your firm\'s official calculation; check your firm\'s dashboard for exact figures.</p>'],
-      ['Your data', '<p>Because your data is kept on your device, making backups is your responsibility. We cannot recover deleted or lost data.</p>'],
+      ['Your data', '<p>Your data belongs to you. We take reasonable measures to protect it and keep daily server backups. We still recommend making your own backup from Settings → Data from time to time. We cannot recover data you delete.</p>'],
       ['Availability', '<p>TradeLog is provided as is. We work to fix bugs but cannot guarantee the service will run without interruptions or errors.</p>'],
-      ['Acceptable use', '<p>Do not try to break the service, access other people\'s data or misuse it.</p>'],
+      ['Acceptable use', '<p>Do not try to break the service, access other people\'s data or misuse it. We may suspend accounts that break these rules.</p>'],
       ['Changes', '<p>Terms for the paid plan will be added here when Pro and payments arrive. We announce important changes on the site.</p>']] },
     contact: { t: 'Contact', u: '', s: [
       ['Get in touch', '<p>Write to us about bugs, ideas or partnerships. We usually reply within a few business days.</p>{mail}'],
@@ -3530,7 +3934,7 @@ try { const io = new IntersectionObserver(es => es.forEach(e => { if (e.isInters
 let entered = false; try { entered = localStorage.getItem(ENTER) === '1'; } catch (e) {}
 const hp = Object.keys(PAGE_HASH).find(k => location.hash === '#' + PAGE_HASH[k]);
 if (hp && !(typeof TG !== 'undefined' && TG)) { SITE.hidden = false; APP.hidden = true; showPage(hp); }
-else if ((typeof TG !== 'undefined' && TG) || entered || /^#(panel|\/?app)/.test(location.hash)) showApp(); else showSite();
+else if ((typeof TG !== 'undefined' && TG) || entered || /^#(panel|\/?app)/.test(location.hash) || /access_token=|error_description=/.test(location.hash) || /[?&]code=/.test(location.search)) showApp(); else showSite();
 })();
 
 </script>
