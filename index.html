@@ -919,15 +919,63 @@ body.aion{overflow:hidden}
 @media (hover:hover){.ap .card{transition:border-color .25s,box-shadow .25s}
 .ap .g2e>.card:hover,.ap .stack>.card:hover,.ap .acx:hover{border-color:color-mix(in srgb,var(--br) 35%,var(--ln))}}
 @media (prefers-reduced-motion:reduce){.ap .vin .gbar,.ap .vin .meter b,.ap .vin .ring .rg,.ap .vin .card .srow,.ap .vin tbody tr,.ap .acx,.ap svg.acxsp{animation:none!important;clip-path:none!important;opacity:1!important}}
-.ap .app{background:radial-gradient(1100px 680px at 88% -12%,rgba(47,125,136,.07),transparent 62%),radial-gradient(900px 600px at -5% 108%,rgba(47,125,136,.045),transparent 60%),var(--bg);background-attachment:fixed}
-:root[data-theme=dark] .ap .app{background:radial-gradient(900px 620px at 82% 4%,rgba(148,197,204,.17),transparent 65%),radial-gradient(820px 620px at 12% 100%,rgba(148,197,204,.11),transparent 65%),radial-gradient(800px 600px at 50% 50%,rgba(120,150,170,.05),transparent 70%),#000100;background-attachment:fixed}
-:root[data-theme=dark] .ap .card{background:linear-gradient(180deg,rgba(255,255,255,.028),rgba(255,255,255,0) 38%),rgba(14,15,18,.66);border-color:rgba(255,255,255,.075);box-shadow:inset 0 1px 0 rgba(255,255,255,.035)}
-:root[data-theme=dark] .ap .side{background:rgba(10,11,13,.55);border-right-color:rgba(255,255,255,.07)}
 :root[data-theme=dark] .ap .tabbar{background:rgba(10,11,13,.82);-webkit-backdrop-filter:blur(14px);backdrop-filter:blur(14px)}
 .ap .top{background:color-mix(in srgb,var(--bg) 72%,transparent);-webkit-backdrop-filter:blur(16px);backdrop-filter:blur(16px)}
 @media (max-width:900px){.ap .top .ctl:has(>.ib:only-child){width:auto;display:flex}}
 .ap .top{margin:0 -32px;padding-left:32px;padding-right:32px}
 @media (max-width:900px){.ap .top{margin:0 -16px;padding-left:16px;padding-right:16px}}
+:root{--au1:rgba(47,125,136,.30);--au2:rgba(99,102,241,.18);--au3:rgba(56,189,248,.12);--glass:rgba(255,255,255,.72);--glassb:rgba(16,24,40,.07);--spot:rgba(47,125,136,.09)}
+:root[data-theme=dark]{--au1:rgba(148,197,204,.30);--au2:rgba(129,140,248,.17);--au3:rgba(148,197,204,.10);--glass:rgba(14,15,18,.62);--glassb:rgba(255,255,255,.075);--spot:rgba(148,197,204,.10)}
+.ap .app{position:relative;isolation:isolate;background:var(--bg)}
+.ap .app::before{content:"";position:fixed;inset:-25%;z-index:-1;pointer-events:none;will-change:transform;
+ background:radial-gradient(32% 30% at 78% 18%,var(--au1),transparent 70%),radial-gradient(30% 28% at 18% 82%,var(--au2),transparent 70%),radial-gradient(26% 26% at 52% 48%,var(--au3),transparent 70%),radial-gradient(22% 22% at 92% 88%,var(--au3),transparent 70%);
+ animation:aurora 26s ease-in-out infinite alternate}
+@keyframes aurora{0%{transform:translate3d(0,0,0) rotate(0)}50%{transform:translate3d(-4%,3%,0) rotate(6deg) scale(1.05)}100%{transform:translate3d(4%,-2%,0) rotate(-4deg) scale(1.02)}}
+.ap .card{background:linear-gradient(180deg,rgba(255,255,255,.035),rgba(255,255,255,0) 40%),var(--glass);border-color:var(--glassb);position:relative}
+:root:not([data-theme=dark]) .ap .card{box-shadow:0 1px 2px rgba(16,24,40,.04),0 12px 32px -18px rgba(16,24,40,.18)}
+:root[data-theme=dark] .ap .card{box-shadow:inset 0 1px 0 rgba(255,255,255,.04),0 20px 50px -30px rgba(0,0,0,.8)}
+.ap .side{background:color-mix(in srgb,var(--sf) 62%,transparent);-webkit-backdrop-filter:blur(18px);backdrop-filter:blur(18px);border-right-color:var(--glassb)}
+.ap .kpi{background:color-mix(in srgb,var(--sf2) 70%,transparent)}
+.ap .card::after{content:"";position:absolute;inset:0;border-radius:inherit;pointer-events:none;opacity:0;transition:opacity .35s;background:radial-gradient(420px circle at var(--mx,50%) var(--my,50%),var(--spot),transparent 45%)}
+@media (hover:hover){.ap .card:hover::after{opacity:1}}
+.ap .vin .strip .sb b.u{animation:riseu .6s cubic-bezier(.2,.9,.3,1.2) both;transform-origin:bottom}
+.ap .vin .strip .sb b.d{animation:riseu .6s cubic-bezier(.2,.9,.3,1.2) both;transform-origin:top}
+@keyframes riseu{from{transform:scaleY(0);opacity:.3}}
+.ap .vin #dayC rect{animation:riseu .6s cubic-bezier(.2,.9,.3,1.15) both;transform-box:fill-box;transform-origin:bottom}
+.ap .vin #dayC rect.dn{transform-origin:top}
+.ap .vin .eql{stroke-dasharray:1;stroke-dashoffset:1;animation:draw 1.5s cubic-bezier(.45,0,.2,1) .3s forwards}
+.ap .vin .eqa{animation:fadein 1s ease 1.1s both}
+.ap .vin .eqm{animation:fadein .6s ease 1.6s both}
+@keyframes fadein{from{opacity:0}}
+.ap .vin .ring .rg{animation:ringin 1.6s cubic-bezier(.3,0,.15,1) .25s both}
+:root[data-theme=dark] .ring .rg{filter:drop-shadow(0 0 6px rgba(148,197,204,.45))}
+.ap .vin .ring .rc b{animation:ringpop .5s cubic-bezier(.2,1.4,.4,1) 1.7s both}
+@keyframes ringpop{50%{transform:scale(1.08)}}
+.ap .vin .kpi{animation:cardin .55s cubic-bezier(.2,.8,.2,1) both}
+.ap .vin .kpi:nth-child(2){animation-delay:.06s}
+.ap .vin .kpi:nth-child(3){animation-delay:.12s}
+.ap .vin .kpi:nth-child(4){animation-delay:.18s}
+.ap .vin .kpi:nth-child(5){animation-delay:.24s}
+.ap .vin .kpi:nth-child(6){animation-delay:.3s}
+.ap .vin .tlist .tc{animation:rowin .45s cubic-bezier(.2,.8,.2,1) both}
+.ap .vin .tlist .tc:nth-child(2){animation-delay:.05s}
+.ap .vin .tlist .tc:nth-child(3){animation-delay:.1s}
+.ap .vin .tlist .tc:nth-child(4){animation-delay:.15s}
+.ap .vin .tlist .tc:nth-child(n+5){animation-delay:.2s}
+.ap .vin .ins{animation:rowin .5s cubic-bezier(.2,.8,.2,1) both}
+.ap .vin .ins:nth-child(2){animation-delay:.08s}
+.ap .vin .ins:nth-child(n+3){animation-delay:.16s}
+.ap .vin .card{animation:cardin .6s cubic-bezier(.16,1,.3,1) both}
+@keyframes cardin{from{opacity:0;transform:translateY(16px) scale(.985)}}
+.ap .acxp .k{color:var(--ink3);font-weight:500}
+@media (prefers-reduced-motion:reduce){.ap .app::before,.ap .vin .strip .sb b,.ap .vin #dayC rect,.ap .vin .eql,.ap .vin .eqa,.ap .vin .eqm,.ap .vin .kpi,.ap .vin .tlist .tc,.ap .vin .ins,.ap .vin .ring .rc b{animation:none!important;stroke-dasharray:none!important}}
+.ap .netcard{overflow:hidden}
+.ap .netcard::before{content:"";position:absolute;inset:-40% auto auto -15%;width:60%;height:120%;pointer-events:none;background:radial-gradient(closest-side,var(--ng,transparent),transparent);opacity:.9;animation:fadein 1.4s ease both}
+.ap .netcard:has(.big.pos){--ng:rgba(21,128,61,.13)}
+.ap .netcard:has(.big.neg){--ng:rgba(220,38,38,.11)}
+:root[data-theme=dark] .ap .netcard:has(.big.pos){--ng:rgba(74,222,128,.17)}
+:root[data-theme=dark] .ap .netcard:has(.big.neg){--ng:rgba(248,113,113,.15)}
+.ap .netcard>*{position:relative}
 .site{color-scheme:dark;--win:#4ADE80;--bg:#000100;--bg2:#08090B;--card:#111317;--card2:#1B1E24;--line:rgba(148,197,204,.13);--line2:rgba(148,197,204,.28);--tx:#F8F8F8;--mu:#A1A6B4;--lime:#94C5CC;--sage:#B4D2E7;--olive:#5E8D94;--loss:#F87171;--disp:'Bricolage Grotesque',system-ui,sans-serif;--body:'Inter',system-ui,sans-serif;--mono:'JetBrains Mono',ui-monospace,monospace}
 .site *{box-sizing:border-box}
 html{scroll-behavior:smooth;-webkit-text-size-adjust:100%}
@@ -1733,7 +1781,7 @@ sy_what_q:'Yatırımcı şifresi nedir, nerede bulurum?',sy_what:'Hesabına sade
 sy_connect:'Bağlan',sy_wait:'Aracı kuruma bağlanılıyor… Bu bir dakika kadar sürebilir, pencereyi kapatma.',sy_linked:'Hesap bağlandı. İlk senkron yapılıyor; işlemlerin birkaç dakika içinde gelir. Bu pencereyi kapatabilirsin.',
 sy_e_input:'Sunucu, hesap numarası ve yatırımcı şifresini kontrol et.',sy_e_auth:'Hesap numarası, yatırımcı şifresi ya da sunucu yanlış. Bilgileri kontrol edip tekrar dene.',sy_e_server:'Bu sunucu bulunamadı. Adı MetaTrader\'daki gibi tam yaz; şunlardan biri olabilir:',
 sy_e_exists:'Bu MetaTrader hesabı zaten bağlı.',sy_e_limit:'En fazla {n} hesap bağlayabilirsin. Kullanmadığın bir bağlantıyı kaldır.',sy_e_slow:'Aracı kurum zamanında yanıt vermedi. Birkaç dakika sonra tekrar dene.',sy_e_config:'Bağlantı servisi henüz ayarlanmadı.',sy_e_plan:'Hesap bağlama Pro özelliğidir.',
-sy_st_wait:'Durum kontrol ediliyor…',sy_st_start:'Bulut terminali başlatılıyor…',sy_st_conn:'Aracı kuruma bağlanılıyor…',sy_st_broker:'Aracı kurum sunucusu henüz yanıt vermiyor, bekleniyor…',sy_st_ready:'Bağlandı, işlemlerin alınıyor…',sy_st_min:'{n} dk',sy_checking:'Kontrol ediliyor…',sy_still:'Bağlantı hâlâ kuruluyor; hazır olunca işlemlerin kendiliğinden gelecek.',v_acc:'Hesaplar',ax_moved:'{n} hesabını, bakiyelerini ve ayarlarını Hesaplar sayfasında gör',ax_total:'Toplam bakiye',ax_pnl:'Toplam kâr/zarar',ax_active:'Aktif hesap',ax_open:'Panelde aç',ax_be:'Başabaş',ax_live:'Otomatik',ax_nochart:'Eğri için en az 2 işlem gerekli',acc_be:'Başabaş aralığı',acc_be_h:'Kâr/zararı bu tutarın içinde kalan işlemler (artı ya da eksi) başabaş sayılır ve kazanma oranını etkilemez. Örn. 200 yazarsan −200 ile +200 arası başabaş olur. Boş bırakırsan kapalı.',d_beauto:'Kâr/zarar ±{v} başabaş aralığında olduğu için başabaş sayıldı; kazanma oranını etkilemez.',shs_title:'İşlemi paylaş',shs_prev:'Paylaşım kartı önizlemesi',shs_story:'Story (9:16)',shs_square:'Gönderi (1:1)',shs_money:'Tutarı göster',shs_money_h:'Kapalıysa kartta sadece R görünür',shs_share:'Paylaş',shs_dl:'Görseli indir',shs_link:'Bağlantı oluştur',shs_back:'Detaya dön',shs_h:'Paylaş\'a basınca telefonunun paylaşım menüsü açılır; Instagram\'ı seçip story\'ne ekleyebilirsin.',shs_h_pc:'Görseli indirip Instagram, X ya da Telegram\'da paylaşabilirsin. Telefonda Paylaş\'a basınca Instagram doğrudan çıkar.',shs_wait:'Kart hazırlanıyor, bir saniye…',shs_saved:'Görsel indirildi',shs_foot:'TradeLog ile kaydedildi',fs_res:'Sonuç',l_pnl:'Kâr/zarar',ph_pnl:'Örn. 250',r_hint2:'R ya da kâr/zarardan birini yazman yeterli; sonuç kendiliğinden seçilir. R, riske ettiğin tutarın katıdır (stop = −1).',rr_other:'Diğer',rr_hint2:'Girişte hedeflediğin risk/ödül. Örn. 1:2 = riskinin 2 katını hedefledin.',l_mis_q:'Hata yaptın mı? (varsa seç)',sy_e_broker:'Aracı kuruma bağlanılamadı. Yatırımcı şifresi değişmiş olabilir; bağlantıyı kaldırıp yeniden bağla.',sy_e_gone:'Bağlantı artık yok; kaldırıp yeniden bağla.',sy_e_slow2:'Bağlantı hâlâ kuruluyor. Birkaç dakika sonra hesabı düzenle ekranından kontrol et.',
+sy_st_wait:'Durum kontrol ediliyor…',sy_st_start:'Bulut terminali başlatılıyor…',sy_st_conn:'Aracı kuruma bağlanılıyor…',sy_st_broker:'Aracı kurum sunucusu henüz yanıt vermiyor, bekleniyor…',sy_st_ready:'Bağlandı, işlemlerin alınıyor…',sy_st_min:'{n} dk',sy_checking:'Kontrol ediliyor…',sy_still:'Bağlantı hâlâ kuruluyor; hazır olunca işlemlerin kendiliğinden gelecek.',v_acc:'Hesaplar',ax_moved:'{n} hesabını, bakiyelerini ve ayarlarını Hesaplar sayfasında gör',ax_total:'Toplam bakiye',ax_pnl:'Net kazanç',ax_net:'Net kazanç',ax_netr:'Net R',ax_active:'Aktif hesap',ax_open:'Panelde aç',ax_be:'Başabaş',ax_live:'Otomatik',ax_nochart:'Eğri için en az 2 işlem gerekli',acc_be:'Başabaş aralığı',acc_be_h:'Kâr/zararı bu tutarın içinde kalan işlemler (artı ya da eksi) başabaş sayılır ve kazanma oranını etkilemez. Örn. 200 yazarsan −200 ile +200 arası başabaş olur. Boş bırakırsan kapalı.',d_beauto:'Kâr/zarar ±{v} başabaş aralığında olduğu için başabaş sayıldı; kazanma oranını etkilemez.',shs_title:'İşlemi paylaş',shs_prev:'Paylaşım kartı önizlemesi',shs_story:'Story (9:16)',shs_square:'Gönderi (1:1)',shs_money:'Tutarı göster',shs_money_h:'Kapalıysa kartta sadece R görünür',shs_share:'Paylaş',shs_dl:'Görseli indir',shs_link:'Bağlantı oluştur',shs_back:'Detaya dön',shs_h:'Paylaş\'a basınca telefonunun paylaşım menüsü açılır; Instagram\'ı seçip story\'ne ekleyebilirsin.',shs_h_pc:'Görseli indirip Instagram, X ya da Telegram\'da paylaşabilirsin. Telefonda Paylaş\'a basınca Instagram doğrudan çıkar.',shs_wait:'Kart hazırlanıyor, bir saniye…',shs_saved:'Görsel indirildi',shs_foot:'TradeLog ile kaydedildi',fs_res:'Sonuç',l_pnl:'Kâr/zarar',ph_pnl:'Örn. 250',r_hint2:'R ya da kâr/zarardan birini yazman yeterli; sonuç kendiliğinden seçilir. R, riske ettiğin tutarın katıdır (stop = −1).',rr_other:'Diğer',rr_hint2:'Girişte hedeflediğin risk/ödül. Örn. 1:2 = riskinin 2 katını hedefledin.',l_mis_q:'Hata yaptın mı? (varsa seç)',sy_e_broker:'Aracı kuruma bağlanılamadı. Yatırımcı şifresi değişmiş olabilir; bağlantıyı kaldırıp yeniden bağla.',sy_e_gone:'Bağlantı artık yok; kaldırıp yeniden bağla.',sy_e_slow2:'Bağlantı hâlâ kuruluyor. Birkaç dakika sonra hesabı düzenle ekranından kontrol et.',
 sy_err:'Bir şeyler ters gitti. İnternetini kontrol edip tekrar dene.',sy_login:'Hesap bağlamak için önce giriş yap',sy_connecting:'Bağlanıyor…',sy_first:'ilk senkron bekleniyor',sy_last:'son senkron {t}',sy_sent:'{n} kayıt',sy_now_b:'Senkronize et',sy_rm:'Kaldır',
 sy_rm_c:'Bu bağlantı kaldırılsın mı? İşlemler artık otomatik gelmez. Gelmiş işlemlerin silinmez.',sy_rm_ok:'Bağlantı kaldırıldı',sy_got:'MetaTrader\'dan {n} yeni işlem geldi',sy_got_u:'MetaTrader\'dan {n} işlem eşleşti',sy_got_c:'MetaTrader\'dan {n} para hareketi geldi',sy_ok_none:'Senkron tamam, yeni işlem yok',
 sy_auto_bal:'MetaTrader bakiyesinden hesaplanıyor',sy_manage:'Otomatik senkron',sy_manage_d:'MT4/MT5 hesabını yatırımcı şifresiyle bağla, işlemlerin kendiliğinden gelsin.',sy_open:'Hesabı bağla',
@@ -1910,7 +1958,7 @@ sy_what_q:'What is the investor password and where do I find it?',sy_what:'It\'s
 sy_connect:'Connect',sy_wait:'Connecting to your broker… This can take up to a minute, keep this window open.',sy_linked:'Account connected. The first sync is running; your trades arrive within a few minutes. You can close this window.',
 sy_e_input:'Check the server, account number and investor password.',sy_e_auth:'The account number, investor password or server is wrong. Check the details and try again.',sy_e_server:'This server wasn\'t found. Type the name exactly as in MetaTrader; it may be one of these:',
 sy_e_exists:'This MetaTrader account is already connected.',sy_e_limit:'You can connect up to {n} accounts. Remove a connection you no longer use.',sy_e_slow:'The broker didn\'t answer in time. Try again in a few minutes.',sy_e_config:'The connection service isn\'t set up yet.',sy_e_plan:'Connecting accounts is a Pro feature.',
-sy_st_wait:'Checking status…',sy_st_start:'Starting the cloud terminal…',sy_st_conn:'Connecting to your broker…',sy_st_broker:'Your broker\'s server isn\'t answering yet, waiting…',sy_st_ready:'Connected, fetching your trades…',sy_st_min:'{n} min',sy_checking:'Checking…',sy_still:'Still connecting; your trades will arrive on their own once it\'s ready.',v_acc:'Accounts',ax_moved:'See your {n} account(s), balances and settings on the Accounts page',ax_total:'Total balance',ax_pnl:'Total P&L',ax_active:'Active accounts',ax_open:'Open in dashboard',ax_be:'Breakeven',ax_live:'Auto',ax_nochart:'At least 2 trades needed for the curve',acc_be:'Breakeven range',acc_be_h:'Trades whose P&L stays within this amount (plus or minus) count as breakeven and don\'t affect your win rate. E.g. 200 means anything from −200 to +200 is breakeven. Leave empty to turn it off.',d_beauto:'Counted as breakeven because the P&L is within the ±{v} breakeven range; it doesn\'t affect your win rate.',shs_title:'Share trade',shs_prev:'Share card preview',shs_story:'Story (9:16)',shs_square:'Post (1:1)',shs_money:'Show amount',shs_money_h:'When off, the card shows only R',shs_share:'Share',shs_dl:'Download image',shs_link:'Create link',shs_back:'Back to details',shs_h:'Share opens your phone\'s share menu; pick Instagram to add it to your story.',shs_h_pc:'Download the image and post it on Instagram, X or Telegram. On a phone, Share offers Instagram directly.',shs_wait:'Preparing the card, one second…',shs_saved:'Image downloaded',shs_foot:'Logged with TradeLog',fs_res:'Result',l_pnl:'P&L',ph_pnl:'e.g. 250',r_hint2:'Enter either R or P&L; the outcome is picked for you. R is a multiple of what you risked (stop = −1).',rr_other:'Other',rr_hint2:'The risk/reward you aimed for at entry. E.g. 1:2 = you targeted twice your risk.',l_mis_q:'Any mistakes? (pick if so)',sy_e_broker:'Couldn\'t reach the broker. The investor password may have changed; remove the connection and connect again.',sy_e_gone:'The connection no longer exists; remove it and connect again.',sy_e_slow2:'Still connecting. Check again in a few minutes from the account editor.',
+sy_st_wait:'Checking status…',sy_st_start:'Starting the cloud terminal…',sy_st_conn:'Connecting to your broker…',sy_st_broker:'Your broker\'s server isn\'t answering yet, waiting…',sy_st_ready:'Connected, fetching your trades…',sy_st_min:'{n} min',sy_checking:'Checking…',sy_still:'Still connecting; your trades will arrive on their own once it\'s ready.',v_acc:'Accounts',ax_moved:'See your {n} account(s), balances and settings on the Accounts page',ax_total:'Total balance',ax_pnl:'Net gain',ax_net:'Net gain',ax_netr:'Net R',ax_active:'Active accounts',ax_open:'Open in dashboard',ax_be:'Breakeven',ax_live:'Auto',ax_nochart:'At least 2 trades needed for the curve',acc_be:'Breakeven range',acc_be_h:'Trades whose P&L stays within this amount (plus or minus) count as breakeven and don\'t affect your win rate. E.g. 200 means anything from −200 to +200 is breakeven. Leave empty to turn it off.',d_beauto:'Counted as breakeven because the P&L is within the ±{v} breakeven range; it doesn\'t affect your win rate.',shs_title:'Share trade',shs_prev:'Share card preview',shs_story:'Story (9:16)',shs_square:'Post (1:1)',shs_money:'Show amount',shs_money_h:'When off, the card shows only R',shs_share:'Share',shs_dl:'Download image',shs_link:'Create link',shs_back:'Back to details',shs_h:'Share opens your phone\'s share menu; pick Instagram to add it to your story.',shs_h_pc:'Download the image and post it on Instagram, X or Telegram. On a phone, Share offers Instagram directly.',shs_wait:'Preparing the card, one second…',shs_saved:'Image downloaded',shs_foot:'Logged with TradeLog',fs_res:'Result',l_pnl:'P&L',ph_pnl:'e.g. 250',r_hint2:'Enter either R or P&L; the outcome is picked for you. R is a multiple of what you risked (stop = −1).',rr_other:'Other',rr_hint2:'The risk/reward you aimed for at entry. E.g. 1:2 = you targeted twice your risk.',l_mis_q:'Any mistakes? (pick if so)',sy_e_broker:'Couldn\'t reach the broker. The investor password may have changed; remove the connection and connect again.',sy_e_gone:'The connection no longer exists; remove it and connect again.',sy_e_slow2:'Still connecting. Check again in a few minutes from the account editor.',
 sy_err:'Something went wrong. Check your internet and try again.',sy_login:'Sign in first to connect an account',sy_connecting:'Connecting…',sy_first:'waiting for the first sync',sy_last:'last synced {t}',sy_sent:'{n} records',sy_now_b:'Sync now',sy_rm:'Remove',
 sy_rm_c:'Remove this connection? Trades won\'t arrive automatically any more. Trades that already arrived are kept.',sy_rm_ok:'Connection removed',sy_got:'{n} new trades arrived from MetaTrader',sy_got_u:'{n} trades matched from MetaTrader',sy_got_c:'{n} cash movements arrived from MetaTrader',sy_ok_none:'Sync done, no new trades',
 sy_auto_bal:'Calculated from your MetaTrader balance',sy_manage:'Auto sync',sy_manage_d:'Connect your MT4/MT5 account with its investor password and let trades arrive on their own.',sy_open:'Connect account',
@@ -2712,7 +2760,11 @@ function go(v){if(!VIEWS.includes(v))v='dash';const ch=v!==cv;cv=v;closeDlg(true
 /* görünüm geçişi: içerik hafifçe yukarı kayarak gelir; panelde net sonuç sayarak yükselir */
 function viewIn(){
   const el=$('view');el.classList.remove('vin');void el.offsetWidth;el.classList.add('vin');
+  clearTimeout(viewIn.h);viewIn.h=setTimeout(()=>el.classList.remove('vin'),2200);
   if(matchMedia('(prefers-reduced-motion: reduce)').matches)return;
+  el.querySelectorAll('.strip .sb b').forEach((b,i,a)=>b.style.animationDelay=(200+i*Math.min(14,700/a.length))+'ms');
+  el.querySelectorAll('#dayC rect').forEach((b,i,a)=>b.style.animationDelay=(300+i*Math.min(22,600/a.length))+'ms');
+  el.querySelectorAll('.kpi .v,.acxv,.acxp b,.axsum b,.acxs b,.pbst b').forEach((b,i)=>countUp(b,250+Math.min(i,12)*40));
   /* cards come in one after another; bars grow, scores count up */
   el.querySelectorAll('.card').forEach((c,i)=>{if(!c.classList.contains('acx'))c.style.animationDelay=Math.min(i,10)*55+'ms'});
   el.querySelectorAll('.gbar,.meter b').forEach((b,i)=>b.style.animationDelay=(150+Math.min(i,24)*25)+'ms');
@@ -2721,6 +2773,19 @@ function viewIn(){
   const to=+big.dataset.v,t0=performance.now(),D=700;
   const step=n=>{const k=Math.min(1,(n-t0)/D),e=1-Math.pow(1-k,3);big.textContent=fr(Math.round(to*e*100)/100);if(k<1)requestAnimationFrame(step)};
   requestAnimationFrame(step);
+}
+/* a number counts up from zero into its final text, keeping its format (%48, +0,65R, $13.100,00, 2.15) */
+function countUp(el,delay){
+  const s=el.textContent,m=s.match(/\d[\d.,]*/);if(!m)return;
+  const tok=m[0],ls=Math.max(tok.lastIndexOf('.'),tok.lastIndexOf(','));
+  let dec=0,dch='',gch='';
+  if(ls>=0){const tail=tok.length-ls-1,both=tok.includes('.')&&tok.includes(',');
+    if(both||tail!==3){dec=tail;dch=tok[ls];gch=both?(dch==='.'?',':'.'):''}else gch=tok[ls]}
+  const to=parseFloat(tok.split(gch||'\u0000').join('').replace(dch||'\u0000','.'));if(!isFinite(to)||to===0)return;
+  const fmt=v=>{let [a,b]=v.toFixed(dec).split('.');if(gch)a=a.replace(/\B(?=(\d{3})+(?!\d))/g,gch);return a+(dec?dch+b:'')};
+  const pre=s.slice(0,m.index),post=s.slice(m.index+tok.length),D=900;
+  el.textContent=pre+fmt(0)+post;
+  setTimeout(()=>{const t0=performance.now();const st=n=>{const k=Math.min(1,(n-t0)/D),e=1-Math.pow(1-k,3);el.textContent=k<1?pre+fmt(to*e)+post:s;if(k<1)requestAnimationFrame(st)};requestAnimationFrame(st)},delay||0);
 }
 function render(){
   document.documentElement.lang=L;
@@ -2956,8 +3021,9 @@ function eqChart(l){
   const hasOff=pts.some(x=>x.plan==='no');
   CHD.eqC={W,H,xs:v.map((_,i)=>X(i)),pt:i=>[X(i),Y(v[i])],tip:i=>i===0?t('start'):`<b>${esc(pts[i-1].symbol)}</b> ${esc(dFmt(pts[i-1].date))}<br>${fr(pts[i-1].rrActual)} · ${t('cum')} ${fr(v[i])}${pts[i-1].plan==='no'?'<br>'+t('off_plan_s'):''}`};
   return `<div class="chart" id="eqC"><svg viewBox="0 0 ${W} ${H}" role="img" aria-label="${t('c_eq')}">${axisY(mn,mx,Y,pl,W-pr)}
-   <path d="${path}L${X(v.length-1).toFixed(1)} ${z}L${X(0).toFixed(1)} ${z}Z" fill="var(--br)" opacity=".08"/>
-   <path d="${path}" fill="none" stroke="var(--br)" stroke-width="2" stroke-linejoin="round"/>${mk}
+   <defs><linearGradient id="eqG" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="var(--br)" stop-opacity=".22"/><stop offset="1" stop-color="var(--br)" stop-opacity="0"/></linearGradient></defs>
+   <path class="eqa" d="${path}L${X(v.length-1).toFixed(1)} ${z}L${X(0).toFixed(1)} ${z}Z" fill="url(#eqG)"/>
+   <path class="eql" d="${path}" pathLength="1" fill="none" stroke="var(--br)" stroke-width="2.2" stroke-linejoin="round" stroke-linecap="round"/><g class="eqm">${mk}</g>
    <line class="cross" y1="${pt}" y2="${H-pb}" stroke="var(--ink3)" stroke-dasharray="3 3" style="display:none"/>
    <circle class="hdot" r="5" fill="var(--br)" stroke="var(--sf)" stroke-width="2" style="display:none"/>
    <text x="${pl}" y="${H-6}" font-size="11" fill="var(--ink3)">${esc(dFmt(pts[0].date))}</text><text x="${W-pr}" y="${H-6}" font-size="11" fill="var(--ink3)" text-anchor="end">${esc(dFmt(pts[pts.length-1].date))}</text>
@@ -2972,7 +3038,7 @@ function dayChart(l){
   let mn=Math.min(0,...vs),mx=Math.max(0,...vs);const rg=(mx-mn)||1;mn-=rg*.05;mx+=rg*.05;
   const Y=y=>pt+(mx-y)/(mx-mn)*(H-pt-pb),bw=(W-pl-pr)/ks.length,w=Math.max(3,Math.min(22,bw*.64));
   const cx=i=>pl+bw*i+bw/2;
-  const bars=vs.map((v,i)=>{const y0=Y(0),y1=Y(v),h=Math.max(1.5,Math.abs(y1-y0));return `<rect x="${(cx(i)-w/2).toFixed(1)}" y="${(v>=0?y0-h:y0).toFixed(1)}" width="${w.toFixed(1)}" height="${h.toFixed(1)}" rx="2" fill="${v>0?'var(--win)':v<0?'var(--loss)':'var(--be)'}"/>`}).join('');
+  const bars=vs.map((v,i)=>{const y0=Y(0),y1=Y(v),h=Math.max(1.5,Math.abs(y1-y0));return `<rect x="${(cx(i)-w/2).toFixed(1)}" y="${(v>=0?y0-h:y0).toFixed(1)}" width="${w.toFixed(1)}" height="${h.toFixed(1)}" rx="2" fill="${v>0?'var(--win)':v<0?'var(--loss)':'var(--be)'}" class="${v<0?'dn':'up'}"/>`}).join('');
   CHD.dayC={W,H,xs:ks.map((_,i)=>cx(i)),pt:i=>[cx(i),Math.min(Y(vs[i]),Y(0))],tip:i=>`<b>${esc(dFmt(ks[i],{weekday:'short',day:'numeric',month:'short'}))}</b><br>${fr(vs[i])} · ${t('n_tr',{n:cn[ks[i]]})}`};
   return `<div class="chart" id="dayC"><svg viewBox="0 0 ${W} ${H}" role="img" aria-label="${t('c_daily')}">${axisY(mn,mx,Y,pl,W-pr)}${bars}
    <line class="cross" y1="${pt}" y2="${H-pb}" stroke="var(--ink3)" stroke-dasharray="3 3" style="display:none"/>
@@ -3534,9 +3600,9 @@ function accBox(a,i){
    <div class="acx1"><span class="acxi">${esc((accName(a)[0]||'?').toUpperCase())}</span><div class="acxn"><b>${esc(accName(a))}</b><small>${meta||t('acc_cur')+' '+esc(a.cur)}</small></div>
     ${sync?`<span class="tag sytag"><span class="sydot on"></span>${t('ax_live')}</span>`:a.arch?`<span class="tag">${t('archived')}</span>`:''}<button class="ib sm" onclick="accDlg('${a.id}')" aria-label="${t('edit')}" title="${t('edit')}">${ic('jr')}</button></div>
    <div class="acxb"><span>${t('acc_now')}</span><div class="acxv num">${b.est?'≈':''}${money(b.cur,0,a.cur)}</div>
-    <div class="acxp ${cls(b.pnl)}">${b.est?'≈':''}${money(b.pnl,1,a.cur)}${ret!==null&&b.pnl?` <span>(${ret>0?'+':'−'}${(v=>L==='tr'?'%'+v:v+'%')(Math.abs(ret).toLocaleString(loc(),{minimumFractionDigits:1,maximumFractionDigits:1}))})</span>`:''}</div></div>
+    <div class="acxp"><span class="k">${t('ax_net')}</span> <b class="${cls(b.pnl)}">${b.est?'≈':''}${money(b.pnl,1,a.cur)}</b>${ret!==null&&b.pnl?` <span>(${ret>0?'+':'−'}${(v=>L==='tr'?'%'+v:v+'%')(Math.abs(ret).toLocaleString(loc(),{minimumFractionDigits:1,maximumFractionDigits:1}))})</span>`:''}</div></div>
    ${accSpark(l,a.cur)}
-   <div class="acxs">${st(t('h_trades'),s.n)}${st(t('wr_s'),pc(s.wr))}${st(t('h_tot'),s.hasR?fr(s.tot):'—',cls(s.tot))}${st(t('ax_be'),a.be?'±'+money(a.be,0,a.cur):t('off'),a.be?'':'mut')}</div>
+   <div class="acxs">${st(t('h_trades'),s.n)}${st(t('wr_s'),pc(s.wr))}${st(t('ax_netr'),s.hasR?fr(s.tot):'—',cls(s.tot))}${st(t('ax_be'),a.be?'±'+money(a.be,0,a.cur):t('off'),a.be?'':'mut')}</div>
    ${rules?`<div class="acxr">${esc(rules)}</div>`:''}
    <div class="acxf">${a.arch?'':`<button class="btn sm pri" onclick="setAcc('${a.id}');go('dash')">${t('ax_open')}</button>`}<button class="btn sm" onclick="txDlg('${a.id}')">${t('tx_btn',{n:S.tx.filter(z=>z.acc===a.id).length})}</button></div></div>`;
 }
@@ -3843,7 +3909,9 @@ function init(){
     if((e.metaKey||e.ctrlKey)&&e.key==='Enter'&&formOpen())saveTrade()});
   let nw=narrow();window.addEventListener('resize',()=>{clearTimeout(init.rz);init.rz=setTimeout(()=>{if(narrow()!==nw){nw=narrow();if(!formOpen()&&!dlgOpen())render()}},250)});
   document.addEventListener('click',e=>{const a=e.target.closest('a[data-ext]');if(a&&TG&&tgv('6.4')){e.preventDefault();TG.openLink(a.href)}});
-  applyTheme();render();cloudInit();
+  /* the soft light on a card follows the pointer */
+  if(matchMedia('(hover:hover)').matches)document.addEventListener('pointermove',e=>{const c=e.target.closest&&e.target.closest('.ap .card');if(!c)return;const r=c.getBoundingClientRect();c.style.setProperty('--mx',(e.clientX-r.left)+'px');c.style.setProperty('--my',(e.clientY-r.top)+'px')},{passive:true});
+  applyTheme();render();viewIn();cloudInit();
 }
 init();
 
