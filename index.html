@@ -786,6 +786,43 @@ html{scroll-behavior:smooth;-webkit-text-size-adjust:100%}
 .site .plat .ps{align-self:flex-start;display:inline-flex;align-items:center;gap:6px;margin-top:8px;font-size:12px;font-weight:600;padding:3px 10px;border-radius:99px;background:var(--card2);color:var(--mu)}
 .site .plat.ok .ps{background:rgba(148,197,204,.14);color:var(--lime)}
 .site .doc ol{margin:0 0 10px;padding-left:22px;display:grid;gap:8px}
+.site .flow{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:24px}
+.site .fstep{display:flex;flex-direction:column;gap:10px;min-width:0}
+.site .fvis{height:210px;border-radius:20px;background:var(--card);border:1px solid var(--line);padding:18px;display:flex;flex-direction:column;justify-content:center;overflow:hidden;transition:border-color .25s,transform .25s}
+.site .fstep:hover .fvis{border-color:var(--line2);transform:translateY(-3px)}
+.site .fhead{display:flex;align-items:center;gap:12px;margin-top:12px}
+.site .fno{width:32px;height:32px;border-radius:10px;background:var(--lime);color:#000100;display:grid;place-items:center;font-family:var(--mono);font-weight:600;flex:none}
+.site .ftime{font-family:var(--mono);font-size:12px;color:var(--sage);letter-spacing:.06em;text-transform:uppercase;white-space:nowrap}
+.site .fhead:after{content:'';flex:1;height:1px;background:var(--line2)}
+.site .fstep:last-child .fhead:after{display:none}
+.site .fstep h3{margin:0;font-size:20px;font-weight:600;letter-spacing:-.01em}
+.site .fstep p{margin:0;color:var(--mu);font-size:15px}
+.site .flow-cta{display:flex;justify-content:center;margin-top:44px}
+.site .fv-opts{display:grid;gap:8px}
+.site .fv-opts>div{display:flex;align-items:center;gap:10px;padding:9px 12px;border-radius:12px;background:var(--bg2);border:1px solid var(--line);font-size:13.5px;font-weight:500}
+.site .fv-opts>div.on{border-color:var(--lime);background:rgba(148,197,204,.08)}
+.site .fv-opts>div.off{opacity:.55}
+.site .fv-opts em{margin-left:auto;font-style:normal;font-size:11px;font-weight:600;padding:2px 8px;border-radius:99px;background:var(--card2);color:var(--mu)}
+.site .fi2{width:28px;height:28px;border-radius:8px;background:var(--card2);display:grid;place-items:center;flex:none;color:var(--lime)}
+.site .fv-rows{display:grid;gap:4px;font-size:13.5px}
+.site .fv-file{display:flex;align-items:center;gap:10px;padding:9px 12px;border-radius:12px;border:1.5px dashed var(--line2);background:var(--bg2);margin-bottom:6px}
+.site .fv-file span{flex:1;font-weight:500;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.site .fv-file svg{color:var(--mu);flex:none}
+.site .fv-file b{color:var(--lime);display:grid}
+.site .fv-file b svg{color:var(--lime)}
+.site .fv-rows>div:not(.fv-file){display:flex;justify-content:space-between;padding:6px 4px;border-bottom:1px solid var(--line);color:var(--mu)}
+.site .fv-rows>div:last-child{border-bottom:0}
+.site .fv-rows b{color:var(--tx)}
+.site .fv-ins{display:grid;gap:8px;font-size:13.5px}
+.site .fv-ins>div:not(.fv-bars){display:flex;justify-content:space-between;align-items:center;gap:10px;padding:9px 12px;border-radius:12px;background:var(--bg2);border:1px solid var(--line)}
+.site .fv-ins .g b{color:var(--win)}
+.site .fv-ins .r b{color:var(--loss)}
+.site .fv-bars{display:flex;align-items:flex-end;gap:6px;height:50px;padding:0 4px}
+.site .fv-bars i{flex:1;display:block;border-radius:4px 4px 0 0;background:var(--lime);opacity:.8;transform-origin:bottom}
+.site .inview .fv-bars i{animation:grow .5s cubic-bezier(.2,.8,.2,1) both}
+@media (max-width:900px){.site .flow{grid-template-columns:minmax(0,1fr);gap:36px}
+.site .fhead:after{display:none}
+.site .fvis{height:auto}}
 </style>
 </head>
 <body>
@@ -851,8 +888,9 @@ html{scroll-behavior:smooth;-webkit-text-size-adjust:100%}
 
 <section class="sec alt" id="nasil">
 <div class="wrap">
-<div class="sec-h"><span class="kick" data-st="nav_how">Nasıl çalışır</span><h2 class="h2" data-st="how_h">Üç adım. Ezber yok, tablo yok.</h2><p data-st="how_p">İşlemi kaydet, haftada bir raporu yükle, gerisini TradeLog hesaplasın.</p></div>
-<div class="how"><div class="steps" id="steps"></div><div id="stage"></div></div>
+<div class="sec-h c"><span class="kick" data-st="nav_how">Nasıl çalışır</span><h2 class="h2" data-st="how_h">İlk raporundan ilk içgörüne üç adım.</h2><p data-st="how_p">Kurulum bir dakika sürer. Sonrası işlem başına 15 saniye ya da haftada bir rapor.</p></div>
+<ol class="flow" id="flow"></ol>
+<div class="flow-cta"><a class="btn btn-p btn-lg" href="#/app"><span data-st="cta_start">Ücretsiz başla</span><span data-i="arrow" data-s="18"></span></a></div>
 </div>
 </section>
 
@@ -2834,6 +2872,7 @@ const P = {
   upload: '<path d="M12 16V4M7 9l5-5 5 5M4 16v3a1 1 0 001 1h14a1 1 0 001-1v-3"/>',
   help: '<circle cx="12" cy="12" r="9"/><path d="M9.5 9.5a2.5 2.5 0 014.6 1.3c0 1.7-2.1 2-2.1 3.4M12 17h.01"/>',
   phone: '<rect x="6" y="2.5" width="12" height="19" rx="3"/><path d="M11 18h2"/>',
+  link: '<path d="M10 14a4 4 0 005.7 0l3-3a4 4 0 00-5.7-5.7l-1 1"/><path d="M14 10a4 4 0 00-5.7 0l-3 3a4 4 0 005.7 5.7l1-1"/>',
   doc: '<path d="M14 3H7a2 2 0 00-2 2v14a2 2 0 002 2h10a2 2 0 002-2V8z"/><path d="M14 3v5h5M9 13h6M9 17h4"/>'
 };
 const ic = (n, s = 20, w = 2, extra = '') => n === 'logo'
@@ -2917,7 +2956,7 @@ tr: {
   trust1: 'Kredi kartı gerekmez', trust2: 'Ücretsiz plan süresiz', trust3: 'Türkçe ve İngilizce',
   float_t: 'Günlük kayıp limiti', float_pct: '%72', float_s: 'Funded 100K · Kalan $1.400',
   strip1: '<b>MT4 ve MT5</b> raporu (HTML, Excel)', strip2: '<b>Telegram</b> içinde uygulama', strip3: '<b>Prop firm</b> kural takibi', strip4: '<b>Çoklu hesap</b>, tek panel',
-  how_h: 'Üç adım. Ezber yok, tablo yok.', how_p: 'İşlemi kaydet, haftada bir raporu yükle, gerisini TradeLog hesaplasın.',
+  how_h: 'İlk raporundan ilk içgörüne üç adım.', how_p: 'Kurulum bir dakika sürer. Sonrası işlem başına 15 saniye ya da haftada bir rapor.',
   feat_h: 'Profesyonellerin baktığı her şey, tek ekranda.', feat_p: 'Kartların üzerinde gezin, tıkla, dene. Hepsi ücretsiz planda var.',
   score_h: 'TradeLog puanı', score_lbl: '/ 100 · İyi', score_p: 'Kazanma, kâr oranı, beklenti, düşüş, tutarlılık ve plan uyumundan tek bir not.',
   disc_h: 'Disiplin uyarıları', disc_toast: 'Bugün 3 işlem limitine ulaştın. Yarın devam.', disc_p: 'Günlük işlem sayısı, üst üste kayıp ve risk sınırlarını sen koy.',
@@ -2952,6 +2991,13 @@ tr: {
   pg_contact: 'İletişim', pg_privacy: 'Gizlilik politikası', pg_terms: 'Kullanım koşulları', back_home: 'Ana sayfaya dön',
   d_panel: 'Panel', d_sample: 'Örnek veri', d_period: 'Dönem', d_per: { '7': '7G', '30': '30G', '90': '90G' },
   d_sum: '{n} işlem · {w} kazanç, {l} kayıp', d_wr: 'Kazanma oranı', d_pf: 'Profit factor', d_exp: 'İşlem başı', d_dd: 'En derin düşüş', d_total: 'Toplam',
+  flow: [
+    ['Hesabını ekle', '1 dakika', 'MT4/MT5 raporunu yükle ya da hesabı elle oluştur. Bakiye, para birimi ve işlemler rapordan gelir.'],
+    ['İşlemlerini getir', 'İşlem başına 15 sn', 'İşlem kapanınca telefondan kaydet, haftada bir raporu yükle. Aynı işlem iki kez sayılmaz, notların korunur.'],
+    ['Neyin işe yaradığını gör', 'Her gün', 'Panel, takvim ve raporlar setup, gün ve duyguya göre neyi sürdürmen, neyi bırakman gerektiğini gösterir.']],
+  fl_opts: ['MT4/MT5 raporu yükle', 'Elle oluştur', 'Otomatik bağla'], fl_soon: 'Yakında',
+  fl_rows: [['Rapordaki işlemler', '28'], ['Eşleşen', '6'], ['Yeni', '22']],
+  fl_ins: [['g', 'En iyi setup: Breakout', '+1,4R'], ['r', 'FOMO maliyeti', '−7,2R']],
   steps: [['Kaydet', 'İşlem kapanınca telefondan sembol, setup ve duyguyu seç. 15 saniye.'], ['Raporu yükle', 'Haftada bir MT4/MT5 raporunu yükle. Rakamlar düzelir, eksikler eklenir.'], ['Neyin işe yaradığını gör', 'Setup, gün, saat ve duyguya göre sade içgörüler.']],
   s_new: 'Yeni işlem', s_15: '15 saniye', s_sym: 'Sembol', s_side: 'Yön', s_res: 'Sonuç', s_feel: 'Girerken nasıl hissettin?', s_try: 'Kendin dene', s_r: '+1,8R',
   s_feels: ['Sakin', 'Aceleci', 'FOMO', 'Kararsız'],
@@ -3017,7 +3063,7 @@ en: {
   trust1: 'No credit card', trust2: 'Free plan, no time limit', trust3: 'English and Turkish',
   float_t: 'Daily loss limit', float_pct: '72%', float_s: 'Funded 100K · $1,400 left',
   strip1: '<b>MT4 and MT5</b> reports (HTML, Excel)', strip2: 'App inside <b>Telegram</b>', strip3: '<b>Prop firm</b> rule tracking', strip4: '<b>Multiple accounts</b>, one dashboard',
-  how_h: 'Three steps. No spreadsheets.', how_p: 'Log the trade, upload your report once a week, and let TradeLog do the math.',
+  how_h: 'Three steps from your first report to your first insight.', how_p: 'Setup takes a minute. After that it is 15 seconds per trade or one report a week.',
   feat_h: 'Everything a pro looks at, on one screen.', feat_p: 'Hover, click and try the cards. All of it is in the free plan.',
   score_h: 'TradeLog score', score_lbl: '/ 100 · Good', score_p: 'One grade from win rate, profit factor, expectancy, drawdown, consistency and plan adherence.',
   disc_h: 'Discipline alerts', disc_toast: 'You hit your 3-trade limit today. Back tomorrow.', disc_p: 'Set your own limits for trades per day, losses in a row and risk.',
@@ -3052,6 +3098,13 @@ en: {
   pg_contact: 'Contact', pg_privacy: 'Privacy policy', pg_terms: 'Terms of use', back_home: 'Back to home',
   d_panel: 'Dashboard', d_sample: 'Sample data', d_period: 'Period', d_per: { '7': '7D', '30': '30D', '90': '90D' },
   d_sum: '{n} trades · {w} wins, {l} losses', d_wr: 'Win rate', d_pf: 'Profit factor', d_exp: 'Per trade', d_dd: 'Max drawdown', d_total: 'Total',
+  flow: [
+    ['Add your account', '1 minute', 'Upload your MT4/MT5 report or create the account manually. Balance, currency and trades come from the report.'],
+    ['Bring in your trades', '15 sec per trade', 'Log a trade from your phone when it closes and upload your report once a week. Nothing is counted twice and your notes are kept.'],
+    ['See what works', 'Every day', 'Your dashboard, calendar and reports show what to keep doing and what to drop, by setup, day and emotion.']],
+  fl_opts: ['Upload MT4/MT5 report', 'Create manually', 'Connect automatically'], fl_soon: 'Soon',
+  fl_rows: [['Trades in report', '28'], ['Matched', '6'], ['New', '22']],
+  fl_ins: [['g', 'Best setup: Breakout', '+1.4R'], ['r', 'Cost of FOMO', '−7.2R']],
   steps: [['Log it', 'When a trade closes, pick the symbol, setup and how you felt on your phone. 15 seconds.'], ['Upload your report', 'Once a week, upload your MT4/MT5 report. Numbers are corrected and missing trades added.'], ['See what works', 'Plain insights by setup, day, hour and emotion.']],
   s_new: 'New trade', s_15: '15 seconds', s_sym: 'Symbol', s_side: 'Side', s_res: 'Result', s_feel: 'How did you feel going in?', s_try: 'Try it yourself', s_r: '+1.8R',
   s_feels: ['Calm', 'Rushed', 'FOMO', 'Hesitant'],
@@ -3144,24 +3197,14 @@ function renderPlats() {
   $('#plats').innerHTML = s('plats').map(([n, k, d]) => `<div class="plat ${k}"><div class="pn">${n}</div><div class="pd">${d}</div><span class="ps">${k === 'ok' ? ic('check', 14, 3) : ''}${st[k]}</span></div>`).join('');
 }
 
+/* Nasıl çalışır: uygulamadaki gerçek akışla aynı üç adım, her birinde o adımın küçük bir önizlemesi */
 function renderSteps() {
-  $('#steps').innerHTML = s('steps').map(([t, d], i) => `<button class="step ${S.step === i ? 'on' : ''}" data-a="step" data-v="${i}" aria-pressed="${S.step === i}"><span class="no">${i + 1}</span><span><span class="st-h">${t}</span><span class="st-p">${d}</span></span></button>`).join('');
-  const ok = ic('check', 18, 2.4), f = s('s_feels');
-  const stages = [
-`<div class="stage"><div class="top"><span class="t">${s('s_new')}</span><span class="chip">${s('s_15')}</span></div>
-<div><div class="flabel">${s('s_sym')}</div><div class="pills"><span class="pill on">EURUSD</span><span class="pill">XAUUSD</span><span class="pill">NAS100</span><span class="pill">GBPUSD</span></div></div>
-<div class="row2"><div><div class="flabel">${s('s_side')}</div><div class="seg"><button class="on" tabindex="-1">Long</button><button tabindex="-1">Short</button></div></div><div><div class="flabel">${s('s_res')}</div><div class="big-r">${s('s_r')}</div></div></div>
-<div><div class="flabel">Setup</div><div class="pills"><span class="pill on">Breakout</span><span class="pill">Pullback</span><span class="pill">Range</span></div></div>
-<div><div class="flabel">${s('s_feel')}</div><div class="pills"><span class="pill on">${f[0]}</span><span class="pill">${f[1]}</span><span class="pill lo">${f[2]}</span><span class="pill">${f[3]}</span></div></div>
-<a class="btn btn-p" href="#/app" style="margin-top:auto">${s('s_try')}</a></div>`,
-`<div class="stage"><div class="top"><span class="t">${s('s_imp')}</span><span class="chip mu">${s('s_ex')}</span></div>
-<div class="drop"><span class="fi">${ic('file', 22, 1.9)}</span><span style="min-width:0"><b style="display:block">Report-247806.html</b><span style="color:#A1A6B4;font-size:14px">${s('s_acc')}</span></span><span class="chip ml">${s('s_read')}</span></div>
-<div class="res">${s('s_res_rows').map(([a, b]) => `<div>${ok}${a}<span class="mono">${b}</span></div>`).join('')}</div>
-<div style="display:flex;gap:10px;align-items:center;font-size:14px;color:#A1A6B4">${ic('clock', 18, 1.9)}${s('s_tz')}</div>
-<a class="btn btn-p" href="#/app?import" style="margin-top:auto">${s('s_try')}</a></div>`,
-`<div class="stage"><div class="top"><span class="t">${s('s_ins_t')}</span><span class="chip mu">${s('s_ex')}</span></div>
-${s('s_ins').map(([c, i, b, d], k) => `<div class="ins" style="animation-delay:${(k * .08).toFixed(2)}s"><span class="ic ${c}">${ic(i)}</span><span><b>${b}</b><span>${d}</span></span></div>`).join('')}</div>`];
-  $('#stage').innerHTML = stages[S.step];
+  const F = s('flow'), ok = ic('check', 14, 3);
+  const vis = [
+    `<div class="fv-opts">${s('fl_opts').map((o, i) => `<div class="${i === 0 ? 'on' : ''}${i === 2 ? ' off' : ''}"><span class="fi2">${ic(['upload', 'pen', 'link'][i], 16, 2)}</span>${o}${i === 2 ? `<em>${s('fl_soon')}</em>` : ''}</div>`).join('')}</div>`,
+    `<div class="fv-rows"><div class="fv-file">${ic('file', 16, 2)}<span>Report-247806.html</span><b>${ok}</b></div>${s('fl_rows').map(([a, b]) => `<div><span>${a}</span><b class="mono">${b}</b></div>`).join('')}</div>`,
+    `<div class="fv-ins">${s('fl_ins').map(([c, a, b]) => `<div class="${c}"><span>${a}</span><b class="mono">${b}</b></div>`).join('')}<div class="fv-bars" aria-hidden="true">${[6, 9, 4, 12, 8, 14, 10, 16].map((h, i) => `<i style="height:${h * 3}px;animation-delay:${i * .06}s"></i>`).join('')}</div></div>`];
+  $('#flow').innerHTML = F.map(([t, time, d], i) => `<li class="fstep"><div class="fvis">${vis[i]}</div><div class="fhead"><span class="fno">${i + 1}</span><span class="ftime">${time}</span></div><h3>${t}</h3><p>${d}</p></li>`).join('');
 }
 
 function renderProp() {
@@ -3296,7 +3339,6 @@ const H = {
   home: () => showHome('top'),
   per: v => { S.per = v; renderDemo(); },
   tour: v => { tourK = v; renderTour(); },
-  step: v => { S.step = +v; renderSteps(); },
   pacc: v => { S.acc = +v; renderProp(); },
   chk: v => { S.chk[+v] = !S.chk[+v]; renderPB(); },
   day: v => { S.day = +v; renderCal(); },
@@ -3323,6 +3365,7 @@ document.addEventListener('keydown', e => { if (e.key === 'Escape' && S.menu) se
 
 fillIcons(SITE);
 applyLang();
+try { const io = new IntersectionObserver(es => es.forEach(e => { if (e.isIntersecting) { e.target.classList.add('inview'); io.unobserve(e.target); } }), { threshold: .3 }); io.observe($('#flow')); } catch (e) {}
 let entered = false; try { entered = localStorage.getItem(ENTER) === '1'; } catch (e) {}
 const hp = Object.keys(PAGE_HASH).find(k => location.hash === '#' + PAGE_HASH[k]);
 if (hp && !(typeof TG !== 'undefined' && TG)) { SITE.hidden = false; APP.hidden = true; showPage(hp); }
