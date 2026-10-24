@@ -976,6 +976,40 @@ body.aion{overflow:hidden}
 :root[data-theme=dark] .ap .netcard:has(.big.pos){--ng:rgba(74,222,128,.17)}
 :root[data-theme=dark] .ap .netcard:has(.big.neg){--ng:rgba(248,113,113,.15)}
 .ap .netcard>*{position:relative}
+.ap .splash{position:fixed;inset:0;z-index:90;display:grid;place-items:center;background:var(--bg);overflow:hidden;transition:opacity .5s ease,visibility .5s}
+.ap .splash::before{content:"";position:absolute;inset:-25%;background:radial-gradient(30% 28% at 70% 30%,var(--au1),transparent 70%),radial-gradient(28% 26% at 30% 72%,var(--au2),transparent 70%);animation:aurora 14s ease-in-out infinite alternate}
+.ap .splash.out{opacity:0;visibility:hidden}
+.ap .splash.out .spl{transform:scale(1.06);opacity:0;transition:transform .5s cubic-bezier(.4,0,.2,1),opacity .4s}
+.ap .spl{position:relative;display:flex;flex-direction:column;align-items:center;gap:14px;animation:splin .7s cubic-bezier(.2,1.2,.3,1) both}
+.ap .spl svg{filter:drop-shadow(0 14px 34px rgba(148,197,204,.45))}
+.ap .spl path{fill:none;stroke:#000100;stroke-width:3.4;stroke-linecap:round;transform-box:fill-box;transform-origin:bottom;animation:splbar 1s ease-in-out infinite}
+.ap .spl .b2{animation-delay:.14s}
+.ap .spl .b3{animation-delay:.28s}
+@keyframes splbar{0%,100%{transform:scaleY(.5)}50%{transform:scaleY(1)}}
+.ap .spl b{font:700 26px var(--fd);letter-spacing:-.02em;color:var(--ink)}
+.ap .splbar{display:block;width:132px;height:3px;border-radius:3px;background:color-mix(in srgb,var(--ink) 10%,transparent);overflow:hidden;margin-top:4px}
+.ap .splbar span{display:block;height:100%;width:40%;border-radius:3px;background:linear-gradient(90deg,transparent,var(--br),transparent);animation:splslide 1.1s ease-in-out infinite}
+@keyframes splslide{from{transform:translateX(-110%)}to{transform:translateX(260%)}}
+@keyframes splin{from{opacity:0;transform:scale(.88) translateY(10px)}}
+.ap .skel{position:relative;overflow:hidden;border-color:var(--glassb)}
+.ap .skel::before{content:"";position:absolute;inset:0;background:linear-gradient(100deg,transparent 20%,color-mix(in srgb,var(--ink) 6%,transparent) 50%,transparent 80%);background-size:220% 100%;animation:skel 1.3s linear infinite}
+@keyframes skel{from{background-position:120% 0}to{background-position:-120% 0}}
+.ap .skelw .dcl,.ap .skelw .dcr{display:flex;flex-direction:column;gap:16px}
+:root:not([data-theme=dark]){--au1:rgba(47,125,136,.30);--au2:rgba(129,140,248,.24);--au3:rgba(56,189,248,.18);--au4:rgba(251,146,60,.12);--glass:rgba(255,255,255,.8);--glassb:rgba(16,24,40,.065);--spot:rgba(47,125,136,.10);--dot:rgba(16,24,40,.09)}
+:root[data-theme=dark]{--au4:rgba(129,140,248,.08);--dot:rgba(255,255,255,.045)}
+.ap .app::before{background:radial-gradient(32% 30% at 78% 18%,var(--au1),transparent 70%),radial-gradient(30% 28% at 18% 82%,var(--au2),transparent 70%),radial-gradient(26% 26% at 52% 48%,var(--au3),transparent 70%),radial-gradient(24% 22% at 88% 86%,var(--au4),transparent 70%),radial-gradient(20% 20% at 30% 20%,var(--au3),transparent 70%)}
+.ap .app::after{content:"";position:fixed;inset:0;z-index:-1;pointer-events:none;background-image:radial-gradient(var(--dot) 1px,transparent 1.3px);background-size:22px 22px;-webkit-mask-image:radial-gradient(ellipse 75% 65% at 60% 10%,#000 20%,transparent 75%);mask-image:radial-gradient(ellipse 75% 65% at 60% 10%,#000 20%,transparent 75%)}
+:root:not([data-theme=dark]) .ap .app{background:linear-gradient(180deg,#F6F8FA,#EEF2F5)}
+:root:not([data-theme=dark]) .ap .card{box-shadow:inset 0 1px 0 rgba(255,255,255,.95),0 1px 2px rgba(16,24,40,.04),0 16px 40px -22px rgba(30,60,90,.28)}
+:root:not([data-theme=dark]) .ap .side{background:rgba(255,255,255,.55)}
+:root:not([data-theme=dark]) .ap .kpi{background:rgba(255,255,255,.6);border-color:rgba(16,24,40,.06)}
+:root:not([data-theme=dark]) .ap .netcard:has(.big.pos){--ng:rgba(34,197,94,.20)}
+:root:not([data-theme=dark]) .ap .netcard:has(.big.neg){--ng:rgba(239,68,68,.16)}
+:root:not([data-theme=dark]) .ap .nav.on{background:linear-gradient(135deg,#0B0C0E,#1F2A30);box-shadow:0 8px 20px -10px rgba(16,24,40,.6)}
+:root:not([data-theme=dark]) .ap .btn.pri{background:linear-gradient(135deg,#0B0C0E,#22313A);box-shadow:0 8px 20px -12px rgba(16,24,40,.7)}
+@media (hover:hover){.ap .g2e>.card,.ap .dcl>.card,.ap .dcr>.card,.ap .acx{transition:transform .35s cubic-bezier(.2,.8,.2,1),box-shadow .35s,border-color .25s}
+.ap .g2e>.card:hover,.ap .dcl>.card:hover,.ap .dcr>.card:hover,.ap .acx:hover{transform:translateY(-2px)}}
+@media (prefers-reduced-motion:reduce){.ap .splash::before,.ap .skel::before{animation:none}}
 .site{color-scheme:dark;--win:#4ADE80;--bg:#000100;--bg2:#08090B;--card:#111317;--card2:#1B1E24;--line:rgba(148,197,204,.13);--line2:rgba(148,197,204,.28);--tx:#F8F8F8;--mu:#A1A6B4;--lime:#94C5CC;--sage:#B4D2E7;--olive:#5E8D94;--loss:#F87171;--disp:'Bricolage Grotesque',system-ui,sans-serif;--body:'Inter',system-ui,sans-serif;--mono:'JetBrains Mono',ui-monospace,monospace}
 .site *{box-sizing:border-box}
 html{scroll-behavior:smooth;-webkit-text-size-adjust:100%}
@@ -2317,7 +2351,7 @@ const csSet=(k,v)=>new Promise((ok,no)=>CS.setItem(k,v,e=>e?no(e):ok()));
 const csDel=keys=>new Promise(ok=>keys.length?CS.removeItems(keys,()=>ok()):ok());
 const CH=4000,rng=(a,b)=>Array.from({length:Math.max(0,b-a)},(_,i)=>a+i);
 let syncSt='',pushT=null,pushing=false,pushAgain=false;
-function setSync(s){if(s!==undefined)syncSt=s;const on=typeof sbOn==='function'&&sbOn(),k=(on?'sbs_':'sync_')+syncSt;['syncSt','syncSt2','syncSt3'].forEach(i=>{const el=$(i);if(el)el.textContent=(CS||on)&&syncSt?t(k):''})}
+function setSync(s){if(s!==undefined)syncSt=s;if((s==='ok'||s==='err')&&typeof $==='function'&&$('view')&&$('view').querySelector('.skel'))setTimeout(()=>{if(typeof formOpen==='function'&&!formOpen()){render();if(trades.length)viewIn()}},0);const on=typeof sbOn==='function'&&sbOn(),k=(on?'sbs_':'sync_')+syncSt;['syncSt','syncSt2','syncSt3'].forEach(i=>{const el=$(i);if(el)el.textContent=(CS||on)&&syncSt?t(k):''})}
 async function csMeta(){const r=await csGet(['tl_meta']);try{return JSON.parse(r.tl_meta||'null')}catch(e){return null}}
 /* chunks are diffed against the last state this device synced, so a save only rewrites the chunks that changed */
 const hsh=s=>{let h=5381;for(let i=0;i<s.length;i++)h=(h*33+s.charCodeAt(i))|0;return (h>>>0).toString(36)+'.'+s.length.toString(36)};
@@ -2768,15 +2802,15 @@ function viewIn(){
   /* cards come in one after another; bars grow, scores count up */
   el.querySelectorAll('.card').forEach((c,i)=>{if(!c.classList.contains('acx'))c.style.animationDelay=Math.min(i,10)*55+'ms'});
   el.querySelectorAll('.gbar,.meter b').forEach((b,i)=>b.style.animationDelay=(150+Math.min(i,24)*25)+'ms');
-  el.querySelectorAll('.ring .rc b').forEach(b=>{const to=+b.textContent;if(!isFinite(to))return;const t0=performance.now();const st=n=>{const k=Math.min(1,(n-t0)/1100),e=1-Math.pow(1-k,3);b.textContent=Math.round(to*e);if(k<1)requestAnimationFrame(st)};requestAnimationFrame(st)});
+  el.querySelectorAll('.ring .rc b').forEach(b=>{const to=+(b.dataset.cuf||b.textContent);if(!isFinite(to))return;b.dataset.cuf=to;b.cuT=(b.cuT||0)+1;const my=b.cuT,t0=performance.now();const st=n=>{if(b.cuT!==my)return;const k=Math.max(0,Math.min(1,(n-t0)/1100)),e=1-Math.pow(1-k,3);b.textContent=Math.round(to*e);if(k<1)requestAnimationFrame(st)};requestAnimationFrame(st)});
   const big=el.querySelector('.nethead .big[data-v]');if(!big)return;
   const to=+big.dataset.v,t0=performance.now(),D=700;
-  const step=n=>{const k=Math.min(1,(n-t0)/D),e=1-Math.pow(1-k,3);big.textContent=fr(Math.round(to*e*100)/100);if(k<1)requestAnimationFrame(step)};
+  const step=n=>{const k=Math.max(0,Math.min(1,(n-t0)/D)),e=1-Math.pow(1-k,3);big.textContent=fr(Math.round(to*e*100)/100);if(k<1)requestAnimationFrame(step)};
   requestAnimationFrame(step);
 }
 /* a number counts up from zero into its final text, keeping its format (%48, +0,65R, $13.100,00, 2.15) */
 function countUp(el,delay){
-  const s=el.textContent,m=s.match(/\d[\d.,]*/);if(!m)return;
+  const s=el.dataset.cuf||el.textContent,m=s.match(/\d[\d.,]*/);if(!m)return;el.dataset.cuf=s;el.cuT=(el.cuT||0)+1;const my=el.cuT;
   const tok=m[0],ls=Math.max(tok.lastIndexOf('.'),tok.lastIndexOf(','));
   let dec=0,dch='',gch='';
   if(ls>=0){const tail=tok.length-ls-1,both=tok.includes('.')&&tok.includes(',');
@@ -2785,8 +2819,31 @@ function countUp(el,delay){
   const fmt=v=>{let [a,b]=v.toFixed(dec).split('.');if(gch)a=a.replace(/\B(?=(\d{3})+(?!\d))/g,gch);return a+(dec?dch+b:'')};
   const pre=s.slice(0,m.index),post=s.slice(m.index+tok.length),D=900;
   el.textContent=pre+fmt(0)+post;
-  setTimeout(()=>{const t0=performance.now();const st=n=>{const k=Math.min(1,(n-t0)/D),e=1-Math.pow(1-k,3);el.textContent=k<1?pre+fmt(to*e)+post:s;if(k<1)requestAnimationFrame(st)};requestAnimationFrame(st)},delay||0);
+  setTimeout(()=>{const t0=performance.now();const st=n=>{if(el.cuT!==my)return;const k=Math.max(0,Math.min(1,(n-t0)/D)),e=1-Math.pow(1-k,3);el.textContent=k<1?pre+fmt(to*e)+post:s;if(k<1)requestAnimationFrame(st)};requestAnimationFrame(st)},delay||0);
 }
+/* loading: a short branded splash when the app opens. On a device with no data yet it waits (up to 5 s)
+   for the first cloud sync, then the panel flows in. */
+const SPL={on:false,first:true,t0:0,h:0};
+const splashWait=()=>typeof sbOn==='function'&&sbOn()&&!trades.length&&syncSt!=='ok'&&syncSt!=='err';
+function splashOn(){
+  if(SPL.on||!SPL.first)return;SPL.first=false;
+  if(typeof sbMode!=='undefined'&&sbMode==='auth')return;      // the sign-in screen needs no splash
+  if(matchMedia('(prefers-reduced-motion: reduce)').matches)return;
+  let el=$('splash');
+  if(!el){el=document.createElement('div');el.id='splash';el.className='splash';el.setAttribute('aria-hidden','true');
+    el.innerHTML='<div class="spl"><svg viewBox="0 0 32 32" width="64" height="64"><rect width="32" height="32" rx="9" fill="#94C5CC"/><path class="b1" d="M9.5 22v-4.5"/><path class="b2" d="M16 22V12.5"/><path class="b3" d="M22.5 22V9"/></svg><b>TradeLog</b><i class="splbar"><span></span></i></div>';
+    ($('appRoot')||document.body).appendChild(el)}
+  el.hidden=false;el.classList.remove('out');SPL.on=true;SPL.t0=performance.now();splashCheck();
+}
+function splashCheck(){
+  if(!SPL.on)return;const dt=performance.now()-SPL.t0;
+  if(dt<900||(splashWait()&&dt<5000)){clearTimeout(SPL.h);SPL.h=setTimeout(splashCheck,120);return}
+  SPL.on=false;const el=$('splash');
+  if(!formOpen()&&!dlgOpen()&&!(typeof sbMode!=='undefined'&&sbMode==='auth')){render();viewIn()}
+  el.classList.add('out');setTimeout(()=>{el.hidden=true},550);
+}
+/* placeholder panel while the first sync is still bringing the data */
+function skel(){return `<div class="skelw"><div class="dgrid"><div class="dcl"><div class="card skel" style="height:300px"></div><div class="card skel" style="height:280px"></div></div><div class="dcr"><div class="card skel" style="height:360px"></div><div class="card skel" style="height:220px"></div></div></div></div>`}
 function render(){
   document.documentElement.lang=L;
   if(typeof authGate==='function'&&authGate())return;
@@ -2943,7 +3000,7 @@ function alertsH(){
   return a.map(x=>`<div class="alert">${ic('alert')}<span>${esc(x)}</span></div>`).join('');
 }
 function vDash(){
-  if(!trades.length)return welcome();
+  if(!trades.length)return splashWait()?skel():welcome();
   const l=fT(),al=alertsH();
   if(!l.length)return `${al?`<div class="stack" style="margin-bottom:16px">${al}</div>`:''}<div class="card empty">${t('per_empty')}<div style="margin-top:12px"><button class="btn" onclick="setPer('all')">${t('per_all_btn')}</button></div></div>`;
   const s=stats(l),bal=balanceInfo(),ch=chrono(l).filter(x=>has(x.rrActual)).slice(-60);
@@ -4135,7 +4192,8 @@ async function sbLogin(user){
       else await sbPull(false,true);
       await sbPush();lss(SBU,user.id);
     }
-    await sbProfLoad();sbPulled=Date.now();setSync('ok');render();
+    const was=$('view')&&$('view').querySelector('.skel');
+    await sbProfLoad();sbPulled=Date.now();setSync('ok');render();if(was||trades.length)viewIn();
   }catch(e){setSync('err')}
   mtPending();
 }
@@ -4242,7 +4300,7 @@ async function sbSync(pull){
   try{
     if(!sb)await sbClient();
     await sbPush();
-    if(pull){const n=await sbPull(false);sbPulled=Date.now();const m=await syTake();if((n||m)&&!formOpen())render();
+    if(pull){const was=trades.length;const n=await sbPull(false);sbPulled=Date.now();const m=await syTake();if((n||m)&&!formOpen()){render();if(!was&&trades.length)viewIn()}
       /* asking the server for new trades can take a minute (it may start the terminal), so it runs in the background */
       syAuto().then(k=>k?syTake(true):0).then(k=>{if(k&&!formOpen())render()})}
     sbFail=false;setSync('ok');
@@ -5528,7 +5586,7 @@ function showApp(after) {
   SITE.hidden = true; APP.hidden = false; setMenu(false);
   try { localStorage.setItem(ENTER, '1'); } catch (e) {}
   window.scrollTo(0, 0);
-  if (typeof render === 'function') { render(); if (typeof viewIn === 'function') viewIn(); }
+  if (typeof render === 'function') { render(); if (typeof viewIn === 'function') viewIn(); if (typeof splashOn === 'function') splashOn(); }
   if (after === 'import' && typeof openImport === 'function') openImport();
 }
 function showSite(id) {
