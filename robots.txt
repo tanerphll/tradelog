@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://tanerphll.github.io/tradelog/sitemap.xml

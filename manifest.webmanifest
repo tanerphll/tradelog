@@ -1,7 +1,7 @@
 {
  "name": "TradeLog",
  "short_name": "TradeLog",
- "description": "Ücretsiz trading günlüğü: işlemini 15 saniyede kaydet ya da MT4/MT5 raporunu yükle, neyin işe yaradığını R cinsinden gör.",
+ "description": "Ücretsiz trading günlüğü: MT4/MT5 raporunu yükle ya da hesabını bağla, işlemlerini R ile analiz et. Prop firm kuralları, raporlar ve TradeLog AI koçu.",
  "start_url": "./#panel",
  "scope": "./",
  "display": "standalone",

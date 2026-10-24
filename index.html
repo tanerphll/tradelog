@@ -3,8 +3,8 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-<title>TradeLog</title>
-<meta name="description" content="Ücretsiz trading günlüğü: işlemini 15 saniyede kaydet ya da MT4/MT5 raporunu yükle, neyin işe yaradığını R cinsinden gör.">
+<title>TradeLog: Ücretsiz Trading Günlüğü | MT4/MT5 İşlem Takibi ve Analizi</title>
+<meta name="description" content="Ücretsiz trading günlüğü: MT4/MT5 raporunu yükle ya da hesabını bağla, işlemlerini R ile analiz et. Prop firm kuralları, raporlar ve TradeLog AI koçu.">
 <meta name="theme-color" content="#000100">
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='9' fill='%2394C5CC'/%3E%3Cpath d='M9.5 22v-4.5M16 22V12.5M22.5 22V9' stroke='%23000100' stroke-width='3.4' stroke-linecap='round'/%3E%3C/svg%3E">
 <link rel="apple-touch-icon" href="assets/apple-touch-icon.png">
@@ -13,13 +13,23 @@
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="TradeLog">
 <meta property="og:title" content="TradeLog: Her işlemden bir ders çıkar">
-<meta property="og:description" content="Ücretsiz trading günlüğü: işlemini 15 saniyede kaydet ya da MT4/MT5 raporunu yükle, neyin işe yaradığını R cinsinden gör.">
+<meta property="og:description" content="Ücretsiz trading günlüğü: MT4/MT5 raporunu yükle ya da hesabını bağla, işlemlerini R ile analiz et. Prop firm kuralları, raporlar ve TradeLog AI koçu.">
 <meta property="og:url" content="https://tanerphll.github.io/tradelog/">
 <meta property="og:image" content="https://tanerphll.github.io/tradelog/assets/og.jpg">
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="TradeLog paneli: net sonuç, kazanma oranı, prop firm kuralları ve TradeLog puanı">
+<meta property="og:locale" content="tr_TR">
+<meta property="og:locale:alternate" content="en_US">
 <meta name="twitter:card" content="summary_large_image">
-<script src="https://telegram.org/js/telegram-web-app.js?64"></script>
+<meta name="twitter:title" content="TradeLog: Ücretsiz Trading Günlüğü | MT4/MT5 İşlem Takibi ve Analizi">
+<meta name="twitter:description" content="Ücretsiz trading günlüğü: MT4/MT5 raporunu yükle ya da hesabını bağla, işlemlerini R ile analiz et. Prop firm kuralları, raporlar ve TradeLog AI koçu.">
+<meta name="twitter:image" content="https://tanerphll.github.io/tradelog/assets/og.jpg">
+<meta name="robots" content="index, follow, max-image-preview:large">
+<meta name="application-name" content="TradeLog">
+<meta name="apple-mobile-web-app-title" content="TradeLog">
+<script type="application/ld+json">{"@context": "https://schema.org", "@graph": [{"@type": "Organization", "@id": "https://tanerphll.github.io/tradelog/#org", "name": "TradeLog", "url": "https://tanerphll.github.io/tradelog/", "logo": "https://tanerphll.github.io/tradelog/assets/icon-512.png"}, {"@type": "WebSite", "@id": "https://tanerphll.github.io/tradelog/#site", "name": "TradeLog", "url": "https://tanerphll.github.io/tradelog/", "inLanguage": ["tr", "en"], "publisher": {"@id": "https://tanerphll.github.io/tradelog/#org"}}, {"@type": "SoftwareApplication", "name": "TradeLog", "url": "https://tanerphll.github.io/tradelog/", "image": "https://tanerphll.github.io/tradelog/assets/og.jpg", "applicationCategory": "FinanceApplication", "operatingSystem": "Web, iOS, Android", "description": "Ücretsiz trading günlüğü ve işlem analizi: MT4/MT5 rapor içe aktarma ve otomatik bağlantı, R bazlı raporlar, prop firm kural takibi, takvim, playbook ve TradeLog AI koçu.", "featureList": ["MT4/MT5 rapor içe aktarma", "MT4/MT5 otomatik bağlantı (yatırımcı şifresi)", "R bazlı raporlar ve TradeLog puanı", "Prop firm kural takibi ve uyarılar", "Takvim, günlük ve playbook", "Çoklu hesap ve başabaş aralığı", "Instagram story paylaşım kartı", "TradeLog AI koç"], "offers": {"@type": "Offer", "price": "0", "priceCurrency": "USD", "description": "Ücretsiz plan, süresiz"}, "publisher": {"@id": "https://tanerphll.github.io/tradelog/#org"}}]}</script>
+<script>try{if(/tgWebApp/.test(location.hash+location.search)||/Telegram/i.test(navigator.userAgent)||sessionStorage.getItem('__telegram__initParams'))document.write('<script src="https://telegram.org/js/telegram-web-app.js?64"><\/script>')}catch(e){}</script>
 <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500..800&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap">
 <style>
@@ -1401,6 +1411,42 @@ html{scroll-behavior:smooth;-webkit-text-size-adjust:100%}
 .site .aiin{display:flex;justify-content:space-between;align-items:center;border:1px solid var(--line2);border-radius:999px;padding:8px 8px 8px 16px;color:var(--mu);font-size:14px}
 .site .aiin i{width:30px;height:30px;border-radius:50%;background:var(--tx);color:var(--bg);display:grid;place-items:center;font-style:normal}
 @media (max-width:900px){.site .ai-g{grid-template-columns:minmax(0,1fr);gap:36px}}
+.site .secg{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:14px}
+.site .sc{padding:26px 24px;border-radius:22px;background:linear-gradient(180deg,rgba(148,197,204,.05),transparent 55%),var(--card);border:1px solid var(--line);display:flex;flex-direction:column;gap:12px;transition:border-color .25s,transform .25s}
+.site .sc:hover{border-color:var(--line2);transform:translateY(-3px)}
+.site .sc .ic{width:44px;height:44px;border-radius:14px;display:grid;place-items:center;background:rgba(148,197,204,.1);color:var(--lime)}
+.site .sc h3{margin:6px 0 0;font-size:18px;font-weight:600;letter-spacing:-.01em}
+.site .sc p{margin:0;color:var(--mu);font-size:15px}
+@media (max-width:980px){.site .secg{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media (max-width:560px){.site .secg{grid-template-columns:minmax(0,1fr)}}
+.site .mstory{display:flex;justify-content:center;padding:6px 0 2px}
+.site .ms{position:relative;width:118px;aspect-ratio:9/16;border-radius:16px;overflow:hidden;padding:12px 11px;display:flex;flex-direction:column;gap:5px;background:radial-gradient(90% 60% at 80% 18%,rgba(74,222,128,.35),transparent 70%),radial-gradient(80% 50% at 10% 95%,rgba(148,197,204,.22),transparent 70%),#030405;border:1px solid var(--line2);box-shadow:0 24px 50px -24px rgba(74,222,128,.45);transform:rotate(-5deg);transition:transform .45s cubic-bezier(.2,1.2,.3,1)}
+.site .b:hover .ms{transform:rotate(0) scale(1.04)}
+.site .msl{display:flex;align-items:center;gap:4px;font:700 9px var(--disp);color:#F8F8F8}
+.site .ms b{font:700 15px var(--disp);color:#F8F8F8;margin-top:22px;letter-spacing:-.02em}
+.site .mspill{align-self:flex-start;font:600 7px var(--body);color:#4ADE80;background:rgba(74,222,128,.15);padding:2px 6px;border-radius:9px;letter-spacing:.04em}
+.site .ms i{font-style:normal;font-weight:700;font-size:25px;color:#4ADE80;letter-spacing:-.04em;text-shadow:0 0 18px rgba(74,222,128,.5);margin-top:8px}
+.site .ms small{font-size:10px;color:rgba(248,248,248,.85)}
+.site .msb{margin-top:auto;height:22px;border-radius:7px;background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.08)}
+.site .rv{opacity:0;transform:translateY(26px);transition:opacity .75s cubic-bezier(.2,.8,.2,1),transform .75s cubic-bezier(.2,.8,.2,1),border-color .25s}
+.site .rv.in{opacity:1;transform:none}
+.site .b.rv.in:hover,.site .sc.rv.in:hover{transform:translateY(-3px)}
+.site .hero{overflow:hidden}
+.site .hero::before{content:"";position:absolute;inset:-30% -20% -10%;pointer-events:none;background:radial-gradient(34% 32% at 74% 34%,rgba(148,197,204,.17),transparent 70%),radial-gradient(28% 26% at 18% 78%,rgba(129,140,248,.10),transparent 70%),radial-gradient(22% 22% at 50% 10%,rgba(74,222,128,.06),transparent 70%);animation:aurora 26s ease-in-out infinite alternate}
+.site .hero::after{content:"";position:absolute;inset:0;pointer-events:none;background-image:radial-gradient(rgba(148,197,204,.10) 1px,transparent 1.3px);background-size:24px 24px;-webkit-mask-image:radial-gradient(ellipse 70% 60% at 60% 30%,#000 20%,transparent 75%);mask-image:radial-gradient(ellipse 70% 60% at 60% 30%,#000 20%,transparent 75%)}
+.site .hero-g{z-index:1}
+@keyframes aurora{0%{transform:translate3d(0,0,0)}50%{transform:translate3d(-4%,3%,0) scale(1.05)}100%{transform:translate3d(4%,-2%,0) scale(1.02)}}
+.site .hero-g>div:first-child>*{animation:fade .8s cubic-bezier(.2,.8,.2,1) both}
+.site .hero-g>div:first-child>:nth-child(2){animation-delay:.08s}
+.site .hero-g>div:first-child>:nth-child(3){animation-delay:.16s}
+.site .hero-g>div:first-child>:nth-child(4){animation-delay:.24s}
+.site .hero-g>div:first-child>:nth-child(5){animation-delay:.32s}
+.site .hero .demo{animation:pop 1s cubic-bezier(.2,.8,.2,1) .3s both}
+.site .tframe{transition:box-shadow .4s}
+.site .tframe:hover{box-shadow:0 70px 140px -60px rgba(148,197,204,.38)}
+@media (prefers-reduced-motion:reduce){.site .rv{opacity:1;transform:none}
+.site .hero::before{animation:none}}
+@media (max-width:560px){.site .kpis{grid-template-columns:repeat(2,minmax(0,1fr))}}
 </style>
 </head>
 <body>
@@ -1528,8 +1574,9 @@ html{scroll-behavior:smooth;-webkit-text-size-adjust:100%}
 <p data-st="acc_p">Kopyalanan işlemler birleşik görünümde bir kez sayılır.</p>
 </div>
 <div class="b tg">
-<div class="hd"><span class="ic"><span data-i="cal"></span></span><h3 data-st="wk_h">Haftalık özet</h3></div>
-<p data-st="wk_p">Her hafta net sonucun, en iyi ve en kötü işlemin ve gelecek hafta için 1-3 öneri. Kopyala, mentoruna gönder.</p>
+<div class="hd"><span class="ic"><span data-i="cal"></span></span><h3 data-st="wk_h">Özet ve paylaşım</h3></div>
+<p data-st="wk_p">Her hafta net sonucun ve gelecek hafta için 1-3 öneri. İşlemini tek dokunuşla Instagram story kartı olarak paylaş.</p>
+<div class="mstory" aria-hidden="true"><div class="ms"><span class="msl"><span data-i="logo" data-s="12"></span>TradeLog</span><b>GBPUSD</b><span class="mspill">LONG</span><i class="mono" data-st="ms_r">+2,4R</i><small class="mono">+$480</small><span class="msb"></span></div></div>
 <a class="btn btn-g" href="#/app" style="margin-top:auto" data-st="wk_btn">Panelde gör</a>
 </div>
 </div>
@@ -1546,7 +1593,7 @@ html{scroll-behavior:smooth;-webkit-text-size-adjust:100%}
 <a class="btn btn-p btn-lg" href="#/app"><span data-st="cta_start">Ücretsiz başla</span><span data-i="arrow" data-s="18"></span></a>
 </div>
 <div class="pvis">
-<img id="pimg" width="510" height="369" alt="" decoding="async" loading="lazy">
+<img id="pimg" width="638" height="492" alt="" decoding="async" loading="lazy">
 <div class="palert"><span data-i="alert" data-s="18" data-w="2"></span><span data-st="prop_alert">Funded 100K: günlük kayıp limitinin %76'sı kullanıldı. Kalan $1.200.</span></div>
 </div>
 </div>
@@ -1556,6 +1603,18 @@ html{scroll-behavior:smooth;-webkit-text-size-adjust:100%}
 <div class="wrap">
 <div class="sec-h c"><span class="kick" data-st="nav_plat">Platformlar</span><h2 class="h2" data-st="plat_h">MetaTrader ile bugün, diğerleri sırada.</h2><p data-st="plat_p">Raporunu yükle ya da işlemini elle gir. Elle kayıt her platformda çalışır.</p></div>
 <div class="plats" id="plats"></div>
+</div>
+</section>
+
+<section class="sec" id="guven">
+<div class="wrap">
+<div class="sec-h c"><span class="kick" data-st="sec_k">Güvenlik ve gizlilik</span><h2 class="h2" data-st="sec_h">Verilerin sende kalır.</h2><p data-st="sec_p">Bir günlüğe işlemlerini emanet ediyorsun. Bunu nasıl koruduğumuzu açıkça yazıyoruz.</p></div>
+<div class="secg">
+<div class="sc"><span class="ic"><span data-i="lock"></span></span><h3 data-st="sec1_h">Ana şifren hiç istenmez</h3><p data-st="sec1_p">Otomatik bağlantı yalnızca yatırımcı (salt okunur) şifreyle çalışır. Bu şifreyle işlem açılamaz, para çekilemez; şifreyi biz saklamayız.</p></div>
+<div class="sc"><span class="ic"><span data-i="globe"></span></span><h3 data-st="sec2_h">Avrupa'da, şifreli</h3><p data-st="sec2_p">Verilerin Almanya'daki (Frankfurt) sunucularda, şifreli bağlantıyla saklanır.</p></div>
+<div class="sc"><span class="ic"><span data-i="eye"></span></span><h3 data-st="sec3_h">Satılmaz, reklama gitmez</h3><p data-st="sec3_p">Verilerini kimseye satmayız. TradeLog AI'ye giden veriler yapay zekâ modellerinin eğitiminde kullanılmaz.</p></div>
+<div class="sc"><span class="ic"><span data-i="down"></span></span><h3 data-st="sec4_h">İstediğin an indir ya da sil</h3><p data-st="sec4_p">Ayarlar'dan tek tıkla bütün verilerini indirebilir ya da hesabını tamamen silebilirsin.</p></div>
+</div>
 </div>
 </section>
 
@@ -1611,7 +1670,7 @@ html{scroll-behavior:smooth;-webkit-text-size-adjust:100%}
 <div class="wrap">
 <div class="fg">
 <div class="brand"><a class="logo" href="#top" data-a="home"><span data-i="logo" data-s="28"></span>TradeLog</a><p class="disc" data-st="foot_disc">TradeLog bir işlem günlüğüdür, yatırım tavsiyesi vermez. Geçmiş sonuçlar gelecekteki sonuçları garanti etmez.</p></div>
-<div><h4 data-st="foot_product">Ürün</h4><a href="#tur" data-st="nav_feat">Özellikler</a><a href="#platformlar" data-st="nav_plat">Platformlar</a><a href="#fiyatlar" data-st="nav_price">Fiyatlar</a></div>
+<div><h4 data-st="foot_product">Ürün</h4><a href="#tur" data-st="nav_feat">Özellikler</a><a href="#platformlar" data-st="nav_plat">Platformlar</a><a href="#guven" data-st="nav_sec">Güvenlik</a><a href="#fiyatlar" data-st="nav_price">Fiyatlar</a></div>
 <div><h4 data-st="foot_support">Destek</h4><a href="#yardim" data-page="help" data-st="nav_help">Yardım</a><a href="#sss" data-st="nav_faq">SSS</a><a href="#iletisim" data-page="contact" data-st="pg_contact">İletişim</a></div>
 <div><h4 data-st="foot_legal">Yasal</h4><a href="#gizlilik" data-page="privacy" data-st="pg_privacy">Gizlilik politikası</a><a href="#kosullar" data-page="terms" data-st="pg_terms">Kullanım koşulları</a></div>
 </div>
@@ -5096,7 +5155,11 @@ const P = {
   help: '<circle cx="12" cy="12" r="9"/><path d="M9.5 9.5a2.5 2.5 0 014.6 1.3c0 1.7-2.1 2-2.1 3.4M12 17h.01"/>',
   phone: '<rect x="6" y="2.5" width="12" height="19" rx="3"/><path d="M11 18h2"/>',
   link: '<path d="M10 14a4 4 0 005.7 0l3-3a4 4 0 00-5.7-5.7l-1 1"/><path d="M14 10a4 4 0 00-5.7 0l-3 3a4 4 0 005.7 5.7l1-1"/>',
-  doc: '<path d="M14 3H7a2 2 0 00-2 2v14a2 2 0 002 2h10a2 2 0 002-2V8z"/><path d="M14 3v5h5M9 13h6M9 17h4"/>'
+  doc: '<path d="M14 3H7a2 2 0 00-2 2v14a2 2 0 002 2h10a2 2 0 002-2V8z"/><path d="M14 3v5h5M9 13h6M9 17h4"/>',
+  lock: '<rect x="4.5" y="10.5" width="15" height="10" rx="2.5"/><path d="M8 10.5V7.5a4 4 0 018 0v3"/>',
+  globe: '<circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3c2.5 2.7 3.8 5.7 3.8 9s-1.3 6.3-3.8 9c-2.5-2.7-3.8-5.7-3.8-9S9.5 5.7 12 3z"/>',
+  eye: '<path d="M2.5 12S6 5.5 12 5.5 21.5 12 21.5 12 18 18.5 12 18.5 2.5 12 2.5 12z"/><circle cx="12" cy="12" r="2.8"/>',
+  down: '<path d="M12 4v12M7 11l5 5 5-5M4 16v3a1 1 0 001 1h14a1 1 0 001-1v-3"/>'
 };
 const ic = (n, s = 20, w = 2, extra = '') => n === 'logo'
   ? `<svg width="${s}" height="${s}" viewBox="0 0 32 32" aria-hidden="true"><rect width="32" height="32" rx="9" fill="#94C5CC"/><path d="M9.5 22v-4.5M16 22V12.5M22.5 22V9" stroke="#000100" stroke-width="3.4" stroke-linecap="round"/></svg>`
@@ -5163,10 +5226,17 @@ const ST = {
 tr: {
   nav_prop: 'Prop firm', nav_plat: 'Platformlar', nav_help: 'Yardım',
   tour_k: 'Uygulamanın içi', tour_h: 'Gerçek ekranlar, gerçek uygulama.', tour_p: 'Aşağıdakiler TradeLog\'un kendisi, örnek verilerle. Sekmeleri değiştirip bak.',
-  tour: [['dash', 'Panel', 'Net sonuç, temel göstergeler, prop kuralların ve TradeLog puanın tek ekranda.'], ['trades', 'İşlemler', 'Her işlem R ve para olarak. Ara, filtrele, sütunları kendine göre seç.'], ['cal', 'Takvim', 'Günlük ve haftalık sonuçların renkli bir takvimde. Güne tıkla, o günün işlemlerini gör.'], ['rep', 'Raporlar', 'Kazanma oranı, beklenti, düşüş ve aylık performans. Zaman, setup ve psikoloji raporları da burada.']],
+  tour: [['dash', 'Panel', 'Net sonuç, temel göstergeler, prop kuralların ve TradeLog puanın tek ekranda.'], ['acc', 'Hesaplar', 'Her hesabın bakiyesi, net kazancı, bakiye eğrisi, kuralları ve başabaş aralığı kendi kartında.'], ['trades', 'İşlemler', 'Her işlem R ve para olarak. Ara, filtrele, sütunları kendine göre seç.'], ['cal', 'Takvim', 'Günlük ve haftalık sonuçların renkli bir takvimde. Güne tıkla, o günün işlemlerini gör.'], ['rep', 'Raporlar', 'Kazanma oranı, beklenti, düşüş ve aylık performans. Zaman, setup ve psikoloji raporları da burada.']],
   prop_k: 'Prop firm trader\'ları için', prop_h: 'Challenge\'dan funded\'a, her kural gözünün önünde.', prop_p: 'Prop firm hesaplarını kurallarıyla birlikte takip et. TradeLog limitine ne kadar kaldığını gösterir, yaklaşınca seni uyarır.',
   plist: [['shield', 'Kuralların her an önünde', 'Günlük kayıp, toplam kayıp ve kâr hedefini hesap başına gir; kalan tutarı panelde gör.'], ['alert', 'Limite yaklaşınca uyarı', 'Bir limitin %70\'ini kullandığında panel seni uyarır, limiti aşmadan durursun.'], ['layers', 'Her hesap ayrı', 'Challenge, funded ve kişisel hesaplar kendi bakiyesi ve kurallarıyla takip edilir. Kopyalanan işlemler birleşik görünümde bir kez sayılır.'], ['file', 'Payout ve para hareketleri', 'Rapordaki para yatırma ve çekmeler otomatik eklenir; bakiye rapordakiyle karşılaştırılır.']],
   prop_alert: 'Funded 100K: günlük kayıp limitinin %76\'sı kullanıldı. Kalan $1.200.', prop_img: 'TradeLog panelinde hesap kuralları kartı',
+  ms_r: '+2,4R', nav_sec: 'Güvenlik',
+  meta_title: 'TradeLog: Ücretsiz Trading Günlüğü | MT4/MT5 İşlem Takibi ve Analizi', meta_desc: 'Ücretsiz trading günlüğü: MT4/MT5 raporunu yükle ya da hesabını bağla, işlemlerini R ile analiz et. Prop firm kuralları, raporlar ve TradeLog AI koçu.',
+  sec_k: 'Güvenlik ve gizlilik', sec_h: 'Verilerin sende kalır.', sec_p: 'Bir günlüğe işlemlerini emanet ediyorsun. Bunu nasıl koruduğumuzu açıkça yazıyoruz.',
+  sec1_h: 'Ana şifren hiç istenmez', sec1_p: 'Otomatik bağlantı yalnızca yatırımcı (salt okunur) şifreyle çalışır. Bu şifreyle işlem açılamaz, para çekilemez; şifreyi biz saklamayız.',
+  sec2_h: 'Avrupa\'da, şifreli', sec2_p: 'Verilerin Almanya\'daki (Frankfurt) sunucularda, şifreli bağlantıyla saklanır.',
+  sec3_h: 'Satılmaz, reklama gitmez', sec3_p: 'Verilerini kimseye satmayız. TradeLog AI\'ye giden veriler yapay zekâ modellerinin eğitiminde kullanılmaz.',
+  sec4_h: 'İstediğin an indir ya da sil', sec4_p: 'Ayarlar\'dan tek tıkla bütün verilerini indirebilir ya da hesabını tamamen silebilirsin.',
   plat_h: 'MetaTrader ile bugün, diğerleri sırada.', plat_p: 'MT4/MT5 hesabını yatırımcı şifresiyle bağla (Pro) ya da raporunu yükle. Elle kayıt her platformda çalışır.',
   plats: [['MetaTrader 5', 'ok', 'Otomatik bağlantı, HTML ve Excel raporu'], ['MetaTrader 4', 'ok', 'Otomatik bağlantı, HTML raporu'], ['Match-Trader', 'next', 'Rapor içe aktarma'], ['cTrader', 'next', 'Rapor içe aktarma'], ['DXtrade', 'plan', 'Rapor içe aktarma'], ['TradeLocker', 'plan', 'Rapor içe aktarma']],
   plat_st: { ok: 'Hazır', next: 'Sırada', plan: 'Planlandı' },
@@ -5190,23 +5260,23 @@ tr: {
   emo_h: 'Hataların bedeli', emo_calm: 'Temiz işlemler', emo_hes: 'Erken çıkış', emo_rush: 'SL\'i kaydırma', emo_p: 'İşlem başına ortalama sonuç, hataya göre.',
   emo_v1: '+0,8R', emo_v2: '−0,2R', emo_v3: '−0,6R', emo_v4: '−1,1R',
   acc_h: 'Çoklu hesap', acc_personal: 'Kişisel', acc_p: 'Kopyalanan işlemler birleşik görünümde bir kez sayılır.', acc_v1: '+18,4R', acc_v2: '+6,1R', acc_v3: '−2,3R',
-  wk_h: 'Haftalık özet', wk_p: 'Her hafta net sonucun, en iyi ve en kötü işlemin ve gelecek hafta için 1-3 öneri. Kopyala, mentoruna gönder.', wk_btn: 'Panelde gör', hero_how: 'Nasıl çalışır',
+  wk_h: 'Özet ve paylaşım', wk_p: 'Her hafta net sonucun ve gelecek hafta için 1-3 öneri. İşlemini tek dokunuşla Instagram story kartı olarak paylaş.', wk_btn: 'Panelde gör', hero_how: 'Nasıl çalışır',
   price_h: 'Ücretsiz plan gerçekten ücretsiz.', price_p: 'İşlem sınırı yok, bütün raporlar ve analizler ücretsiz. Pro; otomatik MT4/MT5 bağlantısı, TradeLog AI ve daha fazla hesap getirir.',
   plan_free: 'Ücretsiz', plan_free_d: 'Günlük tutmak isteyen herkes için. Kart gerekmez.', plan_forever: 'süresiz',
-  feat_free: ['Sınırsız işlem: elle ya da MT4/MT5 raporuyla', 'Tüm raporlar, puan ve içgörüler', 'Haftalık özet ve gelecek hafta için öneriler', 'Takvim, günlük ve playbook', 'Prop firm kuralları ve uyarılar', 'İşlemlere ekran görüntüsü ekleme', '2 aktif hesap (Pro açılana kadar sınırsız)', 'Hesabınla her cihazda aynı veri', 'İşlem ve haftalık özet paylaşım linki'],
+  feat_free: ['Sınırsız işlem: elle ya da MT4/MT5 raporuyla', 'Tüm raporlar, puan ve içgörüler', 'Haftalık özet ve gelecek hafta için öneriler', 'Takvim, günlük ve playbook', 'Prop firm kuralları ve uyarılar', 'İşlemlere ekran görüntüsü ekleme', '2 aktif hesap (Pro açılana kadar sınırsız)', 'Hesabınla her cihazda aynı veri', 'Paylaşım linki ve Instagram story kartı'],
   soon: 'Yakında', plan_pro_d: 'İşlem girmekle uğraşmak istemeyen ve birden çok hesap yöneten trader\'lar için.', pro_btn: 'Yakında açılacak',
   pro_fine: 'Pro açıldığında her yeni üye 14 gün Pro ile başlar, kart istenmez. Süre bitince ücretsiz plana geçersin, verilerin kalır.',
   feat_plus: 'Ücretsizdeki her şey, artı:',
-  feat_pro: ['MT4/MT5 otomatik senkron, geçmiş işlemler dahil', '20 aktif hesap, hepsi tek panelde', 'TradeLog AI: verilerine bakıp yorum yapar, sorularını cevaplar', 'İşlem başına 10 ekran görüntüsü', 'Mentoruna hesabını salt okunur aç'],
+  feat_pro: ['MT4/MT5 otomatik senkron (3 hesaba kadar), geçmiş işlemler dahil', '20 aktif hesap, hepsi tek panelde', 'TradeLog AI: verilerine bakıp yorum yapar, sorularını cevaplar', 'İşlem başına 10 ekran görüntüsü', 'Mentoruna hesabını salt okunur aç'],
   cmp_show: 'Tüm özellikleri karşılaştır', cmp_hide: 'Karşılaştırmayı gizle', cmp_feature: 'Özellik', cmp_pro: 'Pro (yakında)', yes_a: 'Var', no_a: 'Yok', cmp_note: 'Yakında işaretli özellikler ve Pro hazır olunca açılacak. Pro açılana kadar ücretsiz planda hesap ve görsel sınırı yok, mentor erişimi de herkese açık.',
   groups: [
-    ['Kayıt ve içe aktarma', [['İşlem sayısı', 'Sınırsız', 'Sınırsız'], ['Elle kayıt ve MT4/MT5 raporu yükleme', 'y', 'y'], ['Otomatik MT4/MT5 senkronu', 'n', 'y'], ['Ekran görüntüsü (işlem başına)', '1', '10']]],
+    ['Kayıt ve içe aktarma', [['İşlem sayısı', 'Sınırsız', 'Sınırsız'], ['Elle kayıt ve MT4/MT5 raporu yükleme', 'y', 'y'], ['Otomatik MT4/MT5 senkronu', 'n', '3 hesap'], ['Ekran görüntüsü (işlem başına)', '1', '10']]],
     ['Analiz', [['Tüm raporlar ve TradeLog puanı', 'y', 'y'], ['Haftalık özet ve öneriler', 'y', 'y'], ['Takvim, günlük ve playbook', 'y', 'y'], ['AI koç', 'n', 'y']]],
-    ['Hesaplar', [['Aktif hesap', '2', '20'], ['Prop firm kuralları ve uyarılar', 'y', 'y'], ['Kopya işlemleri bir kez sayma', 'y', 'y']]],
-    ['Erişim ve paylaşım', [['Web ve telefon', 'y', 'y'], ['Hesapla her cihazda aynı veri', 'y', 'y'], ['İşlem ve haftalık özet paylaşım linki', 'y', 'y'], ['Mentora salt okunur erişim', 'n', 'y']]]],
+    ['Hesaplar', [['Aktif hesap', '2', '20'], ['Hesaplar sayfası: bakiye, net kazanç, eğri', 'y', 'y'], ['Başabaş aralığı (hesap başına)', 'y', 'y'], ['Prop firm kuralları ve uyarılar', 'y', 'y'], ['Kopya işlemleri bir kez sayma', 'y', 'y']]],
+    ['Erişim ve paylaşım', [['Web ve telefon', 'y', 'y'], ['Hesapla her cihazda aynı veri', 'y', 'y'], ['İşlem ve haftalık özet paylaşım linki', 'y', 'y'], ['Instagram story ve gönderi kartı', 'y', 'y'], ['Mentora salt okunur erişim', 'n', 'y']]]],
   faq_h: 'Aklına takılanlar',
   faq: [
-    ['Ücretsiz plan ile Pro arasındaki fark ne?', 'Ücretsiz planda işlem sınırı yok; bütün raporlar, haftalık özet ve prop firm kuralları dahil. Pro; işlemleri MT4/MT5\'ten kendiliğinden getirir, 20 hesaba kadar destekler, AI koç ve mentor erişimi ekler.'],
+    ['Ücretsiz plan ile Pro arasındaki fark ne?', 'Ücretsiz planda işlem sınırı yok; bütün raporlar, haftalık özet ve prop firm kuralları dahil. Pro; işlemleri MT4/MT5\'ten kendiliğinden getirir (3 hesaba kadar), 20 hesaba kadar destekler, AI koç ve mentor erişimi ekler.'],
     ['Hesap şifremi vermem gerekiyor mu?', 'Hayır. MT4/MT5 raporunu yüklerken şifre istemiyoruz. Pro\'daki otomatik senkron için sadece yatırımcı (salt okunur) şifren gerekir; bu şifreyle işlem açılamaz, para çekilemez. Ana şifreni hiçbir zaman istemeyiz, yatırımcı şifreni de saklamayız.'],
     ['Verilerim nerede saklanıyor?', 'Hesabında: Almanya\'daki (Frankfurt) sunucularda, şifreli bağlantıyla. Verilerini yalnızca sen görebilirsin. Ayarlar → Profil\'den istediğin an indirebilir ya da hesabını tamamen silebilirsin.'],
     ['Hangi platformlar destekleniyor?', 'Şu an MT4 ve MT5 raporları (HTML ve Excel). Match-Trader ve cTrader sırada.'],
@@ -5226,7 +5296,7 @@ tr: {
   fl_opts: ['MT4/MT5 raporu yükle', 'Elle oluştur', 'Otomatik bağla'], fl_soon: 'Pro',
   fl_rows: [['Rapordaki işlemler', '28'], ['Eşleşen', '6'], ['Yeni', '22']],
   fl_ins: [['g', 'En iyi setup: Breakout', '+1,4R'], ['r', 'FOMO maliyeti', '−7,2R']],
-  steps: [['Kaydet', 'İşlem kapanınca telefondan sembol, sonuç ve setup\'ı seç. 15 saniye.'], ['Raporu yükle', 'Haftada bir MT4/MT5 raporunu yükle. Rakamlar düzelir, eksikler eklenir.'], ['Neyin işe yaradığını gör', 'Setup, gün, saat ve duyguya göre sade içgörüler.']],
+  steps: [['Kaydet', 'İşlem kapanınca telefondan sembol, sonuç ve setup\'ı seç. 15 saniye.'], ['Raporu yükle', 'Haftada bir MT4/MT5 raporunu yükle. Rakamlar düzelir, eksikler eklenir.'], ['Neyin işe yaradığını gör', 'Setup, gün, saat ve hataya göre sade içgörüler.']],
   s_new: 'Yeni işlem', s_15: '15 saniye', s_sym: 'Sembol', s_side: 'Yön', s_res: 'Sonuç', s_feel: 'Planlanan R:R', s_try: 'Kendin dene', s_r: '+1,8R',
   s_feels: ['1:1', '1:2', '1:3', '1:5'],
   s_imp: 'Rapor yükle', s_ex: 'Örnek', s_read: 'Okundu', s_acc: 'MT5 · Hesap 247806 → Funded 100K',
@@ -5245,11 +5315,11 @@ tr: {
       ['MT5 raporu nasıl alınır', '<ol><li>Bilgisayarda MetaTrader 5\'i aç.</li><li><b>Araç Kutusu</b> (Toolbox) penceresini aç: Ctrl+T.</li><li><b>Geçmiş</b> (History) sekmesine geç, listede sağ tıkla ve tarih aralığını seç.</li><li>Yine sağ tıkla, <b>Rapor</b> (Report) altından <b>HTML</b> ya da <b>Open XML (Excel)</b> seç ve kaydet.</li><li>TradeLog\'da <b>İşlem ekle → MT4/MT5 raporu yükle</b> ile dosyayı seç.</li></ol>'],
       ['MT4 raporu nasıl alınır', '<ol><li>Bilgisayarda MetaTrader 4\'ü aç.</li><li><b>Terminal</b> penceresini aç: Ctrl+T.</li><li><b>Hesap Geçmişi</b> (Account History) sekmesinde sağ tıkla ve dönemi seç (örneğin Tüm Geçmiş).</li><li>Yine sağ tıkla, <b>Detaylı Raporu Kaydet</b> (Save as Detailed Report) seç ve .htm dosyasını kaydet.</li><li>TradeLog\'da dosyayı yükle.</li></ol>'],
       ['Telefonda rapor', '<p>MT4 ve MT5\'in telefon uygulamaları rapor dışa aktaramıyor. Raporu bilgisayardan al; dosyayı telefonuna gönderip TradeLog\'da oradan da seçebilirsin.</p>'],
-      ['Aynı raporu tekrar yüklersem ne olur?', '<p>Hiçbir şey bozulmaz. Daha önce eklenen işlemler atlanır, sadece yeniler eklenir. Elle girdiğin işlemler rapordaki aynı işlemle eşleşir: notların, setup\'ın ve duygun korunur, rakamlar rapordan güncellenir.</p>'],
-      ['Haftalık özet', '<p><b>Raporlar → Haftalık özet</b>\'te haftanın net sonucunu, günlerini, en iyi ve en kötü işlemini geçen haftayla karşılaştırmalı görürsün. Altta işlemlerine eklediğin setup, duygu ve hatalardan çıkan 1-3 öneri ve haftanın notu var.</p><p><b>Özeti kopyala</b> ile özeti metin olarak alıp mentoruna gönderebilirsin. Panelde de bu haftanın kısa özeti görünür.</p>'],
+      ['Aynı raporu tekrar yüklersem ne olur?', '<p>Hiçbir şey bozulmaz. Daha önce eklenen işlemler atlanır, sadece yeniler eklenir. Elle girdiğin işlemler rapordaki aynı işlemle eşleşir: notların, setup\'ın ve hataların korunur, rakamlar rapordan güncellenir.</p>'],
+      ['Haftalık özet', '<p><b>Raporlar → Haftalık özet</b>\'te haftanın net sonucunu, günlerini, en iyi ve en kötü işlemini geçen haftayla karşılaştırmalı görürsün. Altta işlemlerine eklediğin setup ve hatalardan çıkan 1-3 öneri ve haftanın notu var.</p><p><b>Özeti kopyala</b> ile özeti metin olarak alıp mentoruna gönderebilirsin. Panelde de bu haftanın kısa özeti görünür.</p>'],
       ['Paylaşım linki', '<p>İşlem detayında ya da Raporlar → Haftalık özet\'te <b>Paylaş</b>\'a bas. Notların, para tutarının ve ekran görüntülerinin görünüp görünmeyeceğini seç, istersen adını yaz ve <b>Link oluştur</b>\'a bas; link panoya kopyalanır. Linkleri <b>Ayarlar → Paylaşım linklerim</b>\'den görebilir ve kapatabilirsin.</p>'],
       ['MT4/MT5 hesabını bağlama (Pro)', '<p>Hesap eklerken <b>Otomatik bağla</b>\'ya ya da hesabı düzenle ekranında <b>Hesabı bağla</b>\'ya bas. MT5 ya da MT4\'ü seç; sunucu adını, hesap numaranı ve <b>yatırımcı (salt okunur) şifreni</b> gir. Bağlantı bir dakika içinde kurulur ve son 90 günün kapanan işlemleri, para yatırma ve çekmeleri gelir; sonrası kendiliğinden gelmeye devam eder. MetaTrader\'ın açık olması gerekmez. Yatırımcı şifresini bilmiyorsan aracı kurumunun e-postasına bak ya da MetaTrader\'da Araçlar → Seçenekler → Sunucu → Değiştir\'den yeni bir tane belirle. Bağlantıyı hesabı düzenle ekranından istediğin an kaldırabilirsin.</p>'],
-      ['TradeLog AI (Pro)', '<p>Sol menüdeki <b>TradeLog AI</b>\'ye (telefonda Daha fazla menüsünde) ya da Panel\'deki <b>TradeLog AI\'ye sor</b>\'a bas. Panel yandan açılır; sayfana bakmaya devam ederken sohbet edebilirsin. Senin verilerinden çıkardığı önerilerle başlar. Hazır sorulardan birini seç ya da kendin yaz: “En pahalı hatam ne?”, “Hangi setup\'ım işe yarıyor?” gibi. TradeLog AI, seçili hesap görünümündeki işlemlerine, setup\'larına, hatalarına, duygularına ve günlüğüne bakarak sayılarla cevap verir. Al-sat sinyali vermez, yatırım tavsiyesi değildir. Günlük soru hakkı vardır; sohbet sadece kendi cihazında saklanır.</p>'],
+      ['TradeLog AI (Pro)', '<p>Sol menüdeki <b>TradeLog AI</b>\'ye (telefonda Daha fazla menüsünde) ya da Panel\'deki <b>TradeLog AI\'ye sor</b>\'a bas. Panel yandan açılır; sayfana bakmaya devam ederken sohbet edebilirsin. Senin verilerinden çıkardığı önerilerle başlar. Hazır sorulardan birini seç ya da kendin yaz: “En pahalı hatam ne?”, “Hangi setup\'ım işe yarıyor?” gibi. TradeLog AI, seçili hesap görünümündeki işlemlerine, setup\'larına, hatalarına ve günlüğüne bakarak sayılarla cevap verir. Al-sat sinyali vermez, yatırım tavsiyesi değildir. Günlük soru hakkı vardır; sohbet sadece kendi cihazında saklanır.</p>'],
       ['Mentor erişimi', '<p><b>Ayarlar → Mentor erişimi</b>\'nde mentorunun e-postasını yaz ve <b>Davet et</b>\'e bas. Çıkan mesajı ona WhatsApp ya da e-postayla gönder. Mentorun linki açıp o e-postayla giriş yapınca hesabını salt okunur görür: işlemlerini, notlarını, raporlarını ve ekran görüntülerini. Hiçbir şeyi değiştiremez. Erişimi aynı yerden istediğin an kaldırabilirsin.</p>'],
       ['R nedir?', '<p>R, bir işlemde riske ettiğin tutarın katıdır. Stop olursan −1R, riskinin iki katını kazanırsan +2R yazılır. Böylece farklı lot ve hesap büyüklüklerindeki işlemler aynı ölçüyle karşılaştırılır.</p><p>Raporda stop loss varsa R otomatik hesaplanır. Stop yoksa hesabın risk yüzdesinden tahmin edilir ve yanında ≈ işareti görünür.</p>'],
       ['Hesap ve giriş', '<p>Google hesabınla ya da e-posta ve şifreyle giriş yapabilirsin. Bir cihazda giriş yaptığında çıkış yapana kadar orada açık kalırsın; her seferinde yeniden giriş yapman gerekmez. Aynı hesapla telefonda ve bilgisayarda aynı verileri görürsün.</p><p>Şifreni unuttuysan giriş ekranında <b>Şifremi unuttum</b>\'a bas; e-postana sıfırlama linki gelir. Google ile kayıt olduysan Ayarlar → Profil\'den bir şifre de belirleyebilirsin.</p><p>Daha önce TradeLog\'u hesapsız kullandıysan, o cihazdaki veriler ilk girişte hesabına taşınır. Hem cihazda hem hesabında veri varsa birleştirmek isteyip istemediğin sorulur. Çıkış yapmak ve hesabı silmek için <b>Ayarlar → Profil</b>.</p>'],
@@ -5289,10 +5359,17 @@ tr: {
 en: {
   nav_prop: 'Prop firms', nav_plat: 'Platforms', nav_help: 'Help',
   tour_k: 'Inside the app', tour_h: 'Real screens, the real app.', tour_p: 'This is TradeLog itself, with sample data. Switch tabs to look around.',
-  tour: [['dash', 'Dashboard', 'Net result, key stats, your prop rules and TradeLog score on one screen.'], ['trades', 'Trades', 'Every trade in R and in money. Search, filter and pick the columns you want.'], ['cal', 'Calendar', 'Daily and weekly results on a colour-coded calendar. Click a day to see its trades.'], ['rep', 'Reports', 'Win rate, expectancy, drawdown and monthly performance, plus time, setup and psychology reports.']],
+  tour: [['dash', 'Dashboard', 'Net result, key stats, your prop rules and TradeLog score on one screen.'], ['acc', 'Accounts', 'Each account\'s balance, net gain, balance curve, rules and breakeven range on its own card.'], ['trades', 'Trades', 'Every trade in R and in money. Search, filter and pick the columns you want.'], ['cal', 'Calendar', 'Daily and weekly results on a colour-coded calendar. Click a day to see its trades.'], ['rep', 'Reports', 'Win rate, expectancy, drawdown and monthly performance, plus time, setup and psychology reports.']],
   prop_k: 'For prop firm traders', prop_h: 'From challenge to funded, every rule in view.', prop_p: 'Track your prop firm accounts together with their rules. TradeLog shows how much room you have left and warns you as you get close.',
   plist: [['shield', 'Your rules, always in view', 'Enter the daily loss, max loss and profit target per account and see what is left on your dashboard.'], ['alert', 'A warning before the limit', 'When you have used 70% of a limit, the dashboard warns you so you can stop in time.'], ['layers', 'Every account on its own', 'Challenge, funded and personal accounts are tracked with their own balance and rules. Copied trades count once in the combined view.'], ['file', 'Payouts and cash movements', 'Deposits and withdrawals in your report are added automatically and the balance is checked against the report.']],
   prop_alert: 'Funded 100K: 76% of the daily loss limit used. $1,200 left.', prop_img: 'Account rules card on the TradeLog dashboard',
+  ms_r: '+2.4R', nav_sec: 'Security',
+  meta_title: 'TradeLog: Free Trading Journal | MT4/MT5 Trade Tracking and Analytics', meta_desc: 'Free trading journal: upload your MT4/MT5 report or connect your account and analyse every trade in R. Prop firm rules, reports and the TradeLog AI coach.',
+  sec_k: 'Security and privacy', sec_h: 'Your data stays yours.', sec_p: 'You trust a journal with your trades. Here is plainly how we protect them.',
+  sec1_h: 'Never your master password', sec1_p: 'Automatic connection only uses your investor (read-only) password, which can\'t open trades or withdraw money. We don\'t store it.',
+  sec2_h: 'In Europe, encrypted', sec2_p: 'Your data is kept on servers in Germany (Frankfurt) over an encrypted connection.',
+  sec3_h: 'Never sold, never ads', sec3_p: 'We don\'t sell your data. What goes to TradeLog AI is not used to train AI models.',
+  sec4_h: 'Download or delete any time', sec4_p: 'From Settings you can download all your data or delete your account completely in one click.',
   plat_h: 'MetaTrader today, more on the way.', plat_p: 'Connect your MT4/MT5 account with its investor password (Pro) or upload your report. Manual logging works with any platform.',
   plats: [['MetaTrader 5', 'ok', 'Automatic connection, HTML and Excel reports'], ['MetaTrader 4', 'ok', 'Automatic connection, HTML reports'], ['Match-Trader', 'next', 'Report import'], ['cTrader', 'next', 'Report import'], ['DXtrade', 'plan', 'Report import'], ['TradeLocker', 'plan', 'Report import']],
   plat_st: { ok: 'Available', next: 'Next', plan: 'Planned' },
@@ -5316,23 +5393,23 @@ en: {
   emo_h: 'What mistakes cost you', emo_calm: 'Clean trades', emo_hes: 'Early exit', emo_rush: 'Moved SL', emo_p: 'Average result per trade, by mistake.',
   emo_v1: '+0.8R', emo_v2: '−0.2R', emo_v3: '−0.6R', emo_v4: '−1.1R',
   acc_h: 'Multiple accounts', acc_personal: 'Personal', acc_p: 'Copied trades are counted once in the combined view.', acc_v1: '+18.4R', acc_v2: '+6.1R', acc_v3: '−2.3R',
-  wk_h: 'Weekly recap', wk_p: 'Every week: your net result, best and worst trade, and 1-3 suggestions for next week. Copy it and send it to your mentor.', wk_btn: 'See it in the app', hero_how: 'How it works',
+  wk_h: 'Recap and sharing', wk_p: 'Every week: your net result and 1-3 suggestions for next week. Share a trade as an Instagram story card in one tap.', wk_btn: 'See it in the app', hero_how: 'How it works',
   price_h: 'A free plan that is actually free.', price_p: 'No trade limit, and every report and analysis is free. Pro adds automatic MT4/MT5 connection, TradeLog AI and more accounts.',
   plan_free: 'Free', plan_free_d: 'For everyone who wants to keep a journal. No card needed.', plan_forever: 'forever',
-  feat_free: ['Unlimited trades, logged by hand or from MT4/MT5 reports', 'All reports, score and insights', 'Weekly recap with suggestions for next week', 'Calendar, journal and playbooks', 'Prop firm rules and alerts', 'Screenshots on your trades', '2 active accounts (unlimited until Pro opens)', 'The same data on every device with your account', 'Share links for trades and weekly recaps'],
+  feat_free: ['Unlimited trades, logged by hand or from MT4/MT5 reports', 'All reports, score and insights', 'Weekly recap with suggestions for next week', 'Calendar, journal and playbooks', 'Prop firm rules and alerts', 'Screenshots on your trades', '2 active accounts (unlimited until Pro opens)', 'The same data on every device with your account', 'Share links and Instagram story cards for trades'],
   soon: 'Coming soon', plan_pro_d: 'For traders who don\'t want to log trades by hand and run several accounts.', pro_btn: 'Opening soon',
   pro_fine: 'When Pro opens, every new member starts with 14 days of Pro, no card needed. After that you move to the free plan and keep your data.',
   feat_plus: 'Everything in Free, plus:',
-  feat_pro: ['Automatic MT4/MT5 sync, including past trades', '20 active accounts on one dashboard', 'TradeLog AI: reads your data, comments on it and answers your questions', '10 screenshots per trade', 'Give your mentor read-only access'],
+  feat_pro: ['Automatic MT4/MT5 sync (up to 3 accounts), including past trades', '20 active accounts on one dashboard', 'TradeLog AI: reads your data, comments on it and answers your questions', '10 screenshots per trade', 'Give your mentor read-only access'],
   cmp_show: 'Compare all features', cmp_hide: 'Hide comparison', cmp_feature: 'Feature', cmp_pro: 'Pro (soon)', yes_a: 'Included', no_a: 'Not included', cmp_note: 'Features marked coming soon, and Pro, open when they are ready. Until Pro opens, the free plan has no account or screenshot limit, and mentor access is open to everyone.',
   groups: [
-    ['Logging and import', [['Trades', 'Unlimited', 'Unlimited'], ['Manual logging and MT4/MT5 report upload', 'y', 'y'], ['Automatic MT4/MT5 sync', 'n', 'y'], ['Screenshots per trade', '1', '10']]],
+    ['Logging and import', [['Trades', 'Unlimited', 'Unlimited'], ['Manual logging and MT4/MT5 report upload', 'y', 'y'], ['Automatic MT4/MT5 sync', 'n', '3 accounts'], ['Screenshots per trade', '1', '10']]],
     ['Analytics', [['All reports and TradeLog score', 'y', 'y'], ['Weekly recap and suggestions', 'y', 'y'], ['Calendar, journal and playbooks', 'y', 'y'], ['AI coach', 'n', 'y']]],
-    ['Accounts', [['Active accounts', '2', '20'], ['Prop firm rules and alerts', 'y', 'y'], ['Count copied trades once', 'y', 'y']]],
-    ['Access and sharing', [['Web and phone', 'y', 'y'], ['Same data on every device', 'y', 'y'], ['Share links for trades and weekly recaps', 'y', 'y'], ['Read-only access for a mentor', 'n', 'y']]]],
+    ['Accounts', [['Active accounts', '2', '20'], ['Accounts page: balance, net gain, curve', 'y', 'y'], ['Breakeven range (per account)', 'y', 'y'], ['Prop firm rules and alerts', 'y', 'y'], ['Count copied trades once', 'y', 'y']]],
+    ['Access and sharing', [['Web and phone', 'y', 'y'], ['Same data on every device', 'y', 'y'], ['Share links for trades and weekly recaps', 'y', 'y'], ['Instagram story and post cards', 'y', 'y'], ['Read-only access for a mentor', 'n', 'y']]]],
   faq_h: 'Questions you might have',
   faq: [
-    ['What is the difference between Free and Pro?', 'The free plan has no trade limit and includes every report, the weekly recap and prop firm rules. Pro brings your trades in from MT4/MT5 on its own, supports up to 20 accounts, and adds the AI coach and mentor access.'],
+    ['What is the difference between Free and Pro?', 'The free plan has no trade limit and includes every report, the weekly recap and prop firm rules. Pro brings your trades in from MT4/MT5 on its own (up to 3 accounts), supports up to 20 accounts, and adds the AI coach and mentor access.'],
     ['Do I need to give my account password?', 'No. Uploading your MT4/MT5 report needs no password. Pro\'s automatic sync only needs your investor (read-only) password, which can\'t open trades or withdraw money. We never ask for your master password, and we don\'t store the investor password.'],
     ['Where is my data stored?', 'In your account, on servers in Germany (Frankfurt), over an encrypted connection. Only you can see your data. From Settings → Profile you can download it or delete your account completely.'],
     ['Which platforms are supported?', 'MT4 and MT5 reports (HTML and Excel) today. Match-Trader and cTrader are next.'],
@@ -5352,7 +5429,7 @@ en: {
   fl_opts: ['Upload MT4/MT5 report', 'Create manually', 'Connect automatically'], fl_soon: 'Pro',
   fl_rows: [['Trades in report', '28'], ['Matched', '6'], ['New', '22']],
   fl_ins: [['g', 'Best setup: Breakout', '+1.4R'], ['r', 'Cost of FOMO', '−7.2R']],
-  steps: [['Log it', 'When a trade closes, pick the symbol, result and setup on your phone. 15 seconds.'], ['Upload your report', 'Once a week, upload your MT4/MT5 report. Numbers are corrected and missing trades added.'], ['See what works', 'Plain insights by setup, day, hour and emotion.']],
+  steps: [['Log it', 'When a trade closes, pick the symbol, result and setup on your phone. 15 seconds.'], ['Upload your report', 'Once a week, upload your MT4/MT5 report. Numbers are corrected and missing trades added.'], ['See what works', 'Plain insights by setup, day, hour and mistake.']],
   s_new: 'New trade', s_15: '15 seconds', s_sym: 'Symbol', s_side: 'Side', s_res: 'Result', s_feel: 'Planned R:R', s_try: 'Try it yourself', s_r: '+1.8R',
   s_feels: ['1:1', '1:2', '1:3', '1:5'],
   s_imp: 'Upload report', s_ex: 'Sample', s_read: 'Read', s_acc: 'MT5 · Account 247806 → Funded 100K',
@@ -5371,11 +5448,11 @@ en: {
       ['How to export an MT5 report', '<ol><li>Open MetaTrader 5 on your computer.</li><li>Open the <b>Toolbox</b>: Ctrl+T.</li><li>Go to the <b>History</b> tab, right-click the list and pick a date range.</li><li>Right-click again, choose <b>Report</b>, then <b>HTML</b> or <b>Open XML (Excel)</b>, and save it.</li><li>In TradeLog, choose <b>Add trade → Upload an MT4/MT5 report</b> and pick the file.</li></ol>'],
       ['How to export an MT4 report', '<ol><li>Open MetaTrader 4 on your computer.</li><li>Open the <b>Terminal</b>: Ctrl+T.</li><li>In the <b>Account History</b> tab, right-click and pick the period (for example All History).</li><li>Right-click again, choose <b>Save as Detailed Report</b> and save the .htm file.</li><li>Upload the file in TradeLog.</li></ol>'],
       ['Reports on a phone', '<p>The MT4 and MT5 phone apps can\'t export reports. Export the report on your computer; you can send the file to your phone and pick it in TradeLog there.</p>'],
-      ['What if I upload the same report again?', '<p>Nothing breaks. Trades already added are skipped and only new ones are added. Trades you entered manually are matched with the same trade in the report: your notes, setup and mindset are kept and the numbers are updated from the report.</p>'],
-      ['Weekly recap', '<p><b>Reports → Weekly recap</b> shows the week\'s net result, each day, and your best and worst trade compared with last week. Below are 1-3 suggestions drawn from the setups, emotions and mistakes on your trades, plus a note of the week.</p><p>Use <b>Copy recap</b> to send it to your mentor as text. A short version of this week also appears on your dashboard.</p>'],
+      ['What if I upload the same report again?', '<p>Nothing breaks. Trades already added are skipped and only new ones are added. Trades you entered manually are matched with the same trade in the report: your notes, setup and mistakes are kept and the numbers are updated from the report.</p>'],
+      ['Weekly recap', '<p><b>Reports → Weekly recap</b> shows the week\'s net result, each day, and your best and worst trade compared with last week. Below are 1-3 suggestions drawn from the setups and mistakes on your trades, plus a note of the week.</p><p>Use <b>Copy recap</b> to send it to your mentor as text. A short version of this week also appears on your dashboard.</p>'],
       ['Share links', '<p>Press <b>Share</b> on a trade or in Reports → Weekly recap. Choose whether your notes, money amount and screenshots are shown, add your name if you like, and press <b>Create link</b>; the link is copied for you. See and turn off your links in <b>Settings → My share links</b>.</p>'],
       ['Connecting your MT4/MT5 account (Pro)', '<p>When adding an account press <b>Connect automatically</b>, or press <b>Connect account</b> in the account editor. Pick MT5 or MT4 and enter the server name, your account number and your <b>investor (read-only) password</b>. The connection is ready within a minute and closed trades, deposits and withdrawals from the last 90 days arrive; new ones keep coming on their own. MetaTrader doesn\'t need to be open. If you don\'t know your investor password, check your broker\'s email or set a new one in MetaTrader under Tools → Options → Server → Change. You can remove the connection any time from the account editor.</p>'],
-      ['TradeLog AI (Pro)', '<p>Press <b>TradeLog AI</b> in the side menu (in the More menu on phones) or <b>Ask TradeLog AI</b> on the Dashboard. The panel opens at the side, so you can keep looking at your page while you chat. It starts with suggestions drawn from your own numbers. Pick a ready question or write your own, like “What\'s my most expensive mistake?” or “Which of my setups works?”. TradeLog AI answers with numbers from the trades, setups, mistakes, emotions and journal in your current account view. It doesn\'t give buy/sell signals and isn\'t investment advice. There is a daily question limit; the chat is stored only on your device.</p>'],
+      ['TradeLog AI (Pro)', '<p>Press <b>TradeLog AI</b> in the side menu (in the More menu on phones) or <b>Ask TradeLog AI</b> on the Dashboard. The panel opens at the side, so you can keep looking at your page while you chat. It starts with suggestions drawn from your own numbers. Pick a ready question or write your own, like “What\'s my most expensive mistake?” or “Which of my setups works?”. TradeLog AI answers with numbers from the trades, setups, mistakes and journal in your current account view. It doesn\'t give buy/sell signals and isn\'t investment advice. There is a daily question limit; the chat is stored only on your device.</p>'],
       ['Mentor access', '<p>In <b>Settings → Mentor access</b>, type your mentor\'s email and press <b>Invite</b>. Send them the message by WhatsApp or email. Once they open the link and sign in with that email, they can see your account read-only: trades, notes, reports and screenshots. They can\'t change anything. You can remove access from the same place any time.</p>'],
       ['What is R?', '<p>R is a multiple of the amount you risked on a trade. A stop-out is −1R; winning twice your risk is +2R. This lets you compare trades across different lot and account sizes on one scale.</p><p>If the report has a stop loss, R is calculated automatically. If not, it is estimated from the account\'s risk percentage and shown with a ≈ sign.</p>'],
       ['Account and sign-in', '<p>Sign in with your Google account or with an email and password. Once you sign in on a device you stay signed in there until you sign out; you don\'t have to sign in every time. The same account shows the same data on your phone and computer.</p><p>Forgot your password? Press <b>Forgot password?</b> on the sign-in screen and we\'ll email you a reset link. If you signed up with Google, you can also set a password from Settings → Profile.</p><p>If you used TradeLog without an account before, the data on that device moves to your account the first time you sign in. If both the device and your account have data, you are asked whether to merge them. To sign out or delete your account, go to <b>Settings → Profile</b>.</p>'],
@@ -5434,7 +5511,7 @@ function renderDemo() {
 }
 
 /* ürün turu: gerçek uygulama ekran görüntüleri (dile göre) */
-const TOUR_IMG = {"en": {"cal": "assets/tour/en_cal.webp", "dash": "assets/tour/en_dash.webp", "m_cal": "assets/tour/en_m_cal.webp", "m_dash": "assets/tour/en_m_dash.webp", "m_rep": "assets/tour/en_m_rep.webp", "m_trades": "assets/tour/en_m_trades.webp", "prop": "assets/tour/en_prop.webp", "rep": "assets/tour/en_rep.webp", "trades": "assets/tour/en_trades.webp"}, "tr": {"cal": "assets/tour/tr_cal.webp", "dash": "assets/tour/tr_dash.webp", "m_cal": "assets/tour/tr_m_cal.webp", "m_dash": "assets/tour/tr_m_dash.webp", "m_rep": "assets/tour/tr_m_rep.webp", "m_trades": "assets/tour/tr_m_trades.webp", "prop": "assets/tour/tr_prop.webp", "rep": "assets/tour/tr_rep.webp", "trades": "assets/tour/tr_trades.webp"}};
+const TOUR_IMG = {"en": {"acc": "assets/tour/en_acc.webp", "cal": "assets/tour/en_cal.webp", "dash": "assets/tour/en_dash.webp", "m_acc": "assets/tour/en_m_acc.webp", "m_cal": "assets/tour/en_m_cal.webp", "m_dash": "assets/tour/en_m_dash.webp", "m_rep": "assets/tour/en_m_rep.webp", "m_trades": "assets/tour/en_m_trades.webp", "prop": "assets/tour/en_prop.webp", "rep": "assets/tour/en_rep.webp", "trades": "assets/tour/en_trades.webp"}, "tr": {"acc": "assets/tour/tr_acc.webp", "cal": "assets/tour/tr_cal.webp", "dash": "assets/tour/tr_dash.webp", "m_acc": "assets/tour/tr_m_acc.webp", "m_cal": "assets/tour/tr_m_cal.webp", "m_dash": "assets/tour/tr_m_dash.webp", "m_rep": "assets/tour/tr_m_rep.webp", "m_trades": "assets/tour/tr_m_trades.webp", "prop": "assets/tour/tr_prop.webp", "rep": "assets/tour/tr_rep.webp", "trades": "assets/tour/tr_trades.webp"}};
 let tourK = 'dash';
 const TOUR_MQ = matchMedia('(max-width: 640px)'); /* telefonda telefon ekran görüntüsü gösterilir */
 try { TOUR_MQ.addEventListener('change', () => renderTour()); } catch (e) {}
@@ -5442,7 +5519,7 @@ function renderTour() {
   const T = s('tour'), cur = T.find(x => x[0] === tourK) || T[0], im = (TOUR_IMG[LG()] || {});
   $('#ttabs').innerHTML = T.map(([k, l]) => `<button role="tab" aria-selected="${k === cur[0]}" class="${k === cur[0] ? 'on' : ''}" data-a="tour" data-v="${k}">${l}</button>`).join('');
   const img = $('#timg'), ph = TOUR_MQ.matches && im['m_' + cur[0]], src = ph || im[cur[0]];
-  img.width = ph ? 600 : 1280; img.height = ph ? 1169 : 800;
+  img.width = ph ? 600 : 1280; img.height = ph ? 1170 : 800;
   if (src && img.getAttribute('src') !== src) { img.classList.remove('fadein'); void img.offsetWidth; img.src = src; img.classList.add('fadein'); }
   img.alt = cur[1] + ': ' + cur[2];
   $('#tcap').textContent = cur[2];
@@ -5525,6 +5602,9 @@ function renderCmp() {
 }
 
 function renderFaq() {
+  /* the questions are also given to search engines as structured data (FAQ) */
+  try { let ld = document.getElementById('faqld'); if (!ld) { ld = document.createElement('script'); ld.type = 'application/ld+json'; ld.id = 'faqld'; document.head.appendChild(ld); }
+    ld.textContent = JSON.stringify({ '@context': 'https://schema.org', '@type': 'FAQPage', inLanguage: LG(), mainEntity: s('faq').map(([q, a]) => ({ '@type': 'Question', name: q, acceptedAnswer: { '@type': 'Answer', text: a } })) }); } catch (e) {}
   $('#faq').innerHTML = s('faq').map(([q, a], i) => `<div class="q ${S.faq === i ? 'open' : ''}"><button data-a="faq" data-v="${i}" aria-expanded="${S.faq === i}" aria-controls="fa${i}">${q}${ic('chev', 20, 2.2, 'class="chev"')}</button>${S.faq === i ? `<p class="ans" id="fa${i}">${a}</p>` : ''}</div>`).join('');
 }
 function renderFeat() {
@@ -5552,12 +5632,12 @@ function renderPage() {
 function showPage(name) {
   S.page = name; setMenu(false);
   $('#home').hidden = true; $('#pageView').hidden = false;
-  renderPage(); window.scrollTo(0, 0);
+  renderPage(); setMeta(); window.scrollTo(0, 0);
   try { history.replaceState(null, '', '#' + PAGE_HASH[name]); } catch (e) {}
 }
 function showHome(id) {
   const wasPage = !!S.page;
-  S.page = null; $('#pageView').hidden = true; $('#home').hidden = false;
+  S.page = null; $('#pageView').hidden = true; $('#home').hidden = false; setMeta();
   if (wasPage) { try { history.replaceState(null, '', location.pathname + location.search); } catch (e) {} }
   const t = id && document.getElementById(id);
   if (t) requestAnimationFrame(() => t.scrollIntoView()); else window.scrollTo(0, 0);
@@ -5572,7 +5652,21 @@ function applyLang() {
   if (typeof sbNavLabel === 'function') sbNavLabel(s('nav_open'));
   $$('[data-a="lang"]', SITE).forEach(b => { const on = b.dataset.v === lg; b.classList.toggle('on', on); b.setAttribute('aria-pressed', on); });
   setMenu(S.menu);
-  renderFeat(); renderDemo(); renderTour(); renderSteps(); renderProp(); renderPB(); renderCal(); renderPropSec(); renderAISec(); renderPlats(); renderCmp(); renderFaq(); renderPage();
+  renderFeat(); renderDemo(); renderTour(); renderSteps(); renderProp(); renderPB(); renderCal(); renderPropSec(); renderAISec(); renderPlats(); renderCmp(); renderFaq(); renderPage(); setMeta();
+}
+/* title and description follow the language and the open page (what Google and link previews show) */
+function setMeta() {
+  const pg = S.page && s('pages')[S.page];
+  if (SITE.hidden) return;
+  document.title = pg ? pg.t + ' | TradeLog' : s('meta_title');
+  const m = document.querySelector('meta[name="description"]'); if (m) m.setAttribute('content', pg && pg.u && !/^\d|Son güncelleme|Last updated/.test(pg.u) ? pg.u : s('meta_desc'));
+}
+/* sections glide in as they scroll into view */
+function revealInit() {
+  if (matchMedia('(prefers-reduced-motion: reduce)').matches || !('IntersectionObserver' in window)) return;
+  const sel = '.sec-h,.ttabs,.tframe,.flow>li,.ai-t,.aichat,.bento>.b,.prop-t,.pvis,.plats>.plat,.secg>.sc,.plans>.plan,.cmpb,.faq,.cta';
+  const io = new IntersectionObserver(es => es.forEach(e => { if (e.isIntersecting) { e.target.classList.add('in'); io.unobserve(e.target); } }), { threshold: .12, rootMargin: '0px 0px -6% 0px' });
+  $$(sel, SITE).forEach(el => { const sib = [...el.parentNode.children].filter(c => c.matches(sel)), i = sib.indexOf(el); el.style.transitionDelay = Math.min(Math.max(i, 0), 6) * 70 + 'ms'; el.classList.add('rv'); io.observe(el); });
 }
 function setSiteLang(v) {
   if (typeof setLang === 'function') setLang(v); /* uygulamayla aynı ayarı kullanır */
@@ -5632,6 +5726,7 @@ document.addEventListener('keydown', e => { if (e.key === 'Escape' && S.menu) se
 
 fillIcons(SITE);
 applyLang();
+revealInit();
 try { const io = new IntersectionObserver(es => es.forEach(e => { if (e.isIntersecting) { e.target.classList.add('inview'); io.unobserve(e.target); } }), { threshold: .3 }); io.observe($('#flow')); } catch (e) {}
 let entered = false; try { entered = localStorage.getItem(ENTER) === '1'; } catch (e) {}
 const pm = location.hash.match(/^#\/p\/([A-Za-z0-9]{10,24})$/);
