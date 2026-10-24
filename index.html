@@ -807,6 +807,8 @@ body.aion{overflow:hidden}
 .ap .pctin i{position:absolute;right:12px;top:50%;transform:translateY(-50%);font-style:normal;color:var(--ink3);font-size:13px;pointer-events:none}
 .ap .welq .optc{margin-top:0}
 @media (max-width:640px){.ap .wtypes{grid-template-columns:1fr}}
+.ap .wsync{display:flex;align-items:center;gap:10px;flex-wrap:wrap;margin-top:18px;padding:14px 16px;border:1px solid var(--ln);border-radius:14px;background:var(--sf2)}
+.ap .wsync .wsn{flex:1;min-width:0;font-size:14px;font-weight:600;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
 .site{color-scheme:dark;--win:#4ADE80;--bg:#000100;--bg2:#08090B;--card:#111317;--card2:#1B1E24;--line:rgba(148,197,204,.13);--line2:rgba(148,197,204,.28);--tx:#F8F8F8;--mu:#A1A6B4;--lime:#94C5CC;--sage:#B4D2E7;--olive:#5E8D94;--loss:#F87171;--disp:'Bricolage Grotesque',system-ui,sans-serif;--body:'Inter',system-ui,sans-serif;--mono:'JetBrains Mono',ui-monospace,monospace}
 .site *{box-sizing:border-box}
 html{scroll-behavior:smooth;-webkit-text-size-adjust:100%}
@@ -1611,7 +1613,7 @@ sy_server:'Sunucu',sy_server_ph:'ör. ICMarketsSC-Live05',sy_server_h:'MetaTrade
 sy_what_q:'Yatırımcı şifresi nedir, nerede bulurum?',sy_what:'Hesabına sadece bakmaya izin veren ikinci şifredir. Hesap açılınca aracı kurumun ya da prop firmanın gönderdiği bilgilerde yazar. Bulamazsan MetaTrader\'da Araçlar → Seçenekler → Sunucu → Değiştir\'e bas, “Yatırımcı (salt okunur) şifresini değiştir”i seçip yeni bir tane belirle.',
 sy_connect:'Bağlan',sy_wait:'Aracı kuruma bağlanılıyor… Bu bir dakika kadar sürebilir, pencereyi kapatma.',sy_linked:'Hesap bağlandı. İlk senkron yapılıyor; işlemlerin birkaç dakika içinde gelir. Bu pencereyi kapatabilirsin.',
 sy_e_input:'Sunucu, hesap numarası ve yatırımcı şifresini kontrol et.',sy_e_auth:'Hesap numarası, yatırımcı şifresi ya da sunucu yanlış. Bilgileri kontrol edip tekrar dene.',sy_e_server:'Bu sunucu bulunamadı. Adı MetaTrader\'daki gibi tam yaz; şunlardan biri olabilir:',
-sy_e_exists:'Bu MetaTrader hesabı zaten bağlı.',sy_e_limit:'En fazla 20 hesap bağlayabilirsin. Kullanmadığın bir bağlantıyı kaldır.',sy_e_slow:'Aracı kurum zamanında yanıt vermedi. Birkaç dakika sonra tekrar dene.',sy_e_config:'Bağlantı servisi henüz ayarlanmadı.',sy_e_plan:'Hesap bağlama Pro özelliğidir.',
+sy_e_exists:'Bu MetaTrader hesabı zaten bağlı.',sy_e_limit:'En fazla {n} hesap bağlayabilirsin. Kullanmadığın bir bağlantıyı kaldır.',sy_e_slow:'Aracı kurum zamanında yanıt vermedi. Birkaç dakika sonra tekrar dene.',sy_e_config:'Bağlantı servisi henüz ayarlanmadı.',sy_e_plan:'Hesap bağlama Pro özelliğidir.',
 sy_e_broker:'Aracı kuruma bağlanılamadı. Yatırımcı şifresi değişmiş olabilir; bağlantıyı kaldırıp yeniden bağla.',sy_e_gone:'Bağlantı artık yok; kaldırıp yeniden bağla.',sy_e_slow2:'Bağlantı hâlâ kuruluyor. Birkaç dakika sonra hesabı düzenle ekranından kontrol et.',
 sy_err:'Bir şeyler ters gitti. İnternetini kontrol edip tekrar dene.',sy_login:'Hesap bağlamak için önce giriş yap',sy_connecting:'Bağlanıyor…',sy_first:'ilk senkron bekleniyor',sy_last:'son senkron {t}',sy_sent:'{n} kayıt',sy_now_b:'Senkronize et',sy_rm:'Kaldır',
 sy_rm_c:'Bu bağlantı kaldırılsın mı? İşlemler artık otomatik gelmez. Gelmiş işlemlerin silinmez.',sy_rm_ok:'Bağlantı kaldırıldı',sy_got:'MetaTrader\'dan {n} yeni işlem geldi',sy_got_u:'MetaTrader\'dan {n} işlem eşleşti',sy_got_c:'MetaTrader\'dan {n} para hareketi geldi',sy_ok_none:'Senkron tamam, yeni işlem yok',
@@ -1635,6 +1637,8 @@ r_ex_risk:'Riske ettiğin (1R)',r_ex_win:'Hedefte kapandı',r_ex_loss:'Stopa git
 r_p3:'Stop girmediğin işlemlerde R, hesabındaki “işlem başı risk %” ayarına göre tahmin edilir ve başında ≈ işareti olur.',
 wel_hi:'Hoş geldin',wel_acc_d2:'İki kısa adım: hesabının türünü seç, sonra işlemlerin nereden geleceğini. Bir dakikada panelin hazır.',wel_q1:'Bu hesap ne tür?',wel_q1_s:'Prop hesabıysa kurallarını da takip ederiz.',wel_q2:'İşlemlerin nereden gelsin?',
 wel_t_personal:'Kendi paranla işlem yaptığın hesap',wel_t_challenge:'Prop firm değerlendirme aşaması',wel_t_funded:'Geçtiğin, fonlanmış prop hesabı',wel_rules_h:'Prop firmanın kuralları, hesap bakiyesinin yüzdesi olarak. Sık kullanılan değerlerle doldurduk; kendi firmanınkiyle değiştir. Sonra hesap ayarlarından da değiştirebilirsin.',
+wel_sync_k:'Otomatik bağlantı',wel_sync_wait_t:'Hesabın bağlanıyor',wel_sync_wait_d:'MetaTrader hesabına ilk bağlantı birkaç dakika sürebilir. İşlemlerin geldiğinde panel kendiliğinden dolacak; bu sayfada beklemen gerekmez.',
+wel_sync_ok_t:'Hesabın bağlandı',wel_sync_ok_d:'Son 90 günde kapanmış işlem bulunamadı. Yeni işlemlerin kapandıkça burada görünecek; istersen şimdi kontrol edebilirsin.',wel_sync_err_t:'Bağlantı kurulamadı',wel_sync_chk:'Şimdi kontrol et',
 mis_off_plan:'Plan dışı işlem',mis_revenge:'Revenge trade',mis_fomo:'FOMO',mis_oversize:'Risk büyüttüm',mis_overtrading:'Aşırı işlem'},
 en:{
 mt_e_gone:'Your access to this account was removed.',mt_invite:'Invite',mt_ph:'mentor@example.com',mt_h:'Your mentor can see your account after opening the link you send and signing in with this email. They can\'t change anything.',mt_pending:'Pending',mt_active:'Active',mt_copy:'Copy invite',mt_remove:'Remove',mt_remove_c:'{e} will no longer see your account. Are you sure?',mt_inv_t:'Invite ready',mt_inv_p:'Send this message to your mentor ({e}) by WhatsApp or email. Once they open the link and sign in with this email, they can see your account.',mt_msg:'Hi! I added you as my mentor on TradeLog so you can see my trades. Open this link and sign in with {e} (sign up free if you don\'t have an account): {l}',mt_e_dup:'You already invited this person.',mt_e_lim:'You can add up to 5 mentors.',mt_e_self:'You can\'t add yourself as a mentor.',mt_students:'Accounts you mentor',mt_view:'View',mt_leave:'Leave',mt_leave_c:'Leave {e}\'s account? You\'ll need a new invite to see it again.',mt_need_login:'To accept the mentor invite, sign in or sign up with the email that was invited.',mt_ok:'You are now {e}\'s mentor.',mt_e_email:'This invite was sent to {e}. Sign in with that address.',mt_e_nf:'This invite link is invalid or was removed.',mt_viewing:'Viewing {e}\'s account · read-only',mt_back:'Back to my account',mt_ro:'This account is read-only; you can\'t make changes.',mt_loading:'Loading…',mt_none:'You haven\'t added a mentor yet.',
@@ -1786,7 +1790,7 @@ sy_server:'Server',sy_server_ph:'e.g. ICMarketsSC-Live05',sy_server_h:'The serve
 sy_what_q:'What is the investor password and where do I find it?',sy_what:'It\'s a second password that only lets someone view the account. Your broker or prop firm sends it with your account details. If you can\'t find it, in MetaTrader go to Tools → Options → Server → Change, choose “Change investor (read only) password” and set a new one.',
 sy_connect:'Connect',sy_wait:'Connecting to your broker… This can take up to a minute, keep this window open.',sy_linked:'Account connected. The first sync is running; your trades arrive within a few minutes. You can close this window.',
 sy_e_input:'Check the server, account number and investor password.',sy_e_auth:'The account number, investor password or server is wrong. Check the details and try again.',sy_e_server:'This server wasn\'t found. Type the name exactly as in MetaTrader; it may be one of these:',
-sy_e_exists:'This MetaTrader account is already connected.',sy_e_limit:'You can connect up to 20 accounts. Remove a connection you no longer use.',sy_e_slow:'The broker didn\'t answer in time. Try again in a few minutes.',sy_e_config:'The connection service isn\'t set up yet.',sy_e_plan:'Connecting accounts is a Pro feature.',
+sy_e_exists:'This MetaTrader account is already connected.',sy_e_limit:'You can connect up to {n} accounts. Remove a connection you no longer use.',sy_e_slow:'The broker didn\'t answer in time. Try again in a few minutes.',sy_e_config:'The connection service isn\'t set up yet.',sy_e_plan:'Connecting accounts is a Pro feature.',
 sy_e_broker:'Couldn\'t reach the broker. The investor password may have changed; remove the connection and connect again.',sy_e_gone:'The connection no longer exists; remove it and connect again.',sy_e_slow2:'Still connecting. Check again in a few minutes from the account editor.',
 sy_err:'Something went wrong. Check your internet and try again.',sy_login:'Sign in first to connect an account',sy_connecting:'Connecting…',sy_first:'waiting for the first sync',sy_last:'last synced {t}',sy_sent:'{n} records',sy_now_b:'Sync now',sy_rm:'Remove',
 sy_rm_c:'Remove this connection? Trades won\'t arrive automatically any more. Trades that already arrived are kept.',sy_rm_ok:'Connection removed',sy_got:'{n} new trades arrived from MetaTrader',sy_got_u:'{n} trades matched from MetaTrader',sy_got_c:'{n} cash movements arrived from MetaTrader',sy_ok_none:'Sync done, no new trades',
@@ -1810,6 +1814,8 @@ r_ex_risk:'What you risk (1R)',r_ex_win:'Closed at target',r_ex_loss:'Hit the st
 r_p3:'For trades without a stop, R is estimated from the account\'s “risk per trade %” setting and shown with ≈.',
 wel_hi:'Welcome',wel_acc_d2:'Two quick steps: choose your account type, then where your trades come from. Your dashboard is ready in a minute.',wel_q1:'What kind of account is this?',wel_q1_s:'If it\'s a prop account, we\'ll track its rules too.',wel_q2:'Where should your trades come from?',
 wel_t_personal:'An account you trade with your own money',wel_t_challenge:'Prop firm evaluation phase',wel_t_funded:'A funded prop account you passed',wel_rules_h:'Your prop firm\'s rules, as a percentage of the account balance. We filled in common values; change them to your firm\'s. You can edit them later in the account settings.',
+wel_sync_k:'Automatic connection',wel_sync_wait_t:'Your account is connecting',wel_sync_wait_d:'The first connection to your MetaTrader account can take a few minutes. Your dashboard fills up on its own when your trades arrive; you don\'t need to wait on this page.',
+wel_sync_ok_t:'Your account is connected',wel_sync_ok_d:'No closed trades were found in the last 90 days. New trades show up here as they close; you can check now if you like.',wel_sync_err_t:'Couldn\'t connect',wel_sync_chk:'Check now',
 mis_off_plan:'Off-plan trade',mis_revenge:'Revenge trade',mis_fomo:'FOMO',mis_oversize:'Oversized risk',mis_overtrading:'Overtrading'}};
 
 /* ================= core: data, storage, stats ================= */
@@ -2724,6 +2730,13 @@ function welcome(){
    ${accOptions()}</div>
    <div class="walt"><span>${t('wel_alt')}</span><button class="btn sm" onclick="demo()">${t('wel_demo')}</button><button class="btn sm ghost" onclick="openForm()">${t('wel_add')}</button></div></div>`;
   const a=actAccs()[0];
+  /* the account is being connected automatically: say so instead of asking for a first trade */
+  if(typeof SY!=='undefined'&&SY){if(!SY.links&&typeof syLoadOnce==='function')syLoadOnce();
+    const lk=SY.links&&SY.links.find(k=>k.account_id===a.id);
+    if(lk){const st=lk.state==='error'?'err':lk.state==='ok'&&lk.last_sync_at?'ok':'wait';
+      return `<div class="card welcome w1"><div class="wh"><span class="step1">${t('wel_sync_k')}</span><h2>${t('wel_sync_'+st+'_t')}</h2><p>${t(st==='err'?'sy_e_broker':'wel_sync_'+st+'_d')}</p></div>
+       <div class="wsync"><span class="sydot ${st==='err'?'bad':st==='ok'?'on':'wait'}"></span><span class="wsn">${esc(lk.plat.toUpperCase()+' #'+lk.login+' · '+lk.server)}</span><button class="btn sm" onclick="syNow('${lk.id}',this)">${t('wel_sync_chk')}</button></div>
+       <div class="walt"><span>${t('wel_alt')}</span><button class="btn sm" onclick="demo()">${t('wel_demo')}</button><button class="btn sm ghost" onclick="accDlg('${a.id}')">${t('acc_edit')}</button></div></div>`}}
   return `<div class="card welcome w1"><div class="wh"><span class="step1">${t('wel_step2')}</span><h2>${t('wel_ready_t')}</h2><p>${t('wel_ready_d',{k:esc(accLabel(a))})}</p></div>
    ${accOptions()}
    <div class="walt"><span>${t('wel_alt')}</span><button class="btn sm" onclick="demo()">${t('wel_demo')}</button><button class="btn sm ghost" onclick="accDlg('${a.id}')">${t('acc_edit')}</button></div></div>`;
@@ -4329,7 +4342,7 @@ async function syConnect(){
   if(!r.ok){
     if(r.error==='plan'){closeDlg(true);proDlg('sync');return}
     const hints=(r.hints||[]).map(h=>`<button type="button" class="chip" onclick="$('sy_srv').value=this.textContent;sySt('','')">${esc(h)}</button>`).join('');
-    sySt('bad',esc(t(SY_ERR[r.error]||'sy_err'))+(hints?`<div class="chips" style="margin-top:8px">${hints}</div>`:''));return;
+    sySt('bad',esc(t(SY_ERR[r.error]||'sy_err',{n:r.limit||3}))+(hints?`<div class="chips" style="margin-top:8px">${hints}</div>`:''));return;
   }
   if($('sy_pw'))$('sy_pw').value='';
   if(sel==='new'&&!other){
