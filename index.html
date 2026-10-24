@@ -741,6 +741,72 @@ body.aion{overflow:hidden}
 .ap .addfoot{display:flex;justify-content:space-between;align-items:center;gap:10px;margin:6px 2px 4px;font-size:13px;color:var(--ink3)}
 .ap .lnkb{font-size:13px;font-weight:600;color:var(--br);padding:4px 0}
 .ap .lnkb:hover{text-decoration:underline;text-underline-offset:3px}
+.ap .imdrop{width:100%;display:flex;flex-direction:column;align-items:center;gap:6px;padding:26px 18px;border:1.5px dashed var(--ln);border-radius:16px;background:var(--sf2);text-align:center;transition:border-color .15s,background .15s,transform .15s}
+.ap .imdrop:hover,.ap .imdrop.over{border-color:var(--br);background:var(--brs)}
+.ap .imdrop.over{transform:scale(1.01)}
+.ap .imdrop .imdi{width:46px;height:46px;border-radius:14px;background:var(--sf);border:1px solid var(--ln);display:grid;place-items:center;color:var(--br);margin-bottom:4px}
+.ap .imdrop .imdi svg{width:22px;height:22px}
+.ap .imdrop b{font-size:15px}
+.ap .imdrop>span:last-child{font-size:13px;color:var(--ink3)}
+.ap .imhow{margin-top:18px}
+.ap .imhh{display:flex;align-items:center;justify-content:space-between;gap:10px;flex-wrap:wrap;margin-bottom:8px}
+.ap .imhh h4{font-size:12px;font-weight:600;text-transform:uppercase;letter-spacing:.06em;color:var(--ink3)}
+.ap .imseg button{font-size:12.5px;padding:6px 10px}
+.ap .imsteps{margin-top:4px}
+.ap .imfaq{border-top:1px solid var(--ln2);padding:12px 0 0;margin-top:12px}
+.ap .imfaq summary{cursor:pointer;font-size:13.5px;font-weight:600;color:var(--ink2);list-style:none;display:flex;justify-content:space-between}
+.ap .imfaq summary::after{content:"+";color:var(--ink3);font-weight:400}
+.ap .imfaq[open] summary::after{content:"−"}
+.ap .imfaq p{font-size:13.5px;color:var(--ink2);line-height:1.55;margin-top:8px}
+.ap .demobar{display:flex;align-items:center;gap:14px;flex-wrap:wrap;padding:14px 16px;margin-bottom:16px;border-radius:16px;border:1px solid var(--be);background:var(--bes)}
+.ap .demobar .dbi{width:34px;height:34px;border-radius:10px;display:grid;place-items:center;background:var(--sf);color:var(--be);flex:none}
+.ap .demobar .dbi svg{width:18px;height:18px}
+.ap .demobar .dbt{flex:1;min-width:220px;display:flex;flex-direction:column;gap:2px}
+.ap .demobar .dbt b{font-size:14.5px}
+.ap .demobar .dbt span{font-size:13.5px;color:var(--ink2);line-height:1.45}
+.ap .demobar .dba{display:flex;gap:8px;flex-wrap:wrap}
+.ap .tour{position:fixed;inset:0;z-index:70;opacity:0;transition:opacity .25s}
+.ap .tour.on{opacity:1}
+.ap .thole{position:fixed;border-radius:18px;box-shadow:0 0 0 9999px rgba(0,1,0,.62),0 0 0 2px var(--br);transition:left .35s cubic-bezier(.22,1,.36,1),top .35s cubic-bezier(.22,1,.36,1),width .35s cubic-bezier(.22,1,.36,1),height .35s cubic-bezier(.22,1,.36,1);pointer-events:none}
+.ap .tcard{position:fixed;background:var(--sf);border:1px solid var(--ln);border-radius:18px;padding:18px 18px 14px;box-shadow:0 24px 60px -20px rgba(0,1,0,.55);transition:left .35s cubic-bezier(.22,1,.36,1),top .35s cubic-bezier(.22,1,.36,1);animation:aiup .4s cubic-bezier(.22,1,.36,1)}
+.ap .tcard.sheet{left:12px!important;right:12px;bottom:calc(12px + env(safe-area-inset-bottom,0px));top:auto!important;width:auto!important}
+.ap .tstep{font-size:11.5px;font-weight:700;letter-spacing:.06em;color:var(--br)}
+.ap .tcard h3{font-family:var(--fd);font-size:18px;letter-spacing:-.01em;margin-top:4px}
+.ap .tcard p{font-size:14px;line-height:1.55;color:var(--ink2);margin-top:6px}
+.ap .tfoot{display:flex;align-items:center;gap:10px;margin-top:14px}
+.ap .tskip{font-size:13px;color:var(--ink3)}
+.ap .tskip:hover{color:var(--ink)}
+.ap .tdots{flex:1;display:flex;gap:5px;justify-content:center}
+.ap .tdots i{width:6px;height:6px;border-radius:50%;background:var(--ln);transition:background .2s,width .2s}
+.ap .tdots i.on{background:var(--br);width:16px;border-radius:3px}
+.ap .tbtns{display:flex;gap:6px}
+.ap .rinfo{font-size:11.5px;font-weight:600;color:var(--br);border:1px solid var(--ln);border-radius:99px;padding:1px 8px;margin-left:6px;vertical-align:1px}
+.ap .rinfo:hover{border-color:var(--br);background:var(--brs)}
+.ap .rinfo-b p{font-size:14.5px;line-height:1.6;color:var(--ink2)}
+.ap .rex{display:grid;grid-template-columns:repeat(3,1fr);gap:8px;margin:14px 0}
+.ap .rex>div{border:1px solid var(--ln);border-radius:12px;padding:10px 12px;display:flex;flex-direction:column;gap:4px}
+.ap .rex span{font-size:12px;color:var(--ink3)}
+.ap .rex b{font-family:var(--fn);font-size:14px}
+.ap .rex b.pos{color:var(--win)}
+.ap .rex b.neg{color:var(--loss)}
+@media (max-width:520px){.ap .rex{grid-template-columns:1fr}}
+.ap .welq{margin-top:20px}
+.ap .wqh{display:flex;align-items:baseline;gap:10px;flex-wrap:wrap;margin-bottom:10px}
+.ap .wqh .wn{width:22px;height:22px;border-radius:50%;background:var(--brs);color:var(--br);font:700 12px/22px var(--fn);text-align:center;flex:none;align-self:center}
+.ap .wqh b{font-size:15.5px}
+.ap .wqh small{font-size:13px;color:var(--ink3)}
+.ap .wtypes{display:grid;grid-template-columns:repeat(3,1fr);gap:8px}
+.ap .wtype{display:flex;flex-direction:column;gap:3px;text-align:left;padding:12px 14px;border:1px solid var(--ln);border-radius:14px;transition:border-color .15s,background .15s,box-shadow .15s}
+.ap .wtype b{font-size:14.5px}
+.ap .wtype span{font-size:12.5px;color:var(--ink3);line-height:1.4}
+.ap .wtype:hover{border-color:var(--br)}
+.ap .wtype.on{border-color:var(--br);background:var(--brs);box-shadow:0 0 0 3px var(--brs)}
+.ap .welr{margin-top:12px;padding:14px;border:1px solid var(--ln);border-radius:14px;background:var(--sf2);animation:aiup .35s cubic-bezier(.22,1,.36,1)}
+.ap .welr .hint{font-size:12.5px;margin-bottom:10px}
+.ap .pctin{position:relative;display:block}
+.ap .pctin i{position:absolute;right:12px;top:50%;transform:translateY(-50%);font-style:normal;color:var(--ink3);font-size:13px;pointer-events:none}
+.ap .welq .optc{margin-top:0}
+@media (max-width:640px){.ap .wtypes{grid-template-columns:1fr}}
 .site{color-scheme:dark;--win:#4ADE80;--bg:#000100;--bg2:#08090B;--card:#111317;--card2:#1B1E24;--line:rgba(148,197,204,.13);--line2:rgba(148,197,204,.28);--tx:#F8F8F8;--mu:#A1A6B4;--lime:#94C5CC;--sage:#B4D2E7;--olive:#5E8D94;--loss:#F87171;--disp:'Bricolage Grotesque',system-ui,sans-serif;--body:'Inter',system-ui,sans-serif;--mono:'JetBrains Mono',ui-monospace,monospace}
 .site *{box-sizing:border-box}
 html{scroll-behavior:smooth;-webkit-text-size-adjust:100%}
@@ -1112,6 +1178,26 @@ html{scroll-behavior:smooth;-webkit-text-size-adjust:100%}
 .site .fsoon,.site .csoon{display:inline-block;font:500 10.5px/1 var(--mono);letter-spacing:.06em;text-transform:uppercase;color:var(--sage);border:1px solid var(--line2);border-radius:99px;padding:4px 7px;vertical-align:2px;white-space:nowrap}
 .site .cst{display:flex;flex-direction:column;align-items:center;gap:5px}
 .site .cnote{padding:14px 18px;font-size:13px;color:var(--mu);line-height:1.5}
+.site .aisec{position:relative;overflow:hidden;border-top:1px solid var(--line);border-bottom:1px solid var(--line);background:radial-gradient(60% 70% at 85% 30%,rgba(148,197,204,.12),transparent 70%),var(--bg)}
+.site .ai-g{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,.95fr);gap:56px;align-items:center}
+.site .aisec .kick{display:inline-flex;align-items:center;gap:10px}
+.site .aichat{background:var(--card);border:1px solid var(--line2);border-radius:24px;padding:18px;box-shadow:0 40px 90px -40px rgba(148,197,204,.35);display:flex;flex-direction:column;gap:14px}
+.site .aich{display:flex;align-items:center;gap:10px;padding-bottom:12px;border-bottom:1px solid var(--line)}
+.site .aich .aimk{width:34px;height:34px;display:grid;place-items:center}
+.site .aich .aimk svg{width:34px;height:34px}
+.site .aich b{display:block;font-family:var(--disp);font-size:16px}
+.site .aich small{font-size:12px;color:var(--mu)}
+.site .aimsg{font-size:14.5px;line-height:1.6}
+.site .aimsg.u{align-self:flex-end;background:var(--card2);border:1px solid var(--line);padding:9px 14px;border-radius:16px 16px 4px 16px}
+.site .aimsg.a p+p,.site .aimsg.a p+ul,.site .aimsg.a ul+p{margin-top:8px}
+.site .aimsg.a ul{padding-left:20px}
+.site .aimsg.a li{margin:3px 0}
+.site .aimsg.a .pos,.site .aimsg.a .neg{font-family:var(--mono);font-weight:600;font-size:13.5px}
+.site .aifol{display:flex;flex-wrap:wrap;gap:6px}
+.site .aifol span{font-size:13px;padding:6px 12px;border-radius:999px;border:1px solid var(--line2);color:var(--mu)}
+.site .aiin{display:flex;justify-content:space-between;align-items:center;border:1px solid var(--line2);border-radius:999px;padding:8px 8px 8px 16px;color:var(--mu);font-size:14px}
+.site .aiin i{width:30px;height:30px;border-radius:50%;background:var(--tx);color:var(--bg);display:grid;place-items:center;font-style:normal}
+@media (max-width:900px){.site .ai-g{grid-template-columns:minmax(0,1fr);gap:36px}}
 </style>
 </head>
 <body>
@@ -1120,7 +1206,7 @@ html{scroll-behavior:smooth;-webkit-text-size-adjust:100%}
 <div class="wrap nav-in">
 <a class="logo" href="#top" data-a="home" data-sa="home_aria" aria-label="TradeLog ana sayfa"><span data-i="logo"></span>TradeLog</a>
 <nav class="links" data-sa="nav_aria" aria-label="Ana menü">
-<a href="#tur" data-st="nav_feat">Özellikler</a><a href="#prop" data-st="nav_prop">Prop firm</a><a href="#platformlar" data-st="nav_plat">Platformlar</a><a href="#fiyatlar" data-st="nav_price">Fiyatlar</a><a href="#yardim" data-page="help" data-st="nav_help">Yardım</a>
+<a href="#tur" data-st="nav_feat">Özellikler</a><a href="#ai" data-st="nav_ai">TradeLog AI</a><a href="#prop" data-st="nav_prop">Prop firm</a><a href="#platformlar" data-st="nav_plat">Platformlar</a><a href="#fiyatlar" data-st="nav_price">Fiyatlar</a><a href="#yardim" data-page="help" data-st="nav_help">Yardım</a>
 </nav>
 <div class="nav-r">
 <div class="lang hide-m" role="group" data-sa="lang_aria" aria-label="Dil"><button data-a="lang" data-v="tr" aria-pressed="true">TR</button><button data-a="lang" data-v="en" aria-pressed="false">EN</button></div>
@@ -1130,7 +1216,7 @@ html{scroll-behavior:smooth;-webkit-text-size-adjust:100%}
 </div>
 </div>
 <nav class="mmenu" id="mmenu" data-sa="mnav_aria" aria-label="Mobil menü" hidden>
-<a href="#tur" data-a="menuClose" data-st="nav_feat">Özellikler</a><a href="#prop" data-a="menuClose" data-st="nav_prop">Prop firm</a><a href="#platformlar" data-a="menuClose" data-st="nav_plat">Platformlar</a><a href="#fiyatlar" data-a="menuClose" data-st="nav_price">Fiyatlar</a><a href="#sss" data-a="menuClose" data-st="nav_faq">SSS</a><a href="#yardim" data-page="help" data-st="nav_help">Yardım</a><a href="#/app" data-st="nav_open">Panele git</a>
+<a href="#tur" data-a="menuClose" data-st="nav_feat">Özellikler</a><a href="#ai" data-a="menuClose" data-st="nav_ai">TradeLog AI</a><a href="#prop" data-a="menuClose" data-st="nav_prop">Prop firm</a><a href="#platformlar" data-a="menuClose" data-st="nav_plat">Platformlar</a><a href="#fiyatlar" data-a="menuClose" data-st="nav_price">Fiyatlar</a><a href="#sss" data-a="menuClose" data-st="nav_faq">SSS</a><a href="#yardim" data-page="help" data-st="nav_help">Yardım</a><a href="#/app" data-st="nav_open">Panele git</a>
 <div class="lang" role="group" data-sa="lang_aria" aria-label="Dil" style="margin-top:16px;align-self:flex-start"><button data-a="lang" data-v="tr" aria-pressed="true">Türkçe</button><button data-a="lang" data-v="en" aria-pressed="false">English</button></div>
 </nav>
 </header>
@@ -1147,7 +1233,7 @@ html{scroll-behavior:smooth;-webkit-text-size-adjust:100%}
 <a class="btn btn-p btn-lg" href="#/app"><span data-st="cta_start">Ücretsiz başla</span><span data-i="arrow" data-s="18"></span></a>
 <a class="btn btn-g btn-lg" href="#nasil"><span data-st="hero_how">Nasıl çalışır</span></a>
 </div>
-<div class="trust"><span><span data-i="check" data-s="16"></span><span data-st="trust1">Kredi kartı gerekmez</span></span><span><span data-i="check" data-s="16"></span><span data-st="trust2">Ücretsiz plan süresiz</span></span><span><span data-i="check" data-s="16"></span><span data-st="trust3">Türkçe ve İngilizce</span></span></div>
+<div class="trust"><span><span data-i="check" data-s="16"></span><span data-st="trust1">Kredi kartı gerekmez</span></span><span><span data-i="check" data-s="16"></span><span data-st="trust2">Ücretsiz plan süresiz</span></span><span><span data-i="check" data-s="16"></span><span data-st="trust4">Ana şifren hiç istenmez</span></span><span><span data-i="check" data-s="16"></span><span data-st="trust3">Türkçe ve İngilizce</span></span></div>
 </div>
 <div class="demo">
 <div class="card dcard" id="demo"></div>
@@ -1161,7 +1247,7 @@ html{scroll-behavior:smooth;-webkit-text-size-adjust:100%}
 </section>
 
 <div class="strip"><div class="strip-in">
-<div class="it"><span data-i="file" data-s="20" data-w="1.8"></span><span data-st="strip1"><b>MT4 ve MT5</b> raporu (HTML, Excel)</span></div>
+<div class="it"><span data-i="link" data-s="20" data-w="1.8"></span><span data-st="strip1"><b>MT4 ve MT5</b> raporu (HTML, Excel)</span></div>
 <div class="it"><span data-i="cal" data-s="20" data-w="1.8"></span><span data-st="strip2"><b>Haftalık özet</b> ve öneriler</span></div>
 <div class="it"><span data-i="shield" data-s="20" data-w="1.8"></span><span data-st="strip3"><b>Prop firm</b> kural takibi</span></div>
 <div class="it"><span data-i="layers" data-s="20" data-w="1.8"></span><span data-st="strip4"><b>Çoklu hesap</b>, tek panel</span></div>
@@ -1180,6 +1266,25 @@ html{scroll-behavior:smooth;-webkit-text-size-adjust:100%}
 <div class="sec-h c"><span class="kick" data-st="nav_how">Nasıl çalışır</span><h2 class="h2" data-st="how_h">İlk raporundan ilk içgörüne üç adım.</h2><p data-st="how_p">Kurulum bir dakika sürer. Sonrası işlem başına 15 saniye ya da haftada bir rapor.</p></div>
 <ol class="flow" id="flow"></ol>
 <div class="flow-cta"><a class="btn btn-p btn-lg" href="#/app"><span data-st="cta_start">Ücretsiz başla</span><span data-i="arrow" data-s="18"></span></a></div>
+</div>
+</section>
+
+<section class="sec aisec" id="ai">
+<div class="wrap ai-g">
+<div class="ai-t">
+<span class="kick"><span data-st="ai_k">TradeLog AI</span> <span class="chip solid">PRO</span></span>
+<h2 class="h2" data-st="ai_h">Verilerini okuyan bir koç.</h2>
+<p class="lead" data-st="ai_p">TradeLog AI işlemlerine, setup'larına, hatalarına ve günlüğüne bakar; neyin işe yaradığını sayılarla söyler, bir sonraki adımı birlikte netleştirirsiniz.</p>
+<ul class="plist" id="ailist"></ul>
+<a class="btn btn-p btn-lg" href="#/app"><span data-st="cta_start">Ücretsiz başla</span><span data-i="arrow" data-s="18"></span></a>
+</div>
+<div class="aichat" aria-hidden="true">
+<div class="aich"><span class="aimk"><span data-i="logo"></span></span><div><b>TradeLog AI</b><small data-st="ai_sub">48 işlem · Örnek veri</small></div></div>
+<div class="aimsg u" data-st="ai_q">Bu haftamı değerlendir</div>
+<div class="aimsg a" id="aians"></div>
+<div class="aifol" id="aifol"></div>
+<div class="aiin"><span data-st="ai_ph">TradeLog AI'ye sor…</span><i><span data-i="arrow" data-s="16"></span></i></div>
+</div>
 </div>
 </section>
 
@@ -1390,7 +1495,7 @@ rt_week:'Haftalık özet',wk_t:'Haftalık özet',wk_this:'Bu hafta',wk_prev:'Ge�
 wk_vs:'Geçen hafta {x}',wk_vs_none:'Geçen hafta işlem yok',wk_dl:'geçen haftaya göre {x}',wk_vs_t:'Geçen hafta',wk_net:'Net sonuç',wk_green:'Yeşil gün',wk_days_n:'{n} işlem günü',wk_hi:'Öne çıkanlar',wk_best_t:'En iyi işlem',wk_worst_t:'En kötü işlem',wk_best_d:'En iyi gün',wk_worst_d:'En zor gün',wk_best_s:'En çok kazandıran setup',wk_mis:'Hataların maliyeti',wk_jr:'Günlük yazılan gün',
 wk_focus:'Gelecek hafta için',wk_focus_s:'Bu haftanın verilerinden',wk_focus_none:'Öneri çıkarmak için yeterli veri yok. İşlemlere setup, duygu ve hata eklersen burası dolar.',wk_note:'Haftanın notu',wk_note_s:'Ne iyi gitti, neyi değiştireceksin?',wk_note_ph:'Örn. Breakout\'larda sabırlıydım. Gelecek hafta pazartesi işlem sayımı 2 ile sınırlayacağım.',wk_note_save:'Notu kaydet',wk_open:'Özeti aç',wk_card_s:'{n} işlem · kazanma {w}',
 wf_mis:'"{k}" hatası bu hafta {r} kaybettirdi ({n} işlem). Gelecek hafta işleme girmeden önce bunu kontrol et.',wf_off:'Plan dışı {n} işlem toplam {r}. Gelecek hafta yalnızca playbook\'undaki setup\'ları al.',wf_emo:'"{k}" işaretli {n} işlem toplam {r}. Bu duyguyu fark ettiğinde işlem açmadan önce dur.',wf_dll:'{n} günde günlük kayıp sınırını (−{l}R) aştın. Sınıra gelince o gün ekranı kapat.',wf_maxt:'{n} günde günlük işlem sınırını ({l} işlem) geçtin.',wf_setup_bad:'{k} bu hafta {r} getirdi ({n} işlem). Kurallarını gözden geçir ya da bir hafta ara ver.',wf_setup_good:'{k} bu hafta {r} getirdi ({n} işlem). Gelecek hafta ona odaklan.',wf_clean:'Bu hafta bütün işlemlerin plana uygundu. Aynı şekilde devam et.',wf_jr:'Bu hafta günlük yazmadın. Aşağıya haftanın notunu iki cümleyle yaz.',
-nav_imp:'Rapor yükle',ok_btn:'Tamam',cols_btn:'Sütunlar',cols_t:'Tablo sütunları',cols_h:'Tabloda görmek istediğin sütunları seç. Tarih, sembol ve R her zaman görünür.',cols_reset:'Varsayılana dön',acc_added:'Hesap eklendi',gs_t:'Başlangıç',gs_s:'{d} / {n} adım tamamlandı',gs_hide:'Gizle',gs_go:'Başla',gs_acc:'Hesabını ekle',gs_trade:'İlk işlemini ekle',gs_trade_d:'Elle ekle ya da MT4/MT5 raporunu yükle.',gs_pb:'Bir playbook oluştur',gs_pb_d:'Setup kurallarını yaz; hangi kurala uyunca kazandığını gör.',gs_rules:'Prop firm kurallarını gir',gs_rules_d:'Günlük ve toplam kayıp limitini gir; yaklaşınca uyarı al.',gs_jr:'İlk günlüğünü yaz',gs_jr_d:'Seans öncesi planını ya da gün sonu notunu kaydet.',acc_word:'hesap',wel_step2:'2. adım',wel_ready_t:'Hesabın hazır',wel_ready_d:'{k} eklendi. Şimdi ilk işlemini ekle; panel, takvim ve raporlar işlemlerinle dolacak.',add_t:'İşlem ekle',add_man:'Elle ekle',add_rep:'Rapor yükle',add_how:'İşlemlerin nereden gelsin?',add_accs:'{n} hesap',add_man_d:'Sembol, yön, sonuç ve nasıl hissettiğini gir. Yaklaşık 15 saniye.',add_rep_d:'Rapordaki işlemler hesabına eklenir. Daha önce eklenenler atlanır, elle girdiklerin rapordakiyle eşleşir.',wel_step:'1. adım',wel_acc_t:'Hesabını ekleyerek başla',wel_acc_d:'İşlemlerin, bakiyen ve prop kuralların hesaba göre takip edilir. İşlemlerin nereden gelsin?',wel_alt:'Önce bakmak mı istiyorsun?',acc_m_auto:'Otomatik bağla',acc_m_auto_d:'MT4/MT5 hesabını yatırımcı şifresiyle bağla; işlemler ve bakiye kendiliğinden gelsin.',soon_pro:'Yakında · Pro',acc_manage_all:'Hesapları yönet',acc_n:'{n} hesap',mood_1:'Çok kötü',mood_2:'Kötü',mood_3:'Normal',mood_4:'İyi',mood_5:'Çok iyi',nav_home:'Ana sayfa',th_to_dark:'Koyu tema',th_to_light:'Açık tema',
+nav_imp:'Rapor yükle',ok_btn:'Tamam',cols_btn:'Sütunlar',cols_t:'Tablo sütunları',cols_h:'Tabloda görmek istediğin sütunları seç. Tarih, sembol ve R her zaman görünür.',cols_reset:'Varsayılana dön',acc_added:'Hesap eklendi',gs_t:'Başlangıç',gs_s:'{d} / {n} adım tamamlandı',gs_hide:'Gizle',gs_go:'Başla',gs_acc:'Hesabını ekle',gs_trade:'İlk işlemini ekle',gs_trade_d:'Elle ekle ya da MT4/MT5 raporunu yükle.',gs_pb:'Bir playbook oluştur',gs_pb_d:'Setup kurallarını yaz; hangi kurala uyunca kazandığını gör.',gs_rules:'Prop firm kurallarını gir',gs_rules_d:'Günlük ve toplam kayıp limitini gir; yaklaşınca uyarı al.',gs_jr:'İlk günlüğünü yaz',gs_jr_d:'Seans öncesi planını ya da gün sonu notunu kaydet.',acc_word:'hesap',wel_step2:'2. adım',wel_ready_t:'Hesabın hazır',wel_ready_d:'{k} eklendi. Şimdi ilk işlemini ekle; panel, takvim ve raporlar işlemlerinle dolacak.',add_t:'İşlem ekle',add_man:'Elle ekle',add_rep:'Rapor yükle',add_how:'İşlemlerin nereden gelsin?',add_accs:'{n} hesap',add_man_d:'Sembol, yön, sonuç ve nasıl hissettiğini gir. Yaklaşık 15 saniye.',add_rep_d:'Rapordaki işlemler hesabına eklenir. Daha önce eklenenler atlanır, elle girdiklerin rapordakiyle eşleşir.',wel_step:'1. adım',wel_acc_t:'Hesabını kuralım',wel_acc_d:'İşlemlerin, bakiyen ve prop kuralların hesaba göre takip edilir. İşlemlerin nereden gelsin?',wel_alt:'Önce bakmak mı istiyorsun?',acc_m_auto:'Otomatik bağla',acc_m_auto_d:'MT4/MT5 hesabını yatırımcı şifresiyle bağla; işlemler ve bakiye kendiliğinden gelsin.',soon_pro:'Yakında · Pro',acc_manage_all:'Hesapları yönet',acc_n:'{n} hesap',mood_1:'Çok kötü',mood_2:'Kötü',mood_3:'Normal',mood_4:'İyi',mood_5:'Çok iyi',nav_home:'Ana sayfa',th_to_dark:'Koyu tema',th_to_light:'Açık tema',
 r_hint:'R, riske ettiğin tutarın katıdır. Stop olduysan −1, riskinin 2 katını kazandıysan 2 yaz. Emin değilsen aşağıdan sonucu seçmen yeterli.',ph_rra:'Örn. 2 veya −1',l_emo_q:'Nasıl hissettin?',rr_hint:'Girişte hedeflediğin kazanç (R)',pnl_hint:'Para olarak net sonuç; girersen bakiye kesinleşir',rating_hint:'Sonuçtan bağımsız: kurallara ne kadar iyi uydun?',k_rr_s:'Ortalama kazanç ÷ ortalama kayıp',k_plan_s2:'Plana uyduğun işlemler',acc_add_how:'Hesabın işlemleri nereden gelsin?',acc_m_rep:'MT4/MT5 raporu yükle',acc_m_rep_d:'MT4/MT5 raporunu yükle; hesap adı, para birimi, bakiye ve işlemler tek seferde gelir.',acc_m_man:'Elle oluştur',acc_m_man_d:'Raporun yoksa ya da işlemleri kendin gireceksen. Bakiyeyi ve para birimini sen yazarsın.',acc_from_rep:'MetaTrader verisinden alındı',show_more:'Daha fazla göster ({n} işlem daha)',wr_s:'Kazanma',period:'Dönem',dg_in:'İçe aktar',dg_out:'Yedek ve dışa aktarma',dg_demo:'Örnek veri',archived:'Arşiv',acc_link:'Rapor eşleştirmesi',acc_link_on:'Bu numaradaki MT4/MT5 raporları otomatik olarak bu hesaba eklenir.',acc_link_off:'Henüz eşleşmedi. Bu hesabın MT4/MT5 raporunu yüklediğinde hesap numarası otomatik eşleşir; sonraki raporlar buraya gelir. Bu bir hesap bağlantısı değildir, şifre istenmez.',acc_unlink:'Eşleştirmeyi kaldır',acc_unlink_c:'#{n} eşleştirmesi kaldırılsın mı? İşlemler silinmez; bir sonraki raporda hesabı yeniden seçmen istenir.',acc_risk_l:'risk',at_challenge:'Challenge',at_funded:'Funded',at_personal:'Kişisel',at_demo:'Demo / backtest',acc_type:'Hesap türü',acc_alltype:'Tüm {k} hesaplar',
 acc_edit:'Hesabı düzenle',acc_name_ph:'Örn. FTM 10K Funded',acc_risk_h:'Sonucu girilmeyen işlemlerde PnL tahmini için',acc_req:'Bakiye ve risk 0 veya daha büyük olmalı.',
 acc_manage:'Hesap yönetimi',acc_arch:'Arşivle',acc_arch_h:'Veriler silinmez; hesap birleşik görünümlerden ve yeni işlem seçimlerinden kalkar. Eski challenge hesapları için.',acc_unarch:'Arşivden çıkar',
@@ -1403,7 +1508,7 @@ ar_note:'Hesaplama kapanmış işlemlere göredir; açık pozisyonların anlık 
 ar_dll_s:'günlük %{v}',ar_mll_s:'toplam %{v}',ar_tgt_s:'hedef %{v}',ar_card:'Hesap kuralları',ar_card_s:'Bugün ve toplamda kalan limitler',
 ar_left:'{x} kaldı / {l}',ar_prog:'{x} / {l}',ar_hit:'Limit aşıldı',ar_done:'Hedefe ulaşıldı',
 al_dll_hit:'{k}: günlük kayıp limiti ({l}) aşıldı. Bugün yeni işlem açma.',al_dll_near:'{k}: günlük kayıp limitine {x} kaldı.',al_mll_hit:'{k}: toplam kayıp limiti aşıldı.',al_mll_near:'{k}: toplam kayıp limitine {x} kaldı.',
-im_flow_h:'Raporu ne sıklıkla yüklemeliyim?',im_flow:'İstediğin sıklıkla, örneğin haftada bir. Daha önce eklenen işlemler atlanır. İşlemden hemen sonra telefondan kısa bir kayıt girdiysen, rapordaki aynı işlemle eşleşir: senin notların, setup ve duygun korunur; lot, fiyat, net kâr ve R rapordan güncellenir. Para yatırma ve çekmeler de rapordan alınır.',
+im_flow_h:'Raporu ne sıklıkla yüklemeliyim?',im_drop:'Raporunu buraya sürükle ya da seç',im_drop_s:'MT4/MT5 raporu: HTML, Excel (XLSX) ya da CSV',im_how:'Raporu nasıl alırım?',im_phone_h:'Telefonda rapor alabilir miyim?',im_flow:'İstediğin sıklıkla, örneğin haftada bir. Daha önce eklenen işlemler atlanır. İşlemden hemen sonra telefondan kısa bir kayıt girdiysen, rapordaki aynı işlemle eşleşir: senin notların, setup ve duygun korunur; lot, fiyat, net kâr ve R rapordan güncellenir. Para yatırma ve çekmeler de rapordan alınır.',
 im_add:'{n} yeni işlem eklenecek.',im_match:'{n} işlem, elle girdiğin kayıtlarla eşleşti. Notların korunacak; rakamlar rapordan güncellenecek.',
 im_ops:'Para hareketleri: {d} yatırma ({da}), {w} çekme ({wa}).',im_bal_ok:'Hesaplanan bakiye rapordaki son bakiyeyle eşleşiyor ({b}).',
 im_bal_diff:'Rapordaki son bakiye {b}, hesaplanan {c}. Rapor hesabın tüm geçmişini kapsamıyorsa başlangıç bakiyesini düzelt.',im_bal_set:'Başlangıç bakiyesi rapordaki ilk para yatırmadan alınacak: {a} → {b}.',im_nothing:'Bu rapordaki her şey zaten ekli.',im_tz_auto:'Saat farkı, elle girdiğin işlemlere göre otomatik seçildi ({h} saat). Bir sonraki raporda bu hesap için hatırlanacak.',
@@ -1412,7 +1517,7 @@ acc_now:'Güncel bakiye',im_linked:'Bu rapor {k} hesabına ait (#{n}); işlemler
 tx_est:'≈ PnL girilmemiş işlemlerin sonucu, R ve hesabın risk ayarından tahmin edildi.',tx_add:'Para hareketi ekle',tx_dep1:'Yatırma',tx_wd1:'Çekme',tx_amt:'Tutar',tx_note:'Not',tx_note_ph:'Örn. prop firm ödemesi',
 tx_addbtn:'Ekle',tx_list:'Geçmiş',tx_empty:'Henüz para hareketi yok.',tx_rep:'rapordan',tx_req:'Tutar ve tarih gerekli.',tx_del_c:'Bu para hareketi silinsin mi?',
 cancel:'Vazgeç',im_btn:'İçe aktar',m_broker:'MT4/MT5 raporu içe aktar',f_rev:'Tüm işlemler',f_rev_p:'Değerlendirilmemiş',
-im_title:'MT4/MT5 raporu içe aktar',im_intro:'MetaTrader raporundaki işlemler sembol, yön, saat, lot, fiyat ve kâr bilgileriyle eklenir. Stop loss varsa R otomatik hesaplanır; setup ve psikolojiyi sonra hızlıca eklersin.',
+im_title:'MT4/MT5 raporu yükle',im_intro:'MetaTrader raporundaki işlemler sembol, yön, saat, lot, fiyat ve kâr bilgileriyle eklenir. Stop loss varsa R otomatik hesaplanır; setup ve psikolojiyi sonra hızlıca eklersin.',
 im_mt5:'MetaTrader 5 (bilgisayar)',im_mt5_s:'Alttaki Araç Kutusu\'nda Geçmiş sekmesini aç (Ctrl+T)|Listeye sağ tıkla, Pozisyonlar görünümünü ve dönemi seç (ör. Son 3 ay)|Tekrar sağ tıkla: Rapor → HTML veya Open XML (Excel)|Kaydedilen dosyayı buraya yükle',
 im_mt4:'MetaTrader 4 (bilgisayar)',im_mt4_s:'Terminal penceresinde Hesap Geçmişi sekmesini aç|Sağ tıkla, dönemi seç (ör. Tüm geçmiş)|Sağ tıkla: Raporu Kaydet veya Detaylı Raporu Kaydet|Kaydedilen .htm dosyasını buraya yükle',
 im_phone:'Telefondaki MetaTrader uygulamaları işlem listesini dosya olarak veremiyor; ürettikleri PDF sadece özet. Raporu bilgisayardaki MT4/MT5 ile, aynı hesapla giriş yaparak al. Prop firm panelin işlem geçmişini CSV/Excel olarak veriyorsa onu da deneyebilirsin.',
@@ -1517,6 +1622,19 @@ co_ideas:'Senin için fark ettiklerim',co_i_week:'Bu hafta',co_q_mis_x:'“{k}�
 co_q_week:'Bu haftamı değerlendir',co_q_mistake:'En pahalı hatam ne?',co_q_setup:'Hangi setup\'ım gerçekten işe yarıyor?',co_q_risk:'Risk yönetimim nasıl?',co_q_emo:'Duygularım sonuçlarımı nasıl etkiliyor?',co_q_next:'Gelecek hafta neye odaklanmalıyım?',
 co_ph:'TradeLog AI\'ye sor…',co_send:'Gönder',co_new:'Yeni sohbet',co_left:'{n} soru kaldı · ',co_note:'Sadece senin verilerine bakar, yatırım tavsiyesi değildir.',co_sub:'{n} işlem · {v}',co_thinking:'Verilerine bakıyor…',
 co_login:'TradeLog AI için önce giriş yap',co_err:'Cevap alınamadı. İnternetini kontrol edip tekrar dene.',co_e_limit:'Bugünkü {n} soru hakkını kullandın. Yarın yine buradayım.',co_e_config:'TradeLog AI henüz ayarlanmadı.',co_e_busy:'Şu an çok yoğunum, birkaç dakika sonra tekrar dene.',co_e_input:'Soru çok uzun, biraz kısaltıp tekrar dene.',
+db_t:'Örnek verileri görüyorsun.',db_d:'Paneli tanıman için örnek işlemler ekledik. Kendi işlemlerini ekleyince örnekleri tek tıkla kaldırabilirsin.',db_own:'Kendi işlemlerin de var. Sonuçlarına karışmasın diye örnekleri kaldırmanı öneririz.',db_add:'Kendi verimi ekle',db_rm:'Örnekleri kaldır',
+tr_net_t:'Toplam sonucun, R cinsinden',tr_net_d:'Her işlemde riske ettiğin tutar 1R\'dir. 100$ riskle 250$ kazandıysan +2,5R, stopa gittiysen −1R. R, hesap büyüklüğünden bağımsız olarak ne kadar iyi trade ettiğini gösterir. Sağdaki çubuklar son işlemlerin.',
+tr_kpi_t:'Temel oranlar',tr_kpi_d:'Kazanma oranı tek başına yetmez. Profit factor 1\'in, beklenti 0R\'nin üstündeyse sistemin para kazandırıyor demektir. Her kutunun altında ne anlama geldiği yazar.',
+tr_score_t:'TradeLog puanı',tr_score_d:'Kazanma, kâr oranı, düşüş, tutarlılık ve plan uyumundan tek bir not. Detaylar\'a basınca hangi alanda zayıf olduğunu görürsün.',
+tr_week_t:'Haftalık özet',tr_week_d:'Bu hafta neyin iyi, neyin kötü gittiğini ve gelecek haftanın odağını burada bulursun. İstersen paylaşabilirsin.',
+tr_ins_t:'İçgörüler',tr_ins_d:'Verilerinden kendiliğinden çıkan bulgular: en iyi setup\'ın, pahalı hataların, kötü giden günlerin. Daha fazlası için TradeLog AI\'ye sorabilirsin.',
+tr_add_t:'İşlem ekle',tr_add_d:'Yeni işlemlerini buradan eklersin: hesabını bağla, rapor yükle ya da elle gir. Hepsi aynı panele gelir.',
+tr_skip:'Turu geç',tr_back:'Geri',tr_next:'İleri',tr_done:'Başlayalım',tr_again:'Panel turunu başlat',tr_need:'Tur için önce birkaç işlem ya da örnek veri ekle',
+r_what:'R nedir?',r_p1:'R, bir işlemde riske ettiğin tutardır: girişle stop arasındaki mesafenin parası. TradeLog sonuçları dolar yerine R ile gösterir; böylece 1.000$\'lık ve 100.000$\'lık hesaplar aynı ölçüyle karşılaştırılır.',
+r_ex_risk:'Riske ettiğin (1R)',r_ex_win:'Hedefte kapandı',r_ex_loss:'Stopa gitti',r_p2:'Beklenti +0,3R ise her işlemde ortalama riskinin %30\'u kadar kazanıyorsun demektir. Toplam +20R, 20 işlemlik riskini geri kazandığın anlamına gelir.',
+r_p3:'Stop girmediğin işlemlerde R, hesabındaki “işlem başı risk %” ayarına göre tahmin edilir ve başında ≈ işareti olur.',
+wel_hi:'Hoş geldin',wel_acc_d2:'İki kısa adım: hesabının türünü seç, sonra işlemlerin nereden geleceğini. Bir dakikada panelin hazır.',wel_q1:'Bu hesap ne tür?',wel_q1_s:'Prop hesabıysa kurallarını da takip ederiz.',wel_q2:'İşlemlerin nereden gelsin?',
+wel_t_personal:'Kendi paranla işlem yaptığın hesap',wel_t_challenge:'Prop firm değerlendirme aşaması',wel_t_funded:'Geçtiğin, fonlanmış prop hesabı',wel_rules_h:'Prop firmanın kuralları, hesap bakiyesinin yüzdesi olarak. Sık kullanılan değerlerle doldurduk; kendi firmanınkiyle değiştir. Sonra hesap ayarlarından da değiştirebilirsin.',
 mis_off_plan:'Plan dışı işlem',mis_revenge:'Revenge trade',mis_fomo:'FOMO',mis_oversize:'Risk büyüttüm',mis_overtrading:'Aşırı işlem'},
 en:{
 mt_e_gone:'Your access to this account was removed.',mt_invite:'Invite',mt_ph:'mentor@example.com',mt_h:'Your mentor can see your account after opening the link you send and signing in with this email. They can\'t change anything.',mt_pending:'Pending',mt_active:'Active',mt_copy:'Copy invite',mt_remove:'Remove',mt_remove_c:'{e} will no longer see your account. Are you sure?',mt_inv_t:'Invite ready',mt_inv_p:'Send this message to your mentor ({e}) by WhatsApp or email. Once they open the link and sign in with this email, they can see your account.',mt_msg:'Hi! I added you as my mentor on TradeLog so you can see my trades. Open this link and sign in with {e} (sign up free if you don\'t have an account): {l}',mt_e_dup:'You already invited this person.',mt_e_lim:'You can add up to 5 mentors.',mt_e_self:'You can\'t add yourself as a mentor.',mt_students:'Accounts you mentor',mt_view:'View',mt_leave:'Leave',mt_leave_c:'Leave {e}\'s account? You\'ll need a new invite to see it again.',mt_need_login:'To accept the mentor invite, sign in or sign up with the email that was invited.',mt_ok:'You are now {e}\'s mentor.',mt_e_email:'This invite was sent to {e}. Sign in with that address.',mt_e_nf:'This invite link is invalid or was removed.',mt_viewing:'Viewing {e}\'s account · read-only',mt_back:'Back to my account',mt_ro:'This account is read-only; you can\'t make changes.',mt_loading:'Loading…',mt_none:'You haven\'t added a mentor yet.',
@@ -1552,7 +1670,7 @@ rt_week:'Weekly recap',wk_t:'Weekly recap',wk_this:'This week',wk_prev:'Last wee
 wk_vs:'Last week {x}',wk_vs_none:'No trades last week',wk_dl:'{x} vs last week',wk_vs_t:'Last week',wk_net:'Net result',wk_green:'Green days',wk_days_n:'{n} trading {n|day|days}',wk_hi:'Highlights',wk_best_t:'Best trade',wk_worst_t:'Worst trade',wk_best_d:'Best day',wk_worst_d:'Toughest day',wk_best_s:'Top setup',wk_mis:'Cost of mistakes',wk_jr:'Days journaled',
 wk_focus:'For next week',wk_focus_s:'From this week\'s data',wk_focus_none:'Not enough data for suggestions yet. Add setups, emotions and mistakes to your trades and this fills up.',wk_note:'Note of the week',wk_note_s:'What went well, what will you change?',wk_note_ph:'e.g. I was patient with breakouts. Next week I\'ll cap Monday at 2 trades.',wk_note_save:'Save note',wk_open:'Open recap',wk_card_s:'{n} {n|trade|trades} · {w} win rate',
 wf_mis:'"{k}" cost you {r} this week ({n} {n|trade|trades}). Check for it before you enter next week.',wf_off:'{n} off-plan {n|trade|trades} totalled {r}. Next week, take only the setups in your playbook.',wf_emo:'Trades tagged "{k}" totalled {r} ({n} trades). When you notice that feeling, pause before you enter.',wf_dll:'You went past your daily loss limit (−{l}R) on {n} {n|day|days}. When you hit it, close the charts for the day.',wf_maxt:'You went over your daily trade limit ({l}) on {n} {n|day|days}.',wf_setup_bad:'{k} made {r} this week ({n} {n|trade|trades}). Review its rules or pause it for a week.',wf_setup_good:'{k} made {r} this week ({n} {n|trade|trades}). Focus on it next week.',wf_clean:'Every trade this week followed your plan. Keep it up.',wf_jr:'You didn\'t journal this week. Write the note of the week below in two sentences.',
-nav_imp:'Import report',ok_btn:'OK',cols_btn:'Columns',cols_t:'Table columns',cols_h:'Choose the columns you want in the table. Date, symbol and R are always shown.',cols_reset:'Reset to default',acc_added:'Account added',gs_t:'Getting started',gs_s:'{d} of {n} steps done',gs_hide:'Hide',gs_go:'Start',gs_acc:'Add your account',gs_trade:'Add your first trade',gs_trade_d:'Add it manually or upload your MT4/MT5 report.',gs_pb:'Create a playbook',gs_pb_d:'Write your setup rules and see which rules pay off.',gs_rules:'Enter your prop firm rules',gs_rules_d:'Set daily and total loss limits and get warned as you get close.',gs_jr:'Write your first journal entry',gs_jr_d:'Save your pre-session plan or end-of-day note.',acc_word:'account',wel_step2:'Step 2',wel_ready_t:'Your account is ready',wel_ready_d:'{k} was added. Now add your first trade; your dashboard, calendar and reports will fill up from there.',add_t:'Add trade',add_man:'Add manually',add_rep:'Upload a report',add_how:'Where should your trades come from?',add_accs:'{n} {n|account|accounts}',add_man_d:'Enter symbol, side, result and how you felt. About 15 seconds.',add_rep_d:'Trades in the report are added to your account. Ones already added are skipped and your manual entries are matched.',wel_step:'Step 1',wel_acc_t:'Start by adding your account',wel_acc_d:'Your trades, balance and prop rules are tracked per account. Where should your trades come from?',wel_alt:'Want to look around first?',acc_m_auto:'Connect automatically',acc_m_auto_d:'Connect your MT4/MT5 account with its investor password; trades and balance arrive on their own.',soon_pro:'Coming soon · Pro',acc_manage_all:'Manage accounts',acc_n:'{n} accounts',mood_1:'Very bad',mood_2:'Bad',mood_3:'Okay',mood_4:'Good',mood_5:'Great',nav_home:'Home page',th_to_dark:'Dark theme',th_to_light:'Light theme',
+nav_imp:'Import report',ok_btn:'OK',cols_btn:'Columns',cols_t:'Table columns',cols_h:'Choose the columns you want in the table. Date, symbol and R are always shown.',cols_reset:'Reset to default',acc_added:'Account added',gs_t:'Getting started',gs_s:'{d} of {n} steps done',gs_hide:'Hide',gs_go:'Start',gs_acc:'Add your account',gs_trade:'Add your first trade',gs_trade_d:'Add it manually or upload your MT4/MT5 report.',gs_pb:'Create a playbook',gs_pb_d:'Write your setup rules and see which rules pay off.',gs_rules:'Enter your prop firm rules',gs_rules_d:'Set daily and total loss limits and get warned as you get close.',gs_jr:'Write your first journal entry',gs_jr_d:'Save your pre-session plan or end-of-day note.',acc_word:'account',wel_step2:'Step 2',wel_ready_t:'Your account is ready',wel_ready_d:'{k} was added. Now add your first trade; your dashboard, calendar and reports will fill up from there.',add_t:'Add trade',add_man:'Add manually',add_rep:'Upload a report',add_how:'Where should your trades come from?',add_accs:'{n} {n|account|accounts}',add_man_d:'Enter symbol, side, result and how you felt. About 15 seconds.',add_rep_d:'Trades in the report are added to your account. Ones already added are skipped and your manual entries are matched.',wel_step:'Step 1',wel_acc_t:'Let\'s set up your account',wel_acc_d:'Your trades, balance and prop rules are tracked per account. Where should your trades come from?',wel_alt:'Want to look around first?',acc_m_auto:'Connect automatically',acc_m_auto_d:'Connect your MT4/MT5 account with its investor password; trades and balance arrive on their own.',soon_pro:'Coming soon · Pro',acc_manage_all:'Manage accounts',acc_n:'{n} accounts',mood_1:'Very bad',mood_2:'Bad',mood_3:'Okay',mood_4:'Good',mood_5:'Great',nav_home:'Home page',th_to_dark:'Dark theme',th_to_light:'Light theme',
 r_hint:'R is a multiple of the amount you risked. Stopped out: −1. Won twice your risk: 2. Not sure? Just pick the outcome below.',ph_rra:'e.g. 2 or −1',l_emo_q:'How did you feel?',rr_hint:'The gain you aimed for at entry (R)',pnl_hint:'Net result in money; makes your balance exact',rating_hint:'Regardless of the result: how well did you follow your rules?',k_rr_s:'Average win ÷ average loss',k_plan_s2:'Trades where you followed your plan',acc_add_how:'Where will this account\'s trades come from?',acc_m_rep:'Upload an MT4/MT5 report',acc_m_rep_d:'Upload your MT4/MT5 report; account name, currency, balance and trades come in one go.',acc_m_man:'Create manually',acc_m_man_d:'If you have no report or will log trades yourself. You enter the balance and currency.',acc_from_rep:'Taken from your MetaTrader data',show_more:'Show more ({n} more)',wr_s:'Win rate',period:'Period',dg_in:'Import',dg_out:'Backup and export',dg_demo:'Sample data',archived:'Archive',acc_link:'Report matching',acc_link_on:'MT4/MT5 reports for this number are added to this account automatically.',acc_link_off:'Not matched yet. When you upload this account\'s MT4/MT5 report, the account number is matched automatically and future reports come here. This is not an account connection; no password is needed.',acc_unlink:'Remove matching',acc_unlink_c:'Remove the #{n} matching? Trades are kept; you will be asked to choose the account again on the next report.',acc_risk_l:'risk',at_challenge:'Challenge',at_funded:'Funded',at_personal:'Personal',at_demo:'Demo / backtest',acc_type:'Account type',acc_alltype:'All {k} accounts',
 acc_edit:'Edit account',acc_name_ph:'e.g. FTM 10K Funded',acc_risk_h:'Used to estimate PnL for trades without a result',acc_req:'Balance and risk must be 0 or more.',
 acc_manage:'Manage account',acc_arch:'Archive',acc_arch_h:'Data is kept; the account leaves combined views and new-trade choices. For old challenge accounts.',acc_unarch:'Unarchive',
@@ -1565,7 +1683,7 @@ ar_note:'Calculated from closed trades; open positions are not included. If your
 ar_dll_s:'daily {v}%',ar_mll_s:'total {v}%',ar_tgt_s:'target {v}%',ar_card:'Account rules',ar_card_s:'Remaining limits today and overall',
 ar_left:'{x} left / {l}',ar_prog:'{x} / {l}',ar_hit:'Limit breached',ar_done:'Target reached',
 al_dll_hit:'{k}: daily loss limit ({l}) breached. Don\'t open new trades today.',al_dll_near:'{k}: {x} left to the daily loss limit.',al_mll_hit:'{k}: total loss limit breached.',al_mll_near:'{k}: {x} left to the total loss limit.',
-im_flow_h:'How often should I upload a report?',im_flow:'As often as you like, for example weekly. Trades already added are skipped. If you logged a trade on your phone right after closing it, it is matched with the same trade in the report: your notes, setup and mindset are kept; lots, prices, net profit and R are updated from the report. Deposits and withdrawals are taken from the report too.',
+im_flow_h:'How often should I upload a report?',im_drop:'Drag your report here or choose it',im_drop_s:'MT4/MT5 report: HTML, Excel (XLSX) or CSV',im_how:'How do I get the report?',im_phone_h:'Can I get the report on my phone?',im_flow:'As often as you like, for example weekly. Trades already added are skipped. If you logged a trade on your phone right after closing it, it is matched with the same trade in the report: your notes, setup and mindset are kept; lots, prices, net profit and R are updated from the report. Deposits and withdrawals are taken from the report too.',
 im_add:'{n} new {n|trade|trades} will be added.',im_match:'{n} {n|trade|trades} matched trades you logged manually. Your notes are kept; numbers are updated from the report.',
 im_ops:'Cash movements: {d} {d|deposit|deposits} ({da}), {w} {w|withdrawal|withdrawals} ({wa}).',im_bal_ok:'The calculated balance matches the report\'s final balance ({b}).',
 im_bal_diff:'The report\'s final balance is {b}, calculated {c}. If the report doesn\'t cover the full account history, correct the starting balance.',im_bal_set:'Starting balance will be taken from the report\'s opening deposit: {a} → {b}.',im_nothing:'Everything in this report is already added.',im_tz_auto:'The time offset was picked automatically from your manually logged trades ({h} h). It will be remembered for this account.',
@@ -1574,7 +1692,7 @@ acc_now:'Current balance',im_linked:'This report belongs to {k} (#{n}); trades w
 tx_est:'≈ Results of trades without PnL were estimated from R and the account risk setting.',tx_add:'Add cash movement',tx_dep1:'Deposit',tx_wd1:'Withdrawal',tx_amt:'Amount',tx_note:'Note',tx_note_ph:'e.g. prop firm payout',
 tx_addbtn:'Add',tx_list:'History',tx_empty:'No cash movements yet.',tx_rep:'from report',tx_req:'Amount and date are required.',tx_del_c:'Delete this cash movement?',
 cancel:'Cancel',im_btn:'Import',m_broker:'Import MT4/MT5 report',f_rev:'All trades',f_rev_p:'Not reviewed',
-im_title:'Import MT4/MT5 report',im_intro:'Trades from your MetaTrader report are added with symbol, side, time, lots, prices and profit. If a stop loss is set, R is calculated automatically; you add setup and psychology quickly afterwards.',
+im_title:'Upload MT4/MT5 report',im_intro:'Trades from your MetaTrader report are added with symbol, side, time, lots, prices and profit. If a stop loss is set, R is calculated automatically; you add setup and psychology quickly afterwards.',
 im_mt5:'MetaTrader 5 (desktop)',im_mt5_s:'Open the History tab in the Toolbox (Ctrl+T)|Right-click the list, choose the Positions view and a period (e.g. Last 3 months)|Right-click again: Report → HTML or Open XML (Excel)|Upload the saved file here',
 im_mt4:'MetaTrader 4 (desktop)',im_mt4_s:'Open the Account History tab in the Terminal window|Right-click and choose a period (e.g. All history)|Right-click: Save as Report or Save as Detailed Report|Upload the saved .htm file here',
 im_phone:'MetaTrader phone apps cannot export the trade list as a file; their PDF is only a summary. Get the report from desktop MT4/MT5 by logging in with the same account. If your prop firm dashboard exports trade history as CSV/Excel, you can try that too.',
@@ -1679,6 +1797,19 @@ co_ideas:'What I noticed for you',co_i_week:'This week',co_q_mis_x:'“{k}” co
 co_q_week:'Review my week',co_q_mistake:'What\'s my most expensive mistake?',co_q_setup:'Which of my setups really works?',co_q_risk:'How is my risk management?',co_q_emo:'How do my emotions affect my results?',co_q_next:'What should I focus on next week?',
 co_ph:'Ask TradeLog AI…',co_send:'Send',co_new:'New chat',co_left:'{n} questions left · ',co_note:'Looks only at your data; not investment advice.',co_sub:'{n} trades · {v}',co_thinking:'Looking at your data…',
 co_login:'Sign in first to use TradeLog AI',co_err:'Couldn\'t get an answer. Check your internet and try again.',co_e_limit:'You\'ve used today\'s {n} questions. I\'ll be here tomorrow.',co_e_config:'TradeLog AI isn\'t set up yet.',co_e_busy:'I\'m very busy right now; try again in a few minutes.',co_e_input:'The question is too long; shorten it and try again.',
+db_t:'You\'re looking at sample data.',db_d:'We added sample trades so you can get to know the dashboard. Once you add your own, remove the samples in one click.',db_own:'You have your own trades too. Remove the samples so they don\'t mix into your results.',db_add:'Add my own data',db_rm:'Remove samples',
+tr_net_t:'Your total result, in R',tr_net_d:'The amount you risk on a trade is 1R. Risk $100 and make $250 and that\'s +2.5R; hit your stop and it\'s −1R. R shows how well you trade regardless of account size. The bars on the right are your latest trades.',
+tr_kpi_t:'Key ratios',tr_kpi_d:'Win rate alone isn\'t enough. If profit factor is above 1 and expectancy above 0R, your system makes money. Each box says what it means underneath.',
+tr_score_t:'TradeLog score',tr_score_d:'One grade from win rate, profit ratio, drawdown, consistency and plan adherence. Press Details to see where you\'re weak.',
+tr_week_t:'Weekly recap',tr_week_d:'What went well and badly this week, and next week\'s focus. You can share it too.',
+tr_ins_t:'Insights',tr_ins_d:'Findings that come out of your data on their own: your best setup, costly mistakes, bad days. Ask TradeLog AI for more.',
+tr_add_t:'Add trade',tr_add_d:'Add new trades here: connect your account, upload a report or enter them by hand. Everything lands on the same dashboard.',
+tr_skip:'Skip tour',tr_back:'Back',tr_next:'Next',tr_done:'Let\'s go',tr_again:'Start the dashboard tour',tr_need:'Add a few trades or sample data first to take the tour',
+r_what:'What is R?',r_p1:'R is the amount you risk on a trade: the money between your entry and your stop. TradeLog shows results in R instead of dollars, so a $1,000 and a $100,000 account are measured the same way.',
+r_ex_risk:'What you risk (1R)',r_ex_win:'Closed at target',r_ex_loss:'Hit the stop',r_p2:'An expectancy of +0.3R means you make 30% of your risk per trade on average. A total of +20R means you\'ve won back your risk on 20 trades.',
+r_p3:'For trades without a stop, R is estimated from the account\'s “risk per trade %” setting and shown with ≈.',
+wel_hi:'Welcome',wel_acc_d2:'Two quick steps: choose your account type, then where your trades come from. Your dashboard is ready in a minute.',wel_q1:'What kind of account is this?',wel_q1_s:'If it\'s a prop account, we\'ll track its rules too.',wel_q2:'Where should your trades come from?',
+wel_t_personal:'An account you trade with your own money',wel_t_challenge:'Prop firm evaluation phase',wel_t_funded:'A funded prop account you passed',wel_rules_h:'Your prop firm\'s rules, as a percentage of the account balance. We filled in common values; change them to your firm\'s. You can edit them later in the account settings.',
 mis_off_plan:'Off-plan trade',mis_revenge:'Revenge trade',mis_fomo:'FOMO',mis_oversize:'Oversized risk',mis_overtrading:'Overtrading'}};
 
 /* ================= core: data, storage, stats ================= */
@@ -2205,19 +2336,29 @@ function buildTrades(res,o){
 
 /* ---- import UI ---- */
 let IMP=null;
+var IMT='mt5';
+/* a report dropped anywhere on the app opens the import (not over the trade form, which takes screenshots) */
+const impCan=()=>!formOpen()&&!document.querySelector('#authV:not([hidden])')&&!document.querySelector('#site:not([hidden])')&&!window.RO;
+document.addEventListener('dragover',e=>{if(e.dataTransfer&&[...e.dataTransfer.types].includes('Files')&&impCan())e.preventDefault()});
+document.addEventListener('drop',e=>{const f=e.dataTransfer&&e.dataTransfer.files&&e.dataTransfer.files[0];if(!f||!impCan()||e.defaultPrevented&&e.target.closest&&e.target.closest('#imDrop'))return;
+  if(/\.(html?|xlsx?|csv|json)$/i.test(f.name)){e.preventDefault();impFile(f)}});
 function openImport(){
   IMP=null;
+  const st=k=>`<ol class="steps imsteps" id="imSteps">${t('im_'+k+'_s').split('|').map(x=>`<li>${esc(x)}</li>`).join('')}</ol>`;
   openDlg(t('im_title'),`<div style="padding-top:14px">
-    <p style="font-size:14.5px;color:var(--ink2)">${t('im_intro')}</p>
-    <div class="dsec" style="margin-top:14px"><h4>${t('im_mt5')}</h4><ol class="steps">${t('im_mt5_s').split('|').map(x=>`<li>${esc(x)}</li>`).join('')}</ol></div>
-    <div class="dsec"><h4>${t('im_mt4')}</h4><ol class="steps">${t('im_mt4_s').split('|').map(x=>`<li>${esc(x)}</li>`).join('')}</ol></div>
-    <div class="dsec"><h4>${t('im_flow_h')}</h4><p style="font-size:14px;color:var(--ink2)">${t('im_flow')}</p></div>
+    <button type="button" class="imdrop" id="imDrop" onclick="$('fileAny').click()" ondragover="event.preventDefault();this.classList.add('over')" ondragleave="this.classList.remove('over')" ondrop="impDrop(event)">
+      <span class="imdi">${ic('up')}</span><b>${t('im_drop')}</b><span>${t('im_drop_s')}</span></button>
+    <div class="imhow"><div class="imhh"><h4>${t('im_how')}</h4><div class="seg imseg" id="imSeg">${['mt5','mt4'].map(k=>`<button type="button" class="${IMT===k?'on':''}" onclick="IMT='${k}';$('imSeg').querySelectorAll('button').forEach(b=>b.classList.toggle('on',b===this));impSteps()">MetaTrader ${k.slice(2)}</button>`).join('')}</div></div>
+      ${st(IMT)}</div>
     ${typeof sbOn==='function'&&sbOn()&&sbUser&&!RO?`<div class="dsec syimp"><div><b>${t('sy_imp')}</b><p class="hint">${t('sy_manage_d')}</p></div><button class="btn sm" onclick="closeDlg(true);syStart()">${ic('link')}${t('sy_open')}</button></div>`:''}
-    <div class="dsec"><p class="hint" style="font-size:13px">${t('im_phone')}</p><p class="hint" style="font-size:13px;margin-top:6px">${t('im_formats')}</p></div>
+    <details class="imfaq"><summary>${t('im_flow_h')}</summary><p>${t('im_flow')}</p></details>
+    <details class="imfaq"><summary>${t('im_phone_h')}</summary><p>${t('im_phone')}</p><p style="margin-top:6px">${t('im_formats')}</p></details>
   </div>`,`<button class="btn" onclick="closeDlg()">${t('close')}</button><button class="btn pri" onclick="$('fileAny').click()">${t('im_pick')}</button>`);
 }
-async function onAnyFile(inp){
-  const f=inp.files[0];inp.value='';if(!f)return;
+function impSteps(){const el=document.querySelector('#imSteps,.imhow ol');if(!el)return;el.outerHTML=`<ol class="steps imsteps" id="imSteps">${t('im_'+IMT+'_s').split('|').map(x=>`<li>${esc(x)}</li>`).join('')}</ol>`}
+function impDrop(e){e.preventDefault();const d=$('imDrop');if(d)d.classList.remove('over');const f=e.dataTransfer&&e.dataTransfer.files&&e.dataTransfer.files[0];if(f)impFile(f)}
+function onAnyFile(inp){const f=inp.files[0];inp.value='';if(f)impFile(f)}
+async function impFile(f){
   try{
     const d=await readAny(f);
     if(d.kind==='json'){impJSONData(JSON.parse(d.txt));closeDlg();return}
@@ -2332,7 +2473,7 @@ function impCommit(){
     if(blank)Object.assign(S.accounts[0],d);else S.accounts.push({id:sid(),risk:1,...d});
     acc=blank?S.accounts[0].id:S.accounts[S.accounts.length-1].id;
   }
-  const a=accOf(acc);if(c.init)a.initExt=c.init;if(c.newBal!=null)a.bal=c.newBal;a.tz=c.tz;
+  const a=accOf(acc);if(c.isNew&&typeof welApply==='function')welApply(a);if(c.init)a.initExt=c.init;if(c.newBal!=null)a.bal=c.newBal;a.tz=c.tz;
   if(IMP.meta.no&&!a.no){a.no=IMP.meta.no;if(IMP.meta.server)a.srv=IMP.meta.server}
   c.ops.forEach(o=>S.tx.push({id:sid(),acc,date:shiftDT(o.t,c.tz)[0],kind:o.a>0?'dep':'wd',amt:Math.abs(o.a),note:'',ext:o.ext}));
   saveS();
@@ -2465,7 +2606,8 @@ function render(){
   $('vTitle').textContent=t('v_'+cv);
   topCtl();
   CHD={};
-  $('view').innerHTML=(typeof roBanner==='function'?roBanner():'')+({dash:vDash,trades:vTrades,cal:vCal,rep:vRep,pb:vPB,jr:vJR,set:vSet})[cv]();
+  setTimeout(tourAuto,0);
+  $('view').innerHTML=(typeof roBanner==='function'?roBanner():'')+demoBar()+({dash:vDash,trades:vTrades,cal:vCal,rep:vRep,pb:vPB,jr:vJR,set:vSet})[cv]();
   if(cv==='trades')rList();
   if(cv==='set'&&typeof shList==='function')shList();
   if(cv==='set'&&typeof syLoadOnce==='function')syLoadOnce();
@@ -2555,9 +2697,31 @@ function accOptions(ctx){
    <button onclick="closeDlg(true);openImport()"><span class="oi">${ic('up')}</span><span class="ot"><b>${t('add_rep')}</b><span>${t(acct||!accReady()?'acc_m_rep_d':'add_rep_d')}</span></span></button>
    <button onclick="${man}"><span class="oi">${ic(acct?'jr':'plus')}</span><span class="ot"><b>${t(acct?'acc_m_man':'add_man')}</b><span>${t(acct||!accReady()?'acc_m_man_d':'add_man_d')}</span></span></button></div>`;
 }
+/* first start: what kind of account (prop rules right away), then where the trades come from */
+var WEL=(()=>{try{return JSON.parse(localStorage.getItem('tradelog_wel')||'{}')||{}}catch(e){return {}}})();
+function welSave(){try{localStorage.setItem('tradelog_wel',JSON.stringify(WEL))}catch(e){}}
+const WEL_DEF={challenge:{dll:5,mll:10,tgt:8},funded:{dll:5,mll:10}};
+function welType(k){WEL.type=WEL.type===k?'':k;WEL.rules=propType(WEL.type)?{...(WEL_DEF[WEL.type]||{})}:{};welSave();
+  document.querySelectorAll('.wtype').forEach(b=>b.classList.toggle('on',b.dataset.k===WEL.type));const r=$('welRules');if(r)r.innerHTML=welRules()}
+function welRules(){
+  if(!propType(WEL.type))return '';const r=WEL.rules||{};
+  const f=(k,lab)=>`<label class="fld"><span>${lab}</span><span class="pctin"><input class="in" type="number" min="0" max="99" step="0.5" inputmode="decimal" value="${r[k]??''}" placeholder="—" oninput="WEL.rules=WEL.rules||{};const v=num(this.value);if(v>0&&v<100)WEL.rules['${k}']=v;else delete WEL.rules['${k}'];welSave()"><i>%</i></span></label>`;
+  return `<div class="welr"><p class="hint">${t('wel_rules_h')}</p><div class="fgrid3">${f('dll',t('ar_dll'))}${f('mll',t('ar_mll'))}${WEL.type==='challenge'?f('tgt',t('ar_tgt')):''}</div></div>`;
+}
+/* the account that was just created takes the type and prop rules chosen on the welcome card */
+function welApply(a){
+  if(!a||!WEL.type)return;
+  if(!a.type)a.type=WEL.type;
+  if(propType(WEL.type)&&WEL.rules&&Object.keys(WEL.rules).length&&!(a.rules&&Object.keys(a.rules).length))a.rules={...WEL.rules};
+  WEL={};welSave();
+}
 function welcome(){
-  if(!accReady())return `<div class="card welcome w1"><div class="wh"><span class="step1">${t('wel_step')}</span><h2>${t('wel_acc_t')}</h2><p>${t('wel_acc_d')}</p></div>
-   ${accOptions()}
+  if(!accReady())return `<div class="card welcome w1"><div class="wh"><span class="step1">${t('wel_hi')}</span><h2>${t('wel_acc_t')}</h2><p>${t('wel_acc_d2')}</p></div>
+   <div class="welq"><div class="wqh"><span class="wn">1</span><b>${t('wel_q1')}</b><small>${t('wel_q1_s')}</small></div>
+    <div class="wtypes">${['personal','challenge','funded'].map(k=>`<button type="button" class="wtype${WEL.type===k?' on':''}" data-k="${k}" onclick="welType('${k}')"><b>${t('at_'+k)}</b><span>${t('wel_t_'+k)}</span></button>`).join('')}</div>
+    <div id="welRules">${welRules()}</div></div>
+   <div class="welq"><div class="wqh"><span class="wn">2</span><b>${t('wel_q2')}</b></div>
+   ${accOptions()}</div>
    <div class="walt"><span>${t('wel_alt')}</span><button class="btn sm" onclick="demo()">${t('wel_demo')}</button><button class="btn sm ghost" onclick="openForm()">${t('wel_add')}</button></div></div>`;
   const a=actAccs()[0];
   return `<div class="card welcome w1"><div class="wh"><span class="step1">${t('wel_step2')}</span><h2>${t('wel_ready_t')}</h2><p>${t('wel_ready_d',{k:esc(accLabel(a))})}</p></div>
@@ -2587,17 +2751,17 @@ function vDash(){
   const kp=[[t('k_wr'),pc(s.wr),t('kpi_wl',{w:s.w,l:s.ls,b:s.be?t('kpi_be',{n:s.be}):''}),''],[t('k_pf'),pfTxt(s),t('k_pf_s'),s.pf===null?'':s.pf>=1?'pos':'neg'],
     [t('k_exp'),fr(s.exp),t('k_exp_s'),cls(s.exp)],[t('k_rr'),s.real!==null?s.real.toFixed(2):'—',t('k_rr_s'),''],
     [t('k_dd'),s.hasR?fr(-s.dd):'—',t('k_dd_s'),s.dd?'neg':''],[t('k_plan'),pc(s.plan),t('k_plan_s2'),s.plan===null?'':s.plan>=80?'pos':'neu']];
-  const net=`<div class="card netcard o1"><div class="nethead"><div><div class="lbl">${t('hero_'+V.per)}</div><div class="big ${cls(s.tot)}"${s.hasR?` data-v="${s.tot}"`:''}>${s.hasR?fr(s.tot):'—'}</div><div class="hfacts">${facts.join('')}</div></div>
+  const net=`<div class="card netcard o1" data-tour="net"><div class="nethead"><div><div class="lbl">${t('hero_'+V.per)} <button type="button" class="rinfo" onclick="rInfo()" aria-label="${t('r_what')}">${t('r_what')}</button></div><div class="big ${cls(s.tot)}"${s.hasR?` data-v="${s.tot}"`:''}>${s.hasR?fr(s.tot):'—'}</div><div class="hfacts">${facts.join('')}</div></div>
     <div class="stripw"><div class="strip" aria-label="${t('strip_l')}">${strip}</div><div class="stripcap"><span>${t('strip_l')}</span>${ch.some(x=>x.plan==='no')?`<span>${t('strip_off')}</span>`:''}</div></div></div>
-   <div class="kpis">${kp.map(([a,b,c,d])=>`<div class="kpi"><div class="l">${a}</div><div class="v ${d}">${b}</div><div class="s">${c}</div></div>`).join('')}</div></div>`;
+   <div class="kpis" data-tour="kpis">${kp.map(([a,b,c,d])=>`<div class="kpi"><div class="l">${a}</div><div class="v ${d}">${b}</div><div class="s">${c}</div></div>`).join('')}</div></div>`;
   const eq=`<div class="card o4"><div class="ch"><h2>${t('c_eq')}</h2><small>${t('c_eq_s')}</small></div><div class="cb">${eqChart(l)}</div></div>`;
   const sc=score(l),ins=insights(l);
   const pq=pending().length;
   const rq=pq?`<div class="card revq"><div><b>${t('rv_card',{n:pq})}</b><div class="hint">${t('rv_card_s')}</div></div><button class="btn pri" onclick="RVi=0;openReview()">${t('rv_start')}</button></div>`:'';
   const pst=scopeAccs().map(propState).filter(Boolean);
   const pcard=pst.length?`<div class="card o2"><div class="ch"><h2>${t('ar_card')}</h2><small>${t('ar_card_s')}</small></div><div class="cb">${pst.map(propRows).join('')}</div></div>`:'';
-  const scard=`<div class="card o3"><div class="ch"><h2>${t('c_score')}</h2><small><a href="#" onclick="rt='ov';go('rep');return false">${t('details')}</a></small></div><div class="cb">${scoreBlock(sc)}</div></div>`;
-  const icard=`<div class="card o6"><div class="ch"><h2>${t('c_ins')}</h2>${typeof proDlg==='function'?`<small><button class="prolink" onclick="coOpen()">${t('ai_ask')} <span class="soon">Pro</span></button></small>`:''}</div><div class="cb">${ins.length?ins.map(([k,x])=>`<div class="ins ${k}"><i></i><div>${esc(x)}</div></div>`).join(''):`<div class="mut" style="font-size:14px">${t('ins_need')}</div>`}</div></div>`;
+  const scard=`<div class="card o3" data-tour="score"><div class="ch"><h2>${t('c_score')}</h2><small><a href="#" onclick="rt='ov';go('rep');return false">${t('details')}</a></small></div><div class="cb">${scoreBlock(sc)}</div></div>`;
+  const icard=`<div class="card o6" data-tour="ins"><div class="ch"><h2>${t('c_ins')}</h2>${typeof proDlg==='function'?`<small><button class="prolink" onclick="coOpen()">${t('ai_ask')} <span class="soon">Pro</span></button></small>`:''}</div><div class="cb">${ins.length?ins.map(([k,x])=>`<div class="ins ${k}"><i></i><div>${esc(x)}</div></div>`).join(''):`<div class="mut" style="font-size:14px">${t('ins_need')}</div>`}</div></div>`;
   const dcard=`<div class="card o5"><div class="ch"><h2>${t('c_daily')}</h2><small>${t('c_daily_s')}</small></div><div class="cb">${dayChart(l)}</div></div>`;
   const recent=`<div class="card o7"><div class="ch"><h2>${t('c_recent')}</h2><small><a href="#" onclick="go('trades');return false">${t('see_all')}</a></small></div><div class="tlist" style="margin-top:8px">${l.slice(0,6).map(tradeCard).join('')}</div></div>`;
   return `<div class="stack">${al}${rq}${gsCard()}<div class="dgrid"><div class="dcl">${net}${eq}${dcard}</div><div class="dcr">${pcard}${scard}${weekCard()}${icard}</div>${recent}</div></div>`;
@@ -2997,7 +3161,7 @@ function wkCopy(){showTxt(t('wk_copy'),t('wk_copy_h'),wkText(),t('copy'))}
 function weekCard(){
   const m=wkLast(),w=wkData(m),s=w.s,p=w.p;if(!s.n)return '';
   const lb=wkLbl(m)||wkRange(w.m,w.e),f=w.focus.find(x=>x[0]!=='info')||w.focus[0];
-  return `<div class="card o6 wkc"><div class="ch"><h2>${t('wk_t')}</h2><small>${esc(lb)}</small></div><div class="cb">
+  return `<div class="card o6 wkc" data-tour="week"><div class="ch"><h2>${t('wk_t')}</h2><small>${esc(lb)}</small></div><div class="cb">
    <div class="wkcr"><div><div class="v ${cls(s.tot)}">${s.hasR?fr(s.tot):'—'}</div><div class="hint">${t('wk_card_s',{n:s.n,w:pc(s.wr)})}${p.n&&s.hasR&&p.hasR?` · ${t('wk_dl',{x:`<span class="${cls(s.tot-p.tot)}">${dlt(s.tot,p.tot,v=>fr(v).replace(/^[+−]/,''))}</span>`})}`:''}</div></div>${wkBars(w.days)}</div>
    ${f?`<div class="ins ${f[0]}"><i></i><div>${esc(f[1])}</div></div>`:''}
    <button class="btn sm" style="margin-top:12px" onclick="wk='${m}';rt='week';go('rep')">${t('wk_open')}${ic('arrow')}</button></div></div>`;
@@ -3115,7 +3279,7 @@ function vSet(){
    <div class="card"><div class="ch"><h2>${t('s_data')}</h2></div><div class="cb">
     <h4 class="lgh">${t('dg_in')}</h4><div class="links"><button onclick="$('fileJson').click()">${t('m_res')}</button><button onclick="$('fileCsv').click()">${t('m_csv_imp')}</button><button onclick="pasteImp()">${t('m_paste')}</button></div>
     <h4 class="lgh">${t('dg_out')}</h4><div class="links"><button onclick="expJSON()">${t('m_bak')}</button><button onclick="expCSV()">${t('m_csv_exp')}</button></div>
-    <h4 class="lgh">${t('dg_demo')}</h4><div class="links"><button onclick="demo()">${t('m_demo')}</button>${trades.some(x=>x.demo)||PB.some(p=>p.demo)?`<button onclick="demoRm()">${t('m_demo_rm')}</button>`:''}</div>
+    <h4 class="lgh">${t('dg_demo')}</h4><div class="links"><button onclick="tourStart()">${t('tr_again')}</button><button onclick="demo()">${t('m_demo')}</button>${trades.some(x=>x.demo)||PB.some(p=>p.demo)?`<button onclick="demoRm()">${t('m_demo_rm')}</button>`:''}</div>
     <div class="links" style="margin-top:14px;border-top:1px solid var(--ln2)"><button class="dan" onclick="wipe()">${t('m_wipe')}</button></div>
     <p class="hint" style="margin-top:8px">${t('csv_h')}</p></div></div>
    <div class="card"><div class="ch"><h2>${t('s_priv')}</h2></div><div class="cb"><p style="font-size:14px;color:var(--ink2)">${t(typeof sbOn==='function'&&sbOn()?'privacy_sb':CS?'privacy_tg':'privacy')}</p><p class="hint" id="syncSt2" style="margin-top:8px"></p></div></div>
@@ -3130,7 +3294,7 @@ function accDlg(id){
 }
 const propType=k=>k==='challenge'||k==='funded';
 function accForm(id){
-  const a=id?S.accounts.find(z=>z.id===id):{name:'',bal:10000,cur:actAccs()[0]?actAccs()[0].cur:'USD',risk:1,type:'',rules:{}};if(!a)return;
+  const a=id?S.accounts.find(z=>z.id===id):{name:'',bal:10000,cur:actAccs()[0]?actAccs()[0].cur:'USD',risk:1,type:WEL.type||'',rules:{...(WEL.rules||{})}};if(!a)return;
   const locked=!!(id&&(a.initExt||a.eab));
   const r=a.rules||{},cnt=id?trades.filter(x=>x.account===id).length:0;
   const pct=(k,lab,h)=>`<label class="fld"><span>${lab}</span><input class="in" id="ad_${k}" type="number" min="0" max="99" step="0.5" inputmode="decimal" value="${r[k]||''}" placeholder="—"><span class="hint">${h}</span></label>`;
@@ -3162,6 +3326,7 @@ function accSave(id){
   const blank=!a&&S.accounts.length===1&&!S.accounts[0].name&&!S.accounts[0].no&&!trades.some(x=>x.account===S.accounts[0].id)&&!S.tx.length;
   if(blank)a=S.accounts[0];
   if(a){Object.assign(a,d);if(!d.type)delete a.type;if(!Object.keys(rules).length)delete a.rules}else{a={id:sid(),...d};if(!d.type)delete a.type;if(!Object.keys(rules).length)delete a.rules;S.accounts.push(a)}
+  if(!id){WEL={};welSave()}
   /* ilk kurulumda (TradeZella'daki gibi) hesap açılınca doğrudan ilk işlem formuna geçilir */
   const first=!id&&!trades.length;
   S=normS(S);saveS();closeDlg();render();hap('success');toast(t(id?'saved':'acc_added'));
@@ -3296,6 +3461,67 @@ async function demo(){
       emotions:[EMO[ruleOk?Math.floor(r()*3):3+Math.floor(r()*5)][0]],mistakes:mis,tags:r()<.3?['news']:r()<.2?['A+']:[],rules,chart:'',notes:t('demo_note'),demo:true});
   }
   trades=trades.map(norm).filter(Boolean);sortT();saveTrades();savePB();render();hap('success');toast(t('demo_added'));
+}
+/* ---- dashboard tour: a short spotlight walk through the panel, once, the first time it has data ---- */
+const TOUR_K='tradelog_tour';
+var TR={i:0,steps:[],on:false,wait:false};
+function tourSeen(){try{return localStorage.getItem(TOUR_K)==='1'}catch(e){return true}}
+function tourAuto(){
+  if(TR.on||TR.wait||tourSeen()||cv!=='dash'||!trades.length||window.RO||dlgOpen()||formOpen())return;
+  TR.wait=true;setTimeout(()=>{TR.wait=false;if(!TR.on&&!tourSeen()&&cv==='dash'&&!dlgOpen()&&!formOpen()&&document.querySelector('[data-tour=net]'))tourStart()},1700);
+}
+function tourSteps(){
+  const m=matchMedia('(max-width:900px)').matches;
+  return [['net','tr_net'],['kpis','tr_kpi'],['score','tr_score'],['week','tr_week'],['ins','tr_ins'],[m?'.fab':'.addbtn','tr_add']]
+    .map(([k,s])=>({sel:k.startsWith('.')?k:`[data-tour=${k}]`,k:s})).filter(x=>{const e=document.querySelector(x.sel);return e&&e.offsetParent!==null});
+}
+function tourStart(){
+  if(cv!=='dash'){go('dash')}
+  if(!trades.length){closeDlg(true);toast(t('tr_need'));return}
+  closeDlg(true);
+  setTimeout(()=>{TR.steps=tourSteps();TR.i=0;if(!TR.steps.length)return;TR.on=true;tourShow()},120);
+}
+function tourShow(){
+  const st=TR.steps[TR.i],el=st&&document.querySelector(st.sel);if(!el){tourEnd();return}
+  let ov=$('tourOv');
+  if(!ov){ov=document.createElement('div');ov.id='tourOv';ov.className='tour';ov.innerHTML='<div class="thole"></div><div class="tcard" role="dialog" aria-live="polite"></div>';$('appRoot').appendChild(ov);requestAnimationFrame(()=>ov.classList.add('on'))}
+  if(matchMedia('(max-width:900px)').matches){const tb=document.querySelector('.main .top'),off=Math.max(84,(tb?tb.getBoundingClientRect().height:0)+16);window.scrollTo({top:Math.max(0,el.getBoundingClientRect().top+scrollY-off),behavior:'smooth'})}
+  else el.scrollIntoView({block:'center',behavior:'smooth'});
+  const n=TR.steps.length,last=TR.i===n-1;
+  ov.querySelector('.tcard').innerHTML=`<div class="tstep">${TR.i+1} / ${n}</div><h3>${t(st.k+'_t')}</h3><p>${t(st.k+'_d')}</p>
+    <div class="tfoot"><button class="tskip" onclick="tourEnd()">${t('tr_skip')}</button><span class="tdots">${TR.steps.map((x,i)=>`<i class="${i===TR.i?'on':''}"></i>`).join('')}</span>
+    <span class="tbtns">${TR.i?`<button class="btn sm" onclick="tourGo(-1)">${t('tr_back')}</button>`:''}<button class="btn sm pri" onclick="${last?'tourEnd()':'tourGo(1)'}">${t(last?'tr_done':'tr_next')}</button></span></div>`;
+  clearTimeout(TR.pt);TR.pt=setTimeout(tourPlace,380);tourPlace();
+}
+function tourPlace(){
+  const ov=$('tourOv'),st=TR.steps[TR.i];if(!ov||!st)return;const el=document.querySelector(st.sel);if(!el)return;
+  const r=el.getBoundingClientRect(),pad=8,h=ov.querySelector('.thole'),c=ov.querySelector('.tcard');
+  Object.assign(h.style,{left:r.left-pad+'px',top:r.top-pad+'px',width:r.width+pad*2+'px',height:r.height+pad*2+'px'});
+  if(matchMedia('(max-width:900px)').matches){c.style.left='';c.style.top='';c.classList.add('sheet');return}
+  c.classList.remove('sheet');
+  const cw=Math.min(360,innerWidth-32),ch=c.offsetHeight||200;
+  let top=r.bottom+16,left=Math.min(Math.max(16,r.left),innerWidth-cw-16);
+  if(top+ch>innerHeight-16)top=r.top-ch-16;
+  if(top<16){top=Math.min(innerHeight-ch-16,Math.max(16,r.top+16));left=r.right+16+cw<innerWidth?r.right+16:Math.max(16,r.left-cw-16)}
+  Object.assign(c.style,{left:left+'px',top:top+'px',width:cw+'px'});
+}
+function tourGo(d){TR.i=Math.max(0,Math.min(TR.steps.length-1,TR.i+d));tourShow()}
+function tourEnd(){TR.on=false;try{localStorage.setItem(TOUR_K,'1')}catch(e){}const ov=$('tourOv');if(ov){ov.classList.remove('on');setTimeout(()=>ov.remove(),250)}}
+window.addEventListener('resize',()=>{if(TR.on)tourPlace()});
+window.addEventListener('scroll',()=>{if(TR.on)tourPlace()},true);
+document.addEventListener('keydown',e=>{if(!TR.on)return;if(e.key==='Escape'){e.stopPropagation();tourEnd()}else if(e.key==='ArrowRight')tourGo(1);else if(e.key==='ArrowLeft')tourGo(-1)},true);
+/* "R nedir?" — the unit everything here is measured in */
+function rInfo(){
+  openDlg(t('r_what'),`<div style="padding-top:14px" class="rinfo-b"><p>${t('r_p1')}</p>
+    <div class="rex"><div><span>${t('r_ex_risk')}</span><b>$100</b></div><div><span>${t('r_ex_win')}</span><b class="pos">+$250 = +2,5R</b></div><div><span>${t('r_ex_loss')}</span><b class="neg">−$100 = −1R</b></div></div>
+    <p>${t('r_p2')}</p><p class="hint" style="margin-top:10px">${t('r_p3')}</p></div>`,`<button class="btn pri" onclick="closeDlg()">${t('ok_btn')}</button>`);
+}
+/* while sample trades are shown, say so plainly and offer the two next steps */
+function demoBar(){
+  if(window.RO||!['dash','trades','cal','rep'].includes(cv)||!trades.some(x=>x.demo))return '';
+  const own=trades.some(x=>!x.demo);
+  return `<div class="demobar"><span class="dbi">${ic('alert')}</span><div class="dbt"><b>${t('db_t')}</b><span>${t(own?'db_own':'db_d')}</span></div>
+   <div class="dba">${own?'':`<button class="btn sm pri" onclick="addMenu()">${t('db_add')}</button>`}<button class="btn sm${own?' pri':''}" onclick="demoRm()">${t('db_rm')}</button></div></div>`;
 }
 function demoRm(){trades=trades.filter(x=>!x.demo);PB=PB.filter(p=>!p.demo);saveTrades();savePB();render();toast(t('demo_removed'))}
 async function wipe(){
@@ -4109,6 +4335,7 @@ async function syConnect(){
   if(sel==='new'&&!other){
     const d={name:'MetaTrader '+SY.plat.slice(2)+' '+login,bal:0,cur:'USD',risk:1,eab:1,no:login,srv:server.slice(0,80)};
     if(blank)Object.assign(S.accounts[0],d);else S.accounts.push({id:acc,...d});
+    if(typeof welApply==='function')welApply(S.accounts.find(z=>z.id===acc));
     S=normS(S);saveS();render();
   }
   syMark(true);SY.links=null;
@@ -4519,18 +4746,22 @@ tr: {
   prop_k: 'Prop firm trader\'ları için', prop_h: 'Challenge\'dan funded\'a, her kural gözünün önünde.', prop_p: 'Prop firm hesaplarını kurallarıyla birlikte takip et. TradeLog limitine ne kadar kaldığını gösterir, yaklaşınca seni uyarır.',
   plist: [['shield', 'Kuralların her an önünde', 'Günlük kayıp, toplam kayıp ve kâr hedefini hesap başına gir; kalan tutarı panelde gör.'], ['alert', 'Limite yaklaşınca uyarı', 'Bir limitin %70\'ini kullandığında panel seni uyarır, limiti aşmadan durursun.'], ['layers', 'Her hesap ayrı', 'Challenge, funded ve kişisel hesaplar kendi bakiyesi ve kurallarıyla takip edilir. Kopyalanan işlemler birleşik görünümde bir kez sayılır.'], ['file', 'Payout ve para hareketleri', 'Rapordaki para yatırma ve çekmeler otomatik eklenir; bakiye rapordakiyle karşılaştırılır.']],
   prop_alert: 'Funded 100K: günlük kayıp limitinin %76\'sı kullanıldı. Kalan $1.200.', prop_img: 'TradeLog panelinde hesap kuralları kartı',
-  plat_h: 'MetaTrader ile bugün, diğerleri sırada.', plat_p: 'Raporunu yükle ya da işlemini elle gir. Elle kayıt her platformda çalışır.',
-  plats: [['MetaTrader 5', 'ok', 'HTML ve Excel raporu'], ['MetaTrader 4', 'ok', 'HTML raporu'], ['Match-Trader', 'next', 'Rapor içe aktarma'], ['cTrader', 'next', 'Rapor içe aktarma'], ['DXtrade', 'plan', 'Rapor içe aktarma'], ['TradeLocker', 'plan', 'Rapor içe aktarma']],
+  plat_h: 'MetaTrader ile bugün, diğerleri sırada.', plat_p: 'MT4/MT5 hesabını yatırımcı şifresiyle bağla (Pro) ya da raporunu yükle. Elle kayıt her platformda çalışır.',
+  plats: [['MetaTrader 5', 'ok', 'Otomatik bağlantı, HTML ve Excel raporu'], ['MetaTrader 4', 'ok', 'Otomatik bağlantı, HTML raporu'], ['Match-Trader', 'next', 'Rapor içe aktarma'], ['cTrader', 'next', 'Rapor içe aktarma'], ['DXtrade', 'plan', 'Rapor içe aktarma'], ['TradeLocker', 'plan', 'Rapor içe aktarma']],
   plat_st: { ok: 'Hazır', next: 'Sırada', plan: 'Planlandı' },
   home_aria: 'TradeLog ana sayfa', nav_aria: 'Ana menü', mnav_aria: 'Mobil menü', lang_aria: 'Dil',
   nav_feat: 'Özellikler', nav_how: 'Nasıl çalışır', nav_price: 'Fiyatlar', nav_faq: 'SSS', nav_open: 'Panele git',
   cta_start: 'Ücretsiz başla', tg_open: 'Telegram\'da aç', menu_open: 'Menüyü aç', menu_close: 'Menüyü kapat',
-  hero_new: 'YENİ', hero_eyebrow: 'Prop firm kuralların artık panelde',
+  hero_new: 'YENİ', hero_eyebrow: 'TradeLog AI ve otomatik MT4/MT5 bağlantısı geldi', nav_ai: 'TradeLog AI', trust4: 'Ana şifren hiç istenmez',
+  ai_k: 'TradeLog AI', ai_h: 'Verilerini okuyan bir koç.', ai_p: 'TradeLog AI işlemlerine, setup\'larına, hatalarına ve günlüğüne bakar. Neyin işe yaradığını sayılarla söyler; bir sonraki adımı birlikte netleştirirsiniz.',
+  ailist: [['chart', 'Sayılarla konuşur', 'Genel tavsiye değil: senin setup\'ların, günlerin ve hatalarınla, R cinsinden.'], ['shield', 'Sinyal vermez', 'Al-sat önerisi ya da fiyat tahmini yapmaz; sürecini ve disiplinini geliştirmene odaklanır.'], ['pen', 'Paneli tanır', 'Playbook\'una ne ekleyeceğini, hangi kuralı koyacağını, haftanı nasıl değerlendireceğini söyler.']],
+  ai_sub: '48 işlem · örnek veri', ai_q: 'Bu haftamı değerlendir', ai_ph: 'TradeLog AI\'ye sor…',
+  ai_a: '<p><b>En önemli nokta:</b> bu hafta <span class="neg">−1,9R</span>; kaybın neredeyse tamamı <i>erken giriş</i> hatasından geldi (<span class="neg">−2R</span>, 2 işlem).</p><ul><li>London Breakout yine çalıştı: 3 işlem, <span class="pos">+2,1R</span></li><li>Cuma günleri bu ay toplam <span class="neg">−1,8R</span></li></ul><p>Gelecek hafta: girişten önce kırılım mumunun kapanmasını bekle ve Cuma\'yı yarım riskle dene.</p>', ai_fol: ['Erken girişi nasıl bırakırım?', 'Cuma işlem yapmalı mıyım?'],
   hero_h1: 'Her işlemden<br>bir <em>ders</em> çıkar.',
-  hero_lead: 'İşlemini telefondan 15 saniyede kaydet ya da MT4/MT5 raporunu yükle. TradeLog neyin işe yarayıp neyin yaramadığını R cinsinden, sade bir dille gösterir.',
+  hero_lead: 'MT4/MT5 hesabını bağla, raporunu yükle ya da işlemini 15 saniyede elle gir. TradeLog neyin işe yarayıp neyin yaramadığını R cinsinden gösterir; TradeLog AI da verilerine bakıp bir sonraki adımını söyler.',
   trust1: 'Kredi kartı gerekmez', trust2: 'Ücretsiz plan süresiz', trust3: 'Türkçe ve İngilizce',
   float_t: 'Günlük kayıp limiti', float_pct: '%72', float_s: 'Funded 100K · Kalan $1.400',
-  strip1: '<b>MT4 ve MT5</b> raporu (HTML, Excel)', strip2: '<b>Haftalık özet</b> ve öneriler', strip3: '<b>Prop firm</b> kural takibi', strip4: '<b>Çoklu hesap</b>, tek panel',
+  strip1: '<b>MT4/MT5</b> otomatik bağlantı ve rapor', strip2: '<b>Haftalık özet</b> ve öneriler', strip3: '<b>Prop firm</b> kural takibi', strip4: '<b>Çoklu hesap</b>, tek panel',
   how_h: 'İlk raporundan ilk içgörüne üç adım.', how_p: 'Kurulum bir dakika sürer. Sonrası işlem başına 15 saniye ya da haftada bir rapor.',
   feat_h: 'Profesyonellerin baktığı her şey, tek ekranda.', feat_p: 'Kartların üzerinde gezin, tıkla, dene. Hepsi ücretsiz planda var.',
   score_h: 'TradeLog puanı', score_lbl: '/ 100 · İyi', score_p: 'Kazanma, kâr oranı, beklenti, düşüş, tutarlılık ve plan uyumundan tek bir not.',
@@ -4539,7 +4770,7 @@ tr: {
   emo_v1: '+0,8R', emo_v2: '−0,2R', emo_v3: '−0,6R', emo_v4: '−1,1R',
   acc_h: 'Çoklu hesap', acc_personal: 'Kişisel', acc_p: 'Kopyalanan işlemler birleşik görünümde bir kez sayılır.', acc_v1: '+18,4R', acc_v2: '+6,1R', acc_v3: '−2,3R',
   wk_h: 'Haftalık özet', wk_p: 'Her hafta net sonucun, en iyi ve en kötü işlemin ve gelecek hafta için 1-3 öneri. Kopyala, mentoruna gönder.', wk_btn: 'Panelde gör', hero_how: 'Nasıl çalışır',
-  price_h: 'Ücretsiz plan gerçekten ücretsiz.', price_p: 'İşlem sınırı yok, bütün raporlar ve analizler ücretsiz. Pro; otomatik senkron, daha fazla hesap ve AI koç getirecek.',
+  price_h: 'Ücretsiz plan gerçekten ücretsiz.', price_p: 'İşlem sınırı yok, bütün raporlar ve analizler ücretsiz. Pro; otomatik MT4/MT5 bağlantısı, TradeLog AI ve daha fazla hesap getirir.',
   plan_free: 'Ücretsiz', plan_free_d: 'Günlük tutmak isteyen herkes için. Kart gerekmez.', plan_forever: 'süresiz',
   feat_free: ['Sınırsız işlem: elle ya da MT4/MT5 raporuyla', 'Tüm raporlar, puan ve içgörüler', 'Haftalık özet ve gelecek hafta için öneriler', 'Takvim, günlük ve playbook', 'Prop firm kuralları ve uyarılar', 'İşlemlere ekran görüntüsü ekleme', '2 aktif hesap (Pro açılana kadar sınırsız)', 'Hesabınla her cihazda aynı veri', 'İşlem ve haftalık özet paylaşım linki'],
   soon: 'Yakında', plan_pro_d: 'İşlem girmekle uğraşmak istemeyen ve birden çok hesap yöneten trader\'lar için.', pro_btn: 'Yakında açılacak',
@@ -4641,18 +4872,22 @@ en: {
   prop_k: 'For prop firm traders', prop_h: 'From challenge to funded, every rule in view.', prop_p: 'Track your prop firm accounts together with their rules. TradeLog shows how much room you have left and warns you as you get close.',
   plist: [['shield', 'Your rules, always in view', 'Enter the daily loss, max loss and profit target per account and see what is left on your dashboard.'], ['alert', 'A warning before the limit', 'When you have used 70% of a limit, the dashboard warns you so you can stop in time.'], ['layers', 'Every account on its own', 'Challenge, funded and personal accounts are tracked with their own balance and rules. Copied trades count once in the combined view.'], ['file', 'Payouts and cash movements', 'Deposits and withdrawals in your report are added automatically and the balance is checked against the report.']],
   prop_alert: 'Funded 100K: 76% of the daily loss limit used. $1,200 left.', prop_img: 'Account rules card on the TradeLog dashboard',
-  plat_h: 'MetaTrader today, more on the way.', plat_p: 'Upload your report or log trades by hand. Manual logging works with any platform.',
-  plats: [['MetaTrader 5', 'ok', 'HTML and Excel reports'], ['MetaTrader 4', 'ok', 'HTML reports'], ['Match-Trader', 'next', 'Report import'], ['cTrader', 'next', 'Report import'], ['DXtrade', 'plan', 'Report import'], ['TradeLocker', 'plan', 'Report import']],
+  plat_h: 'MetaTrader today, more on the way.', plat_p: 'Connect your MT4/MT5 account with its investor password (Pro) or upload your report. Manual logging works with any platform.',
+  plats: [['MetaTrader 5', 'ok', 'Automatic connection, HTML and Excel reports'], ['MetaTrader 4', 'ok', 'Automatic connection, HTML reports'], ['Match-Trader', 'next', 'Report import'], ['cTrader', 'next', 'Report import'], ['DXtrade', 'plan', 'Report import'], ['TradeLocker', 'plan', 'Report import']],
   plat_st: { ok: 'Available', next: 'Next', plan: 'Planned' },
   home_aria: 'TradeLog home', nav_aria: 'Main menu', mnav_aria: 'Mobile menu', lang_aria: 'Language',
   nav_feat: 'Features', nav_how: 'How it works', nav_price: 'Pricing', nav_faq: 'FAQ', nav_open: 'Open app',
   cta_start: 'Start free', tg_open: 'Open in Telegram', menu_open: 'Open menu', menu_close: 'Close menu',
-  hero_new: 'NEW', hero_eyebrow: 'Prop firm rules are now on your dashboard',
+  hero_new: 'NEW', hero_eyebrow: 'TradeLog AI and automatic MT4/MT5 connection are here', nav_ai: 'TradeLog AI', trust4: 'Never asks for your master password',
+  ai_k: 'TradeLog AI', ai_h: 'A coach that reads your data.', ai_p: 'TradeLog AI looks at your trades, setups, mistakes and journal. It tells you with numbers what works, and you pin down your next step together.',
+  ailist: [['chart', 'Talks in numbers', 'Not generic advice: your setups, your days and your mistakes, in R.'], ['shield', 'No signals', 'No buy/sell calls or price forecasts; it focuses on improving your process and discipline.'], ['pen', 'Knows the app', 'Tells you what to add to your Playbook, which rule to set and how to review your week.']],
+  ai_sub: '48 trades · sample data', ai_q: 'Review my week', ai_ph: 'Ask TradeLog AI…',
+  ai_a: '<p><b>The key point:</b> this week was <span class="neg">−1.9R</span>, and almost all of it came from <i>early entries</i> (<span class="neg">−2R</span>, 2 trades).</p><ul><li>London Breakout worked again: 3 trades, <span class="pos">+2.1R</span></li><li>Fridays are <span class="neg">−1.8R</span> this month</li></ul><p>Next week: wait for the breakout candle to close before entering, and try Fridays at half risk.</p>', ai_fol: ['How do I stop entering early?', 'Should I trade on Fridays?'],
   hero_h1: 'Learn something<br>from <em>every</em> trade.',
-  hero_lead: 'Log a trade from your phone in 15 seconds or upload your MT4/MT5 report. TradeLog shows what works and what doesn\'t, in R and in plain words.',
+  hero_lead: 'Connect your MT4/MT5 account, upload your report or log a trade by hand in 15 seconds. TradeLog shows what works and what doesn\'t in R, and TradeLog AI reads your data and tells you your next step.',
   trust1: 'No credit card', trust2: 'Free plan, no time limit', trust3: 'English and Turkish',
   float_t: 'Daily loss limit', float_pct: '72%', float_s: 'Funded 100K · $1,400 left',
-  strip1: '<b>MT4 and MT5</b> reports (HTML, Excel)', strip2: '<b>Weekly recap</b> with suggestions', strip3: '<b>Prop firm</b> rule tracking', strip4: '<b>Multiple accounts</b>, one dashboard',
+  strip1: '<b>MT4/MT5</b> automatic connection and reports', strip2: '<b>Weekly recap</b> with suggestions', strip3: '<b>Prop firm</b> rule tracking', strip4: '<b>Multiple accounts</b>, one dashboard',
   how_h: 'Three steps from your first report to your first insight.', how_p: 'Setup takes a minute. After that it is 15 seconds per trade or one report a week.',
   feat_h: 'Everything a pro looks at, on one screen.', feat_p: 'Hover, click and try the cards. All of it is in the free plan.',
   score_h: 'TradeLog score', score_lbl: '/ 100 · Good', score_p: 'One grade from win rate, profit factor, expectancy, drawdown, consistency and plan adherence.',
@@ -4661,7 +4896,7 @@ en: {
   emo_v1: '+0.8R', emo_v2: '−0.2R', emo_v3: '−0.6R', emo_v4: '−1.1R',
   acc_h: 'Multiple accounts', acc_personal: 'Personal', acc_p: 'Copied trades are counted once in the combined view.', acc_v1: '+18.4R', acc_v2: '+6.1R', acc_v3: '−2.3R',
   wk_h: 'Weekly recap', wk_p: 'Every week: your net result, best and worst trade, and 1-3 suggestions for next week. Copy it and send it to your mentor.', wk_btn: 'See it in the app', hero_how: 'How it works',
-  price_h: 'A free plan that is actually free.', price_p: 'No trade limit, and every report and analysis is free. Pro will add automatic sync, more accounts and an AI coach.',
+  price_h: 'A free plan that is actually free.', price_p: 'No trade limit, and every report and analysis is free. Pro adds automatic MT4/MT5 connection, TradeLog AI and more accounts.',
   plan_free: 'Free', plan_free_d: 'For everyone who wants to keep a journal. No card needed.', plan_forever: 'forever',
   feat_free: ['Unlimited trades, logged by hand or from MT4/MT5 reports', 'All reports, score and insights', 'Weekly recap with suggestions for next week', 'Calendar, journal and playbooks', 'Prop firm rules and alerts', 'Screenshots on your trades', '2 active accounts (unlimited until Pro opens)', 'The same data on every device with your account', 'Share links for trades and weekly recaps'],
   soon: 'Coming soon', plan_pro_d: 'For traders who don\'t want to log trades by hand and run several accounts.', pro_btn: 'Opening soon',
@@ -4791,6 +5026,11 @@ function renderTour() {
   img.alt = cur[1] + ': ' + cur[2];
   $('#tcap').textContent = cur[2];
 }
+function renderAISec() {
+  $('#ailist').innerHTML = s('ailist').map(([i, h, d]) => `<li><span class="pi">${ic(i)}</span><span><b>${h}</b><span>${d}</span></span></li>`).join('');
+  $('#aians').innerHTML = s('ai_a');
+  $('#aifol').innerHTML = s('ai_fol').map(x => `<span>${x}</span>`).join('');
+}
 function renderPropSec() {
   $('#plist').innerHTML = s('plist').map(([i, h, d]) => `<li><span class="pi">${ic(i)}</span><span><b>${h}</b><span>${d}</span></span></li>`).join('');
   const im = TOUR_IMG[LG()] || {}, img = $('#pimg');
@@ -4911,7 +5151,7 @@ function applyLang() {
   if (typeof sbNavLabel === 'function') sbNavLabel(s('nav_open'));
   $$('[data-a="lang"]', SITE).forEach(b => { const on = b.dataset.v === lg; b.classList.toggle('on', on); b.setAttribute('aria-pressed', on); });
   setMenu(S.menu);
-  renderFeat(); renderDemo(); renderTour(); renderSteps(); renderProp(); renderPB(); renderCal(); renderPropSec(); renderPlats(); renderCmp(); renderFaq(); renderPage();
+  renderFeat(); renderDemo(); renderTour(); renderSteps(); renderProp(); renderPB(); renderCal(); renderPropSec(); renderAISec(); renderPlats(); renderCmp(); renderFaq(); renderPage();
 }
 function setSiteLang(v) {
   if (typeof setLang === 'function') setLang(v); /* uygulamayla aynı ayarı kullanır */
