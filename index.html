@@ -629,29 +629,80 @@ body.ro .addbtn,body.ro .fab,body.ro #sideActs,body.ro .proside{display:none}
 .ap .syimp b{font-size:14px}
 .ap .syimp .hint{margin-top:2px}
 .ap .sylnk{font-size:13px;color:var(--br);text-decoration:underline;text-underline-offset:3px;padding:0}
-.ap .coach{display:flex;flex-direction:column;gap:12px;padding-top:14px}
-.ap .cobox{min-height:200px;max-height:min(44vh,460px);overflow-y:auto;display:flex;flex-direction:column;gap:10px;padding:2px}
-.ap .cointro{display:flex;gap:12px;align-items:flex-start;padding:14px;border:1px solid var(--ln);border-radius:14px;background:var(--sf2)}
-.ap .cointro p{font-size:14.5px;color:var(--ink2);line-height:1.55}
-.ap .cmsg{max-width:88%;padding:10px 14px;border-radius:14px;font-size:14.5px;line-height:1.55}
-.ap .cmsg.u{align-self:flex-end;background:var(--ink);color:var(--sf);border-bottom-right-radius:4px;white-space:pre-wrap}
-.ap .cmsg.a{align-self:flex-start;background:var(--sf2);border:1px solid var(--ln);border-bottom-left-radius:4px;color:var(--ink)}
-.ap .cmsg.a p+p,.ap .cmsg.a ul+p,.ap .cmsg.a p+ul{margin-top:8px}
-.ap .cmsg.a ul,.ap .cmsg.a ol{padding-left:20px}
-.ap .cmsg.a p+ol,.ap .cmsg.a ol+p{margin-top:8px}
-.ap .cmsg.a li{margin:3px 0}
-.ap .cmsg.e{align-self:center;background:var(--losss);color:var(--loss);font-size:13.5px}
-.ap .cmsg.typing{display:flex;gap:5px;padding:14px 16px}
-.ap .cmsg.typing i{width:7px;height:7px;border-radius:50%;background:var(--ink3);animation:cotype 1s infinite}
-.ap .cmsg.typing i:nth-child(2){animation-delay:.15s}
-.ap .cmsg.typing i:nth-child(3){animation-delay:.3s}
-@keyframes cotype{50%{opacity:.25;transform:translateY(-2px)}}
-.ap .cochips{display:flex;gap:6px;overflow-x:auto;padding-bottom:2px;scrollbar-width:none}
-.ap .cochips .chip{white-space:nowrap;flex:none}
-.ap .coin{display:flex;gap:8px;align-items:flex-end}
-.ap .coin textarea{flex:1;min-height:46px;max-height:140px;resize:vertical}
-.ap .coin .btn{min-height:46px}
-.ap .coft{font-size:12px}
+.ap .aip{position:fixed;top:0;right:0;bottom:0;width:min(440px,100vw);z-index:45;background:var(--sf);border-left:1px solid var(--ln);display:flex;flex-direction:column;
+ transform:translateX(102%);transition:transform .32s cubic-bezier(.2,.8,.2,1),box-shadow .32s;visibility:hidden}
+.ap .aip.on{transform:none;visibility:visible;box-shadow:-24px 0 60px -20px rgba(0,1,0,.35)}
+body.aion .main{padding-right:472px;transition:padding .32s}
+@media (max-width:1180px){body.aion .main{padding-right:0}}
+.ap .aiph{display:flex;align-items:center;gap:10px;padding:14px 12px 14px 18px;border-bottom:1px solid var(--ln2)}
+.ap .aipt{flex:1;min-width:0;display:flex;flex-direction:column;line-height:1.25}
+.ap .aipt b{font-family:var(--fd);font-size:16px;letter-spacing:-.01em}
+.ap .aipt small{font-size:12px;color:var(--ink3);overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.ap .aiib{width:34px;height:34px;border-radius:10px;display:grid;place-items:center;color:var(--ink2)}
+.ap .aiib:hover{background:var(--sf2);color:var(--ink)}
+.ap .aiib svg,.ap .aisend svg,.ap .aiidea svg{width:18px;height:18px;fill:none;stroke:currentColor;stroke-width:2;stroke-linecap:round;stroke-linejoin:round}
+.ap .aimk{width:32px;height:32px;flex:none;display:inline-block}
+.ap .aimk svg{width:100%;height:100%;display:block}
+.ap .aimk .bg{fill:#94C5CC}
+.ap .aimk rect:not(.bg){fill:#000100;transform-box:fill-box;transform-origin:50% 100%}
+.ap .aimk.think .b1{animation:aibar .9s ease-in-out infinite}
+.ap .aimk.think .b2{animation:aibar .9s ease-in-out .15s infinite}
+.ap .aimk.think .b3{animation:aibar .9s ease-in-out .3s infinite}
+@keyframes aibar{0%,100%{transform:scaleY(1)}50%{transform:scaleY(.35)}}
+.ap .aimk.big{width:52px;height:52px}
+.ap .aipm{flex:1;overflow-y:auto;padding:18px 18px 8px;display:flex;flex-direction:column;gap:18px;overscroll-behavior:contain}
+.ap .aihello{padding:18px 4px 6px}
+.ap .aihello h3{font-family:var(--fd);font-size:22px;letter-spacing:-.02em;margin-top:14px}
+.ap .aihello p{color:var(--ink2);font-size:14.5px;line-height:1.55;margin-top:6px}
+.ap .aiideas{display:flex;flex-direction:column;gap:8px}
+.ap .aiideas>small{font-size:12px;font-weight:600;color:var(--ink3);text-transform:uppercase;letter-spacing:.06em;margin:6px 4px 2px}
+.ap .aiidea{display:grid;grid-template-columns:1fr auto;align-items:center;gap:2px 10px;text-align:left;padding:12px 14px;border:1px solid var(--ln);border-radius:14px;transition:border-color .15s,background .15s,transform .15s}
+.ap .aiidea:hover{border-color:var(--br);background:var(--brs)}
+.ap .aiidea:active{transform:scale(.99)}
+.ap .aiidea svg{grid-row:1/3;grid-column:2;color:var(--ink3)}
+.ap .aiik{display:flex;gap:8px;align-items:baseline;font-size:12px;color:var(--ink3);min-width:0}
+.ap .aiik span{overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.ap .aiiq{font-size:14px;font-weight:500;color:var(--ink);line-height:1.4}
+.ap .air{font-family:var(--fn);font-weight:600;white-space:nowrap}
+.ap .air.p{color:var(--win)}
+.ap .air.n{color:var(--loss)}
+.ap .aim{display:flex;gap:10px;align-items:flex-start;animation:aiin .25s ease-out}
+@keyframes aiin{from{opacity:0;transform:translateY(4px)}}
+.ap .aim.u{justify-content:flex-end}
+.ap .aim.u>div{max-width:85%;background:var(--sf2);border:1px solid var(--ln);padding:9px 13px;border-radius:16px 16px 4px 16px;font-size:14.5px;line-height:1.5;white-space:pre-wrap;word-break:break-word}
+.ap .aim.a .aimk{width:26px;height:26px;margin-top:1px}
+.ap .aimb{flex:1;min-width:0;font-size:14.5px;line-height:1.6;color:var(--ink)}
+.ap .aimb p+p,.ap .aimb p+ul,.ap .aimb p+ol,.ap .aimb ul+p,.ap .aimb ol+p{margin-top:8px}
+.ap .aimb ul,.ap .aimb ol{padding-left:20px}
+.ap .aimb li{margin:3px 0}
+.ap .aimb li::marker{color:var(--ink3)}
+.ap .aim.e{align-self:center;font-size:13px;color:var(--loss);background:var(--losss);padding:8px 12px;border-radius:10px}
+.ap .aicur{display:inline-block;width:7px;height:15px;background:var(--br);border-radius:2px;vertical-align:-2px;margin-left:2px;animation:aiblink 1s steps(2) infinite}
+@keyframes aiblink{50%{opacity:0}}
+.ap .aidots{display:inline-flex;gap:5px;padding:8px 0}
+.ap .aidots i{width:6px;height:6px;border-radius:50%;background:var(--ink3);animation:aidot 1s infinite}
+.ap .aidots i:nth-child(2){animation-delay:.15s}
+.ap .aidots i:nth-child(3){animation-delay:.3s}
+@keyframes aidot{50%{opacity:.25;transform:translateY(-2px)}}
+.ap .aiacts{margin-top:6px;opacity:0;transition:opacity .15s}
+.ap .aim.a:hover .aiacts{opacity:1}
+.ap .aiacts button{font-size:12px;color:var(--ink3);padding:2px 0}
+.ap .aiacts button:hover{color:var(--ink)}
+.ap .aifol{display:flex;flex-wrap:wrap;gap:6px;margin-top:12px}
+.ap .aifol button{font-size:13px;padding:7px 12px;border-radius:99px;border:1px solid var(--ln);color:var(--ink2);text-align:left;transition:border-color .15s,color .15s}
+.ap .aifol button:hover{border-color:var(--br);color:var(--ink)}
+.ap .aipc{padding:10px 14px 14px;border-top:1px solid var(--ln2)}
+.ap .aicomp{display:flex;align-items:flex-end;gap:8px;border:1px solid var(--ln);border-radius:20px;padding:6px 6px 6px 14px;background:var(--sf);transition:border-color .15s,box-shadow .15s}
+.ap .aicomp:focus-within{border-color:var(--br);box-shadow:0 0 0 3px var(--brs)}
+.ap .aicomp textarea{flex:1;border:0;outline:0;background:none;resize:none;font:inherit;font-size:14.5px;line-height:1.45;color:var(--ink);padding:7px 0;max-height:160px}
+.ap .aisend{width:36px;height:36px;border-radius:50%;background:var(--ink);color:var(--sf);display:grid;place-items:center;flex:none;transition:opacity .15s}
+.ap .aisend:disabled{opacity:.35}
+.ap .aift{font-size:11.5px;color:var(--ink3);margin-top:8px;text-align:center}
+@media (max-width:900px){.ap .aip{width:100vw;border-left:0;transform:translateY(100%);padding-bottom:env(safe-area-inset-bottom)}
+.ap .aip.on{transform:none;box-shadow:none}
+body.aion{overflow:hidden}
+.ap .aiacts{opacity:1}}
+.ap .aiside .aimk{width:26px;height:26px}
 .site{color-scheme:dark;--win:#4ADE80;--bg:#000100;--bg2:#08090B;--card:#111317;--card2:#1B1E24;--line:rgba(148,197,204,.13);--line2:rgba(148,197,204,.28);--tx:#F8F8F8;--mu:#A1A6B4;--lime:#94C5CC;--sage:#B4D2E7;--olive:#5E8D94;--loss:#F87171;--disp:'Bricolage Grotesque',system-ui,sans-serif;--body:'Inter',system-ui,sans-serif;--mono:'JetBrains Mono',ui-monospace,monospace}
 .site *{box-sizing:border-box}
 html{scroll-behavior:smooth;-webkit-text-size-adjust:100%}
@@ -1244,6 +1295,8 @@ html{scroll-behavior:smooth;-webkit-text-size-adjust:100%}
   <nav class="tabbar" id="tabBar" aria-label="Alt menü"></nav>
 </div>
 
+<aside class="aip" id="aiP" aria-hidden="true" aria-label="TradeLog AI"></aside>
+
 <div class="ov" id="formOv"><div class="md" role="dialog" aria-modal="true" aria-labelledby="fTitle">
   <div class="mh"><h2 id="fTitle"></h2><button class="xb" onclick="closeForm()" aria-label="Kapat">×</button></div>
   <div class="mb" id="fBody"></div>
@@ -1267,11 +1320,11 @@ html{scroll-behavior:smooth;-webkit-text-size-adjust:100%}
 /* ================= i18n ================= */
 const T={tr:{
 mt_e_gone:'Bu hesaba erişimin kaldırılmış.',mt_invite:'Davet et',mt_ph:'mentor@ornek.com',mt_h:'Mentorun, gönderdiğin linki açıp bu e-postayla giriş yaptığında hesabını görebilir; hiçbir şeyi değiştiremez.',mt_pending:'Bekliyor',mt_active:'Aktif',mt_copy:'Daveti kopyala',mt_remove:'Kaldır',mt_remove_c:'{e} artık hesabını göremeyecek. Emin misin?',mt_inv_t:'Davet hazır',mt_inv_p:'Bu mesajı mentoruna ({e}) WhatsApp ya da e-postayla gönder. Linki açıp bu e-postayla giriş yapınca hesabını görebilecek.',mt_msg:'Merhaba! TradeLog\'da işlemlerimi görebilmen için seni mentor olarak ekledim. Bu linki aç ve {e} adresiyle giriş yap (hesabın yoksa ücretsiz kayıt ol): {l}',mt_e_dup:'Bu kişiyi zaten davet ettin.',mt_e_lim:'En fazla 5 mentor ekleyebilirsin.',mt_e_self:'Kendini mentor olarak ekleyemezsin.',mt_students:'Mentor olduğun hesaplar',mt_view:'Görüntüle',mt_leave:'Ayrıl',mt_leave_c:'{e} hesabından ayrılmak istiyor musun? Bir daha görmek için yeni davet gerekir.',mt_need_login:'Mentor davetini kabul etmek için davet edilen e-postayla giriş yap ya da kayıt ol.',mt_ok:'{e} hesabının mentoru oldun.',mt_e_email:'Bu davet {e} adresine gönderilmiş. O adresle giriş yapman gerekiyor.',mt_e_nf:'Bu davet linki geçersiz ya da kaldırılmış.',mt_viewing:'{e} hesabını görüntülüyorsun · salt okunur',mt_back:'Kendi hesabıma dön',mt_ro:'Bu hesap salt okunur; değişiklik yapamazsın.',mt_loading:'Yükleniyor…',mt_none:'Henüz mentor eklemedin.',
-soon_l:'Yakında',pro_title:'TradeLog Pro',plan_pro:'Pro',plan_trial:'Pro deneme · {n} gün kaldı',pro_see:'Pro\'yu incele',pro_trial:'Pro açıldığında 14 gün ücretsiz deneyebileceksin, kart gerekmeyecek.',pro_wait:'Pro açılınca haber ver',pro_waited:'Listedesin',pro_wait_ok:'Listeye eklendin. Pro açılınca sana e-posta göndereceğiz.',pro_wait_login:'Haber almak için önce hesabınla giriş yap.',pro_side_t:'TradeLog Pro',pro_side_s:'Otomatik senkron, AI koç ve daha fazlası',ai_ask:'AI koça sor',mentor_t:'Mentor erişimi',mentor_p:'Mentoruna ya da arkadaşına hesabını salt okunur aç; işlemlerini, notlarını ve raporlarını görsün, sana yol göstersin.',mentor_add:'Mentor ekle',
-pro_f_sync:'MT4/MT5 otomatik senkron',pro_f_accounts:'20 aktif hesap, hepsi tek panelde',pro_f_ai:'AI koç: yorum ve soru-cevap',pro_f_shots:'İşlem başına 10 ekran görüntüsü',pro_f_mentor:'Mentoruna salt okunur erişim',
+soon_l:'Yakında',pro_title:'TradeLog Pro',plan_pro:'Pro',plan_trial:'Pro deneme · {n} gün kaldı',pro_see:'Pro\'yu incele',pro_trial:'Pro açıldığında 14 gün ücretsiz deneyebileceksin, kart gerekmeyecek.',pro_wait:'Pro açılınca haber ver',pro_waited:'Listedesin',pro_wait_ok:'Listeye eklendin. Pro açılınca sana e-posta göndereceğiz.',pro_wait_login:'Haber almak için önce hesabınla giriş yap.',pro_side_t:'TradeLog Pro',pro_side_s:'Otomatik senkron, AI koç ve daha fazlası',ai_ask:'TradeLog AI\'ye sor',mentor_t:'Mentor erişimi',mentor_p:'Mentoruna ya da arkadaşına hesabını salt okunur aç; işlemlerini, notlarını ve raporlarını görsün, sana yol göstersin.',mentor_add:'Mentor ekle',
+pro_f_sync:'MT4/MT5 otomatik senkron',pro_f_accounts:'20 aktif hesap, hepsi tek panelde',pro_f_ai:'TradeLog AI: yorum ve soru-cevap',pro_f_shots:'İşlem başına 10 ekran görüntüsü',pro_f_mentor:'Mentoruna salt okunur erişim',
 pro_h_sync:'İşlemlerin kendiliğinden gelsin',pro_p_sync:'MT4/MT5 hesabını bir kez bağla; kapanan işlemler, bakiye ve para hareketleri otomatik eklensin. Rapor yüklemeye gerek kalmaz.',
 pro_h_accounts:'Bütün hesapların tek panelde',pro_p_accounts:'Ücretsiz planda 2 aktif hesap var. Pro ile 20 hesaba kadar challenge, funded ve kişisel hesaplarını birlikte takip et.',
-pro_h_ai:'Verilerini okuyan bir koç',pro_p_ai:'AI koç işlemlerine, notlarına ve duygularına bakar; neyi sürdürmen, neyi bırakman gerektiğini söyler ve sorularını cevaplar.',
+pro_h_ai:'Verilerini okuyan bir koç',pro_p_ai:'TradeLog AI işlemlerine, notlarına ve duygularına bakar; neyi sürdürmen, neyi bırakman gerektiğini söyler ve sorularını cevaplar.',
 pro_h_shots:'Her işleme 10 ekran görüntüsü',pro_p_shots:'Giriş, yönetim ve çıkış grafiklerini aynı işlemde sakla.',
 pro_h_mentor:'Mentorunla birlikte çalış',pro_p_mentor:'Mentoruna hesabını salt okunur aç; işlemlerini, notlarını ve raporlarını görsün.',
 pro_h_gen:'Daha az kayıt, daha çok içgörü',pro_p_gen:'Pro; işlemlerini MT4/MT5\'ten kendiliğinden getirir, birden çok hesabı tek yerden yönetmeni ve verilerini bir koçla yorumlamanı sağlar.',
@@ -1421,18 +1474,19 @@ sy_err:'Bir şeyler ters gitti. İnternetini kontrol edip tekrar dene.',sy_login
 sy_rm_c:'Bu bağlantı kaldırılsın mı? İşlemler artık otomatik gelmez. Gelmiş işlemlerin silinmez.',sy_rm_ok:'Bağlantı kaldırıldı',sy_got:'MetaTrader\'dan {n} yeni işlem geldi',sy_got_u:'MetaTrader\'dan {n} işlem eşleşti',sy_got_c:'MetaTrader\'dan {n} para hareketi geldi',sy_ok_none:'Senkron tamam, yeni işlem yok',
 sy_auto_bal:'MetaTrader bakiyesinden hesaplanıyor',sy_manage:'Otomatik senkron',sy_manage_d:'MT4/MT5 hesabını yatırımcı şifresiyle bağla, işlemlerin kendiliğinden gelsin.',sy_open:'Hesabı bağla',
 sy_now:'az önce',sy_min:'{n} dk önce',sy_hour:'{n} sa önce',sy_day:'{n} gün önce',sy_imp:'Her seferinde rapor yüklemek istemiyor musun?',
-co_title:'AI Koç',co_side:'Verilerine bakıp yorum yapar',co_intro:'Merhaba! İşlemlerine, setup\'larına, hatalarına ve günlüğüne bakıp sana yorum yapabilirim. Aşağıdan hazır bir soru seç ya da kendin sor. Al-sat sinyali vermem; sürecini geliştirmene yardım ederim.',
+co_title:'TradeLog AI',co_side:'Verilerini okuyan koçun',co_hi:'Merhaba, ben TradeLog AI.',co_hi_p:'Günlüğünü, işlemlerini ve hatalarını okuyorum. Neyin işe yaradığını sayılarla söyler, bir sonraki adımı birlikte netleştiririz.',
+co_ideas:'Senin için fark ettiklerim',co_i_week:'Bu hafta',co_q_mis_x:'“{k}” bana {r} kaybettirmiş. Bunu nasıl önlerim?',co_q_set_x:'{k} en iyi setup\'ım mı? Ona daha mı çok odaklanmalıyım?',co_q_day_x:'{k} günleri neden kötü gidiyor?',
 co_q_week:'Bu haftamı değerlendir',co_q_mistake:'En pahalı hatam ne?',co_q_setup:'Hangi setup\'ım gerçekten işe yarıyor?',co_q_risk:'Risk yönetimim nasıl?',co_q_emo:'Duygularım sonuçlarımı nasıl etkiliyor?',co_q_next:'Gelecek hafta neye odaklanmalıyım?',
-co_ph:'Koçuna bir soru sor…',co_send:'Gönder',co_clear:'Sohbeti temizle',co_left:'Bugün {n} soru hakkın kaldı.',co_note:'Cevaplar sadece senin verilerine dayanır; yatırım tavsiyesi değildir. Sohbet sadece bu cihazda saklanır.',
-co_login:'AI koç için önce giriş yap',co_err:'Cevap alınamadı. İnternetini kontrol edip tekrar dene.',co_e_limit:'Bugünkü {n} soru hakkını kullandın. Yarın tekrar sorabilirsin.',co_e_config:'AI koç henüz ayarlanmadı.',co_e_busy:'AI koç şu an çok yoğun. Birkaç dakika sonra tekrar dene.',co_e_input:'Soru çok uzun, biraz kısaltıp tekrar dene.',
+co_ph:'TradeLog AI\'ye sor…',co_send:'Gönder',co_new:'Yeni sohbet',co_left:'{n} soru kaldı · ',co_note:'Sadece senin verilerine bakar, yatırım tavsiyesi değildir.',co_sub:'{n} işlem · {v}',co_thinking:'Verilerine bakıyor…',
+co_login:'TradeLog AI için önce giriş yap',co_err:'Cevap alınamadı. İnternetini kontrol edip tekrar dene.',co_e_limit:'Bugünkü {n} soru hakkını kullandın. Yarın yine buradayım.',co_e_config:'TradeLog AI henüz ayarlanmadı.',co_e_busy:'Şu an çok yoğunum, birkaç dakika sonra tekrar dene.',co_e_input:'Soru çok uzun, biraz kısaltıp tekrar dene.',
 mis_off_plan:'Plan dışı işlem',mis_revenge:'Revenge trade',mis_fomo:'FOMO',mis_oversize:'Risk büyüttüm',mis_overtrading:'Aşırı işlem'},
 en:{
 mt_e_gone:'Your access to this account was removed.',mt_invite:'Invite',mt_ph:'mentor@example.com',mt_h:'Your mentor can see your account after opening the link you send and signing in with this email. They can\'t change anything.',mt_pending:'Pending',mt_active:'Active',mt_copy:'Copy invite',mt_remove:'Remove',mt_remove_c:'{e} will no longer see your account. Are you sure?',mt_inv_t:'Invite ready',mt_inv_p:'Send this message to your mentor ({e}) by WhatsApp or email. Once they open the link and sign in with this email, they can see your account.',mt_msg:'Hi! I added you as my mentor on TradeLog so you can see my trades. Open this link and sign in with {e} (sign up free if you don\'t have an account): {l}',mt_e_dup:'You already invited this person.',mt_e_lim:'You can add up to 5 mentors.',mt_e_self:'You can\'t add yourself as a mentor.',mt_students:'Accounts you mentor',mt_view:'View',mt_leave:'Leave',mt_leave_c:'Leave {e}\'s account? You\'ll need a new invite to see it again.',mt_need_login:'To accept the mentor invite, sign in or sign up with the email that was invited.',mt_ok:'You are now {e}\'s mentor.',mt_e_email:'This invite was sent to {e}. Sign in with that address.',mt_e_nf:'This invite link is invalid or was removed.',mt_viewing:'Viewing {e}\'s account · read-only',mt_back:'Back to my account',mt_ro:'This account is read-only; you can\'t make changes.',mt_loading:'Loading…',mt_none:'You haven\'t added a mentor yet.',
-soon_l:'Coming soon',pro_title:'TradeLog Pro',plan_pro:'Pro',plan_trial:'Pro trial · {n} {n|day|days} left',pro_see:'See Pro',pro_trial:'When Pro opens you\'ll be able to try it free for 14 days, no card needed.',pro_wait:'Tell me when Pro opens',pro_waited:'You\'re on the list',pro_wait_ok:'You\'re on the list. We\'ll email you when Pro opens.',pro_wait_login:'Sign in to your account first to get notified.',pro_side_t:'TradeLog Pro',pro_side_s:'Auto sync, AI coach and more',ai_ask:'Ask the AI coach',mentor_t:'Mentor access',mentor_p:'Give your mentor or a friend read-only access so they can see your trades, notes and reports and guide you.',mentor_add:'Add a mentor',
-pro_f_sync:'Automatic MT4/MT5 sync',pro_f_accounts:'20 active accounts on one dashboard',pro_f_ai:'AI coach: comments and Q&A',pro_f_shots:'10 screenshots per trade',pro_f_mentor:'Read-only access for your mentor',
+soon_l:'Coming soon',pro_title:'TradeLog Pro',plan_pro:'Pro',plan_trial:'Pro trial · {n} {n|day|days} left',pro_see:'See Pro',pro_trial:'When Pro opens you\'ll be able to try it free for 14 days, no card needed.',pro_wait:'Tell me when Pro opens',pro_waited:'You\'re on the list',pro_wait_ok:'You\'re on the list. We\'ll email you when Pro opens.',pro_wait_login:'Sign in to your account first to get notified.',pro_side_t:'TradeLog Pro',pro_side_s:'Auto sync, AI coach and more',ai_ask:'Ask TradeLog AI',mentor_t:'Mentor access',mentor_p:'Give your mentor or a friend read-only access so they can see your trades, notes and reports and guide you.',mentor_add:'Add a mentor',
+pro_f_sync:'Automatic MT4/MT5 sync',pro_f_accounts:'20 active accounts on one dashboard',pro_f_ai:'TradeLog AI: comments and Q&A',pro_f_shots:'10 screenshots per trade',pro_f_mentor:'Read-only access for your mentor',
 pro_h_sync:'Let your trades arrive on their own',pro_p_sync:'Connect your MT4/MT5 account once and closed trades, balance and cash movements are added automatically. No more report uploads.',
 pro_h_accounts:'All your accounts on one dashboard',pro_p_accounts:'The free plan includes 2 active accounts. With Pro, track up to 20 challenge, funded and personal accounts together.',
-pro_h_ai:'A coach that reads your data',pro_p_ai:'The AI coach looks at your trades, notes and emotions, tells you what to keep and what to drop, and answers your questions.',
+pro_h_ai:'A coach that reads your data',pro_p_ai:'TradeLog AI looks at your trades, notes and emotions, tells you what to keep and what to drop, and answers your questions.',
 pro_h_shots:'10 screenshots on every trade',pro_p_shots:'Keep your entry, management and exit charts on the same trade.',
 pro_h_mentor:'Work with your mentor',pro_p_mentor:'Give your mentor read-only access so they can see your trades, notes and reports.',
 pro_h_gen:'Less logging, more insight',pro_p_gen:'Pro brings your trades in from MT4/MT5 on its own, lets you run several accounts from one place, and helps you read your data with a coach.',
@@ -1582,10 +1636,11 @@ sy_err:'Something went wrong. Check your internet and try again.',sy_login:'Sign
 sy_rm_c:'Remove this connection? Trades won\'t arrive automatically any more. Trades that already arrived are kept.',sy_rm_ok:'Connection removed',sy_got:'{n} new trades arrived from MetaTrader',sy_got_u:'{n} trades matched from MetaTrader',sy_got_c:'{n} cash movements arrived from MetaTrader',sy_ok_none:'Sync done, no new trades',
 sy_auto_bal:'Calculated from your MetaTrader balance',sy_manage:'Auto sync',sy_manage_d:'Connect your MT4/MT5 account with its investor password and let trades arrive on their own.',sy_open:'Connect account',
 sy_now:'just now',sy_min:'{n} min ago',sy_hour:'{n} h ago',sy_day:'{n} d ago',sy_imp:'Tired of uploading reports every time?',
-co_title:'AI Coach',co_side:'Reads your data and comments',co_intro:'Hi! I can look at your trades, setups, mistakes and journal and comment on them. Pick a question below or ask your own. I don\'t give buy/sell signals; I help you improve your process.',
+co_title:'TradeLog AI',co_side:'Your coach that reads your data',co_hi:'Hi, I\'m TradeLog AI.',co_hi_p:'I read your journal, trades and mistakes. I\'ll tell you with numbers what works, and we\'ll pin down your next step together.',
+co_ideas:'What I noticed for you',co_i_week:'This week',co_q_mis_x:'“{k}” cost me {r}. How do I stop it?',co_q_set_x:'Is {k} my best setup? Should I focus on it more?',co_q_day_x:'Why do my {k}s go badly?',
 co_q_week:'Review my week',co_q_mistake:'What\'s my most expensive mistake?',co_q_setup:'Which of my setups really works?',co_q_risk:'How is my risk management?',co_q_emo:'How do my emotions affect my results?',co_q_next:'What should I focus on next week?',
-co_ph:'Ask your coach…',co_send:'Send',co_clear:'Clear chat',co_left:'{n} questions left today.',co_note:'Answers are based only on your data; this is not investment advice. The chat is stored only on this device.',
-co_login:'Sign in first to use the AI coach',co_err:'Couldn\'t get an answer. Check your internet and try again.',co_e_limit:'You\'ve used today\'s {n} questions. You can ask again tomorrow.',co_e_config:'The AI coach isn\'t set up yet.',co_e_busy:'The AI coach is very busy right now. Try again in a few minutes.',co_e_input:'The question is too long; shorten it and try again.',
+co_ph:'Ask TradeLog AI…',co_send:'Send',co_new:'New chat',co_left:'{n} questions left · ',co_note:'Looks only at your data; not investment advice.',co_sub:'{n} trades · {v}',co_thinking:'Looking at your data…',
+co_login:'Sign in first to use TradeLog AI',co_err:'Couldn\'t get an answer. Check your internet and try again.',co_e_limit:'You\'ve used today\'s {n} questions. I\'ll be here tomorrow.',co_e_config:'TradeLog AI isn\'t set up yet.',co_e_busy:'I\'m very busy right now; try again in a few minutes.',co_e_input:'The question is too long; shorten it and try again.',
 mis_off_plan:'Off-plan trade',mis_revenge:'Revenge trade',mis_fomo:'FOMO',mis_oversize:'Oversized risk',mis_overtrading:'Overtrading'}};
 
 /* ================= core: data, storage, stats ================= */
@@ -3861,7 +3916,7 @@ async function proWait(){
     sbProf.pro_waitlist=now;closeDlg(true);hap('success');toast(t('pro_wait_ok'));if(cv==='set')render()}
   catch(e){say(t('sh_err').replace(/Link|link/,'İstek'))}
 }
-function proSide(){if(sbOn()&&sbUser&&isPro()&&!RO)return `<button class="proside" onclick="coOpen()"><span class="probadge sm">AI</span><span><b>${t('co_title')}</b><small>${t('co_side')}</small></span></button>`;if(!sbOn()||isPro())return '';return `<button class="proside" onclick="proDlg('gen')"><span class="probadge sm">PRO</span><span><b>${t('pro_side_t')}</b><small>${t('pro_side_s')}</small></span></button>`}
+function proSide(){if(sbOn()&&sbUser&&isPro()&&!RO)return `<button class="proside aiside" onclick="coOpen()">${coMark()}<span><b>${t('co_title')}</b><small>${t('co_side')}</small></span></button>`;if(!sbOn()||isPro())return '';return `<button class="proside" onclick="proDlg('gen')"><span class="probadge sm">PRO</span><span><b>${t('pro_side_t')}</b><small>${t('pro_side_s')}</small></span></button>`}
 /* after the 3rd report upload, point at automatic sync once */
 function proNudgeImport(){
   if(isPro())return;let n=0;try{n=+(localStorage.getItem('tradelog_imp_n')||0)+1;localStorage.setItem('tradelog_imp_n',String(n))}catch(e){}
@@ -4150,28 +4205,43 @@ function syApply(rows){
   S=normS(S);saveS();saveTrades();
   return out;
 }
-/* ---------- AI coach (Pro) ----------
-   The app sends a compact summary of the member's own journal with each question to the "coach"
-   server function, which asks Claude. The conversation stays on this device only. */
-var CO={msgs:null,busy:false,left:null,limit:null,uid:null};
+/* ---------- TradeLog AI (Pro) ----------
+   A side panel (full screen on phones) that reads the member's own journal summary and answers
+   as TradeLog's built-in coach. Answers stream in; the conversation stays on this device. */
+var CO={msgs:null,busy:false,left:null,limit:null,uid:null,open:false,follow:[]};
 function coKey(){return 'tradelog_coach_'+(sbUser?sbUser.id:'x')}
-function coLoad(){if(CO.msgs&&CO.uid===(sbUser&&sbUser.id))return;CO.uid=sbUser&&sbUser.id;try{CO.msgs=JSON.parse(localStorage.getItem(coKey())||'[]')}catch(e){CO.msgs=[]}if(!Array.isArray(CO.msgs))CO.msgs=[]}
-function coSave(){try{localStorage.setItem(coKey(),JSON.stringify(CO.msgs.filter(m=>m.r!=='e').slice(-30)))}catch(e){}}
-function coOpen(q){
+function coLoad(){if(CO.msgs&&CO.uid===(sbUser&&sbUser.id))return;CO.uid=sbUser&&sbUser.id;try{CO.msgs=JSON.parse(localStorage.getItem(coKey())||'[]')}catch(e){CO.msgs=[]}if(!Array.isArray(CO.msgs))CO.msgs=[];CO.follow=[]}
+function coSave(){try{localStorage.setItem(coKey(),JSON.stringify(CO.msgs.filter(m=>m.r!=='e'&&m.t).slice(-30)))}catch(e){}}
+/* the TradeLog mark; its three bars move while the AI is thinking */
+function coMark(cls=''){return `<span class="aimk ${cls}" aria-hidden="true"><svg viewBox="0 0 32 32"><rect width="32" height="32" rx="9" class="bg"/><rect class="b1" x="7.8" y="13" width="3.4" height="9" rx="1.7"/><rect class="b2" x="14.3" y="8.5" width="3.4" height="13.5" rx="1.7"/><rect class="b3" x="20.8" y="5" width="3.4" height="17" rx="1.7"/></svg></span>`}
+function coOpen(q,deep){
   if(RO){toast(t('mt_ro'));return}
   if(!sbOn()||!sbUser){toast(t('co_login'));return}
   if(!isPro()){proDlg('ai');return}
   coLoad();
-  openDlg(t('co_title'),`<div class="coach"><div class="cobox" id="coBox">${coList()}</div>
-    <div class="cochips" id="coChips">${['week','mistake','setup','risk','emo','next'].map(k=>`<button type="button" class="chip" onclick="coAsk(this.textContent,${k==='week'||k==='next'})">${esc(t('co_q_'+k))}</button>`).join('')}</div>
-    <div class="coin"><textarea class="in" id="coQ" rows="2" maxlength="1500" placeholder="${t('co_ph')}" onkeydown="if(event.key==='Enter'&&!event.shiftKey){event.preventDefault();coAsk()}"></textarea><button class="btn pri" id="coGo" onclick="coAsk()">${t('co_send')}</button></div>
-    <p class="hint coft"><span id="coLeft">${CO.left!=null?esc(t('co_left',{n:CO.left})):''}</span> ${t('co_note')}</p></div>`,
-   `${CO.msgs.length?`<button class="btn" onclick="coClear()">${t('co_clear')}</button>`:''}<button class="btn" onclick="closeDlg()">${t('close')}</button>`,true);
-  coScroll();
-  if(q)coAsk(q);
+  if(dlgOpen())closeDlg(true);
+  const p=$('aiP');if(!p)return;
+  p.innerHTML=`<div class="aiph">${coMark(CO.busy?'think':'')}<div class="aipt"><b>TradeLog AI</b><small id="aiSub">${esc(coSub())}</small></div>
+     <button class="aiib" onclick="coNew()" title="${t('co_new')}" aria-label="${t('co_new')}"><svg viewBox="0 0 24 24"><path d="M12 5v14M5 12h14"/></svg></button>
+     <button class="aiib" onclick="coClose()" aria-label="${t('close')}"><svg viewBox="0 0 24 24"><path d="M6 6l12 12M18 6L6 18"/></svg></button></div>
+    <div class="aipm" id="coBox"></div>
+    <div class="aipc"><div class="aicomp"><textarea id="coQ" rows="1" maxlength="1500" placeholder="${t('co_ph')}" oninput="coGrow(this)" onkeydown="if(event.key==='Enter'&&!event.shiftKey){event.preventDefault();coAsk()}"></textarea>
+     <button class="aisend" id="coGo" onclick="coAsk()" aria-label="${t('co_send')}"><svg viewBox="0 0 24 24"><path d="M12 19V5M6 11l6-6 6 6"/></svg></button></div>
+     <p class="aift"><span id="coLeft">${CO.left!=null?esc(t('co_left',{n:CO.left})):''}</span>${t('co_note')}</p></div>`;
+  p.classList.add('on');p.setAttribute('aria-hidden','false');CO.open=true;document.body.classList.add('aion');
+  coRender();
+  setTimeout(()=>{const i=$('coQ');if(i&&!('ontouchstart' in window))i.focus()},250);
+  if(q)coAsk(q,deep);
 }
+function coClose(){const p=$('aiP');if(p){p.classList.remove('on');p.setAttribute('aria-hidden','true')}CO.open=false;document.body.classList.remove('aion')}
+function coNew(){if(CO.busy)return;CO.msgs=[];CO.follow=[];coSave();coRender();const i=$('coQ');if(i)i.focus()}
+function coGrow(el){el.style.height='auto';el.style.height=Math.min(el.scrollHeight,160)+'px'}
+function coSub(){if(CO.busy)return t('co_thinking');const n=byAcc(trades).length;return t('co_sub',{n,v:V.acc==='all'?t('acc_all'):coName(accOf(V.acc)||{})})}
+/* R values and percentages light up in the brand's win/loss colours */
 function coMd(s){
-  const lines=esc(s).replace(/\*\*(.+?)\*\*/g,'<b>$1</b>').split('\n');let h='',ul='';
+  const lines=esc(s).replace(/\*\*(.+?)\*\*/g,'<b>$1</b>').replace(/(^|[\s(])\*([^*\n]+?)\*(?=[\s.,;:!?)]|$)/g,'$1<i>$2</i>')
+    .replace(/([+\-−]?\d+(?:[.,]\d+)?)\s?R\b/g,(m,v)=>{const n=parseFloat(v.replace('−','-').replace(',','.'));return `<span class="air ${n>0&&/^[+]/.test(v)?'p':n<0?'n':''}">${m}</span>`})
+    .split('\n');let h='',ul='';
   lines.forEach(l=>{const m=l.match(/^\s*([-•*]|\d+[.)])\s+(.*)$/);
     if(m){const k=/\d/.test(m[1])?'ol':'ul';if(ul!==k){if(ul)h+=`</${ul}>`;h+=`<${k}>`;ul=k}h+=`<li>${m[2]}</li>`;return}
     if(ul){h+=`</${ul}>`;ul=''}
@@ -4179,35 +4249,81 @@ function coMd(s){
     if(l.trim())h+=`<p>${l}</p>`});
   if(ul)h+=`</${ul}>`;return h;
 }
-function coList(){
-  if(!CO.msgs.length)return `<div class="cointro"><span class="probadge">AI</span><p>${t('co_intro')}</p></div>`;
-  return CO.msgs.map(m=>m.r==='u'?`<div class="cmsg u">${esc(m.t)}</div>`:m.r==='e'?`<div class="cmsg e">${esc(m.t)}</div>`:`<div class="cmsg a">${coMd(m.t)}</div>`).join('')+(CO.busy?`<div class="cmsg a typing"><i></i><i></i><i></i></div>`:'');
+/* the answer ends with ">> question | question" — those become tap-to-ask chips */
+function coSplit(s){const i=s.lastIndexOf('>>');if(i<0)return [s,[]];return [s.slice(0,i).trim(),s.slice(i+2).split('|').map(x=>x.trim().replace(/^[-•]\s*/,'')).filter(x=>x&&x.length<120).slice(0,3)]}
+/* personal starting points, worked out from the member's own numbers */
+function coIdeas(){
+  const l=byAcc(trades),out=[];if(stats(l).n<5)return ['week','mistake','setup'].map(k=>({q:t('co_q_'+k),deep:k==='week'}));
+  const rd=v=>(v>0?'+':'')+(Math.round(v*10)/10).toString().replace('.',L==='tr'?',':'.')+'R';
+  const w=wkData(wkLast());if(w.s.n)out.push({k:t('co_i_week'),v:rd(w.s.tot),c:w.s.tot>=0?'p':'n',q:t('co_q_week'),deep:true});
+  const mt=l.filter(x=>x.mistakes.length&&has(x.rrActual));
+  const mg=mt.length?groupBy(mt,x=>x.mistakes).sort((a,b)=>a.s.tot-b.s.tot)[0]:null;
+  if(mg&&mg.s.tot<0)out.push({k:misL(mg.k),v:rd(mg.s.tot),c:'n',q:t('co_q_mis_x',{k:misL(mg.k),r:rd(mg.s.tot)})});
+  const sg=groupBy(l.filter(x=>has(x.rrActual)),x=>x.setup).filter(g=>g.s.n>=3).sort((a,b)=>b.s.tot-a.s.tot);
+  if(sg.length&&sg[0].s.tot>0)out.push({k:sg[0].k,v:rd(sg[0].s.tot),c:'p',q:t('co_q_set_x',{k:sg[0].k})});
+  const wd=groupBy(l.filter(x=>has(x.rrActual)),x=>wdi(x.date)).filter(g=>g.s.n>=3).sort((a,b)=>a.s.exp-b.s.exp)[0];
+  if(out.length<3&&wd&&wd.s.exp<0)out.push({k:wdName(+wd.k),v:rd(wd.s.tot),c:'n',q:t('co_q_day_x',{k:wdName(+wd.k)})});
+  if(out.length<3)out.push({q:t('co_q_risk')});
+  if(out.length<3)out.push({q:t('co_q_next'),deep:true});
+  return out.slice(0,3);
 }
-function coScroll(){const b=$('coBox');if(b){b.innerHTML=coList();b.scrollTop=b.scrollHeight}}
-function coClear(){CO.msgs=[];coSave();coOpen()}
+function coRender(){
+  const b=$('coBox');if(!b)return;
+  const sub=$('aiSub');if(sub)sub.textContent=coSub();
+  const mk=document.querySelector('#aiP .aiph .aimk');if(mk)mk.classList.toggle('think',CO.busy);
+  if(!CO.msgs.length){
+    CO.ideas=coIdeas();
+    b.innerHTML=`<div class="aihello">${coMark('big')}<h3>${t('co_hi')}</h3><p>${t('co_hi_p')}</p></div>
+      <div class="aiideas"><small>${t('co_ideas')}</small>${CO.ideas.map((x,i)=>`<button type="button" class="aiidea" onclick="coIdea(${i})">${x.k?`<span class="aiik"><span>${esc(x.k)}</span>${x.v?`<b class="air ${x.c||''}">${esc(x.v)}</b>`:''}</span>`:''}<span class="aiiq">${esc(x.q)}</span><svg viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></svg></button>`).join('')}</div>`;
+    return;
+  }
+  const last=CO.msgs.length-1;
+  b.innerHTML=CO.msgs.map((m,i)=>{
+    if(m.r==='u')return `<div class="aim u"><div>${esc(m.t)}</div></div>`;
+    if(m.r==='e')return `<div class="aim e">${esc(m.t)}</div>`;
+    const [txt,fol]=coSplit(m.t||'');
+    const live=CO.busy&&i===last;
+    return `<div class="aim a">${coMark(live&&!txt?'think':'')}<div class="aimb">${txt?coMd(txt):`<span class="aidots"><i></i><i></i><i></i></span>`}${live&&txt?'<span class="aicur"></span>':''}
+      ${!live&&txt?`<div class="aiacts"><button onclick="coCopy(${i})">${t('copy')}</button></div>`:''}
+      ${!live&&i===last&&fol.length?`<div class="aifol">${fol.map(f=>`<button type="button" onclick="coAsk(this.textContent)">${esc(f)}</button>`).join('')}</div>`:''}</div></div>`;
+  }).join('');
+  b.scrollTop=b.scrollHeight;
+}
+function coIdea(i){const x=(CO.ideas||[])[i];if(x)coAsk(x.q,x.deep)}
+function coCopy(i){const m=CO.msgs[i];if(!m)return;const v=coSplit(m.t)[0].replace(/\*\*/g,'');(navigator.clipboard?navigator.clipboard.writeText(v):Promise.reject()).then(()=>toast(t('copied'))).catch(()=>{})}
 const CO_ERR={limit:'co_e_limit',config:'co_e_config',busy:'co_e_busy',input:'co_e_input',login:'co_login'};
 async function coAsk(q,deep){
   if(CO.busy)return;
   const inp=$('coQ');q=String(q||(inp?inp.value:'')).trim();if(!q)return;
-  if(inp)inp.value='';
-  const hist=CO.msgs.filter(m=>m.r!=='e').slice(-8).map(m=>({role:m.r==='u'?'user':'assistant',content:m.t}));
-  CO.msgs=CO.msgs.filter(m=>m.r!=='e');CO.msgs.push({r:'u',t:q});CO.busy=true;coScroll();
+  if(inp){inp.value='';coGrow(inp)}
+  const hist=CO.msgs.filter(m=>m.r!=='e'&&m.t).slice(-8).map(m=>({role:m.r==='u'?'user':'assistant',content:m.r==='a'?coSplit(m.t)[0]:m.t}));
+  CO.msgs=CO.msgs.filter(m=>m.r!=='e');CO.msgs.push({r:'u',t:q});
+  const a={r:'a',t:''};CO.msgs.push(a);CO.busy=true;coRender();
   if($('coGo'))$('coGo').disabled=true;
-  let r;
+  let err=null,raf=0;
   try{
     if(!sb)await sbClient();
-    const {data,error}=await sb.functions.invoke('coach',{body:{lang:L,question:q,deep:!!deep,history:hist,data:coachData()}});
-    if(error){let d=null;try{d=error.context&&typeof error.context.json==='function'?await error.context.json():null}catch(e){}r=d&&d.error?d:{ok:false,error:'net'}}else r=data||{};
-  }catch(e){r={ok:false,error:'net'}}
+    const {data:{session}}=await sb.auth.getSession();
+    const res=await fetch(SBC.url+'/functions/v1/coach',{method:'POST',headers:{Authorization:'Bearer '+(session&&session.access_token),apikey:SBC.key,'Content-Type':'application/json'},
+      body:JSON.stringify({lang:L,question:q,deep:!!deep,stream:true,history:hist,data:coachData()})});
+    const lf=res.headers.get('x-coach-left');if(lf!=null&&lf!==''){CO.left=+lf;CO.limit=+(res.headers.get('x-coach-limit')||0)}
+    if((res.headers.get('content-type')||'').includes('application/json')){
+      const j=await res.json().catch(()=>({ok:false,error:'net'}));
+      if(j.ok&&j.text)a.t=j.text;else{err=j.error||'net';if(j.limit)CO.limit=j.limit}
+    }else{
+      const rd=res.body.getReader(),dec=new TextDecoder();
+      for(;;){const {done,value}=await rd.read();if(done)break;a.t+=dec.decode(value,{stream:true});if(!raf)raf=requestAnimationFrame(()=>{raf=0;coRender()})}
+      if(!a.t.trim())err='provider';
+    }
+  }catch(e){err='net'}
   CO.busy=false;if($('coGo'))$('coGo').disabled=false;
-  if(r.ok){CO.msgs.push({r:'a',t:r.text});CO.left=r.left;CO.limit=r.limit}
-  else if(r.error==='plan'){closeDlg(true);proDlg('ai');return}
-  else{CO.msgs.pop();CO.msgs.push({r:'u',t:q});CO.msgs.push({r:'e',t:t(CO_ERR[r.error]||'co_err',{n:r.limit||''})})}
-  coSave();coScroll();
+  if(err==='plan'){CO.msgs.splice(-2);coClose();proDlg('ai');return}
+  if(err){CO.msgs.pop();CO.msgs.push({r:'e',t:t(CO_ERR[err]||'co_err',{n:CO.limit||''})})}
+  coSave();coRender();
   const lf=$('coLeft');if(lf&&CO.left!=null)lf.textContent=t('co_left',{n:CO.left});
   if(inp&&!('ontouchstart' in window))inp.focus();
 }
-/* what the coach sees: a compact, numbers-first summary of the trades in the current account view */
+document.addEventListener('keydown',e=>{if(e.key==='Escape'&&CO.open&&!dlgOpen()){e.stopPropagation();coClose()}},true);
 const coName=a=>String(accName(a)||'').replace(/\d{4,}/g,'•••');   // account numbers stay here
 function coachData(){
   const all=chrono(byAcc(trades)),td=day(),rd=v=>v==null||!isFinite(v)?null:Math.round(v*100)/100;
@@ -4387,7 +4503,7 @@ tr: {
   soon: 'Yakında', plan_pro_d: 'İşlem girmekle uğraşmak istemeyen ve birden çok hesap yöneten trader\'lar için.', pro_btn: 'Yakında açılacak',
   pro_fine: 'Pro açıldığında her yeni üye 14 gün Pro ile başlar, kart istenmez. Süre bitince ücretsiz plana geçersin, verilerin kalır.',
   feat_plus: 'Ücretsizdeki her şey, artı:',
-  feat_pro: ['MT4/MT5 otomatik senkron, geçmiş işlemler dahil', '20 aktif hesap, hepsi tek panelde', 'AI koç: verilerine bakıp yorum yapar, sorularını cevaplar', 'İşlem başına 10 ekran görüntüsü', 'Mentoruna hesabını salt okunur aç'],
+  feat_pro: ['MT4/MT5 otomatik senkron, geçmiş işlemler dahil', '20 aktif hesap, hepsi tek panelde', 'TradeLog AI: verilerine bakıp yorum yapar, sorularını cevaplar', 'İşlem başına 10 ekran görüntüsü', 'Mentoruna hesabını salt okunur aç'],
   cmp_show: 'Tüm özellikleri karşılaştır', cmp_hide: 'Karşılaştırmayı gizle', cmp_feature: 'Özellik', cmp_pro: 'Pro (yakında)', yes_a: 'Var', no_a: 'Yok', cmp_note: 'Yakında işaretli özellikler ve Pro hazır olunca açılacak. Pro açılana kadar ücretsiz planda hesap ve görsel sınırı yok, mentor erişimi de herkese açık.',
   groups: [
     ['Kayıt ve içe aktarma', [['İşlem sayısı', 'Sınırsız', 'Sınırsız'], ['Elle kayıt ve MT4/MT5 raporu yükleme', 'y', 'y'], ['Otomatik MT4/MT5 senkronu', 'n', 'y'], ['Ekran görüntüsü (işlem başına)', '1', '10']]],
@@ -4439,7 +4555,7 @@ tr: {
       ['Haftalık özet', '<p><b>Raporlar → Haftalık özet</b>\'te haftanın net sonucunu, günlerini, en iyi ve en kötü işlemini geçen haftayla karşılaştırmalı görürsün. Altta işlemlerine eklediğin setup, duygu ve hatalardan çıkan 1-3 öneri ve haftanın notu var.</p><p><b>Özeti kopyala</b> ile özeti metin olarak alıp mentoruna gönderebilirsin. Panelde de bu haftanın kısa özeti görünür.</p>'],
       ['Paylaşım linki', '<p>İşlem detayında ya da Raporlar → Haftalık özet\'te <b>Paylaş</b>\'a bas. Notların, para tutarının ve ekran görüntülerinin görünüp görünmeyeceğini seç, istersen adını yaz ve <b>Link oluştur</b>\'a bas; link panoya kopyalanır. Linkleri <b>Ayarlar → Paylaşım linklerim</b>\'den görebilir ve kapatabilirsin.</p>'],
       ['MT4/MT5 hesabını bağlama (Pro)', '<p>Hesap eklerken <b>Otomatik bağla</b>\'ya ya da hesabı düzenle ekranında <b>Hesabı bağla</b>\'ya bas. MT5 ya da MT4\'ü seç; sunucu adını, hesap numaranı ve <b>yatırımcı (salt okunur) şifreni</b> gir. Bağlantı bir dakika içinde kurulur ve son 90 günün kapanan işlemleri, para yatırma ve çekmeleri gelir; sonrası kendiliğinden gelmeye devam eder. MetaTrader\'ın açık olması gerekmez. Yatırımcı şifresini bilmiyorsan aracı kurumunun e-postasına bak ya da MetaTrader\'da Araçlar → Seçenekler → Sunucu → Değiştir\'den yeni bir tane belirle. Bağlantıyı hesabı düzenle ekranından istediğin an kaldırabilirsin.</p>'],
-      ['AI koç (Pro)', '<p>Sol menüdeki <b>AI Koç</b>\'a (telefonda Daha fazla menüsünde) ya da Panel\'deki <b>AI koça sor</b>\'a bas. Hazır sorulardan birini seç ya da kendin yaz: “En pahalı hatam ne?”, “Hangi setup\'ım işe yarıyor?” gibi. Koç, seçili hesap görünümündeki işlemlerine, setup\'larına, hatalarına, duygularına ve günlüğüne bakarak sayılarla cevap verir. Al-sat sinyali vermez, yatırım tavsiyesi değildir. Günlük soru hakkı vardır; sohbet sadece kendi cihazında saklanır.</p>'],
+      ['TradeLog AI (Pro)', '<p>Sol menüdeki <b>TradeLog AI</b>\'ye (telefonda Daha fazla menüsünde) ya da Panel\'deki <b>TradeLog AI\'ye sor</b>\'a bas. Panel yandan açılır; sayfana bakmaya devam ederken sohbet edebilirsin. Senin verilerinden çıkardığı önerilerle başlar. Hazır sorulardan birini seç ya da kendin yaz: “En pahalı hatam ne?”, “Hangi setup\'ım işe yarıyor?” gibi. TradeLog AI, seçili hesap görünümündeki işlemlerine, setup\'larına, hatalarına, duygularına ve günlüğüne bakarak sayılarla cevap verir. Al-sat sinyali vermez, yatırım tavsiyesi değildir. Günlük soru hakkı vardır; sohbet sadece kendi cihazında saklanır.</p>'],
       ['Mentor erişimi', '<p><b>Ayarlar → Mentor erişimi</b>\'nde mentorunun e-postasını yaz ve <b>Davet et</b>\'e bas. Çıkan mesajı ona WhatsApp ya da e-postayla gönder. Mentorun linki açıp o e-postayla giriş yapınca hesabını salt okunur görür: işlemlerini, notlarını, raporlarını ve ekran görüntülerini. Hiçbir şeyi değiştiremez. Erişimi aynı yerden istediğin an kaldırabilirsin.</p>'],
       ['R nedir?', '<p>R, bir işlemde riske ettiğin tutarın katıdır. Stop olursan −1R, riskinin iki katını kazanırsan +2R yazılır. Böylece farklı lot ve hesap büyüklüklerindeki işlemler aynı ölçüyle karşılaştırılır.</p><p>Raporda stop loss varsa R otomatik hesaplanır. Stop yoksa hesabın risk yüzdesinden tahmin edilir ve yanında ≈ işareti görünür.</p>'],
       ['Hesap ve giriş', '<p>Google hesabınla ya da e-posta ve şifreyle giriş yapabilirsin. Bir cihazda giriş yaptığında çıkış yapana kadar orada açık kalırsın; her seferinde yeniden giriş yapman gerekmez. Aynı hesapla telefonda ve bilgisayarda aynı verileri görürsün.</p><p>Şifreni unuttuysan giriş ekranında <b>Şifremi unuttum</b>\'a bas; e-postana sıfırlama linki gelir. Google ile kayıt olduysan Ayarlar → Profil\'den bir şifre de belirleyebilirsin.</p><p>Daha önce TradeLog\'u hesapsız kullandıysan, o cihazdaki veriler ilk girişte hesabına taşınır. Hem cihazda hem hesabında veri varsa birleştirmek isteyip istemediğin sorulur. Çıkış yapmak ve hesabı silmek için <b>Ayarlar → Profil</b>.</p>'],
@@ -4454,7 +4570,7 @@ tr: {
       ['Yüklediğin raporlar', '<p>MT4/MT5 raporları cihazında okunur; rapor dosyasının kendisi sunucuya gönderilmez, yalnızca içinden çıkan işlemler ve hesap bilgileri hesabına kaydedilir. Hesap şifren hiçbir zaman istenmez.</p>'],
       ['Paylaşım linkleri', '<p>Bir işlemi ya da haftalık özetini paylaştığında, o anki halinin bir kopyası oluşturulur ve linki olan herkes görebilir. Notların, para tutarın ve ekran görüntülerin sadece sen seçersen eklenir. Linkin kaç kez açıldığı sayılır. Linki Ayarlar → Paylaşım linklerim\'den kapattığında kopya ve görselleri silinir.</p>'],
       ['MT4/MT5 hesap bağlantısı', '<p>Hesabını bağlarsan sunucu adın, hesap numaran ve yatırımcı (salt okunur) şifren, bağlantıyı kuran hizmet sağlayıcımız MetaApi\'ye (metaapi.cloud) iletilir; sunucuları yurt dışındadır. Yatırımcı şifreni biz saklamayız. MetaApi hesabının işlem geçmişini okur; biz oradan kapanan işlemlerini (sembol, yön, lot, giriş/çıkış fiyatı ve saati, SL/TP, kâr, komisyon, swap), para yatırma/çekme kayıtlarını, aracı kurum adını, hesap para birimini ve bakiyeni alırız. Yatırımcı şifresiyle işlem açılamaz, para çekilemez. Bağlantıyı kaldırdığında ya da üyeliğini sildiğinde MetaApi\'deki bağlantı da silinir.</p>'],
-      ['AI koç', '<p>AI koça soru sorduğunda sorunla birlikte seçili hesap görünümünün özeti (istatistikler, setup/sembol/gün kırılımları, son 60 işlemin ayrıntıları ve notları, son iki haftanın günlük yazıları) cevabı üretmesi için Anthropic\'in Claude hizmetine gönderilir; sunucuları yurt dışındadır. E-posta adresin ve hesap numaran gönderilmez. Sorular ve cevaplar bizim sunucumuzda saklanmaz, sohbet sadece senin cihazında durur; maliyet kontrolü için sadece günlük soru sayısını tutarız.</p>'],
+      ['TradeLog AI', '<p>TradeLog AI\'ye soru sorduğunda sorunla birlikte seçili hesap görünümünün özeti (istatistikler, setup/sembol/gün kırılımları, son 60 işlemin ayrıntıları ve notları, son iki haftanın günlük yazıları) cevabı üretmesi için Anthropic\'in Claude hizmetine gönderilir; sunucuları yurt dışındadır. E-posta adresin ve hesap numaran gönderilmez. Sorular ve cevaplar bizim sunucumuzda saklanmaz, sohbet sadece senin cihazında durur; maliyet kontrolü için sadece günlük soru sayısını tutarız.</p>'],
       ['Mentor erişimi', '<p>Mentor olarak davet ettiğin ve davet linkini açıp aynı e-postayla giriş yapan kişi, hesabındaki verileri salt okunur görebilir; değiştiremez. Erişimi Ayarlar → Mentor erişimi\'nden kaldırdığında hemen kapanır.</p>'],
       ['Ne kadar süre saklıyoruz', '<p>Hesabın açık olduğu sürece. Hesabını sildiğinde hesabın ve bütün verilerin hemen silinir; sunucu yedeklerinden de en geç 7 gün içinde kalkar.</p>'],
       ['Üçüncü taraf hizmetler', '<p>Supabase (veritabanı, giriş ve e-posta altyapısı). Sayfa açılırken yazı tipleri Google Fonts\'tan, kütüphaneler cdnjs ve jsDelivr\'den yüklenir; bu hizmetler dosyaları gönderirken IP adresin gibi teknik bilgileri görebilir. Analitik, reklam ya da izleme çerezi kullanmıyoruz. Oturumun tarayıcının yerel depolamasında tutulur.</p>'],
@@ -4509,7 +4625,7 @@ en: {
   soon: 'Coming soon', plan_pro_d: 'For traders who don\'t want to log trades by hand and run several accounts.', pro_btn: 'Opening soon',
   pro_fine: 'When Pro opens, every new member starts with 14 days of Pro, no card needed. After that you move to the free plan and keep your data.',
   feat_plus: 'Everything in Free, plus:',
-  feat_pro: ['Automatic MT4/MT5 sync, including past trades', '20 active accounts on one dashboard', 'AI coach: reads your data, comments on it and answers your questions', '10 screenshots per trade', 'Give your mentor read-only access'],
+  feat_pro: ['Automatic MT4/MT5 sync, including past trades', '20 active accounts on one dashboard', 'TradeLog AI: reads your data, comments on it and answers your questions', '10 screenshots per trade', 'Give your mentor read-only access'],
   cmp_show: 'Compare all features', cmp_hide: 'Hide comparison', cmp_feature: 'Feature', cmp_pro: 'Pro (soon)', yes_a: 'Included', no_a: 'Not included', cmp_note: 'Features marked coming soon, and Pro, open when they are ready. Until Pro opens, the free plan has no account or screenshot limit, and mentor access is open to everyone.',
   groups: [
     ['Logging and import', [['Trades', 'Unlimited', 'Unlimited'], ['Manual logging and MT4/MT5 report upload', 'y', 'y'], ['Automatic MT4/MT5 sync', 'n', 'y'], ['Screenshots per trade', '1', '10']]],
@@ -4561,7 +4677,7 @@ en: {
       ['Weekly recap', '<p><b>Reports → Weekly recap</b> shows the week\'s net result, each day, and your best and worst trade compared with last week. Below are 1-3 suggestions drawn from the setups, emotions and mistakes on your trades, plus a note of the week.</p><p>Use <b>Copy recap</b> to send it to your mentor as text. A short version of this week also appears on your dashboard.</p>'],
       ['Share links', '<p>Press <b>Share</b> on a trade or in Reports → Weekly recap. Choose whether your notes, money amount and screenshots are shown, add your name if you like, and press <b>Create link</b>; the link is copied for you. See and turn off your links in <b>Settings → My share links</b>.</p>'],
       ['Connecting your MT4/MT5 account (Pro)', '<p>When adding an account press <b>Connect automatically</b>, or press <b>Connect account</b> in the account editor. Pick MT5 or MT4 and enter the server name, your account number and your <b>investor (read-only) password</b>. The connection is ready within a minute and closed trades, deposits and withdrawals from the last 90 days arrive; new ones keep coming on their own. MetaTrader doesn\'t need to be open. If you don\'t know your investor password, check your broker\'s email or set a new one in MetaTrader under Tools → Options → Server → Change. You can remove the connection any time from the account editor.</p>'],
-      ['AI coach (Pro)', '<p>Press <b>AI Coach</b> in the side menu (in the More menu on phones) or <b>Ask the AI coach</b> on the Dashboard. Pick a ready question or write your own, like “What\'s my most expensive mistake?” or “Which of my setups works?”. The coach answers with numbers from the trades, setups, mistakes, emotions and journal in your current account view. It doesn\'t give buy/sell signals and isn\'t investment advice. There is a daily question limit; the chat is stored only on your device.</p>'],
+      ['TradeLog AI (Pro)', '<p>Press <b>TradeLog AI</b> in the side menu (in the More menu on phones) or <b>Ask TradeLog AI</b> on the Dashboard. The panel opens at the side, so you can keep looking at your page while you chat. It starts with suggestions drawn from your own numbers. Pick a ready question or write your own, like “What\'s my most expensive mistake?” or “Which of my setups works?”. TradeLog AI answers with numbers from the trades, setups, mistakes, emotions and journal in your current account view. It doesn\'t give buy/sell signals and isn\'t investment advice. There is a daily question limit; the chat is stored only on your device.</p>'],
       ['Mentor access', '<p>In <b>Settings → Mentor access</b>, type your mentor\'s email and press <b>Invite</b>. Send them the message by WhatsApp or email. Once they open the link and sign in with that email, they can see your account read-only: trades, notes, reports and screenshots. They can\'t change anything. You can remove access from the same place any time.</p>'],
       ['What is R?', '<p>R is a multiple of the amount you risked on a trade. A stop-out is −1R; winning twice your risk is +2R. This lets you compare trades across different lot and account sizes on one scale.</p><p>If the report has a stop loss, R is calculated automatically. If not, it is estimated from the account\'s risk percentage and shown with a ≈ sign.</p>'],
       ['Account and sign-in', '<p>Sign in with your Google account or with an email and password. Once you sign in on a device you stay signed in there until you sign out; you don\'t have to sign in every time. The same account shows the same data on your phone and computer.</p><p>Forgot your password? Press <b>Forgot password?</b> on the sign-in screen and we\'ll email you a reset link. If you signed up with Google, you can also set a password from Settings → Profile.</p><p>If you used TradeLog without an account before, the data on that device moves to your account the first time you sign in. If both the device and your account have data, you are asked whether to merge them. To sign out or delete your account, go to <b>Settings → Profile</b>.</p>'],
@@ -4576,7 +4692,7 @@ en: {
       ['Reports you upload', '<p>MT4/MT5 reports are read on your device; the report file itself is not uploaded, only the trades and account details taken from it are saved to your account. We never ask for your account password.</p>'],
       ['Share links', '<p>When you share a trade or a weekly recap, a copy of it as it is at that moment is created and anyone with the link can see it. Your notes, money amounts and screenshots are included only if you choose. We count how many times the link is opened. When you turn the link off in Settings → My share links, the copy and its images are deleted.</p>'],
       ['MT4/MT5 account connection', '<p>If you connect your account, your server name, account number and investor (read-only) password are sent to MetaApi (metaapi.cloud), the service provider that makes the connection; its servers are outside Turkey. We don\'t store your investor password. MetaApi reads your account\'s trade history, and from it we take your closed trades (symbol, side, lots, entry/exit price and time, SL/TP, profit, commission, swap), deposit/withdrawal records, broker name, account currency and balance. The investor password can\'t open trades or withdraw money. When you remove the connection or delete your membership, the connection at MetaApi is deleted too.</p>'],
-      ['AI coach', '<p>When you ask the AI coach, your question and a summary of your current account view (statistics, setup/symbol/day breakdowns, details and notes of your last 60 trades, journal entries from the last two weeks) are sent to Anthropic\'s Claude service to produce the answer; its servers are outside Turkey. Your email address and account numbers are not sent. Questions and answers are not stored on our servers; the chat stays on your device, and we only keep a daily question count for cost control.</p>'],
+      ['TradeLog AI', '<p>When you ask TradeLog AI, your question and a summary of your current account view (statistics, setup/symbol/day breakdowns, details and notes of your last 60 trades, journal entries from the last two weeks) are sent to Anthropic\'s Claude service to produce the answer; its servers are outside Turkey. Your email address and account numbers are not sent. Questions and answers are not stored on our servers; the chat stays on your device, and we only keep a daily question count for cost control.</p>'],
       ['Mentor access', '<p>Someone you invite as a mentor, who opens the invite link and signs in with the same email, can see the data in your account read-only; they can\'t change it. Access ends as soon as you remove it in Settings → Mentor access.</p>'],
       ['How long we keep it', '<p>For as long as your account exists. When you delete your account, the account and all its data are deleted right away and disappear from server backups within 7 days.</p>'],
       ['Third-party services', '<p>Supabase (database, sign-in and email). When the page loads, fonts come from Google Fonts and libraries from cdnjs and jsDelivr; these services may see technical details such as your IP address when they serve those files. We use no analytics, advertising or tracking cookies. Your session is kept in your browser\'s local storage.</p>'],
