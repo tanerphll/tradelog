@@ -809,6 +809,7 @@ body.aion{overflow:hidden}
 @media (max-width:640px){.ap .wtypes{grid-template-columns:1fr}}
 .ap .wsync{display:flex;align-items:center;gap:10px;flex-wrap:wrap;margin-top:18px;padding:14px 16px;border:1px solid var(--ln);border-radius:14px;background:var(--sf2)}
 .ap .wsync .wsn{flex:1;min-width:0;font-size:14px;font-weight:600;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.ap .wsync .wsst{display:block;font-size:12.5px;font-weight:500;color:var(--ink3);margin-top:2px;overflow:hidden;text-overflow:ellipsis}
 .site{color-scheme:dark;--win:#4ADE80;--bg:#000100;--bg2:#08090B;--card:#111317;--card2:#1B1E24;--line:rgba(148,197,204,.13);--line2:rgba(148,197,204,.28);--tx:#F8F8F8;--mu:#A1A6B4;--lime:#94C5CC;--sage:#B4D2E7;--olive:#5E8D94;--loss:#F87171;--disp:'Bricolage Grotesque',system-ui,sans-serif;--body:'Inter',system-ui,sans-serif;--mono:'JetBrains Mono',ui-monospace,monospace}
 .site *{box-sizing:border-box}
 html{scroll-behavior:smooth;-webkit-text-size-adjust:100%}
@@ -1614,7 +1615,7 @@ sy_what_q:'Yatırımcı şifresi nedir, nerede bulurum?',sy_what:'Hesabına sade
 sy_connect:'Bağlan',sy_wait:'Aracı kuruma bağlanılıyor… Bu bir dakika kadar sürebilir, pencereyi kapatma.',sy_linked:'Hesap bağlandı. İlk senkron yapılıyor; işlemlerin birkaç dakika içinde gelir. Bu pencereyi kapatabilirsin.',
 sy_e_input:'Sunucu, hesap numarası ve yatırımcı şifresini kontrol et.',sy_e_auth:'Hesap numarası, yatırımcı şifresi ya da sunucu yanlış. Bilgileri kontrol edip tekrar dene.',sy_e_server:'Bu sunucu bulunamadı. Adı MetaTrader\'daki gibi tam yaz; şunlardan biri olabilir:',
 sy_e_exists:'Bu MetaTrader hesabı zaten bağlı.',sy_e_limit:'En fazla {n} hesap bağlayabilirsin. Kullanmadığın bir bağlantıyı kaldır.',sy_e_slow:'Aracı kurum zamanında yanıt vermedi. Birkaç dakika sonra tekrar dene.',sy_e_config:'Bağlantı servisi henüz ayarlanmadı.',sy_e_plan:'Hesap bağlama Pro özelliğidir.',
-sy_e_broker:'Aracı kuruma bağlanılamadı. Yatırımcı şifresi değişmiş olabilir; bağlantıyı kaldırıp yeniden bağla.',sy_e_gone:'Bağlantı artık yok; kaldırıp yeniden bağla.',sy_e_slow2:'Bağlantı hâlâ kuruluyor. Birkaç dakika sonra hesabı düzenle ekranından kontrol et.',
+sy_st_wait:'Durum kontrol ediliyor…',sy_st_start:'Bulut terminali başlatılıyor…',sy_st_conn:'Aracı kuruma bağlanılıyor…',sy_st_broker:'Aracı kurum sunucusu henüz yanıt vermiyor, bekleniyor…',sy_st_ready:'Bağlandı, işlemlerin alınıyor…',sy_st_min:'{n} dk',sy_checking:'Kontrol ediliyor…',sy_still:'Bağlantı hâlâ kuruluyor; hazır olunca işlemlerin kendiliğinden gelecek.',sy_e_broker:'Aracı kuruma bağlanılamadı. Yatırımcı şifresi değişmiş olabilir; bağlantıyı kaldırıp yeniden bağla.',sy_e_gone:'Bağlantı artık yok; kaldırıp yeniden bağla.',sy_e_slow2:'Bağlantı hâlâ kuruluyor. Birkaç dakika sonra hesabı düzenle ekranından kontrol et.',
 sy_err:'Bir şeyler ters gitti. İnternetini kontrol edip tekrar dene.',sy_login:'Hesap bağlamak için önce giriş yap',sy_connecting:'Bağlanıyor…',sy_first:'ilk senkron bekleniyor',sy_last:'son senkron {t}',sy_sent:'{n} kayıt',sy_now_b:'Senkronize et',sy_rm:'Kaldır',
 sy_rm_c:'Bu bağlantı kaldırılsın mı? İşlemler artık otomatik gelmez. Gelmiş işlemlerin silinmez.',sy_rm_ok:'Bağlantı kaldırıldı',sy_got:'MetaTrader\'dan {n} yeni işlem geldi',sy_got_u:'MetaTrader\'dan {n} işlem eşleşti',sy_got_c:'MetaTrader\'dan {n} para hareketi geldi',sy_ok_none:'Senkron tamam, yeni işlem yok',
 sy_auto_bal:'MetaTrader bakiyesinden hesaplanıyor',sy_manage:'Otomatik senkron',sy_manage_d:'MT4/MT5 hesabını yatırımcı şifresiyle bağla, işlemlerin kendiliğinden gelsin.',sy_open:'Hesabı bağla',
@@ -1637,7 +1638,7 @@ r_ex_risk:'Riske ettiğin (1R)',r_ex_win:'Hedefte kapandı',r_ex_loss:'Stopa git
 r_p3:'Stop girmediğin işlemlerde R, hesabındaki “işlem başı risk %” ayarına göre tahmin edilir ve başında ≈ işareti olur.',
 wel_hi:'Hoş geldin',wel_acc_d2:'İki kısa adım: hesabının türünü seç, sonra işlemlerin nereden geleceğini. Bir dakikada panelin hazır.',wel_q1:'Bu hesap ne tür?',wel_q1_s:'Prop hesabıysa kurallarını da takip ederiz.',wel_q2:'İşlemlerin nereden gelsin?',
 wel_t_personal:'Kendi paranla işlem yaptığın hesap',wel_t_challenge:'Prop firm değerlendirme aşaması',wel_t_funded:'Geçtiğin, fonlanmış prop hesabı',wel_rules_h:'Prop firmanın kuralları, hesap bakiyesinin yüzdesi olarak. Sık kullanılan değerlerle doldurduk; kendi firmanınkiyle değiştir. Sonra hesap ayarlarından da değiştirebilirsin.',
-wel_sync_k:'Otomatik bağlantı',wel_sync_wait_t:'Hesabın bağlanıyor',wel_sync_wait_d:'MetaTrader hesabına ilk bağlantı birkaç dakika sürebilir. İşlemlerin geldiğinde panel kendiliğinden dolacak; bu sayfada beklemen gerekmez.',
+wel_sync_k:'Otomatik bağlantı',wel_sync_wait_t:'Hesabın bağlanıyor',wel_sync_wait_d:'MetaTrader hesabına ilk bağlantı birkaç dakika sürebilir. Hazır olunca işlemlerin kendiliğinden gelir ve panel dolar. Uygulamayı kapatsan da sonraki açışında devam eder.',
 wel_sync_ok_t:'Hesabın bağlandı',wel_sync_ok_d:'Son 90 günde kapanmış işlem bulunamadı. Yeni işlemlerin kapandıkça burada görünecek; istersen şimdi kontrol edebilirsin.',wel_sync_err_t:'Bağlantı kurulamadı',wel_sync_chk:'Şimdi kontrol et',
 mis_off_plan:'Plan dışı işlem',mis_revenge:'Revenge trade',mis_fomo:'FOMO',mis_oversize:'Risk büyüttüm',mis_overtrading:'Aşırı işlem'},
 en:{
@@ -1791,7 +1792,7 @@ sy_what_q:'What is the investor password and where do I find it?',sy_what:'It\'s
 sy_connect:'Connect',sy_wait:'Connecting to your broker… This can take up to a minute, keep this window open.',sy_linked:'Account connected. The first sync is running; your trades arrive within a few minutes. You can close this window.',
 sy_e_input:'Check the server, account number and investor password.',sy_e_auth:'The account number, investor password or server is wrong. Check the details and try again.',sy_e_server:'This server wasn\'t found. Type the name exactly as in MetaTrader; it may be one of these:',
 sy_e_exists:'This MetaTrader account is already connected.',sy_e_limit:'You can connect up to {n} accounts. Remove a connection you no longer use.',sy_e_slow:'The broker didn\'t answer in time. Try again in a few minutes.',sy_e_config:'The connection service isn\'t set up yet.',sy_e_plan:'Connecting accounts is a Pro feature.',
-sy_e_broker:'Couldn\'t reach the broker. The investor password may have changed; remove the connection and connect again.',sy_e_gone:'The connection no longer exists; remove it and connect again.',sy_e_slow2:'Still connecting. Check again in a few minutes from the account editor.',
+sy_st_wait:'Checking status…',sy_st_start:'Starting the cloud terminal…',sy_st_conn:'Connecting to your broker…',sy_st_broker:'Your broker\'s server isn\'t answering yet, waiting…',sy_st_ready:'Connected, fetching your trades…',sy_st_min:'{n} min',sy_checking:'Checking…',sy_still:'Still connecting; your trades will arrive on their own once it\'s ready.',sy_e_broker:'Couldn\'t reach the broker. The investor password may have changed; remove the connection and connect again.',sy_e_gone:'The connection no longer exists; remove it and connect again.',sy_e_slow2:'Still connecting. Check again in a few minutes from the account editor.',
 sy_err:'Something went wrong. Check your internet and try again.',sy_login:'Sign in first to connect an account',sy_connecting:'Connecting…',sy_first:'waiting for the first sync',sy_last:'last synced {t}',sy_sent:'{n} records',sy_now_b:'Sync now',sy_rm:'Remove',
 sy_rm_c:'Remove this connection? Trades won\'t arrive automatically any more. Trades that already arrived are kept.',sy_rm_ok:'Connection removed',sy_got:'{n} new trades arrived from MetaTrader',sy_got_u:'{n} trades matched from MetaTrader',sy_got_c:'{n} cash movements arrived from MetaTrader',sy_ok_none:'Sync done, no new trades',
 sy_auto_bal:'Calculated from your MetaTrader balance',sy_manage:'Auto sync',sy_manage_d:'Connect your MT4/MT5 account with its investor password and let trades arrive on their own.',sy_open:'Connect account',
@@ -1814,7 +1815,7 @@ r_ex_risk:'What you risk (1R)',r_ex_win:'Closed at target',r_ex_loss:'Hit the st
 r_p3:'For trades without a stop, R is estimated from the account\'s “risk per trade %” setting and shown with ≈.',
 wel_hi:'Welcome',wel_acc_d2:'Two quick steps: choose your account type, then where your trades come from. Your dashboard is ready in a minute.',wel_q1:'What kind of account is this?',wel_q1_s:'If it\'s a prop account, we\'ll track its rules too.',wel_q2:'Where should your trades come from?',
 wel_t_personal:'An account you trade with your own money',wel_t_challenge:'Prop firm evaluation phase',wel_t_funded:'A funded prop account you passed',wel_rules_h:'Your prop firm\'s rules, as a percentage of the account balance. We filled in common values; change them to your firm\'s. You can edit them later in the account settings.',
-wel_sync_k:'Automatic connection',wel_sync_wait_t:'Your account is connecting',wel_sync_wait_d:'The first connection to your MetaTrader account can take a few minutes. Your dashboard fills up on its own when your trades arrive; you don\'t need to wait on this page.',
+wel_sync_k:'Automatic connection',wel_sync_wait_t:'Your account is connecting',wel_sync_wait_d:'The first connection to your MetaTrader account can take a few minutes. Once it\'s ready your trades arrive on their own and the dashboard fills up. If you close the app, it carries on next time you open it.',
 wel_sync_ok_t:'Your account is connected',wel_sync_ok_d:'No closed trades were found in the last 90 days. New trades show up here as they close; you can check now if you like.',wel_sync_err_t:'Couldn\'t connect',wel_sync_chk:'Check now',
 mis_off_plan:'Off-plan trade',mis_revenge:'Revenge trade',mis_fomo:'FOMO',mis_oversize:'Oversized risk',mis_overtrading:'Overtrading'}};
 
@@ -2735,7 +2736,7 @@ function welcome(){
     const lk=SY.links&&SY.links.find(k=>k.account_id===a.id);
     if(lk){const st=lk.state==='error'?'err':lk.state==='ok'&&lk.last_sync_at?'ok':'wait';
       return `<div class="card welcome w1"><div class="wh"><span class="step1">${t('wel_sync_k')}</span><h2>${t('wel_sync_'+st+'_t')}</h2><p>${t(st==='err'?'sy_e_broker':'wel_sync_'+st+'_d')}</p></div>
-       <div class="wsync"><span class="sydot ${st==='err'?'bad':st==='ok'?'on':'wait'}"></span><span class="wsn">${esc(lk.plat.toUpperCase()+' #'+lk.login+' · '+lk.server)}</span><button class="btn sm" onclick="syNow('${lk.id}',this)">${t('wel_sync_chk')}</button></div>
+       <div class="wsync"><span class="sydot ${st==='err'?'bad':st==='ok'?'on':'wait'}"></span><span class="wsn">${esc(lk.plat.toUpperCase()+' #'+lk.login+' · '+lk.server)}${st==='wait'?`<small class="wsst" data-systage="${lk.id}">${esc(syStage(lk.id))}</small>`:''}</span><button class="btn sm" onclick="syNow('${lk.id}',this)">${t('wel_sync_chk')}</button></div>
        <div class="walt"><span>${t('wel_alt')}</span><button class="btn sm" onclick="demo()">${t('wel_demo')}</button><button class="btn sm ghost" onclick="accDlg('${a.id}')">${t('acc_edit')}</button></div></div>`}}
   return `<div class="card welcome w1"><div class="wh"><span class="step1">${t('wel_step2')}</span><h2>${t('wel_ready_t')}</h2><p>${t('wel_ready_d',{k:esc(accLabel(a))})}</p></div>
    ${accOptions()}
@@ -3918,7 +3919,9 @@ async function sbSync(pull){
   try{
     if(!sb)await sbClient();
     await sbPush();
-    if(pull){const n=await sbPull(false);sbPulled=Date.now();await syAuto();const m=await syTake();if((n||m)&&!formOpen())render()}
+    if(pull){const n=await sbPull(false);sbPulled=Date.now();const m=await syTake();if((n||m)&&!formOpen())render();
+      /* asking the server for new trades can take a minute (it may start the terminal), so it runs in the background */
+      syAuto().then(k=>k?syTake(true):0).then(k=>{if(k&&!formOpen())render()})}
     sbFail=false;setSync('ok');
   }catch(e){
     sbFail=true;setSync(navigator.onLine===false||/fetch|network/i.test(String((e&&e.message)||''))?'off':'err');
@@ -4285,7 +4288,7 @@ function roBanner(){return RO?`<div class="robar">${ic('user')}<span>${t('mt_vie
    The "broker" server function hands them to MetaApi (the password is never stored by us),
    then pulls closed trades and deposits/withdrawals into an inbox; the app takes them from there
    and turns them into trades exactly like a report import. Costs money per account, so Pro only. */
-var SY={links:null,plat:'mt5',busy:false,loading:false,taking:false,at:0,autoAt:0,poll:{}};
+var SY={links:null,plat:'mt5',busy:false,loading:false,taking:false,at:0,autoAt:0,poll:{},stage:{},followed:{}};
 function syHas(){try{return localStorage.getItem('tradelog_sy')==='1'}catch(e){return false}}
 function syMark(on){try{on?localStorage.setItem('tradelog_sy','1'):localStorage.removeItem('tradelog_sy')}catch(e){}}
 function syAgo(ts){const m=Math.max(0,Math.round((Date.now()-new Date(ts))/6e4));return m<2?t('sy_now'):m<60?t('sy_min',{n:m}):m<1440?t('sy_hour',{n:Math.round(m/60)}):t('sy_day',{n:Math.round(m/1440)})}
@@ -4304,7 +4307,10 @@ function syStart(acc){
 async function syLoad(){
   if(!sb)await sbClient();
   const {data,error}=await sb.from('broker_links').select('id,account_id,plat,login,server,state,error,info,sent,last_sync_at,created_at').order('created_at');
-  if(error)throw error;SY.links=data||[];syMark(SY.links.length>0);return SY.links;
+  if(error)throw error;SY.links=data||[];syMark(SY.links.length>0);
+  /* a connection still being set up (e.g. after reopening the app): keep following it, once per visit */
+  SY.links.forEach(k=>{if(k.state==='connecting'&&!SY.followed[k.id]&&!SY.poll[k.id]){SY.followed[k.id]=1;setTimeout(()=>syFollow(k.id),0)}});
+  return SY.links;
 }
 function syDlg(acc){
   const accs=actAccs().filter(a=>a.name||a.no||trades.some(x=>x.account===a.id));
@@ -4349,43 +4355,62 @@ async function syConnect(){
     const d={name:'MetaTrader '+SY.plat.slice(2)+' '+login,bal:0,cur:'USD',risk:1,eab:1,no:login,srv:server.slice(0,80)};
     if(blank)Object.assign(S.accounts[0],d);else S.accounts.push({id:acc,...d});
     if(typeof welApply==='function')welApply(S.accounts.find(z=>z.id===acc));
-    S=normS(S);saveS();render();
+    S=normS(S);saveS();
   }
-  syMark(true);SY.links=null;
+  /* load the new link right away, so the dashboard says "connecting" instead of asking for a first trade */
+  syMark(true);SY.links=null;SY.followed[r.id]=1;
+  try{await syLoad()}catch(e){}
+  render();
   sySt('good',esc(t('sy_linked')));
   if($('sy_go')){$('sy_go').outerHTML=`<button class="btn pri" onclick="closeDlg()">${t('ok_btn')}</button>`}
   syFollow(r.id);
 }
 /* after connecting: wait until MetaApi reaches the broker, then take the first sync */
+/* follow a connection while the app is open: show where the setup is, and fetch the trades as soon as it's ready.
+   The first connection can take a while, so this keeps going (every 5s, then every 15s) for up to 30 minutes. */
 async function syFollow(id){
   if(SY.poll[id])return;SY.poll[id]=1;
-  const until=Date.now()+180e3;let st='connecting';
-  while(Date.now()<until){
-    try{const r=await syFn({action:'status',id});if(r.ok)st=r.state}catch(e){}
-    if(st!=='connecting')break;
-    await new Promise(r=>setTimeout(r,5000));
+  const t0=Date.now();let st='connecting',n=0,res='';
+  while(Date.now()-t0<30*60e3){
+    try{const r=await syFn({action:'status',id});if(r.ok){st=r.state;SY.stage[id]={s:r.stage,since:r.since};sySt2(id)}}catch(e){}
+    if(st==='error')break;
+    if(st==='ok'){
+      try{const r=await syFn({action:'sync',id});const s=r&&r.ok&&r.states?r.states[id]:'';
+        if(s==='ok'){n=await syTake(true);res='ok';break}
+        if(s==='error'){st='error';break}
+      }catch(e){}
+    }
+    await new Promise(r=>setTimeout(r,Date.now()-t0<180e3?5000:15000));
   }
-  let n=0,msg='';
-  if(st==='ok'){
-    try{await syFn({action:'sync',id});n=await syTake(true)}catch(e){}
-    msg=n?t('sy_got',{n}):t('sy_ok_none');
-  }else msg=t(st==='error'?'sy_e_broker':'sy_e_slow2');
-  delete SY.poll[id];SY.links=null;
+  delete SY.poll[id];delete SY.stage[id];SY.links=null;
   try{await syLoad()}catch(e){}
-  if($('sy_st'))sySt(st==='ok'?'good':'bad',esc(msg));else toast(msg);
+  const msg=res==='ok'?(n?t('sy_got',{n}):t('sy_ok_none')):t(st==='error'?'sy_e_broker':'sy_e_slow2');
+  if($('sy_st'))sySt(res==='ok'?'good':'bad',esc(msg));else toast(msg);
   if($('acSy'))$('acSy').innerHTML=syAccLine($('acSy').dataset.acc);
   if(!formOpen()&&!dlgOpen())render();
 }
+/* one line on where a connection's setup is, e.g. "Reaching your broker… · 4 min" */
+function syStage(id){
+  const g=SY.stage[id];if(!g||!g.s)return t('sy_st_wait');
+  const m=g.since?Math.max(0,Math.floor((Date.now()-Date.parse(g.since))/60e3)):0;
+  return t('sy_st_'+g.s)+(m?' · '+t('sy_st_min',{n:m}):'');
+}
+function sySt2(id){document.querySelectorAll('[data-systage="'+id+'"]').forEach(el=>{el.textContent=syStage(id)})}
 function syRow(k){
   const i=k.info||{},cls=k.state==='ok'?'on':k.state==='error'?'bad':'wait';
   const d=k.state==='ok'?[k.last_sync_at?t('sy_last',{t:syAgo(k.last_sync_at)}):t('sy_first'),t('sy_sent',{n:k.sent||0})].join(' · ')
-    :k.state==='error'?t(k.error==='gone'?'sy_e_gone':k.error==='broker'?'sy_e_broker':'sy_err'):t('sy_connecting');
-  return `<div class="srow"><div style="min-width:0"><div class="t"><span class="sydot ${cls}"></span>${k.plat.toUpperCase()} #${esc(k.login)} · ${esc(k.server)}</div><div class="d">${i.company?esc(i.company)+' · ':''}${esc(d)}</div></div>
-   <span class="acts">${k.state==='ok'?`<button class="btn sm" onclick="syNow('${k.id}',this)">${t('sy_now_b')}</button>`:''}<button class="btn sm ghost" onclick="syRm('${k.id}')">${t('sy_rm')}</button></span></div>`;
+    :k.state==='error'?t(k.error==='gone'?'sy_e_gone':k.error==='broker'?'sy_e_broker':'sy_err'):syStage(k.id);
+  return `<div class="srow"><div style="min-width:0"><div class="t"><span class="sydot ${cls}"></span>${k.plat.toUpperCase()} #${esc(k.login)} · ${esc(k.server)}</div><div class="d">${i.company?esc(i.company)+' · ':''}<span${k.state==='connecting'?` data-systage="${k.id}"`:''}>${esc(d)}</span></div></div>
+   <span class="acts">${k.state!=='error'?`<button class="btn sm" onclick="syNow('${k.id}',this)">${t(k.state==='ok'?'sy_now_b':'wel_sync_chk')}</button>`:''}<button class="btn sm ghost" onclick="syRm('${k.id}')">${t('sy_rm')}</button></span></div>`;
 }
 async function syNow(id,b){
-  if(b)b.disabled=true;let n=0;
-  try{const r=await syFn({action:'sync',id});if(!r.ok)throw r;n=await syTake(true);toast(n?t('sy_got',{n}):t('sy_ok_none'))}catch(e){say(t('sy_err'))}
+  if(b){b.disabled=true;b.dataset.l=b.textContent;b.textContent=t('sy_checking')}let n=0;
+  try{const r=await syFn({action:'sync',id});if(!r.ok)throw r;const s=r.states?r.states[id]:'';
+    if(s==='connecting'){toast(t('sy_still'));SY.followed[id]=1;syFollow(id)}
+    else if(s==='error')say(t('sy_e_broker'));
+    else{n=await syTake(true);toast(n?t('sy_got',{n}):t('sy_ok_none'))}
+  }catch(e){say(t('sy_err'))}
+  if(b&&b.isConnected){b.disabled=false;b.textContent=b.dataset.l}
   SY.links=null;try{await syLoad()}catch(e){}
   if($('acSy'))$('acSy').innerHTML=syAccLine($('acSy').dataset.acc);
   if(!formOpen())render();
@@ -4422,7 +4447,8 @@ async function syDropAll(){
 async function syAuto(){
   if(!sbOn()||!sbUser||RO||!syHas()||!isPro())return 0;
   if(Date.now()-SY.autoAt<10*60e3)return 0;SY.autoAt=Date.now();
-  try{const r=await syFn({action:'sync'});if(r&&r.ok&&r.synced){SY.links=null}}catch(e){}
+  if(Object.keys(SY.poll).length)return 0;            // a connection being followed already asks for it
+  try{const r=await syFn({action:'sync'});if(r&&r.ok&&r.synced){SY.links=null;return 1}}catch(e){}
   return 0;
 }
 /* take what the server delivered and add it to the journal */
