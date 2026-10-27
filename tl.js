@@ -1,5 +1,6 @@
 /* ================= i18n ================= */
 const T={tr:{
+co_cut:'Cevap yarıda kesildi. Aynı soruyu tekrar sorabilirsin.',
 sy_paused:'Pro sona erdiği için otomatik senkron durduruldu. İşlemlerin yerinde duruyor; Pro\'yu yenileyince hesabı yeniden bağlayabilirsin.',sy_pro_end:'Pro sona erdi; otomatik senkron durdu. Pro\'yu 7 gün içinde yenilersen bağlantı olduğu gibi devam eder.',
 rec:'Önerilen',wel_man:'İşlemlerimi kendim gireceğim',wel_man_d:'Önce hesabının bakiyesini ve para birimini gir, sonra işlemlerini tek tek ekle. Her platformla çalışır.',wel_alt2:'Önce uygulamayı tanımak mı istiyorsun?',first_k:'Son adım',first_t:'İlk işlemini gir',first_d:'{k} hazır. Sembol ve sonucu yazman yeterli; diğer alanları istersen sonra doldurursun.',acc_first_t:'Hesap bilgilerin',acc_first_d:'Bakiye ve para birimi kâr/zarar ve getiri hesapları için kullanılır. Hepsini sonra Hesaplar sayfasından değiştirebilirsin.',acc_adv:'Gelişmiş ayarlar: risk ve başabaş aralığı',es_t:'Henüz işlem yok',es_acc_t:'Henüz hesabın yok',es_cal:'Takvim ilk işlemlerinle dolar; her gün sonucuna göre yeşil ya da kırmızı görünür.',es_trades:'İşlemlerin burada listelenecek; arayıp filtreleyebilir, sütunları seçebileceksin.',es_rep:'Raporlar ilk işlemlerinle dolar: kazanma oranı, beklenti, drawdown, setup, saat ve hata analizleri.',es_acc:'Hesabını kurduğunda bakiyen, net kazancın ve prop kuralların burada görünür.',es_setup:'Kuruluma başla',es_add:'İşlem ekle',
 sup_t:'Bize yaz',sup_btn:'Destek ekibine yaz',sup_d:'Bir hata mı buldun, bir şeye takıldın mı ya da bir önerin mi var? Yaz, e-postayla dönüş yapalım. Hesap şifreni ya da yatırımcı şifreni asla yazma.',sup_from:'Dönüş yapacağımız adres',sup_email:'E-posta adresin',sup_topic:'Konu',sup_msg:'Mesajın',sup_ph:'Ne yapmaya çalıştın, ne oldu? Ekran ve cihaz bilgisi de işimize yarar.',sup_send:'Gönder',sup_sending:'Gönderiliyor…',sup_ok:'Mesajın bize ulaştı. E-postayla dönüş yapacağız.',sup_tp_bug:'Hata bildirimi',sup_tp_sync:'Hesap bağlama / senkron',sup_tp_import:'Rapor yükleme',sup_tp_account:'Üyelik ve giriş',sup_tp_billing:'Pro ve ödeme',sup_tp_idea:'Öneri',sup_tp_other:'Diğer',sup_e_email:'Geçerli bir e-posta adresi yaz.',sup_e_msg:'Mesajın çok kısa.',sup_e_limit:'Kısa sürede çok fazla mesaj gönderildi. Biraz sonra tekrar dene.',sup_e_net:'İnternet bağlantına ulaşılamadı. Bağlantını kontrol edip tekrar dene.',sup_e_setup:'Mesaj şu an gönderilemedi. Biraz sonra tekrar dene.',sup_e_server:'Mesaj şu an gönderilemedi. Biraz sonra tekrar dene.',sup_e_message:'Mesajın çok kısa ya da çok uzun.',s_help:'Yardım ve destek',s_help_s:'Bir sorun mu var? Buradan bize ulaş.',s_help_c:'Yardım merkezi',gs_app:'Telefonuna ekle',gs_app_d:'Ana ekrandan tek dokunuşla aç; uygulama gibi tam ekran çalışır.',a2_t:'Ana ekrana ekle',a2_d:'TradeLog\'u ana ekranına ekle; tek dokunuşla, uygulama gibi tam ekran açılsın. İndirme ya da mağaza gerekmez.',a2_ios:['Safari\'de alttaki <b>Paylaş</b> düğmesine dokun (yukarı oklu kare).','Listeyi kaydır ve <b>Ana Ekrana Ekle</b>\'yi seç.','Sağ üstte <b>Ekle</b>\'ye dokun.'],a2_and:['Chrome\'da sağ üstteki <b>⋮</b> menüsüne dokun.','<b>Ana ekrana ekle</b> ya da <b>Uygulamayı yükle</b>\'yi seç.','<b>Ekle</b> ya da <b>Yükle</b>\'ye dokunarak onayla.'],a2_ok:'Ekledim',a2_later:'Sonra',
@@ -180,6 +181,7 @@ wel_sync_k:'Otomatik bağlantı',wel_sync_wait_t:'Hesabın bağlanıyor',wel_syn
 wel_sync_ok_t:'Hesabın bağlandı',wel_sync_ok_d:'Son 90 günde kapanmış işlem bulunamadı. Yeni işlemlerin her gece otomatik gelir; istersen şimdi kontrol edebilirsin.',wel_sync_err_t:'Bağlantı kurulamadı',wel_sync_chk:'Şimdi kontrol et',
 mis_off_plan:'Plan dışı işlem',mis_revenge:'Revenge trade',mis_fomo:'FOMO',mis_oversize:'Risk büyüttüm',mis_overtrading:'Aşırı işlem'},
 en:{
+co_cut:'The answer was cut off. You can ask the same question again.',
 sy_paused:'Auto-sync was paused because Pro ended. Your trades are kept; reconnect the account after renewing Pro.',sy_pro_end:'Pro ended, so auto-sync stopped. Renew within 7 days and the connection continues as it is.',
 rec:'Recommended',wel_man:'I\'ll log my trades myself',wel_man_d:'Enter your account balance and currency first, then add trades one by one. Works with any platform.',wel_alt2:'Want to get to know the app first?',first_k:'Last step',first_t:'Log your first trade',first_d:'{k} is ready. Symbol and result are enough; fill in the other fields later if you like.',acc_first_t:'Your account details',acc_first_d:'Balance and currency are used for P&L and return. You can change all of this later on the Accounts page.',acc_adv:'Advanced: risk and breakeven range',es_t:'No trades yet',es_acc_t:'No accounts yet',es_cal:'The calendar fills up with your trades; each day turns green or red by its result.',es_trades:'Your trades will be listed here, with search, filters and the columns you choose.',es_rep:'Reports fill up with your first trades: win rate, expectancy, drawdown, setup, time and mistake analysis.',es_acc:'Once your account is set up, its balance, net gain and prop rules show up here.',es_setup:'Start setup',es_add:'Add trade',
 sup_t:'Contact support',sup_btn:'Contact support',sup_d:'Found a bug, got stuck or have an idea? Write to us and we\'ll reply by email. Never include your account or investor password.',sup_from:'We\'ll reply to',sup_email:'Your email address',sup_topic:'Topic',sup_msg:'Message',sup_ph:'What were you trying to do and what happened? Device and browser details help too.',sup_send:'Send',sup_sending:'Sending…',sup_ok:'Your message has reached us. We\'ll reply by email.',sup_tp_bug:'Bug report',sup_tp_sync:'Account connection / sync',sup_tp_import:'Report upload',sup_tp_account:'Account and sign-in',sup_tp_billing:'Pro and billing',sup_tp_idea:'Feature request',sup_tp_other:'Other',sup_e_email:'Enter a valid email address.',sup_e_msg:'Your message is too short.',sup_e_limit:'Too many messages in a short time. Please try again later.',sup_e_net:'Couldn\'t reach the internet. Check your connection and try again.',sup_e_setup:'Your message couldn\'t be sent right now. Please try again later.',sup_e_server:'Your message couldn\'t be sent right now. Please try again later.',sup_e_message:'Your message is too short or too long.',s_help:'Help and support',s_help_s:'Something wrong? Reach us here.',s_help_c:'Help center',gs_app:'Add to your phone',gs_app_d:'Open it from your home screen in one tap, full screen like an app.',a2_t:'Add to home screen',a2_d:'Add TradeLog to your home screen so it opens in one tap, full screen like an app. No download or app store needed.',a2_ios:['In Safari, tap the <b>Share</b> button at the bottom (the square with an arrow).','Scroll down and choose <b>Add to Home Screen</b>.','Tap <b>Add</b> in the top right.'],a2_and:['In Chrome, tap the <b>⋮</b> menu at the top right.','Choose <b>Add to home screen</b> or <b>Install app</b>.','Confirm with <b>Add</b> or <b>Install</b>.'],a2_ok:'Done',a2_later:'Later',
@@ -3391,22 +3393,29 @@ async function coAsk(q,deep){
   CO.msgs=CO.msgs.filter(m=>m.r!=='e');CO.msgs.push({r:'u',t:q});
   const a={r:'a',t:''};CO.msgs.push(a);CO.busy=true;coRender();
   if($('coGo'))$('coGo').disabled=true;
-  let err=null,raf=0;
-  try{
+  let err=null,raf=0,cut=false;
+  /* one call; if the connection fails before any text arrives, it is tried once more without streaming */
+  const call=async st=>{
     if(!sb)await sbClient();
     const {data:{session}}=await sb.auth.getSession();
-    const res=await fetch(SBC.url+'/functions/v1/coach',{method:'POST',headers:{Authorization:'Bearer '+(session&&session.access_token),apikey:SBC.key,'Content-Type':'application/json'},
-      body:JSON.stringify({lang:L,question:q,deep:!!deep,stream:true,history:hist,data:coachData()})});
+    return fetch(SBC.url+'/functions/v1/coach',{method:'POST',headers:{Authorization:'Bearer '+(session&&session.access_token),apikey:SBC.key,'Content-Type':'application/json'},
+      body:JSON.stringify({lang:L,question:q,deep:!!deep,stream:st,history:hist,data:coachData()})});
+  };
+  try{
+    let res;try{res=await call(true)}catch(e){await new Promise(r=>setTimeout(r,1200));res=await call(false)}
     const lf=res.headers.get('x-coach-left');if(lf!=null&&lf!==''){CO.left=+lf;CO.limit=+(res.headers.get('x-coach-limit')||0)}
     if((res.headers.get('content-type')||'').includes('application/json')){
       const j=await res.json().catch(()=>({ok:false,error:'net'}));
       if(j.ok&&j.text)a.t=j.text;else{err=j.error||'net';if(j.limit)CO.limit=j.limit;CO.why=j.why||''}
     }else{
       const rd=res.body.getReader(),dec=new TextDecoder();
-      for(;;){const {done,value}=await rd.read();if(done)break;a.t+=dec.decode(value,{stream:true});if(!raf)raf=requestAnimationFrame(()=>{raf=0;coRender()})}
-      if(!a.t.trim())err='provider';
+      try{for(;;){const {done,value}=await rd.read();if(done)break;a.t+=dec.decode(value,{stream:true});if(!raf)raf=requestAnimationFrame(()=>{raf=0;coRender()})}}
+      catch(e){cut=true}                                            // connection dropped mid-answer: keep what arrived
+      if(a.t.includes('\u0000CUT')){a.t=a.t.split('\u0000CUT')[0];cut=true}
+      if(!a.t.trim())err=cut?'net':'provider';
     }
   }catch(e){err='net'}
+  if(!err&&cut)a.t=a.t.replace(/\s+$/,'')+'…\n\n*'+t('co_cut')+'*';
   CO.busy=false;if($('coGo'))$('coGo').disabled=false;
   if(err==='plan'){CO.msgs.splice(-2);coClose();proDlg('ai');return}
   /* our side (missing key, balance…): calm words + a support code, never the provider's details */
