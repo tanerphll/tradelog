@@ -588,6 +588,22 @@ body.tg .addbtn,body.tg #fSave,body.tg .fab,body.tg .sitelink{display:none}
 .ap .prop{color:var(--ink2);font-size:14.5px;margin-top:8px}
 .ap .proprice{margin-top:14px;font-size:14px;color:var(--mu)}
 .ap .proprice b{color:var(--ink);font-size:16px}
+.ap .pivs{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-top:16px}
+.ap .piv{position:relative;display:flex;flex-direction:column;align-items:flex-start;gap:2px;padding:12px 14px;border:1px solid var(--ln);border-radius:12px;background:var(--sf);color:var(--ink2);text-align:left;cursor:pointer}
+.ap .piv b{font-size:20px;color:var(--ink);letter-spacing:-.02em}
+.ap .piv span{font-size:13px}
+.ap .piv em{position:absolute;top:10px;right:10px;font-style:normal;font-size:11px;font-weight:700;color:var(--br);background:color-mix(in srgb,var(--br) 14%,transparent);padding:2px 7px;border-radius:999px}
+.ap .piv.on{border-color:var(--br);box-shadow:0 0 0 1px var(--br) inset}
+.ap .ptl{margin-top:12px;border:1px solid var(--ln);border-radius:12px;overflow:hidden}
+.ap .ptl>div{display:grid;grid-template-columns:auto 1fr;column-gap:12px;row-gap:2px;align-items:baseline;padding:11px 14px}
+.ap .ptl>div+div{border-top:1px solid var(--ln)}
+.ap .ptl span{font-size:13px;color:var(--ink3);font-weight:600}
+.ap .ptl b{justify-self:end;font-size:15px;color:var(--ink)}
+.ap .ptl small{grid-column:1/-1;font-size:12.5px;color:var(--ink2);line-height:1.45}
+.ap .payh{margin-top:10px;text-align:center}
+.ap .subb{display:flex;gap:8px;flex-wrap:wrap}
+.ap .subl{display:flex;align-items:center;justify-content:space-between;gap:12px;flex-wrap:wrap;margin-top:12px;padding:12px 14px;border:1px solid var(--ln);border-radius:12px;font-size:14px;color:var(--ink2)}
+.ap .subl.warn{border-color:color-mix(in srgb,var(--loss) 50%,transparent);color:var(--loss)}
 .ap .prol{list-style:none;margin:18px 0 0;padding:0;display:flex;flex-direction:column;gap:8px}
 .ap .prol li{display:flex;align-items:center;gap:12px;padding:10px 12px;border-radius:12px;border:1px solid var(--ln2);font-size:14.5px}
 .ap .prol li.on{border-color:var(--br);background:var(--brs)}
