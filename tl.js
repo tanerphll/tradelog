@@ -163,7 +163,7 @@ co_title:'TradeLog AI',co_side:'Verilerini okuyan koçun',co_hi:'Merhaba, ben Tr
 co_ideas:'Senin için fark ettiklerim',co_i_week:'Bu hafta',co_q_mis_x:'“{k}” bana {r} kaybettirmiş. Bunu nasıl önlerim?',co_q_set_x:'{k} en iyi setup\'ım mı? Ona daha mı çok odaklanmalıyım?',co_q_day_x:'{k} günleri neden kötü gidiyor?',
 co_q_week:'Bu haftamı değerlendir',co_q_mistake:'En pahalı hatam ne?',co_q_setup:'Hangi setup\'ım gerçekten işe yarıyor?',co_q_risk:'Risk yönetimim nasıl?',co_q_emo:'Duygularım sonuçlarımı nasıl etkiliyor?',co_q_next:'Gelecek hafta neye odaklanmalıyım?',
 co_ph:'TradeLog AI\'ye sor…',co_send:'Gönder',co_new:'Yeni sohbet',co_left:'{n} soru kaldı · ',co_note:'Sadece senin verilerine bakar, yatırım tavsiyesi değildir.',co_sub:'{n} işlem · {v}',co_thinking:'Verilerine bakıyor…',
-co_login:'TradeLog AI için önce giriş yap',co_err:'Cevap alınamadı. İnternetini kontrol edip tekrar dene.',co_e_limit:'Bugünkü {n} soru hakkını kullandın. Yarın yine buradayım.',co_e_config:'TradeLog AI şu an yanıt veremiyor; sorun bizde. Biraz sonra tekrar dene, sürerse destek koduyla bize yaz.',co_e_busy:'Şu an çok yoğunum, birkaç dakika sonra tekrar dene.',co_e_input:'Soru çok uzun, biraz kısaltıp tekrar dene.',
+co_login:'TradeLog AI için önce giriş yap',co_err:'Cevap alınamadı. İnternetini kontrol edip tekrar dene.',co_e_fail:'Cevap alınamadı, sorun bizde olabilir. Bir daha dene; sürerse destek koduyla bize yaz.',co_e_limit:'Bugünkü {n} soru hakkını kullandın. Yarın yine buradayım.',co_e_config:'TradeLog AI şu an yanıt veremiyor; sorun bizde. Biraz sonra tekrar dene, sürerse destek koduyla bize yaz.',co_e_busy:'Şu an çok yoğunum, birkaç dakika sonra tekrar dene.',co_e_input:'Soru çok uzun, biraz kısaltıp tekrar dene.',
 db_t:'Örnek verileri görüyorsun.',db_d:'Paneli tanıman için örnek işlemler ekledik. Kendi işlemlerini ekleyince örnekleri tek tıkla kaldırabilirsin.',db_own:'Kendi işlemlerin de var. Sonuçlarına karışmasın diye örnekleri kaldırmanı öneririz.',db_add:'Kendi verimi ekle',db_rm:'Örnekleri kaldır',
 tr_net_t:'Toplam sonucun, R cinsinden',tr_net_d:'Her işlemde riske ettiğin tutar 1R\'dir. 100$ riskle 250$ kazandıysan +2,5R, stopa gittiysen −1R. R, hesap büyüklüğünden bağımsız olarak ne kadar iyi trade ettiğini gösterir. Sağdaki çubuklar son işlemlerin.',
 tr_kpi_t:'Temel oranlar',tr_kpi_d:'Kazanma oranı tek başına yetmez. Profit factor 1\'in, beklenti 0R\'nin üstündeyse sistemin para kazandırıyor demektir. Her kutunun altında ne anlama geldiği yazar.',
@@ -344,7 +344,7 @@ co_title:'TradeLog AI',co_side:'Your coach that reads your data',co_hi:'Hi, I\'m
 co_ideas:'What I noticed for you',co_i_week:'This week',co_q_mis_x:'“{k}” cost me {r}. How do I stop it?',co_q_set_x:'Is {k} my best setup? Should I focus on it more?',co_q_day_x:'Why do my {k}s go badly?',
 co_q_week:'Review my week',co_q_mistake:'What\'s my most expensive mistake?',co_q_setup:'Which of my setups really works?',co_q_risk:'How is my risk management?',co_q_emo:'How do my emotions affect my results?',co_q_next:'What should I focus on next week?',
 co_ph:'Ask TradeLog AI…',co_send:'Send',co_new:'New chat',co_left:'{n} questions left · ',co_note:'Looks only at your data; not investment advice.',co_sub:'{n} trades · {v}',co_thinking:'Looking at your data…',
-co_login:'Sign in first to use TradeLog AI',co_err:'Couldn\'t get an answer. Check your internet and try again.',co_e_limit:'You\'ve used today\'s {n} questions. I\'ll be here tomorrow.',co_e_config:'TradeLog AI can\'t answer right now; the problem is on our side. Try again soon, and if it continues, contact us with the support code.',co_e_busy:'I\'m very busy right now; try again in a few minutes.',co_e_input:'The question is too long; shorten it and try again.',
+co_login:'Sign in first to use TradeLog AI',co_err:'Couldn\'t get an answer. Check your internet and try again.',co_e_fail:'Couldn\'t get an answer; the problem may be on our side. Try again, and if it continues, contact us with the support code.',co_e_limit:'You\'ve used today\'s {n} questions. I\'ll be here tomorrow.',co_e_config:'TradeLog AI can\'t answer right now; the problem is on our side. Try again soon, and if it continues, contact us with the support code.',co_e_busy:'I\'m very busy right now; try again in a few minutes.',co_e_input:'The question is too long; shorten it and try again.',
 db_t:'You\'re looking at sample data.',db_d:'We added sample trades so you can get to know the dashboard. Once you add your own, remove the samples in one click.',db_own:'You have your own trades too. Remove the samples so they don\'t mix into your results.',db_add:'Add my own data',db_rm:'Remove samples',
 tr_net_t:'Your total result, in R',tr_net_d:'The amount you risk on a trade is 1R. Risk $100 and make $250 and that\'s +2.5R; hit your stop and it\'s −1R. R shows how well you trade regardless of account size. The bars on the right are your latest trades.',
 tr_kpi_t:'Key ratios',tr_kpi_d:'Win rate alone isn\'t enough. If profit factor is above 1 and expectancy above 0R, your system makes money. Each box says what it means underneath.',
@@ -3384,7 +3384,7 @@ function coRender(){
 }
 function coIdea(i){const x=(CO.ideas||[])[i];if(x)coAsk(x.q,x.deep)}
 function coCopy(i){const m=CO.msgs[i];if(!m)return;const v=coSplit(m.t)[0].replace(/\*\*/g,'');(navigator.clipboard?navigator.clipboard.writeText(v):Promise.reject()).then(()=>toast(t('copied'))).catch(()=>{})}
-const CO_ERR={limit:'co_e_limit',config:'co_e_config',busy:'co_e_busy',input:'co_e_input',login:'co_login'};
+const CO_ERR={limit:'co_e_limit',config:'co_e_config',busy:'co_e_busy',input:'co_e_input',login:'co_login',fail:'co_e_fail'};
 async function coAsk(q,deep){
   if(CO.busy)return;
   const inp=$('coQ');q=String(q||(inp?inp.value:'')).trim();if(!q)return;
@@ -3393,7 +3393,7 @@ async function coAsk(q,deep){
   CO.msgs=CO.msgs.filter(m=>m.r!=='e');CO.msgs.push({r:'u',t:q});
   const a={r:'a',t:''};CO.msgs.push(a);CO.busy=true;coRender();
   if($('coGo'))$('coGo').disabled=true;
-  let err=null,raf=0,cut=false;
+  let err=null,raf=0,cut=false,why='';
   /* one call; if the connection fails before any text arrives, it is tried once more without streaming */
   const call=async st=>{
     if(!sb)await sbClient();
@@ -3402,25 +3402,32 @@ async function coAsk(q,deep){
       body:JSON.stringify({lang:L,question:q,deep:!!deep,stream:st,history:hist,data:coachData()})});
   };
   try{
-    let res;try{res=await call(true)}catch(e){await new Promise(r=>setTimeout(r,1200));res=await call(false)}
+    let res;try{res=await call(true)}catch(e){await new Promise(r=>setTimeout(r,1200));try{res=await call(false)}catch(e2){why='fetch';throw e2}}
     const lf=res.headers.get('x-coach-left');if(lf!=null&&lf!==''){CO.left=+lf;CO.limit=+(res.headers.get('x-coach-limit')||0)}
-    if((res.headers.get('content-type')||'').includes('application/json')){
-      const j=await res.json().catch(()=>({ok:false,error:'net'}));
+    if(!res.ok&&!(res.headers.get('content-type')||'').includes('application/json')){err='fail';why='gateway'}   // the server's gateway answered (timeout, limit), not TradeLog AI
+    else if((res.headers.get('content-type')||'').includes('application/json')){
+      const j=await res.json().catch(()=>({ok:false,error:'server_error'}));
       if(j.ok&&j.text)a.t=j.text;else{err=j.error||'net';if(j.limit)CO.limit=j.limit;CO.why=j.why||''}
     }else{
       const rd=res.body.getReader(),dec=new TextDecoder();
       try{for(;;){const {done,value}=await rd.read();if(done)break;a.t+=dec.decode(value,{stream:true});if(!raf)raf=requestAnimationFrame(()=>{raf=0;coRender()})}}
-      catch(e){cut=true}                                            // connection dropped mid-answer: keep what arrived
-      if(a.t.includes('\u0000CUT')){a.t=a.t.split('\u0000CUT')[0];cut=true}
-      if(!a.t.trim())err=cut?'net':'provider';
+      catch(e){cut=true;why='drop'}                                 // connection dropped mid-answer: keep what arrived
+      const cm=a.t.match(/\u0000CUT(?::(\w+))?/);
+      if(cm){a.t=a.t.slice(0,cm.index);cut=true;why=cm[1]||'cut'}
+      /* nothing arrived: provider overloaded → "busy", anything else → a retry message with a support code */
+      if(!a.t.trim())err=/overload|rate_limit/.test(why)?'busy':'fail';
     }
-  }catch(e){err='net'}
+  }catch(e){err=why==='fetch'?'net':'fail';why=why||'client'}
   if(!err&&cut)a.t=a.t.replace(/\s+$/,'')+'…\n\n*'+t('co_cut')+'*';
   CO.busy=false;if($('coGo'))$('coGo').disabled=false;
   if(err==='plan'){CO.msgs.splice(-2);coClose();proDlg('ai');return}
   /* our side (missing key, balance…): calm words + a support code, never the provider's details */
   const AI_CODE={missing:'AI-101',key:'AI-102',denied:'AI-103',credit:'AI-104',model:'AI-105'};
-  if(err){CO.msgs.pop();CO.msgs.push({r:'e',t:t(CO_ERR[err]||'co_err',{n:CO.limit||''})+(err==='config'?' '+t('sy_e_code')+': '+(AI_CODE[CO.why]||'AI-100'):'')})}
+  /* answer could not be fetched: a code that tells support where it broke (no internet / dropped / provider error / our server) */
+  const AI_FAIL={fetch:'AI-201',drop:'AI-202',cut:'AI-203',provider:'AI-204',server_error:'AI-205',client:'AI-206',gateway:'AI-207'};
+  if(err&&!CO_ERR[err]&&err!=='net'&&err!=='fail'){why=err;err='fail'}
+  const code=err==='config'?(AI_CODE[CO.why]||'AI-100'):(err==='net'||err==='fail')?(AI_FAIL[why]||'AI-200'):'';
+  if(err){CO.msgs.pop();CO.msgs.push({r:'e',t:t(CO_ERR[err]||'co_err',{n:CO.limit||''})+(code?' '+t('sy_e_code')+': '+code:'')})}
   coSave();coRender();
   const lf=$('coLeft');if(lf&&CO.left!=null)lf.textContent=t('co_left',{n:CO.left});
   if(inp&&!('ontouchstart' in window))inp.focus();
