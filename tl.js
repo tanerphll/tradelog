@@ -2359,7 +2359,8 @@ init();
    whenever the tab comes back. Each table row is one trade / account / playbook / journal day.
    The publishable key below is public by design; row level security keeps users apart. */
 const SBC={url:'https://gpnaafbhwdcmnkrhmymu.supabase.co',key:'sb_publishable_wytAvUS5RhQPxnB_khgn8Q_olNZAwzV',
-  lib:'https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2.117.3/dist/umd/supabase.js',google:false};   // google: fallback only; the button follows the project's auth settings
+  lib:'https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2.117.3/dist/umd/supabase.js',google:false,
+  gid:'899339021026-bnk9hjndjc8p3ccriffr8u94mparl7hh.apps.googleusercontent.com'};   // gid: Google OAuth web client ID (public). Set → Google's own button, which shows our domain instead of the Supabase address   // google: fallback only; the button follows the project's auth settings
 const SBK='sb-'+SBC.url.split('//')[1].split('.')[0]+'-auth-token';
 const SBU='tradelog_sb_uid',SBB='tradelog_sb_base',SBR='tradelog_sb_cur';
 const TBL=['accounts','trades','cash_tx','playbooks','journal'];
@@ -2453,7 +2454,7 @@ function renderAuth(){
   const logo=`<svg width="34" height="34" viewBox="0 0 32 32" aria-hidden="true"><rect width="32" height="32" rx="9" fill="#94C5CC"/><path d="M9.5 22v-4.5M16 22V12.5M22.5 22V9" stroke="#000100" stroke-width="3.4" stroke-linecap="round"/></svg>`;
   const em=`<label class="fld"><span>${t('au_email')}</span><input class="in" id="au_em" type="email" inputmode="email" autocomplete="email" autocapitalize="off" spellcheck="false" placeholder="ornek@mail.com" value="${esc(AU.email)}" required></label>`;
   const btn=(lab)=>`<button class="btn pri full" type="submit" ${AU.busy?'disabled':''}>${AU.busy?t('au_wait'):lab}</button>`;
-  const goo=g?`<button type="button" class="btn full augo" onclick="sbGoogle()" ${AU.busy?'disabled':''}>${GICON}<span>${t(m==='signup'?'au_google_up':'au_google')}</span></button><div class="auor"><span>${t('au_or')}</span></div>`:'';
+  const goo=g?`<div class="gwrap${GIS.ok&&gisUse()?' gon':''}"><div id="gbtn"></div><button type="button" class="btn full augo" onclick="sbGoogle()" ${AU.busy?'disabled':''}>${GICON}<span>${t(m==='signup'?'au_google_up':'au_google')}</span></button></div><div class="auor"><span>${t('au_or')}</span></div>`:'';
   let head,form,foot='';
   if(m==='signup'){
     head=[t('au_up_t'),t('au_up_s')];
@@ -2489,6 +2490,7 @@ function renderAuth(){
    <div class="aup"><div class="aupi"><h2>${t('au_pt')}</h2><ul>${[1,2,3].map(i=>`<li>${ic('check')}<span><b>${t('au_p'+i)}</b>${t('au_p'+i+'d')}</span></li>`).join('')}</ul></div></div></div>`;
   if(!SBS)sbSettings();
   const f=$(m==='sent'?'au_re':AU.email&&m==='login'?'au_pw':'au_em')||$('au_pw');if(f&&!narrow())setTimeout(()=>{try{f.focus()}catch(e){}},30);
+  if(g)gisMount();
 }
 const GICON='<svg width="18" height="18" viewBox="0 0 48 48" aria-hidden="true"><path fill="#FFC107" d="M43.6 20.5H42V20H24v8h11.3C33.7 32.7 29.2 36 24 36c-6.6 0-12-5.4-12-12s5.4-12 12-12c3.1 0 5.9 1.2 8 3.1l5.7-5.7C34 6.1 29.3 4 24 4 12.9 4 4 12.9 4 24s8.9 20 20 20 20-8.9 20-20c0-1.3-.1-2.4-.4-3.5z"/><path fill="#FF3D00" d="M6.3 14.7l6.6 4.8C14.7 15.1 19 12 24 12c3.1 0 5.9 1.2 8 3.1l5.7-5.7C34 6.1 29.3 4 24 4 16.3 4 9.7 8.3 6.3 14.7z"/><path fill="#4CAF50" d="M24 44c5.2 0 9.9-2 13.4-5.2l-6.2-5.2C29.2 35.1 26.7 36 24 36c-5.2 0-9.6-3.3-11.3-8l-6.5 5C9.5 39.6 16.2 44 24 44z"/><path fill="#1976D2" d="M43.6 20.5H42V20H24v8h11.3c-.8 2.2-2.2 4.2-4.1 5.6l6.2 5.2C37 39.2 44 34 44 24c0-1.3-.1-2.4-.4-3.5z"/></svg>';
 function sbLegal(k){if(window.showPage){showSite();showPage(k)}}
@@ -2538,6 +2540,44 @@ function sbNewPw(){const v=auVals(true);if(!v)return;auRun(async()=>{
   const c=await sbClient(),{data,error}=await c.auth.updateUser({password:v.pw});if(error)throw error;
   sbRecovery=false;AU.busy=false;toast(t('au_pw_saved'));await sbLogin(data.user)})}
 function sbCool(){clearInterval(sbCool.h);sbCool.h=setInterval(()=>{AU.cool--;const b=$('au_re');if(b){b.disabled=AU.cool>0;b.textContent=AU.cool>0?t('au_resend_in',{s:AU.cool}):t('au_resend_l')}if(AU.cool<=0)clearInterval(sbCool.h)},1000)}
+/* Google's own "Sign in with Google" button (Google Identity Services). It runs on our domain, so Google's window
+   names gotradelog.com / TradeLog instead of the Supabase project address; the ID token is then handed to Supabase.
+   If Google's script can't load (blocked, Telegram, no client ID), our own button keeps the redirect sign-in. */
+var GIS={p:null,ok:false,fail:false,raw:'',hash:''};
+const gisUse=()=>!!SBC.gid&&!GIS.fail&&!(window.Telegram&&Telegram.WebApp&&Telegram.WebApp.initData)&&!!(window.crypto&&crypto.subtle);
+async function gisNonce(){   // a fresh random nonce for each sign-in: Google gets its SHA-256, Supabase the raw value
+  const r=new Uint8Array(24);crypto.getRandomValues(r);const raw=[...r].map(x=>x.toString(16).padStart(2,'0')).join('');
+  const h=new Uint8Array(await crypto.subtle.digest('SHA-256',new TextEncoder().encode(raw)));
+  GIS.raw=raw;GIS.hash=[...h].map(x=>x.toString(16).padStart(2,'0')).join('');
+}
+function gisLoad(){
+  if(GIS.p)return GIS.p;
+  GIS.p=new Promise((res,rej)=>{const sc=document.createElement('script');sc.src='https://accounts.google.com/gsi/client';sc.async=true;
+    sc.onload=()=>window.google&&google.accounts&&google.accounts.id?res():rej(new Error('gis'));sc.onerror=()=>rej(new Error('gis'));
+    setTimeout(()=>rej(new Error('gis timeout')),8000);document.head.appendChild(sc)}).then(gisNonce).then(()=>{GIS.ok=true});
+  GIS.p.catch(()=>{GIS.fail=true;const w=document.querySelector('.gwrap');if(w)w.classList.remove('gon')});
+  return GIS.p;
+}
+async function gisMount(){
+  if(!gisUse()||!$('gbtn'))return;
+  try{await gisLoad()}catch(e){return}
+  const b=$('gbtn');if(!b||sbMode!=='auth')return;
+  try{
+    google.accounts.id.initialize({client_id:SBC.gid,callback:gisDone,nonce:GIS.hash,ux_mode:'popup',auto_select:false,itp_support:true,use_fedcm_for_button:true,context:AU.mode==='signup'?'signup':'signin'});
+    const w=Math.max(220,Math.min(400,Math.round((b.parentElement&&b.parentElement.clientWidth)||360)));
+    google.accounts.id.renderButton(b,{type:'standard',theme:document.documentElement.dataset.theme==='light'?'outline':'filled_black',size:'large',shape:'rectangular',
+      text:AU.mode==='signup'?'signup_with':'continue_with',logo_alignment:'center',width:w,locale:L==='en'?'en':'tr'});
+    b.parentElement.classList.add('gon');
+  }catch(e){GIS.fail=true;b.parentElement.classList.remove('gon')}
+}
+function gisDone(r){
+  if(!r||!r.credential)return;
+  const raw=GIS.raw;
+  auRun(async()=>{
+    const c=await sbClient(),{data,error}=await c.auth.signInWithIdToken({provider:'google',token:r.credential,nonce:raw});
+    gisNonce().catch(()=>{});                                  // next sign-in gets a new nonce
+    if(error)throw error;AU.busy=false;await sbLogin(data.user)});
+}
 async function sbGoogle(){
   AU.busy=true;AU.err='';renderAuth();
   try{const c=await sbClient(),{error}=await c.auth.signInWithOAuth({provider:'google',options:{redirectTo:location.origin+location.pathname}});if(error)throw error}

@@ -491,6 +491,9 @@ body.tg .addbtn,body.tg #fSave,body.tg .fab,body.tg .sitelink{display:none}
 .ap .auf .in{min-height:48px;font-size:16px}
 .ap .aucode{font:600 24px/1 var(--fn)!important;letter-spacing:.35em;text-align:center}
 .ap .augo{gap:10px;background:var(--sf);border:1px solid var(--ln)}
+.ap .gwrap #gbtn{display:none;min-height:44px;justify-content:center}
+.ap .gwrap.gon #gbtn{display:flex}
+.ap .gwrap.gon .augo{display:none}
 .ap .auor{display:flex;align-items:center;gap:12px;color:var(--ink3);font-size:13px}
 .ap .auor::before,.ap .auor::after{content:'';flex:1;border-top:1px solid var(--ln)}
 .ap .aum{font-size:14.5px;color:var(--ink2)}
