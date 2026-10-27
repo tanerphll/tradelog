@@ -3514,10 +3514,11 @@ const esc = s => String(s).replace(/[&<>"']/g, c => ({'&':'&amp;','<':'&lt;','>'
    languages. The built page says which one it is in window.TL_PAGE; without it (preview file) the old in-place
    language switch and #hash pages are used. */
 const TLP = window.TL_PAGE || null;
-const PATHS = { tr: { home: '', help: 'yardim/', privacy: 'gizlilik/', terms: 'kosullar/', contact: 'iletisim/' },
-                en: { home: 'en/', help: 'en/help/', privacy: 'en/privacy/', terms: 'en/terms/', contact: 'en/contact/' } };
+/* flat files (yardim.html is served at /yardim), so the whole site stays one folder to upload */
+const PATHS = { tr: { home: '', help: 'yardim', privacy: 'gizlilik', terms: 'kosullar', contact: 'iletisim' },
+                en: { home: 'en', help: 'help', privacy: 'privacy', terms: 'terms', contact: 'contact' } };
 const pathOf = (lg, pg) => (TLP ? TLP.base : '/') + PATHS[lg][pg || 'home'];
-const pageAt = path => { for (const lg of ['en', 'tr']) for (const pg in PATHS[lg]) if (path === pathOf(lg, pg) || path === pathOf(lg, pg) + 'index.html') return { lg, pg }; return null; };
+const pageAt = path => { const p = path.replace(/(\.html|\/)$/, '').replace(/\/index$/, '') || '/'; for (const lg of ['en', 'tr']) for (const pg in PATHS[lg]) { const q = pathOf(lg, pg).replace(/\/$/, '') || '/'; if (p === q) return { lg, pg }; } return null; };
 /* site language: the page's own language; the app keeps the member's setting (tradelog_lang) */
 const LG = () => TLP ? TLP.lang : (typeof L !== 'undefined' && L === 'en') ? 'en' : 'tr';
 const dec = x => LG() === 'tr' ? x.replace('.', ',') : x;
