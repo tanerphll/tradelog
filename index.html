@@ -30,12 +30,12 @@
 <meta name="robots" content="index, follow, max-image-preview:large">
 <meta name="application-name" content="TradeLog">
 <meta name="apple-mobile-web-app-title" content="TradeLog">
-<script type="application/ld+json">{"@context": "https://schema.org", "@graph": [{"@type": "Organization", "@id": "https://gotradelog.com/#org", "name": "TradeLog", "url": "https://gotradelog.com/", "logo": "https://gotradelog.com/icon-512.png", "email": "destek@gotradelog.com"}, {"@type": "WebSite", "@id": "https://gotradelog.com/#site", "name": "TradeLog", "url": "https://gotradelog.com/", "inLanguage": "tr", "publisher": {"@id": "https://gotradelog.com/#org"}}, {"@type": "SoftwareApplication", "name": "TradeLog", "url": "https://gotradelog.com/", "image": "https://gotradelog.com/og.jpg", "inLanguage": "tr", "applicationCategory": "FinanceApplication", "operatingSystem": "Web, iOS, Android", "description": "Ücretsiz trading günlüğü: MT4/MT5 raporunu yükle ya da hesabını bağla, işlemlerini R ile analiz et. Prop firm kuralları, raporlar ve TradeLog AI koçu.", "offers": {"@type": "Offer", "price": "0", "priceCurrency": "USD", "description": "Ücretsiz plan, süresiz"}, "publisher": {"@id": "https://gotradelog.com/#org"}}]}</script>
+<script type="application/ld+json">{"@context": "https://schema.org", "@graph": [{"@type": "Organization", "@id": "https://gotradelog.com/#org", "name": "TradeLog", "url": "https://gotradelog.com/", "logo": "https://gotradelog.com/icon-512.png", "email": "destek@gotradelog.com"}, {"@type": "WebSite", "@id": "https://gotradelog.com/#site", "name": "TradeLog", "url": "https://gotradelog.com/", "inLanguage": "tr", "publisher": {"@id": "https://gotradelog.com/#org"}}, {"@type": "SoftwareApplication", "name": "TradeLog", "url": "https://gotradelog.com/", "image": "https://gotradelog.com/og.jpg", "inLanguage": "tr", "applicationCategory": "FinanceApplication", "operatingSystem": "Web, iOS, Android", "description": "Ücretsiz trading günlüğü: MT4/MT5 raporunu yükle ya da hesabını bağla, işlemlerini R ile analiz et. Prop firm kuralları, raporlar ve TradeLog AI koçu.", "offers": [{"@type": "Offer", "price": "0", "priceCurrency": "USD", "description": "Ücretsiz plan, süresiz"}, {"@type": "Offer", "price": "19", "priceCurrency": "USD", "description": "Pro, aylık"}, {"@type": "Offer", "price": "159", "priceCurrency": "USD", "description": "Pro, yıllık"}], "publisher": {"@id": "https://gotradelog.com/#org"}}]}</script>
 <script>try{if(/tgWebApp/.test(location.hash+location.search)||/Telegram/i.test(navigator.userAgent)||sessionStorage.getItem('__telegram__initParams'))document.write('<script src="https://telegram.org/js/telegram-web-app.js?64"><\/script>')}catch(e){}</script><script type="module" src="https://static.cloudflareinsights.com/beacon.min.js" data-cf-beacon='{"token": "fe16869ac713497db8dca9c9ec3aa61d"}'></script>
 
 <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500..800&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap">
-<link rel="stylesheet" href="/tl.css?v=652e8677ad">
+<link rel="stylesheet" href="/tl.css?v=3324e9da00">
 </head>
 <body>
 <div id="site" class="site">
@@ -212,21 +212,23 @@
 <div class="plans">
 <div class="plan">
 <div><div class="nm" data-st="plan_free">Ücretsiz</div><div class="ds" data-st="plan_free_d">Günlük tutmaya başlamak için ihtiyacın olan her şey.</div></div>
-<div class="price"><span class="a">0</span><span class="u" data-st="plan_forever">süresiz</span></div>
+<div class="price"><span class="a">$0</span><span class="u" data-st="plan_forever">süresiz</span></div>
 <a class="btn btn-p btn-lg" href="#/app" data-st="cta_start">Ücretsiz başla</a>
 <ul class="feat" data-featk="feat_free"></ul>
 </div>
 <div class="plan pro soon">
 <span class="badge" data-st="soon">Yakında</span>
 <div><div class="nm">Pro</div><div class="ds" data-st="plan_pro_d">İşlemlerinin otomatik gelmesini isteyen ve birden çok hesap yöneten trader'lar için.</div></div>
-<div class="price"><span class="a soon-a" data-st="soon">Yakında</span></div>
+<div class="price"><span class="a">$19</span><span class="u" data-st="per_mo">/ ay</span></div>
+<div class="yr" data-st="price_yr">ya da yıllık <b>$159</b> (%30 indirim)</div>
 <a class="btn btn-g btn-lg" href="#/app" data-pro="1" data-st="pro_btn">Bekleme listesine katıl</a>
-<div class="fine" data-st="pro_fine">Pro yayına girdiğinde 14 gün ücretsiz deneyebileceksin. Deneme bitince ücretsiz plana geçersin; verilerin olduğu gibi kalır.</div>
+<div class="fine" data-st="pro_fine">Pro yayına girdiğinde 14 gün kartsız deneyebileceksin. İstediğin an iptal et; ilk satın alımda 14 gün para iadesi.</div>
 <ul class="feat" data-featk="feat_pro" data-plusk="feat_plus"></ul>
 </div>
 </div>
 <div class="cmpb" id="cmpb"><button data-a="cmp" aria-expanded="false" aria-controls="cmp"><span>Tüm özellikleri karşılaştır</span><span data-i="chev" data-s="18" data-w="2.2"></span></button></div>
 <div id="cmp" class="cmp" hidden></div>
+<p class="pnote" data-st="price_note">Fiyatlar ABD doları cinsindendir; ülkene göre KDV ya da satış vergisi ödeme sırasında eklenebilir.</p>
 </div>
 </section>
 
@@ -260,7 +262,7 @@
 <div class="brand"><a class="logo" href="/" data-a="home"><span data-i="logo" data-s="28"></span>TradeLog</a><p class="disc" data-st="foot_disc">TradeLog bir trading günlüğüdür ve yatırım tavsiyesi vermez. Kaldıraçlı ürünlerde işlem yapmak yüksek risk içerir; geçmiş sonuçlar gelecekteki sonuçları garanti etmez.</p></div>
 <div><h4 data-st="foot_product">Ürün</h4><a href="#tur" data-st="nav_feat">Özellikler</a><a href="#platformlar" data-st="nav_plat">Platformlar</a><a href="#guven" data-st="nav_sec">Güvenlik</a><a href="#fiyatlar" data-st="nav_price">Fiyatlar</a></div>
 <div><h4 data-st="foot_support">Destek</h4><a href="/yardim" data-page="help" data-st="nav_help">Yardım</a><a href="#sss" data-st="nav_faq">SSS</a><a href="/iletisim" data-page="contact" data-st="pg_contact">İletişim</a></div>
-<div><h4 data-st="foot_legal">Yasal</h4><a href="/gizlilik" data-page="privacy" data-st="pg_privacy">Gizlilik politikası</a><a href="/kosullar" data-page="terms" data-st="pg_terms">Kullanım koşulları</a></div>
+<div><h4 data-st="foot_legal">Yasal</h4><a href="/gizlilik" data-page="privacy" data-st="pg_privacy">Gizlilik politikası</a><a href="/kosullar" data-page="terms" data-st="pg_terms">Kullanım koşulları</a><a href="/iade" data-page="refund" data-st="pg_refund">İade politikası</a></div>
 </div>
 <div class="copy"><span>© 2026 TradeLog</span><span data-st="foot_made">Tüm hakları saklıdır.</span></div>
 </div>
@@ -310,6 +312,6 @@
 </div>
 
 <script>window.TL_PAGE={"lang": "tr", "page": "home", "base": "/"};</script>
-<script src="/tl.js?v=a9350fda65"></script>
+<script src="/tl.js?v=dff3bb1f2b"></script>
 </body>
 </html>
