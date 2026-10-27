@@ -2360,7 +2360,7 @@ init();
    The publishable key below is public by design; row level security keeps users apart. */
 const SBC={url:'https://gpnaafbhwdcmnkrhmymu.supabase.co',key:'sb_publishable_wytAvUS5RhQPxnB_khgn8Q_olNZAwzV',
   lib:'https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2.117.3/dist/umd/supabase.js',google:false,
-  gid:'899339021026-bnk9hjndjc8p3ccriffr8u94mparl7hh.apps.googleusercontent.com'};   // gid: Google OAuth web client ID (public). Set → Google's own button, which shows our domain instead of the Supabase address   // google: fallback only; the button follows the project's auth settings
+  gid:''};   // Google's own button: off for now (user prefers our button); client ID 899339021026-bnk9hjndjc8p3ccriffr8u94mparl7hh.apps.googleusercontent.com   // gid: Google OAuth web client ID (public). Set → Google's own button, which shows our domain instead of the Supabase address   // google: fallback only; the button follows the project's auth settings
 const SBK='sb-'+SBC.url.split('//')[1].split('.')[0]+'-auth-token';
 const SBU='tradelog_sb_uid',SBB='tradelog_sb_base',SBR='tradelog_sb_cur';
 const TBL=['accounts','trades','cash_tx','playbooks','journal'];
