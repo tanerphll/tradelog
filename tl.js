@@ -3008,15 +3008,19 @@ function proDlg(src){
    plan = 'pro' on the profile. The app waits for that, then opens Pro. Cancel / card / invoices: Paddle's
    customer portal ("Manage subscription"). The client token and price IDs are public by design.
    A sandbox token (test_…) only shows the checkout on a device where #/paytest was opened once. */
-const PAY={token:'test_a967f93ecc66d2f33bf50f1c143',
-  prices:{month:'pri_01m5zktxbma33tm3139trfs6n8',year:'pri_01m5zkw3ftfqb3wc0p96bgpsx4'},
-  again:{month:'pri_01m5zkxcg945gtjmx8z5hzj3xx',year:'pri_01m5zky22sqw7pbee9hfgpddza'}};   // prices: 7-day trial · again: no trial (members who had a subscription before)
+const PAY={token:'test_a967f93ecc66d2f33bf50f1c143',   // sandbox
+  prices:{month:'pri_01m5zpt3cqqdb0821k21f11m5z',year:'pri_01m5zpv6ang1vfm46p21wa8rs2'},
+  again:{month:'pri_01m5zpvs1sj14tw26njcgnp1xy',year:'pri_01m5zpwmqb4acsfxnf8m15wntr'}};
+/* LIVE catalog, for go-live (needs a live_… client token):
+   prices: month pri_01m5zktxbma33tm3139trfs6n8 · year pri_01m5zkw3ftfqb3wc0p96bgpsx4
+   again:  month pri_01m5zkxcg945gtjmx8z5hzj3xx · year pri_01m5zky22sqw7pbee9hfgpddza */   // prices: 7-day trial · again: no trial (members who had a subscription before)
 const paySandbox=()=>/^test_/.test(PAY.token);
 function payOn(){if(!PAY.token||!PAY.prices.month||!PAY.prices.year)return false;if(!paySandbox())return true;try{return localStorage.getItem('tradelog_paytest')==='1'}catch(e){return false}}
 var PAYIV='year',PDL=null;
 const payTrial=()=>!(sbProf&&sbProf.paddle_subscription_id)||!PAY.again.month;   // the free trial is once per member
 const payPrice=iv=>payTrial()?PAY.prices[iv]:(PAY.again[iv]||PAY.prices[iv]);
-(function(){if(location.hash!=='#/paytest')return;try{localStorage.setItem('tradelog_paytest','1')}catch(e){}try{history.replaceState(null,'',location.pathname+'#/app')}catch(e){}})();
+function payTestCatch(){if(location.hash!=='#/paytest')return;try{localStorage.setItem('tradelog_paytest','1')}catch(e){}try{history.replaceState(null,'',location.pathname+'#/app')}catch(e){}if(window.toast)try{toast('Test ödemesi bu cihazda açık')}catch(e){}}
+payTestCatch();window.addEventListener('hashchange',payTestCatch);   // also when the address is typed into an open tab
 function pdlLoad(){
   if(PDL)return PDL;
   PDL=new Promise((res,rej)=>{const sc=document.createElement('script');sc.src='https://cdn.paddle.com/paddle/v2/paddle.js';sc.async=true;
