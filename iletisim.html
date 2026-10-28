@@ -38,8 +38,8 @@
 <link rel="preload" href="/bricolage-grotesque-latin-opsz-normal.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="preload" href="/jetbrains-mono-latin-wght-normal.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="preload" href="/inter-latin-ext-wght-normal.woff2" as="font" type="font/woff2" crossorigin>
-<link rel="stylesheet" href="/tl-site.css?v=1c39a1eb06">
-<script>(function(){var a=/^#\/|^#(panel|app)$/.test(location.hash);try{a=a||localStorage.getItem("tradelog_entered")==="1"}catch(e){}document.write(a?"<link rel=\"stylesheet\" id=\"appcss\" href=\"/tl-app.css?v=a2d2ccd0b0\">":"<link rel=\"stylesheet\" id=\"appcss\" href=\"/tl-app.css?v=a2d2ccd0b0\" media=\"print\" onload=\"this.media=&quot;all&quot;\">")})()</script><noscript><link rel="stylesheet" href="/tl-app.css?v=a2d2ccd0b0"></noscript>
+<link rel="stylesheet" href="/tl-site.css?v=ccf9b0d8aa">
+<script>(function(){var a=/^#\/|^#(panel|app)$/.test(location.hash);try{a=a||localStorage.getItem("tradelog_entered")==="1"}catch(e){}document.write(a?"<link rel=\"stylesheet\" id=\"appcss\" href=\"/tl-app.css?v=de5607b247\">":"<link rel=\"stylesheet\" id=\"appcss\" href=\"/tl-app.css?v=de5607b247\" media=\"print\" onload=\"this.media=&quot;all&quot;\">")})()</script><noscript><link rel="stylesheet" href="/tl-app.css?v=de5607b247"></noscript>
 </head>
 <body>
 <div id="site" class="site">
@@ -284,6 +284,7 @@
 <div class="copy"><span>© 2026 TradeLog</span><span data-st="foot_made">Tüm hakları saklıdır.</span></div>
 </div>
 </footer>
+<button type="button" class="totop" id="toTop" data-a="totop" data-sa="totop" aria-label="Yukarı çık" hidden><svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 19V5M6 11l6-6 6 6"/></svg></button>
 </div>
 
 <div class="ap" id="appRoot">
@@ -291,7 +292,7 @@
 <div class="pubv" id="pubV" hidden></div>
 <div class="app">
   <aside class="side" aria-label="Menü">
-    <a class="brand" href="#" onclick="go('dash');return false"><svg width="30" height="30" viewBox="0 0 32 32" aria-hidden="true"><rect width="32" height="32" rx="9" fill="#94C5CC"/><path d="M9.5 22v-4.5M16 22V12.5M22.5 22V9" stroke="#000100" stroke-width="3.4" stroke-linecap="round"/></svg>TradeLog</a>
+    <a class="brand" href="#/app" onclick="go('dash');return false"><svg width="30" height="30" viewBox="0 0 32 32" aria-hidden="true"><rect width="32" height="32" rx="9" fill="#94C5CC"/><path d="M9.5 22v-4.5M16 22V12.5M22.5 22V9" stroke="#000100" stroke-width="3.4" stroke-linecap="round"/></svg>TradeLog</a>
     <div class="sideacts" id="sideActs"></div>
     <nav id="sideNav"></nav>
     <div class="grow"></div>
@@ -310,7 +311,7 @@
 <aside class="aip" id="aiP" aria-hidden="true" aria-label="TradeLog AI"></aside>
 
 <div class="ov" id="formOv"><div class="md" role="dialog" aria-modal="true" aria-labelledby="fTitle">
-  <div class="mh"><h2 id="fTitle"></h2><button class="xb" onclick="closeForm()" aria-label="Kapat">×</button></div>
+  <div class="mh"><h2 id="fTitle"></h2><button class="xb" onclick="tryCloseForm()" aria-label="Kapat">×</button></div>
   <div class="mb" id="fBody"></div>
   <div class="mf"><button class="btn dan" id="fDel" onclick="delTrade(editId)"></button><button class="btn pri" id="fSave" onclick="saveTrade()"></button></div>
 </div></div>
@@ -329,6 +330,6 @@
 </div>
 
 <script>window.TL_PAGE={"lang": "tr", "page": "contact", "base": "/"};</script>
-<script defer src="/tl.js?v=1de68adcc1"></script>
+<script defer src="/tl.js?v=d623548513"></script>
 </body>
 </html>

@@ -504,3 +504,9 @@ html{scroll-behavior:smooth;-webkit-text-size-adjust:100%}
 .site .ctg b{font-size:14px;white-space:nowrap;overflow-wrap:normal}
 .site .ctg small{font-size:11.5px}
 .site .lpcta .btn{flex:1 1 100%;justify-content:center}}
+.site .totop{position:fixed;right:20px;bottom:20px;z-index:40;width:46px;height:46px;border-radius:50%;display:grid;place-items:center;border:1px solid var(--line2);background:var(--card2);color:var(--tx);box-shadow:0 10px 26px -8px rgba(0,0,0,.6);cursor:pointer;transition:transform .2s,border-color .2s;animation:ttin .25s ease both}
+.site .totop:hover{transform:translateY(-2px);border-color:var(--lime)}
+.site .totop:focus-visible{outline:2px solid var(--lime);outline-offset:2px}
+.site .totop[hidden]{display:none}
+@keyframes ttin{from{opacity:0;transform:translateY(8px)}}
+@media (max-width:560px){.site .totop{right:14px;bottom:calc(14px + env(safe-area-inset-bottom,0px));width:44px;height:44px}}

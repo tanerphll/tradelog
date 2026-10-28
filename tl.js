@@ -37,7 +37,7 @@ rt_week:'Haftalık özet',wk_t:'Haftalık özet',wk_this:'Bu hafta',wk_prev:'Ge�
 wk_vs:'Geçen hafta {x}',wk_vs_none:'Geçen hafta işlem yok',wk_dl:'geçen haftaya göre {x}',wk_vs_t:'Geçen hafta',wk_net:'Net sonuç',wk_green:'Yeşil gün',wk_days_n:'{n} işlem günü',wk_hi:'Öne çıkanlar',wk_best_t:'En iyi işlem',wk_worst_t:'En kötü işlem',wk_best_d:'En iyi gün',wk_worst_d:'En zor gün',wk_best_s:'En çok kazandıran setup',wk_mis:'Hataların maliyeti',wk_jr:'Günlük yazılan gün',
 wk_focus:'Gelecek hafta için',wk_focus_s:'Bu haftanın verilerinden',wk_focus_none:'Öneri çıkarmak için yeterli veri yok. İşlemlere setup ve hata eklersen burası dolar.',wk_note:'Haftanın notu',wk_note_s:'Ne iyi gitti, neyi değiştireceksin?',wk_note_ph:'Örn. Breakout\'larda sabırlıydım. Gelecek hafta pazartesi işlem sayımı 2 ile sınırlayacağım.',wk_note_save:'Notu kaydet',wk_open:'Özeti aç',wk_card_s:'{n} işlem · kazanma {w}',
 wf_mis:'"{k}" hatası bu hafta {r} kaybettirdi ({n} işlem). Gelecek hafta işleme girmeden önce bunu kontrol et.',wf_off:'Plan dışı {n} işlem toplam {r}. Gelecek hafta yalnızca playbook\'undaki setup\'ları al.',wf_emo:'"{k}" işaretli {n} işlem toplam {r}. Bu duyguyu fark ettiğinde işlem açmadan önce dur.',wf_dll:'{n} günde günlük kayıp sınırını (−{l}R) aştın. Sınıra gelince o gün ekranı kapat.',wf_maxt:'{n} günde günlük işlem sınırını ({l} işlem) geçtin.',wf_setup_bad:'{k} bu hafta {r} getirdi ({n} işlem). Kurallarını gözden geçir ya da bir hafta ara ver.',wf_setup_good:'{k} bu hafta {r} getirdi ({n} işlem). Gelecek hafta ona odaklan.',wf_clean:'Bu hafta bütün işlemlerin plana uygundu. Aynı şekilde devam et.',wf_jr:'Bu hafta günlük yazmadın. Aşağıya haftanın notunu iki cümleyle yaz.',
-nav_imp:'Rapor yükle',ok_btn:'Tamam',cols_btn:'Sütunlar',cols_t:'Tablo sütunları',cols_h:'Tabloda görmek istediğin sütunları seç. Tarih, sembol ve R her zaman görünür.',cols_reset:'Varsayılana dön',acc_added:'Hesap eklendi',gs_t:'Başlangıç',gs_s:'{d} / {n} adım tamamlandı',gs_hide:'Gizle',gs_go:'Başla',gs_acc:'Hesabını ekle',gs_trade:'İlk işlemini ekle',gs_trade_d:'Elle ekle ya da MT4/MT5 raporunu yükle.',gs_pb:'Bir playbook oluştur',gs_pb_d:'Setup kurallarını yaz; hangi kurala uyunca kazandığını gör.',gs_rules:'Prop firm kurallarını gir',gs_rules_d:'Günlük ve toplam kayıp limitini gir; yaklaşınca uyarı al.',gs_jr:'İlk günlüğünü yaz',gs_jr_d:'Seans öncesi planını ya da gün sonu notunu kaydet.',acc_word:'hesap',wel_step2:'2. adım',wel_ready_t:'Hesabın hazır',wel_ready_d:'{k} eklendi. Şimdi ilk işlemini ekle; panel, takvim ve raporlar işlemlerinle dolacak.',add_t:'İşlem ekle',add_man:'İşlemi elle gir',add_rep:'Rapor yükle',add_how:'İşlemlerin nereden gelsin?',add_accs:'{n} hesap',add_man_d:'Sembol, yön ve sonucu formdan gir. Yaklaşık 15 saniye.',add_rep_d:'Rapordaki işlemler hesabına eklenir. Daha önce eklenenler atlanır, elle girdiklerin rapordakiyle eşleşir.',wel_step:'1. adım',wel_acc_t:'Hesabını kuralım',wel_acc_d:'İşlemlerin, bakiyen ve prop kuralların hesaba göre takip edilir. İşlemlerin nereden gelsin?',wel_alt:'Önce bakmak mı istiyorsun?',acc_m_auto:'Otomatik bağla',acc_m_auto_d:'MT4/MT5 hesabını yatırımcı şifresiyle bağla; işlemler ve bakiye kendiliğinden gelsin.',soon_pro:'Yakında · Pro',acc_manage_all:'Hesapları yönet',acc_n:'{n} hesap',mood_1:'Çok kötü',mood_2:'Kötü',mood_3:'Normal',mood_4:'İyi',mood_5:'Çok iyi',nav_home:'Ana sayfa',th_to_dark:'Koyu tema',th_to_light:'Açık tema',
+nav_imp:'Rapor yükle',totop:'Yukarı çık',f_leave:'Kaydedilmemiş değişiklikler var. Yine de kapatılsın mı?',ok_btn:'Tamam',cols_btn:'Sütunlar',cols_t:'Tablo sütunları',cols_h:'Tabloda görmek istediğin sütunları seç. Tarih, sembol ve R her zaman görünür.',cols_reset:'Varsayılana dön',acc_added:'Hesap eklendi',gs_t:'Başlangıç',gs_s:'{d} / {n} adım tamamlandı',gs_hide:'Gizle',gs_go:'Başla',gs_acc:'Hesabını ekle',gs_trade:'İlk işlemini ekle',gs_trade_d:'Elle ekle ya da MT4/MT5 raporunu yükle.',gs_pb:'Bir playbook oluştur',gs_pb_d:'Setup kurallarını yaz; hangi kurala uyunca kazandığını gör.',gs_rules:'Prop firm kurallarını gir',gs_rules_d:'Günlük ve toplam kayıp limitini gir; yaklaşınca uyarı al.',gs_jr:'İlk günlüğünü yaz',gs_jr_d:'Seans öncesi planını ya da gün sonu notunu kaydet.',acc_word:'hesap',wel_step2:'2. adım',wel_ready_t:'Hesabın hazır',wel_ready_d:'{k} eklendi. Şimdi ilk işlemini ekle; panel, takvim ve raporlar işlemlerinle dolacak.',add_t:'İşlem ekle',add_man:'İşlemi elle gir',add_rep:'Rapor yükle',add_how:'İşlemlerin nereden gelsin?',add_accs:'{n} hesap',add_man_d:'Sembol, yön ve sonucu formdan gir. Yaklaşık 15 saniye.',add_rep_d:'Rapordaki işlemler hesabına eklenir. Daha önce eklenenler atlanır, elle girdiklerin rapordakiyle eşleşir.',wel_step:'1. adım',wel_acc_t:'Hesabını kuralım',wel_acc_d:'İşlemlerin, bakiyen ve prop kuralların hesaba göre takip edilir. İşlemlerin nereden gelsin?',wel_alt:'Önce bakmak mı istiyorsun?',acc_m_auto:'Otomatik bağla',acc_m_auto_d:'MT4/MT5 hesabını yatırımcı şifresiyle bağla; işlemler ve bakiye kendiliğinden gelsin.',soon_pro:'Yakında · Pro',acc_manage_all:'Hesapları yönet',acc_n:'{n} hesap',mood_1:'Çok kötü',mood_2:'Kötü',mood_3:'Normal',mood_4:'İyi',mood_5:'Çok iyi',nav_home:'Ana sayfa',th_to_dark:'Koyu tema',th_to_light:'Açık tema',
 r_hint:'R, riske ettiğin tutarın katıdır. Stop olduysan −1, riskinin 2 katını kazandıysan 2 yaz. Emin değilsen aşağıdan sonucu seçmen yeterli.',ph_rra:'Örn. 2 veya −1',l_emo_q:'Nasıl hissettin?',rr_hint:'Girişte hedeflediğin kazanç (R)',pnl_hint:'Para olarak net sonuç; girersen bakiye kesinleşir',rating_hint:'Sonuçtan bağımsız: kurallara ne kadar iyi uydun?',k_rr_s:'Ortalama kazanç ÷ ortalama kayıp',k_plan_s2:'Plana uyduğun işlemler',acc_add_how:'Hesabın işlemleri nereden gelsin?',acc_m_rep:'MT4/MT5 raporu yükle',acc_m_rep_d:'Hesap adı, para birimi, bakiye ve geçmiş işlemlerin tek seferde gelir. Şifre gerekmez.',acc_m_man:'Hesabı elle oluştur',acc_m_man_d:'Hesap adını, bakiyeyi ve para birimini sen yazarsın; işlemlerini sonra tek tek eklersin.',acc_from_rep:'MetaTrader verisinden alındı',show_more:'Daha fazla göster ({n} işlem daha)',wr_s:'Kazanma',period:'Dönem',dg_in:'İçe aktar',dg_out:'Yedek ve dışa aktarma',dg_demo:'Örnek veri',archived:'Arşiv',acc_link:'Rapor eşleştirmesi',acc_link_on:'Bu numaradaki MT4/MT5 raporları otomatik olarak bu hesaba eklenir.',acc_link_off:'Henüz eşleşmedi. Bu hesabın MT4/MT5 raporunu yüklediğinde hesap numarası otomatik eşleşir; sonraki raporlar buraya gelir. Bu bir hesap bağlantısı değildir, şifre istenmez.',acc_unlink:'Eşleştirmeyi kaldır',acc_unlink_c:'#{n} eşleştirmesi kaldırılsın mı? İşlemler silinmez; bir sonraki raporda hesabı yeniden seçmen istenir.',acc_risk_l:'risk',at_challenge:'Challenge',at_funded:'Funded',at_personal:'Kişisel',at_demo:'Demo / backtest',acc_type:'Hesap türü',acc_alltype:'Tüm {k} hesaplar',
 acc_edit:'Hesabı düzenle',acc_name_ph:'Örn. FTM 10K Funded',acc_risk_h:'Sonucu girilmeyen işlemlerde PnL tahmini için',acc_req:'Bakiye ve risk 0 veya daha büyük olmalı.',
 acc_manage:'Hesap yönetimi',acc_arch:'Arşivle',acc_arch_h:'Veriler silinmez; hesap birleşik görünümlerden ve yeni işlem seçimlerinden kalkar. Eski challenge hesapları için.',acc_unarch:'Arşivden çıkar',
@@ -218,7 +218,7 @@ rt_week:'Weekly recap',wk_t:'Weekly recap',wk_this:'This week',wk_prev:'Last wee
 wk_vs:'Last week {x}',wk_vs_none:'No trades last week',wk_dl:'{x} vs last week',wk_vs_t:'Last week',wk_net:'Net result',wk_green:'Green days',wk_days_n:'{n} trading {n|day|days}',wk_hi:'Highlights',wk_best_t:'Best trade',wk_worst_t:'Worst trade',wk_best_d:'Best day',wk_worst_d:'Toughest day',wk_best_s:'Top setup',wk_mis:'Cost of mistakes',wk_jr:'Days journaled',
 wk_focus:'For next week',wk_focus_s:'From this week\'s data',wk_focus_none:'Not enough data for suggestions yet. Add setups and mistakes to your trades and this fills up.',wk_note:'Note of the week',wk_note_s:'What went well, what will you change?',wk_note_ph:'e.g. I was patient with breakouts. Next week I\'ll cap Monday at 2 trades.',wk_note_save:'Save note',wk_open:'Open recap',wk_card_s:'{n} {n|trade|trades} · {w} win rate',
 wf_mis:'"{k}" cost you {r} this week ({n} {n|trade|trades}). Check for it before you enter next week.',wf_off:'{n} off-plan {n|trade|trades} totalled {r}. Next week, take only the setups in your playbook.',wf_emo:'Trades tagged "{k}" totalled {r} ({n} trades). When you notice that feeling, pause before you enter.',wf_dll:'You went past your daily loss limit (−{l}R) on {n} {n|day|days}. When you hit it, close the charts for the day.',wf_maxt:'You went over your daily trade limit ({l}) on {n} {n|day|days}.',wf_setup_bad:'{k} made {r} this week ({n} {n|trade|trades}). Review its rules or pause it for a week.',wf_setup_good:'{k} made {r} this week ({n} {n|trade|trades}). Focus on it next week.',wf_clean:'Every trade this week followed your plan. Keep it up.',wf_jr:'You didn\'t journal this week. Write the note of the week below in two sentences.',
-nav_imp:'Import report',ok_btn:'OK',cols_btn:'Columns',cols_t:'Table columns',cols_h:'Choose the columns you want in the table. Date, symbol and R are always shown.',cols_reset:'Reset to default',acc_added:'Account added',gs_t:'Getting started',gs_s:'{d} of {n} steps done',gs_hide:'Hide',gs_go:'Start',gs_acc:'Add your account',gs_trade:'Add your first trade',gs_trade_d:'Add it manually or upload your MT4/MT5 report.',gs_pb:'Create a playbook',gs_pb_d:'Write your setup rules and see which rules pay off.',gs_rules:'Enter your prop firm rules',gs_rules_d:'Set daily and total loss limits and get warned as you get close.',gs_jr:'Write your first journal entry',gs_jr_d:'Save your pre-session plan or end-of-day note.',acc_word:'account',wel_step2:'Step 2',wel_ready_t:'Your account is ready',wel_ready_d:'{k} was added. Now add your first trade; your dashboard, calendar and reports will fill up from there.',add_t:'Add trade',add_man:'Log a trade manually',add_rep:'Upload a report',add_how:'Where should your trades come from?',add_accs:'{n} {n|account|accounts}',add_man_d:'Enter symbol, side and result in the form. About 15 seconds.',add_rep_d:'Trades in the report are added to your account. Ones already added are skipped and your manual entries are matched.',wel_step:'Step 1',wel_acc_t:'Let\'s set up your account',wel_acc_d:'Your trades, balance and prop rules are tracked per account. Where should your trades come from?',wel_alt:'Want to look around first?',acc_m_auto:'Connect automatically',acc_m_auto_d:'Connect your MT4/MT5 account with its investor password; trades and balance arrive on their own.',soon_pro:'Coming soon · Pro',acc_manage_all:'Manage accounts',acc_n:'{n} accounts',mood_1:'Very bad',mood_2:'Bad',mood_3:'Okay',mood_4:'Good',mood_5:'Great',nav_home:'Home page',th_to_dark:'Dark theme',th_to_light:'Light theme',
+nav_imp:'Import report',totop:'Back to top',f_leave:'You have unsaved changes. Close anyway?',ok_btn:'OK',cols_btn:'Columns',cols_t:'Table columns',cols_h:'Choose the columns you want in the table. Date, symbol and R are always shown.',cols_reset:'Reset to default',acc_added:'Account added',gs_t:'Getting started',gs_s:'{d} of {n} steps done',gs_hide:'Hide',gs_go:'Start',gs_acc:'Add your account',gs_trade:'Add your first trade',gs_trade_d:'Add it manually or upload your MT4/MT5 report.',gs_pb:'Create a playbook',gs_pb_d:'Write your setup rules and see which rules pay off.',gs_rules:'Enter your prop firm rules',gs_rules_d:'Set daily and total loss limits and get warned as you get close.',gs_jr:'Write your first journal entry',gs_jr_d:'Save your pre-session plan or end-of-day note.',acc_word:'account',wel_step2:'Step 2',wel_ready_t:'Your account is ready',wel_ready_d:'{k} was added. Now add your first trade; your dashboard, calendar and reports will fill up from there.',add_t:'Add trade',add_man:'Log a trade manually',add_rep:'Upload a report',add_how:'Where should your trades come from?',add_accs:'{n} {n|account|accounts}',add_man_d:'Enter symbol, side and result in the form. About 15 seconds.',add_rep_d:'Trades in the report are added to your account. Ones already added are skipped and your manual entries are matched.',wel_step:'Step 1',wel_acc_t:'Let\'s set up your account',wel_acc_d:'Your trades, balance and prop rules are tracked per account. Where should your trades come from?',wel_alt:'Want to look around first?',acc_m_auto:'Connect automatically',acc_m_auto_d:'Connect your MT4/MT5 account with its investor password; trades and balance arrive on their own.',soon_pro:'Coming soon · Pro',acc_manage_all:'Manage accounts',acc_n:'{n} accounts',mood_1:'Very bad',mood_2:'Bad',mood_3:'Okay',mood_4:'Good',mood_5:'Great',nav_home:'Home page',th_to_dark:'Dark theme',th_to_light:'Light theme',
 r_hint:'R is a multiple of the amount you risked. Stopped out: −1. Won twice your risk: 2. Not sure? Just pick the outcome below.',ph_rra:'e.g. 2 or −1',l_emo_q:'How did you feel?',rr_hint:'The gain you aimed for at entry (R)',pnl_hint:'Net result in money; makes your balance exact',rating_hint:'Regardless of the result: how well did you follow your rules?',k_rr_s:'Average win ÷ average loss',k_plan_s2:'Trades where you followed your plan',acc_add_how:'Where will this account\'s trades come from?',acc_m_rep:'Upload an MT4/MT5 report',acc_m_rep_d:'Account name, currency, balance and your trade history come in at once. No password needed.',acc_m_man:'Create the account manually',acc_m_man_d:'You enter the account name, balance and currency, then add trades one by one.',acc_from_rep:'Taken from your MetaTrader data',show_more:'Show more ({n} more)',wr_s:'Win rate',period:'Period',dg_in:'Import',dg_out:'Backup and export',dg_demo:'Sample data',archived:'Archive',acc_link:'Report matching',acc_link_on:'MT4/MT5 reports for this number are added to this account automatically.',acc_link_off:'Not matched yet. When you upload this account\'s MT4/MT5 report, the account number is matched automatically and future reports come here. This is not an account connection; no password is needed.',acc_unlink:'Remove matching',acc_unlink_c:'Remove the #{n} matching? Trades are kept; you will be asked to choose the account again on the next report.',acc_risk_l:'risk',at_challenge:'Challenge',at_funded:'Funded',at_personal:'Personal',at_demo:'Demo / backtest',acc_type:'Account type',acc_alltype:'All {k} accounts',
 acc_edit:'Edit account',acc_name_ph:'e.g. FTM 10K Funded',acc_risk_h:'Used to estimate PnL for trades without a result',acc_req:'Balance and risk must be 0 or more.',
 acc_manage:'Manage account',acc_arch:'Archive',acc_arch_h:'Data is kept; the account leaves combined views and new-trade choices. For old challenge accounts.',acc_unarch:'Unarchive',
@@ -1135,7 +1135,48 @@ const pbOf=name=>PB.find(p=>p.name===name);
 const narrow=()=>window.innerWidth<700;
 
 /* ---- shell ---- */
-function go(v){if(!VIEWS.includes(v))v='dash';const ch=v!==cv;cv=v;closeDlg(true);render();window.scrollTo(0,0);if(ch)viewIn()}
+function go(v,pop){if(!VIEWS.includes(v))v='dash';const ch=v!==cv;if(!pop)hbNav(v);cv=v;closeDlg(true);render();window.scrollTo(0,0);if(ch)viewIn()}
+/* ---- back to top: long pages (trade list, reports) get a small round button above the AI button ---- */
+const TT={on:false,q:0};
+function ttSync(){TT.q=0;let b=$('toTopA');const a=document.getElementById('appRoot');const v=(!a||!a.hidden)&&window.scrollY>window.innerHeight*1.5&&!dlgOpen()&&!formOpen();
+  if(!b){if(!v)return;b=document.createElement('button');b.id='toTopA';b.type='button';b.className='totop';
+    b.innerHTML='<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 19V5M6 11l6-6 6 6"/></svg>';
+    b.onclick=()=>window.scrollTo({top:0,behavior:matchMedia('(prefers-reduced-motion: reduce)').matches?'auto':'smooth'});(a||document.body).appendChild(b)}
+  b.setAttribute('aria-label',t('totop'));b.title=t('totop');if(v!==TT.on){TT.on=v;b.classList.toggle('on',v)}}
+window.addEventListener('scroll',()=>{if(!TT.q)TT.q=requestAnimationFrame(ttSync)},{passive:true});
+/* ---- back button (browser, phone): every page has its own address (#/app/trades …) and back closes an open window first ---- */
+const HB={g:false,skip:0,pend:false,last:location.hash};
+const hbOk=()=>!TG&&!!window.history&&!!history.pushState;
+const hbVis=()=>{const a=document.getElementById('appRoot');return !a||!a.hidden};
+const hbUrl=v=>location.pathname+location.search+'#/app'+(v&&v!=='dash'?'/'+v:'');
+const hbView=()=>{const m=location.hash.match(/^#\/app(?:\/(\w+))?\/?$/);return m?(VIEWS.includes(m[1])?m[1]:'dash'):null};
+const ovOpen=()=>formOpen()||dlgOpen()||(typeof CO!=='undefined'&&!!CO.open);
+function hbNav(v){
+  if(!hbOk()||!hbVis())return;
+  const u=hbUrl(v);
+  HB.pend=false;
+  try{if(HB.g){HB.g=false;history.replaceState({tl:'v'},'',u)}else if(location.pathname+location.search+location.hash!==u)history.pushState({tl:'v'},'',u)}catch(e){}
+  HB.last=location.hash;
+}
+/* a window opened: one extra step in the history, so back closes it instead of leaving the page */
+function hbOpen(){if(HB.pend){HB.pend=false;return}   // closed and reopened in one go (one window replaced by another): keep the step
+  if(!hbOk()||HB.g||!hbVis())return;try{history.pushState({tl:'o'},'',location.href);HB.g=true}catch(e){}}
+/* the window was closed with its own button: take that extra step back out again */
+function hbClose(){if(!hbOk()||!HB.g||ovOpen()||HB.pend)return;HB.pend=true;
+  setTimeout(()=>{if(!HB.pend)return;HB.pend=false;if(!HB.g||ovOpen())return;HB.g=false;HB.skip++;try{history.back()}catch(e){HB.skip--}},0)}
+window.addEventListener('popstate',()=>{
+  if(!hbOk())return;
+  const prev=HB.last;HB.last=location.hash;
+  if(HB.skip){HB.skip--;return}
+  const vis=hbVis();
+  if(vis&&HB.g){HB.g=false;if(formOpen()){tryCloseForm().then(ok=>{if(!ok)hbOpen()});return}else if(dlgOpen())closeDlg();else if(typeof CO!=='undefined'&&CO.open)coClose();if(ovOpen())hbOpen();return}
+  const v=hbView();
+  if(v===null&&/^#\/|access_token=|error_description=/.test(location.hash))return;   // sign-in links, shared pages (#/p/…), #/pro: their own handlers
+  if(v===null&&!/^#\/app/.test(prev||''))return;   // only leaving an app page goes back to the site (not e.g. the sign-in code tidying the address)
+  if(v===null){if(vis&&document.getElementById('appRoot')&&window.showSite){HB.g=false;if(formOpen())closeForm();closeDlg(true);if(typeof CO!=='undefined'&&CO.open)coClose();showSite(null,true)}return}
+  if(!vis&&window.showApp)showApp(null,'pop');
+  if(v!==cv)go(v,true);
+});
 /* görünüm geçişi: içerik hafifçe yukarı kayarak gelir; panelde net sonuç sayarak yükselir */
 function viewIn(){
   const el=$('view');el.classList.remove('vin');void el.offsetWidth;el.classList.add('vin');
@@ -1191,7 +1232,7 @@ function splashCheck(){
 function skel(){return `<div class="skelw"><div class="dgrid"><div class="dcl"><div class="card skel" style="height:300px"></div><div class="card skel" style="height:280px"></div></div><div class="dcr"><div class="card skel" style="height:360px"></div><div class="card skel" style="height:220px"></div></div></div></div>`}
 function render(){
   document.documentElement.lang=L;
-  if(typeof authGate==='function'&&authGate()){if(typeof aiFabSync==='function')aiFabSync();return}
+  if(typeof authGate==='function'&&authGate()){if(typeof aiFabSync==='function')aiFabSync();if(!TG){const ar=document.getElementById('appRoot');if(!ar||!ar.hidden)document.title='TradeLog'}return}
   const pq=trades.length?pending().length:0;
   $('sideNav').innerHTML=VIEWS.filter(v=>v!=='set').map(v=>`<button class="nav${v===cv?' on':''}" onclick="go('${v}')"${v===cv?' aria-current="page"':''}>${ic(v)}<span>${t('v_'+v)}</span>${v==='trades'&&pq?`<span class="ct">${pq}</span>`:''}</button>`).join('');
   const tb=(v,lab)=>`<button class="${v===cv?'on':''}" onclick="go('${v}')"${v===cv?' aria-current="page"':''}>${ic(v)}<span>${lab}</span></button>`;
@@ -1204,6 +1245,7 @@ function render(){
    ${typeof sbOn==='function'&&sbOn()&&sbUser?`<button class="sideuser" onclick="go('set')" title="${esc(sbUser.email||'')}"><span class="avt sm">${esc(((sbUser.email||'?')[0]).toUpperCase())}</span><span>${esc(sbUser.email||'')}</span>${typeof isPro==='function'&&isPro()?'<span class="probadge xs">PRO</span>':''}</button>`:''}
    <div class="sidefoot" id="syncSt"></div>`;setSync();
   $('vTitle').textContent=t('v_'+cv);
+  if(!TG){const ar=document.getElementById('appRoot');if(!ar||!ar.hidden)document.title=t('v_'+cv)+' · TradeLog'}   // the browser tab and history show the page
   topCtl();
   CHD={};
   setTimeout(tourAuto,0);
@@ -1246,12 +1288,15 @@ function topCtl(){
 function setPer(p){V.per=p;saveV();render()}
 function moreMenu(){
   const dk=document.documentElement.dataset.theme==='dark';
-  openDlg(t('t_more'),`<div class="links">${['acc','cal','pb','jr','set'].map(v=>`<button onclick="go('${v}')">${t('v_'+v)}</button>`).join('')}
-   <button onclick="accDlg()">${t('acc_add')}</button>
-   ${typeof proSide==='function'&&sbOn()&&!isPro()?`<button onclick="proDlg('gen')">${t('pro_title')}${PRO_LIVE?'':` <span class="soon">${t('soon_l')}</span>`}</button>`:''}
-   ${typeof coOpen==='function'&&sbOn()&&sbUser&&isPro()&&!RO?`<button onclick="closeDlg(true);coOpen()">${t('co_title')} <span class="soon">AI</span></button>`:''}
-   ${TG?'':`<button onclick="closeDlg(true);window.showSite&&showSite()">${t('nav_home')}</button>`}
-   ${typeof sbOn==='function'&&sbOn()?`<button class="dan" onclick="closeDlg(true);sbLogout()">${t('sb_out')}</button>`:''}</div>`,'');
+  const li=(i,lab)=>`<span class="li">${i}</span><span>${lab}</span>`;
+  const sv=d=>`<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">${d}</svg>`;
+  const STAR=sv('<path d="M12 3.5l2.6 5.3 5.9.9-4.3 4.1 1 5.8L12 16.9l-5.2 2.7 1-5.8-4.3-4.1 5.9-.9z"/>'),CHAT=sv('<path d="M20 12a8 8 0 0 1-11.6 7.1L4 20l.9-4.2A8 8 0 1 1 20 12z"/><path d="M8.5 11h7M8.5 14h4"/>');
+  openDlg(t('t_more'),`<div class="links mlinks">${['acc','cal','pb','jr','set'].map(v=>`<button onclick="go('${v}')"${v===cv?' class="on"':''}>${li(ic(v),t('v_'+v))}</button>`).join('')}
+   <button onclick="accDlg()">${li(ic('plus'),t('acc_add'))}</button>
+   ${typeof proSide==='function'&&sbOn()&&!isPro()?`<button onclick="proDlg('gen')">${li(STAR,t('pro_title')+(PRO_LIVE?'':` <span class="soon">${t('soon_l')}</span>`))}</button>`:''}
+   ${typeof coOpen==='function'&&sbOn()&&sbUser&&isPro()&&!RO?`<button onclick="closeDlg(true);coOpen()">${li(CHAT,t('co_title')+' <span class="soon">AI</span>')}</button>`:''}
+   ${TG?'':`<button onclick="closeDlg(true);window.showSite&&showSite()">${li(ic('home'),t('nav_home'))}</button>`}
+   ${typeof sbOn==='function'&&sbOn()?`<button class="dan" onclick="closeDlg(true);sbLogout()">${li(sv('<path d="M15 4h3a2 2 0 0 1 2 2v12a2 2 0 0 1-2 2h-3"/><path d="M10 8l-4 4 4 4M6 12h10"/>'),t('sb_out'))}</button>`:''}</div>`,'');
 }
 
 /* ---- dialogs ---- */
@@ -1260,9 +1305,9 @@ const dlgOpen=()=>$('dlgOv').classList.contains('on');
 function openDlg(title,html,foot,wide,drawer){
   $('dTitle').textContent=title;$('dBody').innerHTML=html;$('dFoot').innerHTML=foot||'';$('dFoot').style.display=foot?'':'none';
   $('dlgBox').classList.toggle('wide',!!wide);$('dlgOv').classList.toggle('drw',!!drawer&&drawer!=='ctr');$('dlgOv').classList.toggle('ctr',drawer==='ctr');$('dlgOv').classList.add('on');document.body.style.overflow='hidden';
-  $('dlgOv').scrollTop=0;$('dlgBox').scrollTop=0;tgUI();
+  $('dlgOv').scrollTop=0;$('dlgBox').scrollTop=0;tgUI();hbOpen();
 }
-function closeDlg(silent){$('dlgOv').classList.remove('on');if(!formOpen())document.body.style.overflow='';if(!silent)tgUI()}
+function closeDlg(silent){const was=dlgOpen();$('dlgOv').classList.remove('on');if(!formOpen())document.body.style.overflow='';if(!silent)tgUI();if(was)hbClose()}
 let xFn=null;
 function showTxt(title,help,txt,btn,fn){
   xFn=fn;
@@ -1741,10 +1786,14 @@ function openForm(id,preset){
   $('fDel').style.display=x?'':'none';$('fDel').textContent=t('del');$('fSave').textContent=t('save');
   fShots=((x&&x.shots)||[]).slice();fShots0=fShots.slice();fShotsNew=[];if(typeof shotsForm==='function')shotsForm();
   rulesBox();
-  $('formOv').classList.add('on');$('formOv').scrollTop=0;document.body.style.overflow='hidden';tgUI();
+  $('formOv').classList.add('on');$('formOv').scrollTop=0;document.body.style.overflow='hidden';tgUI();hbOpen();fSnap=fState();
   if(!TG&&!x)setTimeout(()=>$('f_sym').focus(),60);
 }
-function closeForm(){if(fShotsNew.length&&typeof shotRemove==='function'){shotRemove(fShotsNew);fShotsNew=[]}$('formOv').classList.remove('on');editId=null;if(!dlgOpen())document.body.style.overflow='';tgUI()}
+/* unsaved changes: closing the trade form by mistake (back, Esc, a tap outside) asks first */
+let fSnap='';
+function fState(){const b=$('fBody');if(!b)return '';return JSON.stringify([[...b.querySelectorAll('input,select,textarea')].map(e=>e.type==='checkbox'||e.type==='radio'?e.checked:e.type==='file'?'':e.value),fOut,fPlan,fRate,fEmo,fMis,fRules,fShots.length])}
+async function tryCloseForm(){if(!formOpen())return true;if(fState()!==fSnap&&!await ask(t('f_leave')))return false;closeForm();return true}
+function closeForm(){if(fShotsNew.length&&typeof shotRemove==='function'){shotRemove(fShotsNew);fShotsNew=[]}$('formOv').classList.remove('on');editId=null;if(!dlgOpen())document.body.style.overflow='';tgUI();hbClose()}
 function segPick(id,b){const on=!b.classList.contains('on');$(id).querySelectorAll('button').forEach(z=>z.classList.remove('on'));if(on)b.classList.add('on')}
 function segOn(id,v){$(id).querySelectorAll('button').forEach(z=>z.classList.toggle('on',z.dataset.v===v))}
 function rateOn(){$('f_rate').querySelectorAll('button').forEach((b,i)=>b.classList.toggle('on',i<fRate))}
@@ -2331,19 +2380,19 @@ function init(){
   if(TG){
     document.body.classList.add('tg');
     try{TG.ready();TG.expand();if(tgv('7.7'))TG.disableVerticalSwipes()}catch(e){}
-    if(tgv('6.1'))TG.BackButton.onClick(()=>{if(formOpen())closeForm();else if(dlgOpen())closeDlg();else go('dash')});
+    if(tgv('6.1'))TG.BackButton.onClick(()=>{if(formOpen())tryCloseForm();else if(dlgOpen())closeDlg();else go('dash')});
     TG.onEvent('themeChanged',()=>{applyTheme();tgUI()});
     document.addEventListener('visibilitychange',()=>{if(document.hidden&&pushT){clearTimeout(pushT);pushT=null;cloudPush()}});
   }else{
     try{matchMedia('(prefers-color-scheme: dark)').addEventListener('change',()=>{applyTheme()})}catch(e){}
   }
-  $('formOv').addEventListener('click',e=>{if(e.target===$('formOv'))closeForm()});
+  $('formOv').addEventListener('click',e=>{if(e.target===$('formOv'))tryCloseForm()});
   $('dlgOv').addEventListener('click',e=>{if(e.target===$('dlgOv'))closeDlg()});
   $('fileJson').addEventListener('change',function(){readFile(this,x=>impJSONData(JSON.parse(x)),'bad_backup')});
   $('fileCsv').addEventListener('change',function(){readFile(this,impCSVText,'bad_csv')});
   $('fileAny').addEventListener('change',function(){onAnyFile(this)});
   document.addEventListener('click',e=>{if(accOpen&&!e.target.closest('#accSw')){accOpen=false;topCtl()}});
-  document.addEventListener('keydown',e=>{if(e.key==='Escape'){if(accOpen){accOpen=false;topCtl()}else if(dlgOpen())closeDlg();else if(formOpen())closeForm()}
+  document.addEventListener('keydown',e=>{if(e.key==='Escape'){if(accOpen){accOpen=false;topCtl()}else if(dlgOpen())closeDlg();else if(formOpen())tryCloseForm()}
     if((e.metaKey||e.ctrlKey)&&e.key==='Enter'&&formOpen())saveTrade()});
   let nw=narrow();window.addEventListener('resize',()=>{clearTimeout(init.rz);init.rz=setTimeout(()=>{if(narrow()!==nw){nw=narrow();if(!formOpen()&&!dlgOpen())render()}},250)});
   document.addEventListener('click',e=>{const a=e.target.closest('a[data-ext]');if(a&&TG&&tgv('6.4')){e.preventDefault();TG.openLink(a.href)}});
@@ -2400,7 +2449,7 @@ async function sbClient(){
 function sbBoot(){
   if(TG){sbMode='tg';return}
   const lh=location.hash+location.search,fromLink=/access_token=|[?&]code=/.test(lh);
-  if(/error_description=/.test(lh)){AU.err=t('au_e_link');try{history.replaceState(null,'',location.pathname+'#/app')}catch(e){}}
+  if(/error_description=/.test(lh)){AU.err=t('au_e_link');try{history.replaceState(null,'',location.pathname+'#/app');if(typeof HB==='object')HB.last=location.hash}catch(e){}}
   else if(fromLink)AU.info=t('au_linking');
   if(/type=recovery/.test(lh))sbRecovery=true;
   window.addEventListener('hashchange',()=>{if(/access_token=|error_description=/.test(location.hash))location.reload()});   // an auth link opened in this same tab
@@ -2415,7 +2464,7 @@ function sbBoot(){
 async function sbStart(){
   try{
     const c=await sbClient(),{data,error}=await c.auth.getSession();if(error)throw error;
-    if(/access_token=|[?&]code=|error_description=/.test(location.hash+location.search))try{history.replaceState(null,'',location.pathname+'#/app')}catch(e){}
+    if(/access_token=|[?&]code=|error_description=/.test(location.hash+location.search))try{history.replaceState(null,'',location.pathname+'#/app');if(typeof HB==='object')HB.last=location.hash}catch(e){}
     if(data.session&&sbRecovery){sbUser=data.session.user;sbMode='auth';AU.mode='reset';AU.info='';render();return}
     if(data.session){if(!sbUser||sbUser.id!==data.session.user.id)await sbLogin(data.session.user);else{sbSync(true);mtPending()}}
     else if(sbOn()){sbMode='auth';render()}
@@ -2983,7 +3032,7 @@ async function pubShow(id){
   }catch(e){v.innerHTML=shell(`<div class="card"><div class="cb" style="padding:22px"><p class="hint">${t('au_net')}</p></div></div>`)}
 }
 function pubClose(){pubMode=null;try{history.replaceState(null,'',location.pathname)}catch(e){}const v=$('pubV');if(v)v.hidden=true;if(window.showSite)showSite()}
-function pubStart(){pubMode=null;try{history.replaceState(null,'',location.pathname+'#/app')}catch(e){}const v=$('pubV');if(v)v.hidden=true;sbIntent(sbOn()?'login':'signup');if(window.showApp)showApp();else render()}
+function pubStart(){pubMode=null;try{history.replaceState(null,'',location.pathname+'#/app');if(typeof HB==='object')HB.last=location.hash}catch(e){}const v=$('pubV');if(v)v.hidden=true;sbIntent(sbOn()?'login':'signup');if(window.showApp)showApp();else render()}
 window.addEventListener('hashchange',()=>{const m=location.hash.match(/^#\/p\/([A-Za-z0-9]{10,24})$/);if(m)pubShow(m[1]);else if(mtCatch()){if(sbOn())mtPending();else{sbIntent('signup');AU.info=t('mt_need_login');if(window.showApp)showApp()}}});
 
 /* ---------- plans: Free / Pro / Pro trial ----------
@@ -3038,8 +3087,17 @@ function payOn(){if(!PAY.token||!PAY.prices.month||!PAY.prices.year)return false
 var PAYIV='year',PDL=null;
 const payTrial=()=>!(sbProf&&sbProf.paddle_subscription_id)||!PAY.again.month;   // the free trial is once per member
 const payPrice=iv=>payTrial()?PAY.prices[iv]:(PAY.again[iv]||PAY.prices[iv]);
-function payTestCatch(){if(location.hash!=='#/paytest')return;try{localStorage.setItem('tradelog_paytest','1')}catch(e){}try{history.replaceState(null,'',location.pathname+'#/app')}catch(e){}if(window.toast)try{toast('Test ödemesi bu cihazda açık')}catch(e){}}
+function payTestCatch(){if(location.hash!=='#/paytest')return;try{localStorage.setItem('tradelog_paytest','1')}catch(e){}try{history.replaceState(null,'',location.pathname+'#/app');if(typeof HB==='object')HB.last=location.hash}catch(e){}if(window.toast)try{toast('Test ödemesi bu cihazda açık')}catch(e){}}
 payTestCatch();window.addEventListener('hashchange',payTestCatch);   // also when the address is typed into an open tab
+/* gotradelog.com/#/pro (e-mails, posts): opens the app and the Pro screen; signed-out visitors see it right after signing in */
+function proLinkCatch(){
+  if(location.hash!=='#/pro')return;
+  try{history.replaceState(null,'',location.pathname+'#/app');if(typeof HB==='object')HB.last=location.hash}catch(e){}
+  if(sbMode==='on'&&sbUser&&typeof proDlg==='function'){setTimeout(()=>proDlg('gen'),400);return}
+  try{localStorage.setItem('tradelog_want_pro','1')}catch(e){}
+  if(typeof sbIntent==='function')sbIntent('signup');
+}
+proLinkCatch();window.addEventListener('hashchange',()=>{const p=location.hash==='#/pro';proLinkCatch();if(p&&typeof showApp==='function'&&document.getElementById('site')&&!document.getElementById('site').hidden)showApp()});
 function pdlLoad(){
   if(PDL)return PDL;
   PDL=new Promise((res,rej)=>{const sc=document.createElement('script');sc.src='https://cdn.paddle.com/paddle/v2/paddle.js';sc.async=true;
@@ -3214,7 +3272,7 @@ function mtCopyMsg(){const v=$('mtMsg').value;(navigator.clipboard?navigator.cli
 async function mtRemove(em){if(!await ask(t('mt_remove_c',{e:em})))return;try{const {error}=await sb.from('mentors').delete().eq('mentor_email',em);if(error)throw error;toast(t('deleted'));mtRender()}catch(e){say(t('sb_del_err'))}}
 async function mtLeave(owner,em){if(!await ask(t('mt_leave_c',{e:em})))return;try{const {error}=await sb.rpc('leave_student',{p_owner:owner});if(error)throw error;if(RO&&RO.owner===owner)mtExit(true);toast(t('deleted'));mtRender()}catch(e){say(t('sb_del_err'))}}
 /* invite link: #/m/<token> */
-function mtCatch(){const m=location.hash.match(/^#\/m\/([a-f0-9]{32})$/);if(!m)return false;try{sessionStorage.setItem('tradelog_mt',m[1])}catch(e){}try{history.replaceState(null,'',location.pathname+'#/app')}catch(e){}return true}
+function mtCatch(){const m=location.hash.match(/^#\/m\/([a-f0-9]{32})$/);if(!m)return false;try{sessionStorage.setItem('tradelog_mt',m[1])}catch(e){}try{history.replaceState(null,'',location.pathname+'#/app');if(typeof HB==='object')HB.last=location.hash}catch(e){}return true}
 async function mtPending(){
   let tok=null;try{tok=sessionStorage.getItem('tradelog_mt')}catch(e){}
   if(!tok||!sbOn()||!sbUser)return;
@@ -3525,12 +3583,12 @@ function coOpen(q,deep){
     <div class="aipc"><div class="aicomp"><textarea id="coQ" rows="1" maxlength="1500" placeholder="${t('co_ph')}" oninput="coGrow(this)" onkeydown="if(event.key==='Enter'&&!event.shiftKey){event.preventDefault();coAsk()}"></textarea>
      <button class="aisend" id="coGo" onclick="coAsk()" aria-label="${t('co_send')}"><svg viewBox="0 0 24 24"><path d="M12 19V5M6 11l6-6 6 6"/></svg></button></div>
      <p class="aift"><span id="coLeft">${CO.left!=null?esc(t('co_left',{n:CO.left})):''}</span>${t('co_note')}</p></div>`;
-  if(!CO.open){p.classList.remove('on');void p.offsetWidth;p.classList.add('on')}p.setAttribute('aria-hidden','false');CO.open=true;document.body.classList.add('aion');coSide();
+  if(!CO.open){p.classList.remove('on');void p.offsetWidth;p.classList.add('on')}p.setAttribute('aria-hidden','false');CO.open=true;document.body.classList.add('aion');coSide();if(typeof hbOpen==='function')hbOpen();
   coRender();
   setTimeout(()=>{const i=$('coQ');if(i&&!('ontouchstart' in window))i.focus()},250);
   if(q)coAsk(q,deep);
 }
-function coClose(){const p=$('aiP');if(p){p.classList.remove('on');p.setAttribute('aria-hidden','true')}CO.open=false;document.body.classList.remove('aion');coSide()}
+function coClose(){const was=CO.open;const p=$('aiP');if(p){p.classList.remove('on');p.setAttribute('aria-hidden','true')}CO.open=false;document.body.classList.remove('aion');coSide();if(was&&typeof hbClose==='function')hbClose()}
 function coToggle(){CO.open?coClose():coOpen()}
 function coSide(){document.querySelectorAll('.aiside').forEach(b=>{b.classList.toggle('on',CO.open);b.setAttribute('aria-expanded',String(CO.open))})}
 function coNew(){if(CO.busy)return;CO.msgs=[];CO.follow=[];coSave();coRender();const i=$('coQ');if(i)i.focus()}
@@ -3923,7 +3981,7 @@ tr: {
     r_h: 'R kat hesaplayıcı', r_p: 'Giriş, stop ve çıkış fiyatını gir; işlemin kaç R olduğunu gör. Alış ya da satış otomatik anlaşılır.', r_en: 'Giriş fiyatı', r_sl: 'Stop fiyatı', r_ex: 'Çıkış fiyatı',
     r_res: 'İşlemin sonucu', long: 'Alış işlemi', short: 'Satış işlemi',
     disc: 'Hesaplayıcı yaklaşık değer verir ve hesap para birimini USD kabul eder; pip değeri kura ve brokerın kontrat büyüklüğüne göre değişebilir. Yatırım tavsiyesi değildir.' },
-  pg_contact: 'İletişim', pg_privacy: 'Gizlilik politikası', pg_terms: 'Kullanım koşulları', pg_refund: 'İade politikası', pg_mt5: 'MT5/MT4 işlem günlüğü', pg_prop: 'Prop firm günlüğü', pg_calc: 'Lot hesaplama', foot_res: 'Kaynaklar', prop_more: 'Prop firm günlüğünü yakından tanı →', plat_more: 'MT5 ve MT4 ile nasıl çalıştığını gör →', calc_more: 'Lot hesaplayıcıyı dene →', owner: 'Taner Pehlivanlar', back_home: 'Ana sayfaya dön',
+  pg_contact: 'İletişim', pg_privacy: 'Gizlilik politikası', pg_terms: 'Kullanım koşulları', pg_refund: 'İade politikası', pg_mt5: 'MT5/MT4 işlem günlüğü', pg_prop: 'Prop firm günlüğü', pg_calc: 'Lot hesaplama', foot_res: 'Kaynaklar', totop: 'Yukarı çık', prop_more: 'Prop firm günlüğünü yakından tanı →', plat_more: 'MT5 ve MT4 ile nasıl çalıştığını gör →', calc_more: 'Lot hesaplayıcıyı dene →', owner: 'Taner Pehlivanlar', back_home: 'Ana sayfaya dön',
   d_panel: 'Panel', d_sample: 'Örnek veri', d_period: 'Dönem', d_per: { '7': '7G', '30': '30G', '90': '90G' },
   d_sum: '{n} işlem · {w} kazanç, {l} kayıp', d_wr: 'Kazanma oranı', d_pf: 'Profit factor', d_exp: 'İşlem başı', d_dd: 'En derin düşüş', d_total: 'Toplam',
   flow: [
@@ -4092,7 +4150,7 @@ en: {
     r_h: 'R-multiple calculator', r_p: 'Enter your entry, stop and exit price to see how many R the trade made. Long or short is detected automatically.', r_en: 'Entry price', r_sl: 'Stop price', r_ex: 'Exit price',
     r_res: 'Trade result', long: 'Long trade', short: 'Short trade',
     disc: 'The calculator gives approximate values and assumes a USD account; pip values change with exchange rates and your broker\'s contract size. Not investment advice.' },
-  pg_contact: 'Contact', pg_privacy: 'Privacy policy', pg_terms: 'Terms of use', pg_refund: 'Refund policy', pg_mt5: 'MT5/MT4 trading journal', pg_prop: 'Prop firm journal', pg_calc: 'Position size calculator', foot_res: 'Resources', prop_more: 'Learn more about the prop firm journal →', plat_more: 'See how it works with MT5 and MT4 →', calc_more: 'Try the position size calculator →', owner: 'Taner Pehlivanlar', back_home: 'Back to home',
+  pg_contact: 'Contact', pg_privacy: 'Privacy policy', pg_terms: 'Terms of use', pg_refund: 'Refund policy', pg_mt5: 'MT5/MT4 trading journal', pg_prop: 'Prop firm journal', pg_calc: 'Position size calculator', foot_res: 'Resources', totop: 'Back to top', prop_more: 'Learn more about the prop firm journal →', plat_more: 'See how it works with MT5 and MT4 →', calc_more: 'Try the position size calculator →', owner: 'Taner Pehlivanlar', back_home: 'Back to home',
   d_panel: 'Dashboard', d_sample: 'Sample data', d_period: 'Period', d_per: { '7': '7D', '30': '30D', '90': '90D' },
   d_sum: '{n} trades · {w} wins, {l} losses', d_wr: 'Win rate', d_pf: 'Profit factor', d_exp: 'Per trade', d_dd: 'Max drawdown', d_total: 'Total',
   flow: [
@@ -4459,15 +4517,27 @@ function langHint() {
 /* ---------- görünüm: tanıtım sitesi / uygulama ---------- */
 const APP = document.getElementById('appRoot');
 const ENTER = 'tradelog_entered';
-function showApp(after) {
+function showApp(after, how) {
   const ac = document.getElementById('appcss'); if (ac && ac.media !== 'all') ac.media = 'all';   // the app's styles, loaded late on the landing page
   SITE.hidden = true; APP.hidden = false; setMenu(false);
+  /* the app has its own address (#/app, #/app/trades …): back returns to where the visitor came from.
+     how: 'auto' (opened on load: replace the address), 'pop' (back/forward: leave it), else a click (new step) */
+  if (typeof hbView === 'function' && !(typeof TG !== 'undefined' && TG)) {
+    const hv = hbView(); if (hv && hv !== cv) cv = hv;
+    /* sign-in links (#access_token=…, ?code=…) are read by the sign-in code first, which then sets #/app itself */
+    if (how !== 'pop' && hv === null && !/access_token=|error_description=|[?&]code=/.test(location.hash + location.search)) { try { const u = hbUrl(cv); if (how === 'auto') history.replaceState({ tl: 'v' }, '', u); else history.pushState({ tl: 'v' }, '', u); } catch (e) {} }
+    if (typeof HB === 'object') HB.last = location.hash;
+  }
   try { localStorage.setItem(ENTER, '1'); } catch (e) {}
   window.scrollTo(0, 0);
   if (typeof render === 'function') { render(); if (typeof viewIn === 'function') viewIn(); if (typeof splashOn === 'function') splashOn(); }
   if (after === 'import' && typeof openImport === 'function') openImport();
 }
-function showSite(id) {
+function showSite(id, pop) {
+  /* back returns to the app; an open window's extra history step becomes this one */
+  const hg = typeof HB === 'object' && HB.g; if (hg) { HB.g = false; HB.pend = false; }
+  if (!pop && /^#\/app/.test(location.hash)) { try { history[hg ? 'replaceState' : 'pushState'](null, '', location.pathname + location.search); } catch (e) {} }
+  if (typeof HB === 'object') HB.last = location.hash;
   if (typeof closeDlg === 'function') { closeDlg(true); }
   if (typeof closeForm === 'function' && typeof formOpen === 'function' && formOpen()) closeForm();
   APP.hidden = true; SITE.hidden = false;
@@ -4481,6 +4551,7 @@ const H = {
   menu: () => setMenu(!S.menu), menuClose: () => setMenu(false),
   lang: v => setSiteLang(v),
   home: () => showHome('top'),
+  totop: () => window.scrollTo({ top: 0, behavior: matchMedia('(prefers-reduced-motion: reduce)').matches ? 'auto' : 'smooth' }),
   per: v => { S.per = v; renderDemo(); },
   tour: v => { tourK = v; renderTour(); },
   pacc: v => { S.acc = +v; renderProp(); },
@@ -4527,6 +4598,10 @@ SITE.addEventListener('submit', async e => {
 });
 
 fillIcons(SITE);
+/* back-to-top button: shows after scrolling down about a screen and a half */
+(() => { const b = $('#toTop'); if (!b) return; let on = false, q = 0;
+  const f = () => { q = 0; const v = !SITE.hidden && window.scrollY > window.innerHeight * 1.5; if (v !== on) { on = v; b.hidden = !v; } };
+  window.addEventListener('scroll', () => { if (!q) q = requestAnimationFrame(f); }, { passive: true }); })();
 applyLang();
 revealInit();
 langHint();
@@ -4539,8 +4614,8 @@ const hp = Object.keys(PAGE_HASH).find(k => location.hash === '#' + PAGE_HASH[k]
 const tp = TLP && TLP.page !== 'home' ? TLP.page : null;   /* this address is a sub-page: show it, even for members */
 if (hp && TLP) location.replace(pathOf(LG(), hp));          /* old #yardim style links */
 else if (pm && typeof pubShow === 'function') pubShow(pm[1]);
-else if (typeof mtCatch === 'function' && mtCatch()) { if (typeof sbIntent === 'function') sbIntent('signup'); if (typeof sbOn === 'function' && !sbOn() && !sbHasTok()) AU.info = t('mt_need_login'); showApp(); }
+else if (typeof mtCatch === 'function' && mtCatch()) { if (typeof sbIntent === 'function') sbIntent('signup'); if (typeof sbOn === 'function' && !sbOn() && !sbHasTok()) AU.info = t('mt_need_login'); showApp(null, 'auto'); }
 else if (tp && !(typeof TG !== 'undefined' && TG) && !/^#(panel|\/?app)|access_token=|error_description=/.test(location.hash)) { SITE.hidden = false; APP.hidden = true; showPage(tp, true); }
 else if (hp && !(typeof TG !== 'undefined' && TG)) { SITE.hidden = false; APP.hidden = true; showPage(hp); }
-else if ((typeof TG !== 'undefined' && TG) || entered || /^#(panel|\/?app)/.test(location.hash) || /access_token=|error_description=/.test(location.hash) || /[?&]code=/.test(location.search)) showApp(); else showSite();
+else if ((typeof TG !== 'undefined' && TG) || entered || /^#(panel|\/?app)/.test(location.hash) || /access_token=|error_description=/.test(location.hash) || /[?&]code=/.test(location.search)) showApp(null, 'auto'); else showSite(null, true);
 })();
