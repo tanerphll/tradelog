@@ -3027,8 +3027,8 @@ function proDlg(src){
    customer portal ("Manage subscription"). The client token and price IDs are public by design.
    A sandbox token (test_…) only shows the checkout on a device where #/paytest was opened once. */
 const PAY={token:'live_bfc5b96fec7f8474d8cfb5b29fe',   // LIVE
-  prices:{month:'pri_01m5zktxbma33tm3139trfs6n8',year:'pri_01m5zkw3ftfqb3wc0p96bgpsx4'},      // 7-day trial
-  again:{month:'pri_01m5zkxcg945gtjmx8z5hzj3xx',year:'pri_01m5zky22sqw7pbee9hfgpddza'}};      // no trial (had a subscription before)
+  prices:{month:'pri_01m5zpt3cqqdb0821k21f11m5z',year:'pri_01m5zpv6ang1vfm46p21wa8rs2'},      // 7-day trial
+  again:{month:'pri_01m5zpvs1sj14tw26njcgnp1xy',year:'pri_01m5zpwmqb4acsfxnf8m15wntr'}};      // no trial (had a subscription before)
 /* SANDBOX, for testing (token test_a967f93ecc66d2f33bf50f1c143):
    prices: month pri_01m60vp80kccqjmgrehc9p0wpf · year pri_01m60vqn7mx076znb78q116t78
    again:  month pri_01m60vsbmdt7zs7redby73q0az · year pri_01m60vthtzp7vr14p1xedjpbhw */
