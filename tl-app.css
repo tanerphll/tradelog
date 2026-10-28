@@ -1109,3 +1109,21 @@ body.aion .totop{display:none}
 @media (max-width:900px){.ap .totop{right:19px;bottom:calc(84px + env(safe-area-inset-bottom,0px))}
 body.hasfab .totop{bottom:calc(146px + env(safe-area-inset-bottom,0px))}}
 @media (prefers-reduced-motion:reduce){.ap .totop{transition:none}}
+.ap .sideuser .uchev{width:15px;height:15px;flex:none;margin-left:auto;color:var(--ink3)}
+.ap .sideuser .probadge.xs+.uchev{margin-left:6px}
+.ap .sideuser[aria-expanded=true]{background:var(--sf2);color:var(--ink)}
+.ap .umenu{position:fixed;z-index:60;padding:6px;border-radius:14px;border:1px solid var(--ln);background:var(--sf);box-shadow:0 22px 50px -16px rgba(0,0,0,.55),0 2px 6px rgba(0,0,0,.12);animation:ap-umin .14s ease-out both}
+@keyframes ap-umin{from{opacity:0;transform:translateY(6px) scale(.98)}}
+.ap .umenu button{display:flex;align-items:center;gap:11px;width:100%;min-height:38px;padding:8px 10px;border-radius:9px;font-size:13.5px;color:var(--ink);text-align:left}
+.ap .umenu button svg{width:17px;height:17px;flex:none;color:var(--ink3)}
+.ap .umenu button:hover,.ap .umenu button:focus-visible{background:var(--sf2);outline:none}
+.ap .umenu button.dan{color:var(--loss)}
+.ap .umenu button.dan svg{color:var(--loss)}
+.ap .umsep{height:1px;margin:5px 4px;background:var(--ln2)}
+.ap .umh{display:flex;align-items:center;gap:10px;padding:8px 10px 6px;min-width:0}
+.ap .umw{display:flex;flex-direction:column;gap:3px;min-width:0}
+.ap .umw b{font-size:13px;font-weight:600;color:var(--ink);overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.ap .umw small{display:flex;align-items:center;gap:6px;font-size:12px;color:var(--ink3)}
+.ap .umw .probadge.xs{margin-left:0}
+.ap #dBody>.umh{padding:2px 0 12px;margin-bottom:4px;border-bottom:1px solid var(--ln2)}
+.ap .mlinks2{margin-top:6px;padding-top:6px;border-top:1px solid var(--ln)}
