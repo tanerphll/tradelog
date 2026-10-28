@@ -2360,7 +2360,10 @@ init();
    The publishable key below is public by design; row level security keeps users apart. */
 const SBC={url:'https://gpnaafbhwdcmnkrhmymu.supabase.co',key:'sb_publishable_wytAvUS5RhQPxnB_khgn8Q_olNZAwzV',
   lib:'https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2.117.3/dist/umd/supabase.js',google:false,
-  gid:''};   // Google's own button: off for now (user prefers our button); client ID 899339021026-bnk9hjndjc8p3ccriffr8u94mparl7hh.apps.googleusercontent.com   // gid: Google OAuth web client ID (public). Set → Google's own button, which shows our domain instead of the Supabase address   // google: fallback only; the button follows the project's auth settings
+  gid:'899339021026-bnk9hjndjc8p3ccriffr8u94mparl7hh.apps.googleusercontent.com'};
+  /* gid: Google OAuth web client ID (public). With it, our own Google button opens Google's window from gotradelog.com
+     (so Google shows our domain, not the Supabase address) once the "google" function has its secret; until then,
+     and wherever a popup can't work, the button uses the usual Supabase redirect. '' = always the redirect */
 const SBK='sb-'+SBC.url.split('//')[1].split('.')[0]+'-auth-token';
 const SBU='tradelog_sb_uid',SBB='tradelog_sb_base',SBR='tradelog_sb_cur';
 const TBL=['accounts','trades','cash_tx','playbooks','journal'];
@@ -2454,7 +2457,7 @@ function renderAuth(){
   const logo=`<svg width="34" height="34" viewBox="0 0 32 32" aria-hidden="true"><rect width="32" height="32" rx="9" fill="#94C5CC"/><path d="M9.5 22v-4.5M16 22V12.5M22.5 22V9" stroke="#000100" stroke-width="3.4" stroke-linecap="round"/></svg>`;
   const em=`<label class="fld"><span>${t('au_email')}</span><input class="in" id="au_em" type="email" inputmode="email" autocomplete="email" autocapitalize="off" spellcheck="false" placeholder="ornek@mail.com" value="${esc(AU.email)}" required></label>`;
   const btn=(lab)=>`<button class="btn pri full" type="submit" ${AU.busy?'disabled':''}>${AU.busy?t('au_wait'):lab}</button>`;
-  const goo=g?`<div class="gwrap${GIS.ok&&gisUse()?' gon':''}"><div id="gbtn"></div><button type="button" class="btn full augo" onclick="sbGoogle()" ${AU.busy?'disabled':''}>${GICON}<span>${t(m==='signup'?'au_google_up':'au_google')}</span></button></div><div class="auor"><span>${t('au_or')}</span></div>`:'';
+  const goo=g?`<div class="gwrap"><button type="button" class="btn full augo" onclick="sbGoogle()" ${AU.busy?'disabled':''}>${GICON}<span>${t(m==='signup'?'au_google_up':'au_google')}</span></button></div><div class="auor"><span>${t('au_or')}</span></div>`:'';
   let head,form,foot='';
   if(m==='signup'){
     head=[t('au_up_t'),t('au_up_s')];
@@ -2543,42 +2546,57 @@ function sbCool(){clearInterval(sbCool.h);sbCool.h=setInterval(()=>{AU.cool--;co
 /* Google's own "Sign in with Google" button (Google Identity Services). It runs on our domain, so Google's window
    names gotradelog.com / TradeLog instead of the Supabase project address; the ID token is then handed to Supabase.
    If Google's script can't load (blocked, Telegram, no client ID), our own button keeps the redirect sign-in. */
-var GIS={p:null,ok:false,fail:false,raw:'',hash:''};
-const gisUse=()=>!!SBC.gid&&!GIS.fail&&!(window.Telegram&&Telegram.WebApp&&Telegram.WebApp.initData)&&!!(window.crypto&&crypto.subtle);
-async function gisNonce(){   // a fresh random nonce for each sign-in: Google gets its SHA-256, Supabase the raw value
-  const r=new Uint8Array(24);crypto.getRandomValues(r);const raw=[...r].map(x=>x.toString(16).padStart(2,'0')).join('');
-  const h=new Uint8Array(await crypto.subtle.digest('SHA-256',new TextEncoder().encode(raw)));
-  GIS.raw=raw;GIS.hash=[...h].map(x=>x.toString(16).padStart(2,'0')).join('');
-}
+var GIS={p:null,ok:false,fail:false,ready:null,state:''};
+/* our Google button, Google's window: popups don't work inside Telegram or an installed (home-screen) app, so those keep the redirect */
+const gisUse=()=>!!SBC.gid&&!GIS.fail&&!(window.Telegram&&Telegram.WebApp&&Telegram.WebApp.initData)&&!(navigator.standalone||matchMedia('(display-mode: standalone)').matches)&&!!(window.crypto&&crypto.getRandomValues);
 function gisLoad(){
   if(GIS.p)return GIS.p;
   GIS.p=new Promise((res,rej)=>{const sc=document.createElement('script');sc.src='https://accounts.google.com/gsi/client';sc.async=true;
-    sc.onload=()=>window.google&&google.accounts&&google.accounts.id?res():rej(new Error('gis'));sc.onerror=()=>rej(new Error('gis'));
-    setTimeout(()=>rej(new Error('gis timeout')),8000);document.head.appendChild(sc)}).then(gisNonce).then(()=>{GIS.ok=true});
-  GIS.p.catch(()=>{GIS.fail=true;const w=document.querySelector('.gwrap');if(w)w.classList.remove('gon')});
+    sc.onload=()=>window.google&&google.accounts&&google.accounts.oauth2?res():rej(new Error('gis'));sc.onerror=()=>rej(new Error('gis'));
+    setTimeout(()=>rej(new Error('gis timeout')),8000);document.head.appendChild(sc)}).then(()=>{GIS.ok=true});
+  GIS.p.catch(()=>{GIS.fail=true});
   return GIS.p;
 }
-async function gisMount(){
-  if(!gisUse()||!$('gbtn'))return;
-  try{await gisLoad()}catch(e){return}
-  const b=$('gbtn');if(!b||sbMode!=='auth')return;
-  try{
-    google.accounts.id.initialize({client_id:SBC.gid,callback:gisDone,nonce:GIS.hash,ux_mode:'popup',auto_select:false,itp_support:true,use_fedcm_for_button:true,context:AU.mode==='signup'?'signup':'signin'});
-    const w=Math.max(220,Math.min(400,Math.round((b.parentElement&&b.parentElement.clientWidth)||360)));
-    google.accounts.id.renderButton(b,{type:'standard',theme:document.documentElement.dataset.theme==='light'?'outline':'filled_black',size:'large',shape:'rectangular',
-      text:AU.mode==='signup'?'signup_with':'continue_with',logo_alignment:'center',width:w,locale:L==='en'?'en':'tr'});
-    b.parentElement.classList.add('gon');
-  }catch(e){GIS.fail=true;b.parentElement.classList.remove('gon')}
+/* is the "google" function set up (secret saved)? asked once per tab */
+async function gisReady(){
+  if(GIS.ready!=null)return GIS.ready;
+  try{const v=sessionStorage.getItem('tradelog_gready');if(v)return GIS.ready=v==='1'}catch(e){}
+  try{const r=await fetch(SBC.url+'/functions/v1/google',{method:'POST',headers:{apikey:SBC.key,'Content-Type':'application/json'},body:'{"ping":1}'});
+    const j=await r.json();GIS.ready=!!(j&&j.ok&&j.ready)}catch(e){GIS.ready=false}
+  try{sessionStorage.setItem('tradelog_gready',GIS.ready?'1':'0')}catch(e){}
+  return GIS.ready;
 }
-function gisDone(r){
-  if(!r||!r.credential)return;
-  const raw=GIS.raw;
+/* loaded ahead of the click: the window has to open right on the click, or the browser blocks it */
+function gisMount(){if(gisUse()){gisLoad().catch(()=>{});gisReady()}}
+function gisPopup(){
+  try{
+    GIS.state=[...crypto.getRandomValues(new Uint8Array(16))].map(x=>x.toString(16).padStart(2,'0')).join('');
+    google.accounts.oauth2.initCodeClient({client_id:SBC.gid,scope:'openid email profile',ux_mode:'popup',state:GIS.state,select_account:true,
+      callback:gisCode,error_callback:gisErr}).requestCode();
+    AU.err='';return true;
+  }catch(e){GIS.fail=true;return false}
+}
+function gisErr(e){
+  if(e&&e.type==='popup_failed_to_open')return sbGoogleRedirect();   // popup blocked: the usual way
+  AU.busy=false;if(sbMode==='auth')renderAuth();                     // window closed: nothing to say
+}
+function gisCode(r){
+  if(!r||r.error||!r.code||r.state!==GIS.state){AU.busy=false;if(r&&r.error&&r.error!=='access_denied')AU.err=t('au_e_gen');if(sbMode==='auth')renderAuth();return}
   auRun(async()=>{
-    const c=await sbClient(),{data,error}=await c.auth.signInWithIdToken({provider:'google',token:r.credential,nonce:raw});
-    gisNonce().catch(()=>{});                                  // next sign-in gets a new nonce
+    let j={};
+    try{const res=await fetch(SBC.url+'/functions/v1/google',{method:'POST',headers:{apikey:SBC.key,'Content-Type':'application/json'},body:JSON.stringify({code:r.code})});j=await res.json()}catch(e){j={}}
+    if(!j.ok||!j.id_token){
+      if(j.error==='config'){GIS.fail=true;try{sessionStorage.setItem('tradelog_gready','0')}catch(e){}}
+      return sbGoogleRedirect();                                      // couldn't finish here: the usual way still signs them in
+    }
+    const c=await sbClient(),{data,error}=await c.auth.signInWithIdToken({provider:'google',token:j.id_token});
     if(error)throw error;AU.busy=false;await sbLogin(data.user)});
 }
-async function sbGoogle(){
+function sbGoogle(){
+  if(gisUse()&&GIS.ok&&GIS.ready&&gisPopup())return;
+  return sbGoogleRedirect();
+}
+async function sbGoogleRedirect(){
   AU.busy=true;AU.err='';renderAuth();
   try{const c=await sbClient(),{error}=await c.auth.signInWithOAuth({provider:'google',options:{redirectTo:location.origin+location.pathname}});if(error)throw error}
   catch(e){AU.busy=false;AU.err=sbErr(e);renderAuth()}
@@ -3581,7 +3599,7 @@ async function coAsk(q,deep){
   CO.msgs=CO.msgs.filter(m=>m.r!=='e');CO.msgs.push({r:'u',t:q});
   const a={r:'a',t:''};CO.msgs.push(a);CO.busy=true;coRender();
   if($('coGo'))$('coGo').disabled=true;
-  let err=null,raf=0,cut=false,why='';
+  let err=null,raf=0,cut=false,why='',det='';
   /* one call; if the connection fails before any text arrives, it is tried once more without streaming */
   const call=async st=>{
     if(!sb)await sbClient();
@@ -3595,18 +3613,18 @@ async function coAsk(q,deep){
     if(!res.ok&&!(res.headers.get('content-type')||'').includes('application/json')){err='fail';why='gateway'}   // the server's gateway answered (timeout, limit), not TradeLog AI
     else if((res.headers.get('content-type')||'').includes('application/json')){
       const j=await res.json().catch(()=>({ok:false,error:'server_error'}));
-      if(j.ok&&j.text)a.t=j.text;else{err=j.error||'fail';if(!j.error)why='gateway';if(j.limit)CO.limit=j.limit;CO.why=j.why||''}   // no "error": Supabase's gateway (limit, timeout)
+      if(j.ok&&j.text)a.t=j.text;else{err=j.error||'fail';if(!j.error)why='gateway';if(j.limit)CO.limit=j.limit;CO.why=j.why||'';det=j.d||''}   // no "error": Supabase's gateway (limit, timeout)
     }else{
       const rd=res.body.getReader(),dec=new TextDecoder();
       try{for(;;){const {done,value}=await rd.read();if(done)break;a.t+=dec.decode(value,{stream:true});if(!raf)raf=requestAnimationFrame(()=>{raf=0;coRender()})}}
       catch(e){cut=true;why='drop'}                                 // connection dropped mid-answer: keep what arrived
-      const cm=a.t.match(/\u0000CUT(?::(\w+))?/);
-      if(cm){a.t=a.t.slice(0,cm.index);cut=true;why=cm[1]||'cut'}
+      const cm=a.t.match(/\u0000CUT(?::(\w+))?(?::(\w+))?/);
+      if(cm){a.t=a.t.slice(0,cm.index);cut=true;why=cm[1]||'cut';det=cm[2]||''}
       /* the stream ended without a single word and without a reason (older server, a proxy cutting it):
          ask once more without streaming before showing an error */
       if(!a.t.trim()&&!cm&&!cut){
         try{const r2=await call(false),j=await r2.json().catch(()=>({}));
-          if(j.ok&&j.text)a.t=j.text;else{err=j.error&&j.error!=='net'?j.error:'fail';why=j.error?j.error:'empty';CO.why=j.why||''}}
+          if(j.ok&&j.text)a.t=j.text;else{err=j.error&&j.error!=='net'?j.error:'fail';why=j.error?j.error:'empty';CO.why=j.why||'';det=j.d||''}}
         catch(e){err='net';why='fetch'}
       }
       /* nothing arrived: provider overloaded → "busy", anything else → a retry message with a support code */
@@ -3621,7 +3639,8 @@ async function coAsk(q,deep){
   /* answer could not be fetched: a code that tells support where it broke (no internet / dropped / provider error / our server) */
   const AI_FAIL={fetch:'AI-201',drop:'AI-202',cut:'AI-203',provider:'AI-204',server_error:'AI-205',client:'AI-206',gateway:'AI-207',empty:'AI-208'};
   if(err&&!CO_ERR[err]&&err!=='net'&&err!=='fail'){why=err;err='fail'}
-  const code=err==='config'?(AI_CODE[CO.why]||'AI-100'):(err==='net'||err==='fail')?(AI_FAIL[why]||'AI-200'):'';
+  const AI_WHY={overloaded_error:'busy'};if(err==='fail'&&AI_WHY[why])err=AI_WHY[why];
+  const code=(err==='config'?(AI_CODE[CO.why]||'AI-100'):(err==='net'||err==='fail')?(AI_FAIL[why]||'AI-200'):'')+(det&&err!=='busy'?' · '+String(det).replace(/[^\w]/g,'').slice(0,24):'');
   if(err){CO.msgs.pop();CO.msgs.push({r:'e',t:t(CO_ERR[err]||'co_err',{n:CO.limit||''})+(code?' '+t('sy_e_code')+': '+code:'')})}
   coSave();coRender();
   const lf=$('coLeft');if(lf&&CO.left!=null)lf.textContent=t('co_left',{n:CO.left});
@@ -3717,8 +3736,8 @@ const esc = s => String(s).replace(/[&<>"']/g, c => ({'&':'&amp;','<':'&lt;','>'
    language switch and #hash pages are used. */
 const TLP = window.TL_PAGE || null;
 /* flat files (yardim.html is served at /yardim), so the whole site stays one folder to upload */
-const PATHS = { tr: { home: '', help: 'yardim', privacy: 'gizlilik', terms: 'kosullar', refund: 'iade', contact: 'iletisim' },
-                en: { home: 'en', help: 'help', privacy: 'privacy', terms: 'terms', refund: 'refund', contact: 'contact' } };
+const PATHS = { tr: { home: '', help: 'yardim', privacy: 'gizlilik', terms: 'kosullar', refund: 'iade', contact: 'iletisim', mt5: 'mt5-islem-gunlugu', prop: 'prop-firm-islem-gunlugu', calc: 'lot-hesaplama' },
+                en: { home: 'en', help: 'help', privacy: 'privacy', terms: 'terms', refund: 'refund', contact: 'contact', mt5: 'mt5-trading-journal', prop: 'prop-firm-trading-journal', calc: 'position-size-calculator' } };
 const pathOf = (lg, pg) => (TLP ? TLP.base : '/') + PATHS[lg][pg || 'home'];
 const pageAt = path => { const p = path.replace(/(\.html|\/)$/, '').replace(/\/index$/, '') || '/'; for (const lg of ['en', 'tr']) for (const pg in PATHS[lg]) { const q = pathOf(lg, pg).replace(/\/$/, '') || '/'; if (p === q) return { lg, pg }; } return null; };
 /* site language: the page's own language; the app keeps the member's setting (tradelog_lang) */
@@ -3895,7 +3914,16 @@ tr: {
   cta_h: 'Edge\'ini tahmin etme, ölç.', cta_p: 'Ücretsiz hesabını oluştur, ilk raporunu yükle; panelin dakikalar içinde hazır.',
   foot_disc: 'TradeLog bir trading günlüğüdür ve yatırım tavsiyesi vermez. Kaldıraçlı ürünlerde işlem yapmak yüksek risk içerir; geçmiş sonuçlar gelecekteki sonuçları garanti etmez.',
   foot_product: 'Ürün', foot_support: 'Destek', foot_legal: 'Yasal', foot_tg: 'Telegram uygulaması', foot_made: 'Tüm hakları saklıdır.',
-  pg_contact: 'İletişim', pg_privacy: 'Gizlilik politikası', pg_terms: 'Kullanım koşulları', pg_refund: 'İade politikası', owner: 'Taner Pehlivanlar', back_home: 'Ana sayfaya dön',
+  calc: { h: 'Lot hesaplayıcı', bal: 'Hesap bakiyesi ($)', risk: 'Risk (%)', risk_h: 'Çoğu trader işlem başına %0,5–2 riske girer.', ins: 'Enstrüman',
+    ins_o: [['usd', 'EURUSD, GBPUSD, AUDUSD (…/USD)'], ['jpy', 'USDJPY, EURJPY, GBPJPY (…/JPY)'], ['base', 'USDCAD, USDCHF (USD/…)'], ['xau', 'Altın (XAUUSD)'], ['own', 'Diğer (pip değerini gir)']],
+    stop: 'Stop mesafesi (pip)', stop_xau: 'Stop mesafesi ($ fiyat)', stop_xau_h: 'Örn. 2.350,00 giriş, 2.345,00 stop → 5', rate_jpy: 'USDJPY kuru', rate_base: 'Parite kuru (ör. USDCAD)',
+    pv: '1 lotun pip değeri ($)', pv_h: 'Brokerının kontrat bilgisinde yazar.', need: 'Sonucu görmek için alanları doldur.',
+    lots: 'Açman gereken lot', lots_s: 'Risk tutarını aşmamak için 0,01\'e aşağı yuvarlandı.', amt: 'Risk tutarı', real: 'Bu lotla gerçek risk', pvl: '1 lotun pip değeri',
+    small: 'Hesaplanan lot 0,01\'in altında: bu stop mesafesiyle riskin, en küçük lotla açılan işlemden daha küçük.', tg_h: 'Hedefler (1R, 2R, 3R)', u_pip: 'pip', u_usd: '$',
+    r_h: 'R kat hesaplayıcı', r_p: 'Giriş, stop ve çıkış fiyatını gir; işlemin kaç R olduğunu gör. Alış ya da satış otomatik anlaşılır.', r_en: 'Giriş fiyatı', r_sl: 'Stop fiyatı', r_ex: 'Çıkış fiyatı',
+    r_res: 'İşlemin sonucu', long: 'Alış işlemi', short: 'Satış işlemi',
+    disc: 'Hesaplayıcı yaklaşık değer verir ve hesap para birimini USD kabul eder; pip değeri kura ve brokerın kontrat büyüklüğüne göre değişebilir. Yatırım tavsiyesi değildir.' },
+  pg_contact: 'İletişim', pg_privacy: 'Gizlilik politikası', pg_terms: 'Kullanım koşulları', pg_refund: 'İade politikası', pg_mt5: 'MT5/MT4 işlem günlüğü', pg_prop: 'Prop firm günlüğü', pg_calc: 'Lot hesaplama', foot_res: 'Kaynaklar', prop_more: 'Prop firm günlüğünü yakından tanı →', plat_more: 'MT5 ve MT4 ile nasıl çalıştığını gör →', calc_more: 'Lot hesaplayıcıyı dene →', owner: 'Taner Pehlivanlar', back_home: 'Ana sayfaya dön',
   d_panel: 'Panel', d_sample: 'Örnek veri', d_period: 'Dönem', d_per: { '7': '7G', '30': '30G', '90': '90G' },
   d_sum: '{n} işlem · {w} kazanç, {l} kayıp', d_wr: 'Kazanma oranı', d_pf: 'Profit factor', d_exp: 'İşlem başı', d_dd: 'En derin düşüş', d_total: 'Toplam',
   flow: [
@@ -3947,7 +3975,7 @@ tr: {
       ['Mentor erişimi', '<p>Mentor olarak davet ettiğin ve davet linkini açıp aynı e-postayla giriş yapan kişi, hesabındaki verileri salt okunur görebilir; değiştiremez. Erişimi Ayarlar → Mentor erişimi\'nden kaldırdığında hemen kapanır.</p>'],
       ['Ödeme bilgileri', '<p>Pro\'ya geçersen ödeme ve fatura bilgilerin (ad, e-posta, ülke, kart ya da ödeme yöntemi) satıcımız Paddle.com tarafından işlenir; kart bilgilerin bize ulaşmaz. Biz yalnızca aboneliğinin durumunu saklarız: plan, yenileme ya da bitiş tarihi ve Paddle\'daki müşteri ve abonelik numaran. Paddle\'ın gizlilik politikası: <a href="https://www.paddle.com/legal/privacy" target="_blank" rel="noopener">paddle.com/legal/privacy</a>.</p>'],
       ['Ne kadar süre saklıyoruz', '<p>Hesabın açık olduğu sürece. Hesabını sildiğinde hesabın ve bütün verilerin hemen ve kalıcı olarak silinir.</p>'],
-      ['Üçüncü taraf hizmetler', '<p>Supabase (veritabanı, giriş ve e-posta altyapısı). Sayfa açılırken yazı tipleri Google Fonts\'tan, kütüphaneler cdnjs ve jsDelivr\'den yüklenir; bu hizmetler dosyaları gönderirken IP adresin gibi teknik bilgileri görebilir. Ziyaret sayılarını ölçmek için çerez kullanmayan Cloudflare Web Analytics kullanıyoruz; yalnızca toplu sayılar (sayfa görüntüleme, ülke, cihaz türü) görülür, seni tanımlayan bir kimlik ya da çerez oluşturulmaz. Giriş e-postaları (doğrulama, şifre sıfırlama) Resend üzerinden gönderilir. Reklam ya da izleme çerezi kullanmıyoruz. Oturumun tarayıcının yerel depolamasında tutulur.</p>'],
+      ['Üçüncü taraf hizmetler', '<p>Supabase (veritabanı, giriş ve e-posta altyapısı). Yazı tipleri kendi sunucumuzdan yüklenir. Uygulama açılırken bazı kütüphaneler cdnjs ve jsDelivr\'den yüklenir; bu hizmetler dosyaları gönderirken IP adresin gibi teknik bilgileri görebilir. Ziyaret sayılarını ölçmek için çerez kullanmayan Cloudflare Web Analytics kullanıyoruz; yalnızca toplu sayılar (sayfa görüntüleme, ülke, cihaz türü) görülür, seni tanımlayan bir kimlik ya da çerez oluşturulmaz. Giriş e-postaları (doğrulama, şifre sıfırlama) Resend üzerinden gönderilir. Reklam ya da izleme çerezi kullanmıyoruz. Oturumun tarayıcının yerel depolamasında tutulur.</p>'],
       ['Hakların', '<p>KVKK\'nın 11. maddesi kapsamında verilerinin işlenip işlenmediğini öğrenme, bilgi isteme, düzeltilmesini ya da silinmesini isteme ve itiraz etme hakların var. <b>Ayarlar → Profil</b>\'den verilerini indirebilir ya da hesabını tamamen silebilirsin. Diğer talepler için İletişim sayfasındaki adrese yaz.</p>'],
       ['Telegram', '<p>TradeLog\'u Telegram içinde hesapsız kullananların verileri Telegram\'ın bu uygulamaya ayırdığı bulut alanında durur ve Telegram\'ın gizlilik koşullarına tabidir. Telegram sürümü kademeli olarak kapanacak; verilerini yedekle web\'deki hesabına taşıyabilirsin.</p>'],
       ['Değişiklikler', '<p>Pro ve ödeme geldiğinde bu politika güncellenecek. Önemli değişiklikleri sitede ve e-postayla duyururuz.</p>']] },
@@ -3974,6 +4002,12 @@ tr: {
       ['Aylık yenilemeler ve iptal', '<p>Aboneliğini istediğin an iptal edebilirsin; ödediğin dönemin sonuna kadar Pro açık kalır ve bir sonraki dönem için ücret alınmaz. Aylık yenilemelerde kısmi iade yapmıyoruz. Teknik bir sorun yüzünden Pro\'yu kullanamadıysan bize yaz; inceleyip iade ya da süre uzatma yaparız.</p>'],
       ['İade nasıl istenir', '<p>Üyelik e-posta adresinden bize yaz ya da ödeme makbuzundaki bağlantıyı (paddle.net) kullan. İade, satıcımız Paddle üzerinden ödemeyi yaptığın karta ya da yönteme yapılır; bankana göre 5–10 iş günü sürebilir. İade edilen abonelik hemen sona erer ve hesabın ücretsiz plana geçer; verilerin silinmez.</p>{mail}'],
       ['Yasal hakların', '<p>Bu politika, yaşadığın ülkenin tüketici mevzuatından doğan haklarını kısıtlamaz.</p>']] },
+    mt5: { t: 'MT5 ve MT4 işlem günlüğü', u: '', st: 'MT5 ve MT4 İşlem Günlüğü: Otomatik Senkron ve Rapor Yükleme | TradeLog', sd: 'MetaTrader 5 ve MetaTrader 4 işlemlerini otomatik aktaran trading günlüğü. Raporunu ücretsiz yükle ya da yatırımcı şifresiyle bağla; her işlemi R ile analiz et.', seo: 1, s: [
+      ['', '<p class="lead">TradeLog, MetaTrader 5 ve MetaTrader 4 hesabındaki işlemleri tek tek yazmadan günlüğüne getirir. Her işlemi R (risk katı) cinsinden ölçer; hangi setup\'ın, seansın ve hatanın sana kazandırdığını ya da kaybettirdiğini rakamlarla gösterir.</p><div class="lpcta"><a class="btn btn-p btn-lg" href="#/app"><span data-st="cta_start">Ücretsiz başla</span></a><a class="btn btn-g btn-lg" href="#/app" data-pro="1">Pro\'yu 7 gün ücretsiz dene</a></div><img class="lpimg" src="{img:dash}" alt="TradeLog paneli: MT5 işlemlerinden hesaplanan net sonuç, kazanma oranı ve TradeLog puanı" width="1280" height="800" loading="lazy" decoding="async">'], ['İşlemlerini getirmenin iki yolu', '<ol><li><b>Rapor yükle (ücretsiz):</b> MT5 ya da MT4 masaüstü uygulamasından geçmiş raporunu HTML ya da Excel olarak kaydet, TradeLog\'a sürükle. Rapordaki işlemler, para yatırma ve çekmeler hesabına eklenir; daha önce eklenenler tekrar sayılmaz, elle girdiğin işlemler rapordakiyle eşleşir.</li><li><b>Otomatik senkron (Pro):</b> Hesabını sunucu adı, hesap numarası ve <b>yatırımcı (salt okunur) şifresiyle</b> bir kez bağla. Geçmiş işlemlerin gelir; yeni işlemler her hafta içi gece kendiliğinden eklenir. Uygulamayı açmana gerek yoktur.</li></ol>'], ['MT5 raporu nasıl alınır', '<ol><li>MetaTrader 5 masaüstü uygulamasında <b>Araç Kutusu → Geçmiş</b> sekmesini aç.</li><li>Listede sağ tıkla, dönemi seç (ör. Tüm geçmiş).</li><li>Yine sağ tıkla → <b>Rapor → HTML</b> (ya da Open XML) ile kaydet.</li><li>Dosyayı TradeLog\'da <b>İşlem ekle → Rapor yükle</b>\'ye bırak.</li></ol><p>MT4\'te <b>Terminal → Hesap geçmişi</b> sekmesinde sağ tıklayıp <b>Ayrıntılı raporu kaydet</b>\'i seçmen yeterli. Telefon uygulamaları rapor dışa aktaramaz; bunun için masaüstü uygulamasını ya da otomatik senkronu kullan.</p>'], ['Hesabın güvende', '<ul><li><b>Ana şifreni hiçbir zaman istemeyiz.</b> Otomatik senkron yalnızca yatırımcı şifresiyle çalışır; bu şifreyle işlem açılamaz, para çekilemez.</li><li>Yatırımcı şifresi bağlantıyı kurmak için bir kez kullanılır ve saklanmaz.</li><li>Rapor dosyası cihazında okunur; dosyanın kendisi sunucuya gönderilmez.</li><li>Verilerin Almanya\'da şifreli tutulur; satılmaz, reklam için kullanılmaz.</li></ul>'], ['MT5 işlemlerinden ne öğrenirsin', '<ul><li><b>R bazında sonuçlar:</b> net R, kazanma oranı, profit factor, işlem başı beklenti, en derin düşüş.</li><li><b>Setup ve seans kırılımı:</b> hangi kurulum, gün ve saat kazandırıyor.</li><li><b>Hataların maliyeti:</b> erken çıkış, FOMO, stop kaydırma gibi etiketlerin sana kaç R kaybettirdiği.</li><li><b>Takvim ve haftalık özet:</b> her günün sonucu ve gelecek hafta için 1–3 somut öneri.</li><li><b>TradeLog AI (Pro):</b> günlüğünü okuyup soruna rakamlarla cevap veren koç.</li></ul>'], ['Hangi brokerlarla çalışır', '<p>MetaTrader 4 ya da MetaTrader 5 kullanan brokerların ve prop firmaların büyük çoğunluğuyla. Rapor yükleme her MT4/MT5 hesabında çalışır; otomatik senkron için hesabın sunucu adı ve yatırımcı şifresi yeterlidir. Farklı platformlardaki işlemlerini elle de girebilirsin. Ayrıntılar için {link:help} sayfasına bak.</p>'], ['Sık sorulanlar', '<p><b>Ücretsiz mi?</b> Rapor yükleme, bütün raporlar ve analizler ücretsiz planda, işlem sınırı olmadan. Otomatik senkron ve TradeLog AI Pro\'da; Pro\'yu 7 gün ücretsiz deneyebilirsin.</p><p><b>İşlemler ne sıklıkla güncellenir?</b> Bağlı hesaplarda her hafta içi gece; istersen hesap başına günde 3 kez "Şimdi senkronize et" ile beklemeden alabilirsin.</p><p><b>Birden çok hesabım var.</b> Kişisel, challenge ve funded hesaplarını ayrı ayrı izleyebilir, hepsini tek panelde görebilirsin. Kopyalanan işlemler birleşik görünümde bir kez sayılır.</p><div class="lpcta"><a class="btn btn-p btn-lg" href="#/app"><span data-st="cta_start">Ücretsiz başla</span></a><a class="btn btn-g btn-lg" href="#/app" data-pro="1">Pro\'yu 7 gün ücretsiz dene</a></div>']] },
+    prop: { t: 'Prop firm işlem günlüğü', u: '', st: 'Prop Firm İşlem Günlüğü: Günlük Kayıp ve Max Drawdown Takibi | TradeLog', sd: 'Challenge ve funded hesapların için trading günlüğü: günlük kayıp limiti, maksimum kayıp ve kâr hedefini her işlemde gör, limite yaklaşınca uyarı al.', seo: 1, s: [
+      ['', '<p class="lead">Challenge\'ı geçmek çoğu zaman tek bir kötü günü önlemekle ilgilidir. TradeLog, prop firm hesabının kurallarını işlemlerinle birlikte takip eder: günlük kayıp limiti, toplam kayıp ve kâr hedefinde nerede olduğunu her an gösterir, limite yaklaşınca uyarır.</p><div class="lpcta"><a class="btn btn-p btn-lg" href="#/app"><span data-st="cta_start">Ücretsiz başla</span></a><a class="btn btn-g btn-lg" href="#/app" data-pro="1">Pro\'yu 7 gün ücretsiz dene</a></div><img class="lpimg" src="{img:prop}" alt="Prop firm hesap kuralları: günlük ve toplam kayıp limitinden kalan tutar" width="638" height="492" loading="lazy" decoding="async">'], ['Kurallar her an görünür', '<ul><li><b>Günlük kayıp limiti:</b> bugün ne kadar kaybettiğin ve limite ne kadar kaldığı.</li><li><b>Maksimum kayıp (max drawdown):</b> başlangıç bakiyesine göre toplam kaybın.</li><li><b>Kâr hedefi:</b> challenge hedefinin yüzde kaçına ulaştığın.</li><li><b>Erken uyarı:</b> bir limitin %70\'ine ulaştığında panel seni uyarır; hesabı riske atmadan durursun.</li></ul><p>Oranları hesap başına kendin girersin (ör. günlük %5, toplam %10, hedef %8). Hesaplama kapanmış işlemlerle yapılır; kesin rakam için firmanın kendi panelini de kontrol et.</p>'], ['Challenge, funded ve kişisel hesaplar ayrı', '<p>Her hesabın kendi bakiyesi, kuralları ve istatistikleri vardır. Birden çok challenge çeviriyorsan hepsini tek panelde görebilirsin; aynı işlemi birden çok hesaba kopyaladıysan birleşik görünümde bir kez sayılır. Para yatırma, çekme ve payout\'lar bakiye hesabına dahil edilir.</p>'], ['Disiplin kuralları', '<p>Prop hesaplarını genelde tek bir duygusal gün kaybettirir. Ayarlar\'dan günlük maksimum kayıp (R cinsinden), günlük maksimum işlem sayısı ve art arda kayıp sınırı belirle; sınıra gelince TradeLog mola vermeni hatırlatır. Playbook\'unla da hangi kurala uyduğunda kazandığını görürsün.</p>'], ['İşlemlerini nasıl getirirsin', '<p>Prop firmaların çoğu MetaTrader 4 ya da 5 kullanır. Raporunu ücretsiz yükleyebilir ya da hesabını yatırımcı (salt okunur) şifresiyle bağlayıp işlemlerin her gece kendiliğinden gelmesini sağlayabilirsin (Pro). Ayrıntılar: {link:mt5}.</p>'], ['Sık sorulanlar', '<p><b>Kuralları nasıl girerim?</b> Hesabı eklerken ya da Hesaplar sayfasından firmanın günlük kayıp, toplam kayıp ve kâr hedefi oranlarını yazman yeterli; her hesap kendi kurallarıyla izlenir.</p><p><b>Açık pozisyonlar da hesaba katılıyor mu?</b> Hayır, göstergeler kapanmış işlemlerle hesaplanır. Firmalar çoğu zaman anlık özsermayeye bakar; limite yakınken firmanın panelini esas al.</p><p><b>Ücretli mi?</b> Prop firm kuralları ve uyarılar ücretsiz planda. Ücretsizde 2 aktif hesap, Pro\'da 20 aktif hesap ve otomatik senkron var.</p><div class="lpcta"><a class="btn btn-p btn-lg" href="#/app"><span data-st="cta_start">Ücretsiz başla</span></a><a class="btn btn-g btn-lg" href="#/app" data-pro="1">Pro\'yu 7 gün ücretsiz dene</a></div>']] },
+    calc: { t: 'Lot hesaplama', u: '', st: 'Lot Hesaplama: Forex Pozisyon Büyüklüğü Hesaplayıcı (Ücretsiz) | TradeLog', sd: 'Hesap bakiyen, risk yüzden ve stop mesafene göre doğru lot büyüklüğünü hesapla. EURUSD, USDJPY, altın (XAUUSD) ve R kat hesaplayıcı; ücretsiz.', seo: 1, s: [
+      ['', '<p class="lead">Ne kadar riske gireceğini önce belirle, lotu ona göre aç. Bakiyeni, riske atmak istediğin yüzdeyi ve stop mesafeni gir; hesaplayıcı açman gereken lot büyüklüğünü ve 1R, 2R, 3R hedeflerini gösterir.</p>{calc}'], ['Lot nasıl hesaplanır', '<p>Formül basit: <b>Lot = Risk tutarı ÷ (Stop mesafesi (pip) × 1 lotun pip değeri)</b>. Örnek: 10.000 $ bakiye, %1 risk (100 $), EURUSD\'de 25 pip stop. EURUSD\'de 1 standart lotun pip değeri yaklaşık 10 $\'dır; 100 ÷ (25 × 10) = <b>0,40 lot</b>.</p><ul><li><b>.../USD pariteleri</b> (EURUSD, GBPUSD, AUDUSD): 1 lotta 1 pip ≈ 10 $.</li><li><b>.../JPY pariteleri</b> (USDJPY): 1 lotta 1 pip ≈ 1.000 ÷ kur $.</li><li><b>USD/... pariteleri</b> (USDCHF, USDCAD): 1 lotta 1 pip ≈ 10 ÷ kur $.</li><li><b>Altın (XAUUSD):</b> 1 lot = 100 ons; fiyattaki 1 $\'lık hareket 1 lotta 100 $ eder.</li></ul><p>Brokerların kontrat büyüklüğü farklı olabilir; büyük işlemlerden önce brokerının kontrat bilgisini kontrol et. Hesaplayıcı hesap para birimini USD kabul eder.</p>'], ['R nedir, neden önemli', '<p>R, bir işlemde riske attığın tutardır. 100 $ riskle girip 180 $ kazandıysan işlemin <b>+1,8R</b>, stop olduysan <b>−1R</b>\'dir. Sonuçları R ile ölçmek, lot büyüklüğün değişse bile işlemleri karşılaştırmanı sağlar; bir stratejinin işe yarayıp yaramadığını para tutarından çok daha net gösterir. TradeLog her işlemini otomatik olarak R ile hesaplar.</p>'], ['İşlemlerini R ile takip et', '<p>Hesapladığın riskin gerçekte nasıl sonuç verdiğini görmek için işlemlerini günlüğe kaydet. TradeLog MT4/MT5 raporundan ya da otomatik senkronla işlemlerini alır; setup, seans ve hataya göre neyin kazandırdığını gösterir. Ayrıntılar: {link:mt5}.</p><div class="lpcta"><a class="btn btn-p btn-lg" href="#/app"><span data-st="cta_start">Ücretsiz başla</span></a><a class="btn btn-g btn-lg" href="#/app" data-pro="1">Pro\'yu 7 gün ücretsiz dene</a></div>']] },
     contact: { t: 'İletişim', u: '', st: 'İletişim ve destek | TradeLog', sd: 'TradeLog destek ekibine ulaş: destek@gotradelog.com ya da iletişim formu. Birkaç iş günü içinde e-postayla dönüyoruz.', s: [
       ['Bize ulaş', '<p>Hata bildirimi, soru, öneri ya da iş birliği için bize e-posta gönder ya da aşağıdaki formu kullan; birkaç iş günü içinde e-postayla dönüş yapıyoruz. Giriş yaptıysan uygulamada <b>Ayarlar → Yardım ve destek</b>\'ten de yazabilirsin.</p>{mail}{form}'],
       ['Yazarken işimize yarayanlar', '<ul><li>Ne yapmaya çalıştığın ve ne olduğu</li><li>Telefon mu bilgisayar mı, tarayıcı mı Telegram mı</li><li>Rapor yüklemeyle ilgiliyse MT4 mü MT5 mi ve raporun dili</li></ul><p>Rapor dosyanı gönderme; içinde hesap bilgilerin olabilir. Gerekirse sana nasıl paylaşacağını yazarız.</p>']] }
@@ -4049,7 +4083,16 @@ en: {
   cta_h: 'Stop guessing your edge. Measure it.', cta_p: 'Create your free account, upload your first report and your dashboard is ready in minutes.',
   foot_disc: 'TradeLog is a trading journal and does not provide investment advice. Trading leveraged products carries a high level of risk; past results do not guarantee future results.',
   foot_product: 'Product', foot_support: 'Support', foot_legal: 'Legal', foot_tg: 'Telegram app', foot_made: 'All rights reserved.',
-  pg_contact: 'Contact', pg_privacy: 'Privacy policy', pg_terms: 'Terms of use', pg_refund: 'Refund policy', owner: 'Taner Pehlivanlar', back_home: 'Back to home',
+  calc: { h: 'Position size calculator', bal: 'Account balance ($)', risk: 'Risk (%)', risk_h: 'Most traders risk 0.5–2% per trade.', ins: 'Instrument',
+    ins_o: [['usd', 'EURUSD, GBPUSD, AUDUSD (…/USD)'], ['jpy', 'USDJPY, EURJPY, GBPJPY (…/JPY)'], ['base', 'USDCAD, USDCHF (USD/…)'], ['xau', 'Gold (XAUUSD)'], ['own', 'Other (enter pip value)']],
+    stop: 'Stop loss (pips)', stop_xau: 'Stop loss ($ in price)', stop_xau_h: 'E.g. entry 2,350.00, stop 2,345.00 → 5', rate_jpy: 'USDJPY rate', rate_base: 'Pair rate (e.g. USDCAD)',
+    pv: 'Pip value of 1 lot ($)', pv_h: 'Listed in your broker\'s contract specification.', need: 'Fill in the fields to see the result.',
+    lots: 'Position size', lots_s: 'Rounded down to 0.01 so you never risk more than planned.', amt: 'Amount at risk', real: 'Actual risk at this size', pvl: 'Pip value of 1 lot',
+    small: 'The size is below 0.01 lots: with this stop, your risk is smaller than the smallest possible trade.', tg_h: 'Targets (1R, 2R, 3R)', u_pip: 'pips', u_usd: '$',
+    r_h: 'R-multiple calculator', r_p: 'Enter your entry, stop and exit price to see how many R the trade made. Long or short is detected automatically.', r_en: 'Entry price', r_sl: 'Stop price', r_ex: 'Exit price',
+    r_res: 'Trade result', long: 'Long trade', short: 'Short trade',
+    disc: 'The calculator gives approximate values and assumes a USD account; pip values change with exchange rates and your broker\'s contract size. Not investment advice.' },
+  pg_contact: 'Contact', pg_privacy: 'Privacy policy', pg_terms: 'Terms of use', pg_refund: 'Refund policy', pg_mt5: 'MT5/MT4 trading journal', pg_prop: 'Prop firm journal', pg_calc: 'Position size calculator', foot_res: 'Resources', prop_more: 'Learn more about the prop firm journal →', plat_more: 'See how it works with MT5 and MT4 →', calc_more: 'Try the position size calculator →', owner: 'Taner Pehlivanlar', back_home: 'Back to home',
   d_panel: 'Dashboard', d_sample: 'Sample data', d_period: 'Period', d_per: { '7': '7D', '30': '30D', '90': '90D' },
   d_sum: '{n} trades · {w} wins, {l} losses', d_wr: 'Win rate', d_pf: 'Profit factor', d_exp: 'Per trade', d_dd: 'Max drawdown', d_total: 'Total',
   flow: [
@@ -4101,7 +4144,7 @@ en: {
       ['Mentor access', '<p>Someone you invite as a mentor, who opens the invite link and signs in with the same email, can see the data in your account read-only; they can\'t change it. Access ends as soon as you remove it in Settings → Mentor access.</p>'],
       ['Payment details', '<p>If you upgrade to Pro, your payment and billing details (name, email, country, card or payment method) are processed by our reseller Paddle.com; your card details never reach us. We only keep the status of your subscription: plan, renewal or end date, and your Paddle customer and subscription IDs. Paddle\'s privacy policy: <a href="https://www.paddle.com/legal/privacy" target="_blank" rel="noopener">paddle.com/legal/privacy</a>.</p>'],
       ['How long we keep it', '<p>For as long as your account exists. When you delete your account, the account and all its data are deleted right away and permanently.</p>'],
-      ['Third-party services', '<p>Supabase (database, sign-in and email). When the page loads, fonts come from Google Fonts and libraries from cdnjs and jsDelivr; these services may see technical details such as your IP address when they serve those files. We measure visits with Cloudflare Web Analytics, which uses no cookies; we only see aggregate numbers (page views, country, device type) and no identifier is created for you. Sign-in emails (confirmation, password reset) are sent through Resend. We use no advertising or tracking cookies. Your session is kept in your browser\'s local storage.</p>'],
+      ['Third-party services', '<p>Supabase (database, sign-in and email). Fonts are served from our own server. When the app opens, some libraries load from cdnjs and jsDelivr; these services may see technical details such as your IP address when they serve those files. We measure visits with Cloudflare Web Analytics, which uses no cookies; we only see aggregate numbers (page views, country, device type) and no identifier is created for you. Sign-in emails (confirmation, password reset) are sent through Resend. We use no advertising or tracking cookies. Your session is kept in your browser\'s local storage.</p>'],
       ['Your rights', '<p>You can ask whether your data is processed, request information, ask for it to be corrected or deleted, and object. From <b>Settings → Profile</b> you can download your data or delete your account completely. For other requests, write to the address on the Contact page.</p>'],
       ['Telegram', '<p>If you use TradeLog inside Telegram without an account, your data stays in the cloud space Telegram gives this app and Telegram\'s privacy terms apply. The Telegram version will be phased out; you can move your data to your web account with a backup.</p>'],
       ['Changes', '<p>This policy will be updated when Pro and payments arrive. We announce important changes on the site and by email.</p>']] },
@@ -4128,6 +4171,12 @@ en: {
       ['Monthly renewals and cancellation', '<p>You can cancel any time; Pro stays active until the end of the period you paid for and you are not charged again. We don\'t give partial refunds for monthly renewals. If a technical problem kept you from using Pro, write to us and we\'ll review it and refund or extend your subscription.</p>'],
       ['How to request a refund', '<p>Email us from the address on your account, or use the link in your payment receipt (paddle.net). Refunds go back to the card or method you paid with through our reseller Paddle, and may take 5–10 business days depending on your bank. A refunded subscription ends right away and your account moves to the free plan; your data is not deleted.</p>{mail}'],
       ['Your legal rights', '<p>This policy does not limit any rights you have under the consumer laws of your country.</p>']] },
+    mt5: { t: 'MT5 and MT4 trading journal', u: '', st: 'MT5 & MT4 Trading Journal: Auto-Sync or Report Upload | TradeLog', sd: 'A trading journal that imports your MetaTrader 5 and MetaTrader 4 trades. Upload your report for free or connect with your investor password, and analyse every trade in R.', seo: 1, s: [
+      ['', '<p class="lead">TradeLog brings the trades from your MetaTrader 5 and MetaTrader 4 accounts into your journal without typing them one by one. It measures every trade in R (multiples of risk) and shows, in numbers, which setups, sessions and mistakes make or cost you money.</p><div class="lpcta"><a class="btn btn-p btn-lg" href="#/app"><span data-st="cta_start">Start free</span></a><a class="btn btn-g btn-lg" href="#/app" data-pro="1">Try Pro free for 7 days</a></div><img class="lpimg" src="{img:dash}" alt="TradeLog dashboard: net result, win rate and TradeLog score calculated from MT5 trades" width="1280" height="800" loading="lazy" decoding="async">'], ['Two ways to bring your trades in', '<ol><li><b>Upload a report (free):</b> save your history report from the MT5 or MT4 desktop app as HTML or Excel and drop it into TradeLog. Trades, deposits and withdrawals are added to your account; ones already added are skipped and your manual entries are matched.</li><li><b>Auto-sync (Pro):</b> connect your account once with the server name, account number and your <b>investor (read-only) password</b>. Your history comes in, and new trades arrive on their own every weekday night. You don\'t need to open the app.</li></ol>'], ['How to export an MT5 report', '<ol><li>In the MetaTrader 5 desktop app, open <b>Toolbox → History</b>.</li><li>Right-click the list and choose the period (e.g. All history).</li><li>Right-click again → <b>Report → HTML</b> (or Open XML) and save it.</li><li>Drop the file into <b>Add trade → Upload a report</b> in TradeLog.</li></ol><p>In MT4, right-click in <b>Terminal → Account History</b> and choose <b>Save as Detailed Report</b>. The phone apps can\'t export reports; use the desktop app or auto-sync instead.</p>'], ['Your account stays safe', '<ul><li><b>We never ask for your master password.</b> Auto-sync only uses the investor password, which can\'t open trades or withdraw money.</li><li>The investor password is used once to make the connection and is not stored.</li><li>Report files are read on your device; the file itself is never sent to our servers.</li><li>Your data is encrypted and hosted in Germany; it is never sold or used for advertising.</li></ul>'], ['What your MT5 trades will tell you', '<ul><li><b>Results in R:</b> net R, win rate, profit factor, expectancy per trade, max drawdown.</li><li><b>Setups and sessions:</b> which setups, days and hours pay off.</li><li><b>Cost of mistakes:</b> how many R tags like early exit, FOMO or moved stop cost you.</li><li><b>Calendar and weekly recap:</b> every day\'s result and 1–3 concrete suggestions for next week.</li><li><b>TradeLog AI (Pro):</b> a coach that reads your journal and answers in numbers.</li></ul>'], ['Which brokers it works with', '<p>Most brokers and prop firms that run MetaTrader 4 or MetaTrader 5. Report upload works with any MT4/MT5 account; auto-sync needs the account\'s server name and investor password. You can also log trades from other platforms by hand. See the {link:help} for details.</p>'], ['FAQ', '<p><b>Is it free?</b> Report upload and every report and analysis are on the free plan, with no trade limit. Auto-sync and TradeLog AI are on Pro, which you can try free for 7 days.</p><p><b>How often do trades update?</b> Connected accounts sync every weekday night; you can also sync now up to 3 times a day per account.</p><p><b>I run several accounts.</b> Track personal, challenge and funded accounts separately and see them all on one dashboard. Copied trades count once in the combined view.</p><div class="lpcta"><a class="btn btn-p btn-lg" href="#/app"><span data-st="cta_start">Start free</span></a><a class="btn btn-g btn-lg" href="#/app" data-pro="1">Try Pro free for 7 days</a></div>']] },
+    prop: { t: 'Prop firm trading journal', u: '', st: 'Prop Firm Trading Journal: Daily Loss & Max Drawdown Tracking | TradeLog', sd: 'A trading journal for challenge and funded accounts: see your daily loss limit, max loss and profit target with every trade, and get warned before you hit a limit.', seo: 1, s: [
+      ['', '<p class="lead">Passing a challenge is often about avoiding one bad day. TradeLog tracks your prop firm account rules alongside your trades: it shows where you stand on the daily loss limit, max loss and profit target at all times, and warns you as you get close.</p><div class="lpcta"><a class="btn btn-p btn-lg" href="#/app"><span data-st="cta_start">Start free</span></a><a class="btn btn-g btn-lg" href="#/app" data-pro="1">Try Pro free for 7 days</a></div><img class="lpimg" src="{img:prop}" alt="Prop firm account rules: amount left before the daily and max loss limits" width="638" height="492" loading="lazy" decoding="async">'], ['Your rules, always in view', '<ul><li><b>Daily loss limit:</b> how much you\'ve lost today and how much room is left.</li><li><b>Max loss (max drawdown):</b> your total loss against the starting balance.</li><li><b>Profit target:</b> how far you are towards the challenge target.</li><li><b>Early warning:</b> the dashboard warns you at 70% of any limit, so you stop before the account is at risk.</li></ul><p>You enter the percentages per account (e.g. 5% daily, 10% max, 8% target). The figures use closed trades; check your firm\'s dashboard for exact numbers.</p>'], ['Challenge, funded and personal accounts, kept apart', '<p>Every account has its own balance, rules and statistics. Running several challenges? See them all on one dashboard; trades copied to several accounts count once in the combined view. Deposits, withdrawals and payouts are included in the balance.</p>'], ['Discipline rules', '<p>One emotional day loses most prop accounts. Set a daily max loss (in R), a max number of trades per day and a losing-streak limit in Settings; TradeLog reminds you to take a break when you reach them. Your playbooks show which rules you were following when you won.</p>'], ['Bringing your trades in', '<p>Most prop firms use MetaTrader 4 or 5. Upload your report for free, or connect your account with the investor (read-only) password so your trades arrive on their own every night (Pro). Details: {link:mt5}.</p>'], ['FAQ', '<p><b>How do I set the rules?</b> When you add the account, or from the Accounts page, enter your firm\'s daily loss, max loss and profit target percentages; each account is tracked with its own rules.</p><p><b>Are open positions included?</b> No, the meters use closed trades. Firms often look at live equity, so rely on your firm\'s dashboard when you\'re close to a limit.</p><p><b>Is it paid?</b> Prop firm rules and alerts are on the free plan. Free includes 2 active accounts; Pro adds 20 active accounts and auto-sync.</p><div class="lpcta"><a class="btn btn-p btn-lg" href="#/app"><span data-st="cta_start">Start free</span></a><a class="btn btn-g btn-lg" href="#/app" data-pro="1">Try Pro free for 7 days</a></div>']] },
+    calc: { t: 'Position size calculator', u: '', st: 'Forex Position Size Calculator: Lot Size by Risk % (Free) | TradeLog', sd: 'Calculate the right lot size from your account balance, risk percentage and stop loss. Works for EURUSD, USDJPY, gold (XAUUSD), with an R-multiple calculator. Free.', seo: 1, s: [
+      ['', '<p class="lead">Decide how much you\'re willing to lose first, then size the trade to match. Enter your balance, the percentage you want to risk and your stop distance; the calculator shows the lot size to open and your 1R, 2R and 3R targets.</p>{calc}'], ['How position size is calculated', '<p>The formula is simple: <b>Lots = Risk amount ÷ (Stop distance in pips × pip value of 1 lot)</b>. Example: $10,000 balance, 1% risk ($100), a 25-pip stop on EURUSD. One standard lot of EURUSD is worth about $10 per pip, so 100 ÷ (25 × 10) = <b>0.40 lots</b>.</p><ul><li><b>.../USD pairs</b> (EURUSD, GBPUSD, AUDUSD): about $10 per pip per lot.</li><li><b>.../JPY pairs</b> (USDJPY): about 1,000 ÷ rate dollars per pip per lot.</li><li><b>USD/... pairs</b> (USDCHF, USDCAD): about 10 ÷ rate dollars per pip per lot.</li><li><b>Gold (XAUUSD):</b> 1 lot = 100 oz; a $1 move in price is worth $100 per lot.</li></ul><p>Contract sizes can differ between brokers; check your broker\'s contract specification before large trades. The calculator assumes a USD account.</p>'], ['What R means and why it matters', '<p>R is the amount you risk on a trade. If you risked $100 and made $180, the trade is <b>+1.8R</b>; if you were stopped out it is <b>−1R</b>. Measuring results in R lets you compare trades even when your position size changes, and shows whether a strategy works far more clearly than dollar amounts. TradeLog calculates R for every trade automatically.</p>'], ['Track your trades in R', '<p>To see how the risk you planned actually played out, log your trades. TradeLog imports them from your MT4/MT5 report or with auto-sync and shows what works by setup, session and mistake. Details: {link:mt5}.</p><div class="lpcta"><a class="btn btn-p btn-lg" href="#/app"><span data-st="cta_start">Start free</span></a><a class="btn btn-g btn-lg" href="#/app" data-pro="1">Try Pro free for 7 days</a></div>']] },
     contact: { t: 'Contact', u: '', st: 'Contact and support | TradeLog', sd: 'Contact the TradeLog team: support@gotradelog.com or the contact form. We reply by email within a few business days.', s: [
       ['Get in touch', '<p>For bug reports, questions, feature requests or partnerships, email us or use the form below; we reply by email within a few business days. If you\'re signed in, you can also write to us from <b>Settings → Help and support</b> in the app.</p>{mail}{form}'],
       ['What helps us help you', '<ul><li>What you were trying to do and what happened</li><li>Phone or computer, browser or Telegram</li><li>For report uploads: MT4 or MT5, and the report\'s language</li></ul><p>Please don\'t send your report file; it may contain account details. We\'ll tell you how to share it if needed.</p>']] }
@@ -4241,7 +4290,7 @@ function renderCal() {
 
 function renderCmp() {
   const cell = v => v === 'y' ? ic('check', 20, 2.4, `class="y" role="img" aria-label="${s('yes_a')}"`).replace('aria-hidden="true"', '') : v === 'n' ? ic('minus', 20, 2.4, `class="no" role="img" aria-label="${s('no_a')}"`).replace('aria-hidden="true"', '') : v === 's' ? `<span class="csoon">${s('soon')}</span>` : v.startsWith('s:') ? `<span class="cst"><span class="mono">${v.slice(2)}</span><span class="csoon">${s('soon')}</span></span>` : `<span class="mono">${v}</span>`;
-  $('#cmp').innerHTML = `<div class="cr h"><div>${s('cmp_feature')}</div><div class="c">${s('plan_free')}</div><div class="c">${s('cmp_pro')}</div></div>` + s('groups').map(([g, rows]) => `<div class="cr g"><div>${g}</div><div></div><div></div></div>` + rows.map(([t, f, p]) => `<div class="cr"><div>${t}</div><div class="c">${cell(f)}</div><div class="c">${cell(p)}</div></div>`).join('')).join('') + `<div class="cnote">${s('cmp_note')}</div>`;
+  $('#cmp').innerHTML = `<div class="cr h"><div>${s('cmp_feature')}</div><div class="c">${s('plan_free')}</div><div class="c">${s('cmp_pro')}</div></div>` + s('groups').map(([g, rows]) => `<div class="cr g"><div>${g}</div><div></div><div></div></div>` + rows.map(([t, f, p]) => `<div class="cr"><div>${t}</div><div class="c">${cell(f)}</div><div class="c">${cell(p)}</div></div>`).join('')).join('') + `<div class="cmsg">${s('cmp_note')}</div>`;
   $('#cmp').hidden = !S.cmp;
   $('#cmpb').classList.toggle('open', S.cmp);
   $('#cmpb button').setAttribute('aria-expanded', S.cmp);
@@ -4269,9 +4318,9 @@ function setMenu(open) {
 }
 
 /* ---------- yasal sayfalar ve iletişim ---------- */
-const PAGE_HASH = { help: 'yardim', privacy: 'gizlilik', terms: 'kosullar', refund: 'iade', contact: 'iletisim' };
+const PAGE_HASH = { help: 'yardim', privacy: 'gizlilik', terms: 'kosullar', refund: 'iade', contact: 'iletisim', mt5: 'mt5-islem-gunlugu', prop: 'prop-firm-islem-gunlugu', calc: 'lot-hesaplama' };
 /* {owner}: the person behind TradeLog (set in ST); {link:page}: a link to another page in the same language */
-const pageFill = b => b.replace(/\{owner\}/g, s('owner') || 'TradeLog').replace(/\{link:(\w+)\}/g, (m, k) => `<a href="${TLP ? pathOf(LG(), k) : '#' + PAGE_HASH[k]}" data-page="${k}">${s('pg_' + k)}</a>`);
+const pageFill = b => b.replace(/\{img:(\w+)\}/g, (m, k) => (TOUR_IMG[LG()] || {})[k] || '').replace('{calc}', '<div id="calcBox" class="calc"></div>').replace(/\{owner\}/g, s('owner') || 'TradeLog').replace(/\{link:(\w+)\}/g, (m, k) => `<a href="${TLP ? pathOf(LG(), k) : '#' + PAGE_HASH[k]}" data-page="${k}">${s('pg_' + k)}</a>`);
 function renderPage() {
   if (!S.page) return;
   const p = s('pages')[S.page];
@@ -4282,8 +4331,60 @@ function renderPage() {
 <label><span>${s('cf_msg')}</span><textarea name="msg" rows="6" maxlength="4000" required></textarea></label>
 <input type="text" name="hp" class="hp" tabindex="-1" autocomplete="off" aria-hidden="true">
 <div class="cfa"><button class="btn btn-p" type="submit">${s('cf_send')}</button><span class="cfs" role="status" aria-live="polite"></span></div></form>`;
-  $('#pageBody').innerHTML = `<h1>${p.t}</h1>${p.u ? `<p class="upd">${p.u}</p>` : ''}${p.s.map(([h, b]) => `<section><h2>${h}</h2>${pageFill(b).replace('{mail}', mail).replace('{form}', form)}</section>`).join('')}`;
+  $('#pageBody').innerHTML = `<h1>${p.t}</h1>${p.u ? `<p class="upd">${p.u}</p>` : ''}${p.s.map(([h, b]) => `<section${h ? '' : ' class="lp"'}>${h ? `<h2>${h}</h2>` : ''}${pageFill(b).replace('{mail}', mail).replace('{form}', form)}</section>`).join('')}`;
+  calcRender();
 }
+/* ---------- position size / R calculator (the "calc" page) ---------- */
+const CALC = { bal: '10000', risk: '1', ins: 'usd', stop: '25', rate: '150', pv: '10', en: '1.0850', sl: '1.0825', ex: '1.0895' };
+const calcNum = v => { v = String(v || '').replace(/\s/g, ''); if (LG() === 'tr' && /^\d{1,3}(\.\d{3})+(,\d*)?$/.test(v)) v = v.replace(/\./g, ''); return parseFloat(v.replace(',', '.')); };
+const calcFmt = (n, d) => new Intl.NumberFormat(LG() === 'tr' ? 'tr-TR' : 'en-US', { minimumFractionDigits: d, maximumFractionDigits: d }).format(n);
+const calcUsd = n => '$' + calcFmt(n, 2);
+/* dollars per pip (gold: per $1 move) for one standard lot */
+function calcPv(c) {
+  const r = calcNum(c.rate);
+  if (c.ins === 'usd') return 10;
+  if (c.ins === 'jpy') return r > 0 ? 1000 / r : NaN;
+  if (c.ins === 'base') return r > 0 ? 10 / r : NaN;
+  if (c.ins === 'xau') return 100;
+  return calcNum(c.pv);
+}
+function calcOut() {
+  const c = CALC, L = s('calc'), bal = calcNum(c.bal), risk = calcNum(c.risk), stop = calcNum(c.stop), pv = calcPv(c);
+  const ok = bal > 0 && risk > 0 && risk <= 100 && stop > 0 && pv > 0;
+  const gold = c.ins === 'xau', unit = gold ? L.u_usd : L.u_pip;
+  if (!ok) return `<p class="cmsg">${L.need}</p>`;
+  const amt = bal * risk / 100, raw = amt / (stop * pv), lot = Math.floor(raw * 100 + 1e-9) / 100, real = lot * stop * pv;
+  const tg = [1, 2, 3].map(k => `<div><span>${k}R</span><b>${calcUsd(lot * stop * pv * k)}</b><small>${calcFmt(stop * k, gold ? 2 : 1)} ${unit}</small></div>`).join('');
+  return `<div class="cbig"><span>${L.lots}</span><b>${calcFmt(lot, 2)}</b><small>${L.lots_s}</small></div>
+<div class="crow"><div><span>${L.amt}</span><b>${calcUsd(amt)}</b></div><div><span>${L.real}</span><b>${calcUsd(real)}</b></div><div><span>${L.pvl}</span><b>${calcUsd(pv)}</b></div></div>
+${lot < 0.01 ? `<p class="cmsg">${L.small}</p>` : ''}<h3 class="csub">${L.tg_h}</h3><div class="ctg">${tg}</div>`;
+}
+function calcROut() {
+  const c = CALC, L = s('calc'), e = calcNum(c.en), sl = calcNum(c.sl), x = calcNum(c.ex);
+  if (!(e > 0 && sl > 0 && x > 0) || e === sl) return `<p class="cmsg">${L.need}</p>`;
+  const r = (x - e) / (e - sl), d = r >= 0 ? 'up' : 'dn';
+  return `<div class="cbig ${d}"><span>${L.r_res}</span><b>${r >= 0 ? '+' : '−'}${calcFmt(Math.abs(r), 2)}R</b><small>${e > sl ? L.long : L.short}</small></div>`;
+}
+function calcRender() {
+  const box = $('#calcBox'); if (!box) return;
+  const c = CALC, L = s('calc');
+  const f = (k, lab, hint) => `<label><span>${lab}</span><input type="text" inputmode="decimal" autocomplete="off" data-c="${k}" value="${esc(c[k])}">${hint ? `<small>${hint}</small>` : ''}</label>`;
+  const rateLab = c.ins === 'jpy' ? L.rate_jpy : L.rate_base;
+  box.innerHTML = `<div class="ccard"><h2 class="ch2">${L.h}</h2><div class="cgrid">
+${f('bal', L.bal)}${f('risk', L.risk, L.risk_h)}
+<label><span>${L.ins}</span><select data-c="ins">${L.ins_o.map(([v, l]) => `<option value="${v}"${v === c.ins ? ' selected' : ''}>${l}</option>`).join('')}</select></label>
+${f('stop', c.ins === 'xau' ? L.stop_xau : L.stop, c.ins === 'xau' ? L.stop_xau_h : '')}
+${c.ins === 'jpy' || c.ins === 'base' ? f('rate', rateLab) : ''}${c.ins === 'own' ? f('pv', L.pv, L.pv_h) : ''}
+</div><div class="cres" id="calcRes" aria-live="polite">${calcOut()}</div></div>
+<div class="ccard"><h2 class="ch2">${L.r_h}</h2><p class="cmsg">${L.r_p}</p><div class="cgrid c3">${f('en', L.r_en)}${f('sl', L.r_sl)}${f('ex', L.r_ex)}</div>
+<div class="cres" id="calcR" aria-live="polite">${calcROut()}</div></div><p class="cdisc">${L.disc}</p>`;
+}
+document.addEventListener('input', e => {
+  const k = e.target.dataset && e.target.dataset.c; if (!k || !e.target.closest('#calcBox')) return;
+  CALC[k] = e.target.value;
+  if (k === 'ins') { calcRender(); const sel = $('#calcBox select[data-c="ins"]'); if (sel) sel.focus(); return; }
+  if (['en', 'sl', 'ex'].includes(k)) $('#calcR').innerHTML = calcROut(); else $('#calcRes').innerHTML = calcOut();
+});
 function showPage(name, noPush) {
   S.page = name; setMenu(false);
   $('#home').hidden = true; $('#pageView').hidden = false;
@@ -4359,6 +4460,7 @@ function langHint() {
 const APP = document.getElementById('appRoot');
 const ENTER = 'tradelog_entered';
 function showApp(after) {
+  const ac = document.getElementById('appcss'); if (ac && ac.media !== 'all') ac.media = 'all';   // the app's styles, loaded late on the landing page
   SITE.hidden = true; APP.hidden = false; setMenu(false);
   try { localStorage.setItem(ENTER, '1'); } catch (e) {}
   window.scrollTo(0, 0);

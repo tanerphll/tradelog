@@ -6,7 +6,9 @@
 <title>TradeLog: Free Trading Journal | MT4/MT5 Trade Tracking and Analytics</title>
 <meta name="description" content="Free trading journal: upload your MT4/MT5 report or connect your account and analyse every trade in R. Prop firm rules, reports and the TradeLog AI coach.">
 <meta name="theme-color" content="#000100">
-<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='9' fill='%2394C5CC'/%3E%3Cpath d='M9.5 22v-4.5M16 22V12.5M22.5 22V9' stroke='%23000100' stroke-width='3.4' stroke-linecap='round'/%3E%3C/svg%3E">
+<link rel="icon" href="/favicon.ico" sizes="48x48">
+<link rel="icon" href="/favicon.svg" type="image/svg+xml">
+<link rel="icon" href="/favicon-96.png" sizes="96x96" type="image/png">
 <link rel="apple-touch-icon" href="/apple-touch-icon.png">
 <link rel="manifest" href="/manifest.webmanifest">
 <link rel="canonical" href="https://gotradelog.com/en">
@@ -33,15 +35,17 @@
 <script type="application/ld+json">{"@context": "https://schema.org", "@graph": [{"@type": "Organization", "@id": "https://gotradelog.com/#org", "name": "TradeLog", "url": "https://gotradelog.com/", "logo": "https://gotradelog.com/icon-512.png", "email": "support@gotradelog.com"}, {"@type": "WebSite", "@id": "https://gotradelog.com/en#site", "name": "TradeLog", "url": "https://gotradelog.com/en", "inLanguage": "en", "publisher": {"@id": "https://gotradelog.com/#org"}}, {"@type": "SoftwareApplication", "name": "TradeLog", "url": "https://gotradelog.com/en", "image": "https://gotradelog.com/og.jpg", "inLanguage": "en", "applicationCategory": "FinanceApplication", "operatingSystem": "Web, iOS, Android", "description": "Free trading journal: upload your MT4/MT5 report or connect your account and analyse every trade in R. Prop firm rules, reports and the TradeLog AI coach.", "offers": [{"@type": "Offer", "price": "0", "priceCurrency": "USD", "description": "Free plan, no time limit"}, {"@type": "Offer", "price": "19", "priceCurrency": "USD", "description": "Pro, monthly"}, {"@type": "Offer", "price": "159", "priceCurrency": "USD", "description": "Pro, yearly"}], "publisher": {"@id": "https://gotradelog.com/#org"}}]}</script>
 <script>try{if(/tgWebApp/.test(location.hash+location.search)||/Telegram/i.test(navigator.userAgent)||sessionStorage.getItem('__telegram__initParams'))document.write('<script src="https://telegram.org/js/telegram-web-app.js?64"><\/script>')}catch(e){}</script><script type="module" src="https://static.cloudflareinsights.com/beacon.min.js" data-cf-beacon='{"token": "fe16869ac713497db8dca9c9ec3aa61d"}'></script>
 
-<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500..800&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap">
-<link rel="stylesheet" href="/tl.css?v=f79d15f9d0">
+<link rel="preload" href="/inter-latin-wght-normal.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="/bricolage-grotesque-latin-opsz-normal.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="/jetbrains-mono-latin-wght-normal.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="stylesheet" href="/tl-site.css?v=1c39a1eb06">
+<script>(function(){var a=/^#\/|^#(panel|app)$/.test(location.hash);try{a=a||localStorage.getItem("tradelog_entered")==="1"}catch(e){}document.write(a?"<link rel=\"stylesheet\" id=\"appcss\" href=\"/tl-app.css?v=a2d2ccd0b0\">":"<link rel=\"stylesheet\" id=\"appcss\" href=\"/tl-app.css?v=a2d2ccd0b0\" media=\"print\" onload=\"this.media=&quot;all&quot;\">")})()</script><noscript><link rel="stylesheet" href="/tl-app.css?v=a2d2ccd0b0"></noscript>
 </head>
 <body>
 <div id="site" class="site">
 <header class="nav">
 <div class="wrap nav-in">
-<a class="logo" href="/en" data-a="home" data-sa="home_aria" aria-label="TradeLog home"><span data-i="logo"></span>TradeLog</a>
+<a class="logo" href="/en" data-a="home" data-sa="home_aria" aria-label="TradeLog home"><svg width="32" height="32" viewBox="0 0 32 32" aria-hidden="true"><rect width="32" height="32" rx="9" fill="#94C5CC"/><path d="M9.5 22v-4.5M16 22V12.5M22.5 22V9" stroke="#000100" stroke-width="3.4" stroke-linecap="round"/></svg>TradeLog</a>
 <nav class="links" data-sa="nav_aria" aria-label="Main menu">
 <a href="#tur" data-st="nav_feat">Features</a><a href="#ai" data-st="nav_ai">TradeLog AI</a><a href="#prop" data-st="nav_prop">Prop firms</a><a href="#platformlar" data-st="nav_plat">Platforms</a><a href="#fiyatlar" data-st="nav_price">Pricing</a><a href="/help" data-page="help" data-st="nav_help">Help</a>
 </nav>
@@ -49,7 +53,7 @@
 <div class="lang hide-m" role="group" data-sa="lang_aria" aria-label="Language"><button data-a="lang" data-v="tr" aria-pressed="false">TR</button><button data-a="lang" data-v="en" aria-pressed="true">EN</button></div>
 <a class="btn btn-g hide-m" href="#/app" data-st="nav_open">Log in</a>
 <a class="btn btn-p" href="#/app" data-st="cta_start">Start free</a>
-<button class="burger" data-a="menu" aria-label="Menüyü aç" aria-expanded="false" id="burger"><span data-i="menu" data-s="22"></span></button>
+<button class="burger" data-a="menu" aria-label="Menüyü aç" aria-expanded="false" id="burger"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 7h16M4 12h16M4 17h16"/></svg></button>
 </div>
 </div>
 <nav class="mmenu" id="mmenu" data-sa="mnav_aria" aria-label="Mobile menu" hidden>
@@ -67,13 +71,23 @@
 <h1 class="h1" data-st="hero_h1">The journal that<br>finds your <em>edge</em>.</h1>
 <p class="lead" data-st="hero_lead">Sync your MT4/MT5 trades automatically, upload a report or log them by hand. TradeLog analyses every trade in R and shows exactly which setups, sessions and mistakes drive your results.</p>
 <div class="ctas">
-<a class="btn btn-p btn-lg" href="#/app"><span data-st="cta_start">Start free</span><span data-i="arrow" data-s="18"></span></a>
+<a class="btn btn-p btn-lg" href="#/app"><span data-st="cta_start">Start free</span><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
 <a class="btn btn-g btn-lg" href="#nasil"><span data-st="hero_how">How it works</span></a>
 </div>
-<div class="trust"><span><span data-i="check" data-s="16"></span><span data-st="trust1">Free forever plan</span></span><span><span data-i="check" data-s="16"></span><span data-st="trust2">Read-only MT4/MT5 connection</span></span><span><span data-i="check" data-s="16"></span><span data-st="trust4">Your data is never sold</span></span><span><span data-i="check" data-s="16"></span><span data-st="trust3">Encrypted, EU-hosted</span></span></div>
+<div class="trust"><span><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg><span data-st="trust1">Free forever plan</span></span><span><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg><span data-st="trust2">Read-only MT4/MT5 connection</span></span><span><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg><span data-st="trust4">Your data is never sold</span></span><span><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg><span data-st="trust3">Encrypted, EU-hosted</span></span></div>
 </div>
 <div class="demo">
-<div class="card dcard" id="demo"></div>
+<div class="card dcard" id="demo"><div class="dhead"><span class="t">Dashboard</span><span class="chip mu">Sample data</span><div class="seg ml" role="group" aria-label="Period"><button data-a="per" data-v="7" class="" aria-pressed="false">7D</button><button data-a="per" data-v="30" class="on" aria-pressed="true">30D</button><button data-a="per" data-v="90" class="" aria-pressed="false">90D</button></div></div>
+<div class="net"><span class="v pos">+8.6R</span><span class="s">34 trades · 15 wins, 19 losses</span></div>
+<div class="chart" id="demoChart"><svg viewBox="0 0 600 220" preserveAspectRatio="none" aria-hidden="true">
+<path d="M0,204.0 L600,204.0" stroke="rgba(161,166,180,.35)" stroke-width="1" stroke-dasharray="4 5" fill="none" vector-effect="non-scaling-stroke"></path>
+<path d="M0.0,204.0 L17.6,168.3 L35.3,138.8 L52.9,107.8 L70.6,123.3 L88.2,131.1 L105.9,146.6 L123.5,162.1 L141.2,169.9 L158.8,185.4 L176.5,200.9 L194.1,182.3 L211.8,168.3 L229.4,151.2 L247.1,166.8 L264.7,149.7 L282.4,165.2 L300.0,173.0 L317.6,145.0 L335.3,152.8 L352.9,132.6 L370.6,107.8 L388.2,73.7 L405.9,89.2 L423.5,104.7 L441.2,120.2 L458.8,93.8 L476.5,73.7 L494.1,81.4 L511.8,61.2 L529.4,24.0 L547.1,31.8 L564.7,39.5 L582.4,55.0 L600.0,70.6 L600,220 L0,220 Z" fill="rgba(148,197,204,.10)"></path>
+<path d="M0.0,204.0 L17.6,168.3 L35.3,138.8 L52.9,107.8 L70.6,123.3 L88.2,131.1 L105.9,146.6 L123.5,162.1 L141.2,169.9 L158.8,185.4 L176.5,200.9 L194.1,182.3 L211.8,168.3 L229.4,151.2 L247.1,166.8 L264.7,149.7 L282.4,165.2 L300.0,173.0 L317.6,145.0 L335.3,152.8 L352.9,132.6 L370.6,107.8 L388.2,73.7 L405.9,89.2 L423.5,104.7 L441.2,120.2 L458.8,93.8 L476.5,73.7 L494.1,81.4 L511.8,61.2 L529.4,24.0 L547.1,31.8 L564.7,39.5 L582.4,55.0 L600.0,70.6" stroke="#94C5CC" stroke-width="2.5" fill="none" stroke-linejoin="round" stroke-linecap="round" vector-effect="non-scaling-stroke"></path></svg>
+<div class="vl" hidden=""></div><div class="mk" hidden=""></div><div class="tip" hidden=""></div><div class="hit"></div></div>
+<div class="kpis"><div class="kpi"><div class="l">Win rate</div><div class="n">44%</div></div>
+<div class="kpi"><div class="l">Profit factor</div><div class="n">1.55</div></div>
+<div class="kpi"><div class="l">Per trade</div><div class="n pos">+0.25R</div></div>
+<div class="kpi"><div class="l">Max drawdown</div><div class="n neg">−6.0R</div></div></div></div>
 <div class="float" aria-hidden="true">
 <div class="r"><span style="font-weight:600" data-st="float_t">Daily loss limit</span><span class="chip warn" data-st="float_pct">72%</span></div>
 <div class="bar"><i style="width:72%;background:#F87171"></i></div>
@@ -84,10 +98,10 @@
 </section>
 
 <div class="strip"><div class="strip-in">
-<div class="it"><span data-i="link" data-s="20" data-w="1.8"></span><span data-st="strip1"><b>MT4/MT5</b> auto-sync</span></div>
-<div class="it"><span data-i="cal" data-s="20" data-w="1.8"></span><span data-st="strip2"><b>R-based</b> performance analytics</span></div>
-<div class="it"><span data-i="shield" data-s="20" data-w="1.8"></span><span data-st="strip3"><b>Prop firm</b> rule tracking</span></div>
-<div class="it"><span data-i="layers" data-s="20" data-w="1.8"></span><span data-st="strip4"><b>TradeLog AI</b> coach</span></div>
+<div class="it"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M10 14a4 4 0 005.7 0l3-3a4 4 0 00-5.7-5.7l-1 1"/><path d="M14 10a4 4 0 00-5.7 0l-3 3a4 4 0 005.7 5.7l1-1"/></svg><span data-st="strip1"><b>MT4/MT5</b> auto-sync</span></div>
+<div class="it"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="5" width="18" height="16" rx="3"/><path d="M3 10h18M8 3v4M16 3v4"/></svg><span data-st="strip2"><b>R-based</b> performance analytics</span></div>
+<div class="it"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3l8 3v6c0 4.5-3.4 8.3-8 9-4.6-.7-8-4.5-8-9V6z"/></svg><span data-st="strip3"><b>Prop firm</b> rule tracking</span></div>
+<div class="it"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3l9 5-9 5-9-5 9-5z"/><path d="M3 13l9 5 9-5"/></svg><span data-st="strip4"><b>TradeLog AI</b> coach</span></div>
 </div></div>
 
 <section class="sec" id="tur">
@@ -102,7 +116,7 @@
 <div class="wrap">
 <div class="sec-h c"><span class="kick" data-st="nav_how">How it works</span><h2 class="h2" data-st="how_h">Up and running in minutes.</h2><p data-st="how_p">Connect your account or upload a report. TradeLog takes it from there.</p></div>
 <ol class="flow" id="flow"></ol>
-<div class="flow-cta"><a class="btn btn-p btn-lg" href="#/app"><span data-st="cta_start">Start free</span><span data-i="arrow" data-s="18"></span></a></div>
+<div class="flow-cta"><a class="btn btn-p btn-lg" href="#/app"><span data-st="cta_start">Start free</span><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a></div>
 </div>
 </section>
 
@@ -113,14 +127,14 @@
 <h2 class="h2" data-st="ai_h">A trading coach that knows your numbers.</h2>
 <p class="lead" data-st="ai_p">TradeLog AI analyses your trades, setups, mistakes and journal. It shows what works with hard numbers and makes your next step clear.</p>
 <ul class="plist" id="ailist"></ul>
-<a class="btn btn-p btn-lg" href="#/app"><span data-st="cta_start">Start free</span><span data-i="arrow" data-s="18"></span></a>
+<a class="btn btn-p btn-lg" href="#/app"><span data-st="cta_start">Start free</span><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
 </div>
 <div class="aichat" aria-hidden="true">
-<div class="aich"><span class="aimk"><span data-i="logo"></span></span><div><b>TradeLog AI</b><small data-st="ai_sub">48 trades · sample data</small></div></div>
+<div class="aich"><span class="aimk"><svg width="32" height="32" viewBox="0 0 32 32" aria-hidden="true"><rect width="32" height="32" rx="9" fill="#94C5CC"/><path d="M9.5 22v-4.5M16 22V12.5M22.5 22V9" stroke="#000100" stroke-width="3.4" stroke-linecap="round"/></svg></span><div><b>TradeLog AI</b><small data-st="ai_sub">48 trades · sample data</small></div></div>
 <div class="aimsg u" data-st="ai_q">Review my week</div>
 <div class="aimsg a" id="aians"></div>
 <div class="aifol" id="aifol"></div>
-<div class="aiin"><span data-st="ai_ph">Ask TradeLog AI…</span><i><span data-i="arrow" data-s="16"></span></i></div>
+<div class="aiin"><span data-st="ai_ph">Ask TradeLog AI…</span><i><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></i></div>
 </div>
 </div>
 </section>
@@ -131,18 +145,18 @@
 <div class="bento">
 <div class="b b2 r2" id="b-prop"></div>
 <div class="b">
-<div class="hd"><span class="ic"><span data-i="gauge"></span></span><h3 data-st="score_h">TradeLog score</h3></div>
+<div class="hd"><span class="ic"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 16a8 8 0 1116 0"/><path d="M12 16l4-5"/></svg></span><h3 data-st="score_h">TradeLog score</h3></div>
 <div class="ring"><svg width="132" height="132" viewBox="0 0 132 132" aria-hidden="true"><circle cx="66" cy="66" r="56" fill="none" stroke="#08090B" stroke-width="12"/><circle cx="66" cy="66" r="56" fill="none" stroke="#94C5CC" stroke-width="12" stroke-linecap="round" stroke-dasharray="253 352"/></svg><div class="c"><div><b>72</b><span data-st="score_lbl">/ 100 · Good</span></div></div></div>
 <p data-st="score_p">One score from win rate, profit factor, expectancy, drawdown, consistency and plan adherence.</p>
 </div>
 <div class="b">
-<div class="hd"><span class="ic"><span data-i="alert"></span></span><h3 data-st="disc_h">Discipline alerts</h3></div>
-<div class="ntoast"><span data-i="alert" data-s="18" data-w="2"></span><span data-st="disc_toast">You've reached today's 3-trade limit.</span></div>
+<div class="hd"><span class="ic"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 8v5M12 16.5v.5M10.3 3.9L2.6 17.5A2 2 0 004.3 20.5h15.4a2 2 0 001.7-3L13.7 3.9a2 2 0 00-3.4 0z"/></svg></span><h3 data-st="disc_h">Discipline alerts</h3></div>
+<div class="ntoast"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 8v5M12 16.5v.5M10.3 3.9L2.6 17.5A2 2 0 004.3 20.5h15.4a2 2 0 001.7-3L13.7 3.9a2 2 0 00-3.4 0z"/></svg><span data-st="disc_toast">You've reached today's 3-trade limit.</span></div>
 <p data-st="disc_p">Set limits for trades per day, consecutive losses and risk, and get alerted when you reach them.</p>
 </div>
 <div class="b" id="b-pb"></div>
 <div class="b">
-<div class="hd"><span class="ic"><span data-i="pulse"></span></span><h3 data-st="emo_h">The cost of mistakes</h3></div>
+<div class="hd"><span class="ic"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 12h4l2-5 4 10 2-5h6"/></svg></span><h3 data-st="emo_h">The cost of mistakes</h3></div>
 <div class="emo">
 <div class="r"><span data-st="emo_calm">Clean trades</span><span class="t"><i style="left:50%;width:34%;background:#4ADE80"></i></span><span class="mono pos" data-st="emo_v1">+0.8R</span></div>
 <div class="r"><span data-st="emo_hes">Early exit</span><span class="t"><i style="left:42%;width:8%;background:#F87171"></i></span><span class="mono neg" data-st="emo_v2">−0.2R</span></div>
@@ -153,7 +167,7 @@
 </div>
 <div class="b b2" id="b-cal"></div>
 <div class="b">
-<div class="hd"><span class="ic"><span data-i="layers"></span></span><h3 data-st="acc_h">Multiple accounts</h3></div>
+<div class="hd"><span class="ic"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3l9 5-9 5-9-5 9-5z"/><path d="M3 13l9 5 9-5"/></svg></span><h3 data-st="acc_h">Multiple accounts</h3></div>
 <div class="accs">
 <div><span class="chip">Funded</span>100K<span class="mono pos" data-st="acc_v1">+18.4R</span></div>
 <div><span class="chip mu">Challenge</span>25K<span class="mono pos" data-st="acc_v2">+6.1R</span></div>
@@ -162,9 +176,9 @@
 <p data-st="acc_p">All your accounts on one dashboard. Copied trades count once in the combined view.</p>
 </div>
 <div class="b tg">
-<div class="hd"><span class="ic"><span data-i="cal"></span></span><h3 data-st="wk_h">Weekly recap and sharing</h3></div>
+<div class="hd"><span class="ic"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="5" width="18" height="16" rx="3"/><path d="M3 10h18M8 3v4M16 3v4"/></svg></span><h3 data-st="wk_h">Weekly recap and sharing</h3></div>
 <p data-st="wk_p">Your net result every week, with 1–3 concrete suggestions for the next. Share any trade as a story or post card.</p>
-<div class="mstory" aria-hidden="true"><div class="ms"><span class="msl"><span data-i="logo" data-s="12"></span>TradeLog</span><b>GBPUSD</b><span class="mspill">LONG</span><i class="mono" data-st="ms_r">+2.4R</i><small class="mono">+$480</small><span class="msb"></span></div></div>
+<div class="mstory" aria-hidden="true"><div class="ms"><span class="msl"><svg width="12" height="12" viewBox="0 0 32 32" aria-hidden="true"><rect width="32" height="32" rx="9" fill="#94C5CC"/><path d="M9.5 22v-4.5M16 22V12.5M22.5 22V9" stroke="#000100" stroke-width="3.4" stroke-linecap="round"/></svg>TradeLog</span><b>GBPUSD</b><span class="mspill">LONG</span><i class="mono" data-st="ms_r">+2.4R</i><small class="mono">+$480</small><span class="msb"></span></div></div>
 <a class="btn btn-g" href="#/app" style="margin-top:auto" data-st="wk_btn">See it in the app</a>
 </div>
 </div>
@@ -178,11 +192,12 @@
 <h2 class="h2" data-st="prop_h">From challenge to funded, every rule under control.</h2>
 <p class="lead" data-st="prop_p">Track your prop firm accounts together with their rules. TradeLog shows how much room is left on every limit and warns you before you hit it.</p>
 <ul class="plist" id="plist"></ul>
-<a class="btn btn-p btn-lg" href="#/app"><span data-st="cta_start">Start free</span><span data-i="arrow" data-s="18"></span></a>
+<a class="btn btn-p btn-lg" href="#/app"><span data-st="cta_start">Start free</span><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+<p class="more"><a href="/prop-firm-trading-journal" data-page="prop" data-st="prop_more">Learn more about the prop firm journal →</a></p>
 </div>
 <div class="pvis">
 <img id="pimg" width="638" height="492" alt="" decoding="async" loading="lazy">
-<div class="palert"><span data-i="alert" data-s="18" data-w="2"></span><span data-st="prop_alert">Funded 100K: 76% of the daily loss limit used. $1,200 left.</span></div>
+<div class="palert"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 8v5M12 16.5v.5M10.3 3.9L2.6 17.5A2 2 0 004.3 20.5h15.4a2 2 0 001.7-3L13.7 3.9a2 2 0 00-3.4 0z"/></svg><span data-st="prop_alert">Funded 100K: 76% of the daily loss limit used. $1,200 left.</span></div>
 </div>
 </div>
 </section>
@@ -191,6 +206,7 @@
 <div class="wrap">
 <div class="sec-h c"><span class="kick" data-st="nav_plat">Platforms</span><h2 class="h2" data-st="plat_h">MetaTrader today. More coming soon.</h2><p data-st="plat_p">Connect your MT4/MT5 account with its investor password (Pro) or upload a report. Manual logging works with any platform.</p></div>
 <div class="plats" id="plats"></div>
+<p class="more c"><a href="/mt5-trading-journal" data-page="mt5" data-st="plat_more">See how it works with MT5 and MT4 →</a> · <a href="/position-size-calculator" data-page="calc" data-st="calc_more">Try the position size calculator →</a></p>
 </div>
 </section>
 
@@ -198,10 +214,10 @@
 <div class="wrap">
 <div class="sec-h c"><span class="kick" data-st="sec_k">Security and privacy</span><h2 class="h2" data-st="sec_h">Your data belongs to you.</h2><p data-st="sec_p">Your trading history is sensitive. Here is exactly how we protect it.</p></div>
 <div class="secg">
-<div class="sc"><span class="ic"><span data-i="lock"></span></span><h3 data-st="sec1_h">Read-only connection</h3><p data-st="sec1_p">Automatic sync only uses your investor password, which can't open trades or withdraw funds. We never ask for your master password and never store the investor password.</p></div>
-<div class="sc"><span class="ic"><span data-i="globe"></span></span><h3 data-st="sec2_h">EU-hosted, encrypted</h3><p data-st="sec2_p">Your data is hosted in Germany (Frankfurt) and encrypted in transit and at rest.</p></div>
-<div class="sc"><span class="ic"><span data-i="eye"></span></span><h3 data-st="sec3_h">Never sold, never shared</h3><p data-st="sec3_p">Your data is never sold or used for advertising. Data sent to TradeLog AI is not used to train AI models.</p></div>
-<div class="sc"><span class="ic"><span data-i="down"></span></span><h3 data-st="sec4_h">You stay in control</h3><p data-st="sec4_p">Export all your data or permanently delete your account in one click.</p></div>
+<div class="sc"><span class="ic"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="4.5" y="10.5" width="15" height="10" rx="2.5"/><path d="M8 10.5V7.5a4 4 0 018 0v3"/></svg></span><h3 data-st="sec1_h">Read-only connection</h3><p data-st="sec1_p">Automatic sync only uses your investor password, which can't open trades or withdraw funds. We never ask for your master password and never store the investor password.</p></div>
+<div class="sc"><span class="ic"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3c2.5 2.7 3.8 5.7 3.8 9s-1.3 6.3-3.8 9c-2.5-2.7-3.8-5.7-3.8-9S9.5 5.7 12 3z"/></svg></span><h3 data-st="sec2_h">EU-hosted, encrypted</h3><p data-st="sec2_p">Your data is hosted in Germany (Frankfurt) and encrypted in transit and at rest.</p></div>
+<div class="sc"><span class="ic"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M2.5 12S6 5.5 12 5.5 21.5 12 21.5 12 18 18.5 12 18.5 2.5 12 2.5 12z"/><circle cx="12" cy="12" r="2.8"/></svg></span><h3 data-st="sec3_h">Never sold, never shared</h3><p data-st="sec3_p">Your data is never sold or used for advertising. Data sent to TradeLog AI is not used to train AI models.</p></div>
+<div class="sc"><span class="ic"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 4v12M7 11l5 5 5-5M4 16v3a1 1 0 001 1h14a1 1 0 001-1v-3"/></svg></span><h3 data-st="sec4_h">You stay in control</h3><p data-st="sec4_p">Export all your data or permanently delete your account in one click.</p></div>
 </div>
 </div>
 </section>
@@ -226,7 +242,7 @@
 <ul class="feat" data-featk="feat_pro" data-plusk="feat_plus"></ul>
 </div>
 </div>
-<div class="cmpb" id="cmpb"><button data-a="cmp" aria-expanded="false" aria-controls="cmp"><span>Tüm özellikleri karşılaştır</span><span data-i="chev" data-s="18" data-w="2.2"></span></button></div>
+<div class="cmpb" id="cmpb"><button data-a="cmp" aria-expanded="false" aria-controls="cmp"><span>Tüm özellikleri karşılaştır</span><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 9l6 6 6-6"/></svg></button></div>
 <div id="cmp" class="cmp" hidden></div>
 <p class="pnote" data-st="price_note">Prices are in US dollars and include tax (VAT); nothing extra is added at checkout.</p>
 </div>
@@ -242,7 +258,7 @@
 <div class="wrap" style="margin-top:96px">
 <div class="cta">
 <div class="in"><h2 class="h2" data-st="cta_h">Stop guessing your edge. Measure it.</h2><p data-st="cta_p">Create your free account, upload your first report and your dashboard is ready in minutes.</p></div>
-<a class="btn btn-d btn-lg" href="#/app" style="position:relative"><span data-st="cta_start">Start free</span><span data-i="arrow" data-s="18"></span></a>
+<a class="btn btn-d btn-lg" href="#/app" style="position:relative"><span data-st="cta_start">Start free</span><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
 <div class="deco" aria-hidden="true"><i style="height:40px"></i><i style="height:64px"></i><i style="height:52px"></i><i style="height:92px"></i><i style="height:120px"></i><i style="height:150px"></i></div>
 </div>
 </div>
@@ -251,7 +267,7 @@
 
 <main id="pageView" class="pagev" hidden>
 <div class="wrap pg">
-<a href="/en" class="back" data-a="home"><span data-i="arrowl" data-s="18"></span><span data-st="back_home">Back to home</span></a>
+<a href="/en" class="back" data-a="home"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M19 12H5M11 6l-6 6 6 6"/></svg><span data-st="back_home">Back to home</span></a>
 <article id="pageBody" class="doc"></article>
 </div>
 </main>
@@ -259,10 +275,11 @@
 <footer class="foot">
 <div class="wrap">
 <div class="fg">
-<div class="brand"><a class="logo" href="/en" data-a="home"><span data-i="logo" data-s="28"></span>TradeLog</a><p class="disc" data-st="foot_disc">TradeLog is a trading journal and does not provide investment advice. Trading leveraged products carries a high level of risk; past results do not guarantee future results.</p></div>
-<div><h4 data-st="foot_product">Product</h4><a href="#tur" data-st="nav_feat">Features</a><a href="#platformlar" data-st="nav_plat">Platforms</a><a href="#guven" data-st="nav_sec">Security</a><a href="#fiyatlar" data-st="nav_price">Pricing</a></div>
-<div><h4 data-st="foot_support">Support</h4><a href="/help" data-page="help" data-st="nav_help">Help</a><a href="#sss" data-st="nav_faq">FAQ</a><a href="/contact" data-page="contact" data-st="pg_contact">Contact</a></div>
-<div><h4 data-st="foot_legal">Legal</h4><a href="/privacy" data-page="privacy" data-st="pg_privacy">Privacy policy</a><a href="/terms" data-page="terms" data-st="pg_terms">Terms of use</a><a href="/refund" data-page="refund" data-st="pg_refund">Refund policy</a></div>
+<div class="brand"><a class="logo" href="/en" data-a="home"><svg width="28" height="28" viewBox="0 0 32 32" aria-hidden="true"><rect width="32" height="32" rx="9" fill="#94C5CC"/><path d="M9.5 22v-4.5M16 22V12.5M22.5 22V9" stroke="#000100" stroke-width="3.4" stroke-linecap="round"/></svg>TradeLog</a><p class="disc" data-st="foot_disc">TradeLog is a trading journal and does not provide investment advice. Trading leveraged products carries a high level of risk; past results do not guarantee future results.</p></div>
+<div><h3 data-st="foot_product">Product</h3><a href="#tur" data-st="nav_feat">Features</a><a href="#platformlar" data-st="nav_plat">Platforms</a><a href="#guven" data-st="nav_sec">Security</a><a href="#fiyatlar" data-st="nav_price">Pricing</a></div>
+<div><h3 data-st="foot_support">Support</h3><a href="/help" data-page="help" data-st="nav_help">Help</a><a href="#sss" data-st="nav_faq">FAQ</a><a href="/contact" data-page="contact" data-st="pg_contact">Contact</a></div>
+<div><h3 data-st="foot_res">Resources</h3><a href="/mt5-trading-journal" data-page="mt5" data-st="pg_mt5">MT5/MT4 trading journal</a><a href="/prop-firm-trading-journal" data-page="prop" data-st="pg_prop">Prop firm journal</a><a href="/position-size-calculator" data-page="calc" data-st="pg_calc">Position size calculator</a></div>
+<div><h3 data-st="foot_legal">Legal</h3><a href="/privacy" data-page="privacy" data-st="pg_privacy">Privacy policy</a><a href="/terms" data-page="terms" data-st="pg_terms">Terms of use</a><a href="/refund" data-page="refund" data-st="pg_refund">Refund policy</a></div>
 </div>
 <div class="copy"><span>© 2026 TradeLog</span><span data-st="foot_made">All rights reserved.</span></div>
 </div>
@@ -312,6 +329,6 @@
 </div>
 
 <script>window.TL_PAGE={"lang": "en", "page": "home", "base": "/"};</script>
-<script src="/tl.js?v=1e756d32e9"></script>
+<script defer src="/tl.js?v=0094ab44e5"></script>
 </body>
 </html>
