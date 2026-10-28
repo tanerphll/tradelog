@@ -5,7 +5,7 @@ sy_paused:'Pro sona erdiği için otomatik senkron durduruldu. İşlemlerin yeri
 rec:'Önerilen',wel_man:'İşlemlerimi kendim gireceğim',wel_man_d:'Önce hesabının bakiyesini ve para birimini gir, sonra işlemlerini tek tek ekle. Her platformla çalışır.',wel_alt2:'Önce uygulamayı tanımak mı istiyorsun?',first_k:'Son adım',first_t:'İlk işlemini gir',first_d:'{k} hazır. Sembol ve sonucu yazman yeterli; diğer alanları istersen sonra doldurursun.',acc_first_t:'Hesap bilgilerin',acc_first_d:'Bakiye ve para birimi kâr/zarar ve getiri hesapları için kullanılır. Hepsini sonra Hesaplar sayfasından değiştirebilirsin.',acc_adv:'Gelişmiş ayarlar: risk ve başabaş aralığı',es_t:'Henüz işlem yok',es_acc_t:'Henüz hesabın yok',es_cal:'Takvim ilk işlemlerinle dolar; her gün sonucuna göre yeşil ya da kırmızı görünür.',es_trades:'İşlemlerin burada listelenecek; arayıp filtreleyebilir, sütunları seçebileceksin.',es_rep:'Raporlar ilk işlemlerinle dolar: kazanma oranı, beklenti, drawdown, setup, saat ve hata analizleri.',es_acc:'Hesabını kurduğunda bakiyen, net kazancın ve prop kuralların burada görünür.',es_setup:'Kuruluma başla',es_add:'İşlem ekle',
 sup_t:'Bize yaz',sup_btn:'Destek ekibine yaz',sup_d:'Bir hata mı buldun, bir şeye takıldın mı ya da bir önerin mi var? Yaz, e-postayla dönüş yapalım. Hesap şifreni ya da yatırımcı şifreni asla yazma.',sup_from:'Dönüş yapacağımız adres',sup_email:'E-posta adresin',sup_topic:'Konu',sup_msg:'Mesajın',sup_ph:'Ne yapmaya çalıştın, ne oldu? Ekran ve cihaz bilgisi de işimize yarar.',sup_send:'Gönder',sup_sending:'Gönderiliyor…',sup_ok:'Mesajın bize ulaştı. E-postayla dönüş yapacağız.',sup_tp_bug:'Hata bildirimi',sup_tp_sync:'Hesap bağlama / senkron',sup_tp_import:'Rapor yükleme',sup_tp_account:'Üyelik ve giriş',sup_tp_billing:'Pro ve ödeme',sup_tp_idea:'Öneri',sup_tp_other:'Diğer',sup_e_email:'Geçerli bir e-posta adresi yaz.',sup_e_msg:'Mesajın çok kısa.',sup_e_limit:'Kısa sürede çok fazla mesaj gönderildi. Biraz sonra tekrar dene.',sup_e_net:'İnternet bağlantına ulaşılamadı. Bağlantını kontrol edip tekrar dene.',sup_e_setup:'Mesaj şu an gönderilemedi. Biraz sonra tekrar dene.',sup_e_server:'Mesaj şu an gönderilemedi. Biraz sonra tekrar dene.',sup_e_message:'Mesajın çok kısa ya da çok uzun.',s_help:'Yardım ve destek',s_help_s:'Bir sorun mu var? Buradan bize ulaş.',s_help_c:'Yardım merkezi',gs_app:'Telefonuna ekle',gs_app_d:'Ana ekrandan tek dokunuşla aç; uygulama gibi tam ekran çalışır.',a2_t:'Ana ekrana ekle',a2_d:'TradeLog\'u ana ekranına ekle; tek dokunuşla, uygulama gibi tam ekran açılsın. İndirme ya da mağaza gerekmez.',a2_ios:['Safari\'de alttaki <b>Paylaş</b> düğmesine dokun (yukarı oklu kare).','Listeyi kaydır ve <b>Ana Ekrana Ekle</b>\'yi seç.','Sağ üstte <b>Ekle</b>\'ye dokun.'],a2_and:['Chrome\'da sağ üstteki <b>⋮</b> menüsüne dokun.','<b>Ana ekrana ekle</b> ya da <b>Uygulamayı yükle</b>\'yi seç.','<b>Ekle</b> ya da <b>Yükle</b>\'ye dokunarak onayla.'],a2_ok:'Ekledim',a2_later:'Sonra',
 mt_e_gone:'Bu hesaba erişimin kaldırılmış.',mt_invite:'Davet et',mt_ph:'mentor@ornek.com',mt_h:'Mentorun, gönderdiğin linki açıp bu e-postayla giriş yaptığında hesabını görebilir; hiçbir şeyi değiştiremez.',mt_pending:'Bekliyor',mt_active:'Aktif',mt_copy:'Daveti kopyala',mt_remove:'Kaldır',mt_remove_c:'{e} artık hesabını göremeyecek. Emin misin?',mt_inv_t:'Davet hazır',mt_inv_p:'Bu mesajı mentoruna ({e}) WhatsApp ya da e-postayla gönder. Linki açıp bu e-postayla giriş yapınca hesabını görebilecek.',mt_msg:'Merhaba! TradeLog\'da işlemlerimi görebilmen için seni mentor olarak ekledim. Bu linki aç ve {e} adresiyle giriş yap (hesabın yoksa ücretsiz kayıt ol): {l}',mt_e_dup:'Bu kişiyi zaten davet ettin.',mt_e_lim:'En fazla 5 mentor ekleyebilirsin.',mt_e_self:'Kendini mentor olarak ekleyemezsin.',mt_students:'Mentor olduğun hesaplar',mt_view:'Görüntüle',mt_leave:'Ayrıl',mt_leave_c:'{e} hesabından ayrılmak istiyor musun? Bir daha görmek için yeni davet gerekir.',mt_need_login:'Mentor davetini kabul etmek için davet edilen e-postayla giriş yap ya da kayıt ol.',mt_ok:'{e} hesabının mentoru oldun.',mt_e_email:'Bu davet {e} adresine gönderilmiş. O adresle giriş yapman gerekiyor.',mt_e_nf:'Bu davet linki geçersiz ya da kaldırılmış.',mt_viewing:'{e} hesabını görüntülüyorsun · salt okunur',mt_back:'Kendi hesabıma dön',mt_ro:'Bu hesap salt okunur; değişiklik yapamazsın.',mt_loading:'Yükleniyor…',mt_none:'Henüz mentor eklemedin.',
-soon_l:'Yakında',pro_title:'TradeLog Pro',plan_pro:'Pro',plan_pro_tr:'Pro · ücretsiz deneme',plan_trial:'Pro deneme · {n} gün kaldı',pro_see:'Pro\'yu incele',pro_trial:'Pro yayına girdiğinde 7 gün ücretsiz deneyebileceksin; deneme boyunca ücret alınmaz.',pro_mo:'/ ay',pro_yr:'/ yıl (%30 indirim)',pro_wait:'Pro açılınca haber ver',pay_go:'7 gün ücretsiz başla',pay_yr_m:'yıllık · ayda $13,25',pay_today:'Bugün',pay_today_s:'7 gün ücretsiz Pro',pay_then_s:'Aboneliğin başlar. Öncesinde e-postayla hatırlatırız; bu tarihten önce iptal edersen ücret alınmaz.',pay_fine:'İstediğin an iptal · İlk ödemede 14 gün koşulsuz iade · Ödeme Paddle güvencesiyle',pay_amt_m:'$19 / ay',pay_amt_y:'$159 / yıl',pay_ren_m:'Her ay yenilenir',pay_ren_y:'Her yıl yenilenir',sub_cancel:'Aboneliği iptal et',pay_go2:'Pro\'ya geç',pay_mo:'aylık',pay_yr:'yıllık',pay_save:'%30 indirim',pay_hint:'<b>Bugün ücret alınmaz.</b> Kart bilgisi istenir ama 7 günlük deneme boyunca hiçbir ödeme alınmaz; bitmeden iptal edersen hiç ödemezsin. İptal etmezsen deneme bitiminde {p} başlar. Ödeme Paddle üzerinden güvenle alınır; ilk ödemede 14 gün koşulsuz iade.',pay_hint2:'Ödeme Paddle üzerinden güvenle alınır. İstediğin an iptal et; ilk ödemede 14 gün koşulsuz iade.',pay_pm:'aylık $19',pay_py:'yıllık $159',pay_opening:'Açılıyor…',pay_login:'Pro\'ya geçmek için önce hesabınla giriş yap.',pay_e_load:'Ödeme sayfası açılamadı. İnternetini kontrol edip tekrar dene.',pay_wait:'Ödemen alındı, Pro açılıyor…',pay_ok:'Pro açıldı. Hoş geldin!',pay_slow:'Ödemen alındı ama Pro henüz açılmadı. Birkaç dakika içinde açılmazsa destek ekibine yaz.',pay_e_portal:'Abonelik sayfası açılamadı. Biraz sonra tekrar dene.',sub_renews:'Pro · {p} · Sonraki ödeme {d} ({a})',sub_trial:'Ücretsiz deneme · {d} tarihinde {a} ile başlar',sub_ends:'Pro iptal edildi · {d} tarihine kadar açık',sub_due:'Son ödeme alınamadı. Pro\'nun kapanmaması için kartını güncelle.',sub_over:'Pro aboneliğin sona erdi.',sub_manage:'Aboneliği yönet',pro_waited:'Listedesin',pro_wait_ok:'Listeye eklendin. Pro açılınca sana e-posta göndereceğiz.',pro_wait_login:'Haber almak için önce hesabınla giriş yap.',pro_side_t:'TradeLog Pro',pro_side_s:'Otomatik senkron, AI koç ve daha fazlası',ai_ask:'TradeLog AI\'ye sor',mentor_t:'Mentor erişimi',mentor_p:'Mentoruna ya da arkadaşına hesabını salt okunur aç; işlemlerini, notlarını ve raporlarını görsün, sana yol göstersin.',mentor_add:'Mentor ekle',
+soon_l:'Yakında',pro_title:'TradeLog Pro',plan_pro:'Pro',plan_pro_tr:'Pro · ücretsiz deneme',plan_trial:'Pro deneme · {n} gün kaldı',pro_see:'Pro\'yu incele',pro_trial:'Pro yayına girdiğinde 7 gün ücretsiz deneyebileceksin; deneme boyunca ücret alınmaz.',pro_mo:'/ ay',pro_yr:'/ yıl (%30 indirim)',pro_wait:'Pro açılınca haber ver',pro_side_try:'7 gün ücretsiz dene →',pw_t:'TradeLog Pro\'ya hoş geldin!',pw_trial:'7 günlük ücretsiz denemen başladı. {d} tarihine kadar ücret alınmaz; Ayarlar → Plan\'dan istediğin an iptal edebilirsin.',pw_active:'Aboneliğin aktif. Pro\'nun bütün özellikleri hesabında açıldı.',pw_k:'Artık hesabında',pw_d_sync:'İşlemlerin her gece MT4/MT5\'ten kendiliğinden gelir.',pw_d_ai:'Günlüğünü okuyan koçuna istediğini sor.',pw_d_accounts:'Kişisel, challenge ve funded hesapların tek panelde.',pw_d_shots:'Her işleme giriş, çıkış ve analiz görüntülerini ekle.',pw_d_mentor:'Mentoruna hesabını salt okunur aç.',pw_sync_a:'Hesap bağla',pw_ai_a:'Soru sor',pw_mt_a:'Mentor ekle',pw_foot:'Onay e-postası Paddle\'dan gönderildi. Planını Ayarlar → Plan\'dan yönetebilirsin.',pw_later:'Panele dön',pw_go:'MT4/MT5 hesabını bağla',pc_t:'Plan',pc_trial:'Ücretsiz deneme',pc_active:'Aktif',pc_ending:'İptal edildi',pc_due:'Ödeme bekliyor',pc_free:'Ücretsiz',pc_paddle:'Kart bilgilerin ve faturaların Paddle\'ın güvenli müşteri sayfasında.',pc_free_d:'Sınırsız işlem, bütün raporlar, haftalık özet, takvim, playbook ve prop firm kuralları. 2 aktif hesap, işlem başına 1 ekran görüntüsü.',pc_up_t:'TradeLog Pro',pc_up_s:'Otomatik MT4/MT5 senkronu, TradeLog AI ve 20 hesap. 7 gün ücretsiz.',pc_up_s2:'Otomatik MT4/MT5 senkronu, TradeLog AI ve 20 hesap.',pn_t:'İşlemlerini TradeLog AI yorumlasın',pn_s:'Pro ile koçun setup\'larına, seanslarına ve hatalarına bakıp neyi değiştirmen gerektiğini söyler; işlemlerin MT4/MT5\'ten kendiliğinden gelir. 7 gün ücretsiz, bugün ücret alınmaz.',pn_later:'Şimdi değil',pay_go:'7 gün ücretsiz başla',pay_yr_m:'yıllık · ayda $13,25',pay_today:'Bugün',pay_today_s:'7 gün ücretsiz Pro',pay_then_s:'Aboneliğin başlar. Öncesinde e-postayla hatırlatırız; bu tarihten önce iptal edersen ücret alınmaz.',pay_fine:'İstediğin an iptal · İlk ödemede 14 gün koşulsuz iade · Ödeme Paddle güvencesiyle',pay_amt_m:'$19 / ay',pay_amt_y:'$159 / yıl',pay_ren_m:'Her ay yenilenir',pay_ren_y:'Her yıl yenilenir',sub_cancel:'Aboneliği iptal et',pay_go2:'Pro\'ya geç',pay_mo:'aylık',pay_yr:'yıllık',pay_save:'%30 indirim',pay_hint:'<b>Bugün ücret alınmaz.</b> Kart bilgisi istenir ama 7 günlük deneme boyunca hiçbir ödeme alınmaz; bitmeden iptal edersen hiç ödemezsin. İptal etmezsen deneme bitiminde {p} başlar. Ödeme Paddle üzerinden güvenle alınır; ilk ödemede 14 gün koşulsuz iade.',pay_hint2:'Ödeme Paddle üzerinden güvenle alınır. İstediğin an iptal et; ilk ödemede 14 gün koşulsuz iade.',pay_pm:'aylık $19',pay_py:'yıllık $159',pay_opening:'Açılıyor…',pay_login:'Pro\'ya geçmek için önce hesabınla giriş yap.',pay_e_load:'Ödeme sayfası açılamadı. İnternetini kontrol edip tekrar dene.',pay_wait:'Ödemen alındı, Pro açılıyor…',pay_ok:'Pro açıldı. Hoş geldin!',pay_slow:'Ödemen alındı ama Pro henüz açılmadı. Birkaç dakika içinde açılmazsa destek ekibine yaz.',pay_e_portal:'Abonelik sayfası açılamadı. Biraz sonra tekrar dene.',sub_renews:'Pro · {p} · Sonraki ödeme {d} ({a})',sub_trial:'Ücretsiz deneme · {d} tarihinde {a} ile başlar',sub_ends:'Pro iptal edildi · {d} tarihine kadar açık',sub_due:'Son ödeme alınamadı. Pro\'nun kapanmaması için kartını güncelle.',sub_over:'Pro aboneliğin sona erdi.',sub_manage:'Aboneliği yönet',pro_waited:'Listedesin',pro_wait_ok:'Listeye eklendin. Pro açılınca sana e-posta göndereceğiz.',pro_wait_login:'Haber almak için önce hesabınla giriş yap.',pro_side_t:'TradeLog Pro',pro_side_s:'Otomatik senkron, AI koç ve daha fazlası',ai_ask:'TradeLog AI\'ye sor',mentor_t:'Mentor erişimi',mentor_p:'Mentoruna ya da arkadaşına hesabını salt okunur aç; işlemlerini, notlarını ve raporlarını görsün, sana yol göstersin.',mentor_add:'Mentor ekle',
 pro_f_sync:'MT4/MT5 otomatik senkron',pro_f_accounts:'20 aktif hesap, hepsi tek panelde',pro_f_ai:'TradeLog AI: yorum ve soru-cevap',pro_f_shots:'İşlem başına 10 ekran görüntüsü',pro_f_mentor:'Mentoruna salt okunur erişim',
 pro_h_sync:'İşlemlerin kendiliğinden gelsin',pro_p_sync:'MT4/MT5 hesabını bir kez bağla; kapanan işlemler, bakiye ve para hareketleri otomatik eklensin. Rapor yüklemeye gerek kalmaz.',
 pro_h_accounts:'Bütün hesapların tek panelde',pro_p_accounts:'Ücretsiz planda 2 aktif hesap var. Pro ile 20 hesaba kadar challenge, funded ve kişisel hesaplarını birlikte takip et.',
@@ -186,7 +186,7 @@ sy_paused:'Auto-sync was paused because Pro ended. Your trades are kept; reconne
 rec:'Recommended',wel_man:'I\'ll log my trades myself',wel_man_d:'Enter your account balance and currency first, then add trades one by one. Works with any platform.',wel_alt2:'Want to get to know the app first?',first_k:'Last step',first_t:'Log your first trade',first_d:'{k} is ready. Symbol and result are enough; fill in the other fields later if you like.',acc_first_t:'Your account details',acc_first_d:'Balance and currency are used for P&L and return. You can change all of this later on the Accounts page.',acc_adv:'Advanced: risk and breakeven range',es_t:'No trades yet',es_acc_t:'No accounts yet',es_cal:'The calendar fills up with your trades; each day turns green or red by its result.',es_trades:'Your trades will be listed here, with search, filters and the columns you choose.',es_rep:'Reports fill up with your first trades: win rate, expectancy, drawdown, setup, time and mistake analysis.',es_acc:'Once your account is set up, its balance, net gain and prop rules show up here.',es_setup:'Start setup',es_add:'Add trade',
 sup_t:'Contact support',sup_btn:'Contact support',sup_d:'Found a bug, got stuck or have an idea? Write to us and we\'ll reply by email. Never include your account or investor password.',sup_from:'We\'ll reply to',sup_email:'Your email address',sup_topic:'Topic',sup_msg:'Message',sup_ph:'What were you trying to do and what happened? Device and browser details help too.',sup_send:'Send',sup_sending:'Sending…',sup_ok:'Your message has reached us. We\'ll reply by email.',sup_tp_bug:'Bug report',sup_tp_sync:'Account connection / sync',sup_tp_import:'Report upload',sup_tp_account:'Account and sign-in',sup_tp_billing:'Pro and billing',sup_tp_idea:'Feature request',sup_tp_other:'Other',sup_e_email:'Enter a valid email address.',sup_e_msg:'Your message is too short.',sup_e_limit:'Too many messages in a short time. Please try again later.',sup_e_net:'Couldn\'t reach the internet. Check your connection and try again.',sup_e_setup:'Your message couldn\'t be sent right now. Please try again later.',sup_e_server:'Your message couldn\'t be sent right now. Please try again later.',sup_e_message:'Your message is too short or too long.',s_help:'Help and support',s_help_s:'Something wrong? Reach us here.',s_help_c:'Help center',gs_app:'Add to your phone',gs_app_d:'Open it from your home screen in one tap, full screen like an app.',a2_t:'Add to home screen',a2_d:'Add TradeLog to your home screen so it opens in one tap, full screen like an app. No download or app store needed.',a2_ios:['In Safari, tap the <b>Share</b> button at the bottom (the square with an arrow).','Scroll down and choose <b>Add to Home Screen</b>.','Tap <b>Add</b> in the top right.'],a2_and:['In Chrome, tap the <b>⋮</b> menu at the top right.','Choose <b>Add to home screen</b> or <b>Install app</b>.','Confirm with <b>Add</b> or <b>Install</b>.'],a2_ok:'Done',a2_later:'Later',
 mt_e_gone:'Your access to this account was removed.',mt_invite:'Invite',mt_ph:'mentor@example.com',mt_h:'Your mentor can see your account after opening the link you send and signing in with this email. They can\'t change anything.',mt_pending:'Pending',mt_active:'Active',mt_copy:'Copy invite',mt_remove:'Remove',mt_remove_c:'{e} will no longer see your account. Are you sure?',mt_inv_t:'Invite ready',mt_inv_p:'Send this message to your mentor ({e}) by WhatsApp or email. Once they open the link and sign in with this email, they can see your account.',mt_msg:'Hi! I added you as my mentor on TradeLog so you can see my trades. Open this link and sign in with {e} (sign up free if you don\'t have an account): {l}',mt_e_dup:'You already invited this person.',mt_e_lim:'You can add up to 5 mentors.',mt_e_self:'You can\'t add yourself as a mentor.',mt_students:'Accounts you mentor',mt_view:'View',mt_leave:'Leave',mt_leave_c:'Leave {e}\'s account? You\'ll need a new invite to see it again.',mt_need_login:'To accept the mentor invite, sign in or sign up with the email that was invited.',mt_ok:'You are now {e}\'s mentor.',mt_e_email:'This invite was sent to {e}. Sign in with that address.',mt_e_nf:'This invite link is invalid or was removed.',mt_viewing:'Viewing {e}\'s account · read-only',mt_back:'Back to my account',mt_ro:'This account is read-only; you can\'t make changes.',mt_loading:'Loading…',mt_none:'You haven\'t added a mentor yet.',
-soon_l:'Coming soon',pro_title:'TradeLog Pro',plan_pro:'Pro',plan_pro_tr:'Pro · free trial',plan_trial:'Pro trial · {n} {n|day|days} left',pro_see:'See Pro',pro_trial:'When Pro launches you can try it free for 7 days; you won\'t be charged during the trial.',pro_mo:'/ month',pro_yr:'/ year (save 30%)',pro_wait:'Tell me when Pro opens',pay_go:'Start 7-day free trial',pay_yr_m:'yearly · $13.25/month',pay_today:'Today',pay_today_s:'7 days of Pro, free',pay_then_s:'Your subscription starts. We\'ll email you a reminder first; cancel before this date and you won\'t be charged.',pay_fine:'Cancel anytime · 14-day money-back on your first payment · Secure checkout by Paddle',pay_amt_m:'$19 / month',pay_amt_y:'$159 / year',pay_ren_m:'Renews every month',pay_ren_y:'Renews every year',sub_cancel:'Cancel subscription',pay_go2:'Upgrade to Pro',pay_mo:'monthly',pay_yr:'yearly',pay_save:'save 30%',pay_hint:'<b>You won\'t be charged today.</b> A card is required, but nothing is charged during the 7-day trial; cancel before it ends and you pay nothing. If you don\'t cancel, {p} starts when the trial ends. Payment is handled securely by Paddle; 14-day money-back guarantee on your first payment.',pay_hint2:'Payment is handled securely by Paddle. Cancel any time; 14-day money-back guarantee on your first payment.',pay_pm:'$19 per month',pay_py:'$159 per year',pay_opening:'Opening…',pay_login:'Sign in to your account first to upgrade to Pro.',pay_e_load:'The checkout couldn\'t open. Check your internet and try again.',pay_wait:'Payment received, opening Pro…',pay_ok:'Pro is on. Welcome!',pay_slow:'Your payment went through but Pro isn\'t on yet. If it doesn\'t open in a few minutes, contact support.',pay_e_portal:'The subscription page couldn\'t open. Please try again shortly.',sub_renews:'Pro · {p} · Next payment {d} ({a})',sub_trial:'Free trial · your {a} plan starts on {d}',sub_ends:'Pro canceled · active until {d}',sub_due:'Your last payment failed. Update your card so Pro stays on.',sub_over:'Your Pro subscription has ended.',sub_manage:'Manage subscription',pro_waited:'You\'re on the list',pro_wait_ok:'You\'re on the list. We\'ll email you when Pro opens.',pro_wait_login:'Sign in to your account first to get notified.',pro_side_t:'TradeLog Pro',pro_side_s:'Auto sync, AI coach and more',ai_ask:'Ask TradeLog AI',mentor_t:'Mentor access',mentor_p:'Give your mentor or a friend read-only access so they can see your trades, notes and reports and guide you.',mentor_add:'Add a mentor',
+soon_l:'Coming soon',pro_title:'TradeLog Pro',plan_pro:'Pro',plan_pro_tr:'Pro · free trial',plan_trial:'Pro trial · {n} {n|day|days} left',pro_see:'See Pro',pro_trial:'When Pro launches you can try it free for 7 days; you won\'t be charged during the trial.',pro_mo:'/ month',pro_yr:'/ year (save 30%)',pro_wait:'Tell me when Pro opens',pro_side_try:'Try it free for 7 days →',pw_t:'Welcome to TradeLog Pro!',pw_trial:'Your 7-day free trial has started. You won\'t be charged until {d}; cancel any time from Settings → Plan.',pw_active:'Your subscription is active. Every Pro feature is now on in your account.',pw_k:'Now in your account',pw_d_sync:'Your trades arrive from MT4/MT5 on their own every night.',pw_d_ai:'Ask the coach that reads your journal anything.',pw_d_accounts:'Personal, challenge and funded accounts on one dashboard.',pw_d_shots:'Add entry, exit and analysis screenshots to every trade.',pw_d_mentor:'Give your mentor read-only access.',pw_sync_a:'Connect',pw_ai_a:'Ask',pw_mt_a:'Add mentor',pw_foot:'Paddle has emailed you a confirmation. Manage your plan from Settings → Plan.',pw_later:'Back to dashboard',pw_go:'Connect your MT4/MT5 account',pc_t:'Plan',pc_trial:'Free trial',pc_active:'Active',pc_ending:'Canceled',pc_due:'Payment due',pc_free:'Free',pc_paddle:'Your card details and invoices are on Paddle\'s secure customer page.',pc_free_d:'Unlimited trades, every report, weekly recap, calendar, playbooks and prop firm rules. 2 active accounts, 1 screenshot per trade.',pc_up_t:'TradeLog Pro',pc_up_s:'Automatic MT4/MT5 sync, TradeLog AI and 20 accounts. Free for 7 days.',pc_up_s2:'Automatic MT4/MT5 sync, TradeLog AI and 20 accounts.',pn_t:'Let TradeLog AI read your trades',pn_s:'With Pro, your coach looks at your setups, sessions and mistakes and tells you what to change, and your trades arrive from MT4/MT5 on their own. Free for 7 days, no charge today.',pn_later:'Not now',pay_go:'Start 7-day free trial',pay_yr_m:'yearly · $13.25/month',pay_today:'Today',pay_today_s:'7 days of Pro, free',pay_then_s:'Your subscription starts. We\'ll email you a reminder first; cancel before this date and you won\'t be charged.',pay_fine:'Cancel anytime · 14-day money-back on your first payment · Secure checkout by Paddle',pay_amt_m:'$19 / month',pay_amt_y:'$159 / year',pay_ren_m:'Renews every month',pay_ren_y:'Renews every year',sub_cancel:'Cancel subscription',pay_go2:'Upgrade to Pro',pay_mo:'monthly',pay_yr:'yearly',pay_save:'save 30%',pay_hint:'<b>You won\'t be charged today.</b> A card is required, but nothing is charged during the 7-day trial; cancel before it ends and you pay nothing. If you don\'t cancel, {p} starts when the trial ends. Payment is handled securely by Paddle; 14-day money-back guarantee on your first payment.',pay_hint2:'Payment is handled securely by Paddle. Cancel any time; 14-day money-back guarantee on your first payment.',pay_pm:'$19 per month',pay_py:'$159 per year',pay_opening:'Opening…',pay_login:'Sign in to your account first to upgrade to Pro.',pay_e_load:'The checkout couldn\'t open. Check your internet and try again.',pay_wait:'Payment received, opening Pro…',pay_ok:'Pro is on. Welcome!',pay_slow:'Your payment went through but Pro isn\'t on yet. If it doesn\'t open in a few minutes, contact support.',pay_e_portal:'The subscription page couldn\'t open. Please try again shortly.',sub_renews:'Pro · {p} · Next payment {d} ({a})',sub_trial:'Free trial · your {a} plan starts on {d}',sub_ends:'Pro canceled · active until {d}',sub_due:'Your last payment failed. Update your card so Pro stays on.',sub_over:'Your Pro subscription has ended.',sub_manage:'Manage subscription',pro_waited:'You\'re on the list',pro_wait_ok:'You\'re on the list. We\'ll email you when Pro opens.',pro_wait_login:'Sign in to your account first to get notified.',pro_side_t:'TradeLog Pro',pro_side_s:'Auto sync, AI coach and more',ai_ask:'Ask TradeLog AI',mentor_t:'Mentor access',mentor_p:'Give your mentor or a friend read-only access so they can see your trades, notes and reports and guide you.',mentor_add:'Add a mentor',
 pro_f_sync:'Automatic MT4/MT5 sync',pro_f_accounts:'20 active accounts on one dashboard',pro_f_ai:'TradeLog AI: comments and Q&A',pro_f_shots:'10 screenshots per trade',pro_f_mentor:'Read-only access for your mentor',
 pro_h_sync:'Let your trades arrive on their own',pro_p_sync:'Connect your MT4/MT5 account once and closed trades, balance and cash movements are added automatically. No more report uploads.',
 pro_h_accounts:'All your accounts on one dashboard',pro_p_accounts:'The free plan includes 2 active accounts. With Pro, track up to 20 challenge, funded and personal accounts together.',
@@ -1191,7 +1191,7 @@ function splashCheck(){
 function skel(){return `<div class="skelw"><div class="dgrid"><div class="dcl"><div class="card skel" style="height:300px"></div><div class="card skel" style="height:280px"></div></div><div class="dcr"><div class="card skel" style="height:360px"></div><div class="card skel" style="height:220px"></div></div></div></div>`}
 function render(){
   document.documentElement.lang=L;
-  if(typeof authGate==='function'&&authGate())return;
+  if(typeof authGate==='function'&&authGate()){if(typeof aiFabSync==='function')aiFabSync();return}
   const pq=trades.length?pending().length:0;
   $('sideNav').innerHTML=VIEWS.filter(v=>v!=='set').map(v=>`<button class="nav${v===cv?' on':''}" onclick="go('${v}')"${v===cv?' aria-current="page"':''}>${ic(v)}<span>${t('v_'+v)}</span>${v==='trades'&&pq?`<span class="ct">${pq}</span>`:''}</button>`).join('');
   const tb=(v,lab)=>`<button class="${v===cv?'on':''}" onclick="go('${v}')"${v===cv?' aria-current="page"':''}>${ic(v)}<span>${lab}</span></button>`;
@@ -1201,7 +1201,7 @@ function render(){
   $('sideActs').innerHTML=`<button class="btn pri full addbtn" onclick="addMenu()">${ic('plus')}<span>${t('add_t')}</span></button>`;
   $('sideFoot').innerHTML=`${typeof proSide==='function'?proSide():''}<button class="nav${cv==='set'?' on':''}" onclick="go('set')"${cv==='set'?' aria-current="page"':''}>${ic('set')}<span>${t('v_set')}</span></button>
    ${TG?'':`<button class="nav sitelink" onclick="window.showSite&&showSite()">${ic('home')}<span>${t('nav_home')}</span></button>`}
-   ${typeof sbOn==='function'&&sbOn()&&sbUser?`<button class="sideuser" onclick="go('set')" title="${esc(sbUser.email||'')}"><span class="avt sm">${esc(((sbUser.email||'?')[0]).toUpperCase())}</span><span>${esc(sbUser.email||'')}</span></button>`:''}
+   ${typeof sbOn==='function'&&sbOn()&&sbUser?`<button class="sideuser" onclick="go('set')" title="${esc(sbUser.email||'')}"><span class="avt sm">${esc(((sbUser.email||'?')[0]).toUpperCase())}</span><span>${esc(sbUser.email||'')}</span>${typeof isPro==='function'&&isPro()?'<span class="probadge xs">PRO</span>':''}</button>`:''}
    <div class="sidefoot" id="syncSt"></div>`;setSync();
   $('vTitle').textContent=t('v_'+cv);
   topCtl();
@@ -1212,7 +1212,7 @@ function render(){
   if(cv==='set'&&typeof shList==='function')shList();
   if((cv==='set'||cv==='acc')&&typeof syLoadOnce==='function')syLoadOnce();
   if(cv==='set'&&typeof mtRender==='function')mtRender();
-  bindCharts();tgUI();
+  bindCharts();tgUI();if(typeof aiFabSync==='function')aiFabSync();
 }
 let accOpen=false;
 function accSw(){
@@ -1248,7 +1248,7 @@ function moreMenu(){
   const dk=document.documentElement.dataset.theme==='dark';
   openDlg(t('t_more'),`<div class="links">${['acc','cal','pb','jr','set'].map(v=>`<button onclick="go('${v}')">${t('v_'+v)}</button>`).join('')}
    <button onclick="accDlg()">${t('acc_add')}</button>
-   ${typeof proSide==='function'&&sbOn()&&!isPro()?`<button onclick="proDlg('gen')">${t('pro_title')} <span class="soon">${t('soon_l')}</span></button>`:''}
+   ${typeof proSide==='function'&&sbOn()&&!isPro()?`<button onclick="proDlg('gen')">${t('pro_title')}${PRO_LIVE?'':` <span class="soon">${t('soon_l')}</span>`}</button>`:''}
    ${typeof coOpen==='function'&&sbOn()&&sbUser&&isPro()&&!RO?`<button onclick="closeDlg(true);coOpen()">${t('co_title')} <span class="soon">AI</span></button>`:''}
    ${TG?'':`<button onclick="closeDlg(true);window.showSite&&showSite()">${t('nav_home')}</button>`}
    ${typeof sbOn==='function'&&sbOn()?`<button class="dan" onclick="closeDlg(true);sbLogout()">${t('sb_out')}</button>`:''}</div>`,'');
@@ -1376,7 +1376,7 @@ function vDash(){
   const icard=`<div class="card o6" data-tour="ins"><div class="ch"><h2>${t('c_ins')}</h2>${typeof proDlg==='function'?`<small><button class="prolink" onclick="coOpen()">${t('ai_ask')} <span class="soon">Pro</span></button></small>`:''}</div><div class="cb">${ins.length?ins.map(([k,x])=>`<div class="ins ${k}"><i></i><div>${esc(x)}</div></div>`).join(''):`<div class="mut" style="font-size:14px">${t('ins_need')}</div>`}</div></div>`;
   const dcard=`<div class="card o5"><div class="ch"><h2>${t('c_daily')}</h2><small>${t('c_daily_s')}</small></div><div class="cb">${dayChart(l)}</div></div>`;
   const recent=`<div class="card o7"><div class="ch"><h2>${t('c_recent')}</h2><small><a href="#" onclick="go('trades');return false">${t('see_all')}</a></small></div><div class="tlist" style="margin-top:8px">${l.slice(0,6).map(tradeCard).join('')}</div></div>`;
-  return `<div class="stack">${al}${rq}${gsCard()}<div class="dgrid"><div class="dcl">${net}${eq}${dcard}</div><div class="dcr">${pcard}${scard}${weekCard()}${icard}</div>${recent}</div></div>`;
+  return `<div class="stack">${al}${rq}${gsCard()}${typeof proNudge==='function'?proNudge():''}<div class="dgrid"><div class="dcl">${net}${eq}${dcard}</div><div class="dcr">${pcard}${scard}${weekCard()}${icard}</div>${recent}</div></div>`;
 }
 
 /* Ana ekrana ekle: referanslardaki "mobil uygulamayı kur" adımının karşılığı.
@@ -2000,7 +2000,7 @@ function vSet(){
   const th=(()=>{try{return localStorage.getItem(K.theme)||'auto'}catch(e){return 'auto'}})();
   const act=actAccs(),arc=S.accounts.filter(a=>a.arch);
   const lim=(k,lab,d,step)=>`<div class="srow"><div><div class="t">${lab}</div><div class="d">${d}</div></div><input class="in" type="number" min="0" step="${step}" value="${S[k]}" onchange="S.${k}=Math.max(0,num(this.value)||0);saveS();toast(t('saved'))"></div>`;
-  return `<div class="g2e"><div class="stack">
+  return `<div class="g2e"><div class="stack">${typeof planCard==='function'?planCard():''}
    <button class="card setacc" onclick="go('acc')"><span class="sai">${ic('acc')}</span><span><b>${t('v_acc')}</b><small>${t('ax_moved',{n:act.length})}</small></span>${ic('arrow')}</button>
    <div class="card"><div class="ch"><h2>${t('s_rules')}</h2><small>${t('s_rules_s')}</small></div><div class="cb">${lim('day',t('s_day'),t('s_day_d'),0.5)}${lim('str',t('s_str'),t('s_str_d'),1)}${lim('maxT',t('s_maxT'),t('s_maxT_d'),1)}</div></div>
    <div class="card"><div class="ch"><h2>${t('s_lang')}</h2></div><div class="cb">
@@ -2675,7 +2675,7 @@ async function sbPull(full,merge){
     }
     got[tb]=rows;if(rows.length)cur[tb]=rows[rows.length-1].updated_at;
   }
-  const {data:pr,error:pe}=await sb.from('profiles').select('*').eq('id',sbUser.id).maybeSingle();if(pe)throw pe;if(pr)sbProf=pr;
+  const {data:pr,error:pe}=await sb.from('profiles').select('*').eq('id',sbUser.id).maybeSingle();if(pe)throw pe;if(pr){sbProf=pr;setTimeout(proWelcomeCheck,1500)}
   if(full){trades=[];PB=[];JR={};S.accounts=[];S.tx=[]}
   const b=tb=>base[tb]=base[tb]||{};
   // trades
@@ -2754,7 +2754,7 @@ function accountCard(){
   return `<div class="card"><div class="ch"><h2>${t('sb_acc')}</h2><small>${planLabel()}</small></div><div class="cb">
    <div class="srow" style="border-top:0;padding-top:4px"><div style="display:flex;gap:12px;align-items:center;min-width:0"><span class="avt">${esc((e[0]||'?').toUpperCase())}</span><div style="min-width:0"><div class="t" style="overflow:hidden;text-overflow:ellipsis">${esc(e)}</div><div class="d" id="syncSt3">${syncSt?t('sbs_'+syncSt):''}</div></div></div></div>
    <div class="links" style="margin-top:6px"><button onclick="sbSync(true)">${t('sb_now')}</button><button onclick="pwDlg()">${t('au_pw_dlg')}</button>${isPro()?'':`<button onclick="proDlg('gen')">${t('pro_see')}</button>`}<button onclick="sbLogout()">${t('sb_out')}</button><button class="dan" onclick="sbDelete()">${t('sb_del')}</button></div>
-   ${subLine()}<p class="hint" style="margin-top:8px">${t('sb_acc_h')}</p></div></div>`;
+   <p class="hint" style="margin-top:8px">${t('sb_acc_h')}</p></div></div>`;
 }
 async function sbLogout(){
   if(RO)mtExit(true);
@@ -3008,13 +3008,14 @@ function proDlg(src){
    plan = 'pro' on the profile. The app waits for that, then opens Pro. Cancel / card / invoices: Paddle's
    customer portal ("Manage subscription"). The client token and price IDs are public by design.
    A sandbox token (test_…) only shows the checkout on a device where #/paytest was opened once. */
-const PAY={token:'test_a967f93ecc66d2f33bf50f1c143',   // sandbox
-  prices:{month:'pri_01m60vp80kccqjmgrehc9p0wpf',year:'pri_01m60vqn7mx076znb78q116t78'},
-  again:{month:'pri_01m60vsbmdt7zs7redby73q0az',year:'pri_01m60vthtzp7vr14p1xedjpbhw'}};
-/* LIVE catalog, for go-live (needs a live_… client token):
-   prices: month pri_01m5zktxbma33tm3139trfs6n8 · year pri_01m5zkw3ftfqb3wc0p96bgpsx4
-   again:  month pri_01m5zkxcg945gtjmx8z5hzj3xx · year pri_01m5zky22sqw7pbee9hfgpddza */   // prices: 7-day trial · again: no trial (members who had a subscription before)
+const PAY={token:'live_bfc5b96fec7f8474d8cfb5b29fe',   // LIVE
+  prices:{month:'pri_01m5zktxbma33tm3139trfs6n8',year:'pri_01m5zkw3ftfqb3wc0p96bgpsx4'},      // 7-day trial
+  again:{month:'pri_01m5zkxcg945gtjmx8z5hzj3xx',year:'pri_01m5zky22sqw7pbee9hfgpddza'}};      // no trial (had a subscription before)
+/* SANDBOX, for testing (token test_a967f93ecc66d2f33bf50f1c143):
+   prices: month pri_01m60vp80kccqjmgrehc9p0wpf · year pri_01m60vqn7mx076znb78q116t78
+   again:  month pri_01m60vsbmdt7zs7redby73q0az · year pri_01m60vthtzp7vr14p1xedjpbhw */
 const paySandbox=()=>/^test_/.test(PAY.token);
+PRO_LIVE=/^live_/.test(PAY.token);   // a live token opens Pro: plan limits apply, the waitlist becomes the trial
 function payOn(){if(!PAY.token||!PAY.prices.month||!PAY.prices.year)return false;if(!paySandbox())return true;try{return localStorage.getItem('tradelog_paytest')==='1'}catch(e){return false}}
 var PAYIV='year',PDL=null;
 const payTrial=()=>!(sbProf&&sbProf.paddle_subscription_id)||!PAY.again.month;   // the free trial is once per member
@@ -3043,7 +3044,7 @@ async function payWatch(){
   payWatch.on=true;toast(t('pay_wait'));
   for(let i=0;i<45;i++){
     await new Promise(r=>setTimeout(r,2000));await sbProfLoad();
-    if(sbProf.plan==='pro'&&sbProf.paddle_subscription_id){payWatch.on=false;setTimeout(()=>{try{Paddle.Checkout.close()}catch(e){}},1500);hap('success');toast(t('pay_ok'));render();return}
+    if(sbProf.plan==='pro'&&sbProf.paddle_subscription_id){payWatch.on=false;try{Paddle.Checkout.close()}catch(e){}hap('success');render();setTimeout(proWelcome,300);return}
   }
   payWatch.on=false;say(t('pay_slow'));
 }
@@ -3074,13 +3075,83 @@ function subLine(){
     :`<button class="btn sm pri" onclick="proDlg('gen')">${t('pay_go2')}</button>`;
   return `<div class="subl${p.sub_status==='past_due'?' warn':''}"><span>${txt}</span><span class="subb">${btns}</span></div>`;
 }
+function subInfo(){
+  const p=sbProf||{},d=x=>x?new Date(x).toLocaleDateString(loc(),{day:'numeric',month:'long',year:'numeric'}):'';
+  const iv=t(p.sub_interval==='year'?'pay_yr':'pay_mo'),amt=t(p.sub_interval==='year'?'pay_amt_y':'pay_amt_m');
+  const on=['active','trialing','past_due'].includes(p.sub_status);
+  if(p.sub_status==='past_due')return {txt:t('sub_due'),on};
+  if(!on)return {txt:t('sub_over'),on};
+  if(p.sub_ends_at)return {txt:t('sub_ends',{d:d(p.sub_ends_at)}),on};
+  if(p.sub_status==='trialing')return {txt:t('sub_trial',{d:d(p.sub_renews_at),a:amt}),on};
+  return {txt:t('sub_renews',{p:iv,d:d(p.sub_renews_at),a:amt}),on};
+}
+/* ---------- Pro experience ----------
+   After paying: a welcome screen that shows what was unlocked and the first useful step.
+   Settings: a Plan card (what the plan includes, the subscription, manage / cancel).
+   Free members: one gentle, dismissible invitation on the dashboard once the journal has some history,
+   plus the existing prompts at the moment a Pro feature is reached. TradeLog AI: a round button bottom right. */
+const PRO_LIST=[['sync','link','pw_sync_a',"typeof syStart==='function'&&syStart()"],['ai','rep','pw_ai_a','coOpen()'],['accounts','dash','',''],['shots','up','',''],['mentor','user','pw_mt_a',"go('set')"]];
+const proDay=x=>x?new Date(x).toLocaleDateString(loc(),{day:'numeric',month:'long'}):'';
+function proWelcome(){
+  const p=sbProf||{},tr=p.sub_status==='trialing';
+  try{localStorage.setItem('tradelog_pro_hi_'+(p.paddle_subscription_id||'x'),'1')}catch(e){}
+  openDlg('',`<div class="pwel"><div class="pwh" aria-hidden="true"><span class="pwbadge">PRO</span>${'<i></i>'.repeat(8)}</div>
+    <h2>${t('pw_t')}</h2><p class="pws">${tr?t('pw_trial',{d:proDay(p.sub_renews_at)}):t('pw_active')}</p>
+    <div class="pwk">${t('pw_k')}</div>
+    <div class="pwl">${PRO_LIST.map(([k,i,a,fn])=>`<div class="pwi"><span class="pri">${ic(i)}</span><span class="pwx"><b>${t('pro_f_'+k)}</b><small>${t('pw_d_'+k)}</small></span>${a?`<button class="btn sm" onclick="closeDlg(true);${fn}">${t(a)}</button>`:`<span class="pwok">${ic('check')}</span>`}</div>`).join('')}</div>
+    <p class="hint pwf">${t('pw_foot')}</p></div>`,
+    `<button class="btn" onclick="closeDlg()">${t('pw_later')}</button><button class="btn pri" onclick="closeDlg(true);typeof syStart==='function'&&syStart()">${t('pw_go')}</button>`);
+  const h=$('dTitle');if(h)h.textContent=t('pro_title');
+}
+function proWelcomeCheck(){
+  const p=sbProf||{};if(p.plan!=='pro'||!p.paddle_subscription_id||!['active','trialing'].includes(p.sub_status)||RO)return;
+  let seen=false;try{seen=!!localStorage.getItem('tradelog_pro_hi_'+p.paddle_subscription_id)}catch(e){}
+  if(!seen&&!payWatch.on&&!dlgOpen()&&!formOpen())proWelcome();
+}
+function planCard(){
+  if(!sbOn()||!sbUser||RO)return '';
+  const p=sbProf||{},sub=!!p.paddle_subscription_id,on=['active','trialing','past_due'].includes(p.sub_status);
+  if(isPro()){
+    const chip=p.sub_status==='trialing'?t('pc_trial'):p.sub_ends_at?t('pc_ending'):p.sub_status==='past_due'?t('pc_due'):t('pc_active');
+    return `<div class="card plancard"><div class="ch"><h2>${t('pc_t')}</h2><span class="pchip${p.sub_status==='past_due'||p.sub_ends_at?' warn':''}">${chip}</span></div><div class="cb">
+      <div class="pch"><span class="probadge">PRO</span><div><b>TradeLog Pro</b><small>${sub?esc(subInfo().txt):t('plan_pro')}</small></div></div>
+      <ul class="pcl">${PRO_LIST.map(([k])=>`<li>${ic('check')}<span>${t('pro_f_'+k)}</span></li>`).join('')}</ul>
+      ${sub&&on?`<div class="pcb"><button class="btn sm" onclick="payPortal()">${t('sub_manage')}</button>${p.sub_ends_at?'':`<button class="btn sm ghost" onclick="payPortal('cancel')">${t('sub_cancel')}</button>`}</div><p class="hint" style="margin-top:10px">${t('pc_paddle')}</p>`:''}</div></div>`;
+  }
+  return `<div class="card plancard"><div class="ch"><h2>${t('pc_t')}</h2><span class="pchip">${t('pc_free')}</span></div><div class="cb">
+    ${sub&&!on?`<p class="hint" style="margin-bottom:12px">${t('sub_over')}</p>`:''}
+    <p class="pcd">${t('pc_free_d')}</p>
+    <div class="pcup"><span class="probadge sm">PRO</span><div><b>${t('pc_up_t')}</b><small>${t(!PRO_LIVE?'pro_side_s':payTrial()?'pc_up_s':'pc_up_s2')}</small></div><button class="btn pri sm" onclick="proDlg('gen')">${t(PRO_LIVE?(payTrial()?'pay_go':'pay_go2'):'pro_see')}</button></div></div></div>`;
+}
+function proNudge(){
+  if(!PRO_LIVE||!sbOn()||!sbUser||isPro()||RO)return '';
+  if(trades.filter(x=>!x.demo).length<10)return '';
+  let until=0;try{until=+(localStorage.getItem('tradelog_nudge_off')||0)}catch(e){}
+  if(Date.now()<until)return '';
+  return `<div class="card pnudge">${coMark()}<div class="pnx"><b>${t('pn_t')}</b><small>${t('pn_s')}</small></div><div class="pnb"><button class="btn pri sm" onclick="proDlg('ai')">${t(payTrial()?'pay_go':'pay_go2')}</button><button class="btn sm ghost" onclick="proNudgeOff()">${t('pn_later')}</button></div></div>`;
+}
+function proNudgeOff(){try{localStorage.setItem('tradelog_nudge_off',String(Date.now()+14*864e5))}catch(e){}render()}
+/* the round TradeLog AI button, bottom right (above the tab bar on phones) */
+function aiFabSync(){
+  let b=$('aiFab');const show=sbOn()&&!!sbUser&&!RO&&sbMode==='on';
+  document.body.classList.toggle('hasfab',show);   // phones: extra room at the bottom so the button never hides the last button of a page
+  if(!show){if(b)b.remove();return}
+  if(!b){b=document.createElement('button');b.id='aiFab';b.className='aifab';b.type='button';
+    b.onclick=()=>isPro()?coToggle():proDlg('ai');(document.getElementById('appRoot')||document.body).appendChild(b)}   // inside the app: hidden with it on the site
+  b.innerHTML=`${coMark()}<span class="aifl">${t('co_title')}</span>${isPro()?'':'<span class="aifp">PRO</span>'}`;
+  b.setAttribute('aria-label',t('co_title'));
+}
 async function proWait(){
   if(!sbOn()||!sbUser){closeDlg(true);toast(t('pro_wait_login'));return}
   try{const now=new Date().toISOString(),{error}=await sb.from('profiles').update({pro_waitlist:now}).eq('id',sbUser.id);if(error)throw error;
     sbProf.pro_waitlist=now;closeDlg(true);hap('success');toast(t('pro_wait_ok'));if(cv==='set')render()}
   catch(e){say(t('sh_err').replace(/Link|link/,'İstek'))}
 }
-function proSide(){if(sbOn()&&sbUser&&isPro()&&!RO)return `<button class="proside aiside${window.CO&&CO.open?' on':''}" onclick="coToggle()" aria-expanded="${!!(window.CO&&CO.open)}">${coMark()}<span><b>${t('co_title')}</b><small>${t('co_side')}</small></span></button>`;if(!sbOn()||isPro())return '';return `<button class="proside" onclick="proDlg('gen')"><span class="probadge sm">PRO</span><span><b>${t('pro_side_t')}</b><small>${t('pro_side_s')}</small></span></button>`}
+function proSide(){
+  if(!sbOn()||!sbUser||RO)return '';
+  if(isPro())return '';
+  return `<button class="proside" onclick="proDlg('gen')"><span class="probadge sm">PRO</span><span><b>${t('pro_side_t')}</b><small>${t(PRO_LIVE?'pro_side_try':'pro_side_s')}</small></span></button>`;
+}
 /* after the 3rd report upload, point at automatic sync once */
 function proNudgeImport(){
   if(isPro())return;let n=0;try{n=+(localStorage.getItem('tradelog_imp_n')||0)+1;localStorage.setItem('tradelog_imp_n',String(n))}catch(e){}
@@ -3524,15 +3595,22 @@ async function coAsk(q,deep){
     if(!res.ok&&!(res.headers.get('content-type')||'').includes('application/json')){err='fail';why='gateway'}   // the server's gateway answered (timeout, limit), not TradeLog AI
     else if((res.headers.get('content-type')||'').includes('application/json')){
       const j=await res.json().catch(()=>({ok:false,error:'server_error'}));
-      if(j.ok&&j.text)a.t=j.text;else{err=j.error||'net';if(j.limit)CO.limit=j.limit;CO.why=j.why||''}
+      if(j.ok&&j.text)a.t=j.text;else{err=j.error||'fail';if(!j.error)why='gateway';if(j.limit)CO.limit=j.limit;CO.why=j.why||''}   // no "error": Supabase's gateway (limit, timeout)
     }else{
       const rd=res.body.getReader(),dec=new TextDecoder();
       try{for(;;){const {done,value}=await rd.read();if(done)break;a.t+=dec.decode(value,{stream:true});if(!raf)raf=requestAnimationFrame(()=>{raf=0;coRender()})}}
       catch(e){cut=true;why='drop'}                                 // connection dropped mid-answer: keep what arrived
       const cm=a.t.match(/\u0000CUT(?::(\w+))?/);
       if(cm){a.t=a.t.slice(0,cm.index);cut=true;why=cm[1]||'cut'}
+      /* the stream ended without a single word and without a reason (older server, a proxy cutting it):
+         ask once more without streaming before showing an error */
+      if(!a.t.trim()&&!cm&&!cut){
+        try{const r2=await call(false),j=await r2.json().catch(()=>({}));
+          if(j.ok&&j.text)a.t=j.text;else{err=j.error&&j.error!=='net'?j.error:'fail';why=j.error?j.error:'empty';CO.why=j.why||''}}
+        catch(e){err='net';why='fetch'}
+      }
       /* nothing arrived: provider overloaded → "busy", anything else → a retry message with a support code */
-      if(!a.t.trim())err=/overload|rate_limit/.test(why)?'busy':'fail';
+      else if(!a.t.trim())err=/overload|rate_limit/.test(why)?'busy':'fail';
     }
   }catch(e){err=why==='fetch'?'net':'fail';why=why||'client'}
   if(!err&&cut)a.t=a.t.replace(/\s+$/,'')+'…\n\n*'+t('co_cut')+'*';
@@ -3541,7 +3619,7 @@ async function coAsk(q,deep){
   /* our side (missing key, balance…): calm words + a support code, never the provider's details */
   const AI_CODE={missing:'AI-101',key:'AI-102',denied:'AI-103',credit:'AI-104',model:'AI-105'};
   /* answer could not be fetched: a code that tells support where it broke (no internet / dropped / provider error / our server) */
-  const AI_FAIL={fetch:'AI-201',drop:'AI-202',cut:'AI-203',provider:'AI-204',server_error:'AI-205',client:'AI-206',gateway:'AI-207'};
+  const AI_FAIL={fetch:'AI-201',drop:'AI-202',cut:'AI-203',provider:'AI-204',server_error:'AI-205',client:'AI-206',gateway:'AI-207',empty:'AI-208'};
   if(err&&!CO_ERR[err]&&err!=='net'&&err!=='fail'){why=err;err='fail'}
   const code=err==='config'?(AI_CODE[CO.why]||'AI-100'):(err==='net'||err==='fail')?(AI_FAIL[why]||'AI-200'):'';
   if(err){CO.msgs.pop();CO.msgs.push({r:'e',t:t(CO_ERR[err]||'co_err',{n:CO.limit||''})+(code?' '+t('sy_e_code')+': '+code:'')})}
@@ -3770,7 +3848,7 @@ tr: {
   home_aria: 'TradeLog ana sayfa', nav_aria: 'Ana menü', mnav_aria: 'Mobil menü', lang_aria: 'Dil',
   nav_login: 'Giriş yap', nav_feat: 'Özellikler', nav_how: 'Nasıl çalışır', nav_price: 'Fiyatlar', nav_faq: 'SSS', nav_open: 'Panele git',
   cta_start: 'Ücretsiz başla', tg_open: 'Telegram\'da aç', menu_open: 'Menüyü aç', menu_close: 'Menüyü kapat',
-  hero_new: 'YENİ', hero_eyebrow: 'TradeLog AI ve MT4/MT5 otomatik senkron yayında', nav_ai: 'TradeLog AI', trust4: 'Verilerin satılmaz',
+  hero_new: 'YENİ', hero_eyebrow: 'TradeLog Pro yayında: otomatik senkron ve AI koç, 7 gün ücretsiz', nav_ai: 'TradeLog AI', trust4: 'Verilerin satılmaz',
   ai_k: 'TradeLog AI', ai_h: 'Rakamlarını bilen bir trading koçu.', ai_p: 'TradeLog AI işlemlerini, setup\'larını, hatalarını ve günlüğünü analiz eder. Neyin işe yaradığını rakamlarla gösterir ve bir sonraki adımını netleştirir.',
   ailist: [['chart', 'Rakamlarla konuşur', 'Genel geçer tavsiye yok: senin setup\'ların, günlerin ve hataların, R bazında.'], ['shield', 'Sinyal vermez', 'Al-sat önerisi ya da fiyat tahmini yapmaz; süreç ve disiplin üzerine çalışır.'], ['pen', 'Uygulamayı tanır', 'Playbook\'una neyi ekleyeceğini, hangi kuralı koyacağını ve haftanı nasıl değerlendireceğini söyler.']],
   ai_sub: '48 işlem · örnek veri', ai_q: 'Bu haftamı değerlendir', ai_ph: 'TradeLog AI\'ye sor…',
@@ -3790,13 +3868,13 @@ tr: {
   wk_h: 'Haftalık özet ve paylaşım', wk_p: 'Her hafta net sonucun ve gelecek hafta için 1–3 somut öneri. İşlemlerini story ve gönderi kartı olarak paylaş.', wk_btn: 'Uygulamada gör', hero_how: 'Nasıl çalışır',
   price_h: 'Basit ve şeffaf fiyatlandırma.', price_p: 'Ücretsiz planda işlem sınırı yok; bütün raporlar ve analizler dahil. Otomatik senkron ve TradeLog AI için Pro.',
   plan_free: 'Ücretsiz', plan_free_d: 'Günlük tutmaya başlamak için ihtiyacın olan her şey.', plan_forever: 'süresiz',
-  feat_free: ['Sınırsız işlem: elle ya da MT4/MT5 raporuyla', 'Tüm raporlar, TradeLog puanı ve içgörüler', 'Haftalık özet ve öneriler', 'Takvim, günlük ve playbook', 'Prop firm kuralları ve uyarıları', 'İşlem başına ekran görüntüsü', '2 aktif hesap (Pro yayına girene kadar sınırsız)', 'Tüm cihazlarda senkron', 'Paylaşım linki, story ve gönderi kartı'],
-  soon: 'Yakında', plan_pro_d: 'İşlemlerinin otomatik gelmesini isteyen ve birden çok hesap yöneten trader\'lar için.', pro_btn: 'Bekleme listesine katıl',
+  feat_free: ['Sınırsız işlem: elle ya da MT4/MT5 raporuyla', 'Tüm raporlar, TradeLog puanı ve içgörüler', 'Haftalık özet ve öneriler', 'Takvim, günlük ve playbook', 'Prop firm kuralları ve uyarıları', 'İşlem başına ekran görüntüsü', '2 aktif hesap', 'Tüm cihazlarda senkron', 'Paylaşım linki, story ve gönderi kartı'],
+  soon: 'Yakında', plan_pro_d: 'İşlemlerinin otomatik gelmesini isteyen ve birden çok hesap yöneten trader\'lar için.', pro_btn: '7 gün ücretsiz dene', pro_badge: '7 gün ücretsiz',
   pro_fine: '7 gün ücretsiz · Deneme boyunca ücret alınmaz · İstediğin an iptal',
   per_mo: '/ ay', price_yr: 'ya da yıllık <b>$159</b> (ayda $13,25 · %30 indirim)', price_note: 'Fiyatlar ABD doları cinsindendir ve vergiler (KDV) dahildir; ödeme sırasında ek ücret çıkmaz.',
   feat_plus: 'Ücretsiz plandaki her şey, ek olarak:',
   feat_pro: ['MT4/MT5 otomatik senkron (3 hesap), geçmiş işlemler dahil', '20 aktif hesap', 'TradeLog AI: verilerini analiz eden kişisel koç', 'İşlem başına 10 ekran görüntüsü', 'Mentoruna salt okunur erişim'],
-  cmp_show: 'Tüm özellikleri karşılaştır', cmp_hide: 'Karşılaştırmayı gizle', cmp_feature: 'Özellik', cmp_pro: 'Pro', yes_a: 'Var', no_a: 'Yok', cmp_note: 'Pro yayına girene kadar ücretsiz planda hesap ve ekran görüntüsü sınırı uygulanmaz; mentor erişimi herkese açıktır.',
+  cmp_show: 'Tüm özellikleri karşılaştır', cmp_hide: 'Karşılaştırmayı gizle', cmp_feature: 'Özellik', cmp_pro: 'Pro', yes_a: 'Var', no_a: 'Yok', cmp_note: 'Pro\'yu 7 gün ücretsiz dene; deneme bitmeden iptal edersen hiç ücret ödemezsin.',
   groups: [
     ['Kayıt ve içe aktarma', [['İşlem sayısı', 'Sınırsız', 'Sınırsız'], ['Elle kayıt ve MT4/MT5 raporu yükleme', 'y', 'y'], ['Otomatik MT4/MT5 senkronu', 'n', '3 hesap'], ['Ekran görüntüsü (işlem başına)', '1', '10']]],
     ['Analiz', [['Tüm raporlar ve TradeLog puanı', 'y', 'y'], ['Haftalık özet ve öneriler', 'y', 'y'], ['Takvim, günlük ve playbook', 'y', 'y'], ['AI koç', 'n', 'y']]],
@@ -3810,7 +3888,7 @@ tr: {
     ['Verilerim ne kadar güvende?', 'Verilerin Almanya\'da (Frankfurt) barındırılır, aktarımda ve depolamada şifrelenir ve yalnızca sen görebilirsin. Verilerini satmayız, reklam için kullanmayız. Ayarlar → Profil\'den tüm verilerini indirebilir ya da hesabını kalıcı olarak silebilirsin.'],
     ['Hangi platformlar destekleniyor?', 'MetaTrader 4 ve 5: otomatik senkron (Pro) ya da HTML/Excel raporu. Match-Trader ve cTrader sırada. Diğer platformlardaki işlemlerini elle kaydedebilirsin.'],
     ['Ücretsiz plan bir süre sonra bitiyor mu?', 'Hayır. Ücretsiz plan süresizdir ve ödeme bilgisi istemez.'],
-    ['Pro ne kadar, ne zaman açılıyor?', 'Pro aylık 19 $ ya da yıllık 159 $ (%30 indirim). Otomatik senkron ve TradeLog AI hazır; ödeme altyapısını tamamlıyoruz. Yayına girdiğinde 7 gün ücretsiz deneyebileceksin ve ilk ödemeden sonraki 14 gün içinde koşulsuz iade alabileceksin.'],
+    ['Pro ne kadar?', 'Pro aylık 19 $ ya da yıllık 159 $ (ayda 13,25 $, %30 indirim); fiyatlara vergiler dahildir. 7 gün ücretsiz deneyebilirsin ve ilk ödemeden sonraki 14 gün içinde koşulsuz iade alabilirsin.'],
     ['Ücretsiz denemede kart neden isteniyor? Ücret alınır mı?', 'Kart bilgisi, deneme bitince aboneliğin kesintisiz devam edebilmesi için istenir. 7 günlük deneme boyunca kartından hiçbir ücret alınmaz. Deneme bitmeden önce e-postayla hatırlatırız; o tarihten önce Ayarlar → Aboneliği iptal et\'ten iptal edersen hiç ödeme yapmazsın. İptal etmezsen deneme bitiminde seçtiğin plan başlar.'],
     ['Pro\'yu istediğim zaman iptal edebilir miyim?', 'Evet. Aboneliğini istediğin an iptal edebilirsin; ödediğin dönemin sonuna kadar Pro açık kalır, sonra ücretsiz plana geçersin. Verilerin silinmez.'],
     ['Telefondan kullanabilir miyim?', 'Evet. TradeLog tarayıcıda çalışır ve telefon ekranı için tasarlandı. Ana ekrana ekleyerek uygulama gibi kullanabilirsin.']],
@@ -3924,7 +4002,7 @@ en: {
   home_aria: 'TradeLog home', nav_aria: 'Main menu', mnav_aria: 'Mobile menu', lang_aria: 'Language',
   nav_login: 'Log in', nav_feat: 'Features', nav_how: 'How it works', nav_price: 'Pricing', nav_faq: 'FAQ', nav_open: 'Open app',
   cta_start: 'Start free', tg_open: 'Open in Telegram', menu_open: 'Open menu', menu_close: 'Close menu',
-  hero_new: 'NEW', hero_eyebrow: 'TradeLog AI and MT4/MT5 auto-sync are live', nav_ai: 'TradeLog AI', trust4: 'Your data is never sold',
+  hero_new: 'NEW', hero_eyebrow: 'TradeLog Pro is live: auto-sync and an AI coach, free for 7 days', nav_ai: 'TradeLog AI', trust4: 'Your data is never sold',
   ai_k: 'TradeLog AI', ai_h: 'A trading coach that knows your numbers.', ai_p: 'TradeLog AI analyses your trades, setups, mistakes and journal. It shows what works with hard numbers and makes your next step clear.',
   ailist: [['chart', 'Speaks in numbers', 'No generic advice: your setups, your days and your mistakes, measured in R.'], ['shield', 'No signals', 'No buy/sell calls or price forecasts. It works on your process and discipline.'], ['pen', 'Knows the app', 'Tells you what to add to your playbook, which rule to set and how to review your week.']],
   ai_sub: '48 trades · sample data', ai_q: 'Review my week', ai_ph: 'Ask TradeLog AI…',
@@ -3944,13 +4022,13 @@ en: {
   wk_h: 'Weekly recap and sharing', wk_p: 'Your net result every week, with 1–3 concrete suggestions for the next. Share any trade as a story or post card.', wk_btn: 'See it in the app', hero_how: 'How it works',
   price_h: 'Simple, transparent pricing.', price_p: 'The free plan has no trade limit and includes every report and analysis. Upgrade to Pro for auto-sync and TradeLog AI.',
   plan_free: 'Free', plan_free_d: 'Everything you need to start journaling.', plan_forever: 'forever',
-  feat_free: ['Unlimited trades, logged by hand or from MT4/MT5 reports', 'All reports, TradeLog score and insights', 'Weekly recap with suggestions', 'Calendar, journal and playbooks', 'Prop firm rules and alerts', 'Screenshots on every trade', '2 active accounts (unlimited until Pro launches)', 'Sync across all your devices', 'Share links, story and post cards'],
-  soon: 'Coming soon', plan_pro_d: 'For traders who want their trades synced automatically and run several accounts.', pro_btn: 'Join the waitlist',
+  feat_free: ['Unlimited trades, logged by hand or from MT4/MT5 reports', 'All reports, TradeLog score and insights', 'Weekly recap with suggestions', 'Calendar, journal and playbooks', 'Prop firm rules and alerts', 'Screenshots on every trade', '2 active accounts', 'Sync across all your devices', 'Share links, story and post cards'],
+  soon: 'Coming soon', plan_pro_d: 'For traders who want their trades synced automatically and run several accounts.', pro_btn: 'Start 7-day free trial', pro_badge: '7-day free trial',
   pro_fine: '7-day free trial · No charge during the trial · Cancel anytime',
   per_mo: '/ month', price_yr: 'or <b>$159</b> per year ($13.25/month · save 30%)', price_note: 'Prices are in US dollars and include tax (VAT); nothing extra is added at checkout.',
   feat_plus: 'Everything in Free, plus:',
   feat_pro: ['MT4/MT5 auto-sync (3 accounts), including trade history', '20 active accounts', 'TradeLog AI: a personal coach that analyses your data', '10 screenshots per trade', 'Read-only access for your mentor'],
-  cmp_show: 'Compare all features', cmp_hide: 'Hide comparison', cmp_feature: 'Feature', cmp_pro: 'Pro', yes_a: 'Included', no_a: 'Not included', cmp_note: 'Until Pro launches, the free plan has no account or screenshot limits, and mentor access is open to everyone.',
+  cmp_show: 'Compare all features', cmp_hide: 'Hide comparison', cmp_feature: 'Feature', cmp_pro: 'Pro', yes_a: 'Included', no_a: 'Not included', cmp_note: 'Try Pro free for 7 days; cancel before the trial ends and you pay nothing.',
   groups: [
     ['Logging and import', [['Trades', 'Unlimited', 'Unlimited'], ['Manual logging and MT4/MT5 report upload', 'y', 'y'], ['Automatic MT4/MT5 sync', 'n', '3 accounts'], ['Screenshots per trade', '1', '10']]],
     ['Analytics', [['All reports and TradeLog score', 'y', 'y'], ['Weekly recap and suggestions', 'y', 'y'], ['Calendar, journal and playbooks', 'y', 'y'], ['AI coach', 'n', 'y']]],
@@ -3964,7 +4042,7 @@ en: {
     ['How secure is my data?', 'Your data is hosted in Germany (Frankfurt), encrypted in transit and at rest, and visible only to you. We never sell it or use it for advertising. From Settings → Profile you can export everything or permanently delete your account.'],
     ['Which platforms are supported?', 'MetaTrader 4 and 5: auto-sync (Pro) or HTML/Excel reports. Match-Trader and cTrader are next. Trades from any other platform can be logged by hand.'],
     ['Does the free plan expire?', 'No. The free plan has no time limit and requires no payment details.'],
-    ['How much is Pro, and when does it launch?', 'Pro is $19 per month or $159 per year (save 30%). Auto-sync and TradeLog AI are ready; we are finishing the payment system. When Pro launches you can try it free for 7 days and get a full refund within 14 days of your first payment.'],
+    ['How much is Pro?', 'Pro is $19 per month or $159 per year ($13.25/month, save 30%), tax included. You can try it free for 7 days and get a full refund within 14 days of your first payment.'],
     ['Why is a card needed for the free trial? Will I be charged?', 'The card lets your subscription continue without interruption when the trial ends. You are not charged anything during the 7-day trial. We email you a reminder before it ends; cancel from Settings → Cancel subscription before then and you pay nothing. If you don\'t, your chosen plan starts when the trial ends.'],
     ['Can I cancel Pro any time?', 'Yes. Cancel whenever you like; Pro stays active until the end of the period you paid for, then you move to the free plan. Your data is never deleted.'],
     ['Can I use it on my phone?', 'Yes. TradeLog runs in your browser and is designed for phone screens. Add it to your home screen to use it like an app.']],
