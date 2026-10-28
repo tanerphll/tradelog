@@ -1151,7 +1151,6 @@ function umItems(){
   }
   if(typeof sbLegal==='function'&&!TG)it.push(['help',t('s_help_c'),"sbLegal('help')"]);
   if(typeof supDlg==='function'&&!CS&&!RO)it.push(['chat',t('sup_btn'),'supDlg()']);
-  if(!TG&&window.showSite)it.push(['site',t('um_site'),'showSite()']);
   if(on)it.push(['out',t('sb_out'),'sbLogout()','dan']);
   return it;
 }
@@ -1171,7 +1170,7 @@ function umToggle(){
   const b=$('uBtn');if(!b)return;const r=b.getBoundingClientRect();
   const m=document.createElement('div');m.id='uMenu';m.className='umenu';m.setAttribute('role','menu');m.setAttribute('aria-label',t('um_aria'));
   m.innerHTML=umHead()+`<div class="umsep"></div><button role="menuitem" onclick="umClose();go('set')">${umIc('set')}<span>${t('v_set')}</span></button>`+
-    umItems().map(([k,l,f,c],i,a)=>`${k==='site'||(k==='out'&&!a.some(x=>x[0]==='site'))?'<div class="umsep"></div>':''}<button role="menuitem"${c?` class="${c}"`:''} onclick="umClose();${f}">${umIc(k)}<span>${l}</span></button>`).join('');
+    umItems().map(([k,l,f,c])=>`${k==='out'?'<div class="umsep"></div>':''}<button role="menuitem"${c?` class="${c}"`:''} onclick="umClose();${f}">${umIc(k)}<span>${l}</span></button>`).join('');
   (document.getElementById('appRoot')||document.body).appendChild(m);
   const w=Math.max(r.width,248);m.style.width=w+'px';m.style.left=Math.max(8,Math.min(r.left,innerWidth-w-8))+'px';m.style.bottom=(innerHeight-r.top+8)+'px';
   b.setAttribute('aria-expanded','true');
