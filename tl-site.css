@@ -289,6 +289,8 @@ html{scroll-behavior:smooth;-webkit-text-size-adjust:100%}
 .site .price .a.soon-a{font-size:34px;color:var(--mu)}
 .site .plan .yr{color:var(--mu);font-size:14px;margin-top:-14px}
 .site .plan .yr b{color:var(--ink2);font-weight:600}
+.site .plan .ppp{display:inline-flex;align-self:flex-start;align-items:center;gap:6px;margin-top:-6px;padding:4px 10px;border-radius:999px;font-size:12.5px;font-weight:600;color:var(--lime);background:rgba(148,197,204,.1);border:1px solid rgba(148,197,204,.25)}
+.site .plan .ppp[hidden]{display:none}
 .site .pnote{text-align:center;color:var(--mu);font-size:13px;margin-top:18px}
 .site .plan .btn:disabled{opacity:.6;cursor:not-allowed;transform:none;box-shadow:none}
 .site .pagev{padding-block:48px 24px}
