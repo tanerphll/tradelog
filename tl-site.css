@@ -512,3 +512,13 @@ html{scroll-behavior:smooth;-webkit-text-size-adjust:100%}
 .site .totop[hidden]{display:none}
 @keyframes ttin{from{opacity:0;transform:translateY(8px)}}
 @media (max-width:560px){.site .totop{right:14px;bottom:calc(14px + env(safe-area-inset-bottom,0px));width:44px;height:44px}}
+.site .tblw{overflow-x:auto;margin:18px 0 10px;border:1px solid var(--line);border-radius:14px;-webkit-overflow-scrolling:touch}
+.site .rtbl{width:100%;border-collapse:collapse;font-size:14.5px;min-width:640px}
+.site .rtbl th,.site .rtbl td{padding:10px 12px;text-align:left;border-bottom:1px solid var(--line);color:var(--mu);vertical-align:top}
+.site .rtbl thead th,.site .rtbl tbody th{white-space:nowrap}
+.site .rtbl thead th{color:var(--tx);font-weight:600;font-size:13px;text-transform:uppercase;letter-spacing:.04em;background:rgba(255,255,255,.03)}
+.site .rtbl tbody th{color:var(--tx);font-weight:600}
+.site .rtbl tbody tr:last-child th,.site .rtbl tbody tr:last-child td{border-bottom:0}
+.site .rtbl td{font-variant-numeric:tabular-nums}
+.site .doc .tnote{font-size:14px}
+.site .rtbl td:nth-child(2){white-space:nowrap}
