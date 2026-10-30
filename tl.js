@@ -54,7 +54,7 @@ ar_trl_s:'trailing',ar_md_s:'min. {v} işlem günü',ar_pd_s:'{v} kârlı gün',
 ph_1:'Faz 1',ph_2:'Faz 2',ph_f:'Funded',wel_rules_tpl:'Kurallar seçtiğin firmanın şablonundan geldi. İstersen değiştirebilirsin.',
 ar_left:'{x} kaldı / {l}',ar_prog:'{x} / {l}',ar_hit:'Limit aşıldı',ar_done:'Hedefe ulaşıldı',
 al_dll_hit:'{k}: günlük kayıp limiti ({l}) aşıldı. Bugün yeni işlem açma.',al_dll_near:'{k}: günlük kayıp limitine {x} kaldı.',al_mll_hit:'{k}: toplam kayıp limiti aşıldı.',al_mll_near:'{k}: toplam kayıp limitine {x} kaldı.',
-im_flow_h:'Raporu ne sıklıkla yüklemeliyim?',im_drop:'Raporunu buraya sürükle ya da seç',im_drop_s:'MT4/MT5 raporu: HTML, Excel (XLSX) ya da CSV',im_how:'Raporu nasıl alırım?',im_phone_h:'Telefonda rapor alabilir miyim?',im_flow:'İstediğin sıklıkla, örneğin haftada bir. Daha önce eklenen işlemler atlanır. İşlemden hemen sonra telefondan kısa bir kayıt girdiysen, rapordaki aynı işlemle eşleşir: senin notların, setup ve hataların korunur; lot, fiyat, net kâr ve R rapordan güncellenir. Para yatırma ve çekmeler de rapordan alınır.',
+im_flow_h:'Raporu ne sıklıkla yüklemeliyim?',im_drop:'Raporunu buraya sürükle ya da seç',im_drop_s:'MT4/MT5 raporu, cTrader, Match-Trader, DXtrade: HTML, Excel (XLSX) ya da CSV',im_how:'Raporu nasıl alırım?',im_phone_h:'Telefonda rapor alabilir miyim?',im_flow:'İstediğin sıklıkla, örneğin haftada bir. Daha önce eklenen işlemler atlanır. İşlemden hemen sonra telefondan kısa bir kayıt girdiysen, rapordaki aynı işlemle eşleşir: senin notların, setup ve hataların korunur; lot, fiyat, net kâr ve R rapordan güncellenir. Para yatırma ve çekmeler de rapordan alınır.',
 im_add:'{n} yeni işlem eklenecek.',im_match:'{n} işlem, elle girdiğin kayıtlarla eşleşti. Notların korunacak; rakamlar rapordan güncellenecek.',
 im_ops:'Para hareketleri: {d} yatırma ({da}), {w} çekme ({wa}).',im_bal_ok:'Hesaplanan bakiye rapordaki son bakiyeyle eşleşiyor ({b}).',
 im_bal_diff:'Rapordaki son bakiye {b}, hesaplanan {c}. Rapor hesabın tüm geçmişini kapsamıyorsa başlangıç bakiyesini düzelt.',im_bal_set:'Başlangıç bakiyesi rapordaki ilk para yatırmadan alınacak: {a} → {b}.',im_nothing:'Bu rapordaki her şey zaten ekli.',im_tz_auto:'Saat farkı, elle girdiğin işlemlere göre otomatik seçildi ({h} saat). Bir sonraki raporda bu hesap için hatırlanacak.',
@@ -63,13 +63,15 @@ acc_now:'Güncel bakiye',im_linked:'Bu rapor {k} hesabına ait (#{n}); işlemler
 tx_est:'≈ PnL girilmemiş işlemlerin sonucu, R ve hesabın risk ayarından tahmin edildi.',tx_add:'Para hareketi ekle',tx_dep1:'Yatırma',tx_wd1:'Çekme',tx_amt:'Tutar',tx_note:'Not',tx_note_ph:'Örn. prop firm ödemesi',
 tx_addbtn:'Ekle',tx_list:'Geçmiş',tx_empty:'Henüz para hareketi yok.',tx_rep:'rapordan',tx_req:'Tutar ve tarih gerekli.',tx_del_c:'Bu para hareketi silinsin mi?',
 cancel:'Vazgeç',im_btn:'İçe aktar',m_broker:'MT4/MT5 raporu içe aktar',f_rev:'Tüm işlemler',f_rev_p:'Değerlendirilmemiş',
-im_title:'MT4/MT5 raporu yükle',im_intro:'MetaTrader raporundaki işlemler sembol, yön, saat, lot, fiyat ve kâr bilgileriyle eklenir. Stop loss varsa R otomatik hesaplanır; setup ve psikolojiyi sonra hızlıca eklersin.',
+im_title:'İşlem geçmişini yükle',im_intro:'MetaTrader raporundaki işlemler sembol, yön, saat, lot, fiyat ve kâr bilgileriyle eklenir. Stop loss varsa R otomatik hesaplanır; setup ve psikolojiyi sonra hızlıca eklersin.',
 im_mt5:'MetaTrader 5 (bilgisayar)',im_mt5_s:'Alttaki Araç Kutusu\'nda Geçmiş sekmesini aç (Ctrl+T)|Listeye sağ tıkla, Pozisyonlar görünümünü ve dönemi seç (ör. Son 3 ay)|Tekrar sağ tıkla: Rapor → HTML veya Open XML (Excel)|Kaydedilen dosyayı buraya yükle',
-im_mt4:'MetaTrader 4 (bilgisayar)',im_mt4_s:'Terminal penceresinde Hesap Geçmişi sekmesini aç|Sağ tıkla, dönemi seç (ör. Tüm geçmiş)|Sağ tıkla: Raporu Kaydet veya Detaylı Raporu Kaydet|Kaydedilen .htm dosyasını buraya yükle',
+im_mt4:'MetaTrader 4 (bilgisayar)',im_plat:'Platform',im_ct_s:'cTrader masaüstü ya da web uygulamasında alttaki History (Geçmiş) sekmesini aç|Sağ üstteki Statement (Ekstre) düğmesine bas, dönemi seç ve Excel olarak kaydet|Kaydedilen dosyayı buraya yükle. cTrader dili İngilizce değilse sütunları bir kez eşleştirmen istenebilir',im_mtr_s:'Match-Trader\'da Closed Positions (Kapanan pozisyonlar) sekmesini aç|Download\'a bas, CSV\'yi seç, dönemi 366 gün yap ve yalnızca Closed Positions işaretli kalsın|Export ile indirdiğin dosyayı buraya yükle',im_dx_s:'DXtrade\'de Trade History (İşlem geçmişi) panelini aç ve dönemi seç|Panel menüsünden dışa aktar (Export/Download) ile CSV ya da Excel olarak indir; bu seçenek yoksa prop firmanın ya da brokerının panelinden işlem geçmişini indir|Dosyayı buraya yükle; sütunları bir kez eşleştirmen istenebilir',im_tl_s:'TradeLocker, kendi destek sayfasına göre işlem geçmişini dosya olarak vermiyor|Prop firmanın ya da brokerının panelinden işlem geçmişini CSV/Excel olarak indirebiliyorsan onu buraya yükle|Yoksa işlemlerini elle ekleyebilirsin',im_map_t:'Sütunları eşleştir',im_map_d:'Bu dosyanın sütunlarını kendiliğinden tanıyamadık. Her bilginin hangi sütunda olduğunu seç; aynı sütunlu dosyalarda bir daha sormayız. En az sembol, yön, bir tarih, bir fiyat ve kâr/zarar gerekli.',im_map_more:'Diğer sütunlar (isteğe bağlı)',im_map_go:'Devam',im_map_need:'Sembol, yön, en az bir tarih, bir fiyat ve kâr/zarar sütununu seç.',im_map_zero:'Bu eşleştirmeyle okunabilen işlem çıkmadı. Tarih, yön (Buy/Sell) ve fiyat sütunlarını kontrol et.',im_f_none:'— yok —',im_f_sym:'Sembol',im_f_dir:'Yön (Buy/Sell)',im_f_t1:'Açılış zamanı',im_f_t2:'Kapanış zamanı',im_f_entry:'Giriş fiyatı',im_f_exit:'Çıkış fiyatı',im_f_net:'Net kâr/zarar',im_f_gross:'Brüt kâr/zarar',im_f_vol:'Lot / miktar',im_f_comm:'Komisyon',im_f_swap:'Swap',im_f_sl:'Stop loss',im_f_tp:'Take profit',im_f_id:'İşlem / pozisyon no',
+au_news:'TradeLog haberleri, yeni özellikler ve kampanyalar e-postayla gelsin (istediğin zaman kapatabilirsin).',mail_h:'E-posta tercihleri',mail_tips:'Kullanım ipuçları ve hatırlatmalar',mail_tips_d:'Başlangıç rehberi ve Pro denemesi bitmeden hatırlatma gibi hesabınla ilgili kısa e-postalar.',mail_news:'Haberler ve kampanyalar',mail_news_d:'Yeni özellikler, rehberler ve indirimler. Yalnızca iznin varsa gönderilir.',mail_note:'Şifre sıfırlama ve ödeme makbuzu gibi zorunlu e-postalar bu ayarlardan etkilenmez.',mail_err:'Kaydedilemedi. İnternet bağlantını kontrol edip tekrar dene.',
+im_mt4_s:'Terminal penceresinde Hesap Geçmişi sekmesini aç|Sağ tıkla, dönemi seç (ör. Tüm geçmiş)|Sağ tıkla: Raporu Kaydet veya Detaylı Raporu Kaydet|Kaydedilen .htm dosyasını buraya yükle',
 im_phone:'Telefondaki MetaTrader uygulamaları işlem listesini dosya olarak veremiyor; ürettikleri PDF sadece özet. Raporu bilgisayardaki MT4/MT5 ile, aynı hesapla giriş yaparak al. Prop firm panelin işlem geçmişini CSV/Excel olarak veriyorsa onu da deneyebilirsin.',
-im_formats:'Desteklenen: MT5 HTML ve Excel (.xlsx), MT4 HTML, TradeLog CSV ve yedek. Türkçe ve İngilizce raporlar okunur. Aynı raporu tekrar yüklersen eklenmiş işlemler atlanır.',
-im_pick:'Dosya seç',im_none:'Bu dosyada içe aktarılacak kapanmış işlem bulunamadı. MetaTrader\'ın Geçmiş sekmesinden alınan raporu yüklediğinden emin ol (Raporlar menüsündeki özet rapor işlem listesi içermez).',
-im_err:'Dosya okunamadı. MT4/MT5 HTML/Excel raporu ya da TradeLog CSV/yedek dosyası yükle.',im_xlsx_err:'Excel dosyasını okumak için gereken bileşen yüklenemedi. İnternet bağlantını kontrol et ya da raporu HTML olarak kaydet.',
+im_formats:'Desteklenen: MT5 HTML ve Excel (.xlsx), MT4 HTML, cTrader ekstresi, Match-Trader ve DXtrade CSV/Excel dışa aktarımları, kapanmış işlem listesi olan diğer CSV/Excel dosyaları, TradeLog CSV ve yedek. Sütunlarını tanıyamadığımız bir dosyada sütunları bir kez eşleştirirsin, sonra hatırlarız. Aynı dosyayı tekrar yüklersen eklenmiş işlemler atlanır.',
+im_pick:'Dosya seç',im_none:'Bu dosyada içe aktarılacak kapanmış işlem bulunamadı. Platformunun işlem geçmişi (kapanmış pozisyonlar) dosyasını yüklediğinden emin ol; özet raporlar işlem listesi içermez.',
+im_err:'Dosya okunamadı. MT4/MT5 raporu, platformunun işlem geçmişi (CSV/Excel) ya da TradeLog CSV/yedek dosyası yükle.',im_xlsx_err:'Excel dosyasını okumak için gereken bileşen yüklenemedi. İnternet bağlantını kontrol et ya da raporu HTML olarak kaydet.',
 im_prev:'İçe aktarma önizlemesi',im_range:'Tarih aralığı',im_net:'Net sonuç',
 im_r:'{a} işlemde R, stop loss\'tan hesaplanacak. {b} işlemde stop yok; R hesabın risk ayarından tahmin edilecek (≈ ile gösterilir).',
 im_dup:'{n} işlem daha önce eklenmiş, atlanacak.',im_acc:'Hangi hesaba eklensin?',im_newacc:'Yeni hesap oluştur: {n}',
@@ -239,7 +241,7 @@ ar_trl_s:'trailing',ar_md_s:'min. {v} trading days',ar_pd_s:'{v} profitable days
 ph_1:'Phase 1',ph_2:'Phase 2',ph_f:'Funded',wel_rules_tpl:'Rules come from your firm\'s template. You can still change them.',
 ar_left:'{x} left / {l}',ar_prog:'{x} / {l}',ar_hit:'Limit breached',ar_done:'Target reached',
 al_dll_hit:'{k}: daily loss limit ({l}) breached. Don\'t open new trades today.',al_dll_near:'{k}: {x} left to the daily loss limit.',al_mll_hit:'{k}: total loss limit breached.',al_mll_near:'{k}: {x} left to the total loss limit.',
-im_flow_h:'How often should I upload a report?',im_drop:'Drag your report here or choose it',im_drop_s:'MT4/MT5 report: HTML, Excel (XLSX) or CSV',im_how:'How do I get the report?',im_phone_h:'Can I get the report on my phone?',im_flow:'As often as you like, for example weekly. Trades already added are skipped. If you logged a trade on your phone right after closing it, it is matched with the same trade in the report: your notes, setup and mistakes are kept; lots, prices, net profit and R are updated from the report. Deposits and withdrawals are taken from the report too.',
+im_flow_h:'How often should I upload a report?',im_drop:'Drag your report here or choose it',im_drop_s:'MT4/MT5 report, cTrader, Match-Trader, DXtrade: HTML, Excel (XLSX) or CSV',im_how:'How do I get the report?',im_phone_h:'Can I get the report on my phone?',im_flow:'As often as you like, for example weekly. Trades already added are skipped. If you logged a trade on your phone right after closing it, it is matched with the same trade in the report: your notes, setup and mistakes are kept; lots, prices, net profit and R are updated from the report. Deposits and withdrawals are taken from the report too.',
 im_add:'{n} new {n|trade|trades} will be added.',im_match:'{n} {n|trade|trades} matched trades you logged manually. Your notes are kept; numbers are updated from the report.',
 im_ops:'Cash movements: {d} {d|deposit|deposits} ({da}), {w} {w|withdrawal|withdrawals} ({wa}).',im_bal_ok:'The calculated balance matches the report\'s final balance ({b}).',
 im_bal_diff:'The report\'s final balance is {b}, calculated {c}. If the report doesn\'t cover the full account history, correct the starting balance.',im_bal_set:'Starting balance will be taken from the report\'s opening deposit: {a} → {b}.',im_nothing:'Everything in this report is already added.',im_tz_auto:'The time offset was picked automatically from your manually logged trades ({h} h). It will be remembered for this account.',
@@ -248,13 +250,15 @@ acc_now:'Current balance',im_linked:'This report belongs to {k} (#{n}); trades w
 tx_est:'≈ Results of trades without PnL were estimated from R and the account risk setting.',tx_add:'Add cash movement',tx_dep1:'Deposit',tx_wd1:'Withdrawal',tx_amt:'Amount',tx_note:'Note',tx_note_ph:'e.g. prop firm payout',
 tx_addbtn:'Add',tx_list:'History',tx_empty:'No cash movements yet.',tx_rep:'from report',tx_req:'Amount and date are required.',tx_del_c:'Delete this cash movement?',
 cancel:'Cancel',im_btn:'Import',m_broker:'Import MT4/MT5 report',f_rev:'All trades',f_rev_p:'Not reviewed',
-im_title:'Upload MT4/MT5 report',im_intro:'Trades from your MetaTrader report are added with symbol, side, time, lots, prices and profit. If a stop loss is set, R is calculated automatically; you add setup and psychology quickly afterwards.',
+im_title:'Upload your trade history',im_intro:'Trades from your MetaTrader report are added with symbol, side, time, lots, prices and profit. If a stop loss is set, R is calculated automatically; you add setup and psychology quickly afterwards.',
 im_mt5:'MetaTrader 5 (desktop)',im_mt5_s:'Open the History tab in the Toolbox (Ctrl+T)|Right-click the list, choose the Positions view and a period (e.g. Last 3 months)|Right-click again: Report → HTML or Open XML (Excel)|Upload the saved file here',
-im_mt4:'MetaTrader 4 (desktop)',im_mt4_s:'Open the Account History tab in the Terminal window|Right-click and choose a period (e.g. All history)|Right-click: Save as Report or Save as Detailed Report|Upload the saved .htm file here',
+im_mt4:'MetaTrader 4 (desktop)',im_plat:'Platform',im_ct_s:'In cTrader desktop or web, open the History tab at the bottom|Click Statement at the top right, choose the period and save it as Excel|Upload the saved file here. If cTrader isn\'t in English, you may be asked to match the columns once',im_mtr_s:'In Match-Trader, open the Closed Positions tab|Click Download, choose CSV, set the period to 366 days and keep only Closed Positions ticked|Upload the file you get from Export here',im_dx_s:'In DXtrade, open the Trade History panel and choose the period|Use Export/Download in the panel menu to save it as CSV or Excel; if there is no such option, download the trade history from your prop firm\'s or broker\'s dashboard|Upload the file here; you may be asked to match the columns once',im_tl_s:'According to TradeLocker\'s own help page, it doesn\'t export trade history as a file|If your prop firm\'s or broker\'s dashboard lets you download the history as CSV/Excel, upload that here|Otherwise you can add your trades manually',im_map_t:'Match the columns',im_map_d:'We couldn\'t recognise this file\'s columns on our own. Choose which column holds each piece of information; we won\'t ask again for files with the same columns. Symbol, side, a date, a price and profit/loss are required.',im_map_more:'Other columns (optional)',im_map_go:'Continue',im_map_need:'Choose the symbol, side, at least one date, one price and a profit/loss column.',im_map_zero:'No trades could be read with these columns. Check the date, side (Buy/Sell) and price columns.',im_f_none:'— none —',im_f_sym:'Symbol',im_f_dir:'Side (Buy/Sell)',im_f_t1:'Open time',im_f_t2:'Close time',im_f_entry:'Entry price',im_f_exit:'Exit price',im_f_net:'Net profit/loss',im_f_gross:'Gross profit/loss',im_f_vol:'Lots / quantity',im_f_comm:'Commission',im_f_swap:'Swap',im_f_sl:'Stop loss',im_f_tp:'Take profit',im_f_id:'Trade / position ID',
+au_news:'Send me TradeLog news, new features and offers by email (you can turn this off anytime).',mail_h:'Email preferences',mail_tips:'Usage tips and reminders',mail_tips_d:'Short emails about your account, like the getting-started guide and a reminder before your Pro trial ends.',mail_news:'News and offers',mail_news_d:'New features, guides and discounts. Sent only with your consent.',mail_note:'Required emails such as password resets and payment receipts aren\'t affected by these settings.',mail_err:'Couldn\'t save. Check your connection and try again.',
+im_mt4_s:'Open the Account History tab in the Terminal window|Right-click and choose a period (e.g. All history)|Right-click: Save as Report or Save as Detailed Report|Upload the saved .htm file here',
 im_phone:'MetaTrader phone apps cannot export the trade list as a file; their PDF is only a summary. Get the report from desktop MT4/MT5 by logging in with the same account. If your prop firm dashboard exports trade history as CSV/Excel, you can try that too.',
-im_formats:'Supported: MT5 HTML and Excel (.xlsx), MT4 HTML, TradeLog CSV and backups. English and Turkish reports work. Uploading the same report again skips trades already added.',
-im_pick:'Choose file',im_none:'No closed trades were found in this file. Make sure you uploaded the report from MetaTrader\'s History tab (the summary report from the Reports menu has no trade list).',
-im_err:'Could not read the file. Upload an MT4/MT5 HTML/Excel report or a TradeLog CSV/backup.',im_xlsx_err:'The component needed to read Excel files could not load. Check your connection or save the report as HTML.',
+im_formats:'Supported: MT5 HTML and Excel (.xlsx), MT4 HTML, cTrader statements, Match-Trader and DXtrade CSV/Excel exports, other CSV/Excel files with a list of closed trades, TradeLog CSV and backups. If we can\'t recognise a file\'s columns, you match them once and we remember. Uploading the same file again skips trades already added.',
+im_pick:'Choose file',im_none:'No closed trades were found in this file. Make sure you uploaded your platform\'s trade history (closed positions); summary reports have no trade list.',
+im_err:'Could not read the file. Upload an MT4/MT5 report, your platform\'s trade history (CSV/Excel) or a TradeLog CSV/backup.',im_xlsx_err:'The component needed to read Excel files could not load. Check your connection or save the report as HTML.',
 im_prev:'Import preview',im_range:'Date range',im_net:'Net result',
 im_r:'R will be calculated from the stop loss on {a} {a|trade|trades}. {b} {b|trade has|trades have} no stop; R is estimated from the account risk setting (shown with ≈).',
 im_dup:'{n} {n|trade was|trades were} already added and will be skipped.',im_acc:'Add to which account?',im_newacc:'Create new account: {n}',
@@ -934,6 +938,7 @@ function buildTrades(res,o){
 /* ---- import UI ---- */
 let IMP=null;
 var IMT='mt5';
+const IMPL=[['mt5','MetaTrader 5'],['mt4','MetaTrader 4'],['ct','cTrader'],['mtr','Match-Trader'],['dx','DXtrade'],['tl','TradeLocker']];
 /* a report dropped anywhere on the app opens the import (not over the trade form, which takes screenshots) */
 const impCan=()=>!formOpen()&&!document.querySelector('#authV:not([hidden])')&&!document.querySelector('#site:not([hidden])')&&!window.RO;
 document.addEventListener('dragover',e=>{if(e.dataTransfer&&[...e.dataTransfer.types].includes('Files')&&impCan())e.preventDefault()});
@@ -945,7 +950,7 @@ function openImport(){
   openDlg(t('im_title'),`<div style="padding-top:14px">
     <button type="button" class="imdrop" id="imDrop" onclick="$('fileAny').click()" ondragover="event.preventDefault();this.classList.add('over')" ondragleave="this.classList.remove('over')" ondrop="impDrop(event)">
       <span class="imdi">${ic('up')}</span><b>${t('im_drop')}</b><span>${t('im_drop_s')}</span></button>
-    <div class="imhow"><div class="imhh"><h4>${t('im_how')}</h4><div class="seg imseg" id="imSeg">${['mt5','mt4'].map(k=>`<button type="button" class="${IMT===k?'on':''}" onclick="IMT='${k}';$('imSeg').querySelectorAll('button').forEach(b=>b.classList.toggle('on',b===this));impSteps()">MetaTrader ${k.slice(2)}</button>`).join('')}</div></div>
+    <div class="imhow"><div class="imhh"><h4>${t('im_how')}</h4><select class="in imsel" id="imSeg" aria-label="${t('im_plat')}" onchange="IMT=this.value;impSteps()">${IMPL.map(([k,l])=>opt(k,l,IMT)).join('')}</select></div>
       ${st(IMT)}</div>
     ${typeof sbOn==='function'&&sbOn()&&sbUser&&!RO?`<div class="dsec syimp"><div><b>${t('sy_imp')}</b><p class="hint">${t('sy_manage_d')}</p></div><button class="btn sm" onclick="closeDlg(true);syStart()">${ic('link')}${t('sy_open')}</button></div>`:''}
     <details class="imfaq"><summary>${t('im_flow_h')}</summary><p>${t('im_flow')}</p></details>
@@ -961,9 +966,13 @@ async function impFile(f){
     if(d.kind==='json'){impJSONData(JSON.parse(d.txt));closeDlg();return}
     const rows=d.kind==='rows'?d.rows:parseCSV(d.txt);
     const hdr=(rows[0]||[]).map(x=>cellS(x).toLowerCase());
-    if(hdr.includes('date')&&hdr.includes('symbol')){impCSVText(d.kind==='rows'?rows.map(r=>r.map(c=>`"${cellS(c).replace(/"/g,'""')}"`).join(',')).join('\n'):d.txt);closeDlg();return}
-    const res=parseBroker(rows);
-    if(!res.pos.length){say(t('im_none'));return}
+    const own=()=>{impCSVText(d.kind==='rows'?rows.map(r=>r.map(c=>`"${cellS(c).replace(/"/g,'""')}"`).join(',')).join('\n'):d.txt);closeDlg()};
+    if(hdr.includes('date')&&hdr.includes('symbol')&&['rractual','outcome','setup','kz','plan'].some(k=>hdr.includes(k))){own();return}
+    /* a table whose columns we recognise by name (cTrader, Match-Trader, DXtrade…) first; MetaTrader reports have their own reader */
+    let res=parseOther(rows,f.name);
+    if(!res.pos.length)res=parseBroker(rows);
+    if(!res.pos.length&&hdr.includes('date')&&hdr.includes('symbol')){own();return}
+    if(!res.pos.length){if(!genMapAsk(rows,f.name))say(t('im_none'));return}
     IMP=res;impPreview();
   }catch(e){say(t(String(e&&e.message)==='xlsx'?'im_xlsx_err':'im_err'))}
 }
@@ -1123,6 +1132,115 @@ function qSave(id){
   const setup=$('q_setup').value.trim(),p=pbOf(setup);
   const o=norm({...trades[i],setup,plan:qPlan,rating:qRate,emotions:qEmo,mistakes:qMis,rules:p?qRules.filter(r=>p.rules.includes(r)):[],notes:$('q_notes').value,rev:true});
   if(o)trades[i]=o;saveTrades();hap('success');openReview();
+}
+
+/* ================= other platforms: cTrader, Match-Trader, DXtrade and any "closed positions" table =================
+   Columns are recognised by their names (English and Turkish). When a file's columns can't be recognised, the member
+   matches them once and the mapping is remembered for files with the same columns. */
+const GH={
+  t1:['opening time','open time','open date','opening date','entry time','entry date','time open','opened','open timestamp','açılış zamanı','açılış tarihi','açılış','giriş zamanı','giriş tarihi'],
+  t2:['closing time','close time','close date','closing date','exit time','exit date','time close','closed','close timestamp','kapanış zamanı','kapanış tarihi','kapanış','çıkış zamanı','çıkış tarihi'],
+  entry:['entry price','open price','opening price','price open','avg entry price','avg open price','entry','açılış fiyatı','giriş fiyatı'],
+  exit:['closing price','close price','exit price','price close','avg exit price','avg close price','exit','kapanış fiyatı','çıkış fiyatı'],
+  net:['net','net profit','net p/l','net pnl','net p&l','net result','net kâr','net kar','net kâr/zarar'],
+  gross:['gross','profit','p/l','pnl','p&l','profit/loss','realized p&l','realized pnl','realised p&l','result','kâr','kar','kâr/zarar','kar/zarar','brüt'],
+  comm:['commissions','commission','fee','fees','komisyon'],
+  swap:['swap','swaps','rollover','financing','overnight fee','overnight'],
+  sym:['symbol','instrument','market','asset','ticker','sembol','enstrüman','varlık'],
+  dir:['opening direction','direction','side','type','action','buy/sell','trade type','yön','tür','işlem türü','islem turu'],
+  vol:['closing quantity','quantity','volume','lots','lot','size','qty','amount','closed volume','hacim','miktar'],
+  sl:['sl','s/l','stop loss','stoploss'],tp:['tp','t/p','take profit','takeprofit'],
+  id:['position id','positionid','position','id','ticket','deal id','trade id','order id','pozisyon','pozisyon no','işlem no','#']};
+const GF=['t1','t2','entry','exit','net','gross','comm','swap','sym','dir','vol','sl','tp','id'];
+const ghNorm=h=>cellS(h).toLowerCase().replace(/\([^)]*\)/g,' ').replace(/[_\s]+/g,' ').replace(/\b(usd|eur|gbp|try|jpy|chf|aud|cad)\b/g,'').replace(/\s+/g,' ').trim();
+const ghSig=heads=>heads.map(ghNorm).join('|');
+function ghMap(heads){
+  const n=heads.map(ghNorm),m={},used=new Set();
+  GF.forEach(k=>{for(const w of GH[k]){const i=n.findIndex((h,j)=>h===w&&!used.has(j));if(i>=0){m[k]=i;used.add(i);return}}});
+  /* a single date/time column: use it for both open and close */
+  if(m.t1==null&&m.t2==null){const i=n.findIndex((h,j)=>!used.has(j)&&/^(time|date|date\/time|datetime|tarih|zaman)$/.test(h));if(i>=0){m.t1=m.t2=i;used.add(i)}}
+  return m;
+}
+const ghOk=m=>m.sym!=null&&m.dir!=null&&(m.t1!=null||m.t2!=null)&&(m.net!=null||m.gross!=null)&&(m.entry!=null||m.exit!=null);
+const gside=v=>{const s=cellS(v).toLowerCase();return /^(buy|long|al|alış|alis|b)\b/.test(s)?'Long':/^(sell|short|sat|satış|satis|s)\b/.test(s)?'Short':null};
+const gnum=v=>{let x=bnum(v);if(x===null&&v!=null&&v!==''){const t=String(v).replace(/[^\d.,\-+−]/g,'').replace('−','-');x=t?bnum(t):null}return x};
+/* dates: ISO, day/month/year or month/day/year (decided per file), Excel serials and Unix times */
+function gdt(v,ord){
+  if(v instanceof Date&&!isNaN(v))return[v.getFullYear(),v.getMonth()+1,v.getDate(),v.getHours(),v.getMinutes()];
+  if(typeof v==='number'){if(v>20000&&v<80000){const d=new Date(Math.round((v-25569)*864e5));return[d.getUTCFullYear(),d.getUTCMonth()+1,d.getUTCDate(),d.getUTCHours(),d.getUTCMinutes()]}
+    if(v>1e9){const d=new Date(v>1e12?v:v*1000);return[d.getUTCFullYear(),d.getUTCMonth()+1,d.getUTCDate(),d.getUTCHours(),d.getUTCMinutes()]}return null}
+  const s=cellS(v);if(/^\d{10}(\d{3})?$/.test(s))return gdt(+s,ord);
+  const a=dtParse(s);if(a)return a;
+  const m=/^(\d{1,2})[./-](\d{1,2})[./-](\d{4})[ ,T]+(\d{1,2}):(\d{2})(?::(\d{2}))?(?:[.,]\d+)?\s*([ap]\.?m\.?)?/i.exec(s);
+  if(!m)return null;let d=+m[1],mo=+m[2];if(ord==='mdy'){d=+m[2];mo=+m[1]}
+  let h=+m[4];if(m[7]){const pm=/p/i.test(m[7]);if(pm&&h<12)h+=12;if(!pm&&h===12)h=0}
+  return mo>=1&&mo<=12&&d>=1&&d<=31?[+m[3],mo,d,h,+m[5]]:null;
+}
+function gord(vals){let dm=false,md=false;vals.forEach(v=>{const m=/^(\d{1,2})[./-](\d{1,2})[./-]\d{4}/.exec(cellS(v));if(m){if(+m[1]>12)dm=true;if(+m[2]>12)md=true}});return md&&!dm?'mdy':'dmy'}
+const GMK='tradelog_colmap';
+const gmGet=()=>{try{return JSON.parse(localStorage.getItem(GMK)||'{}')||{}}catch(e){return {}}};
+function gPlat(heads,fname){const n=heads.map(ghNorm).join(' '),f=(fname||'').toLowerCase();
+  return /opening direction|closing quantity/.test(n)||/ctrader/.test(f)?'cTrader':/match/.test(f)?'Match-Trader':/dx ?trade|dxtrade/.test(f)?'DXtrade':'CSV'}
+/* the header row: the first rows with the most recognised columns, or one whose columns were matched before */
+function gHead(rows){
+  const saved=gmGet();let best=null;
+  for(let i=0;i<Math.min(rows.length,80);i++){const r=(rows[i]||[]).map(cellS);if(r.filter(Boolean).length<4)continue;
+    const sv=saved[ghSig(r)];if(sv)return{hi:i,heads:r,map:sv};
+    const m=ghMap(r);if(ghOk(m)){const sc=Object.keys(m).length;if(!best||sc>best.sc)best={hi:i,heads:r,map:m,sc}}}
+  return best;
+}
+function gParse(rows,hi,mp,heads,fname){
+  const body=rows.slice(hi+1),pos=[],seen=new Set();
+  const ord=gord(body.slice(0,400).flatMap(r=>[r[mp.t1],r[mp.t2]]).filter(v=>v!=null));
+  body.forEach(r=>{if(!r)return;
+    const dir=gside(r[mp.dir]),sym=cellS(r[mp.sym]);
+    const t1=gdt(r[mp.t1!=null?mp.t1:mp.t2],ord),t2=gdt(r[mp.t2!=null?mp.t2:mp.t1],ord);
+    const entry=gnum(r[mp.entry!=null?mp.entry:mp.exit]),exit=gnum(r[mp.exit!=null?mp.exit:mp.entry]);
+    if(!dir||!sym||!t1||!t2||entry===null||exit===null)return;
+    const net=mp.net!=null?gnum(r[mp.net]):null,gross=mp.gross!=null?gnum(r[mp.gross]):null;
+    if(net===null&&gross===null)return;
+    let profit,comm=0,swap=0;
+    if(net!==null&&gross!==null){profit=gross;comm=r2(net-gross)}
+    else if(net!==null)profit=net;
+    else{profit=gross;comm=mp.comm!=null?-Math.abs(gnum(r[mp.comm])||0):0;swap=mp.swap!=null?gnum(r[mp.swap])||0:0}
+    const vol=mp.vol!=null?gnum(r[mp.vol]):null;
+    const id=mp.id!=null&&cellS(r[mp.id])?cellS(r[mp.id]):[t1.join(''),sym,entry,vol].join('_');
+    const k=id+'|'+t2.join('')+'|'+vol;if(seen.has(k))return;seen.add(k);
+    pos.push({id:mp.id!=null?id+(pos.some(p=>p.id===id)?'_'+t2.map(pad).join(''):''):id,sym,dir,vol,entry,exit,t1,t2,
+      sl:mp.sl!=null?gnum(r[mp.sl]):null,tp:mp.tp!=null?gnum(r[mp.tp]):null,profit:r2(profit),comm,swap,tax:0});
+  });
+  const flat=rows.slice(0,Math.max(hi,1)).map(r=>(r||[]).map(cellS).join(' ')).join('\n'),meta={ops:[],open:null,dep:null,plat:gPlat(heads,fname)};
+  let m=flat.match(/(?:account|hesap|login)\s*(?:no|number|id)?\s*[:#]?\s*(\d{4,})/i);if(m)meta.no=m[1];
+  m=flat.match(/(?:currency|para birimi)\s*:?\s*([A-Z]{3})\b/i);if(m)meta.cur=m[1].toUpperCase();
+  return{meta,pos};
+}
+function parseOther(rows,fname){const h=gHead(rows);return h?gParse(rows,h.hi,h.map,h.heads,fname):{meta:{},pos:[]}}
+
+/* column matching: shown when a file has a table we can't read on our own */
+let GM=null;
+function genMapAsk(rows,fname){
+  let hi=-1;
+  for(let i=0;i<Math.min(rows.length,60);i++){const r=(rows[i]||[]).map(cellS),txt=r.filter(c=>c&&bnum(c)===null&&!isDT(c));
+    if(txt.length>=5&&rows.slice(i+1,i+6).some(n=>(n||[]).some(c=>gdt(c,'dmy')||gdt(c,'mdy')))){hi=i;break}}
+  if(hi<0)return false;
+  const heads=(rows[hi]||[]).map(cellS),g=ghMap(heads);GM={rows,hi,heads,fname};
+  const opts=k=>`<option value="">${t('im_f_none')}</option>`+heads.map((h,i)=>h?`<option value="${i}"${g[k]===i?' selected':''}>${esc(h)}</option>`:'').join('');
+  const need=['sym','dir','t1','t2','entry','exit','net'],more=['gross','vol','comm','swap','sl','tp','id'];
+  const f=k=>`<label class="fld"><span>${t('im_f_'+k)}${k==='sym'||k==='dir'?' *':''}</span><select class="in" id="gm_${k}">${opts(k)}</select></label>`;
+  openDlg(t('im_map_t'),`<div style="padding-top:14px"><p class="hint" style="font-size:14px">${t('im_map_d')}</p>
+    <div class="fgrid" style="margin-top:12px">${need.map(f).join('')}</div>
+    <details class="fadv"><summary>${t('im_map_more')}</summary><div class="fgrid">${more.map(f).join('')}</div></details>
+    <p class="hint" id="gm_msg" style="margin-top:10px"></p></div>`,
+    `<button class="btn" onclick="closeDlg()">${t('cancel')}</button><button class="btn pri" onclick="genMapGo()">${t('im_map_go')}</button>`);
+  return true;
+}
+function genMapGo(){
+  if(!GM)return;const m={};GF.forEach(k=>{const el=$('gm_'+k);if(el&&el.value!=='')m[k]=+el.value});
+  if(!ghOk(m)){$('gm_msg').textContent=t('im_map_need');return}
+  const res=gParse(GM.rows,GM.hi,m,GM.heads,GM.fname);
+  if(!res.pos.length){$('gm_msg').textContent=t('im_map_zero');return}
+  const sv=gmGet();sv[ghSig(GM.heads)]=m;try{localStorage.setItem(GMK,JSON.stringify(sv))}catch(e){}
+  GM=null;closeDlg(true);IMP=res;impPreview();
 }
 
 /* ================= ui ================= */
@@ -2147,7 +2265,7 @@ function vSet(){
    <div class="card"><div class="ch"><h2>${t('s_lang')}</h2></div><div class="cb">
     <div class="srow"><div class="t">${t('s_lang')}</div><select class="sel" onchange="setLang(this.value)">${opt('tr','Türkçe',L)}${opt('en','English',L)}</select></div></div></div>
    ${window.RO?'':`<div class="card"><div class="ch"><h2>${t('s_help')}</h2><small>${t('s_help_s')}</small></div><div class="cb"><div class="links">${typeof supDlg==='function'&&!CS?`<button onclick="supDlg()">${t('sup_btn')}</button>`:''}<button onclick="sbLegal('help')">${t('s_help_c')}</button>${a2Show()?`<button onclick="a2hs()">${t('a2_t')}</button>`:''}</div></div></div>`}
-  </div><div class="stack">${typeof accountCard==='function'?accountCard():''}${typeof shareCard==='function'?shareCard():''}${typeof mentorCard==='function'?mentorCard():''}
+  </div><div class="stack">${typeof accountCard==='function'?accountCard():''}${typeof mailCard==='function'?mailCard():''}${typeof shareCard==='function'?shareCard():''}${typeof mentorCard==='function'?mentorCard():''}
    <div class="card"><div class="ch"><h2>${t('s_data')}</h2></div><div class="cb">
     <h4 class="lgh">${t('dg_in')}</h4><div class="links"><button onclick="$('fileJson').click()">${t('m_res')}</button><button onclick="$('fileCsv').click()">${t('m_csv_imp')}</button><button onclick="pasteImp()">${t('m_paste')}</button></div>
     <h4 class="lgh">${t('dg_out')}</h4><div class="links"><button onclick="expJSON()">${t('m_bak')}</button><button onclick="expCSV()">${t('m_csv_exp')}</button></div>
@@ -2348,7 +2466,8 @@ function impJSONData(d){
 }
 function parseCSV(tx){
   tx=tx.replace(/^﻿/,'');
-  const fl=tx.split(/\r?\n/)[0]||'',dlm=(fl.split(';').length>fl.split(',').length)?';':',';
+  /* delimiter: the one that splits the first lines into the most columns (a title line may come before the table) */
+  const ls=tx.split(/\r?\n/).slice(0,15),cnt=d=>Math.max(0,...ls.map(l=>l.split(d).length)),nc=cnt(','),ns=cnt(';'),nt=cnt('\t'),dlm=nt>nc&&nt>ns?'\t':ns>nc?';':',';
   const rows=[];let row=[],c='',q=false;
   for(let i=0;i<tx.length;i++){const ch=tx[i];
     if(q){if(ch==='"'){if(tx[i+1]==='"'){c+='"';i++}else q=false}else c+=ch}
@@ -2620,7 +2739,8 @@ function renderAuth(){
   if(m==='signup'){
     head=[t('au_up_t'),t('au_up_s')];
     form=`<form class="auf" onsubmit="sbSignup();return false" novalidate>${goo}${em}
-      <label class="fld"><span>${t('au_pw')}</span>${pwField('au_pw','new-password',t('au_pw_new_ph'))}<span class="hint">${t('au_pw_h')}</span></label>${btn(t('au_up_btn'))}</form>`;
+      <label class="fld"><span>${t('au_pw')}</span>${pwField('au_pw','new-password',t('au_pw_new_ph'))}<span class="hint">${t('au_pw_h')}</span></label>
+      <label class="check aunews"><input type="checkbox" id="au_news" ${mnPending()?'checked':''} onchange="mnMark(this.checked)"><span>${t('au_news')}</span></label>${btn(t('au_up_btn'))}</form>`;
     foot=`<p class="ausw">${t('au_have')} <button type="button" onclick="auGo('login')">${t('au_in_link')}</button></p><p class="aulegal">${legal}</p>`;
   }else if(m==='forgot'){
     head=[t('au_fg_t'),t('au_fg_s')];
@@ -3161,7 +3281,27 @@ function planGate(k){
   if(used<planLimit(k))return false;
   proDlg(k);return true;
 }
-async function sbProfLoad(){try{const {data}=await sb.from('profiles').select('*').eq('id',sbUser.id).maybeSingle();if(data){sbProf=data;srcSave()}}catch(e){}}
+async function sbProfLoad(){try{const {data}=await sb.from('profiles').select('*').eq('id',sbUser.id).maybeSingle();if(data){sbProf=data;srcSave();mnSave()}}catch(e){}}
+/* email preferences: usage tips and reminders (on unless turned off) and news/offers (only with consent) */
+const MNK='tradelog_news';
+const mnPending=()=>{try{return sessionStorage.getItem(MNK)==='1'||localStorage.getItem(MNK)==='1'}catch(e){return false}};
+function mnMark(on){try{if(on){localStorage.setItem(MNK,'1')}else{localStorage.removeItem(MNK);sessionStorage.removeItem(MNK)}}catch(e){}}
+async function mnSave(){
+  if(!mnPending()||!sbProf||sbProf.mail_news||sbProf.mail_news_at)return mnMark(false);
+  try{const at=new Date().toISOString(),{error}=await sb.from('profiles').update({mail_news:true,mail_news_at:at}).eq('id',sbUser.id);if(!error){sbProf.mail_news=true;sbProf.mail_news_at=at}}catch(e){}
+  mnMark(false);
+}
+async function mailPref(k,on,el){
+  if(!sbProf||!sbUser)return;const old=sbProf[k],d={[k]:on};if(k==='mail_news')d.mail_news_at=new Date().toISOString();
+  Object.assign(sbProf,d);
+  try{const {error}=await sb.from('profiles').update(d).eq('id',sbUser.id);if(error)throw error;toast(t('saved'))}
+  catch(e){sbProf[k]=old;if(el)el.checked=!!old;say(t('mail_err'))}
+}
+function mailCard(){
+  if(!sbOn()||!sbUser||!sbProf||window.RO||!('mail_tips' in sbProf))return '';
+  const row=(k,lab,d)=>`<label class="check mrow"><input type="checkbox" ${sbProf[k]?'checked':''} onchange="mailPref('${k}',this.checked,this)"><span><b>${t(lab)}</b><span class="hint" style="display:block">${t(d)}</span></span></label>`;
+  return `<div class="card"><div class="ch"><h2>${t('mail_h')}</h2><small>${esc(sbUser.email||'')}</small></div><div class="cb">${row('mail_tips','mail_tips','mail_tips_d')}${row('mail_news','mail_news','mail_news_d')}<p class="hint" style="margin-top:6px">${t('mail_note')}</p></div></div>`;
+}
 const PRO_F=[['sync','link'],['accounts','dash'],['ai','rep'],['shots','up'],['mentor','user']];
 function proDlg(src){
   src=PRO_F.some(f=>f[0]===src)?src:'gen';
@@ -4178,7 +4318,7 @@ tr: {
       ['Hâlâ sorun mu var?', '<p>Uygulamada <b>Ayarlar → Yardım ve destek → Destek ekibine yaz</b>\'dan ya da İletişim sayfasındaki formdan bize ulaş. Hesap bağlarken bir destek kodu (ör. TL-103) gördüysen mesajına ekle.</p>']] },
     privacy: { t: 'Gizlilik politikası', u: 'Son güncelleme: 28 Ekim 2026', st: 'Gizlilik politikası | TradeLog', sd: 'TradeLog hangi verileri işler, nerede saklar ve kimlerle paylaşır; KVKK kapsamındaki hakların.', s: [
       ['Kısaca', '<p>TradeLog\'u kullanmak için e-posta adresinle bir hesap açarsın. Girdiğin işlemler, notlar, hesap bilgileri ve ayarlar hesabında saklanır; böylece giriş yaptığın her cihazda aynı veriyi görürsün. Verilerini satmayız, reklam için kullanmayız ve hizmeti sunmak dışında bir amaçla kimseyle paylaşmayız.</p>'],
-      ['Hangi verileri işliyoruz', '<ul><li><b>Hesap:</b> e-posta adresin, hesabın açılış ve giriş zamanları. Şifren yalnızca geri döndürülemez biçimde (hash) saklanır. Google ile girersen Google\'ın paylaştığı ad ve profil fotoğrafı bağlantın da hesabına kaydedilir.</li><li><b>Günlük verilerin:</b> işlemler, notlar, playbook\'lar, günlük ve haftalık notlar, hesap adları, hesap numaraları, sunucu adları, bakiye ve para hareketleri, ayarlar.</li><li><b>Teknik kayıtlar:</b> IP adresi ve tarayıcı bilgisi; güvenlik ve hata ayıklama için sunucu kayıtlarında kısa süre tutulur.</li><li><b>Geliş kaynağı ve ödeme ülkesi:</b> hesap açtığında siteye nereden geldiğini (ör. arama motoru, bir bağlantıdaki kampanya etiketi ya da iş ortağı kodu) hesabına not ederiz; hangi tanıtımın işe yaradığını anlamak içindir. Bu bilgi tarayıcında yalnızca o oturum boyunca tutulur. Ödeme yaptığında Paddle\'ın bildirdiği ülke ve tutar da kaydedilir (ülkeye göre fiyat için).</li></ul>'],
+      ['Hangi verileri işliyoruz', '<ul><li><b>Hesap:</b> e-posta adresin, hesabın açılış ve giriş zamanları. Şifren yalnızca geri döndürülemez biçimde (hash) saklanır. Google ile girersen Google\'ın paylaştığı ad ve profil fotoğrafı bağlantın da hesabına kaydedilir.</li><li><b>Günlük verilerin:</b> işlemler, notlar, playbook\'lar, günlük ve haftalık notlar, hesap adları, hesap numaraları, sunucu adları, bakiye ve para hareketleri, ayarlar.</li><li><b>Teknik kayıtlar:</b> IP adresi ve tarayıcı bilgisi; güvenlik ve hata ayıklama için sunucu kayıtlarında kısa süre tutulur.</li><li><b>E-postalar:</b> hesabını açınca bir hoş geldin e-postası, ilk günlerde işlem eklemediysen kısa bir başlangıç ipucu ve Pro denemen bitmeden bir hatırlatma göndeririz. İpuçlarını e-postadaki bağlantıdan ya da Ayarlar → E-posta tercihleri\'nden kapatabilirsin. Haber ve kampanya e-postaları yalnızca açıkça izin verirsen gönderilir; izni istediğin zaman geri alabilirsin.</li><li><b>Geliş kaynağı ve ödeme ülkesi:</b> hesap açtığında siteye nereden geldiğini (ör. arama motoru, bir bağlantıdaki kampanya etiketi ya da iş ortağı kodu) hesabına not ederiz; hangi tanıtımın işe yaradığını anlamak içindir. Bu bilgi tarayıcında yalnızca o oturum boyunca tutulur. Ödeme yaptığında Paddle\'ın bildirdiği ülke ve tutar da kaydedilir (ülkeye göre fiyat için).</li></ul>'],
       ['Ne için kullanıyoruz', '<p>Hizmeti sunmak, girişini doğrulamak (şifre sıfırlama ve doğrulama e-postaları dahil), verilerini cihazların arasında senkronize etmek ve hizmeti güvende tutmak için. Verilerinden hesaplanan istatistikler yalnızca sana gösterilir.</p>'],
       ['Verilerin nerede saklanır', '<p>Verilerin, altyapı sağlayıcımız Supabase üzerinden Almanya\'daki (Frankfurt) sunucularda saklanır ve şifreli bağlantıyla (HTTPS) iletilir. Bu, kişisel verilerin yurt dışına aktarılması anlamına gelir. Hızlı açılış ve internetsiz kullanım için cihazında da bir kopya tutulur; çıkış yaptığında bu kopya silinir.</p>'],
       ['Yüklediğin raporlar', '<p>MT4/MT5 raporları cihazında okunur; rapor dosyasının kendisi sunucuya gönderilmez, yalnızca içinden çıkan işlemler ve hesap bilgileri hesabına kaydedilir. Hesap şifren hiçbir zaman istenmez.</p>'],
@@ -4372,7 +4512,7 @@ en: {
       ['Still stuck?', '<p>In the app, go to <b>Settings → Help and support → Contact support</b>, or use the form on the Contact page. If you saw a support code while connecting an account (e.g. TL-103), include it in your message.</p>']] },
     privacy: { t: 'Privacy policy', u: 'Last updated: October 28, 2026', st: 'Privacy policy | TradeLog', sd: 'What data TradeLog processes, where it is stored, who it is shared with, and your rights.', s: [
       ['In short', '<p>To use TradeLog you create an account with your email address. Your trades, notes, account details and settings are stored in your account, so every device you sign in on shows the same data. We don\'t sell your data, use it for advertising, or share it with anyone except to provide the service.</p>'],
-      ['What we process', '<ul><li><b>Account:</b> your email address, when your account was created and when you sign in. Your password is stored only as an irreversible hash. If you sign in with Google, the name and profile photo link Google shares are also saved to your account.</li><li><b>Your journal:</b> trades, notes, playbooks, daily and weekly notes, account names, account numbers, server names, balances and cash movements, settings.</li><li><b>Technical logs:</b> IP address and browser details, kept briefly in server logs for security and debugging.</li><li><b>Where you came from and payment country:</b> when you create an account we note how you found the site (for example a search engine, a link\'s campaign tag or a partner code), so we can see which promotion works. Your browser keeps this only for that session. When you pay, the country and amount reported by Paddle are also saved (for country-based pricing).</li></ul>'],
+      ['What we process', '<ul><li><b>Account:</b> your email address, when your account was created and when you sign in. Your password is stored only as an irreversible hash. If you sign in with Google, the name and profile photo link Google shares are also saved to your account.</li><li><b>Your journal:</b> trades, notes, playbooks, daily and weekly notes, account names, account numbers, server names, balances and cash movements, settings.</li><li><b>Technical logs:</b> IP address and browser details, kept briefly in server logs for security and debugging.</li><li><b>Emails:</b> when you create an account we send a welcome email, a short getting-started tip if you haven\'t added trades in the first days, and a reminder before your Pro trial ends. You can turn tips off from the link in the email or in Settings → Email preferences. News and offers are sent only if you explicitly opt in, and you can withdraw that at any time.</li><li><b>Where you came from and payment country:</b> when you create an account we note how you found the site (for example a search engine, a link\'s campaign tag or a partner code), so we can see which promotion works. Your browser keeps this only for that session. When you pay, the country and amount reported by Paddle are also saved (for country-based pricing).</li></ul>'],
       ['What we use it for', '<p>To provide the service, verify your sign-in (including password reset and confirmation emails), sync your data across devices and keep the service secure. Statistics calculated from your data are shown only to you.</p>'],
       ['Where your data is stored', '<p>Your data is stored on servers in Germany (Frankfurt) through our infrastructure provider Supabase and travels over an encrypted connection (HTTPS). For fast start-up and offline use, a copy is also kept on your device; it is removed when you sign out.</p>'],
       ['Reports you upload', '<p>MT4/MT5 reports are read on your device; the report file itself is not uploaded, only the trades and account details taken from it are saved to your account. We never ask for your account password.</p>'],
@@ -4746,6 +4886,18 @@ function langHint() {
   });
 }
 
+/* after "turn off tips" in an email: a short confirmation, then the address is cleaned */
+function mailNote() {
+  const q = new URLSearchParams(location.search), v = q.get('mail'); if (!v || $('#mnote')) return;
+  const tr = (TLP ? TLP.lang : LG()) === 'tr';
+  const msg = v === 'off' ? (tr ? 'Tamam, kullanım ipuçları e-postalarını kapattık. Tercihlerini uygulamada Ayarlar → E-posta tercihleri\'nden değiştirebilirsin.' : 'Done, usage tip emails are turned off. You can change this anytime in Settings → Email preferences.')
+    : (tr ? 'Bu bağlantı geçersiz ya da süresi dolmuş. E-posta tercihlerini uygulamada Ayarlar\'dan değiştirebilirsin.' : 'This link is invalid or has expired. You can change your email preferences in Settings in the app.');
+  const bar = document.createElement('div'); bar.id = 'mnote'; bar.className = 'lhint'; bar.setAttribute('role', 'status');
+  bar.innerHTML = `<div class="wrap lhin"><span>${msg}</span><button type="button" aria-label="${tr ? 'Kapat' : 'Close'}" data-mn>×</button></div>`;
+  SITE.prepend(bar); bar.addEventListener('click', e => { if (e.target.closest('[data-mn]')) bar.remove(); });
+  q.delete('mail'); try { history.replaceState(null, '', location.pathname + (q.toString() ? '?' + q : '') + location.hash); } catch (e) {}
+}
+
 /* ---------- görünüm: tanıtım sitesi / uygulama ---------- */
 const APP = document.getElementById('appRoot');
 const ENTER = 'tradelog_entered';
@@ -4841,7 +4993,7 @@ try { const pr = document.getElementById('fiyatlar'); if (pr && 'IntersectionObs
   window.addEventListener('scroll', () => { if (!q) q = requestAnimationFrame(f); }, { passive: true }); })();
 applyLang();
 revealInit();
-langHint();
+langHint(); mailNote();
 /* back / forward between the home page and the sub-pages */
 if (TLP) window.addEventListener('popstate', () => { if (SITE.hidden) return; const at = pageAt(location.pathname); if (at && at.pg !== 'home') showPage(at.pg, true); else if (at) showHome(location.hash.slice(1) || null, true); });
 try { const io = new IntersectionObserver(es => es.forEach(e => { if (e.isIntersecting) { e.target.classList.add('inview'); io.unobserve(e.target); } }), { threshold: .3 }); io.observe($('#flow')); } catch (e) {}
@@ -4849,7 +5001,7 @@ let entered = false; try { entered = localStorage.getItem(ENTER) === '1'; } catc
 /* a visitor who picked the other language before opens the home page in that language (search engines never have a choice saved) */
 if (TLP && TLP.page === 'home' && !entered && !/^#\//.test(location.hash) && !/access_token=|error_description=|[?&]code=/.test(location.hash + location.search)) {
   let pref = null; try { pref = localStorage.getItem('tradelog_lang'); } catch (e) {}
-  if (pref && pref !== TLP.lang && PATHS[pref]) { location.replace(pathOf(pref, 'home') + location.hash); return; }
+  if (pref && pref !== TLP.lang && PATHS[pref]) { location.replace(pathOf(pref, 'home') + location.search + location.hash); return; }
 }
 const pm = location.hash.match(/^#\/p\/([A-Za-z0-9]{10,24})$/);
 const hp = Object.keys(PAGE_HASH).find(k => location.hash === '#' + PAGE_HASH[k]);

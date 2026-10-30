@@ -1128,3 +1128,7 @@ body.hasfab .totop{bottom:calc(146px + env(safe-area-inset-bottom,0px))}}
 .ap #dBody>.umh{padding:2px 0 12px;margin-bottom:4px;border-bottom:1px solid var(--ln2)}
 .ap .mlinks2{margin-top:6px;padding-top:6px;border-top:1px solid var(--ln)}
 .ap .pppa{margin:10px 0 0;color:var(--br);font-weight:600}
+.ap .imsel{width:auto;min-width:170px;height:36px;font-size:13.5px;padding:0 10px}
+.ap .mrow{padding:10px 0;border-bottom:1px solid var(--ln2)}
+.ap .mrow:last-of-type{border-bottom:0}
+.ap .aunews{font-size:13.5px;color:var(--ink2);margin:2px 0 4px}
